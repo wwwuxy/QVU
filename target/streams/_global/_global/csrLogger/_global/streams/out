@@ -1,0 +1,12 @@
+[debug] downloaded https://repo1.maven.org/maven2/org/scala-lang/scala2-sbt-bridge/2.13.16/scala2-sbt-bridge-2.13.16.pom
+[debug] downloaded https://repo1.maven.org/maven2/org/chipsalliance/chisel-plugin_2.13.16/6.2.0/chisel-plugin_2.13.16-6.2.0.pom
+[debug] downloaded https://repo1.maven.org/maven2/org/chipsalliance/chisel-plugin_2.13.16/6.2.0/chisel-plugin_2.13.16-6.2.0.pom.sha1
+[debug] downloaded https://repo.scala-sbt.org/scalasbt/maven-releases/org/chipsalliance/chisel-plugin_2.13.16/6.2.0/chisel-plugin_2.13.16-6.2.0.pom
+[debug] downloaded https://repo.scala-sbt.org/scalasbt/maven-releases/org/chipsalliance/chisel-plugin_2.13.16/6.2.0/chisel-plugin_2.13.16-6.2.0.pom.sha1
+[debug] downloaded https://repo.scala-sbt.org/scalasbt/maven-snapshots/org/chipsalliance/chisel-plugin_2.13.16/6.2.0/chisel-plugin_2.13.16-6.2.0.pom
+[debug] downloaded https://repo.scala-sbt.org/scalasbt/maven-snapshots/org/chipsalliance/chisel-plugin_2.13.16/6.2.0/chisel-plugin_2.13.16-6.2.0.pom.sha1
+[debug] downloaded https://repo.typesafe.com/typesafe/ivy-releases/org.chipsalliance/chisel-plugin_2.13.16/6.2.0/ivys/ivy.xml
+[debug] downloaded https://repo.typesafe.com/typesafe/ivy-releases/org.chipsalliance/chisel-plugin_2.13.16/6.2.0/ivys/ivy.xml.sha1
+[debug] downloaded https://repo.scala-sbt.org/scalasbt/ivy-snapshots/org.chipsalliance/chisel-plugin_2.13.16/6.2.0/ivys/ivy.xml
+[debug] downloaded https://repo.scala-sbt.org/scalasbt/ivy-snapshots/org.chipsalliance/chisel-plugin_2.13.16/6.2.0/ivys/ivy.xml.sha1
+[debug] downloaded https://repo1.maven.org/maven2/org/scala-lang/scala2-sbt-bridge/2.13.16/scala2-sbt-bridge-2.13.16.jar
