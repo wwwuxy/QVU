@@ -7,6 +7,9 @@
     5 --> 点积
     6 --> Posit精度转换
     7 --> Float和Posit相互转换
+    8 --> 大小比较（Greater），输出较大值
+    9 --> 大小比较（Less），输出较小值
+    10 --> Posit转Int（TranInt），将PIR转为整数
 
    Float格式由float_mode控制:
    0 --> FP4  (1位符号, 1位指数, 2位尾数)
@@ -27,7 +30,8 @@
    val MAX_VECTOR_SIZE: Int, // 最大向量大小
    val MAX_ALIGN_WIDTH: Int, // 最大对齐宽度
    val ES: Int,          // ES参数，用于定义输出接口的ES参数
-   val FLOAT_MODE: Int = 3   // 浮点数格式
+   val FLOAT_MODE: Int = 3,   // 浮点数格式
+   val INT_WIDTH: Int  = 32   // 整数位宽参数
  ) extends Module {
    // 添加参数限制
    private val LIMITED_VECTOR_SIZE = Math.min(MAX_VECTOR_SIZE, 16)  // 限制最大向量大小为16
@@ -74,7 +78,7 @@
      // 输入Posit向量
      val posit_i1 = Input(Vec(MAX_VECTOR_SIZE, UInt(MAX_POSIT_WIDTH.W)))
      val posit_i2 = Input(Vec(MAX_VECTOR_SIZE, UInt(MAX_POSIT_WIDTH.W)))
-     val op       = Input(UInt(3.W))
+     val op       = Input(UInt(4.W))  // 操作码位宽从3位改为4位，以支持更多操作
      
      // 是否是posit数据的控制信号
      val Isposit  = Input(Bool())  // true表示输入是posit数，false表示输入是float数
@@ -99,6 +103,7 @@
      val float_dot_o = Output(UInt(FLOAT_WIDTH.W))               // 添加float点积输出
      val posit_o     = Output(Vec(MAX_VECTOR_SIZE, UInt(MAX_POSIT_WIDTH.W))) // 使用最大位宽
      val posit_dot_o = Output(UInt(MAX_POSIT_WIDTH.W))           // 使用最大位宽
+     val int_o       = Output(Vec(MAX_VECTOR_SIZE, SInt(INT_WIDTH.W)))  // 新增整数输出接口
  })
 
   // 添加decode模块实例
@@ -166,6 +171,7 @@
   io.float_dot_o := 0.U(FLOAT_WIDTH.W)
   io.posit_o     := VecInit(Seq.fill(MAX_VECTOR_SIZE)(0.U(MAX_POSIT_WIDTH.W)))
   io.posit_dot_o := 0.U(MAX_POSIT_WIDTH.W)
+  io.int_o       := VecInit(Seq.fill(MAX_VECTOR_SIZE)(0.S(INT_WIDTH.W)))
 
   // 初始化FloatDecode模块的输入
   floatDecode1.io.float := io.float_i
@@ -254,34 +260,34 @@
        }
      }
    }.otherwise {
-     decode1.io.posit := VecInit(Seq.fill(MAX_VECTOR_SIZE)(0.U(MAX_POSIT_WIDTH.W)))
-     decode2.io.posit := VecInit(Seq.fill(MAX_VECTOR_SIZE)(0.U(MAX_POSIT_WIDTH.W)))
+     decode1.io.posit      := VecInit(Seq.fill(MAX_VECTOR_SIZE)(0.U(MAX_POSIT_WIDTH.W)))
+     decode2.io.posit      := VecInit(Seq.fill(MAX_VECTOR_SIZE)(0.U(MAX_POSIT_WIDTH.W)))
      floatDecode1.io.float := io.float_i
      floatDecode2.io.float := io.float_i2
      
      // 保存float解码结果，只处理有效元素
      for(i <- 0 until MAX_VECTOR_SIZE) {
        when(valid_range(i)) {
-         float_data(i).sign := floatDecode1.io.Sign(i)
-         float_data(i).exp := floatDecode1.io.Exp(i)
-         float_data(i).frac := floatDecode1.io.Frac(i)
-         float_data(i).isNaN := floatDecode1.io.isNaN(i)
-         float_data(i).isInf := floatDecode1.io.isInf(i)
+         float_data(i).sign   := floatDecode1.io.Sign(i)
+         float_data(i).exp    := floatDecode1.io.Exp(i)
+         float_data(i).frac   := floatDecode1.io.Frac(i)
+         float_data(i).isNaN  := floatDecode1.io.isNaN(i)
+         float_data(i).isInf  := floatDecode1.io.isInf(i)
          float_data(i).isZero := floatDecode1.io.isZero(i)
          
-         float_data2(i).sign := floatDecode2.io.Sign(i)
-         float_data2(i).exp := floatDecode2.io.Exp(i)
-         float_data2(i).frac := floatDecode2.io.Frac(i)
-         float_data2(i).isNaN := floatDecode2.io.isNaN(i)
-         float_data2(i).isInf := floatDecode2.io.isInf(i)
+         float_data2(i).sign   := floatDecode2.io.Sign(i)
+         float_data2(i).exp    := floatDecode2.io.Exp(i)
+         float_data2(i).frac   := floatDecode2.io.Frac(i)
+         float_data2(i).isNaN  := floatDecode2.io.isNaN(i)
+         float_data2(i).isInf  := floatDecode2.io.isInf(i)
          float_data2(i).isZero := floatDecode2.io.isZero(i)
          
          // 将Float解码结果转换为统一的PIR格式用于计算
-         pir_sign(i) := float_data(i).sign.asUInt
-         pir_exp(i) := float_data(i).exp
-         pir_frac(i) := float_data(i).frac
+         pir_sign(i)  := float_data(i).sign.asUInt
+         pir_exp(i)   := float_data(i).exp
+         pir_frac(i)  := float_data(i).frac
          pir_sign2(i) := float_data2(i).sign.asUInt
-         pir_exp2(i) := float_data2(i).exp
+         pir_exp2(i)  := float_data2(i).exp
          pir_frac2(i) := float_data2(i).frac
        }
      }
@@ -579,7 +585,7 @@
            MAX_VECTOR_SIZE
          ))
          posit2float_fp16.io.posit_in := io.posit_i1
-         posit2float_out := posit2float_fp16.io.float_out
+         posit2float_out              := posit2float_fp16.io.float_out
        }
        
        is(3.U) { // FP32
@@ -617,7 +623,7 @@
            MAX_VECTOR_SIZE
          ))
          posit2float_fp32.io.posit_in := io.posit_i1
-         posit2float_out := posit2float_fp32.io.float_out
+         posit2float_out              := posit2float_fp32.io.float_out
        }
        
        is(4.U) { // FP64
@@ -655,7 +661,7 @@
            MAX_VECTOR_SIZE
          ))
          posit2float_fp64.io.posit_in := io.posit_i1
-         posit2float_out := posit2float_fp64.io.float_out
+         posit2float_out              := posit2float_fp64.io.float_out
        }
      }
      
@@ -671,6 +677,52 @@
        io.float_o := posit2float_out
        io.posit_o := VecInit(Seq.fill(MAX_VECTOR_SIZE)(0.U(MAX_POSIT_WIDTH.W)))
      }
+   }.elsewhen(io.op === 8.U) {  // Greater - 比较并输出较大值
+     val greater = Module(new PositGreater(MAX_POSIT_WIDTH, MAX_VECTOR_SIZE, MAX_ALIGN_WIDTH, ES))
+     
+     // 连接输入
+     greater.io.pir_sign1_i := pir_sign
+     greater.io.pir_sign2_i := pir_sign2
+     greater.io.pir_exp1_i  := pir_exp
+     greater.io.pir_exp2_i  := pir_exp2
+     greater.io.pir_frac1_i := pir_frac
+     greater.io.pir_frac2_i := pir_frac2
+     
+     // 连接输出
+     pir_sign_rst := greater.io.pir_sign_o
+     pir_exp_rst  := greater.io.pir_exp_o
+     pir_frac_rst := greater.io.pir_frac_o
+   }.elsewhen(io.op === 9.U) {  // Less - 比较并输出较小值
+     val less = Module(new PositLess(MAX_POSIT_WIDTH, MAX_VECTOR_SIZE, MAX_ALIGN_WIDTH, ES))
+     
+     // 连接输入
+     less.io.pir_sign1_i := pir_sign
+     less.io.pir_sign2_i := pir_sign2
+     less.io.pir_exp1_i  := pir_exp
+     less.io.pir_exp2_i  := pir_exp2
+     less.io.pir_frac1_i := pir_frac
+     less.io.pir_frac2_i := pir_frac2
+     
+     // 连接输出
+     pir_sign_rst := less.io.pir_sign_o
+     pir_exp_rst  := less.io.pir_exp_o
+     pir_frac_rst := less.io.pir_frac_o
+   }.elsewhen(io.op === 10.U) {  // TranInt - Posit转Int
+     val tranInt = Module(new PositToInt(
+       MAX_POSIT_WIDTH,
+       MAX_VECTOR_SIZE,
+       MAX_ALIGN_WIDTH,
+       ES,
+       INT_WIDTH
+     ))
+     
+     // 输入PIR格式的posit数据
+     tranInt.io.pir_sign_i := pir_sign
+     tranInt.io.pir_exp_i  := pir_exp
+     tranInt.io.pir_frac_i := pir_frac
+     
+     // 获取转换结果
+     io.int_o := tranInt.io.int_o
    }
 
    //***********************//
@@ -683,7 +735,7 @@
 
    //初始化中间变量
    for(i <- 0 until MAX_VECTOR_SIZE){
-     pir_exp_adjust(i) := 0.S
+     pir_exp_adjust(i)  := 0.S
      pir_frac_normed(i) := 0.U
    }
    pir_exp_adjust_dot  := 0.S(SRC_EXP_WIDTH_MAX.W)
@@ -709,8 +761,8 @@
      for(i <- 0 until MAX_VECTOR_SIZE) {
        when(valid_range(i)) {
          frac_norm_add.io.pir_frac_i(i) := pir_frac_rst_add(i)
-         pir_frac_normed(i) := frac_norm_add.io.pir_frac_o(i)
-         pir_exp_adjust(i) := frac_norm_add.io.exp_adjust(i)
+         pir_frac_normed(i)             := frac_norm_add.io.pir_frac_o(i)
+         pir_exp_adjust(i)              := frac_norm_add.io.exp_adjust(i)
        }
      }
    }.elsewhen(io.op === 2.U){ //Sub
@@ -757,11 +809,11 @@
      // 对于前5个op操作，始终准备Float格式的结果
      when(io.op === 5.U) {
        // 点积操作
-       float_dot_data.sign := pir_sign_dot.asBool
-       float_dot_data.exp := pir_exp_rst_adjusied_dot
-       float_dot_data.frac := pir_frac_normed_dot(float_frac_width, 0)
-       float_dot_data.isNaN := false.B
-       float_dot_data.isInf := false.B
+       float_dot_data.sign   := pir_sign_dot.asBool
+       float_dot_data.exp    := pir_exp_rst_adjusied_dot
+       float_dot_data.frac   := pir_frac_normed_dot(float_frac_width, 0)
+       float_dot_data.isNaN  := false.B
+       float_dot_data.isInf  := false.B
        float_dot_data.isZero := false.B
        
        // 检查特殊情况
@@ -785,7 +837,7 @@
        // 其他算术操作
        for(i <- 0 until MAX_VECTOR_SIZE) {
          float_rst_data(i).sign := pir_sign_rst(i).asBool
-         float_rst_data(i).exp := pir_exp_rst_adjusied(i)
+         float_rst_data(i).exp  := pir_exp_rst_adjusied(i)
          
          // 根据不同操作选择对应的尾数结果
          when(io.op === 1.U) {
@@ -799,8 +851,8 @@
          }
          
          // 检查特殊情况
-         float_rst_data(i).isNaN := false.B
-         float_rst_data(i).isInf := false.B
+         float_rst_data(i).isNaN  := false.B
+         float_rst_data(i).isInf  := false.B
          float_rst_data(i).isZero := false.B
          
          when(pir_frac_normed(i) === 0.U) {
@@ -877,11 +929,11 @@
        1
      ))
      
-     floatDotEncoder.io.Sign(0)  := float_dot_data.sign
-     floatDotEncoder.io.Exp(0)   := float_dot_data.exp
-     floatDotEncoder.io.Frac(0)  := float_dot_data.frac
-     floatDotEncoder.io.isNaN(0) := float_dot_data.isNaN
-     floatDotEncoder.io.isInf(0) := float_dot_data.isInf
+     floatDotEncoder.io.Sign(0)   := float_dot_data.sign
+     floatDotEncoder.io.Exp(0)    := float_dot_data.exp
+     floatDotEncoder.io.Frac(0)   := float_dot_data.frac
+     floatDotEncoder.io.isNaN(0)  := float_dot_data.isNaN
+     floatDotEncoder.io.isInf(0)  := float_dot_data.isInf
      floatDotEncoder.io.isZero(0) := float_dot_data.isZero
      
      val float_result = floatDotEncoder.io.float(0)
@@ -918,6 +970,12 @@
      }
    }.elsewhen(io.op === 7.U){
      // Float和Posit转换操作的输出已在上面处理
+   }.elsewhen(io.op === 8.U) {  // Greater - 比较并输出较大值
+     // 已在前面处理
+   }.elsewhen(io.op === 9.U) {  // Less - 比较并输出较小值
+     // 已在前面处理
+   }.elsewhen(io.op === 10.U) {  // TranInt - Posit转Int
+     // 已在前面处理
    }.otherwise{
      // 算术操作（加、减、乘、除）
      // 准备Posit格式结果
@@ -933,16 +991,16 @@
        // 初始化所有输入为0
        for(i <- 0 until MAX_VECTOR_SIZE) {
          encode.io.pir_sign(i) := 0.U
-         encode.io.pir_exp(i) := 0.S
+         encode.io.pir_exp(i)  := 0.S
          encode.io.pir_frac(i) := 0.U
        }
        // 只处理有效范围内的结果
        for(i <- 0 until MAX_VECTOR_SIZE) {
          when(valid_range(i)) {
            encode.io.pir_sign(i) := pir_sign_rst(i)
-           encode.io.pir_exp(i) := pir_exp_rst_adjusied(i)
+           encode.io.pir_exp(i)  := pir_exp_rst_adjusied(i)
            encode.io.pir_frac(i) := pir_frac_normed(i)
-           posit_results(i) := encode.io.posit(i)
+           posit_results(i)      := encode.io.posit(i)
          }
        }
      } .otherwise {
@@ -960,7 +1018,7 @@
        // 初始化所有输入为0
        for(i <- 0 until MAX_VECTOR_SIZE) {
          result_converter.io.pir_sign1_i(i) := 0.U
-         result_converter.io.pir_exp1_i(i) := 0.S
+         result_converter.io.pir_exp1_i(i)  := 0.S
          result_converter.io.pir_frac1_i(i) := 0.U
        }
        
@@ -968,7 +1026,7 @@
        for(i <- 0 until MAX_VECTOR_SIZE) {
          when(valid_range(i)) {
            result_converter.io.pir_sign1_i(i) := pir_sign_rst(i)
-           result_converter.io.pir_exp1_i(i) := pir_exp_rst_adjusied(i)
+           result_converter.io.pir_exp1_i(i)  := pir_exp_rst_adjusied(i)
            result_converter.io.pir_frac1_i(i) := pir_frac_normed(i)
          }
        }
@@ -983,7 +1041,7 @@
        // 初始化所有输入为0
        for(i <- 0 until MAX_VECTOR_SIZE) {
          result_encoder.io.pir_sign(i) := 0.U
-         result_encoder.io.pir_exp(i) := 0.S
+         result_encoder.io.pir_exp(i)  := 0.S
          result_encoder.io.pir_frac(i) := 0.U
        }
        
@@ -991,7 +1049,7 @@
        for(i <- 0 until MAX_VECTOR_SIZE) {
          when(valid_range(i)) {
            result_encoder.io.pir_sign(i) := result_converter.io.pir_sign_o(i)
-           result_encoder.io.pir_exp(i) := result_converter.io.pir_exp_o(i)
+           result_encoder.io.pir_exp(i)  := result_converter.io.pir_exp_o(i)
            result_encoder.io.pir_frac(i) := result_converter.io.pir_frac_o(i)
            
            // 处理可能的宽度不匹配
@@ -1020,22 +1078,22 @@
      
      // 初始化所有输入为0
      for(i <- 0 until MAX_VECTOR_SIZE) {
-       floatEncoder.io.Sign(i) := false.B
-       floatEncoder.io.Exp(i) := 0.S
-       floatEncoder.io.Frac(i) := 0.U
-       floatEncoder.io.isNaN(i) := false.B
-       floatEncoder.io.isInf(i) := false.B
+       floatEncoder.io.Sign(i)   := false.B
+       floatEncoder.io.Exp(i)    := 0.S
+       floatEncoder.io.Frac(i)   := 0.U
+       floatEncoder.io.isNaN(i)  := false.B
+       floatEncoder.io.isInf(i)  := false.B
        floatEncoder.io.isZero(i) := true.B
      }
      
      // 只处理有效范围内的结果
      for(i <- 0 until MAX_VECTOR_SIZE) {
        when(valid_range(i)) {
-         floatEncoder.io.Sign(i) := float_rst_data(i).sign
-         floatEncoder.io.Exp(i) := float_rst_data(i).exp
-         floatEncoder.io.Frac(i) := float_rst_data(i).frac
-         floatEncoder.io.isNaN(i) := float_rst_data(i).isNaN
-         floatEncoder.io.isInf(i) := float_rst_data(i).isInf
+         floatEncoder.io.Sign(i)   := float_rst_data(i).sign
+         floatEncoder.io.Exp(i)    := float_rst_data(i).exp
+         floatEncoder.io.Frac(i)   := float_rst_data(i).frac
+         floatEncoder.io.isNaN(i)  := float_rst_data(i).isNaN
+         floatEncoder.io.isInf(i)  := float_rst_data(i).isInf
          floatEncoder.io.isZero(i) := float_rst_data(i).isZero
        }
      }

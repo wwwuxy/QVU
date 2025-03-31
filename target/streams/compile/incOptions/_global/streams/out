@@ -1,2 +1,52 @@
 [debug] Created transactional ClassFileManager with tempDir = /home/wuxy/BPVU/target/scala-2.13/classes.bak
+[debug] About to delete class files:
+[debug] 	PositLess$$anon$1.class
+[debug] 	PvuTop$$anon$4.class
+[debug] 	PvuTop.class
+[debug] 	PvuTop$$anon$1.class
+[debug] 	PvuTop$$anon$3.class
+[debug] 	PvuTop$$anon$5.class
+[debug] 	PositGreater$$anon$1.class
+[debug] 	PvuTop$$anon$2.class
+[debug] 	PositLess.class
+[debug] 	PositGreater.class
+[debug] 	PvuTop$.class
+[debug] We backup class files:
+[debug] 	PositLess$$anon$1.class
+[debug] 	PvuTop$$anon$4.class
+[debug] 	PvuTop.class
+[debug] 	PvuTop$$anon$1.class
+[debug] 	PvuTop$$anon$3.class
+[debug] 	PvuTop$$anon$5.class
+[debug] 	PositGreater$$anon$1.class
+[debug] 	PvuTop$$anon$2.class
+[debug] 	PositLess.class
+[debug] 	PositGreater.class
+[debug] 	PvuTop$.class
+[debug] Registering generated classes:
+[debug] 	PositLess$$anon$1.class
+[debug] 	PvuTop$$anon$4.class
+[debug] 	PositToInt.class
+[debug] 	PvuTop.class
+[debug] 	PvuTop$$anon$1.class
+[debug] 	PvuTop$$anon$3.class
+[debug] 	PositToInt$$anon$1.class
+[debug] 	PvuTop$$anon$5.class
+[debug] 	PositGreater$$anon$1.class
+[debug] 	PvuTop$$anon$2.class
+[debug] 	PositLess.class
+[debug] 	PositGreater.class
+[debug] 	PvuTop$.class
+[debug] About to delete class files:
+[debug] 	Elaborate.class
+[debug] 	Elaborate$.class
+[debug] 	Elaborate$delayedInit$body.class
+[debug] We backup class files:
+[debug] 	Elaborate.class
+[debug] 	Elaborate$.class
+[debug] 	Elaborate$delayedInit$body.class
+[debug] Registering generated classes:
+[debug] 	Elaborate.class
+[debug] 	Elaborate$.class
+[debug] 	Elaborate$delayedInit$body.class
 [debug] Removing the temporary directory used for backing up class files: /home/wuxy/BPVU/target/scala-2.13/classes.bak

@@ -34,6 +34,10 @@ VPvuTop::VPvuTop(VerilatedContext* _vcontextp__, const char* _vcname__)
     , io_posit_o_2{vlSymsp->TOP.io_posit_o_2}
     , io_posit_o_3{vlSymsp->TOP.io_posit_o_3}
     , io_posit_dot_o{vlSymsp->TOP.io_posit_dot_o}
+    , io_int_o_0{vlSymsp->TOP.io_int_o_0}
+    , io_int_o_1{vlSymsp->TOP.io_int_o_1}
+    , io_int_o_2{vlSymsp->TOP.io_int_o_2}
+    , io_int_o_3{vlSymsp->TOP.io_int_o_3}
     , io_float_i_0{vlSymsp->TOP.io_float_i_0}
     , io_float_i_1{vlSymsp->TOP.io_float_i_1}
     , io_float_i_2{vlSymsp->TOP.io_float_i_2}

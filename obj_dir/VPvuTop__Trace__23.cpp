@@ -13,7 +13,7 @@ void VPvuTop___024root__trace_cleanup(void* voidSelf, VerilatedVcd* /*unused*/) 
     // Body
     vlSymsp->__Vm_activity = false;
     __Vilp = 0U;
-    while ((__Vilp <= 0x91U)) {
+    while ((__Vilp <= 0x93U)) {
         vlSymsp->TOP.__Vm_traceActivity[__Vilp] = 0U;
         __Vilp = ((IData)(1U) + __Vilp);
     }

@@ -37,6 +37,14 @@ extern const VlWide<9>/*287:0*/ VPvuTop__ConstPool__CONST_hc5471b50_0 = {{
     0x00000000
 }};
 
+extern const VlWide<18>/*575:0*/ VPvuTop__ConstPool__CONST_hee9aa94f_0 = {{
+    0xffffffff, 0xffffffff, 0xffffffff, 0xffffffff,
+    0xffffffff, 0xffffffff, 0xffffffff, 0xffffffff,
+    0xffffffff, 0xffffffff, 0xffffffff, 0xffffffff,
+    0xffffffff, 0xffffffff, 0xffffffff, 0xffffffff,
+    0xffffffff, 0x7fffffff
+}};
+
 extern const VlWide<11>/*351:0*/ VPvuTop__ConstPool__CONST_hfcc3ede4_0 = {{
     0xffffffff, 0xffffffff, 0xffffffff, 0xffffffff,
     0xffffffff, 0xffffffff, 0xffffffff, 0xffffffff,

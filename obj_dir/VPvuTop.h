@@ -32,7 +32,7 @@ class VPvuTop VL_NOT_FINAL : public VerilatedModel {
     // propagate new values into/out from the Verilated model.
     VL_IN8(&clock,0,0);
     VL_IN8(&reset,0,0);
-    VL_IN8(&io_op,2,0);
+    VL_IN8(&io_op,3,0);
     VL_IN8(&io_Isposit,0,0);
     VL_IN8(&io_Outposit,0,0);
     VL_IN8(&io_float_mode,2,0);
@@ -53,6 +53,10 @@ class VPvuTop VL_NOT_FINAL : public VerilatedModel {
     VL_OUT(&io_posit_o_2,31,0);
     VL_OUT(&io_posit_o_3,31,0);
     VL_OUT(&io_posit_dot_o,31,0);
+    VL_OUT(&io_int_o_0,31,0);
+    VL_OUT(&io_int_o_1,31,0);
+    VL_OUT(&io_int_o_2,31,0);
+    VL_OUT(&io_int_o_3,31,0);
     VL_IN64(&io_float_i_0,63,0);
     VL_IN64(&io_float_i_1,63,0);
     VL_IN64(&io_float_i_2,63,0);

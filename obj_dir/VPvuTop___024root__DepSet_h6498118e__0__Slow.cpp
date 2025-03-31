@@ -42,7 +42,7 @@ VL_ATTR_COLD void VPvuTop___024root___eval_settle(VPvuTop___024root* vlSelf) {
 #ifdef VL_DEBUG
                 VPvuTop___024root___dump_triggers__stl(vlSelf);
 #endif
-                VL_FATAL_MT("/home/wuxy/BPVU/vsrc/PvuTop.sv", 9589, "", "Settle region did not converge.");
+                VL_FATAL_MT("/home/wuxy/BPVU/vsrc/PvuTop.sv", 9792, "", "Settle region did not converge.");
             }
             vlSelf->__VstlIterCount = ((IData)(1U) 
                                        + vlSelf->__VstlIterCount);
@@ -127,52 +127,52 @@ VL_ATTR_COLD void VPvuTop___024root___dump_triggers__stl(VPvuTop___024root* vlSe
         VL_DBG_MSGF("         'stl' region trigger index 21 is active: @([hybrid] PvuTop.dot_decoder.lzcModule.gen_lzc.sel_nodes)\n");
     }
     if (vlSelf->__VstlTriggered.at(0x16U)) {
-        VL_DBG_MSGF("         'stl' region trigger index 22 is active: @([hybrid] PvuTop.frac_norm_div.lzcMod.gen_lzc.sel_nodes or [hybrid] PvuTop.frac_norm_div.lzcMod.gen_lzc.index_nodes)\n");
+        VL_DBG_MSGF("         'stl' region trigger index 22 is active: @([hybrid] PvuTop.frac_norm_mul.lzcMod.gen_lzc.sel_nodes or [hybrid] PvuTop.frac_norm_mul.lzcMod.gen_lzc.index_nodes)\n");
     }
     if (vlSelf->__VstlTriggered.at(0x17U)) {
-        VL_DBG_MSGF("         'stl' region trigger index 23 is active: @([hybrid] PvuTop.frac_norm_div.lzcMod.gen_lzc.sel_nodes)\n");
+        VL_DBG_MSGF("         'stl' region trigger index 23 is active: @([hybrid] PvuTop.frac_norm_mul.lzcMod.gen_lzc.sel_nodes)\n");
     }
     if (vlSelf->__VstlTriggered.at(0x18U)) {
-        VL_DBG_MSGF("         'stl' region trigger index 24 is active: @([hybrid] PvuTop.frac_norm_mul.lzcMod.gen_lzc.sel_nodes or [hybrid] PvuTop.frac_norm_mul.lzcMod.gen_lzc.index_nodes)\n");
+        VL_DBG_MSGF("         'stl' region trigger index 24 is active: @([hybrid] PvuTop.frac_norm_div.lzcMod.gen_lzc.sel_nodes or [hybrid] PvuTop.frac_norm_div.lzcMod.gen_lzc.index_nodes)\n");
     }
     if (vlSelf->__VstlTriggered.at(0x19U)) {
-        VL_DBG_MSGF("         'stl' region trigger index 25 is active: @([hybrid] PvuTop.frac_norm_mul.lzcMod.gen_lzc.sel_nodes)\n");
+        VL_DBG_MSGF("         'stl' region trigger index 25 is active: @([hybrid] PvuTop.frac_norm_div.lzcMod.gen_lzc.sel_nodes)\n");
     }
     if (vlSelf->__VstlTriggered.at(0x1aU)) {
-        VL_DBG_MSGF("         'stl' region trigger index 26 is active: @([hybrid] PvuTop.frac_norm_div.lzcMod_1.gen_lzc.sel_nodes or [hybrid] PvuTop.frac_norm_div.lzcMod_1.gen_lzc.index_nodes)\n");
+        VL_DBG_MSGF("         'stl' region trigger index 26 is active: @([hybrid] PvuTop.frac_norm_mul.lzcMod_1.gen_lzc.sel_nodes or [hybrid] PvuTop.frac_norm_mul.lzcMod_1.gen_lzc.index_nodes)\n");
     }
     if (vlSelf->__VstlTriggered.at(0x1bU)) {
-        VL_DBG_MSGF("         'stl' region trigger index 27 is active: @([hybrid] PvuTop.frac_norm_div.lzcMod_1.gen_lzc.sel_nodes)\n");
+        VL_DBG_MSGF("         'stl' region trigger index 27 is active: @([hybrid] PvuTop.frac_norm_mul.lzcMod_1.gen_lzc.sel_nodes)\n");
     }
     if (vlSelf->__VstlTriggered.at(0x1cU)) {
-        VL_DBG_MSGF("         'stl' region trigger index 28 is active: @([hybrid] PvuTop.frac_norm_mul.lzcMod_1.gen_lzc.sel_nodes or [hybrid] PvuTop.frac_norm_mul.lzcMod_1.gen_lzc.index_nodes)\n");
+        VL_DBG_MSGF("         'stl' region trigger index 28 is active: @([hybrid] PvuTop.frac_norm_div.lzcMod_1.gen_lzc.sel_nodes or [hybrid] PvuTop.frac_norm_div.lzcMod_1.gen_lzc.index_nodes)\n");
     }
     if (vlSelf->__VstlTriggered.at(0x1dU)) {
-        VL_DBG_MSGF("         'stl' region trigger index 29 is active: @([hybrid] PvuTop.frac_norm_mul.lzcMod_1.gen_lzc.sel_nodes)\n");
+        VL_DBG_MSGF("         'stl' region trigger index 29 is active: @([hybrid] PvuTop.frac_norm_div.lzcMod_1.gen_lzc.sel_nodes)\n");
     }
     if (vlSelf->__VstlTriggered.at(0x1eU)) {
-        VL_DBG_MSGF("         'stl' region trigger index 30 is active: @([hybrid] PvuTop.frac_norm_div.lzcMod_2.gen_lzc.sel_nodes or [hybrid] PvuTop.frac_norm_div.lzcMod_2.gen_lzc.index_nodes)\n");
+        VL_DBG_MSGF("         'stl' region trigger index 30 is active: @([hybrid] PvuTop.frac_norm_mul.lzcMod_2.gen_lzc.sel_nodes or [hybrid] PvuTop.frac_norm_mul.lzcMod_2.gen_lzc.index_nodes)\n");
     }
     if (vlSelf->__VstlTriggered.at(0x1fU)) {
-        VL_DBG_MSGF("         'stl' region trigger index 31 is active: @([hybrid] PvuTop.frac_norm_div.lzcMod_2.gen_lzc.sel_nodes)\n");
+        VL_DBG_MSGF("         'stl' region trigger index 31 is active: @([hybrid] PvuTop.frac_norm_mul.lzcMod_2.gen_lzc.sel_nodes)\n");
     }
     if (vlSelf->__VstlTriggered.at(0x20U)) {
-        VL_DBG_MSGF("         'stl' region trigger index 32 is active: @([hybrid] PvuTop.frac_norm_mul.lzcMod_2.gen_lzc.sel_nodes or [hybrid] PvuTop.frac_norm_mul.lzcMod_2.gen_lzc.index_nodes)\n");
+        VL_DBG_MSGF("         'stl' region trigger index 32 is active: @([hybrid] PvuTop.frac_norm_div.lzcMod_2.gen_lzc.sel_nodes or [hybrid] PvuTop.frac_norm_div.lzcMod_2.gen_lzc.index_nodes)\n");
     }
     if (vlSelf->__VstlTriggered.at(0x21U)) {
-        VL_DBG_MSGF("         'stl' region trigger index 33 is active: @([hybrid] PvuTop.frac_norm_mul.lzcMod_2.gen_lzc.sel_nodes)\n");
+        VL_DBG_MSGF("         'stl' region trigger index 33 is active: @([hybrid] PvuTop.frac_norm_div.lzcMod_2.gen_lzc.sel_nodes)\n");
     }
     if (vlSelf->__VstlTriggered.at(0x22U)) {
-        VL_DBG_MSGF("         'stl' region trigger index 34 is active: @([hybrid] PvuTop.frac_norm_div.lzcMod_3.gen_lzc.sel_nodes or [hybrid] PvuTop.frac_norm_div.lzcMod_3.gen_lzc.index_nodes)\n");
+        VL_DBG_MSGF("         'stl' region trigger index 34 is active: @([hybrid] PvuTop.frac_norm_mul.lzcMod_3.gen_lzc.sel_nodes or [hybrid] PvuTop.frac_norm_mul.lzcMod_3.gen_lzc.index_nodes)\n");
     }
     if (vlSelf->__VstlTriggered.at(0x23U)) {
-        VL_DBG_MSGF("         'stl' region trigger index 35 is active: @([hybrid] PvuTop.frac_norm_div.lzcMod_3.gen_lzc.sel_nodes)\n");
+        VL_DBG_MSGF("         'stl' region trigger index 35 is active: @([hybrid] PvuTop.frac_norm_mul.lzcMod_3.gen_lzc.sel_nodes)\n");
     }
     if (vlSelf->__VstlTriggered.at(0x24U)) {
-        VL_DBG_MSGF("         'stl' region trigger index 36 is active: @([hybrid] PvuTop.frac_norm_mul.lzcMod_3.gen_lzc.sel_nodes or [hybrid] PvuTop.frac_norm_mul.lzcMod_3.gen_lzc.index_nodes)\n");
+        VL_DBG_MSGF("         'stl' region trigger index 36 is active: @([hybrid] PvuTop.frac_norm_div.lzcMod_3.gen_lzc.sel_nodes or [hybrid] PvuTop.frac_norm_div.lzcMod_3.gen_lzc.index_nodes)\n");
     }
     if (vlSelf->__VstlTriggered.at(0x25U)) {
-        VL_DBG_MSGF("         'stl' region trigger index 37 is active: @([hybrid] PvuTop.frac_norm_mul.lzcMod_3.gen_lzc.sel_nodes)\n");
+        VL_DBG_MSGF("         'stl' region trigger index 37 is active: @([hybrid] PvuTop.frac_norm_div.lzcMod_3.gen_lzc.sel_nodes)\n");
     }
     if (vlSelf->__VstlTriggered.at(0x26U)) {
         VL_DBG_MSGF("         'stl' region trigger index 38 is active: @([hybrid] PvuTop.decode1.lzcModule.gen_lzc.sel_nodes or [hybrid] PvuTop.decode1.lzcModule.gen_lzc.index_nodes)\n");
@@ -451,52 +451,52 @@ VL_ATTR_COLD void VPvuTop___024root___dump_triggers__ico(VPvuTop___024root* vlSe
         VL_DBG_MSGF("         'ico' region trigger index 21 is active: @([hybrid] PvuTop.dot_decoder.lzcModule.gen_lzc.sel_nodes)\n");
     }
     if (vlSelf->__VicoTriggered.at(0x16U)) {
-        VL_DBG_MSGF("         'ico' region trigger index 22 is active: @([hybrid] PvuTop.frac_norm_div.lzcMod.gen_lzc.sel_nodes or [hybrid] PvuTop.frac_norm_div.lzcMod.gen_lzc.index_nodes)\n");
+        VL_DBG_MSGF("         'ico' region trigger index 22 is active: @([hybrid] PvuTop.frac_norm_mul.lzcMod.gen_lzc.sel_nodes or [hybrid] PvuTop.frac_norm_mul.lzcMod.gen_lzc.index_nodes)\n");
     }
     if (vlSelf->__VicoTriggered.at(0x17U)) {
-        VL_DBG_MSGF("         'ico' region trigger index 23 is active: @([hybrid] PvuTop.frac_norm_div.lzcMod.gen_lzc.sel_nodes)\n");
+        VL_DBG_MSGF("         'ico' region trigger index 23 is active: @([hybrid] PvuTop.frac_norm_mul.lzcMod.gen_lzc.sel_nodes)\n");
     }
     if (vlSelf->__VicoTriggered.at(0x18U)) {
-        VL_DBG_MSGF("         'ico' region trigger index 24 is active: @([hybrid] PvuTop.frac_norm_mul.lzcMod.gen_lzc.sel_nodes or [hybrid] PvuTop.frac_norm_mul.lzcMod.gen_lzc.index_nodes)\n");
+        VL_DBG_MSGF("         'ico' region trigger index 24 is active: @([hybrid] PvuTop.frac_norm_div.lzcMod.gen_lzc.sel_nodes or [hybrid] PvuTop.frac_norm_div.lzcMod.gen_lzc.index_nodes)\n");
     }
     if (vlSelf->__VicoTriggered.at(0x19U)) {
-        VL_DBG_MSGF("         'ico' region trigger index 25 is active: @([hybrid] PvuTop.frac_norm_mul.lzcMod.gen_lzc.sel_nodes)\n");
+        VL_DBG_MSGF("         'ico' region trigger index 25 is active: @([hybrid] PvuTop.frac_norm_div.lzcMod.gen_lzc.sel_nodes)\n");
     }
     if (vlSelf->__VicoTriggered.at(0x1aU)) {
-        VL_DBG_MSGF("         'ico' region trigger index 26 is active: @([hybrid] PvuTop.frac_norm_div.lzcMod_1.gen_lzc.sel_nodes or [hybrid] PvuTop.frac_norm_div.lzcMod_1.gen_lzc.index_nodes)\n");
+        VL_DBG_MSGF("         'ico' region trigger index 26 is active: @([hybrid] PvuTop.frac_norm_mul.lzcMod_1.gen_lzc.sel_nodes or [hybrid] PvuTop.frac_norm_mul.lzcMod_1.gen_lzc.index_nodes)\n");
     }
     if (vlSelf->__VicoTriggered.at(0x1bU)) {
-        VL_DBG_MSGF("         'ico' region trigger index 27 is active: @([hybrid] PvuTop.frac_norm_div.lzcMod_1.gen_lzc.sel_nodes)\n");
+        VL_DBG_MSGF("         'ico' region trigger index 27 is active: @([hybrid] PvuTop.frac_norm_mul.lzcMod_1.gen_lzc.sel_nodes)\n");
     }
     if (vlSelf->__VicoTriggered.at(0x1cU)) {
-        VL_DBG_MSGF("         'ico' region trigger index 28 is active: @([hybrid] PvuTop.frac_norm_mul.lzcMod_1.gen_lzc.sel_nodes or [hybrid] PvuTop.frac_norm_mul.lzcMod_1.gen_lzc.index_nodes)\n");
+        VL_DBG_MSGF("         'ico' region trigger index 28 is active: @([hybrid] PvuTop.frac_norm_div.lzcMod_1.gen_lzc.sel_nodes or [hybrid] PvuTop.frac_norm_div.lzcMod_1.gen_lzc.index_nodes)\n");
     }
     if (vlSelf->__VicoTriggered.at(0x1dU)) {
-        VL_DBG_MSGF("         'ico' region trigger index 29 is active: @([hybrid] PvuTop.frac_norm_mul.lzcMod_1.gen_lzc.sel_nodes)\n");
+        VL_DBG_MSGF("         'ico' region trigger index 29 is active: @([hybrid] PvuTop.frac_norm_div.lzcMod_1.gen_lzc.sel_nodes)\n");
     }
     if (vlSelf->__VicoTriggered.at(0x1eU)) {
-        VL_DBG_MSGF("         'ico' region trigger index 30 is active: @([hybrid] PvuTop.frac_norm_div.lzcMod_2.gen_lzc.sel_nodes or [hybrid] PvuTop.frac_norm_div.lzcMod_2.gen_lzc.index_nodes)\n");
+        VL_DBG_MSGF("         'ico' region trigger index 30 is active: @([hybrid] PvuTop.frac_norm_mul.lzcMod_2.gen_lzc.sel_nodes or [hybrid] PvuTop.frac_norm_mul.lzcMod_2.gen_lzc.index_nodes)\n");
     }
     if (vlSelf->__VicoTriggered.at(0x1fU)) {
-        VL_DBG_MSGF("         'ico' region trigger index 31 is active: @([hybrid] PvuTop.frac_norm_div.lzcMod_2.gen_lzc.sel_nodes)\n");
+        VL_DBG_MSGF("         'ico' region trigger index 31 is active: @([hybrid] PvuTop.frac_norm_mul.lzcMod_2.gen_lzc.sel_nodes)\n");
     }
     if (vlSelf->__VicoTriggered.at(0x20U)) {
-        VL_DBG_MSGF("         'ico' region trigger index 32 is active: @([hybrid] PvuTop.frac_norm_mul.lzcMod_2.gen_lzc.sel_nodes or [hybrid] PvuTop.frac_norm_mul.lzcMod_2.gen_lzc.index_nodes)\n");
+        VL_DBG_MSGF("         'ico' region trigger index 32 is active: @([hybrid] PvuTop.frac_norm_div.lzcMod_2.gen_lzc.sel_nodes or [hybrid] PvuTop.frac_norm_div.lzcMod_2.gen_lzc.index_nodes)\n");
     }
     if (vlSelf->__VicoTriggered.at(0x21U)) {
-        VL_DBG_MSGF("         'ico' region trigger index 33 is active: @([hybrid] PvuTop.frac_norm_mul.lzcMod_2.gen_lzc.sel_nodes)\n");
+        VL_DBG_MSGF("         'ico' region trigger index 33 is active: @([hybrid] PvuTop.frac_norm_div.lzcMod_2.gen_lzc.sel_nodes)\n");
     }
     if (vlSelf->__VicoTriggered.at(0x22U)) {
-        VL_DBG_MSGF("         'ico' region trigger index 34 is active: @([hybrid] PvuTop.frac_norm_div.lzcMod_3.gen_lzc.sel_nodes or [hybrid] PvuTop.frac_norm_div.lzcMod_3.gen_lzc.index_nodes)\n");
+        VL_DBG_MSGF("         'ico' region trigger index 34 is active: @([hybrid] PvuTop.frac_norm_mul.lzcMod_3.gen_lzc.sel_nodes or [hybrid] PvuTop.frac_norm_mul.lzcMod_3.gen_lzc.index_nodes)\n");
     }
     if (vlSelf->__VicoTriggered.at(0x23U)) {
-        VL_DBG_MSGF("         'ico' region trigger index 35 is active: @([hybrid] PvuTop.frac_norm_div.lzcMod_3.gen_lzc.sel_nodes)\n");
+        VL_DBG_MSGF("         'ico' region trigger index 35 is active: @([hybrid] PvuTop.frac_norm_mul.lzcMod_3.gen_lzc.sel_nodes)\n");
     }
     if (vlSelf->__VicoTriggered.at(0x24U)) {
-        VL_DBG_MSGF("         'ico' region trigger index 36 is active: @([hybrid] PvuTop.frac_norm_mul.lzcMod_3.gen_lzc.sel_nodes or [hybrid] PvuTop.frac_norm_mul.lzcMod_3.gen_lzc.index_nodes)\n");
+        VL_DBG_MSGF("         'ico' region trigger index 36 is active: @([hybrid] PvuTop.frac_norm_div.lzcMod_3.gen_lzc.sel_nodes or [hybrid] PvuTop.frac_norm_div.lzcMod_3.gen_lzc.index_nodes)\n");
     }
     if (vlSelf->__VicoTriggered.at(0x25U)) {
-        VL_DBG_MSGF("         'ico' region trigger index 37 is active: @([hybrid] PvuTop.frac_norm_mul.lzcMod_3.gen_lzc.sel_nodes)\n");
+        VL_DBG_MSGF("         'ico' region trigger index 37 is active: @([hybrid] PvuTop.frac_norm_div.lzcMod_3.gen_lzc.sel_nodes)\n");
     }
     if (vlSelf->__VicoTriggered.at(0x26U)) {
         VL_DBG_MSGF("         'ico' region trigger index 38 is active: @([hybrid] PvuTop.decode1.lzcModule.gen_lzc.sel_nodes or [hybrid] PvuTop.decode1.lzcModule.gen_lzc.index_nodes)\n");
@@ -772,52 +772,52 @@ VL_ATTR_COLD void VPvuTop___024root___dump_triggers__act(VPvuTop___024root* vlSe
         VL_DBG_MSGF("         'act' region trigger index 20 is active: @([hybrid] PvuTop.dot_decoder.lzcModule.gen_lzc.sel_nodes)\n");
     }
     if (vlSelf->__VactTriggered.at(0x15U)) {
-        VL_DBG_MSGF("         'act' region trigger index 21 is active: @([hybrid] PvuTop.frac_norm_div.lzcMod.gen_lzc.sel_nodes or [hybrid] PvuTop.frac_norm_div.lzcMod.gen_lzc.index_nodes)\n");
+        VL_DBG_MSGF("         'act' region trigger index 21 is active: @([hybrid] PvuTop.frac_norm_mul.lzcMod.gen_lzc.sel_nodes or [hybrid] PvuTop.frac_norm_mul.lzcMod.gen_lzc.index_nodes)\n");
     }
     if (vlSelf->__VactTriggered.at(0x16U)) {
-        VL_DBG_MSGF("         'act' region trigger index 22 is active: @([hybrid] PvuTop.frac_norm_div.lzcMod.gen_lzc.sel_nodes)\n");
+        VL_DBG_MSGF("         'act' region trigger index 22 is active: @([hybrid] PvuTop.frac_norm_mul.lzcMod.gen_lzc.sel_nodes)\n");
     }
     if (vlSelf->__VactTriggered.at(0x17U)) {
-        VL_DBG_MSGF("         'act' region trigger index 23 is active: @([hybrid] PvuTop.frac_norm_mul.lzcMod.gen_lzc.sel_nodes or [hybrid] PvuTop.frac_norm_mul.lzcMod.gen_lzc.index_nodes)\n");
+        VL_DBG_MSGF("         'act' region trigger index 23 is active: @([hybrid] PvuTop.frac_norm_div.lzcMod.gen_lzc.sel_nodes or [hybrid] PvuTop.frac_norm_div.lzcMod.gen_lzc.index_nodes)\n");
     }
     if (vlSelf->__VactTriggered.at(0x18U)) {
-        VL_DBG_MSGF("         'act' region trigger index 24 is active: @([hybrid] PvuTop.frac_norm_mul.lzcMod.gen_lzc.sel_nodes)\n");
+        VL_DBG_MSGF("         'act' region trigger index 24 is active: @([hybrid] PvuTop.frac_norm_div.lzcMod.gen_lzc.sel_nodes)\n");
     }
     if (vlSelf->__VactTriggered.at(0x19U)) {
-        VL_DBG_MSGF("         'act' region trigger index 25 is active: @([hybrid] PvuTop.frac_norm_div.lzcMod_1.gen_lzc.sel_nodes or [hybrid] PvuTop.frac_norm_div.lzcMod_1.gen_lzc.index_nodes)\n");
+        VL_DBG_MSGF("         'act' region trigger index 25 is active: @([hybrid] PvuTop.frac_norm_mul.lzcMod_1.gen_lzc.sel_nodes or [hybrid] PvuTop.frac_norm_mul.lzcMod_1.gen_lzc.index_nodes)\n");
     }
     if (vlSelf->__VactTriggered.at(0x1aU)) {
-        VL_DBG_MSGF("         'act' region trigger index 26 is active: @([hybrid] PvuTop.frac_norm_div.lzcMod_1.gen_lzc.sel_nodes)\n");
+        VL_DBG_MSGF("         'act' region trigger index 26 is active: @([hybrid] PvuTop.frac_norm_mul.lzcMod_1.gen_lzc.sel_nodes)\n");
     }
     if (vlSelf->__VactTriggered.at(0x1bU)) {
-        VL_DBG_MSGF("         'act' region trigger index 27 is active: @([hybrid] PvuTop.frac_norm_mul.lzcMod_1.gen_lzc.sel_nodes or [hybrid] PvuTop.frac_norm_mul.lzcMod_1.gen_lzc.index_nodes)\n");
+        VL_DBG_MSGF("         'act' region trigger index 27 is active: @([hybrid] PvuTop.frac_norm_div.lzcMod_1.gen_lzc.sel_nodes or [hybrid] PvuTop.frac_norm_div.lzcMod_1.gen_lzc.index_nodes)\n");
     }
     if (vlSelf->__VactTriggered.at(0x1cU)) {
-        VL_DBG_MSGF("         'act' region trigger index 28 is active: @([hybrid] PvuTop.frac_norm_mul.lzcMod_1.gen_lzc.sel_nodes)\n");
+        VL_DBG_MSGF("         'act' region trigger index 28 is active: @([hybrid] PvuTop.frac_norm_div.lzcMod_1.gen_lzc.sel_nodes)\n");
     }
     if (vlSelf->__VactTriggered.at(0x1dU)) {
-        VL_DBG_MSGF("         'act' region trigger index 29 is active: @([hybrid] PvuTop.frac_norm_div.lzcMod_2.gen_lzc.sel_nodes or [hybrid] PvuTop.frac_norm_div.lzcMod_2.gen_lzc.index_nodes)\n");
+        VL_DBG_MSGF("         'act' region trigger index 29 is active: @([hybrid] PvuTop.frac_norm_mul.lzcMod_2.gen_lzc.sel_nodes or [hybrid] PvuTop.frac_norm_mul.lzcMod_2.gen_lzc.index_nodes)\n");
     }
     if (vlSelf->__VactTriggered.at(0x1eU)) {
-        VL_DBG_MSGF("         'act' region trigger index 30 is active: @([hybrid] PvuTop.frac_norm_div.lzcMod_2.gen_lzc.sel_nodes)\n");
+        VL_DBG_MSGF("         'act' region trigger index 30 is active: @([hybrid] PvuTop.frac_norm_mul.lzcMod_2.gen_lzc.sel_nodes)\n");
     }
     if (vlSelf->__VactTriggered.at(0x1fU)) {
-        VL_DBG_MSGF("         'act' region trigger index 31 is active: @([hybrid] PvuTop.frac_norm_mul.lzcMod_2.gen_lzc.sel_nodes or [hybrid] PvuTop.frac_norm_mul.lzcMod_2.gen_lzc.index_nodes)\n");
+        VL_DBG_MSGF("         'act' region trigger index 31 is active: @([hybrid] PvuTop.frac_norm_div.lzcMod_2.gen_lzc.sel_nodes or [hybrid] PvuTop.frac_norm_div.lzcMod_2.gen_lzc.index_nodes)\n");
     }
     if (vlSelf->__VactTriggered.at(0x20U)) {
-        VL_DBG_MSGF("         'act' region trigger index 32 is active: @([hybrid] PvuTop.frac_norm_mul.lzcMod_2.gen_lzc.sel_nodes)\n");
+        VL_DBG_MSGF("         'act' region trigger index 32 is active: @([hybrid] PvuTop.frac_norm_div.lzcMod_2.gen_lzc.sel_nodes)\n");
     }
     if (vlSelf->__VactTriggered.at(0x21U)) {
-        VL_DBG_MSGF("         'act' region trigger index 33 is active: @([hybrid] PvuTop.frac_norm_div.lzcMod_3.gen_lzc.sel_nodes or [hybrid] PvuTop.frac_norm_div.lzcMod_3.gen_lzc.index_nodes)\n");
+        VL_DBG_MSGF("         'act' region trigger index 33 is active: @([hybrid] PvuTop.frac_norm_mul.lzcMod_3.gen_lzc.sel_nodes or [hybrid] PvuTop.frac_norm_mul.lzcMod_3.gen_lzc.index_nodes)\n");
     }
     if (vlSelf->__VactTriggered.at(0x22U)) {
-        VL_DBG_MSGF("         'act' region trigger index 34 is active: @([hybrid] PvuTop.frac_norm_div.lzcMod_3.gen_lzc.sel_nodes)\n");
+        VL_DBG_MSGF("         'act' region trigger index 34 is active: @([hybrid] PvuTop.frac_norm_mul.lzcMod_3.gen_lzc.sel_nodes)\n");
     }
     if (vlSelf->__VactTriggered.at(0x23U)) {
-        VL_DBG_MSGF("         'act' region trigger index 35 is active: @([hybrid] PvuTop.frac_norm_mul.lzcMod_3.gen_lzc.sel_nodes or [hybrid] PvuTop.frac_norm_mul.lzcMod_3.gen_lzc.index_nodes)\n");
+        VL_DBG_MSGF("         'act' region trigger index 35 is active: @([hybrid] PvuTop.frac_norm_div.lzcMod_3.gen_lzc.sel_nodes or [hybrid] PvuTop.frac_norm_div.lzcMod_3.gen_lzc.index_nodes)\n");
     }
     if (vlSelf->__VactTriggered.at(0x24U)) {
-        VL_DBG_MSGF("         'act' region trigger index 36 is active: @([hybrid] PvuTop.frac_norm_mul.lzcMod_3.gen_lzc.sel_nodes)\n");
+        VL_DBG_MSGF("         'act' region trigger index 36 is active: @([hybrid] PvuTop.frac_norm_div.lzcMod_3.gen_lzc.sel_nodes)\n");
     }
     if (vlSelf->__VactTriggered.at(0x25U)) {
         VL_DBG_MSGF("         'act' region trigger index 37 is active: @([hybrid] PvuTop.decode1.lzcModule.gen_lzc.sel_nodes or [hybrid] PvuTop.decode1.lzcModule.gen_lzc.index_nodes)\n");
@@ -1093,52 +1093,52 @@ VL_ATTR_COLD void VPvuTop___024root___dump_triggers__nba(VPvuTop___024root* vlSe
         VL_DBG_MSGF("         'nba' region trigger index 20 is active: @([hybrid] PvuTop.dot_decoder.lzcModule.gen_lzc.sel_nodes)\n");
     }
     if (vlSelf->__VnbaTriggered.at(0x15U)) {
-        VL_DBG_MSGF("         'nba' region trigger index 21 is active: @([hybrid] PvuTop.frac_norm_div.lzcMod.gen_lzc.sel_nodes or [hybrid] PvuTop.frac_norm_div.lzcMod.gen_lzc.index_nodes)\n");
+        VL_DBG_MSGF("         'nba' region trigger index 21 is active: @([hybrid] PvuTop.frac_norm_mul.lzcMod.gen_lzc.sel_nodes or [hybrid] PvuTop.frac_norm_mul.lzcMod.gen_lzc.index_nodes)\n");
     }
     if (vlSelf->__VnbaTriggered.at(0x16U)) {
-        VL_DBG_MSGF("         'nba' region trigger index 22 is active: @([hybrid] PvuTop.frac_norm_div.lzcMod.gen_lzc.sel_nodes)\n");
+        VL_DBG_MSGF("         'nba' region trigger index 22 is active: @([hybrid] PvuTop.frac_norm_mul.lzcMod.gen_lzc.sel_nodes)\n");
     }
     if (vlSelf->__VnbaTriggered.at(0x17U)) {
-        VL_DBG_MSGF("         'nba' region trigger index 23 is active: @([hybrid] PvuTop.frac_norm_mul.lzcMod.gen_lzc.sel_nodes or [hybrid] PvuTop.frac_norm_mul.lzcMod.gen_lzc.index_nodes)\n");
+        VL_DBG_MSGF("         'nba' region trigger index 23 is active: @([hybrid] PvuTop.frac_norm_div.lzcMod.gen_lzc.sel_nodes or [hybrid] PvuTop.frac_norm_div.lzcMod.gen_lzc.index_nodes)\n");
     }
     if (vlSelf->__VnbaTriggered.at(0x18U)) {
-        VL_DBG_MSGF("         'nba' region trigger index 24 is active: @([hybrid] PvuTop.frac_norm_mul.lzcMod.gen_lzc.sel_nodes)\n");
+        VL_DBG_MSGF("         'nba' region trigger index 24 is active: @([hybrid] PvuTop.frac_norm_div.lzcMod.gen_lzc.sel_nodes)\n");
     }
     if (vlSelf->__VnbaTriggered.at(0x19U)) {
-        VL_DBG_MSGF("         'nba' region trigger index 25 is active: @([hybrid] PvuTop.frac_norm_div.lzcMod_1.gen_lzc.sel_nodes or [hybrid] PvuTop.frac_norm_div.lzcMod_1.gen_lzc.index_nodes)\n");
+        VL_DBG_MSGF("         'nba' region trigger index 25 is active: @([hybrid] PvuTop.frac_norm_mul.lzcMod_1.gen_lzc.sel_nodes or [hybrid] PvuTop.frac_norm_mul.lzcMod_1.gen_lzc.index_nodes)\n");
     }
     if (vlSelf->__VnbaTriggered.at(0x1aU)) {
-        VL_DBG_MSGF("         'nba' region trigger index 26 is active: @([hybrid] PvuTop.frac_norm_div.lzcMod_1.gen_lzc.sel_nodes)\n");
+        VL_DBG_MSGF("         'nba' region trigger index 26 is active: @([hybrid] PvuTop.frac_norm_mul.lzcMod_1.gen_lzc.sel_nodes)\n");
     }
     if (vlSelf->__VnbaTriggered.at(0x1bU)) {
-        VL_DBG_MSGF("         'nba' region trigger index 27 is active: @([hybrid] PvuTop.frac_norm_mul.lzcMod_1.gen_lzc.sel_nodes or [hybrid] PvuTop.frac_norm_mul.lzcMod_1.gen_lzc.index_nodes)\n");
+        VL_DBG_MSGF("         'nba' region trigger index 27 is active: @([hybrid] PvuTop.frac_norm_div.lzcMod_1.gen_lzc.sel_nodes or [hybrid] PvuTop.frac_norm_div.lzcMod_1.gen_lzc.index_nodes)\n");
     }
     if (vlSelf->__VnbaTriggered.at(0x1cU)) {
-        VL_DBG_MSGF("         'nba' region trigger index 28 is active: @([hybrid] PvuTop.frac_norm_mul.lzcMod_1.gen_lzc.sel_nodes)\n");
+        VL_DBG_MSGF("         'nba' region trigger index 28 is active: @([hybrid] PvuTop.frac_norm_div.lzcMod_1.gen_lzc.sel_nodes)\n");
     }
     if (vlSelf->__VnbaTriggered.at(0x1dU)) {
-        VL_DBG_MSGF("         'nba' region trigger index 29 is active: @([hybrid] PvuTop.frac_norm_div.lzcMod_2.gen_lzc.sel_nodes or [hybrid] PvuTop.frac_norm_div.lzcMod_2.gen_lzc.index_nodes)\n");
+        VL_DBG_MSGF("         'nba' region trigger index 29 is active: @([hybrid] PvuTop.frac_norm_mul.lzcMod_2.gen_lzc.sel_nodes or [hybrid] PvuTop.frac_norm_mul.lzcMod_2.gen_lzc.index_nodes)\n");
     }
     if (vlSelf->__VnbaTriggered.at(0x1eU)) {
-        VL_DBG_MSGF("         'nba' region trigger index 30 is active: @([hybrid] PvuTop.frac_norm_div.lzcMod_2.gen_lzc.sel_nodes)\n");
+        VL_DBG_MSGF("         'nba' region trigger index 30 is active: @([hybrid] PvuTop.frac_norm_mul.lzcMod_2.gen_lzc.sel_nodes)\n");
     }
     if (vlSelf->__VnbaTriggered.at(0x1fU)) {
-        VL_DBG_MSGF("         'nba' region trigger index 31 is active: @([hybrid] PvuTop.frac_norm_mul.lzcMod_2.gen_lzc.sel_nodes or [hybrid] PvuTop.frac_norm_mul.lzcMod_2.gen_lzc.index_nodes)\n");
+        VL_DBG_MSGF("         'nba' region trigger index 31 is active: @([hybrid] PvuTop.frac_norm_div.lzcMod_2.gen_lzc.sel_nodes or [hybrid] PvuTop.frac_norm_div.lzcMod_2.gen_lzc.index_nodes)\n");
     }
     if (vlSelf->__VnbaTriggered.at(0x20U)) {
-        VL_DBG_MSGF("         'nba' region trigger index 32 is active: @([hybrid] PvuTop.frac_norm_mul.lzcMod_2.gen_lzc.sel_nodes)\n");
+        VL_DBG_MSGF("         'nba' region trigger index 32 is active: @([hybrid] PvuTop.frac_norm_div.lzcMod_2.gen_lzc.sel_nodes)\n");
     }
     if (vlSelf->__VnbaTriggered.at(0x21U)) {
-        VL_DBG_MSGF("         'nba' region trigger index 33 is active: @([hybrid] PvuTop.frac_norm_div.lzcMod_3.gen_lzc.sel_nodes or [hybrid] PvuTop.frac_norm_div.lzcMod_3.gen_lzc.index_nodes)\n");
+        VL_DBG_MSGF("         'nba' region trigger index 33 is active: @([hybrid] PvuTop.frac_norm_mul.lzcMod_3.gen_lzc.sel_nodes or [hybrid] PvuTop.frac_norm_mul.lzcMod_3.gen_lzc.index_nodes)\n");
     }
     if (vlSelf->__VnbaTriggered.at(0x22U)) {
-        VL_DBG_MSGF("         'nba' region trigger index 34 is active: @([hybrid] PvuTop.frac_norm_div.lzcMod_3.gen_lzc.sel_nodes)\n");
+        VL_DBG_MSGF("         'nba' region trigger index 34 is active: @([hybrid] PvuTop.frac_norm_mul.lzcMod_3.gen_lzc.sel_nodes)\n");
     }
     if (vlSelf->__VnbaTriggered.at(0x23U)) {
-        VL_DBG_MSGF("         'nba' region trigger index 35 is active: @([hybrid] PvuTop.frac_norm_mul.lzcMod_3.gen_lzc.sel_nodes or [hybrid] PvuTop.frac_norm_mul.lzcMod_3.gen_lzc.index_nodes)\n");
+        VL_DBG_MSGF("         'nba' region trigger index 35 is active: @([hybrid] PvuTop.frac_norm_div.lzcMod_3.gen_lzc.sel_nodes or [hybrid] PvuTop.frac_norm_div.lzcMod_3.gen_lzc.index_nodes)\n");
     }
     if (vlSelf->__VnbaTriggered.at(0x24U)) {
-        VL_DBG_MSGF("         'nba' region trigger index 36 is active: @([hybrid] PvuTop.frac_norm_mul.lzcMod_3.gen_lzc.sel_nodes)\n");
+        VL_DBG_MSGF("         'nba' region trigger index 36 is active: @([hybrid] PvuTop.frac_norm_div.lzcMod_3.gen_lzc.sel_nodes)\n");
     }
     if (vlSelf->__VnbaTriggered.at(0x25U)) {
         VL_DBG_MSGF("         'nba' region trigger index 37 is active: @([hybrid] PvuTop.decode1.lzcModule.gen_lzc.sel_nodes or [hybrid] PvuTop.decode1.lzcModule.gen_lzc.index_nodes)\n");
@@ -1356,7 +1356,7 @@ VL_ATTR_COLD void VPvuTop___024root___ctor_var_reset(VPvuTop___024root* vlSelf) 
     vlSelf->io_posit_i2_1 = VL_RAND_RESET_I(32);
     vlSelf->io_posit_i2_2 = VL_RAND_RESET_I(32);
     vlSelf->io_posit_i2_3 = VL_RAND_RESET_I(32);
-    vlSelf->io_op = VL_RAND_RESET_I(3);
+    vlSelf->io_op = VL_RAND_RESET_I(4);
     vlSelf->io_Isposit = VL_RAND_RESET_I(1);
     vlSelf->io_Outposit = VL_RAND_RESET_I(1);
     vlSelf->io_float_i_0 = VL_RAND_RESET_Q(64);
@@ -1382,6 +1382,10 @@ VL_ATTR_COLD void VPvuTop___024root___ctor_var_reset(VPvuTop___024root* vlSelf) 
     vlSelf->io_posit_o_2 = VL_RAND_RESET_I(32);
     vlSelf->io_posit_o_3 = VL_RAND_RESET_I(32);
     vlSelf->io_posit_dot_o = VL_RAND_RESET_I(32);
+    vlSelf->io_int_o_0 = VL_RAND_RESET_I(32);
+    vlSelf->io_int_o_1 = VL_RAND_RESET_I(32);
+    vlSelf->io_int_o_2 = VL_RAND_RESET_I(32);
+    vlSelf->io_int_o_3 = VL_RAND_RESET_I(32);
     vlSelf->PvuTop__DOT___dot_converter_io_pir_sign_o = VL_RAND_RESET_I(1);
     vlSelf->PvuTop__DOT___convert_io_pir_sign_o = VL_RAND_RESET_I(4);
     vlSelf->PvuTop__DOT___floatDecode2_io_isNaN = VL_RAND_RESET_I(4);
@@ -1393,46 +1397,50 @@ VL_ATTR_COLD void VPvuTop___024root___ctor_var_reset(VPvuTop___024root* vlSelf) 
     vlSelf->PvuTop__DOT__ACTUAL_VECTOR_SIZE = VL_RAND_RESET_I(3);
     vlSelf->PvuTop__DOT__ACTUAL_DST_POSIT_WIDTH = VL_RAND_RESET_I(6);
     vlSelf->PvuTop__DOT___GEN_5 = VL_RAND_RESET_I(1);
-    vlSelf->PvuTop__DOT___GEN_9 = VL_RAND_RESET_I(1);
-    vlSelf->PvuTop__DOT___GEN_13 = VL_RAND_RESET_I(1);
+    vlSelf->PvuTop__DOT___GEN_11 = VL_RAND_RESET_I(1);
     vlSelf->PvuTop__DOT___GEN_17 = VL_RAND_RESET_I(1);
-    vlSelf->PvuTop__DOT___GEN_25 = VL_RAND_RESET_I(1);
-    vlSelf->PvuTop__DOT___GEN_26 = VL_RAND_RESET_I(1);
-    vlSelf->PvuTop__DOT___GEN_27 = VL_RAND_RESET_I(1);
-    vlSelf->PvuTop__DOT___GEN_28 = VL_RAND_RESET_I(1);
-    vlSelf->PvuTop__DOT___GEN_31 = VL_RAND_RESET_I(1);
-    vlSelf->PvuTop__DOT___GEN_34 = VL_RAND_RESET_I(1);
+    vlSelf->PvuTop__DOT___GEN_23 = VL_RAND_RESET_I(1);
     vlSelf->PvuTop__DOT___GEN_35 = VL_RAND_RESET_I(1);
-    vlSelf->PvuTop__DOT___GEN_44 = VL_RAND_RESET_I(1);
-    vlSelf->PvuTop__DOT___GEN_46 = VL_RAND_RESET_I(1);
-    vlSelf->PvuTop__DOT___GEN_47 = VL_RAND_RESET_Q(64);
-    vlSelf->PvuTop__DOT___GEN_48 = VL_RAND_RESET_Q(64);
-    vlSelf->PvuTop__DOT___GEN_49 = VL_RAND_RESET_Q(64);
-    vlSelf->PvuTop__DOT___GEN_50 = VL_RAND_RESET_Q(64);
+    vlSelf->PvuTop__DOT___GEN_38 = VL_RAND_RESET_I(1);
+    vlSelf->PvuTop__DOT___GEN_40 = VL_RAND_RESET_I(1);
+    vlSelf->PvuTop__DOT___GEN_49 = VL_RAND_RESET_I(1);
     vlSelf->PvuTop__DOT___GEN_51 = VL_RAND_RESET_I(1);
-    vlSelf->PvuTop__DOT___GEN_53 = VL_RAND_RESET_I(32);
-    vlSelf->PvuTop__DOT___GEN_54 = VL_RAND_RESET_I(32);
-    vlSelf->PvuTop__DOT___GEN_55 = VL_RAND_RESET_I(32);
-    vlSelf->PvuTop__DOT___GEN_56 = VL_RAND_RESET_I(32);
+    vlSelf->PvuTop__DOT___GEN_52 = VL_RAND_RESET_Q(64);
+    vlSelf->PvuTop__DOT___GEN_53 = VL_RAND_RESET_Q(64);
+    vlSelf->PvuTop__DOT___GEN_54 = VL_RAND_RESET_Q(64);
+    vlSelf->PvuTop__DOT___GEN_55 = VL_RAND_RESET_Q(64);
+    vlSelf->PvuTop__DOT___GEN_56 = VL_RAND_RESET_I(1);
+    vlSelf->PvuTop__DOT___GEN_58 = VL_RAND_RESET_I(32);
+    vlSelf->PvuTop__DOT___GEN_59 = VL_RAND_RESET_I(32);
+    vlSelf->PvuTop__DOT___GEN_60 = VL_RAND_RESET_I(32);
+    vlSelf->PvuTop__DOT___GEN_61 = VL_RAND_RESET_I(32);
+    vlSelf->PvuTop__DOT___GEN_64 = VL_RAND_RESET_I(1);
+    vlSelf->PvuTop__DOT___GEN_65 = VL_RAND_RESET_I(1);
+    vlSelf->PvuTop__DOT___GEN_66 = VL_RAND_RESET_I(1);
+    vlSelf->PvuTop__DOT___GEN_67 = VL_RAND_RESET_I(1);
+    vlSelf->PvuTop__DOT___GEN_68 = VL_RAND_RESET_I(1);
+    vlSelf->PvuTop__DOT___GEN_70 = VL_RAND_RESET_I(1);
     vlSelf->PvuTop__DOT__pir_frac_normed_dot = VL_RAND_RESET_I(28);
     vlSelf->PvuTop__DOT___pir_exp_rst_adjusied_dot_T = VL_RAND_RESET_I(8);
     vlSelf->PvuTop__DOT___pir_exp_rst_adjusied_0_T = VL_RAND_RESET_I(8);
     vlSelf->PvuTop__DOT___pir_exp_rst_adjusied_1_T = VL_RAND_RESET_I(8);
     vlSelf->PvuTop__DOT___pir_exp_rst_adjusied_2_T = VL_RAND_RESET_I(8);
     vlSelf->PvuTop__DOT___pir_exp_rst_adjusied_3_T = VL_RAND_RESET_I(8);
-    vlSelf->PvuTop__DOT___GEN_66 = VL_RAND_RESET_I(1);
-    vlSelf->PvuTop__DOT___GEN_67 = VL_RAND_RESET_I(8);
-    vlSelf->PvuTop__DOT___GEN_73 = VL_RAND_RESET_I(1);
-    vlSelf->PvuTop__DOT___GEN_74 = VL_RAND_RESET_I(8);
-    vlSelf->PvuTop__DOT___GEN_76 = VL_RAND_RESET_I(8);
-    vlSelf->PvuTop__DOT___GEN_78 = VL_RAND_RESET_I(8);
-    vlSelf->PvuTop__DOT___GEN_80 = VL_RAND_RESET_I(8);
+    vlSelf->PvuTop__DOT___GEN_76 = VL_RAND_RESET_I(1);
+    vlSelf->PvuTop__DOT___GEN_77 = VL_RAND_RESET_I(8);
     vlSelf->PvuTop__DOT___GEN_83 = VL_RAND_RESET_I(1);
-    vlSelf->PvuTop__DOT___GEN_84 = VL_RAND_RESET_I(1);
+    vlSelf->PvuTop__DOT___GEN_84 = VL_RAND_RESET_I(8);
     vlSelf->PvuTop__DOT___GEN_85 = VL_RAND_RESET_I(1);
-    vlSelf->PvuTop__DOT___GEN_86 = VL_RAND_RESET_I(1);
-    vlSelf->PvuTop__DOT___GEN_87 = VL_RAND_RESET_I(1);
-    vlSelf->PvuTop__DOT___GEN_93 = VL_RAND_RESET_I(4);
+    vlSelf->PvuTop__DOT___GEN_86 = VL_RAND_RESET_I(8);
+    vlSelf->PvuTop__DOT___GEN_87 = VL_RAND_RESET_I(8);
+    vlSelf->PvuTop__DOT___GEN_88 = VL_RAND_RESET_I(8);
+    vlSelf->PvuTop__DOT___GEN_90 = VL_RAND_RESET_I(1);
+    vlSelf->PvuTop__DOT___GEN_91 = VL_RAND_RESET_I(1);
+    vlSelf->PvuTop__DOT___GEN_92 = VL_RAND_RESET_I(1);
+    vlSelf->PvuTop__DOT___GEN_93 = VL_RAND_RESET_I(1);
+    vlSelf->PvuTop__DOT___GEN_94 = VL_RAND_RESET_I(1);
+    vlSelf->PvuTop__DOT___GEN_95 = VL_RAND_RESET_I(1);
+    vlSelf->PvuTop__DOT___GEN_101 = VL_RAND_RESET_I(4);
     VL_RAND_RESET_W(128, vlSelf->PvuTop__DOT____Vcellinp__decode1__io_posit);
     VL_RAND_RESET_W(128, vlSelf->PvuTop__DOT____Vcellinp__decode2__io_posit);
     vlSelf->PvuTop__DOT____Vcellinp__fracalign_1__io_pir_exp2_i = VL_RAND_RESET_I(32);
@@ -1466,6 +1474,10 @@ VL_ATTR_COLD void VPvuTop___024root___ctor_var_reset(VPvuTop___024root* vlSelf) 
     vlSelf->PvuTop__DOT____VdfgTmp_h5909e0af__0 = 0;
     vlSelf->PvuTop__DOT____VdfgTmp_h9859deca__0 = 0;
     vlSelf->PvuTop__DOT____VdfgTmp_haef9037e__0 = 0;
+    vlSelf->PvuTop__DOT____VdfgTmp_h8b489a1a__0 = 0;
+    vlSelf->PvuTop__DOT____VdfgTmp_h1b512e34__0 = 0;
+    vlSelf->PvuTop__DOT____VdfgTmp_h20a4ccfd__0 = 0;
+    vlSelf->PvuTop__DOT____VdfgTmp_hc52b8dbf__0 = 0;
     vlSelf->PvuTop__DOT____VdfgTmp_h8172b135__0 = 0;
     vlSelf->PvuTop__DOT____VdfgTmp_h66bfb906__0 = 0;
     vlSelf->PvuTop__DOT____VdfgTmp_hd2aca441__0 = 0;
@@ -1482,16 +1494,16 @@ VL_ATTR_COLD void VPvuTop___024root___ctor_var_reset(VPvuTop___024root* vlSelf) 
     vlSelf->PvuTop__DOT____VdfgTmp_h6036cde7__0 = 0;
     vlSelf->PvuTop__DOT____VdfgTmp_hec2bc0aa__0 = 0;
     vlSelf->PvuTop__DOT____VdfgTmp_hc159885d__0 = 0;
-    vlSelf->PvuTop__DOT____VdfgTmp_he0400b47__0 = 0;
-    vlSelf->PvuTop__DOT____VdfgTmp_hda4668a7__0 = 0;
-    vlSelf->PvuTop__DOT____VdfgTmp_h39d91805__0 = 0;
-    vlSelf->PvuTop__DOT____VdfgTmp_h3468a8ac__0 = 0;
-    vlSelf->PvuTop__DOT____VdfgTmp_he4bff614__0 = 0;
-    vlSelf->PvuTop__DOT____VdfgTmp_h61b30c30__0 = 0;
-    vlSelf->PvuTop__DOT____VdfgTmp_hb43ec265__0 = 0;
-    vlSelf->PvuTop__DOT____VdfgTmp_h9bd98a7e__0 = 0;
-    vlSelf->PvuTop__DOT____VdfgTmp_hab362d75__0 = 0;
-    vlSelf->PvuTop__DOT____VdfgTmp_h9f1e5463__0 = 0;
+    VL_ZERO_RESET_W(68, vlSelf->PvuTop__DOT____VdfgTmp_hf4fce55a__0);
+    VL_ZERO_RESET_W(68, vlSelf->PvuTop__DOT____VdfgTmp_hadfdcc16__0);
+    VL_ZERO_RESET_W(68, vlSelf->PvuTop__DOT____VdfgTmp_h65ffef42__0);
+    VL_ZERO_RESET_W(68, vlSelf->PvuTop__DOT____VdfgTmp_h663e95d2__0);
+    vlSelf->PvuTop__DOT____VdfgTmp_h41d5b416__0 = 0;
+    vlSelf->PvuTop__DOT____VdfgTmp_h98a4b7ad__0 = 0;
+    vlSelf->PvuTop__DOT____VdfgTmp_h9b56b116__0 = 0;
+    vlSelf->PvuTop__DOT____VdfgTmp_h4d703b6d__0 = 0;
+    vlSelf->PvuTop__DOT____VdfgTmp_hfe6df398__0 = 0;
+    vlSelf->PvuTop__DOT____VdfgTmp_h48f6830c__0 = 0;
     vlSelf->PvuTop__DOT__floatDecode1__DOT____VdfgTmp_h8a383c23__0 = 0;
     vlSelf->PvuTop__DOT__floatDecode1__DOT____VdfgTmp_h898ddcf9__0 = 0;
     vlSelf->PvuTop__DOT__floatDecode1__DOT____VdfgTmp_h8933512e__0 = 0;
@@ -1960,6 +1972,42 @@ VL_ATTR_COLD void VPvuTop___024root___ctor_var_reset(VPvuTop___024root* vlSelf) 
     vlSelf->PvuTop__DOT__posit2float_fp64__DOT__floatEncoder__DOT____VdfgTmp_h97139b66__0 = 0;
     vlSelf->PvuTop__DOT__posit2float_fp64__DOT__floatEncoder__DOT____VdfgTmp_h554a23d6__0 = 0;
     vlSelf->PvuTop__DOT__posit2float_fp64__DOT__floatEncoder__DOT____VdfgTmp_h96e1ed81__0 = 0;
+    vlSelf->PvuTop__DOT__greater__DOT___GEN = VL_RAND_RESET_I(1);
+    vlSelf->PvuTop__DOT__greater__DOT___GEN_0 = VL_RAND_RESET_I(1);
+    vlSelf->PvuTop__DOT__greater__DOT__is_greater = VL_RAND_RESET_I(1);
+    vlSelf->PvuTop__DOT__greater__DOT___GEN_1 = VL_RAND_RESET_I(1);
+    vlSelf->PvuTop__DOT__greater__DOT___GEN_2 = VL_RAND_RESET_I(1);
+    vlSelf->PvuTop__DOT__greater__DOT__is_greater_1 = VL_RAND_RESET_I(1);
+    vlSelf->PvuTop__DOT__greater__DOT___GEN_3 = VL_RAND_RESET_I(1);
+    vlSelf->PvuTop__DOT__greater__DOT___GEN_4 = VL_RAND_RESET_I(1);
+    vlSelf->PvuTop__DOT__greater__DOT__is_greater_2 = VL_RAND_RESET_I(1);
+    vlSelf->PvuTop__DOT__greater__DOT___GEN_5 = VL_RAND_RESET_I(1);
+    vlSelf->PvuTop__DOT__greater__DOT___GEN_6 = VL_RAND_RESET_I(1);
+    vlSelf->PvuTop__DOT__greater__DOT__is_greater_3 = VL_RAND_RESET_I(1);
+    vlSelf->PvuTop__DOT__greater__DOT____VdfgTmp_h7bc97152__0 = 0;
+    vlSelf->PvuTop__DOT__greater__DOT____VdfgTmp_h2ad44887__0 = 0;
+    vlSelf->PvuTop__DOT__greater__DOT____VdfgTmp_h7b53ba00__0 = 0;
+    vlSelf->PvuTop__DOT__greater__DOT____VdfgTmp_h2a5eb3cf__0 = 0;
+    vlSelf->PvuTop__DOT__greater__DOT____VdfgTmp_h7ed67781__0 = 0;
+    vlSelf->PvuTop__DOT__greater__DOT____VdfgTmp_h29ad7f4e__0 = 0;
+    vlSelf->PvuTop__DOT__greater__DOT____VdfgTmp_h799ff3f5__0 = 0;
+    vlSelf->PvuTop__DOT__greater__DOT____VdfgTmp_h2894fb38__0 = 0;
+    vlSelf->PvuTop__DOT__less__DOT__is_less = VL_RAND_RESET_I(1);
+    vlSelf->PvuTop__DOT__less__DOT__is_less_1 = VL_RAND_RESET_I(1);
+    vlSelf->PvuTop__DOT__less__DOT__is_less_2 = VL_RAND_RESET_I(1);
+    vlSelf->PvuTop__DOT__less__DOT__is_less_3 = VL_RAND_RESET_I(1);
+    vlSelf->PvuTop__DOT__tranInt__DOT__shift_amount = VL_RAND_RESET_I(9);
+    vlSelf->PvuTop__DOT__tranInt__DOT__clamped_shift = VL_RAND_RESET_I(9);
+    vlSelf->PvuTop__DOT__tranInt__DOT__shifted_result = VL_RAND_RESET_I(32);
+    vlSelf->PvuTop__DOT__tranInt__DOT__shift_amount_1 = VL_RAND_RESET_I(9);
+    vlSelf->PvuTop__DOT__tranInt__DOT__clamped_shift_1 = VL_RAND_RESET_I(9);
+    vlSelf->PvuTop__DOT__tranInt__DOT__shifted_result_1 = VL_RAND_RESET_I(32);
+    vlSelf->PvuTop__DOT__tranInt__DOT__shift_amount_2 = VL_RAND_RESET_I(9);
+    vlSelf->PvuTop__DOT__tranInt__DOT__clamped_shift_2 = VL_RAND_RESET_I(9);
+    vlSelf->PvuTop__DOT__tranInt__DOT__shifted_result_2 = VL_RAND_RESET_I(32);
+    vlSelf->PvuTop__DOT__tranInt__DOT__shift_amount_3 = VL_RAND_RESET_I(9);
+    vlSelf->PvuTop__DOT__tranInt__DOT__clamped_shift_3 = VL_RAND_RESET_I(9);
+    vlSelf->PvuTop__DOT__tranInt__DOT__shifted_result_3 = VL_RAND_RESET_I(32);
     vlSelf->PvuTop__DOT__frac_norm_dot__DOT__frac_shifted = VL_RAND_RESET_Q(55);
     vlSelf->PvuTop__DOT__frac_norm_dot__DOT__lzcMod__DOT__gen_lzc__DOT__sel_nodes = VL_RAND_RESET_Q(64);
     VL_RAND_RESET_W(384, vlSelf->PvuTop__DOT__frac_norm_dot__DOT__lzcMod__DOT__gen_lzc__DOT__index_nodes);
@@ -2105,14 +2153,10 @@ VL_ATTR_COLD void VPvuTop___024root___ctor_var_reset(VPvuTop___024root* vlSelf) 
     vlSelf->PvuTop__DOT__floatEncoder__DOT____VdfgTmp_h8d85fb91__0 = 0;
     vlSelf->PvuTop__DOT__floatEncoder__DOT____VdfgTmp_hc13a8a89__0 = 0;
     vlSelf->PvuTop__DOT__floatEncoder__DOT____VdfgTmp_h96e1e555__0 = 0;
-    vlSelf->__VdfgTmp_hbdb848dd__0 = 0;
-    vlSelf->__VdfgTmp_hb620e6fb__0 = 0;
-    vlSelf->__VdfgTmp_h6d29a7df__0 = 0;
-    vlSelf->__VdfgTmp_hf3b3be8e__0 = 0;
-    vlSelf->__VdfgTmp_h0627a3c1__0 = 0;
-    vlSelf->__VdfgTmp_h5d7be0ac__0 = 0;
-    vlSelf->__VdfgTmp_h80b386b7__0 = 0;
-    vlSelf->__VdfgTmp_h61fd16f4__0 = 0;
+    vlSelf->__VdfgTmp_h0d51cdd3__0 = 0;
+    vlSelf->__VdfgTmp_h09896694__0 = 0;
+    vlSelf->__VdfgTmp_h65f8c3e6__0 = 0;
+    vlSelf->__VdfgTmp_hfd1694e0__0 = 0;
     vlSelf->__VdfgTmp_h0416f4a1__0 = 0;
     vlSelf->__VdfgTmp_h4303f8d5__0 = 0;
     vlSelf->__VdfgTmp_hcb4a60e4__0 = 0;
@@ -2124,19 +2168,19 @@ VL_ATTR_COLD void VPvuTop___024root___ctor_var_reset(VPvuTop___024root* vlSelf) 
     vlSelf->__VdfgTmp_h3327fc28__0 = 0;
     vlSelf->__VdfgTmp_hf9553680__0 = 0;
     vlSelf->__VdfgTmp_h341b6622__0 = 0;
-    vlSelf->__VdfgTmp_h1f706c65__0 = 0;
-    vlSelf->__VdfgTmp_hc2b4f641__0 = 0;
-    vlSelf->__VdfgTmp_hbc178730__0 = 0;
-    vlSelf->__VdfgTmp_h68ab2b38__0 = 0;
-    vlSelf->__VdfgTmp_hf3e59459__0 = 0;
-    vlSelf->__VdfgTmp_he956b689__0 = 0;
-    vlSelf->__VdfgTmp_h3b674b99__0 = 0;
-    vlSelf->__VdfgTmp_h1fe04e48__0 = 0;
-    vlSelf->__VdfgTmp_hd0ae1e35__0 = 0;
-    vlSelf->__VdfgTmp_h0cb56843__0 = 0;
-    vlSelf->__VdfgTmp_h72e5a836__0 = 0;
-    vlSelf->__VdfgTmp_h53e3e7a9__0 = 0;
-    vlSelf->__VdfgTmp_hbde1ab17__0 = 0;
+    vlSelf->__VdfgTmp_h4c08f538__0 = 0;
+    vlSelf->__VdfgTmp_h5f8b4dd4__0 = 0;
+    vlSelf->__VdfgTmp_hce76d41b__0 = 0;
+    vlSelf->__VdfgTmp_h28c03807__0 = 0;
+    vlSelf->__VdfgTmp_h2718b0ef__0 = 0;
+    vlSelf->__VdfgTmp_haa80bd50__0 = 0;
+    vlSelf->__VdfgTmp_h844d9336__0 = 0;
+    vlSelf->__VdfgTmp_h7fe49659__0 = 0;
+    vlSelf->__VdfgTmp_h71c5bb7f__0 = 0;
+    vlSelf->__VdfgTmp_h1a8c0352__0 = 0;
+    vlSelf->__VdfgTmp_h35a0e36b__0 = 0;
+    vlSelf->__VdfgTmp_h34eee576__0 = 0;
+    vlSelf->__VdfgTmp_h9c6aa78d__0 = 0;
     vlSelf->__VdfgTmp_hbeca2c52__0 = 0;
     vlSelf->__VdfgTmp_hf52bdd2a__0 = 0;
     vlSelf->__VdfgTmp_hb9ec287b__0 = 0;
@@ -2161,30 +2205,50 @@ VL_ATTR_COLD void VPvuTop___024root___ctor_var_reset(VPvuTop___024root* vlSelf) 
     vlSelf->__VdfgTmp_h6f085be2__0 = 0;
     vlSelf->__VdfgTmp_h00901bc7__0 = 0;
     vlSelf->__VdfgTmp_h8592d4be__0 = 0;
-    vlSelf->__VdfgTmp_h2ef03cd2__0 = 0;
-    vlSelf->__VdfgTmp_h6d5fee49__0 = 0;
-    vlSelf->__VdfgTmp_h84684d7f__0 = 0;
-    vlSelf->__VdfgTmp_hf2c787bd__0 = 0;
-    vlSelf->__VdfgTmp_h51fae331__0 = 0;
-    vlSelf->__VdfgTmp_h5f099ebd__0 = 0;
-    vlSelf->__VdfgTmp_h96817481__0 = 0;
-    vlSelf->__VdfgTmp_hdd7d134a__0 = 0;
-    vlSelf->__VdfgTmp_h312a3a9f__0 = 0;
-    vlSelf->__VdfgTmp_h24a2a84d__0 = 0;
-    vlSelf->__VdfgTmp_hba4b6834__0 = 0;
-    vlSelf->__VdfgTmp_hb4f1c094__0 = 0;
-    vlSelf->__VdfgTmp_hfce00294__0 = 0;
-    vlSelf->__VdfgTmp_h721c4bfa__0 = 0;
-    vlSelf->__VdfgTmp_hed5bf06f__0 = 0;
-    vlSelf->__VdfgTmp_h8cc3ad4a__0 = 0;
-    vlSelf->__VdfgTmp_hebb7f098__0 = 0;
-    vlSelf->__VdfgTmp_hbec2a741__0 = 0;
-    vlSelf->__VdfgTmp_hff197986__0 = 0;
-    vlSelf->__VdfgTmp_hcf2238f2__0 = 0;
-    vlSelf->__VdfgTmp_hada8f469__0 = 0;
-    vlSelf->__VdfgTmp_hf3945669__0 = 0;
-    vlSelf->__VdfgTmp_hee2ab060__0 = 0;
-    vlSelf->__VdfgTmp_h749bc356__0 = 0;
+    vlSelf->__VdfgTmp_h0ac2602d__0 = 0;
+    vlSelf->__VdfgTmp_h7f9446f2__0 = 0;
+    vlSelf->__VdfgTmp_hb52a27cf__0 = 0;
+    vlSelf->__VdfgTmp_hdfb7b07e__0 = 0;
+    vlSelf->__VdfgTmp_hcefd0c07__0 = 0;
+    vlSelf->__VdfgTmp_h175b7e19__0 = 0;
+    vlSelf->__VdfgTmp_h7300ed44__0 = 0;
+    vlSelf->__VdfgTmp_hb5d700b8__0 = 0;
+    vlSelf->__VdfgTmp_h9e3ac9df__0 = 0;
+    vlSelf->__VdfgTmp_h6f9ed67a__0 = 0;
+    vlSelf->__VdfgTmp_h91b2e26a__0 = 0;
+    vlSelf->__VdfgTmp_hc465359f__0 = 0;
+    vlSelf->__VdfgTmp_hfe81dba1__0 = 0;
+    vlSelf->__VdfgTmp_h30cd0bef__0 = 0;
+    vlSelf->__VdfgTmp_hc85d6aa4__0 = 0;
+    vlSelf->__VdfgTmp_he53970bf__0 = 0;
+    vlSelf->__VdfgTmp_hf7267e6a__0 = 0;
+    vlSelf->__VdfgTmp_hffb5dbbb__0 = 0;
+    vlSelf->__VdfgTmp_h76543885__0 = 0;
+    vlSelf->__VdfgTmp_h62ea5d11__0 = 0;
+    vlSelf->__VdfgTmp_h49ee0820__0 = 0;
+    vlSelf->__VdfgTmp_he01ee5f8__0 = 0;
+    vlSelf->__VdfgTmp_hc3754ef5__0 = 0;
+    vlSelf->__VdfgTmp_h2ad0e4db__0 = 0;
+    vlSelf->__VdfgTmp_hb8dc97df__0 = 0;
+    vlSelf->__VdfgTmp_h3957ca07__0 = 0;
+    vlSelf->__VdfgTmp_h635dacf6__0 = 0;
+    vlSelf->__VdfgTmp_hd7269c16__0 = 0;
+    vlSelf->__VdfgTmp_h58084909__0 = 0;
+    vlSelf->__VdfgTmp_hf8259d91__0 = 0;
+    vlSelf->__VdfgTmp_h5bc1cbb9__0 = 0;
+    vlSelf->__VdfgTmp_ha424c871__0 = 0;
+    vlSelf->__VdfgTmp_he5c1ee02__0 = 0;
+    vlSelf->__VdfgTmp_h0dd3d804__0 = 0;
+    vlSelf->__VdfgTmp_h5ed01957__0 = 0;
+    vlSelf->__VdfgTmp_hb422de58__0 = 0;
+    vlSelf->__VdfgTmp_h0cc2f08a__0 = 0;
+    vlSelf->__VdfgTmp_h7b8aa9cd__0 = 0;
+    vlSelf->__VdfgTmp_h1134ac7c__0 = 0;
+    vlSelf->__VdfgTmp_hfb655b56__0 = 0;
+    vlSelf->__VdfgTmp_h7ffb051e__0 = 0;
+    vlSelf->__VdfgTmp_h993763af__0 = 0;
+    vlSelf->__VdfgTmp_hb8a4099c__0 = 0;
+    vlSelf->__VdfgTmp_ha6f23dc5__0 = 0;
     vlSelf->__VdfgTmp_h67c762b7__0 = 0;
     vlSelf->__VdfgTmp_h3ba1ecff__0 = 0;
     vlSelf->__VdfgTmp_hac6b94cd__0 = 0;
@@ -2221,22 +2285,22 @@ VL_ATTR_COLD void VPvuTop___024root___ctor_var_reset(VPvuTop___024root* vlSelf) 
     VL_RAND_RESET_W(160, vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_sub__DOT__lzcMod_3__DOT__gen_lzc__DOT__index_nodes);
     vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__dot_decoder__DOT__lzcModule__DOT__gen_lzc__DOT__sel_nodes = VL_RAND_RESET_I(32);
     VL_RAND_RESET_W(160, vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__dot_decoder__DOT__lzcModule__DOT__gen_lzc__DOT__index_nodes);
-    VL_RAND_RESET_W(128, vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__sel_nodes);
-    VL_RAND_RESET_W(896, vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__index_nodes);
     VL_RAND_RESET_W(128, vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod____PVT__gen_lzc__DOT__sel_nodes);
     VL_RAND_RESET_W(896, vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod____PVT__gen_lzc__DOT__index_nodes);
-    VL_RAND_RESET_W(128, vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__sel_nodes);
-    VL_RAND_RESET_W(896, vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__index_nodes);
+    VL_RAND_RESET_W(128, vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__sel_nodes);
+    VL_RAND_RESET_W(896, vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__index_nodes);
     VL_RAND_RESET_W(128, vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod_1____PVT__gen_lzc__DOT__sel_nodes);
     VL_RAND_RESET_W(896, vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod_1____PVT__gen_lzc__DOT__index_nodes);
-    VL_RAND_RESET_W(128, vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__sel_nodes);
-    VL_RAND_RESET_W(896, vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__index_nodes);
+    VL_RAND_RESET_W(128, vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__sel_nodes);
+    VL_RAND_RESET_W(896, vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__index_nodes);
     VL_RAND_RESET_W(128, vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod_2____PVT__gen_lzc__DOT__sel_nodes);
     VL_RAND_RESET_W(896, vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod_2____PVT__gen_lzc__DOT__index_nodes);
-    VL_RAND_RESET_W(128, vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__sel_nodes);
-    VL_RAND_RESET_W(896, vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__index_nodes);
+    VL_RAND_RESET_W(128, vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__sel_nodes);
+    VL_RAND_RESET_W(896, vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__index_nodes);
     VL_RAND_RESET_W(128, vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod_3____PVT__gen_lzc__DOT__sel_nodes);
     VL_RAND_RESET_W(896, vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod_3____PVT__gen_lzc__DOT__index_nodes);
+    VL_RAND_RESET_W(128, vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__sel_nodes);
+    VL_RAND_RESET_W(896, vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__index_nodes);
     vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__decode1____PVT__lzcModule__DOT__gen_lzc__DOT__sel_nodes = VL_RAND_RESET_I(32);
     VL_RAND_RESET_W(160, vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__decode1____PVT__lzcModule__DOT__gen_lzc__DOT__index_nodes);
     vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__decode1____PVT__lzcModule_1__DOT__gen_lzc__DOT__sel_nodes = VL_RAND_RESET_I(32);
@@ -2296,7 +2360,7 @@ VL_ATTR_COLD void VPvuTop___024root___ctor_var_reset(VPvuTop___024root* vlSelf) 
     vlSelf->__VstlDidInit = 0;
     vlSelf->__VicoDidInit = 0;
     vlSelf->__VactDidInit = 0;
-    for (int __Vi0 = 0; __Vi0 < 146; ++__Vi0) {
+    for (int __Vi0 = 0; __Vi0 < 148; ++__Vi0) {
         vlSelf->__Vm_traceActivity[__Vi0] = 0;
     }
 }

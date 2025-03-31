@@ -7,10 +7,10 @@
 #include "VPvuTop__Syms.h"
 #include "VPvuTop___024root.h"
 
-VL_INLINE_OPT void VPvuTop___024root___ico_comb__TOP__31(VPvuTop___024root* vlSelf) {
+VL_INLINE_OPT void VPvuTop___024root___ico_comb__TOP__32(VPvuTop___024root* vlSelf) {
     if (false && vlSelf) {}  // Prevent unused
     VPvuTop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    VL_DEBUG_IF(VL_DBG_MSGF("+    VPvuTop___024root___ico_comb__TOP__31\n"); );
+    VL_DEBUG_IF(VL_DBG_MSGF("+    VPvuTop___024root___ico_comb__TOP__32\n"); );
     // Init
     VlWide<3>/*67:0*/ PvuTop__DOT__frac_norm_div__DOT__shifter_3__DOT___temp_results_5_T_2;
     VL_ZERO_W(68, PvuTop__DOT__frac_norm_div__DOT__shifter_3__DOT___temp_results_5_T_2);
@@ -146,10 +146,10 @@ VL_INLINE_OPT void VPvuTop___024root___ico_comb__TOP__31(VPvuTop___024root* vlSe
     }
 }
 
-VL_INLINE_OPT void VPvuTop___024root___ico_comb__TOP__32(VPvuTop___024root* vlSelf) {
+VL_INLINE_OPT void VPvuTop___024root___ico_comb__TOP__33(VPvuTop___024root* vlSelf) {
     if (false && vlSelf) {}  // Prevent unused
     VPvuTop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    VL_DEBUG_IF(VL_DBG_MSGF("+    VPvuTop___024root___ico_comb__TOP__32\n"); );
+    VL_DEBUG_IF(VL_DBG_MSGF("+    VPvuTop___024root___ico_comb__TOP__33\n"); );
     // Init
     VlWide<3>/*67:0*/ PvuTop__DOT__frac_norm_div__DOT__shifter_2__DOT___temp_results_5_T_2;
     VL_ZERO_W(68, PvuTop__DOT__frac_norm_div__DOT__shifter_2__DOT___temp_results_5_T_2);
@@ -285,10 +285,10 @@ VL_INLINE_OPT void VPvuTop___024root___ico_comb__TOP__32(VPvuTop___024root* vlSe
     }
 }
 
-VL_INLINE_OPT void VPvuTop___024root___ico_comb__TOP__33(VPvuTop___024root* vlSelf) {
+VL_INLINE_OPT void VPvuTop___024root___ico_comb__TOP__34(VPvuTop___024root* vlSelf) {
     if (false && vlSelf) {}  // Prevent unused
     VPvuTop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    VL_DEBUG_IF(VL_DBG_MSGF("+    VPvuTop___024root___ico_comb__TOP__33\n"); );
+    VL_DEBUG_IF(VL_DBG_MSGF("+    VPvuTop___024root___ico_comb__TOP__34\n"); );
     // Init
     VlWide<3>/*67:0*/ PvuTop__DOT__frac_norm_div__DOT__shifter_1__DOT___temp_results_5_T_2;
     VL_ZERO_W(68, PvuTop__DOT__frac_norm_div__DOT__shifter_1__DOT___temp_results_5_T_2);
@@ -424,10 +424,10 @@ VL_INLINE_OPT void VPvuTop___024root___ico_comb__TOP__33(VPvuTop___024root* vlSe
     }
 }
 
-VL_INLINE_OPT void VPvuTop___024root___ico_comb__TOP__34(VPvuTop___024root* vlSelf) {
+VL_INLINE_OPT void VPvuTop___024root___ico_comb__TOP__35(VPvuTop___024root* vlSelf) {
     if (false && vlSelf) {}  // Prevent unused
     VPvuTop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    VL_DEBUG_IF(VL_DBG_MSGF("+    VPvuTop___024root___ico_comb__TOP__34\n"); );
+    VL_DEBUG_IF(VL_DBG_MSGF("+    VPvuTop___024root___ico_comb__TOP__35\n"); );
     // Init
     VlWide<3>/*67:0*/ PvuTop__DOT__frac_norm_div__DOT__shifter__DOT___temp_results_5_T_2;
     VL_ZERO_W(68, PvuTop__DOT__frac_norm_div__DOT__shifter__DOT___temp_results_5_T_2);
@@ -563,10 +563,10 @@ VL_INLINE_OPT void VPvuTop___024root___ico_comb__TOP__34(VPvuTop___024root* vlSe
     }
 }
 
-VL_INLINE_OPT void VPvuTop___024root___ico_comb__TOP__38(VPvuTop___024root* vlSelf) {
+VL_INLINE_OPT void VPvuTop___024root___ico_comb__TOP__39(VPvuTop___024root* vlSelf) {
     if (false && vlSelf) {}  // Prevent unused
     VPvuTop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    VL_DEBUG_IF(VL_DBG_MSGF("+    VPvuTop___024root___ico_comb__TOP__38\n"); );
+    VL_DEBUG_IF(VL_DBG_MSGF("+    VPvuTop___024root___ico_comb__TOP__39\n"); );
     // Init
     VlWide<3>/*67:0*/ PvuTop__DOT__frac_norm_mul__DOT__shifter_3__DOT___temp_results_5_T_2;
     VL_ZERO_W(68, PvuTop__DOT__frac_norm_mul__DOT__shifter_3__DOT___temp_results_5_T_2);
@@ -702,10 +702,10 @@ VL_INLINE_OPT void VPvuTop___024root___ico_comb__TOP__38(VPvuTop___024root* vlSe
     }
 }
 
-VL_INLINE_OPT void VPvuTop___024root___ico_comb__TOP__39(VPvuTop___024root* vlSelf) {
+VL_INLINE_OPT void VPvuTop___024root___ico_comb__TOP__40(VPvuTop___024root* vlSelf) {
     if (false && vlSelf) {}  // Prevent unused
     VPvuTop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    VL_DEBUG_IF(VL_DBG_MSGF("+    VPvuTop___024root___ico_comb__TOP__39\n"); );
+    VL_DEBUG_IF(VL_DBG_MSGF("+    VPvuTop___024root___ico_comb__TOP__40\n"); );
     // Init
     VlWide<3>/*67:0*/ PvuTop__DOT__frac_norm_mul__DOT__shifter_2__DOT___temp_results_5_T_2;
     VL_ZERO_W(68, PvuTop__DOT__frac_norm_mul__DOT__shifter_2__DOT___temp_results_5_T_2);
@@ -841,10 +841,10 @@ VL_INLINE_OPT void VPvuTop___024root___ico_comb__TOP__39(VPvuTop___024root* vlSe
     }
 }
 
-VL_INLINE_OPT void VPvuTop___024root___ico_comb__TOP__40(VPvuTop___024root* vlSelf) {
+VL_INLINE_OPT void VPvuTop___024root___ico_comb__TOP__41(VPvuTop___024root* vlSelf) {
     if (false && vlSelf) {}  // Prevent unused
     VPvuTop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    VL_DEBUG_IF(VL_DBG_MSGF("+    VPvuTop___024root___ico_comb__TOP__40\n"); );
+    VL_DEBUG_IF(VL_DBG_MSGF("+    VPvuTop___024root___ico_comb__TOP__41\n"); );
     // Init
     VlWide<3>/*67:0*/ PvuTop__DOT__frac_norm_mul__DOT__shifter_1__DOT___temp_results_5_T_2;
     VL_ZERO_W(68, PvuTop__DOT__frac_norm_mul__DOT__shifter_1__DOT___temp_results_5_T_2);
@@ -980,10 +980,10 @@ VL_INLINE_OPT void VPvuTop___024root___ico_comb__TOP__40(VPvuTop___024root* vlSe
     }
 }
 
-VL_INLINE_OPT void VPvuTop___024root___ico_comb__TOP__41(VPvuTop___024root* vlSelf) {
+VL_INLINE_OPT void VPvuTop___024root___ico_comb__TOP__42(VPvuTop___024root* vlSelf) {
     if (false && vlSelf) {}  // Prevent unused
     VPvuTop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    VL_DEBUG_IF(VL_DBG_MSGF("+    VPvuTop___024root___ico_comb__TOP__41\n"); );
+    VL_DEBUG_IF(VL_DBG_MSGF("+    VPvuTop___024root___ico_comb__TOP__42\n"); );
     // Init
     VlWide<3>/*67:0*/ PvuTop__DOT__frac_norm_mul__DOT__shifter__DOT___temp_results_5_T_2;
     VL_ZERO_W(68, PvuTop__DOT__frac_norm_mul__DOT__shifter__DOT___temp_results_5_T_2);
@@ -1119,18 +1119,163 @@ VL_INLINE_OPT void VPvuTop___024root___ico_comb__TOP__41(VPvuTop___024root* vlSe
     }
 }
 
-VL_INLINE_OPT void VPvuTop___024root___ico_comb__TOP__43(VPvuTop___024root* vlSelf) {
+VL_INLINE_OPT void VPvuTop___024root___ico_comb__TOP__44(VPvuTop___024root* vlSelf) {
     if (false && vlSelf) {}  // Prevent unused
     VPvuTop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    VL_DEBUG_IF(VL_DBG_MSGF("+    VPvuTop___024root___ico_comb__TOP__43\n"); );
-    // Init
-    QData/*63:0*/ PvuTop__DOT___GEN_64;
-    PvuTop__DOT___GEN_64 = 0;
+    VL_DEBUG_IF(VL_DBG_MSGF("+    VPvuTop___024root___ico_comb__TOP__44\n"); );
     // Body
-    PvuTop__DOT___GEN_64 = (((QData)((IData)(((1U & 
-                                               vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__sel_nodes[0U])
-                                               ? (0xffU 
-                                                  & ((0xdU 
+    vlSelf->PvuTop__DOT___pir_exp_rst_adjusied_3_T 
+        = (0xffU & (((1U == (IData)(vlSelf->io_op))
+                      ? ((IData)(vlSelf->PvuTop__DOT____VdfgTmp_ha10fc7a1__0)
+                          ? ((IData)(vlSelf->PvuTop__DOT__fracalign_1__DOT___io_pir_max_exp_3_T_1) 
+                             + (IData)(vlSelf->PvuTop__DOT__add__DOT____VdfgTmp_he2d6c4d8__0))
+                          : 0U) : ((2U == (IData)(vlSelf->io_op))
+                                    ? ((1U & ((~ (vlSelf->PvuTop__DOT__add__DOT__sum_3 
+                                                  >> 0x1eU)) 
+                                              | (IData)(vlSelf->PvuTop__DOT__add__DOT___GEN_2)))
+                                        ? (IData)(vlSelf->PvuTop__DOT__fracalign_1__DOT___io_pir_max_exp_3_T_1)
+                                        : ((IData)(1U) 
+                                           + (IData)(vlSelf->PvuTop__DOT__fracalign_1__DOT___io_pir_max_exp_3_T_1)))
+                                    : ((3U == (IData)(vlSelf->io_op))
+                                        ? (IData)(vlSelf->__VdfgTmp_h544e4e80__0)
+                                        : ((4U == (IData)(vlSelf->io_op))
+                                            ? ((vlSelf->PvuTop__DOT____Vcellinp__fracalign_1__io_pir_exp1_i 
+                                                >> 0x18U) 
+                                               - (vlSelf->PvuTop__DOT____Vcellinp__fracalign_1__io_pir_exp2_i 
+                                                  >> 0x18U))
+                                            : ((IData)(vlSelf->PvuTop__DOT___GEN_64)
+                                                ? 0U
+                                                : (
+                                                   (8U 
+                                                    == (IData)(vlSelf->io_op))
+                                                    ? 
+                                                   ((IData)(vlSelf->PvuTop__DOT__greater__DOT__is_greater_3)
+                                                     ? 
+                                                    (vlSelf->PvuTop__DOT____Vcellinp__fracalign_1__io_pir_exp1_i 
+                                                     >> 0x18U)
+                                                     : 
+                                                    (vlSelf->PvuTop__DOT____Vcellinp__fracalign_1__io_pir_exp2_i 
+                                                     >> 0x18U))
+                                                    : 
+                                                   ((9U 
+                                                     == (IData)(vlSelf->io_op))
+                                                     ? 
+                                                    ((IData)(vlSelf->PvuTop__DOT__less__DOT__is_less_3)
+                                                      ? 
+                                                     (vlSelf->PvuTop__DOT____Vcellinp__fracalign_1__io_pir_exp1_i 
+                                                      >> 0x18U)
+                                                      : 
+                                                     (vlSelf->PvuTop__DOT____Vcellinp__fracalign_1__io_pir_exp2_i 
+                                                      >> 0x18U))
+                                                     : 0U))))))) 
+                    + ((5U == (IData)(vlSelf->io_op))
+                        ? 0U : ((1U == (IData)(vlSelf->io_op))
+                                 ? ((IData)(vlSelf->PvuTop__DOT____VdfgTmp_ha10fc7a1__0)
+                                     ? ((1U & vlSelf->PvuTop__DOT__frac_norm_add__DOT__lzcMod_3__DOT__gen_lzc__DOT__sel_nodes)
+                                         ? ((0U == 
+                                             (0x1fU 
+                                              & vlSelf->PvuTop__DOT__frac_norm_add__DOT__lzcMod_3__DOT__gen_lzc__DOT__index_nodes[0U]))
+                                             ? ((0xe0U 
+                                                 & ((- (IData)(
+                                                               (1U 
+                                                                & ((((IData)(1U) 
+                                                                     - 
+                                                                     vlSelf->PvuTop__DOT__frac_norm_add__DOT__lzcMod_3__DOT__gen_lzc__DOT__index_nodes[0U]) 
+                                                                    - (IData)(1U)) 
+                                                                   >> 4U)))) 
+                                                    << 5U)) 
+                                                | (0x1fU 
+                                                   & (((IData)(1U) 
+                                                       - 
+                                                       vlSelf->PvuTop__DOT__frac_norm_add__DOT__lzcMod_3__DOT__gen_lzc__DOT__index_nodes[0U]) 
+                                                      - (IData)(1U))))
+                                             : ((0xe0U 
+                                                 & ((- (IData)(
+                                                               (1U 
+                                                                & ((- 
+                                                                    vlSelf->PvuTop__DOT__frac_norm_add__DOT__lzcMod_3__DOT__gen_lzc__DOT__index_nodes[0U]) 
+                                                                   >> 4U)))) 
+                                                    << 5U)) 
+                                                | (0x1fU 
+                                                   & (- 
+                                                      vlSelf->PvuTop__DOT__frac_norm_add__DOT__lzcMod_3__DOT__gen_lzc__DOT__index_nodes[0U]))))
+                                         : 0U) : 0U)
+                                 : ((2U == (IData)(vlSelf->io_op))
+                                     ? ((1U & vlSelf->PvuTop__DOT__frac_norm_sub__DOT__lzcMod_3__DOT__gen_lzc__DOT__sel_nodes)
+                                         ? ((0U == 
+                                             (0x1fU 
+                                              & vlSelf->PvuTop__DOT__frac_norm_sub__DOT__lzcMod_3__DOT__gen_lzc__DOT__index_nodes[0U]))
+                                             ? ((0xe0U 
+                                                 & ((- (IData)(
+                                                               (1U 
+                                                                & ((((IData)(1U) 
+                                                                     - 
+                                                                     vlSelf->PvuTop__DOT__frac_norm_sub__DOT__lzcMod_3__DOT__gen_lzc__DOT__index_nodes[0U]) 
+                                                                    - (IData)(1U)) 
+                                                                   >> 4U)))) 
+                                                    << 5U)) 
+                                                | (0x1fU 
+                                                   & (((IData)(1U) 
+                                                       - 
+                                                       vlSelf->PvuTop__DOT__frac_norm_sub__DOT__lzcMod_3__DOT__gen_lzc__DOT__index_nodes[0U]) 
+                                                      - (IData)(1U))))
+                                             : ((0xe0U 
+                                                 & ((- (IData)(
+                                                               (1U 
+                                                                & ((- 
+                                                                    vlSelf->PvuTop__DOT__frac_norm_sub__DOT__lzcMod_3__DOT__gen_lzc__DOT__index_nodes[0U]) 
+                                                                   >> 4U)))) 
+                                                    << 5U)) 
+                                                | (0x1fU 
+                                                   & (- 
+                                                      vlSelf->PvuTop__DOT__frac_norm_sub__DOT__lzcMod_3__DOT__gen_lzc__DOT__index_nodes[0U]))))
+                                         : 0U) : ((3U 
+                                                   == (IData)(vlSelf->io_op))
+                                                   ? 
+                                                  ((1U 
+                                                    & vlSymsp->TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod_3.__PVT__gen_lzc__DOT__sel_nodes[0U])
+                                                    ? 
+                                                   ((0xeU 
+                                                     > 
+                                                     (0x7fU 
+                                                      & vlSymsp->TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[0U]))
+                                                     ? 
+                                                    ((0x380U 
+                                                      & ((- (IData)(
+                                                                    (1U 
+                                                                     & ((((IData)(0xeU) 
+                                                                          - 
+                                                                          vlSymsp->TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[0U]) 
+                                                                         - (IData)(1U)) 
+                                                                        >> 6U)))) 
+                                                         << 7U)) 
+                                                     | (0x7fU 
+                                                        & (((IData)(0xeU) 
+                                                            - 
+                                                            vlSymsp->TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[0U]) 
+                                                           - (IData)(1U))))
+                                                     : 
+                                                    ((0x380U 
+                                                      & ((- (IData)(
+                                                                    (1U 
+                                                                     & ((- 
+                                                                         (vlSymsp->TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[0U] 
+                                                                          - (IData)(0xdU))) 
+                                                                        >> 6U)))) 
+                                                         << 7U)) 
+                                                     | (0x7fU 
+                                                        & (- 
+                                                           (vlSymsp->TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[0U] 
+                                                            - (IData)(0xdU))))))
+                                                    : 0U)
+                                                   : 
+                                                  ((4U 
+                                                    == (IData)(vlSelf->io_op))
+                                                    ? 
+                                                   ((1U 
+                                                     & vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__sel_nodes[0U])
+                                                     ? 
+                                                    ((0xdU 
                                                       > 
                                                       (0x7fU 
                                                        & vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[0U]))
@@ -1161,181 +1306,192 @@ VL_INLINE_OPT void VPvuTop___024root___ico_comb__TOP__43(VPvuTop___024root* vlSe
                                                       | (0x7fU 
                                                          & (- 
                                                             (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[0U] 
-                                                             - (IData)(0xcU)))))))
-                                               : 0U))) 
-                             << 0x20U) | (QData)((IData)(
-                                                         ((((1U 
-                                                             & vlSymsp->TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod_3.__PVT__gen_lzc__DOT__sel_nodes[0U])
-                                                             ? 
-                                                            (0xffU 
-                                                             & ((0xeU 
-                                                                 > 
-                                                                 (0x7fU 
-                                                                  & vlSymsp->TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[0U]))
-                                                                 ? 
-                                                                ((0x380U 
-                                                                  & ((- (IData)(
-                                                                                (1U 
-                                                                                & ((((IData)(0xeU) 
-                                                                                - 
-                                                                                vlSymsp->TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[0U]) 
-                                                                                - (IData)(1U)) 
-                                                                                >> 6U)))) 
-                                                                     << 7U)) 
-                                                                 | (0x7fU 
-                                                                    & (((IData)(0xeU) 
-                                                                        - 
-                                                                        vlSymsp->TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[0U]) 
-                                                                       - (IData)(1U))))
-                                                                 : 
-                                                                ((0x380U 
-                                                                  & ((- (IData)(
-                                                                                (1U 
-                                                                                & ((- 
-                                                                                (vlSymsp->TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[0U] 
-                                                                                - (IData)(0xdU))) 
-                                                                                >> 6U)))) 
-                                                                     << 7U)) 
-                                                                 | (0x7fU 
-                                                                    & (- 
-                                                                       (vlSymsp->TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[0U] 
-                                                                        - (IData)(0xdU)))))))
-                                                             : 0U) 
-                                                           << 0x18U) 
-                                                          | ((((1U 
-                                                                & vlSelf->PvuTop__DOT__frac_norm_sub__DOT__lzcMod_3__DOT__gen_lzc__DOT__sel_nodes)
-                                                                ? 
-                                                               ((0U 
-                                                                 == 
-                                                                 (0x1fU 
-                                                                  & vlSelf->PvuTop__DOT__frac_norm_sub__DOT__lzcMod_3__DOT__gen_lzc__DOT__index_nodes[0U]))
-                                                                 ? 
-                                                                ((0xe0U 
-                                                                  & ((- (IData)(
-                                                                                (1U 
-                                                                                & ((((IData)(1U) 
-                                                                                - 
-                                                                                vlSelf->PvuTop__DOT__frac_norm_sub__DOT__lzcMod_3__DOT__gen_lzc__DOT__index_nodes[0U]) 
-                                                                                - (IData)(1U)) 
-                                                                                >> 4U)))) 
-                                                                     << 5U)) 
-                                                                 | (0x1fU 
-                                                                    & (((IData)(1U) 
-                                                                        - 
-                                                                        vlSelf->PvuTop__DOT__frac_norm_sub__DOT__lzcMod_3__DOT__gen_lzc__DOT__index_nodes[0U]) 
-                                                                       - (IData)(1U))))
-                                                                 : 
-                                                                ((0xe0U 
-                                                                  & ((- (IData)(
-                                                                                (1U 
-                                                                                & ((- 
-                                                                                vlSelf->PvuTop__DOT__frac_norm_sub__DOT__lzcMod_3__DOT__gen_lzc__DOT__index_nodes[0U]) 
-                                                                                >> 4U)))) 
-                                                                     << 5U)) 
-                                                                 | (0x1fU 
-                                                                    & (- 
-                                                                       vlSelf->PvuTop__DOT__frac_norm_sub__DOT__lzcMod_3__DOT__gen_lzc__DOT__index_nodes[0U]))))
-                                                                : 0U) 
-                                                              << 0x10U) 
-                                                             | (((IData)(vlSelf->PvuTop__DOT____VdfgTmp_ha10fc7a1__0)
-                                                                  ? 
-                                                                 ((1U 
-                                                                   & vlSelf->PvuTop__DOT__frac_norm_add__DOT__lzcMod_3__DOT__gen_lzc__DOT__sel_nodes)
-                                                                   ? 
-                                                                  ((0U 
-                                                                    == 
-                                                                    (0x1fU 
-                                                                     & vlSelf->PvuTop__DOT__frac_norm_add__DOT__lzcMod_3__DOT__gen_lzc__DOT__index_nodes[0U]))
-                                                                    ? 
-                                                                   ((0xe0U 
-                                                                     & ((- (IData)(
-                                                                                (1U 
-                                                                                & ((((IData)(1U) 
-                                                                                - 
-                                                                                vlSelf->PvuTop__DOT__frac_norm_add__DOT__lzcMod_3__DOT__gen_lzc__DOT__index_nodes[0U]) 
-                                                                                - (IData)(1U)) 
-                                                                                >> 4U)))) 
-                                                                        << 5U)) 
-                                                                    | (0x1fU 
-                                                                       & (((IData)(1U) 
-                                                                           - 
-                                                                           vlSelf->PvuTop__DOT__frac_norm_add__DOT__lzcMod_3__DOT__gen_lzc__DOT__index_nodes[0U]) 
-                                                                          - (IData)(1U))))
-                                                                    : 
-                                                                   ((0xe0U 
-                                                                     & ((- (IData)(
-                                                                                (1U 
-                                                                                & ((- 
-                                                                                vlSelf->PvuTop__DOT__frac_norm_add__DOT__lzcMod_3__DOT__gen_lzc__DOT__index_nodes[0U]) 
-                                                                                >> 4U)))) 
-                                                                        << 5U)) 
-                                                                    | (0x1fU 
-                                                                       & (- 
-                                                                          vlSelf->PvuTop__DOT__frac_norm_add__DOT__lzcMod_3__DOT__gen_lzc__DOT__index_nodes[0U]))))
-                                                                   : 0U)
-                                                                  : 0U) 
-                                                                << 8U))))));
-    vlSelf->PvuTop__DOT___pir_exp_rst_adjusied_3_T 
-        = (0xffU & (((1U == (IData)(vlSelf->io_op))
-                      ? ((IData)(vlSelf->PvuTop__DOT____VdfgTmp_ha10fc7a1__0)
-                          ? ((IData)(vlSelf->PvuTop__DOT__fracalign_1__DOT___io_pir_max_exp_3_T_1) 
-                             + (IData)(vlSelf->PvuTop__DOT__add__DOT____VdfgTmp_he2d6c4d8__0))
-                          : 0U) : ((2U == (IData)(vlSelf->io_op))
-                                    ? ((1U & ((~ (vlSelf->PvuTop__DOT__add__DOT__sum_3 
-                                                  >> 0x1eU)) 
-                                              | (IData)(vlSelf->PvuTop__DOT__add__DOT___GEN_2)))
-                                        ? (IData)(vlSelf->PvuTop__DOT__fracalign_1__DOT___io_pir_max_exp_3_T_1)
-                                        : ((IData)(1U) 
-                                           + (IData)(vlSelf->PvuTop__DOT__fracalign_1__DOT___io_pir_max_exp_3_T_1)))
-                                    : ((3U == (IData)(vlSelf->io_op))
-                                        ? (IData)(vlSelf->__VdfgTmp_h544e4e80__0)
-                                        : ((4U == (IData)(vlSelf->io_op))
-                                            ? ((vlSelf->PvuTop__DOT____Vcellinp__fracalign_1__io_pir_exp1_i 
-                                                >> 0x18U) 
-                                               - (vlSelf->PvuTop__DOT____Vcellinp__fracalign_1__io_pir_exp2_i 
-                                                  >> 0x18U))
-                                            : 0U)))) 
-                    + (IData)((PvuTop__DOT___GEN_64 
-                               >> (0x3fU & ((IData)(vlSelf->io_op) 
-                                            << 3U))))));
-    vlSelf->PvuTop__DOT___GEN_80 = ((IData)(vlSelf->PvuTop__DOT___GEN_73)
+                                                             - (IData)(0xcU))))))
+                                                     : 0U)
+                                                    : 0U)))))));
+    vlSelf->PvuTop__DOT___GEN_88 = ((IData)(vlSelf->PvuTop__DOT___GEN_83)
                                      ? 0U : (IData)(vlSelf->PvuTop__DOT___pir_exp_rst_adjusied_3_T));
-    if (vlSelf->__VdfgTmp_hfce00294__0) {
-        vlSelf->__VdfgTmp_h721c4bfa__0 = 0U;
+    if (vlSelf->__VdfgTmp_he5c1ee02__0) {
+        vlSelf->__VdfgTmp_h0dd3d804__0 = 0U;
         vlSelf->PvuTop__DOT__encode__DOT____VdfgTmp_h1cf3a611__0 = 0U;
-        vlSelf->__VdfgTmp_h8cc3ad4a__0 = 0x1fU;
+        vlSelf->__VdfgTmp_hb422de58__0 = 0x1fU;
     } else {
-        vlSelf->__VdfgTmp_h721c4bfa__0 = (3U & (IData)(vlSelf->PvuTop__DOT___pir_exp_rst_adjusied_3_T));
+        vlSelf->__VdfgTmp_h0dd3d804__0 = (3U & (IData)(vlSelf->PvuTop__DOT___pir_exp_rst_adjusied_3_T));
         vlSelf->PvuTop__DOT__encode__DOT____VdfgTmp_h1cf3a611__0 
             = (0x1fU & ((IData)(vlSelf->PvuTop__DOT___pir_exp_rst_adjusied_3_T) 
                         >> 2U));
-        vlSelf->__VdfgTmp_h8cc3ad4a__0 = (0x1fU & (~ 
+        vlSelf->__VdfgTmp_hb422de58__0 = (0x1fU & (~ 
                                                    ((IData)(vlSelf->PvuTop__DOT___pir_exp_rst_adjusied_3_T) 
                                                     >> 2U)));
     }
     vlSelf->PvuTop__DOT__encode__DOT____VdfgTmp_h1ce7231a__0 
-        = ((~ (IData)(vlSelf->__VdfgTmp_hfce00294__0)) 
+        = ((~ (IData)(vlSelf->__VdfgTmp_he5c1ee02__0)) 
            & ((IData)(vlSelf->PvuTop__DOT___pir_exp_rst_adjusied_3_T) 
               >> 7U));
     vlSelf->PvuTop__DOT__encode__DOT____Vcellinp__barrel_shifter_3__io_shift_amount 
         = (0x1fU & (((IData)(vlSelf->PvuTop__DOT__encode__DOT____VdfgTmp_h1ce7231a__0)
-                      ? ((IData)(2U) + (IData)(vlSelf->__VdfgTmp_h8cc3ad4a__0))
+                      ? ((IData)(2U) + (IData)(vlSelf->__VdfgTmp_hb422de58__0))
                       : ((IData)(2U) + (IData)(vlSelf->PvuTop__DOT__encode__DOT____VdfgTmp_h1cf3a611__0))) 
                     - (IData)(2U)));
 }
 
-VL_INLINE_OPT void VPvuTop___024root___ico_comb__TOP__45(VPvuTop___024root* vlSelf) {
+VL_INLINE_OPT void VPvuTop___024root___ico_comb__TOP__46(VPvuTop___024root* vlSelf) {
     if (false && vlSelf) {}  // Prevent unused
     VPvuTop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    VL_DEBUG_IF(VL_DBG_MSGF("+    VPvuTop___024root___ico_comb__TOP__45\n"); );
-    // Init
-    QData/*63:0*/ PvuTop__DOT___GEN_63;
-    PvuTop__DOT___GEN_63 = 0;
+    VL_DEBUG_IF(VL_DBG_MSGF("+    VPvuTop___024root___ico_comb__TOP__46\n"); );
     // Body
-    PvuTop__DOT___GEN_63 = (((QData)((IData)(((1U & 
-                                               vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__sel_nodes[0U])
-                                               ? (0xffU 
-                                                  & ((0xdU 
+    vlSelf->PvuTop__DOT___pir_exp_rst_adjusied_2_T 
+        = (0xffU & (((1U == (IData)(vlSelf->io_op))
+                      ? ((2U < (IData)(vlSelf->PvuTop__DOT__ACTUAL_VECTOR_SIZE))
+                          ? ((IData)(vlSelf->PvuTop__DOT__fracalign_1__DOT___io_pir_max_exp_2_T_1) 
+                             + (IData)(vlSelf->PvuTop__DOT__add__DOT____VdfgTmp_h4e8a04cd__0))
+                          : 0U) : ((2U == (IData)(vlSelf->io_op))
+                                    ? ((1U & ((~ (vlSelf->PvuTop__DOT__add__DOT__sum_2 
+                                                  >> 0x1eU)) 
+                                              | (IData)(vlSelf->PvuTop__DOT__add__DOT___GEN_1)))
+                                        ? (IData)(vlSelf->PvuTop__DOT__fracalign_1__DOT___io_pir_max_exp_2_T_1)
+                                        : ((IData)(1U) 
+                                           + (IData)(vlSelf->PvuTop__DOT__fracalign_1__DOT___io_pir_max_exp_2_T_1)))
+                                    : ((3U == (IData)(vlSelf->io_op))
+                                        ? (IData)(vlSelf->__VdfgTmp_h3327fc28__0)
+                                        : ((4U == (IData)(vlSelf->io_op))
+                                            ? ((vlSelf->PvuTop__DOT____Vcellinp__fracalign_1__io_pir_exp1_i 
+                                                >> 0x10U) 
+                                               - (vlSelf->PvuTop__DOT____Vcellinp__fracalign_1__io_pir_exp2_i 
+                                                  >> 0x10U))
+                                            : ((IData)(vlSelf->PvuTop__DOT___GEN_64)
+                                                ? 0U
+                                                : (
+                                                   (8U 
+                                                    == (IData)(vlSelf->io_op))
+                                                    ? 
+                                                   ((IData)(vlSelf->PvuTop__DOT__greater__DOT__is_greater_2)
+                                                     ? 
+                                                    (vlSelf->PvuTop__DOT____Vcellinp__fracalign_1__io_pir_exp1_i 
+                                                     >> 0x10U)
+                                                     : 
+                                                    (vlSelf->PvuTop__DOT____Vcellinp__fracalign_1__io_pir_exp2_i 
+                                                     >> 0x10U))
+                                                    : 
+                                                   ((9U 
+                                                     == (IData)(vlSelf->io_op))
+                                                     ? 
+                                                    ((IData)(vlSelf->PvuTop__DOT__less__DOT__is_less_2)
+                                                      ? 
+                                                     (vlSelf->PvuTop__DOT____Vcellinp__fracalign_1__io_pir_exp1_i 
+                                                      >> 0x10U)
+                                                      : 
+                                                     (vlSelf->PvuTop__DOT____Vcellinp__fracalign_1__io_pir_exp2_i 
+                                                      >> 0x10U))
+                                                     : 0U))))))) 
+                    + ((5U == (IData)(vlSelf->io_op))
+                        ? 0U : ((1U == (IData)(vlSelf->io_op))
+                                 ? ((2U < (IData)(vlSelf->PvuTop__DOT__ACTUAL_VECTOR_SIZE))
+                                     ? ((1U & vlSelf->PvuTop__DOT__frac_norm_add__DOT__lzcMod_2__DOT__gen_lzc__DOT__sel_nodes)
+                                         ? ((0U == 
+                                             (0x1fU 
+                                              & vlSelf->PvuTop__DOT__frac_norm_add__DOT__lzcMod_2__DOT__gen_lzc__DOT__index_nodes[0U]))
+                                             ? ((0xe0U 
+                                                 & ((- (IData)(
+                                                               (1U 
+                                                                & ((((IData)(1U) 
+                                                                     - 
+                                                                     vlSelf->PvuTop__DOT__frac_norm_add__DOT__lzcMod_2__DOT__gen_lzc__DOT__index_nodes[0U]) 
+                                                                    - (IData)(1U)) 
+                                                                   >> 4U)))) 
+                                                    << 5U)) 
+                                                | (0x1fU 
+                                                   & (((IData)(1U) 
+                                                       - 
+                                                       vlSelf->PvuTop__DOT__frac_norm_add__DOT__lzcMod_2__DOT__gen_lzc__DOT__index_nodes[0U]) 
+                                                      - (IData)(1U))))
+                                             : ((0xe0U 
+                                                 & ((- (IData)(
+                                                               (1U 
+                                                                & ((- 
+                                                                    vlSelf->PvuTop__DOT__frac_norm_add__DOT__lzcMod_2__DOT__gen_lzc__DOT__index_nodes[0U]) 
+                                                                   >> 4U)))) 
+                                                    << 5U)) 
+                                                | (0x1fU 
+                                                   & (- 
+                                                      vlSelf->PvuTop__DOT__frac_norm_add__DOT__lzcMod_2__DOT__gen_lzc__DOT__index_nodes[0U]))))
+                                         : 0U) : 0U)
+                                 : ((2U == (IData)(vlSelf->io_op))
+                                     ? ((1U & vlSelf->PvuTop__DOT__frac_norm_sub__DOT__lzcMod_2__DOT__gen_lzc__DOT__sel_nodes)
+                                         ? ((0U == 
+                                             (0x1fU 
+                                              & vlSelf->PvuTop__DOT__frac_norm_sub__DOT__lzcMod_2__DOT__gen_lzc__DOT__index_nodes[0U]))
+                                             ? ((0xe0U 
+                                                 & ((- (IData)(
+                                                               (1U 
+                                                                & ((((IData)(1U) 
+                                                                     - 
+                                                                     vlSelf->PvuTop__DOT__frac_norm_sub__DOT__lzcMod_2__DOT__gen_lzc__DOT__index_nodes[0U]) 
+                                                                    - (IData)(1U)) 
+                                                                   >> 4U)))) 
+                                                    << 5U)) 
+                                                | (0x1fU 
+                                                   & (((IData)(1U) 
+                                                       - 
+                                                       vlSelf->PvuTop__DOT__frac_norm_sub__DOT__lzcMod_2__DOT__gen_lzc__DOT__index_nodes[0U]) 
+                                                      - (IData)(1U))))
+                                             : ((0xe0U 
+                                                 & ((- (IData)(
+                                                               (1U 
+                                                                & ((- 
+                                                                    vlSelf->PvuTop__DOT__frac_norm_sub__DOT__lzcMod_2__DOT__gen_lzc__DOT__index_nodes[0U]) 
+                                                                   >> 4U)))) 
+                                                    << 5U)) 
+                                                | (0x1fU 
+                                                   & (- 
+                                                      vlSelf->PvuTop__DOT__frac_norm_sub__DOT__lzcMod_2__DOT__gen_lzc__DOT__index_nodes[0U]))))
+                                         : 0U) : ((3U 
+                                                   == (IData)(vlSelf->io_op))
+                                                   ? 
+                                                  ((1U 
+                                                    & vlSymsp->TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod_2.__PVT__gen_lzc__DOT__sel_nodes[0U])
+                                                    ? 
+                                                   ((0xeU 
+                                                     > 
+                                                     (0x7fU 
+                                                      & vlSymsp->TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[0U]))
+                                                     ? 
+                                                    ((0x380U 
+                                                      & ((- (IData)(
+                                                                    (1U 
+                                                                     & ((((IData)(0xeU) 
+                                                                          - 
+                                                                          vlSymsp->TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[0U]) 
+                                                                         - (IData)(1U)) 
+                                                                        >> 6U)))) 
+                                                         << 7U)) 
+                                                     | (0x7fU 
+                                                        & (((IData)(0xeU) 
+                                                            - 
+                                                            vlSymsp->TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[0U]) 
+                                                           - (IData)(1U))))
+                                                     : 
+                                                    ((0x380U 
+                                                      & ((- (IData)(
+                                                                    (1U 
+                                                                     & ((- 
+                                                                         (vlSymsp->TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[0U] 
+                                                                          - (IData)(0xdU))) 
+                                                                        >> 6U)))) 
+                                                         << 7U)) 
+                                                     | (0x7fU 
+                                                        & (- 
+                                                           (vlSymsp->TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[0U] 
+                                                            - (IData)(0xdU))))))
+                                                    : 0U)
+                                                   : 
+                                                  ((4U 
+                                                    == (IData)(vlSelf->io_op))
+                                                    ? 
+                                                   ((1U 
+                                                     & vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__sel_nodes[0U])
+                                                     ? 
+                                                    ((0xdU 
                                                       > 
                                                       (0x7fU 
                                                        & vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[0U]))
@@ -1366,182 +1522,192 @@ VL_INLINE_OPT void VPvuTop___024root___ico_comb__TOP__45(VPvuTop___024root* vlSe
                                                       | (0x7fU 
                                                          & (- 
                                                             (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[0U] 
-                                                             - (IData)(0xcU)))))))
-                                               : 0U))) 
-                             << 0x20U) | (QData)((IData)(
-                                                         ((((1U 
-                                                             & vlSymsp->TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod_2.__PVT__gen_lzc__DOT__sel_nodes[0U])
-                                                             ? 
-                                                            (0xffU 
-                                                             & ((0xeU 
-                                                                 > 
-                                                                 (0x7fU 
-                                                                  & vlSymsp->TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[0U]))
-                                                                 ? 
-                                                                ((0x380U 
-                                                                  & ((- (IData)(
-                                                                                (1U 
-                                                                                & ((((IData)(0xeU) 
-                                                                                - 
-                                                                                vlSymsp->TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[0U]) 
-                                                                                - (IData)(1U)) 
-                                                                                >> 6U)))) 
-                                                                     << 7U)) 
-                                                                 | (0x7fU 
-                                                                    & (((IData)(0xeU) 
-                                                                        - 
-                                                                        vlSymsp->TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[0U]) 
-                                                                       - (IData)(1U))))
-                                                                 : 
-                                                                ((0x380U 
-                                                                  & ((- (IData)(
-                                                                                (1U 
-                                                                                & ((- 
-                                                                                (vlSymsp->TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[0U] 
-                                                                                - (IData)(0xdU))) 
-                                                                                >> 6U)))) 
-                                                                     << 7U)) 
-                                                                 | (0x7fU 
-                                                                    & (- 
-                                                                       (vlSymsp->TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[0U] 
-                                                                        - (IData)(0xdU)))))))
-                                                             : 0U) 
-                                                           << 0x18U) 
-                                                          | ((((1U 
-                                                                & vlSelf->PvuTop__DOT__frac_norm_sub__DOT__lzcMod_2__DOT__gen_lzc__DOT__sel_nodes)
-                                                                ? 
-                                                               ((0U 
-                                                                 == 
-                                                                 (0x1fU 
-                                                                  & vlSelf->PvuTop__DOT__frac_norm_sub__DOT__lzcMod_2__DOT__gen_lzc__DOT__index_nodes[0U]))
-                                                                 ? 
-                                                                ((0xe0U 
-                                                                  & ((- (IData)(
-                                                                                (1U 
-                                                                                & ((((IData)(1U) 
-                                                                                - 
-                                                                                vlSelf->PvuTop__DOT__frac_norm_sub__DOT__lzcMod_2__DOT__gen_lzc__DOT__index_nodes[0U]) 
-                                                                                - (IData)(1U)) 
-                                                                                >> 4U)))) 
-                                                                     << 5U)) 
-                                                                 | (0x1fU 
-                                                                    & (((IData)(1U) 
-                                                                        - 
-                                                                        vlSelf->PvuTop__DOT__frac_norm_sub__DOT__lzcMod_2__DOT__gen_lzc__DOT__index_nodes[0U]) 
-                                                                       - (IData)(1U))))
-                                                                 : 
-                                                                ((0xe0U 
-                                                                  & ((- (IData)(
-                                                                                (1U 
-                                                                                & ((- 
-                                                                                vlSelf->PvuTop__DOT__frac_norm_sub__DOT__lzcMod_2__DOT__gen_lzc__DOT__index_nodes[0U]) 
-                                                                                >> 4U)))) 
-                                                                     << 5U)) 
-                                                                 | (0x1fU 
-                                                                    & (- 
-                                                                       vlSelf->PvuTop__DOT__frac_norm_sub__DOT__lzcMod_2__DOT__gen_lzc__DOT__index_nodes[0U]))))
-                                                                : 0U) 
-                                                              << 0x10U) 
-                                                             | (((2U 
-                                                                  < (IData)(vlSelf->PvuTop__DOT__ACTUAL_VECTOR_SIZE))
-                                                                  ? 
-                                                                 ((1U 
-                                                                   & vlSelf->PvuTop__DOT__frac_norm_add__DOT__lzcMod_2__DOT__gen_lzc__DOT__sel_nodes)
-                                                                   ? 
-                                                                  ((0U 
-                                                                    == 
-                                                                    (0x1fU 
-                                                                     & vlSelf->PvuTop__DOT__frac_norm_add__DOT__lzcMod_2__DOT__gen_lzc__DOT__index_nodes[0U]))
-                                                                    ? 
-                                                                   ((0xe0U 
-                                                                     & ((- (IData)(
-                                                                                (1U 
-                                                                                & ((((IData)(1U) 
-                                                                                - 
-                                                                                vlSelf->PvuTop__DOT__frac_norm_add__DOT__lzcMod_2__DOT__gen_lzc__DOT__index_nodes[0U]) 
-                                                                                - (IData)(1U)) 
-                                                                                >> 4U)))) 
-                                                                        << 5U)) 
-                                                                    | (0x1fU 
-                                                                       & (((IData)(1U) 
-                                                                           - 
-                                                                           vlSelf->PvuTop__DOT__frac_norm_add__DOT__lzcMod_2__DOT__gen_lzc__DOT__index_nodes[0U]) 
-                                                                          - (IData)(1U))))
-                                                                    : 
-                                                                   ((0xe0U 
-                                                                     & ((- (IData)(
-                                                                                (1U 
-                                                                                & ((- 
-                                                                                vlSelf->PvuTop__DOT__frac_norm_add__DOT__lzcMod_2__DOT__gen_lzc__DOT__index_nodes[0U]) 
-                                                                                >> 4U)))) 
-                                                                        << 5U)) 
-                                                                    | (0x1fU 
-                                                                       & (- 
-                                                                          vlSelf->PvuTop__DOT__frac_norm_add__DOT__lzcMod_2__DOT__gen_lzc__DOT__index_nodes[0U]))))
-                                                                   : 0U)
-                                                                  : 0U) 
-                                                                << 8U))))));
-    vlSelf->PvuTop__DOT___pir_exp_rst_adjusied_2_T 
-        = (0xffU & (((1U == (IData)(vlSelf->io_op))
-                      ? ((2U < (IData)(vlSelf->PvuTop__DOT__ACTUAL_VECTOR_SIZE))
-                          ? ((IData)(vlSelf->PvuTop__DOT__fracalign_1__DOT___io_pir_max_exp_2_T_1) 
-                             + (IData)(vlSelf->PvuTop__DOT__add__DOT____VdfgTmp_h4e8a04cd__0))
-                          : 0U) : ((2U == (IData)(vlSelf->io_op))
-                                    ? ((1U & ((~ (vlSelf->PvuTop__DOT__add__DOT__sum_2 
-                                                  >> 0x1eU)) 
-                                              | (IData)(vlSelf->PvuTop__DOT__add__DOT___GEN_1)))
-                                        ? (IData)(vlSelf->PvuTop__DOT__fracalign_1__DOT___io_pir_max_exp_2_T_1)
-                                        : ((IData)(1U) 
-                                           + (IData)(vlSelf->PvuTop__DOT__fracalign_1__DOT___io_pir_max_exp_2_T_1)))
-                                    : ((3U == (IData)(vlSelf->io_op))
-                                        ? (IData)(vlSelf->__VdfgTmp_h3327fc28__0)
-                                        : ((4U == (IData)(vlSelf->io_op))
-                                            ? ((vlSelf->PvuTop__DOT____Vcellinp__fracalign_1__io_pir_exp1_i 
-                                                >> 0x10U) 
-                                               - (vlSelf->PvuTop__DOT____Vcellinp__fracalign_1__io_pir_exp2_i 
-                                                  >> 0x10U))
-                                            : 0U)))) 
-                    + (IData)((PvuTop__DOT___GEN_63 
-                               >> (0x3fU & ((IData)(vlSelf->io_op) 
-                                            << 3U))))));
-    vlSelf->PvuTop__DOT___GEN_78 = ((IData)(vlSelf->PvuTop__DOT___GEN_73)
+                                                             - (IData)(0xcU))))))
+                                                     : 0U)
+                                                    : 0U)))))));
+    vlSelf->PvuTop__DOT___GEN_87 = ((IData)(vlSelf->PvuTop__DOT___GEN_83)
                                      ? 0U : (IData)(vlSelf->PvuTop__DOT___pir_exp_rst_adjusied_2_T));
-    if (vlSelf->__VdfgTmp_h312a3a9f__0) {
-        vlSelf->__VdfgTmp_h24a2a84d__0 = 0U;
+    if (vlSelf->__VdfgTmp_h58084909__0) {
+        vlSelf->__VdfgTmp_hf8259d91__0 = 0U;
         vlSelf->PvuTop__DOT__encode__DOT____VdfgTmp_h1ce83255__0 = 0U;
-        vlSelf->__VdfgTmp_hb4f1c094__0 = 0x1fU;
+        vlSelf->__VdfgTmp_ha424c871__0 = 0x1fU;
     } else {
-        vlSelf->__VdfgTmp_h24a2a84d__0 = (3U & (IData)(vlSelf->PvuTop__DOT___pir_exp_rst_adjusied_2_T));
+        vlSelf->__VdfgTmp_hf8259d91__0 = (3U & (IData)(vlSelf->PvuTop__DOT___pir_exp_rst_adjusied_2_T));
         vlSelf->PvuTop__DOT__encode__DOT____VdfgTmp_h1ce83255__0 
             = (0x1fU & ((IData)(vlSelf->PvuTop__DOT___pir_exp_rst_adjusied_2_T) 
                         >> 2U));
-        vlSelf->__VdfgTmp_hb4f1c094__0 = (0x1fU & (~ 
+        vlSelf->__VdfgTmp_ha424c871__0 = (0x1fU & (~ 
                                                    ((IData)(vlSelf->PvuTop__DOT___pir_exp_rst_adjusied_2_T) 
                                                     >> 2U)));
     }
     vlSelf->PvuTop__DOT__encode__DOT____VdfgTmp_h1c07425a__0 
-        = ((~ (IData)(vlSelf->__VdfgTmp_h312a3a9f__0)) 
+        = ((~ (IData)(vlSelf->__VdfgTmp_h58084909__0)) 
            & ((IData)(vlSelf->PvuTop__DOT___pir_exp_rst_adjusied_2_T) 
               >> 7U));
     vlSelf->PvuTop__DOT__encode__DOT____Vcellinp__barrel_shifter_2__io_shift_amount 
         = (0x1fU & (((IData)(vlSelf->PvuTop__DOT__encode__DOT____VdfgTmp_h1c07425a__0)
-                      ? ((IData)(2U) + (IData)(vlSelf->__VdfgTmp_hb4f1c094__0))
+                      ? ((IData)(2U) + (IData)(vlSelf->__VdfgTmp_ha424c871__0))
                       : ((IData)(2U) + (IData)(vlSelf->PvuTop__DOT__encode__DOT____VdfgTmp_h1ce83255__0))) 
                     - (IData)(2U)));
 }
 
-VL_INLINE_OPT void VPvuTop___024root___ico_comb__TOP__47(VPvuTop___024root* vlSelf) {
+VL_INLINE_OPT void VPvuTop___024root___ico_comb__TOP__48(VPvuTop___024root* vlSelf) {
     if (false && vlSelf) {}  // Prevent unused
     VPvuTop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    VL_DEBUG_IF(VL_DBG_MSGF("+    VPvuTop___024root___ico_comb__TOP__47\n"); );
-    // Init
-    QData/*63:0*/ PvuTop__DOT___GEN_62;
-    PvuTop__DOT___GEN_62 = 0;
+    VL_DEBUG_IF(VL_DBG_MSGF("+    VPvuTop___024root___ico_comb__TOP__48\n"); );
     // Body
-    PvuTop__DOT___GEN_62 = (((QData)((IData)(((1U & 
-                                               vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__sel_nodes[0U])
-                                               ? (0xffU 
-                                                  & ((0xdU 
+    vlSelf->PvuTop__DOT___pir_exp_rst_adjusied_1_T 
+        = (0xffU & (((1U == (IData)(vlSelf->io_op))
+                      ? ((IData)(vlSelf->PvuTop__DOT____VdfgTmp_h792c5c44__0)
+                          ? ((IData)(vlSelf->PvuTop__DOT__fracalign_1__DOT___io_pir_max_exp_1_T_1) 
+                             + (IData)(vlSelf->PvuTop__DOT__add__DOT____VdfgTmp_h7d9bb2b0__0))
+                          : 0U) : ((2U == (IData)(vlSelf->io_op))
+                                    ? ((1U & ((~ (vlSelf->PvuTop__DOT__add__DOT__sum_1 
+                                                  >> 0x1eU)) 
+                                              | (IData)(vlSelf->PvuTop__DOT__add__DOT___GEN_0)))
+                                        ? (IData)(vlSelf->PvuTop__DOT__fracalign_1__DOT___io_pir_max_exp_1_T_1)
+                                        : ((IData)(1U) 
+                                           + (IData)(vlSelf->PvuTop__DOT__fracalign_1__DOT___io_pir_max_exp_1_T_1)))
+                                    : ((3U == (IData)(vlSelf->io_op))
+                                        ? (IData)(vlSelf->__VdfgTmp_hf9553680__0)
+                                        : ((4U == (IData)(vlSelf->io_op))
+                                            ? ((vlSelf->PvuTop__DOT____Vcellinp__fracalign_1__io_pir_exp1_i 
+                                                >> 8U) 
+                                               - (vlSelf->PvuTop__DOT____Vcellinp__fracalign_1__io_pir_exp2_i 
+                                                  >> 8U))
+                                            : ((IData)(vlSelf->PvuTop__DOT___GEN_64)
+                                                ? 0U
+                                                : (
+                                                   (8U 
+                                                    == (IData)(vlSelf->io_op))
+                                                    ? 
+                                                   ((IData)(vlSelf->PvuTop__DOT__greater__DOT__is_greater_1)
+                                                     ? 
+                                                    (vlSelf->PvuTop__DOT____Vcellinp__fracalign_1__io_pir_exp1_i 
+                                                     >> 8U)
+                                                     : 
+                                                    (vlSelf->PvuTop__DOT____Vcellinp__fracalign_1__io_pir_exp2_i 
+                                                     >> 8U))
+                                                    : 
+                                                   ((9U 
+                                                     == (IData)(vlSelf->io_op))
+                                                     ? 
+                                                    ((IData)(vlSelf->PvuTop__DOT__less__DOT__is_less_1)
+                                                      ? 
+                                                     (vlSelf->PvuTop__DOT____Vcellinp__fracalign_1__io_pir_exp1_i 
+                                                      >> 8U)
+                                                      : 
+                                                     (vlSelf->PvuTop__DOT____Vcellinp__fracalign_1__io_pir_exp2_i 
+                                                      >> 8U))
+                                                     : 0U))))))) 
+                    + ((5U == (IData)(vlSelf->io_op))
+                        ? 0U : ((1U == (IData)(vlSelf->io_op))
+                                 ? ((IData)(vlSelf->PvuTop__DOT____VdfgTmp_h792c5c44__0)
+                                     ? ((1U & vlSelf->PvuTop__DOT__frac_norm_add__DOT__lzcMod_1__DOT__gen_lzc__DOT__sel_nodes)
+                                         ? ((0U == 
+                                             (0x1fU 
+                                              & vlSelf->PvuTop__DOT__frac_norm_add__DOT__lzcMod_1__DOT__gen_lzc__DOT__index_nodes[0U]))
+                                             ? ((0xe0U 
+                                                 & ((- (IData)(
+                                                               (1U 
+                                                                & ((((IData)(1U) 
+                                                                     - 
+                                                                     vlSelf->PvuTop__DOT__frac_norm_add__DOT__lzcMod_1__DOT__gen_lzc__DOT__index_nodes[0U]) 
+                                                                    - (IData)(1U)) 
+                                                                   >> 4U)))) 
+                                                    << 5U)) 
+                                                | (0x1fU 
+                                                   & (((IData)(1U) 
+                                                       - 
+                                                       vlSelf->PvuTop__DOT__frac_norm_add__DOT__lzcMod_1__DOT__gen_lzc__DOT__index_nodes[0U]) 
+                                                      - (IData)(1U))))
+                                             : ((0xe0U 
+                                                 & ((- (IData)(
+                                                               (1U 
+                                                                & ((- 
+                                                                    vlSelf->PvuTop__DOT__frac_norm_add__DOT__lzcMod_1__DOT__gen_lzc__DOT__index_nodes[0U]) 
+                                                                   >> 4U)))) 
+                                                    << 5U)) 
+                                                | (0x1fU 
+                                                   & (- 
+                                                      vlSelf->PvuTop__DOT__frac_norm_add__DOT__lzcMod_1__DOT__gen_lzc__DOT__index_nodes[0U]))))
+                                         : 0U) : 0U)
+                                 : ((2U == (IData)(vlSelf->io_op))
+                                     ? ((1U & vlSelf->PvuTop__DOT__frac_norm_sub__DOT__lzcMod_1__DOT__gen_lzc__DOT__sel_nodes)
+                                         ? ((0U == 
+                                             (0x1fU 
+                                              & vlSelf->PvuTop__DOT__frac_norm_sub__DOT__lzcMod_1__DOT__gen_lzc__DOT__index_nodes[0U]))
+                                             ? ((0xe0U 
+                                                 & ((- (IData)(
+                                                               (1U 
+                                                                & ((((IData)(1U) 
+                                                                     - 
+                                                                     vlSelf->PvuTop__DOT__frac_norm_sub__DOT__lzcMod_1__DOT__gen_lzc__DOT__index_nodes[0U]) 
+                                                                    - (IData)(1U)) 
+                                                                   >> 4U)))) 
+                                                    << 5U)) 
+                                                | (0x1fU 
+                                                   & (((IData)(1U) 
+                                                       - 
+                                                       vlSelf->PvuTop__DOT__frac_norm_sub__DOT__lzcMod_1__DOT__gen_lzc__DOT__index_nodes[0U]) 
+                                                      - (IData)(1U))))
+                                             : ((0xe0U 
+                                                 & ((- (IData)(
+                                                               (1U 
+                                                                & ((- 
+                                                                    vlSelf->PvuTop__DOT__frac_norm_sub__DOT__lzcMod_1__DOT__gen_lzc__DOT__index_nodes[0U]) 
+                                                                   >> 4U)))) 
+                                                    << 5U)) 
+                                                | (0x1fU 
+                                                   & (- 
+                                                      vlSelf->PvuTop__DOT__frac_norm_sub__DOT__lzcMod_1__DOT__gen_lzc__DOT__index_nodes[0U]))))
+                                         : 0U) : ((3U 
+                                                   == (IData)(vlSelf->io_op))
+                                                   ? 
+                                                  ((1U 
+                                                    & vlSymsp->TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod_1.__PVT__gen_lzc__DOT__sel_nodes[0U])
+                                                    ? 
+                                                   ((0xeU 
+                                                     > 
+                                                     (0x7fU 
+                                                      & vlSymsp->TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[0U]))
+                                                     ? 
+                                                    ((0x380U 
+                                                      & ((- (IData)(
+                                                                    (1U 
+                                                                     & ((((IData)(0xeU) 
+                                                                          - 
+                                                                          vlSymsp->TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[0U]) 
+                                                                         - (IData)(1U)) 
+                                                                        >> 6U)))) 
+                                                         << 7U)) 
+                                                     | (0x7fU 
+                                                        & (((IData)(0xeU) 
+                                                            - 
+                                                            vlSymsp->TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[0U]) 
+                                                           - (IData)(1U))))
+                                                     : 
+                                                    ((0x380U 
+                                                      & ((- (IData)(
+                                                                    (1U 
+                                                                     & ((- 
+                                                                         (vlSymsp->TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[0U] 
+                                                                          - (IData)(0xdU))) 
+                                                                        >> 6U)))) 
+                                                         << 7U)) 
+                                                     | (0x7fU 
+                                                        & (- 
+                                                           (vlSymsp->TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[0U] 
+                                                            - (IData)(0xdU))))))
+                                                    : 0U)
+                                                   : 
+                                                  ((4U 
+                                                    == (IData)(vlSelf->io_op))
+                                                    ? 
+                                                   ((1U 
+                                                     & vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__sel_nodes[0U])
+                                                     ? 
+                                                    ((0xdU 
                                                       > 
                                                       (0x7fU 
                                                        & vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[0U]))
@@ -1572,181 +1738,182 @@ VL_INLINE_OPT void VPvuTop___024root___ico_comb__TOP__47(VPvuTop___024root* vlSe
                                                       | (0x7fU 
                                                          & (- 
                                                             (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[0U] 
-                                                             - (IData)(0xcU)))))))
-                                               : 0U))) 
-                             << 0x20U) | (QData)((IData)(
-                                                         ((((1U 
-                                                             & vlSymsp->TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod_1.__PVT__gen_lzc__DOT__sel_nodes[0U])
-                                                             ? 
-                                                            (0xffU 
-                                                             & ((0xeU 
-                                                                 > 
-                                                                 (0x7fU 
-                                                                  & vlSymsp->TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[0U]))
-                                                                 ? 
-                                                                ((0x380U 
-                                                                  & ((- (IData)(
-                                                                                (1U 
-                                                                                & ((((IData)(0xeU) 
-                                                                                - 
-                                                                                vlSymsp->TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[0U]) 
-                                                                                - (IData)(1U)) 
-                                                                                >> 6U)))) 
-                                                                     << 7U)) 
-                                                                 | (0x7fU 
-                                                                    & (((IData)(0xeU) 
-                                                                        - 
-                                                                        vlSymsp->TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[0U]) 
-                                                                       - (IData)(1U))))
-                                                                 : 
-                                                                ((0x380U 
-                                                                  & ((- (IData)(
-                                                                                (1U 
-                                                                                & ((- 
-                                                                                (vlSymsp->TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[0U] 
-                                                                                - (IData)(0xdU))) 
-                                                                                >> 6U)))) 
-                                                                     << 7U)) 
-                                                                 | (0x7fU 
-                                                                    & (- 
-                                                                       (vlSymsp->TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[0U] 
-                                                                        - (IData)(0xdU)))))))
-                                                             : 0U) 
-                                                           << 0x18U) 
-                                                          | ((((1U 
-                                                                & vlSelf->PvuTop__DOT__frac_norm_sub__DOT__lzcMod_1__DOT__gen_lzc__DOT__sel_nodes)
-                                                                ? 
-                                                               ((0U 
-                                                                 == 
-                                                                 (0x1fU 
-                                                                  & vlSelf->PvuTop__DOT__frac_norm_sub__DOT__lzcMod_1__DOT__gen_lzc__DOT__index_nodes[0U]))
-                                                                 ? 
-                                                                ((0xe0U 
-                                                                  & ((- (IData)(
-                                                                                (1U 
-                                                                                & ((((IData)(1U) 
-                                                                                - 
-                                                                                vlSelf->PvuTop__DOT__frac_norm_sub__DOT__lzcMod_1__DOT__gen_lzc__DOT__index_nodes[0U]) 
-                                                                                - (IData)(1U)) 
-                                                                                >> 4U)))) 
-                                                                     << 5U)) 
-                                                                 | (0x1fU 
-                                                                    & (((IData)(1U) 
-                                                                        - 
-                                                                        vlSelf->PvuTop__DOT__frac_norm_sub__DOT__lzcMod_1__DOT__gen_lzc__DOT__index_nodes[0U]) 
-                                                                       - (IData)(1U))))
-                                                                 : 
-                                                                ((0xe0U 
-                                                                  & ((- (IData)(
-                                                                                (1U 
-                                                                                & ((- 
-                                                                                vlSelf->PvuTop__DOT__frac_norm_sub__DOT__lzcMod_1__DOT__gen_lzc__DOT__index_nodes[0U]) 
-                                                                                >> 4U)))) 
-                                                                     << 5U)) 
-                                                                 | (0x1fU 
-                                                                    & (- 
-                                                                       vlSelf->PvuTop__DOT__frac_norm_sub__DOT__lzcMod_1__DOT__gen_lzc__DOT__index_nodes[0U]))))
-                                                                : 0U) 
-                                                              << 0x10U) 
-                                                             | (((IData)(vlSelf->PvuTop__DOT____VdfgTmp_h792c5c44__0)
-                                                                  ? 
-                                                                 ((1U 
-                                                                   & vlSelf->PvuTop__DOT__frac_norm_add__DOT__lzcMod_1__DOT__gen_lzc__DOT__sel_nodes)
-                                                                   ? 
-                                                                  ((0U 
-                                                                    == 
-                                                                    (0x1fU 
-                                                                     & vlSelf->PvuTop__DOT__frac_norm_add__DOT__lzcMod_1__DOT__gen_lzc__DOT__index_nodes[0U]))
-                                                                    ? 
-                                                                   ((0xe0U 
-                                                                     & ((- (IData)(
-                                                                                (1U 
-                                                                                & ((((IData)(1U) 
-                                                                                - 
-                                                                                vlSelf->PvuTop__DOT__frac_norm_add__DOT__lzcMod_1__DOT__gen_lzc__DOT__index_nodes[0U]) 
-                                                                                - (IData)(1U)) 
-                                                                                >> 4U)))) 
-                                                                        << 5U)) 
-                                                                    | (0x1fU 
-                                                                       & (((IData)(1U) 
-                                                                           - 
-                                                                           vlSelf->PvuTop__DOT__frac_norm_add__DOT__lzcMod_1__DOT__gen_lzc__DOT__index_nodes[0U]) 
-                                                                          - (IData)(1U))))
-                                                                    : 
-                                                                   ((0xe0U 
-                                                                     & ((- (IData)(
-                                                                                (1U 
-                                                                                & ((- 
-                                                                                vlSelf->PvuTop__DOT__frac_norm_add__DOT__lzcMod_1__DOT__gen_lzc__DOT__index_nodes[0U]) 
-                                                                                >> 4U)))) 
-                                                                        << 5U)) 
-                                                                    | (0x1fU 
-                                                                       & (- 
-                                                                          vlSelf->PvuTop__DOT__frac_norm_add__DOT__lzcMod_1__DOT__gen_lzc__DOT__index_nodes[0U]))))
-                                                                   : 0U)
-                                                                  : 0U) 
-                                                                << 8U))))));
-    vlSelf->PvuTop__DOT___pir_exp_rst_adjusied_1_T 
-        = (0xffU & (((1U == (IData)(vlSelf->io_op))
-                      ? ((IData)(vlSelf->PvuTop__DOT____VdfgTmp_h792c5c44__0)
-                          ? ((IData)(vlSelf->PvuTop__DOT__fracalign_1__DOT___io_pir_max_exp_1_T_1) 
-                             + (IData)(vlSelf->PvuTop__DOT__add__DOT____VdfgTmp_h7d9bb2b0__0))
-                          : 0U) : ((2U == (IData)(vlSelf->io_op))
-                                    ? ((1U & ((~ (vlSelf->PvuTop__DOT__add__DOT__sum_1 
-                                                  >> 0x1eU)) 
-                                              | (IData)(vlSelf->PvuTop__DOT__add__DOT___GEN_0)))
-                                        ? (IData)(vlSelf->PvuTop__DOT__fracalign_1__DOT___io_pir_max_exp_1_T_1)
-                                        : ((IData)(1U) 
-                                           + (IData)(vlSelf->PvuTop__DOT__fracalign_1__DOT___io_pir_max_exp_1_T_1)))
-                                    : ((3U == (IData)(vlSelf->io_op))
-                                        ? (IData)(vlSelf->__VdfgTmp_hf9553680__0)
-                                        : ((4U == (IData)(vlSelf->io_op))
-                                            ? ((vlSelf->PvuTop__DOT____Vcellinp__fracalign_1__io_pir_exp1_i 
-                                                >> 8U) 
-                                               - (vlSelf->PvuTop__DOT____Vcellinp__fracalign_1__io_pir_exp2_i 
-                                                  >> 8U))
-                                            : 0U)))) 
-                    + (IData)((PvuTop__DOT___GEN_62 
-                               >> (0x3fU & ((IData)(vlSelf->io_op) 
-                                            << 3U))))));
-    vlSelf->PvuTop__DOT___GEN_76 = ((IData)(vlSelf->PvuTop__DOT___GEN_73)
+                                                             - (IData)(0xcU))))))
+                                                     : 0U)
+                                                    : 0U)))))));
+    vlSelf->PvuTop__DOT___GEN_86 = ((IData)(vlSelf->PvuTop__DOT___GEN_83)
                                      ? 0U : (IData)(vlSelf->PvuTop__DOT___pir_exp_rst_adjusied_1_T));
-    if (vlSelf->__VdfgTmp_h51fae331__0) {
-        vlSelf->__VdfgTmp_h5f099ebd__0 = 0U;
+    if (vlSelf->__VdfgTmp_hb8dc97df__0) {
+        vlSelf->__VdfgTmp_h3957ca07__0 = 0U;
         vlSelf->PvuTop__DOT__encode__DOT____VdfgTmp_h1c495847__0 = 0U;
-        vlSelf->__VdfgTmp_hdd7d134a__0 = 0x1fU;
+        vlSelf->__VdfgTmp_hd7269c16__0 = 0x1fU;
     } else {
-        vlSelf->__VdfgTmp_h5f099ebd__0 = (3U & (IData)(vlSelf->PvuTop__DOT___pir_exp_rst_adjusied_1_T));
+        vlSelf->__VdfgTmp_h3957ca07__0 = (3U & (IData)(vlSelf->PvuTop__DOT___pir_exp_rst_adjusied_1_T));
         vlSelf->PvuTop__DOT__encode__DOT____VdfgTmp_h1c495847__0 
             = (0x1fU & ((IData)(vlSelf->PvuTop__DOT___pir_exp_rst_adjusied_1_T) 
                         >> 2U));
-        vlSelf->__VdfgTmp_hdd7d134a__0 = (0x1fU & (~ 
+        vlSelf->__VdfgTmp_hd7269c16__0 = (0x1fU & (~ 
                                                    ((IData)(vlSelf->PvuTop__DOT___pir_exp_rst_adjusied_1_T) 
                                                     >> 2U)));
     }
     vlSelf->PvuTop__DOT__encode__DOT____VdfgTmp_h1c547640__0 
-        = ((~ (IData)(vlSelf->__VdfgTmp_h51fae331__0)) 
+        = ((~ (IData)(vlSelf->__VdfgTmp_hb8dc97df__0)) 
            & ((IData)(vlSelf->PvuTop__DOT___pir_exp_rst_adjusied_1_T) 
               >> 7U));
     vlSelf->PvuTop__DOT__encode__DOT____Vcellinp__barrel_shifter_1__io_shift_amount 
         = (0x1fU & (((IData)(vlSelf->PvuTop__DOT__encode__DOT____VdfgTmp_h1c547640__0)
-                      ? ((IData)(2U) + (IData)(vlSelf->__VdfgTmp_hdd7d134a__0))
+                      ? ((IData)(2U) + (IData)(vlSelf->__VdfgTmp_hd7269c16__0))
                       : ((IData)(2U) + (IData)(vlSelf->PvuTop__DOT__encode__DOT____VdfgTmp_h1c495847__0))) 
                     - (IData)(2U)));
 }
 
-VL_INLINE_OPT void VPvuTop___024root___ico_comb__TOP__49(VPvuTop___024root* vlSelf) {
+VL_INLINE_OPT void VPvuTop___024root___ico_comb__TOP__50(VPvuTop___024root* vlSelf) {
     if (false && vlSelf) {}  // Prevent unused
     VPvuTop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    VL_DEBUG_IF(VL_DBG_MSGF("+    VPvuTop___024root___ico_comb__TOP__49\n"); );
-    // Init
-    QData/*63:0*/ PvuTop__DOT___GEN_61;
-    PvuTop__DOT___GEN_61 = 0;
+    VL_DEBUG_IF(VL_DBG_MSGF("+    VPvuTop___024root___ico_comb__TOP__50\n"); );
     // Body
-    PvuTop__DOT___GEN_61 = (((QData)((IData)(((1U & 
-                                               vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__sel_nodes[0U])
-                                               ? (0xffU 
-                                                  & ((0xdU 
+    vlSelf->PvuTop__DOT___pir_exp_rst_adjusied_0_T 
+        = (0xffU & (((1U == (IData)(vlSelf->io_op))
+                      ? ((IData)(vlSelf->PvuTop__DOT____VdfgTmp_ha15d0789__0)
+                          ? ((IData)(vlSelf->PvuTop__DOT__fracalign_1__DOT___io_pir_max_exp_0_T_1) 
+                             + (IData)(vlSelf->PvuTop__DOT__add__DOT____VdfgTmp_h64b1905c__0))
+                          : 0U) : ((2U == (IData)(vlSelf->io_op))
+                                    ? ((1U & ((~ (vlSelf->PvuTop__DOT__add__DOT__sum 
+                                                  >> 0x1eU)) 
+                                              | (IData)(vlSelf->PvuTop__DOT__add__DOT___GEN)))
+                                        ? (IData)(vlSelf->PvuTop__DOT__fracalign_1__DOT___io_pir_max_exp_0_T_1)
+                                        : ((IData)(1U) 
+                                           + (IData)(vlSelf->PvuTop__DOT__fracalign_1__DOT___io_pir_max_exp_0_T_1)))
+                                    : ((3U == (IData)(vlSelf->io_op))
+                                        ? (IData)(vlSelf->__VdfgTmp_h341b6622__0)
+                                        : ((4U == (IData)(vlSelf->io_op))
+                                            ? (vlSelf->PvuTop__DOT____Vcellinp__fracalign_1__io_pir_exp1_i 
+                                               - vlSelf->PvuTop__DOT____Vcellinp__fracalign_1__io_pir_exp2_i)
+                                            : ((IData)(vlSelf->PvuTop__DOT___GEN_64)
+                                                ? 0U
+                                                : (
+                                                   (8U 
+                                                    == (IData)(vlSelf->io_op))
+                                                    ? 
+                                                   ((IData)(vlSelf->PvuTop__DOT__greater__DOT__is_greater)
+                                                     ? vlSelf->PvuTop__DOT____Vcellinp__fracalign_1__io_pir_exp1_i
+                                                     : vlSelf->PvuTop__DOT____Vcellinp__fracalign_1__io_pir_exp2_i)
+                                                    : 
+                                                   ((9U 
+                                                     == (IData)(vlSelf->io_op))
+                                                     ? 
+                                                    ((IData)(vlSelf->PvuTop__DOT__less__DOT__is_less)
+                                                      ? vlSelf->PvuTop__DOT____Vcellinp__fracalign_1__io_pir_exp1_i
+                                                      : vlSelf->PvuTop__DOT____Vcellinp__fracalign_1__io_pir_exp2_i)
+                                                     : 0U))))))) 
+                    + ((5U == (IData)(vlSelf->io_op))
+                        ? 0U : ((1U == (IData)(vlSelf->io_op))
+                                 ? ((IData)(vlSelf->PvuTop__DOT____VdfgTmp_ha15d0789__0)
+                                     ? ((1U & vlSelf->PvuTop__DOT__frac_norm_add__DOT__lzcMod__DOT__gen_lzc__DOT__sel_nodes)
+                                         ? ((0U == 
+                                             (0x1fU 
+                                              & vlSelf->PvuTop__DOT__frac_norm_add__DOT__lzcMod__DOT__gen_lzc__DOT__index_nodes[0U]))
+                                             ? ((0xe0U 
+                                                 & ((- (IData)(
+                                                               (1U 
+                                                                & ((((IData)(1U) 
+                                                                     - 
+                                                                     vlSelf->PvuTop__DOT__frac_norm_add__DOT__lzcMod__DOT__gen_lzc__DOT__index_nodes[0U]) 
+                                                                    - (IData)(1U)) 
+                                                                   >> 4U)))) 
+                                                    << 5U)) 
+                                                | (0x1fU 
+                                                   & (((IData)(1U) 
+                                                       - 
+                                                       vlSelf->PvuTop__DOT__frac_norm_add__DOT__lzcMod__DOT__gen_lzc__DOT__index_nodes[0U]) 
+                                                      - (IData)(1U))))
+                                             : ((0xe0U 
+                                                 & ((- (IData)(
+                                                               (1U 
+                                                                & ((- 
+                                                                    vlSelf->PvuTop__DOT__frac_norm_add__DOT__lzcMod__DOT__gen_lzc__DOT__index_nodes[0U]) 
+                                                                   >> 4U)))) 
+                                                    << 5U)) 
+                                                | (0x1fU 
+                                                   & (- 
+                                                      vlSelf->PvuTop__DOT__frac_norm_add__DOT__lzcMod__DOT__gen_lzc__DOT__index_nodes[0U]))))
+                                         : 0U) : 0U)
+                                 : ((2U == (IData)(vlSelf->io_op))
+                                     ? ((1U & vlSelf->PvuTop__DOT__frac_norm_sub__DOT__lzcMod__DOT__gen_lzc__DOT__sel_nodes)
+                                         ? ((0U == 
+                                             (0x1fU 
+                                              & vlSelf->PvuTop__DOT__frac_norm_sub__DOT__lzcMod__DOT__gen_lzc__DOT__index_nodes[0U]))
+                                             ? ((0xe0U 
+                                                 & ((- (IData)(
+                                                               (1U 
+                                                                & ((((IData)(1U) 
+                                                                     - 
+                                                                     vlSelf->PvuTop__DOT__frac_norm_sub__DOT__lzcMod__DOT__gen_lzc__DOT__index_nodes[0U]) 
+                                                                    - (IData)(1U)) 
+                                                                   >> 4U)))) 
+                                                    << 5U)) 
+                                                | (0x1fU 
+                                                   & (((IData)(1U) 
+                                                       - 
+                                                       vlSelf->PvuTop__DOT__frac_norm_sub__DOT__lzcMod__DOT__gen_lzc__DOT__index_nodes[0U]) 
+                                                      - (IData)(1U))))
+                                             : ((0xe0U 
+                                                 & ((- (IData)(
+                                                               (1U 
+                                                                & ((- 
+                                                                    vlSelf->PvuTop__DOT__frac_norm_sub__DOT__lzcMod__DOT__gen_lzc__DOT__index_nodes[0U]) 
+                                                                   >> 4U)))) 
+                                                    << 5U)) 
+                                                | (0x1fU 
+                                                   & (- 
+                                                      vlSelf->PvuTop__DOT__frac_norm_sub__DOT__lzcMod__DOT__gen_lzc__DOT__index_nodes[0U]))))
+                                         : 0U) : ((3U 
+                                                   == (IData)(vlSelf->io_op))
+                                                   ? 
+                                                  ((1U 
+                                                    & vlSymsp->TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod.__PVT__gen_lzc__DOT__sel_nodes[0U])
+                                                    ? 
+                                                   ((0xeU 
+                                                     > 
+                                                     (0x7fU 
+                                                      & vlSymsp->TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[0U]))
+                                                     ? 
+                                                    ((0x380U 
+                                                      & ((- (IData)(
+                                                                    (1U 
+                                                                     & ((((IData)(0xeU) 
+                                                                          - 
+                                                                          vlSymsp->TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[0U]) 
+                                                                         - (IData)(1U)) 
+                                                                        >> 6U)))) 
+                                                         << 7U)) 
+                                                     | (0x7fU 
+                                                        & (((IData)(0xeU) 
+                                                            - 
+                                                            vlSymsp->TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[0U]) 
+                                                           - (IData)(1U))))
+                                                     : 
+                                                    ((0x380U 
+                                                      & ((- (IData)(
+                                                                    (1U 
+                                                                     & ((- 
+                                                                         (vlSymsp->TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[0U] 
+                                                                          - (IData)(0xdU))) 
+                                                                        >> 6U)))) 
+                                                         << 7U)) 
+                                                     | (0x7fU 
+                                                        & (- 
+                                                           (vlSymsp->TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[0U] 
+                                                            - (IData)(0xdU))))))
+                                                    : 0U)
+                                                   : 
+                                                  ((4U 
+                                                    == (IData)(vlSelf->io_op))
+                                                    ? 
+                                                   ((1U 
+                                                     & vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__sel_nodes[0U])
+                                                     ? 
+                                                    ((0xdU 
                                                       > 
                                                       (0x7fU 
                                                        & vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[0U]))
@@ -1777,163 +1944,31 @@ VL_INLINE_OPT void VPvuTop___024root___ico_comb__TOP__49(VPvuTop___024root* vlSe
                                                       | (0x7fU 
                                                          & (- 
                                                             (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[0U] 
-                                                             - (IData)(0xcU)))))))
-                                               : 0U))) 
-                             << 0x20U) | (QData)((IData)(
-                                                         ((((1U 
-                                                             & vlSymsp->TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod.__PVT__gen_lzc__DOT__sel_nodes[0U])
-                                                             ? 
-                                                            (0xffU 
-                                                             & ((0xeU 
-                                                                 > 
-                                                                 (0x7fU 
-                                                                  & vlSymsp->TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[0U]))
-                                                                 ? 
-                                                                ((0x380U 
-                                                                  & ((- (IData)(
-                                                                                (1U 
-                                                                                & ((((IData)(0xeU) 
-                                                                                - 
-                                                                                vlSymsp->TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[0U]) 
-                                                                                - (IData)(1U)) 
-                                                                                >> 6U)))) 
-                                                                     << 7U)) 
-                                                                 | (0x7fU 
-                                                                    & (((IData)(0xeU) 
-                                                                        - 
-                                                                        vlSymsp->TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[0U]) 
-                                                                       - (IData)(1U))))
-                                                                 : 
-                                                                ((0x380U 
-                                                                  & ((- (IData)(
-                                                                                (1U 
-                                                                                & ((- 
-                                                                                (vlSymsp->TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[0U] 
-                                                                                - (IData)(0xdU))) 
-                                                                                >> 6U)))) 
-                                                                     << 7U)) 
-                                                                 | (0x7fU 
-                                                                    & (- 
-                                                                       (vlSymsp->TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[0U] 
-                                                                        - (IData)(0xdU)))))))
-                                                             : 0U) 
-                                                           << 0x18U) 
-                                                          | ((((1U 
-                                                                & vlSelf->PvuTop__DOT__frac_norm_sub__DOT__lzcMod__DOT__gen_lzc__DOT__sel_nodes)
-                                                                ? 
-                                                               ((0U 
-                                                                 == 
-                                                                 (0x1fU 
-                                                                  & vlSelf->PvuTop__DOT__frac_norm_sub__DOT__lzcMod__DOT__gen_lzc__DOT__index_nodes[0U]))
-                                                                 ? 
-                                                                ((0xe0U 
-                                                                  & ((- (IData)(
-                                                                                (1U 
-                                                                                & ((((IData)(1U) 
-                                                                                - 
-                                                                                vlSelf->PvuTop__DOT__frac_norm_sub__DOT__lzcMod__DOT__gen_lzc__DOT__index_nodes[0U]) 
-                                                                                - (IData)(1U)) 
-                                                                                >> 4U)))) 
-                                                                     << 5U)) 
-                                                                 | (0x1fU 
-                                                                    & (((IData)(1U) 
-                                                                        - 
-                                                                        vlSelf->PvuTop__DOT__frac_norm_sub__DOT__lzcMod__DOT__gen_lzc__DOT__index_nodes[0U]) 
-                                                                       - (IData)(1U))))
-                                                                 : 
-                                                                ((0xe0U 
-                                                                  & ((- (IData)(
-                                                                                (1U 
-                                                                                & ((- 
-                                                                                vlSelf->PvuTop__DOT__frac_norm_sub__DOT__lzcMod__DOT__gen_lzc__DOT__index_nodes[0U]) 
-                                                                                >> 4U)))) 
-                                                                     << 5U)) 
-                                                                 | (0x1fU 
-                                                                    & (- 
-                                                                       vlSelf->PvuTop__DOT__frac_norm_sub__DOT__lzcMod__DOT__gen_lzc__DOT__index_nodes[0U]))))
-                                                                : 0U) 
-                                                              << 0x10U) 
-                                                             | (((IData)(vlSelf->PvuTop__DOT____VdfgTmp_ha15d0789__0)
-                                                                  ? 
-                                                                 ((1U 
-                                                                   & vlSelf->PvuTop__DOT__frac_norm_add__DOT__lzcMod__DOT__gen_lzc__DOT__sel_nodes)
-                                                                   ? 
-                                                                  ((0U 
-                                                                    == 
-                                                                    (0x1fU 
-                                                                     & vlSelf->PvuTop__DOT__frac_norm_add__DOT__lzcMod__DOT__gen_lzc__DOT__index_nodes[0U]))
-                                                                    ? 
-                                                                   ((0xe0U 
-                                                                     & ((- (IData)(
-                                                                                (1U 
-                                                                                & ((((IData)(1U) 
-                                                                                - 
-                                                                                vlSelf->PvuTop__DOT__frac_norm_add__DOT__lzcMod__DOT__gen_lzc__DOT__index_nodes[0U]) 
-                                                                                - (IData)(1U)) 
-                                                                                >> 4U)))) 
-                                                                        << 5U)) 
-                                                                    | (0x1fU 
-                                                                       & (((IData)(1U) 
-                                                                           - 
-                                                                           vlSelf->PvuTop__DOT__frac_norm_add__DOT__lzcMod__DOT__gen_lzc__DOT__index_nodes[0U]) 
-                                                                          - (IData)(1U))))
-                                                                    : 
-                                                                   ((0xe0U 
-                                                                     & ((- (IData)(
-                                                                                (1U 
-                                                                                & ((- 
-                                                                                vlSelf->PvuTop__DOT__frac_norm_add__DOT__lzcMod__DOT__gen_lzc__DOT__index_nodes[0U]) 
-                                                                                >> 4U)))) 
-                                                                        << 5U)) 
-                                                                    | (0x1fU 
-                                                                       & (- 
-                                                                          vlSelf->PvuTop__DOT__frac_norm_add__DOT__lzcMod__DOT__gen_lzc__DOT__index_nodes[0U]))))
-                                                                   : 0U)
-                                                                  : 0U) 
-                                                                << 8U))))));
-    vlSelf->PvuTop__DOT___pir_exp_rst_adjusied_0_T 
-        = (0xffU & (((1U == (IData)(vlSelf->io_op))
-                      ? ((IData)(vlSelf->PvuTop__DOT____VdfgTmp_ha15d0789__0)
-                          ? ((IData)(vlSelf->PvuTop__DOT__fracalign_1__DOT___io_pir_max_exp_0_T_1) 
-                             + (IData)(vlSelf->PvuTop__DOT__add__DOT____VdfgTmp_h64b1905c__0))
-                          : 0U) : ((2U == (IData)(vlSelf->io_op))
-                                    ? ((1U & ((~ (vlSelf->PvuTop__DOT__add__DOT__sum 
-                                                  >> 0x1eU)) 
-                                              | (IData)(vlSelf->PvuTop__DOT__add__DOT___GEN)))
-                                        ? (IData)(vlSelf->PvuTop__DOT__fracalign_1__DOT___io_pir_max_exp_0_T_1)
-                                        : ((IData)(1U) 
-                                           + (IData)(vlSelf->PvuTop__DOT__fracalign_1__DOT___io_pir_max_exp_0_T_1)))
-                                    : ((3U == (IData)(vlSelf->io_op))
-                                        ? (IData)(vlSelf->__VdfgTmp_h341b6622__0)
-                                        : ((4U == (IData)(vlSelf->io_op))
-                                            ? (vlSelf->PvuTop__DOT____Vcellinp__fracalign_1__io_pir_exp1_i 
-                                               - vlSelf->PvuTop__DOT____Vcellinp__fracalign_1__io_pir_exp2_i)
-                                            : 0U)))) 
-                    + (IData)((PvuTop__DOT___GEN_61 
-                               >> (0x3fU & ((IData)(vlSelf->io_op) 
-                                            << 3U))))));
-    vlSelf->PvuTop__DOT___GEN_74 = ((IData)(vlSelf->PvuTop__DOT___GEN_73)
+                                                             - (IData)(0xcU))))))
+                                                     : 0U)
+                                                    : 0U)))))));
+    vlSelf->PvuTop__DOT___GEN_84 = ((IData)(vlSelf->PvuTop__DOT___GEN_83)
                                      ? 0U : (IData)(vlSelf->PvuTop__DOT___pir_exp_rst_adjusied_0_T));
-    if (vlSelf->__VdfgTmp_h2ef03cd2__0) {
-        vlSelf->__VdfgTmp_h6d5fee49__0 = 0U;
+    if (vlSelf->__VdfgTmp_h49ee0820__0) {
+        vlSelf->__VdfgTmp_he01ee5f8__0 = 0U;
         vlSelf->PvuTop__DOT__encode__DOT____VdfgTmp_h1c28779a__0 = 0U;
-        vlSelf->__VdfgTmp_hf2c787bd__0 = 0x1fU;
+        vlSelf->__VdfgTmp_h2ad0e4db__0 = 0x1fU;
     } else {
-        vlSelf->__VdfgTmp_h6d5fee49__0 = (3U & (IData)(vlSelf->PvuTop__DOT___pir_exp_rst_adjusied_0_T));
+        vlSelf->__VdfgTmp_he01ee5f8__0 = (3U & (IData)(vlSelf->PvuTop__DOT___pir_exp_rst_adjusied_0_T));
         vlSelf->PvuTop__DOT__encode__DOT____VdfgTmp_h1c28779a__0 
             = (0x1fU & ((IData)(vlSelf->PvuTop__DOT___pir_exp_rst_adjusied_0_T) 
                         >> 2U));
-        vlSelf->__VdfgTmp_hf2c787bd__0 = (0x1fU & (~ 
+        vlSelf->__VdfgTmp_h2ad0e4db__0 = (0x1fU & (~ 
                                                    ((IData)(vlSelf->PvuTop__DOT___pir_exp_rst_adjusied_0_T) 
                                                     >> 2U)));
     }
     vlSelf->PvuTop__DOT__encode__DOT____VdfgTmp_h1c349387__0 
-        = ((~ (IData)(vlSelf->__VdfgTmp_h2ef03cd2__0)) 
+        = ((~ (IData)(vlSelf->__VdfgTmp_h49ee0820__0)) 
            & ((IData)(vlSelf->PvuTop__DOT___pir_exp_rst_adjusied_0_T) 
               >> 7U));
     vlSelf->PvuTop__DOT__encode__DOT____Vcellinp__barrel_shifter__io_shift_amount 
         = (0x1fU & (((IData)(vlSelf->PvuTop__DOT__encode__DOT____VdfgTmp_h1c349387__0)
-                      ? ((IData)(2U) + (IData)(vlSelf->__VdfgTmp_hf2c787bd__0))
+                      ? ((IData)(2U) + (IData)(vlSelf->__VdfgTmp_h2ad0e4db__0))
                       : ((IData)(2U) + (IData)(vlSelf->PvuTop__DOT__encode__DOT____VdfgTmp_h1c28779a__0))) 
                     - (IData)(2U)));
 }
@@ -2128,20 +2163,20 @@ void VPvuTop___024root___ico_comb__TOP__27(VPvuTop___024root* vlSelf);
 void VPvuTop___024root___ico_comb__TOP__28(VPvuTop___024root* vlSelf);
 void VPvuTop___024root___ico_comb__TOP__29(VPvuTop___024root* vlSelf);
 void VPvuTop___024root___ico_comb__TOP__30(VPvuTop___024root* vlSelf);
+void VPvuTop___024root___ico_comb__TOP__31(VPvuTop___024root* vlSelf);
 void VPvuTop_LZC__M1_W44___ico_comb__TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod_3__0(VPvuTop_LZC__M1_W44* vlSelf);
 void VPvuTop_LZC__M1_W44___ico_comb__TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod_2__0(VPvuTop_LZC__M1_W44* vlSelf);
 void VPvuTop_LZC__M1_W44___ico_comb__TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod_1__0(VPvuTop_LZC__M1_W44* vlSelf);
 void VPvuTop_LZC__M1_W44___ico_comb__TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod__0(VPvuTop_LZC__M1_W44* vlSelf);
 void VPvuTop_LZC__M1_W44___ico_comb__TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod__1(VPvuTop_LZC__M1_W44* vlSelf);
 void VPvuTop_LZC__M1_W44___ico_comb__TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod__2(VPvuTop_LZC__M1_W44* vlSelf);
-void VPvuTop___024root___ico_comb__TOP__35(VPvuTop___024root* vlSelf);
 void VPvuTop___024root___ico_comb__TOP__36(VPvuTop___024root* vlSelf);
 void VPvuTop___024root___ico_comb__TOP__37(VPvuTop___024root* vlSelf);
-void VPvuTop___024root___ico_comb__TOP__42(VPvuTop___024root* vlSelf);
-void VPvuTop___024root___ico_comb__TOP__44(VPvuTop___024root* vlSelf);
-void VPvuTop___024root___ico_comb__TOP__46(VPvuTop___024root* vlSelf);
-void VPvuTop___024root___ico_comb__TOP__48(VPvuTop___024root* vlSelf);
-void VPvuTop___024root___ico_comb__TOP__50(VPvuTop___024root* vlSelf);
+void VPvuTop___024root___ico_comb__TOP__38(VPvuTop___024root* vlSelf);
+void VPvuTop___024root___ico_comb__TOP__43(VPvuTop___024root* vlSelf);
+void VPvuTop___024root___ico_comb__TOP__45(VPvuTop___024root* vlSelf);
+void VPvuTop___024root___ico_comb__TOP__47(VPvuTop___024root* vlSelf);
+void VPvuTop___024root___ico_comb__TOP__49(VPvuTop___024root* vlSelf);
 void VPvuTop___024root___ico_comb__TOP__51(VPvuTop___024root* vlSelf);
 void VPvuTop___024root___ico_comb__TOP__52(VPvuTop___024root* vlSelf);
 void VPvuTop___024root___ico_comb__TOP__53(VPvuTop___024root* vlSelf);
@@ -2153,6 +2188,7 @@ void VPvuTop___024root___ico_comb__TOP__58(VPvuTop___024root* vlSelf);
 void VPvuTop___024root___ico_comb__TOP__59(VPvuTop___024root* vlSelf);
 void VPvuTop___024root___ico_comb__TOP__60(VPvuTop___024root* vlSelf);
 void VPvuTop___024root___ico_comb__TOP__61(VPvuTop___024root* vlSelf);
+void VPvuTop___024root___ico_comb__TOP__62(VPvuTop___024root* vlSelf);
 
 void VPvuTop___024root___eval_ico(VPvuTop___024root* vlSelf) {
     if (false && vlSelf) {}  // Prevent unused
@@ -2495,13 +2531,14 @@ void VPvuTop___024root___eval_ico(VPvuTop___024root* vlSelf) {
             | vlSelf->__VicoTriggered.at(0x29U)) | vlSelf->__VicoTriggered.at(0x2cU)) 
           | vlSelf->__VicoTriggered.at(0x2fU)) | vlSelf->__VicoTriggered.at(0x32U))) {
         VPvuTop_PositDecode___ico_comb__TOP__PvuTop__DOT__decode1__12((&vlSymsp->TOP__PvuTop__DOT__decode1));
+        vlSelf->__Vm_traceActivity[0x25U] = 1U;
         VPvuTop___024root___ico_comb__TOP__7(vlSelf);
     }
     if (((((vlSelf->__VicoTriggered.at(0U) | vlSelf->__VicoTriggered.at(0x29U)) 
            | vlSelf->__VicoTriggered.at(0x2cU)) | vlSelf->__VicoTriggered.at(0x2fU)) 
          | vlSelf->__VicoTriggered.at(0x32U))) {
         VPvuTop_PositDecode___ico_comb__TOP__PvuTop__DOT__decode1__13((&vlSymsp->TOP__PvuTop__DOT__decode1));
-        vlSelf->__Vm_traceActivity[0x25U] = 1U;
+        vlSelf->__Vm_traceActivity[0x26U] = 1U;
         VPvuTop___024root___ico_comb__TOP__8(vlSelf);
     }
     if (((((((((((((((((((((((((((((((((((((((((vlSelf->__VicoTriggered.at(0U) 
@@ -2554,12 +2591,6 @@ void VPvuTop___024root___eval_ico(VPvuTop___024root* vlSelf) {
            | vlSelf->__VicoTriggered.at(0x39U)) | vlSelf->__VicoTriggered.at(0x3cU)) 
          | vlSelf->__VicoTriggered.at(0x3fU))) {
         VPvuTop___024root___ico_comb__TOP__10(vlSelf);
-        vlSelf->__Vm_traceActivity[0x26U] = 1U;
-    }
-    if ((((((vlSelf->__VicoTriggered.at(0U) | vlSelf->__VicoTriggered.at(0x28U)) 
-            | vlSelf->__VicoTriggered.at(0x29U)) | vlSelf->__VicoTriggered.at(0x2cU)) 
-          | vlSelf->__VicoTriggered.at(0x2fU)) | vlSelf->__VicoTriggered.at(0x32U))) {
-        VPvuTop___024root___ico_comb__TOP__11(vlSelf);
         vlSelf->__Vm_traceActivity[0x27U] = 1U;
     }
     if (((((((((vlSelf->__VicoTriggered.at(0U) | vlSelf->__VicoTriggered.at(0x29U)) 
@@ -2568,8 +2599,9 @@ void VPvuTop___024root___eval_ico(VPvuTop___024root* vlSelf) {
              | vlSelf->__VicoTriggered.at(0x32U)) | vlSelf->__VicoTriggered.at(0x36U)) 
            | vlSelf->__VicoTriggered.at(0x39U)) | vlSelf->__VicoTriggered.at(0x3cU)) 
          | vlSelf->__VicoTriggered.at(0x3fU))) {
-        VPvuTop_Radix4BoothMultiplier___ico_comb__TOP__PvuTop__DOT__mul__DOT__radix4BoothMultiplier_3__1((&vlSymsp->TOP__PvuTop__DOT__mul__DOT__radix4BoothMultiplier_3));
+        VPvuTop___024root___ico_comb__TOP__11(vlSelf);
         vlSelf->__Vm_traceActivity[0x28U] = 1U;
+        VPvuTop_Radix4BoothMultiplier___ico_comb__TOP__PvuTop__DOT__mul__DOT__radix4BoothMultiplier_3__1((&vlSymsp->TOP__PvuTop__DOT__mul__DOT__radix4BoothMultiplier_3));
         VPvuTop_Radix4BoothMultiplier___ico_comb__TOP__PvuTop__DOT__mul__DOT__radix4BoothMultiplier_3__1((&vlSymsp->TOP__PvuTop__DOT__dotproduct__DOT__mul__DOT__radix4BoothMultiplier_3));
         VPvuTop_IntDivider___ico_comb__TOP__PvuTop__DOT__div__DOT__intdivider_3__1((&vlSymsp->TOP__PvuTop__DOT__div__DOT__intdivider_3));
         VPvuTop_Radix4BoothMultiplier___ico_comb__TOP__PvuTop__DOT__mul__DOT__radix4BoothMultiplier_2__1((&vlSymsp->TOP__PvuTop__DOT__mul__DOT__radix4BoothMultiplier_2));
@@ -2735,18 +2767,13 @@ void VPvuTop___024root___eval_ico(VPvuTop___024root* vlSelf) {
         VPvuTop_LZC__M1_W44___ico_comb__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1__0((&vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1));
         VPvuTop_LZC__M1_W44___ico_comb__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod__0((&vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod));
     }
-    if ((((((((((((vlSelf->__VicoTriggered.at(0U) | vlSelf->__VicoTriggered.at(1U)) 
-                  | vlSelf->__VicoTriggered.at(0x28U)) 
-                 | vlSelf->__VicoTriggered.at(0x29U)) 
-                | vlSelf->__VicoTriggered.at(0x2cU)) 
-               | vlSelf->__VicoTriggered.at(0x2fU)) 
-              | vlSelf->__VicoTriggered.at(0x32U)) 
-             | vlSelf->__VicoTriggered.at(0x35U)) | vlSelf->__VicoTriggered.at(0x36U)) 
-           | vlSelf->__VicoTriggered.at(0x39U)) | vlSelf->__VicoTriggered.at(0x3cU)) 
-         | vlSelf->__VicoTriggered.at(0x3fU))) {
+    if ((((((vlSelf->__VicoTriggered.at(0U) | vlSelf->__VicoTriggered.at(0x28U)) 
+            | vlSelf->__VicoTriggered.at(0x29U)) | vlSelf->__VicoTriggered.at(0x2cU)) 
+          | vlSelf->__VicoTriggered.at(0x2fU)) | vlSelf->__VicoTriggered.at(0x32U))) {
         VPvuTop___024root___ico_comb__TOP__13(vlSelf);
+        vlSelf->__Vm_traceActivity[0x29U] = 1U;
     }
-    if ((((((((((((vlSelf->__VicoTriggered.at(0U) | vlSelf->__VicoTriggered.at(0x13U)) 
+    if ((((((((((((vlSelf->__VicoTriggered.at(0U) | vlSelf->__VicoTriggered.at(1U)) 
                   | vlSelf->__VicoTriggered.at(0x28U)) 
                  | vlSelf->__VicoTriggered.at(0x29U)) 
                 | vlSelf->__VicoTriggered.at(0x2cU)) 
@@ -2757,133 +2784,6 @@ void VPvuTop___024root___eval_ico(VPvuTop___024root* vlSelf) {
          | vlSelf->__VicoTriggered.at(0x3fU))) {
         VPvuTop___024root___ico_comb__TOP__14(vlSelf);
     }
-    if ((((((((((((vlSelf->__VicoTriggered.at(0U) | vlSelf->__VicoTriggered.at(0x12U)) 
-                  | vlSelf->__VicoTriggered.at(0x28U)) 
-                 | vlSelf->__VicoTriggered.at(0x29U)) 
-                | vlSelf->__VicoTriggered.at(0x2cU)) 
-               | vlSelf->__VicoTriggered.at(0x2fU)) 
-              | vlSelf->__VicoTriggered.at(0x32U)) 
-             | vlSelf->__VicoTriggered.at(0x35U)) | vlSelf->__VicoTriggered.at(0x36U)) 
-           | vlSelf->__VicoTriggered.at(0x39U)) | vlSelf->__VicoTriggered.at(0x3cU)) 
-         | vlSelf->__VicoTriggered.at(0x3fU))) {
-        VPvuTop___024root___ico_comb__TOP__15(vlSelf);
-        vlSelf->__Vm_traceActivity[0x29U] = 1U;
-    }
-    if ((((((((((((vlSelf->__VicoTriggered.at(0U) | vlSelf->__VicoTriggered.at(0xbU)) 
-                  | vlSelf->__VicoTriggered.at(0x28U)) 
-                 | vlSelf->__VicoTriggered.at(0x29U)) 
-                | vlSelf->__VicoTriggered.at(0x2cU)) 
-               | vlSelf->__VicoTriggered.at(0x2fU)) 
-              | vlSelf->__VicoTriggered.at(0x32U)) 
-             | vlSelf->__VicoTriggered.at(0x35U)) | vlSelf->__VicoTriggered.at(0x36U)) 
-           | vlSelf->__VicoTriggered.at(0x39U)) | vlSelf->__VicoTriggered.at(0x3cU)) 
-         | vlSelf->__VicoTriggered.at(0x3fU))) {
-        VPvuTop___024root___ico_comb__TOP__16(vlSelf);
-    }
-    if ((((((((((((vlSelf->__VicoTriggered.at(0U) | vlSelf->__VicoTriggered.at(0xaU)) 
-                  | vlSelf->__VicoTriggered.at(0x28U)) 
-                 | vlSelf->__VicoTriggered.at(0x29U)) 
-                | vlSelf->__VicoTriggered.at(0x2cU)) 
-               | vlSelf->__VicoTriggered.at(0x2fU)) 
-              | vlSelf->__VicoTriggered.at(0x32U)) 
-             | vlSelf->__VicoTriggered.at(0x35U)) | vlSelf->__VicoTriggered.at(0x36U)) 
-           | vlSelf->__VicoTriggered.at(0x39U)) | vlSelf->__VicoTriggered.at(0x3cU)) 
-         | vlSelf->__VicoTriggered.at(0x3fU))) {
-        VPvuTop___024root___ico_comb__TOP__17(vlSelf);
-        vlSelf->__Vm_traceActivity[0x2aU] = 1U;
-    }
-    if ((((((((((((vlSelf->__VicoTriggered.at(0U) | vlSelf->__VicoTriggered.at(0x11U)) 
-                  | vlSelf->__VicoTriggered.at(0x28U)) 
-                 | vlSelf->__VicoTriggered.at(0x29U)) 
-                | vlSelf->__VicoTriggered.at(0x2cU)) 
-               | vlSelf->__VicoTriggered.at(0x2fU)) 
-              | vlSelf->__VicoTriggered.at(0x32U)) 
-             | vlSelf->__VicoTriggered.at(0x35U)) | vlSelf->__VicoTriggered.at(0x36U)) 
-           | vlSelf->__VicoTriggered.at(0x39U)) | vlSelf->__VicoTriggered.at(0x3cU)) 
-         | vlSelf->__VicoTriggered.at(0x3fU))) {
-        VPvuTop___024root___ico_comb__TOP__18(vlSelf);
-    }
-    if ((((((((((((vlSelf->__VicoTriggered.at(0U) | vlSelf->__VicoTriggered.at(0x10U)) 
-                  | vlSelf->__VicoTriggered.at(0x28U)) 
-                 | vlSelf->__VicoTriggered.at(0x29U)) 
-                | vlSelf->__VicoTriggered.at(0x2cU)) 
-               | vlSelf->__VicoTriggered.at(0x2fU)) 
-              | vlSelf->__VicoTriggered.at(0x32U)) 
-             | vlSelf->__VicoTriggered.at(0x35U)) | vlSelf->__VicoTriggered.at(0x36U)) 
-           | vlSelf->__VicoTriggered.at(0x39U)) | vlSelf->__VicoTriggered.at(0x3cU)) 
-         | vlSelf->__VicoTriggered.at(0x3fU))) {
-        VPvuTop___024root___ico_comb__TOP__19(vlSelf);
-        vlSelf->__Vm_traceActivity[0x2bU] = 1U;
-    }
-    if ((((((((((((vlSelf->__VicoTriggered.at(0U) | vlSelf->__VicoTriggered.at(9U)) 
-                  | vlSelf->__VicoTriggered.at(0x28U)) 
-                 | vlSelf->__VicoTriggered.at(0x29U)) 
-                | vlSelf->__VicoTriggered.at(0x2cU)) 
-               | vlSelf->__VicoTriggered.at(0x2fU)) 
-              | vlSelf->__VicoTriggered.at(0x32U)) 
-             | vlSelf->__VicoTriggered.at(0x35U)) | vlSelf->__VicoTriggered.at(0x36U)) 
-           | vlSelf->__VicoTriggered.at(0x39U)) | vlSelf->__VicoTriggered.at(0x3cU)) 
-         | vlSelf->__VicoTriggered.at(0x3fU))) {
-        VPvuTop___024root___ico_comb__TOP__20(vlSelf);
-    }
-    if ((((((((((((vlSelf->__VicoTriggered.at(0U) | vlSelf->__VicoTriggered.at(8U)) 
-                  | vlSelf->__VicoTriggered.at(0x28U)) 
-                 | vlSelf->__VicoTriggered.at(0x29U)) 
-                | vlSelf->__VicoTriggered.at(0x2cU)) 
-               | vlSelf->__VicoTriggered.at(0x2fU)) 
-              | vlSelf->__VicoTriggered.at(0x32U)) 
-             | vlSelf->__VicoTriggered.at(0x35U)) | vlSelf->__VicoTriggered.at(0x36U)) 
-           | vlSelf->__VicoTriggered.at(0x39U)) | vlSelf->__VicoTriggered.at(0x3cU)) 
-         | vlSelf->__VicoTriggered.at(0x3fU))) {
-        VPvuTop___024root___ico_comb__TOP__21(vlSelf);
-        vlSelf->__Vm_traceActivity[0x2cU] = 1U;
-    }
-    if ((((((((((((vlSelf->__VicoTriggered.at(0U) | vlSelf->__VicoTriggered.at(0xfU)) 
-                  | vlSelf->__VicoTriggered.at(0x28U)) 
-                 | vlSelf->__VicoTriggered.at(0x29U)) 
-                | vlSelf->__VicoTriggered.at(0x2cU)) 
-               | vlSelf->__VicoTriggered.at(0x2fU)) 
-              | vlSelf->__VicoTriggered.at(0x32U)) 
-             | vlSelf->__VicoTriggered.at(0x35U)) | vlSelf->__VicoTriggered.at(0x36U)) 
-           | vlSelf->__VicoTriggered.at(0x39U)) | vlSelf->__VicoTriggered.at(0x3cU)) 
-         | vlSelf->__VicoTriggered.at(0x3fU))) {
-        VPvuTop___024root___ico_comb__TOP__22(vlSelf);
-    }
-    if ((((((((((((vlSelf->__VicoTriggered.at(0U) | vlSelf->__VicoTriggered.at(0xeU)) 
-                  | vlSelf->__VicoTriggered.at(0x28U)) 
-                 | vlSelf->__VicoTriggered.at(0x29U)) 
-                | vlSelf->__VicoTriggered.at(0x2cU)) 
-               | vlSelf->__VicoTriggered.at(0x2fU)) 
-              | vlSelf->__VicoTriggered.at(0x32U)) 
-             | vlSelf->__VicoTriggered.at(0x35U)) | vlSelf->__VicoTriggered.at(0x36U)) 
-           | vlSelf->__VicoTriggered.at(0x39U)) | vlSelf->__VicoTriggered.at(0x3cU)) 
-         | vlSelf->__VicoTriggered.at(0x3fU))) {
-        VPvuTop___024root___ico_comb__TOP__23(vlSelf);
-        vlSelf->__Vm_traceActivity[0x2dU] = 1U;
-    }
-    if ((((((((((((vlSelf->__VicoTriggered.at(0U) | vlSelf->__VicoTriggered.at(7U)) 
-                  | vlSelf->__VicoTriggered.at(0x28U)) 
-                 | vlSelf->__VicoTriggered.at(0x29U)) 
-                | vlSelf->__VicoTriggered.at(0x2cU)) 
-               | vlSelf->__VicoTriggered.at(0x2fU)) 
-              | vlSelf->__VicoTriggered.at(0x32U)) 
-             | vlSelf->__VicoTriggered.at(0x35U)) | vlSelf->__VicoTriggered.at(0x36U)) 
-           | vlSelf->__VicoTriggered.at(0x39U)) | vlSelf->__VicoTriggered.at(0x3cU)) 
-         | vlSelf->__VicoTriggered.at(0x3fU))) {
-        VPvuTop___024root___ico_comb__TOP__24(vlSelf);
-    }
-    if ((((((((((((vlSelf->__VicoTriggered.at(0U) | vlSelf->__VicoTriggered.at(6U)) 
-                  | vlSelf->__VicoTriggered.at(0x28U)) 
-                 | vlSelf->__VicoTriggered.at(0x29U)) 
-                | vlSelf->__VicoTriggered.at(0x2cU)) 
-               | vlSelf->__VicoTriggered.at(0x2fU)) 
-              | vlSelf->__VicoTriggered.at(0x32U)) 
-             | vlSelf->__VicoTriggered.at(0x35U)) | vlSelf->__VicoTriggered.at(0x36U)) 
-           | vlSelf->__VicoTriggered.at(0x39U)) | vlSelf->__VicoTriggered.at(0x3cU)) 
-         | vlSelf->__VicoTriggered.at(0x3fU))) {
-        VPvuTop___024root___ico_comb__TOP__25(vlSelf);
-        vlSelf->__Vm_traceActivity[0x2eU] = 1U;
-    }
     if ((((((((((((vlSelf->__VicoTriggered.at(0U) | vlSelf->__VicoTriggered.at(0xdU)) 
                   | vlSelf->__VicoTriggered.at(0x28U)) 
                  | vlSelf->__VicoTriggered.at(0x29U)) 
@@ -2893,7 +2793,7 @@ void VPvuTop___024root___eval_ico(VPvuTop___024root* vlSelf) {
              | vlSelf->__VicoTriggered.at(0x35U)) | vlSelf->__VicoTriggered.at(0x36U)) 
            | vlSelf->__VicoTriggered.at(0x39U)) | vlSelf->__VicoTriggered.at(0x3cU)) 
          | vlSelf->__VicoTriggered.at(0x3fU))) {
-        VPvuTop___024root___ico_comb__TOP__26(vlSelf);
+        VPvuTop___024root___ico_comb__TOP__15(vlSelf);
     }
     if ((((((((((((vlSelf->__VicoTriggered.at(0U) | vlSelf->__VicoTriggered.at(0xcU)) 
                   | vlSelf->__VicoTriggered.at(0x28U)) 
@@ -2904,8 +2804,8 @@ void VPvuTop___024root___eval_ico(VPvuTop___024root* vlSelf) {
              | vlSelf->__VicoTriggered.at(0x35U)) | vlSelf->__VicoTriggered.at(0x36U)) 
            | vlSelf->__VicoTriggered.at(0x39U)) | vlSelf->__VicoTriggered.at(0x3cU)) 
          | vlSelf->__VicoTriggered.at(0x3fU))) {
-        VPvuTop___024root___ico_comb__TOP__27(vlSelf);
-        vlSelf->__Vm_traceActivity[0x2fU] = 1U;
+        VPvuTop___024root___ico_comb__TOP__16(vlSelf);
+        vlSelf->__Vm_traceActivity[0x2aU] = 1U;
     }
     if ((((((((((((vlSelf->__VicoTriggered.at(0U) | vlSelf->__VicoTriggered.at(5U)) 
                   | vlSelf->__VicoTriggered.at(0x28U)) 
@@ -2916,7 +2816,7 @@ void VPvuTop___024root___eval_ico(VPvuTop___024root* vlSelf) {
              | vlSelf->__VicoTriggered.at(0x35U)) | vlSelf->__VicoTriggered.at(0x36U)) 
            | vlSelf->__VicoTriggered.at(0x39U)) | vlSelf->__VicoTriggered.at(0x3cU)) 
          | vlSelf->__VicoTriggered.at(0x3fU))) {
-        VPvuTop___024root___ico_comb__TOP__28(vlSelf);
+        VPvuTop___024root___ico_comb__TOP__17(vlSelf);
     }
     if ((((((((((((vlSelf->__VicoTriggered.at(0U) | vlSelf->__VicoTriggered.at(4U)) 
                   | vlSelf->__VicoTriggered.at(0x28U)) 
@@ -2927,10 +2827,137 @@ void VPvuTop___024root___eval_ico(VPvuTop___024root* vlSelf) {
              | vlSelf->__VicoTriggered.at(0x35U)) | vlSelf->__VicoTriggered.at(0x36U)) 
            | vlSelf->__VicoTriggered.at(0x39U)) | vlSelf->__VicoTriggered.at(0x3cU)) 
          | vlSelf->__VicoTriggered.at(0x3fU))) {
-        VPvuTop___024root___ico_comb__TOP__29(vlSelf);
+        VPvuTop___024root___ico_comb__TOP__18(vlSelf);
+        vlSelf->__Vm_traceActivity[0x2bU] = 1U;
+    }
+    if ((((((((((((vlSelf->__VicoTriggered.at(0U) | vlSelf->__VicoTriggered.at(0xfU)) 
+                  | vlSelf->__VicoTriggered.at(0x28U)) 
+                 | vlSelf->__VicoTriggered.at(0x29U)) 
+                | vlSelf->__VicoTriggered.at(0x2cU)) 
+               | vlSelf->__VicoTriggered.at(0x2fU)) 
+              | vlSelf->__VicoTriggered.at(0x32U)) 
+             | vlSelf->__VicoTriggered.at(0x35U)) | vlSelf->__VicoTriggered.at(0x36U)) 
+           | vlSelf->__VicoTriggered.at(0x39U)) | vlSelf->__VicoTriggered.at(0x3cU)) 
+         | vlSelf->__VicoTriggered.at(0x3fU))) {
+        VPvuTop___024root___ico_comb__TOP__19(vlSelf);
+    }
+    if ((((((((((((vlSelf->__VicoTriggered.at(0U) | vlSelf->__VicoTriggered.at(0xeU)) 
+                  | vlSelf->__VicoTriggered.at(0x28U)) 
+                 | vlSelf->__VicoTriggered.at(0x29U)) 
+                | vlSelf->__VicoTriggered.at(0x2cU)) 
+               | vlSelf->__VicoTriggered.at(0x2fU)) 
+              | vlSelf->__VicoTriggered.at(0x32U)) 
+             | vlSelf->__VicoTriggered.at(0x35U)) | vlSelf->__VicoTriggered.at(0x36U)) 
+           | vlSelf->__VicoTriggered.at(0x39U)) | vlSelf->__VicoTriggered.at(0x3cU)) 
+         | vlSelf->__VicoTriggered.at(0x3fU))) {
+        VPvuTop___024root___ico_comb__TOP__20(vlSelf);
+        vlSelf->__Vm_traceActivity[0x2cU] = 1U;
+    }
+    if ((((((((((((vlSelf->__VicoTriggered.at(0U) | vlSelf->__VicoTriggered.at(7U)) 
+                  | vlSelf->__VicoTriggered.at(0x28U)) 
+                 | vlSelf->__VicoTriggered.at(0x29U)) 
+                | vlSelf->__VicoTriggered.at(0x2cU)) 
+               | vlSelf->__VicoTriggered.at(0x2fU)) 
+              | vlSelf->__VicoTriggered.at(0x32U)) 
+             | vlSelf->__VicoTriggered.at(0x35U)) | vlSelf->__VicoTriggered.at(0x36U)) 
+           | vlSelf->__VicoTriggered.at(0x39U)) | vlSelf->__VicoTriggered.at(0x3cU)) 
+         | vlSelf->__VicoTriggered.at(0x3fU))) {
+        VPvuTop___024root___ico_comb__TOP__21(vlSelf);
+    }
+    if ((((((((((((vlSelf->__VicoTriggered.at(0U) | vlSelf->__VicoTriggered.at(6U)) 
+                  | vlSelf->__VicoTriggered.at(0x28U)) 
+                 | vlSelf->__VicoTriggered.at(0x29U)) 
+                | vlSelf->__VicoTriggered.at(0x2cU)) 
+               | vlSelf->__VicoTriggered.at(0x2fU)) 
+              | vlSelf->__VicoTriggered.at(0x32U)) 
+             | vlSelf->__VicoTriggered.at(0x35U)) | vlSelf->__VicoTriggered.at(0x36U)) 
+           | vlSelf->__VicoTriggered.at(0x39U)) | vlSelf->__VicoTriggered.at(0x3cU)) 
+         | vlSelf->__VicoTriggered.at(0x3fU))) {
+        VPvuTop___024root___ico_comb__TOP__22(vlSelf);
+        vlSelf->__Vm_traceActivity[0x2dU] = 1U;
+    }
+    if ((((((((((((vlSelf->__VicoTriggered.at(0U) | vlSelf->__VicoTriggered.at(0x11U)) 
+                  | vlSelf->__VicoTriggered.at(0x28U)) 
+                 | vlSelf->__VicoTriggered.at(0x29U)) 
+                | vlSelf->__VicoTriggered.at(0x2cU)) 
+               | vlSelf->__VicoTriggered.at(0x2fU)) 
+              | vlSelf->__VicoTriggered.at(0x32U)) 
+             | vlSelf->__VicoTriggered.at(0x35U)) | vlSelf->__VicoTriggered.at(0x36U)) 
+           | vlSelf->__VicoTriggered.at(0x39U)) | vlSelf->__VicoTriggered.at(0x3cU)) 
+         | vlSelf->__VicoTriggered.at(0x3fU))) {
+        VPvuTop___024root___ico_comb__TOP__23(vlSelf);
+    }
+    if ((((((((((((vlSelf->__VicoTriggered.at(0U) | vlSelf->__VicoTriggered.at(0x10U)) 
+                  | vlSelf->__VicoTriggered.at(0x28U)) 
+                 | vlSelf->__VicoTriggered.at(0x29U)) 
+                | vlSelf->__VicoTriggered.at(0x2cU)) 
+               | vlSelf->__VicoTriggered.at(0x2fU)) 
+              | vlSelf->__VicoTriggered.at(0x32U)) 
+             | vlSelf->__VicoTriggered.at(0x35U)) | vlSelf->__VicoTriggered.at(0x36U)) 
+           | vlSelf->__VicoTriggered.at(0x39U)) | vlSelf->__VicoTriggered.at(0x3cU)) 
+         | vlSelf->__VicoTriggered.at(0x3fU))) {
+        VPvuTop___024root___ico_comb__TOP__24(vlSelf);
+        vlSelf->__Vm_traceActivity[0x2eU] = 1U;
+    }
+    if ((((((((((((vlSelf->__VicoTriggered.at(0U) | vlSelf->__VicoTriggered.at(9U)) 
+                  | vlSelf->__VicoTriggered.at(0x28U)) 
+                 | vlSelf->__VicoTriggered.at(0x29U)) 
+                | vlSelf->__VicoTriggered.at(0x2cU)) 
+               | vlSelf->__VicoTriggered.at(0x2fU)) 
+              | vlSelf->__VicoTriggered.at(0x32U)) 
+             | vlSelf->__VicoTriggered.at(0x35U)) | vlSelf->__VicoTriggered.at(0x36U)) 
+           | vlSelf->__VicoTriggered.at(0x39U)) | vlSelf->__VicoTriggered.at(0x3cU)) 
+         | vlSelf->__VicoTriggered.at(0x3fU))) {
+        VPvuTop___024root___ico_comb__TOP__25(vlSelf);
+    }
+    if ((((((((((((vlSelf->__VicoTriggered.at(0U) | vlSelf->__VicoTriggered.at(8U)) 
+                  | vlSelf->__VicoTriggered.at(0x28U)) 
+                 | vlSelf->__VicoTriggered.at(0x29U)) 
+                | vlSelf->__VicoTriggered.at(0x2cU)) 
+               | vlSelf->__VicoTriggered.at(0x2fU)) 
+              | vlSelf->__VicoTriggered.at(0x32U)) 
+             | vlSelf->__VicoTriggered.at(0x35U)) | vlSelf->__VicoTriggered.at(0x36U)) 
+           | vlSelf->__VicoTriggered.at(0x39U)) | vlSelf->__VicoTriggered.at(0x3cU)) 
+         | vlSelf->__VicoTriggered.at(0x3fU))) {
+        VPvuTop___024root___ico_comb__TOP__26(vlSelf);
+        vlSelf->__Vm_traceActivity[0x2fU] = 1U;
+    }
+    if ((((((((((((vlSelf->__VicoTriggered.at(0U) | vlSelf->__VicoTriggered.at(0x13U)) 
+                  | vlSelf->__VicoTriggered.at(0x28U)) 
+                 | vlSelf->__VicoTriggered.at(0x29U)) 
+                | vlSelf->__VicoTriggered.at(0x2cU)) 
+               | vlSelf->__VicoTriggered.at(0x2fU)) 
+              | vlSelf->__VicoTriggered.at(0x32U)) 
+             | vlSelf->__VicoTriggered.at(0x35U)) | vlSelf->__VicoTriggered.at(0x36U)) 
+           | vlSelf->__VicoTriggered.at(0x39U)) | vlSelf->__VicoTriggered.at(0x3cU)) 
+         | vlSelf->__VicoTriggered.at(0x3fU))) {
+        VPvuTop___024root___ico_comb__TOP__27(vlSelf);
+    }
+    if ((((((((((((vlSelf->__VicoTriggered.at(0U) | vlSelf->__VicoTriggered.at(0x12U)) 
+                  | vlSelf->__VicoTriggered.at(0x28U)) 
+                 | vlSelf->__VicoTriggered.at(0x29U)) 
+                | vlSelf->__VicoTriggered.at(0x2cU)) 
+               | vlSelf->__VicoTriggered.at(0x2fU)) 
+              | vlSelf->__VicoTriggered.at(0x32U)) 
+             | vlSelf->__VicoTriggered.at(0x35U)) | vlSelf->__VicoTriggered.at(0x36U)) 
+           | vlSelf->__VicoTriggered.at(0x39U)) | vlSelf->__VicoTriggered.at(0x3cU)) 
+         | vlSelf->__VicoTriggered.at(0x3fU))) {
+        VPvuTop___024root___ico_comb__TOP__28(vlSelf);
         vlSelf->__Vm_traceActivity[0x30U] = 1U;
     }
-    if (((((((((((vlSelf->__VicoTriggered.at(0U) | vlSelf->__VicoTriggered.at(0x28U)) 
+    if ((((((((((((vlSelf->__VicoTriggered.at(0U) | vlSelf->__VicoTriggered.at(0xbU)) 
+                  | vlSelf->__VicoTriggered.at(0x28U)) 
+                 | vlSelf->__VicoTriggered.at(0x29U)) 
+                | vlSelf->__VicoTriggered.at(0x2cU)) 
+               | vlSelf->__VicoTriggered.at(0x2fU)) 
+              | vlSelf->__VicoTriggered.at(0x32U)) 
+             | vlSelf->__VicoTriggered.at(0x35U)) | vlSelf->__VicoTriggered.at(0x36U)) 
+           | vlSelf->__VicoTriggered.at(0x39U)) | vlSelf->__VicoTriggered.at(0x3cU)) 
+         | vlSelf->__VicoTriggered.at(0x3fU))) {
+        VPvuTop___024root___ico_comb__TOP__29(vlSelf);
+    }
+    if ((((((((((((vlSelf->__VicoTriggered.at(0U) | vlSelf->__VicoTriggered.at(0xaU)) 
+                  | vlSelf->__VicoTriggered.at(0x28U)) 
                  | vlSelf->__VicoTriggered.at(0x29U)) 
                 | vlSelf->__VicoTriggered.at(0x2cU)) 
                | vlSelf->__VicoTriggered.at(0x2fU)) 
@@ -2940,12 +2967,23 @@ void VPvuTop___024root___eval_ico(VPvuTop___024root* vlSelf) {
          | vlSelf->__VicoTriggered.at(0x3fU))) {
         VPvuTop___024root___ico_comb__TOP__30(vlSelf);
         vlSelf->__Vm_traceActivity[0x31U] = 1U;
+    }
+    if (((((((((((vlSelf->__VicoTriggered.at(0U) | vlSelf->__VicoTriggered.at(0x28U)) 
+                 | vlSelf->__VicoTriggered.at(0x29U)) 
+                | vlSelf->__VicoTriggered.at(0x2cU)) 
+               | vlSelf->__VicoTriggered.at(0x2fU)) 
+              | vlSelf->__VicoTriggered.at(0x32U)) 
+             | vlSelf->__VicoTriggered.at(0x35U)) | vlSelf->__VicoTriggered.at(0x36U)) 
+           | vlSelf->__VicoTriggered.at(0x39U)) | vlSelf->__VicoTriggered.at(0x3cU)) 
+         | vlSelf->__VicoTriggered.at(0x3fU))) {
+        VPvuTop___024root___ico_comb__TOP__31(vlSelf);
+        vlSelf->__Vm_traceActivity[0x32U] = 1U;
         VPvuTop_LZC__M1_W44___ico_comb__TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod_3__0((&vlSymsp->TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod_3));
         VPvuTop_LZC__M1_W44___ico_comb__TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod_2__0((&vlSymsp->TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod_2));
         VPvuTop_LZC__M1_W44___ico_comb__TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod_1__0((&vlSymsp->TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod_1));
         VPvuTop_LZC__M1_W44___ico_comb__TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod__0((&vlSymsp->TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod));
     }
-    if ((((((((((vlSelf->__VicoTriggered.at(0U) | vlSelf->__VicoTriggered.at(0x23U)) 
+    if ((((((((((vlSelf->__VicoTriggered.at(0U) | vlSelf->__VicoTriggered.at(0x25U)) 
                 | vlSelf->__VicoTriggered.at(0x29U)) 
                | vlSelf->__VicoTriggered.at(0x2cU)) 
               | vlSelf->__VicoTriggered.at(0x2fU)) 
@@ -2953,9 +2991,9 @@ void VPvuTop___024root___eval_ico(VPvuTop___024root* vlSelf) {
            | vlSelf->__VicoTriggered.at(0x39U)) | vlSelf->__VicoTriggered.at(0x3cU)) 
          | vlSelf->__VicoTriggered.at(0x3fU))) {
         VPvuTop_LZC__M1_W44___ico_comb__TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod__1((&vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3));
-        vlSelf->__Vm_traceActivity[0x32U] = 1U;
+        vlSelf->__Vm_traceActivity[0x33U] = 1U;
     }
-    if ((((((((((vlSelf->__VicoTriggered.at(0U) | vlSelf->__VicoTriggered.at(0x22U)) 
+    if ((((((((((vlSelf->__VicoTriggered.at(0U) | vlSelf->__VicoTriggered.at(0x24U)) 
                 | vlSelf->__VicoTriggered.at(0x29U)) 
                | vlSelf->__VicoTriggered.at(0x2cU)) 
               | vlSelf->__VicoTriggered.at(0x2fU)) 
@@ -2963,10 +3001,10 @@ void VPvuTop___024root___eval_ico(VPvuTop___024root* vlSelf) {
            | vlSelf->__VicoTriggered.at(0x39U)) | vlSelf->__VicoTriggered.at(0x3cU)) 
          | vlSelf->__VicoTriggered.at(0x3fU))) {
         VPvuTop_LZC__M1_W44___ico_comb__TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod__2((&vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3));
-        vlSelf->__Vm_traceActivity[0x33U] = 1U;
-        VPvuTop___024root___ico_comb__TOP__31(vlSelf);
+        vlSelf->__Vm_traceActivity[0x34U] = 1U;
+        VPvuTop___024root___ico_comb__TOP__32(vlSelf);
     }
-    if ((((((((((vlSelf->__VicoTriggered.at(0U) | vlSelf->__VicoTriggered.at(0x1fU)) 
+    if ((((((((((vlSelf->__VicoTriggered.at(0U) | vlSelf->__VicoTriggered.at(0x21U)) 
                 | vlSelf->__VicoTriggered.at(0x29U)) 
                | vlSelf->__VicoTriggered.at(0x2cU)) 
               | vlSelf->__VicoTriggered.at(0x2fU)) 
@@ -2974,9 +3012,9 @@ void VPvuTop___024root___eval_ico(VPvuTop___024root* vlSelf) {
            | vlSelf->__VicoTriggered.at(0x39U)) | vlSelf->__VicoTriggered.at(0x3cU)) 
          | vlSelf->__VicoTriggered.at(0x3fU))) {
         VPvuTop_LZC__M1_W44___ico_comb__TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod__1((&vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2));
-        vlSelf->__Vm_traceActivity[0x34U] = 1U;
+        vlSelf->__Vm_traceActivity[0x35U] = 1U;
     }
-    if ((((((((((vlSelf->__VicoTriggered.at(0U) | vlSelf->__VicoTriggered.at(0x1eU)) 
+    if ((((((((((vlSelf->__VicoTriggered.at(0U) | vlSelf->__VicoTriggered.at(0x20U)) 
                 | vlSelf->__VicoTriggered.at(0x29U)) 
                | vlSelf->__VicoTriggered.at(0x2cU)) 
               | vlSelf->__VicoTriggered.at(0x2fU)) 
@@ -2984,10 +3022,10 @@ void VPvuTop___024root___eval_ico(VPvuTop___024root* vlSelf) {
            | vlSelf->__VicoTriggered.at(0x39U)) | vlSelf->__VicoTriggered.at(0x3cU)) 
          | vlSelf->__VicoTriggered.at(0x3fU))) {
         VPvuTop_LZC__M1_W44___ico_comb__TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod__2((&vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2));
-        vlSelf->__Vm_traceActivity[0x35U] = 1U;
-        VPvuTop___024root___ico_comb__TOP__32(vlSelf);
+        vlSelf->__Vm_traceActivity[0x36U] = 1U;
+        VPvuTop___024root___ico_comb__TOP__33(vlSelf);
     }
-    if ((((((((((vlSelf->__VicoTriggered.at(0U) | vlSelf->__VicoTriggered.at(0x1bU)) 
+    if ((((((((((vlSelf->__VicoTriggered.at(0U) | vlSelf->__VicoTriggered.at(0x1dU)) 
                 | vlSelf->__VicoTriggered.at(0x29U)) 
                | vlSelf->__VicoTriggered.at(0x2cU)) 
               | vlSelf->__VicoTriggered.at(0x2fU)) 
@@ -2995,9 +3033,9 @@ void VPvuTop___024root___eval_ico(VPvuTop___024root* vlSelf) {
            | vlSelf->__VicoTriggered.at(0x39U)) | vlSelf->__VicoTriggered.at(0x3cU)) 
          | vlSelf->__VicoTriggered.at(0x3fU))) {
         VPvuTop_LZC__M1_W44___ico_comb__TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod__1((&vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1));
-        vlSelf->__Vm_traceActivity[0x36U] = 1U;
+        vlSelf->__Vm_traceActivity[0x37U] = 1U;
     }
-    if ((((((((((vlSelf->__VicoTriggered.at(0U) | vlSelf->__VicoTriggered.at(0x1aU)) 
+    if ((((((((((vlSelf->__VicoTriggered.at(0U) | vlSelf->__VicoTriggered.at(0x1cU)) 
                 | vlSelf->__VicoTriggered.at(0x29U)) 
                | vlSelf->__VicoTriggered.at(0x2cU)) 
               | vlSelf->__VicoTriggered.at(0x2fU)) 
@@ -3005,10 +3043,10 @@ void VPvuTop___024root___eval_ico(VPvuTop___024root* vlSelf) {
            | vlSelf->__VicoTriggered.at(0x39U)) | vlSelf->__VicoTriggered.at(0x3cU)) 
          | vlSelf->__VicoTriggered.at(0x3fU))) {
         VPvuTop_LZC__M1_W44___ico_comb__TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod__2((&vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1));
-        vlSelf->__Vm_traceActivity[0x37U] = 1U;
-        VPvuTop___024root___ico_comb__TOP__33(vlSelf);
+        vlSelf->__Vm_traceActivity[0x38U] = 1U;
+        VPvuTop___024root___ico_comb__TOP__34(vlSelf);
     }
-    if ((((((((((vlSelf->__VicoTriggered.at(0U) | vlSelf->__VicoTriggered.at(0x17U)) 
+    if ((((((((((vlSelf->__VicoTriggered.at(0U) | vlSelf->__VicoTriggered.at(0x19U)) 
                 | vlSelf->__VicoTriggered.at(0x29U)) 
                | vlSelf->__VicoTriggered.at(0x2cU)) 
               | vlSelf->__VicoTriggered.at(0x2fU)) 
@@ -3016,9 +3054,9 @@ void VPvuTop___024root___eval_ico(VPvuTop___024root* vlSelf) {
            | vlSelf->__VicoTriggered.at(0x39U)) | vlSelf->__VicoTriggered.at(0x3cU)) 
          | vlSelf->__VicoTriggered.at(0x3fU))) {
         VPvuTop_LZC__M1_W44___ico_comb__TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod__1((&vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod));
-        vlSelf->__Vm_traceActivity[0x38U] = 1U;
+        vlSelf->__Vm_traceActivity[0x39U] = 1U;
     }
-    if ((((((((((vlSelf->__VicoTriggered.at(0U) | vlSelf->__VicoTriggered.at(0x16U)) 
+    if ((((((((((vlSelf->__VicoTriggered.at(0U) | vlSelf->__VicoTriggered.at(0x18U)) 
                 | vlSelf->__VicoTriggered.at(0x29U)) 
                | vlSelf->__VicoTriggered.at(0x2cU)) 
               | vlSelf->__VicoTriggered.at(0x2fU)) 
@@ -3026,8 +3064,8 @@ void VPvuTop___024root___eval_ico(VPvuTop___024root* vlSelf) {
            | vlSelf->__VicoTriggered.at(0x39U)) | vlSelf->__VicoTriggered.at(0x3cU)) 
          | vlSelf->__VicoTriggered.at(0x3fU))) {
         VPvuTop_LZC__M1_W44___ico_comb__TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod__2((&vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod));
-        vlSelf->__Vm_traceActivity[0x39U] = 1U;
-        VPvuTop___024root___ico_comb__TOP__34(vlSelf);
+        vlSelf->__Vm_traceActivity[0x3aU] = 1U;
+        VPvuTop___024root___ico_comb__TOP__35(vlSelf);
     }
     if ((((((((((((vlSelf->__VicoTriggered.at(0U) | vlSelf->__VicoTriggered.at(3U)) 
                   | vlSelf->__VicoTriggered.at(0x28U)) 
@@ -3038,7 +3076,7 @@ void VPvuTop___024root___eval_ico(VPvuTop___024root* vlSelf) {
              | vlSelf->__VicoTriggered.at(0x35U)) | vlSelf->__VicoTriggered.at(0x36U)) 
            | vlSelf->__VicoTriggered.at(0x39U)) | vlSelf->__VicoTriggered.at(0x3cU)) 
          | vlSelf->__VicoTriggered.at(0x3fU))) {
-        VPvuTop___024root___ico_comb__TOP__35(vlSelf);
+        VPvuTop___024root___ico_comb__TOP__36(vlSelf);
     }
     if ((((((((((((vlSelf->__VicoTriggered.at(0U) | vlSelf->__VicoTriggered.at(1U)) 
                   | vlSelf->__VicoTriggered.at(0x28U)) 
@@ -3049,8 +3087,8 @@ void VPvuTop___024root___eval_ico(VPvuTop___024root* vlSelf) {
              | vlSelf->__VicoTriggered.at(0x35U)) | vlSelf->__VicoTriggered.at(0x36U)) 
            | vlSelf->__VicoTriggered.at(0x39U)) | vlSelf->__VicoTriggered.at(0x3cU)) 
          | vlSelf->__VicoTriggered.at(0x3fU))) {
-        VPvuTop___024root___ico_comb__TOP__36(vlSelf);
-        vlSelf->__Vm_traceActivity[0x3aU] = 1U;
+        VPvuTop___024root___ico_comb__TOP__37(vlSelf);
+        vlSelf->__Vm_traceActivity[0x3bU] = 1U;
     }
     if ((((((((((((vlSelf->__VicoTriggered.at(0U) | vlSelf->__VicoTriggered.at(2U)) 
                   | vlSelf->__VicoTriggered.at(0x28U)) 
@@ -3061,9 +3099,9 @@ void VPvuTop___024root___eval_ico(VPvuTop___024root* vlSelf) {
              | vlSelf->__VicoTriggered.at(0x35U)) | vlSelf->__VicoTriggered.at(0x36U)) 
            | vlSelf->__VicoTriggered.at(0x39U)) | vlSelf->__VicoTriggered.at(0x3cU)) 
          | vlSelf->__VicoTriggered.at(0x3fU))) {
-        VPvuTop___024root___ico_comb__TOP__37(vlSelf);
+        VPvuTop___024root___ico_comb__TOP__38(vlSelf);
     }
-    if ((((((((((((vlSelf->__VicoTriggered.at(0U) | vlSelf->__VicoTriggered.at(0x25U)) 
+    if ((((((((((((vlSelf->__VicoTriggered.at(0U) | vlSelf->__VicoTriggered.at(0x23U)) 
                   | vlSelf->__VicoTriggered.at(0x28U)) 
                  | vlSelf->__VicoTriggered.at(0x29U)) 
                 | vlSelf->__VicoTriggered.at(0x2cU)) 
@@ -3073,9 +3111,9 @@ void VPvuTop___024root___eval_ico(VPvuTop___024root* vlSelf) {
            | vlSelf->__VicoTriggered.at(0x39U)) | vlSelf->__VicoTriggered.at(0x3cU)) 
          | vlSelf->__VicoTriggered.at(0x3fU))) {
         VPvuTop_LZC__M1_W44___ico_comb__TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod__1((&vlSymsp->TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod_3));
-        vlSelf->__Vm_traceActivity[0x3bU] = 1U;
+        vlSelf->__Vm_traceActivity[0x3cU] = 1U;
     }
-    if ((((((((((((vlSelf->__VicoTriggered.at(0U) | vlSelf->__VicoTriggered.at(0x24U)) 
+    if ((((((((((((vlSelf->__VicoTriggered.at(0U) | vlSelf->__VicoTriggered.at(0x22U)) 
                   | vlSelf->__VicoTriggered.at(0x28U)) 
                  | vlSelf->__VicoTriggered.at(0x29U)) 
                 | vlSelf->__VicoTriggered.at(0x2cU)) 
@@ -3085,10 +3123,10 @@ void VPvuTop___024root___eval_ico(VPvuTop___024root* vlSelf) {
            | vlSelf->__VicoTriggered.at(0x39U)) | vlSelf->__VicoTriggered.at(0x3cU)) 
          | vlSelf->__VicoTriggered.at(0x3fU))) {
         VPvuTop_LZC__M1_W44___ico_comb__TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod__2((&vlSymsp->TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod_3));
-        vlSelf->__Vm_traceActivity[0x3cU] = 1U;
-        VPvuTop___024root___ico_comb__TOP__38(vlSelf);
+        vlSelf->__Vm_traceActivity[0x3dU] = 1U;
+        VPvuTop___024root___ico_comb__TOP__39(vlSelf);
     }
-    if ((((((((((((vlSelf->__VicoTriggered.at(0U) | vlSelf->__VicoTriggered.at(0x21U)) 
+    if ((((((((((((vlSelf->__VicoTriggered.at(0U) | vlSelf->__VicoTriggered.at(0x1fU)) 
                   | vlSelf->__VicoTriggered.at(0x28U)) 
                  | vlSelf->__VicoTriggered.at(0x29U)) 
                 | vlSelf->__VicoTriggered.at(0x2cU)) 
@@ -3098,9 +3136,9 @@ void VPvuTop___024root___eval_ico(VPvuTop___024root* vlSelf) {
            | vlSelf->__VicoTriggered.at(0x39U)) | vlSelf->__VicoTriggered.at(0x3cU)) 
          | vlSelf->__VicoTriggered.at(0x3fU))) {
         VPvuTop_LZC__M1_W44___ico_comb__TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod__1((&vlSymsp->TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod_2));
-        vlSelf->__Vm_traceActivity[0x3dU] = 1U;
+        vlSelf->__Vm_traceActivity[0x3eU] = 1U;
     }
-    if ((((((((((((vlSelf->__VicoTriggered.at(0U) | vlSelf->__VicoTriggered.at(0x20U)) 
+    if ((((((((((((vlSelf->__VicoTriggered.at(0U) | vlSelf->__VicoTriggered.at(0x1eU)) 
                   | vlSelf->__VicoTriggered.at(0x28U)) 
                  | vlSelf->__VicoTriggered.at(0x29U)) 
                 | vlSelf->__VicoTriggered.at(0x2cU)) 
@@ -3110,10 +3148,10 @@ void VPvuTop___024root___eval_ico(VPvuTop___024root* vlSelf) {
            | vlSelf->__VicoTriggered.at(0x39U)) | vlSelf->__VicoTriggered.at(0x3cU)) 
          | vlSelf->__VicoTriggered.at(0x3fU))) {
         VPvuTop_LZC__M1_W44___ico_comb__TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod__2((&vlSymsp->TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod_2));
-        vlSelf->__Vm_traceActivity[0x3eU] = 1U;
-        VPvuTop___024root___ico_comb__TOP__39(vlSelf);
+        vlSelf->__Vm_traceActivity[0x3fU] = 1U;
+        VPvuTop___024root___ico_comb__TOP__40(vlSelf);
     }
-    if ((((((((((((vlSelf->__VicoTriggered.at(0U) | vlSelf->__VicoTriggered.at(0x1dU)) 
+    if ((((((((((((vlSelf->__VicoTriggered.at(0U) | vlSelf->__VicoTriggered.at(0x1bU)) 
                   | vlSelf->__VicoTriggered.at(0x28U)) 
                  | vlSelf->__VicoTriggered.at(0x29U)) 
                 | vlSelf->__VicoTriggered.at(0x2cU)) 
@@ -3123,9 +3161,9 @@ void VPvuTop___024root___eval_ico(VPvuTop___024root* vlSelf) {
            | vlSelf->__VicoTriggered.at(0x39U)) | vlSelf->__VicoTriggered.at(0x3cU)) 
          | vlSelf->__VicoTriggered.at(0x3fU))) {
         VPvuTop_LZC__M1_W44___ico_comb__TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod__1((&vlSymsp->TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod_1));
-        vlSelf->__Vm_traceActivity[0x3fU] = 1U;
+        vlSelf->__Vm_traceActivity[0x40U] = 1U;
     }
-    if ((((((((((((vlSelf->__VicoTriggered.at(0U) | vlSelf->__VicoTriggered.at(0x1cU)) 
+    if ((((((((((((vlSelf->__VicoTriggered.at(0U) | vlSelf->__VicoTriggered.at(0x1aU)) 
                   | vlSelf->__VicoTriggered.at(0x28U)) 
                  | vlSelf->__VicoTriggered.at(0x29U)) 
                 | vlSelf->__VicoTriggered.at(0x2cU)) 
@@ -3135,10 +3173,10 @@ void VPvuTop___024root___eval_ico(VPvuTop___024root* vlSelf) {
            | vlSelf->__VicoTriggered.at(0x39U)) | vlSelf->__VicoTriggered.at(0x3cU)) 
          | vlSelf->__VicoTriggered.at(0x3fU))) {
         VPvuTop_LZC__M1_W44___ico_comb__TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod__2((&vlSymsp->TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod_1));
-        vlSelf->__Vm_traceActivity[0x40U] = 1U;
-        VPvuTop___024root___ico_comb__TOP__40(vlSelf);
+        vlSelf->__Vm_traceActivity[0x41U] = 1U;
+        VPvuTop___024root___ico_comb__TOP__41(vlSelf);
     }
-    if ((((((((((((vlSelf->__VicoTriggered.at(0U) | vlSelf->__VicoTriggered.at(0x19U)) 
+    if ((((((((((((vlSelf->__VicoTriggered.at(0U) | vlSelf->__VicoTriggered.at(0x17U)) 
                   | vlSelf->__VicoTriggered.at(0x28U)) 
                  | vlSelf->__VicoTriggered.at(0x29U)) 
                 | vlSelf->__VicoTriggered.at(0x2cU)) 
@@ -3148,9 +3186,9 @@ void VPvuTop___024root___eval_ico(VPvuTop___024root* vlSelf) {
            | vlSelf->__VicoTriggered.at(0x39U)) | vlSelf->__VicoTriggered.at(0x3cU)) 
          | vlSelf->__VicoTriggered.at(0x3fU))) {
         VPvuTop_LZC__M1_W44___ico_comb__TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod__1((&vlSymsp->TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod));
-        vlSelf->__Vm_traceActivity[0x41U] = 1U;
+        vlSelf->__Vm_traceActivity[0x42U] = 1U;
     }
-    if ((((((((((((vlSelf->__VicoTriggered.at(0U) | vlSelf->__VicoTriggered.at(0x18U)) 
+    if ((((((((((((vlSelf->__VicoTriggered.at(0U) | vlSelf->__VicoTriggered.at(0x16U)) 
                   | vlSelf->__VicoTriggered.at(0x28U)) 
                  | vlSelf->__VicoTriggered.at(0x29U)) 
                 | vlSelf->__VicoTriggered.at(0x2cU)) 
@@ -3160,8 +3198,8 @@ void VPvuTop___024root___eval_ico(VPvuTop___024root* vlSelf) {
            | vlSelf->__VicoTriggered.at(0x39U)) | vlSelf->__VicoTriggered.at(0x3cU)) 
          | vlSelf->__VicoTriggered.at(0x3fU))) {
         VPvuTop_LZC__M1_W44___ico_comb__TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod__2((&vlSymsp->TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod));
-        vlSelf->__Vm_traceActivity[0x42U] = 1U;
-        VPvuTop___024root___ico_comb__TOP__41(vlSelf);
+        vlSelf->__Vm_traceActivity[0x43U] = 1U;
+        VPvuTop___024root___ico_comb__TOP__42(vlSelf);
     }
     if (((((((((((((vlSelf->__VicoTriggered.at(0U) 
                     | vlSelf->__VicoTriggered.at(1U)) 
@@ -3174,8 +3212,8 @@ void VPvuTop___024root___eval_ico(VPvuTop___024root* vlSelf) {
              | vlSelf->__VicoTriggered.at(0x35U)) | vlSelf->__VicoTriggered.at(0x36U)) 
            | vlSelf->__VicoTriggered.at(0x39U)) | vlSelf->__VicoTriggered.at(0x3cU)) 
          | vlSelf->__VicoTriggered.at(0x3fU))) {
-        VPvuTop___024root___ico_comb__TOP__42(vlSelf);
-        vlSelf->__Vm_traceActivity[0x43U] = 1U;
+        VPvuTop___024root___ico_comb__TOP__43(vlSelf);
+        vlSelf->__Vm_traceActivity[0x44U] = 1U;
     }
     if (((((((((((((((((((vlSelf->__VicoTriggered.at(0U) 
                           | vlSelf->__VicoTriggered.at(0xaU)) 
@@ -3194,7 +3232,7 @@ void VPvuTop___024root___eval_ico(VPvuTop___024root* vlSelf) {
              | vlSelf->__VicoTriggered.at(0x35U)) | vlSelf->__VicoTriggered.at(0x36U)) 
            | vlSelf->__VicoTriggered.at(0x39U)) | vlSelf->__VicoTriggered.at(0x3cU)) 
          | vlSelf->__VicoTriggered.at(0x3fU))) {
-        VPvuTop___024root___ico_comb__TOP__43(vlSelf);
+        VPvuTop___024root___ico_comb__TOP__44(vlSelf);
     }
     if (((((((((((((((vlSelf->__VicoTriggered.at(0U) 
                       | vlSelf->__VicoTriggered.at(0xaU)) 
@@ -3209,7 +3247,7 @@ void VPvuTop___024root___eval_ico(VPvuTop___024root* vlSelf) {
              | vlSelf->__VicoTriggered.at(0x35U)) | vlSelf->__VicoTriggered.at(0x36U)) 
            | vlSelf->__VicoTriggered.at(0x39U)) | vlSelf->__VicoTriggered.at(0x3cU)) 
          | vlSelf->__VicoTriggered.at(0x3fU))) {
-        VPvuTop___024root___ico_comb__TOP__44(vlSelf);
+        VPvuTop___024root___ico_comb__TOP__45(vlSelf);
     }
     if (((((((((((((((((((vlSelf->__VicoTriggered.at(0U) 
                           | vlSelf->__VicoTriggered.at(8U)) 
@@ -3228,7 +3266,7 @@ void VPvuTop___024root___eval_ico(VPvuTop___024root* vlSelf) {
              | vlSelf->__VicoTriggered.at(0x35U)) | vlSelf->__VicoTriggered.at(0x36U)) 
            | vlSelf->__VicoTriggered.at(0x39U)) | vlSelf->__VicoTriggered.at(0x3cU)) 
          | vlSelf->__VicoTriggered.at(0x3fU))) {
-        VPvuTop___024root___ico_comb__TOP__45(vlSelf);
+        VPvuTop___024root___ico_comb__TOP__46(vlSelf);
     }
     if (((((((((((((((vlSelf->__VicoTriggered.at(0U) 
                       | vlSelf->__VicoTriggered.at(8U)) 
@@ -3243,7 +3281,7 @@ void VPvuTop___024root___eval_ico(VPvuTop___024root* vlSelf) {
              | vlSelf->__VicoTriggered.at(0x35U)) | vlSelf->__VicoTriggered.at(0x36U)) 
            | vlSelf->__VicoTriggered.at(0x39U)) | vlSelf->__VicoTriggered.at(0x3cU)) 
          | vlSelf->__VicoTriggered.at(0x3fU))) {
-        VPvuTop___024root___ico_comb__TOP__46(vlSelf);
+        VPvuTop___024root___ico_comb__TOP__47(vlSelf);
     }
     if (((((((((((((((((((vlSelf->__VicoTriggered.at(0U) 
                           | vlSelf->__VicoTriggered.at(6U)) 
@@ -3262,7 +3300,7 @@ void VPvuTop___024root___eval_ico(VPvuTop___024root* vlSelf) {
              | vlSelf->__VicoTriggered.at(0x35U)) | vlSelf->__VicoTriggered.at(0x36U)) 
            | vlSelf->__VicoTriggered.at(0x39U)) | vlSelf->__VicoTriggered.at(0x3cU)) 
          | vlSelf->__VicoTriggered.at(0x3fU))) {
-        VPvuTop___024root___ico_comb__TOP__47(vlSelf);
+        VPvuTop___024root___ico_comb__TOP__48(vlSelf);
     }
     if (((((((((((((((vlSelf->__VicoTriggered.at(0U) 
                       | vlSelf->__VicoTriggered.at(6U)) 
@@ -3277,7 +3315,7 @@ void VPvuTop___024root___eval_ico(VPvuTop___024root* vlSelf) {
              | vlSelf->__VicoTriggered.at(0x35U)) | vlSelf->__VicoTriggered.at(0x36U)) 
            | vlSelf->__VicoTriggered.at(0x39U)) | vlSelf->__VicoTriggered.at(0x3cU)) 
          | vlSelf->__VicoTriggered.at(0x3fU))) {
-        VPvuTop___024root___ico_comb__TOP__48(vlSelf);
+        VPvuTop___024root___ico_comb__TOP__49(vlSelf);
     }
     if (((((((((((((((((((vlSelf->__VicoTriggered.at(0U) 
                           | vlSelf->__VicoTriggered.at(4U)) 
@@ -3296,7 +3334,7 @@ void VPvuTop___024root___eval_ico(VPvuTop___024root* vlSelf) {
              | vlSelf->__VicoTriggered.at(0x35U)) | vlSelf->__VicoTriggered.at(0x36U)) 
            | vlSelf->__VicoTriggered.at(0x39U)) | vlSelf->__VicoTriggered.at(0x3cU)) 
          | vlSelf->__VicoTriggered.at(0x3fU))) {
-        VPvuTop___024root___ico_comb__TOP__49(vlSelf);
+        VPvuTop___024root___ico_comb__TOP__50(vlSelf);
     }
     if (((((((((((((((vlSelf->__VicoTriggered.at(0U) 
                       | vlSelf->__VicoTriggered.at(4U)) 
@@ -3311,7 +3349,7 @@ void VPvuTop___024root___eval_ico(VPvuTop___024root* vlSelf) {
              | vlSelf->__VicoTriggered.at(0x35U)) | vlSelf->__VicoTriggered.at(0x36U)) 
            | vlSelf->__VicoTriggered.at(0x39U)) | vlSelf->__VicoTriggered.at(0x3cU)) 
          | vlSelf->__VicoTriggered.at(0x3fU))) {
-        VPvuTop___024root___ico_comb__TOP__50(vlSelf);
+        VPvuTop___024root___ico_comb__TOP__51(vlSelf);
     }
     if ((((((((((((((vlSelf->__VicoTriggered.at(0U) 
                      | vlSelf->__VicoTriggered.at(1U)) 
@@ -3325,7 +3363,7 @@ void VPvuTop___024root___eval_ico(VPvuTop___024root* vlSelf) {
              | vlSelf->__VicoTriggered.at(0x35U)) | vlSelf->__VicoTriggered.at(0x36U)) 
            | vlSelf->__VicoTriggered.at(0x39U)) | vlSelf->__VicoTriggered.at(0x3cU)) 
          | vlSelf->__VicoTriggered.at(0x3fU))) {
-        VPvuTop___024root___ico_comb__TOP__51(vlSelf);
+        VPvuTop___024root___ico_comb__TOP__52(vlSelf);
     }
     if ((((((((((((((vlSelf->__VicoTriggered.at(0U) 
                      | vlSelf->__VicoTriggered.at(1U)) 
@@ -3339,8 +3377,8 @@ void VPvuTop___024root___eval_ico(VPvuTop___024root* vlSelf) {
              | vlSelf->__VicoTriggered.at(0x35U)) | vlSelf->__VicoTriggered.at(0x36U)) 
            | vlSelf->__VicoTriggered.at(0x39U)) | vlSelf->__VicoTriggered.at(0x3cU)) 
          | vlSelf->__VicoTriggered.at(0x3fU))) {
-        VPvuTop___024root___ico_comb__TOP__52(vlSelf);
-        vlSelf->__Vm_traceActivity[0x44U] = 1U;
+        VPvuTop___024root___ico_comb__TOP__53(vlSelf);
+        vlSelf->__Vm_traceActivity[0x45U] = 1U;
     }
     if ((((((((((((((((((((((((((((((((((((((((((((
                                                    (((((((((((((((vlSelf->__VicoTriggered.at(0U) 
@@ -3400,7 +3438,7 @@ void VPvuTop___024root___eval_ico(VPvuTop___024root* vlSelf) {
              | vlSelf->__VicoTriggered.at(0x63U)) | vlSelf->__VicoTriggered.at(0x64U)) 
            | vlSelf->__VicoTriggered.at(0x65U)) | vlSelf->__VicoTriggered.at(0x66U)) 
          | vlSelf->__VicoTriggered.at(0x67U))) {
-        VPvuTop___024root___ico_comb__TOP__53(vlSelf);
+        VPvuTop___024root___ico_comb__TOP__54(vlSelf);
     }
     if (((((((((((((((((((vlSelf->__VicoTriggered.at(0U) 
                           | vlSelf->__VicoTriggered.at(0xaU)) 
@@ -3419,8 +3457,8 @@ void VPvuTop___024root___eval_ico(VPvuTop___024root* vlSelf) {
              | vlSelf->__VicoTriggered.at(0x35U)) | vlSelf->__VicoTriggered.at(0x36U)) 
            | vlSelf->__VicoTriggered.at(0x39U)) | vlSelf->__VicoTriggered.at(0x3cU)) 
          | vlSelf->__VicoTriggered.at(0x3fU))) {
-        VPvuTop___024root___ico_comb__TOP__54(vlSelf);
-        vlSelf->__Vm_traceActivity[0x45U] = 1U;
+        VPvuTop___024root___ico_comb__TOP__55(vlSelf);
+        vlSelf->__Vm_traceActivity[0x46U] = 1U;
     }
     if ((((((((((((((((((((((((((((((((((((((((((((
                                                    (((((((((((((((vlSelf->__VicoTriggered.at(0U) 
@@ -3480,7 +3518,7 @@ void VPvuTop___024root___eval_ico(VPvuTop___024root* vlSelf) {
              | vlSelf->__VicoTriggered.at(0x63U)) | vlSelf->__VicoTriggered.at(0x64U)) 
            | vlSelf->__VicoTriggered.at(0x65U)) | vlSelf->__VicoTriggered.at(0x66U)) 
          | vlSelf->__VicoTriggered.at(0x67U))) {
-        VPvuTop___024root___ico_comb__TOP__55(vlSelf);
+        VPvuTop___024root___ico_comb__TOP__56(vlSelf);
     }
     if (((((((((((((((((((vlSelf->__VicoTriggered.at(0U) 
                           | vlSelf->__VicoTriggered.at(8U)) 
@@ -3499,8 +3537,8 @@ void VPvuTop___024root___eval_ico(VPvuTop___024root* vlSelf) {
              | vlSelf->__VicoTriggered.at(0x35U)) | vlSelf->__VicoTriggered.at(0x36U)) 
            | vlSelf->__VicoTriggered.at(0x39U)) | vlSelf->__VicoTriggered.at(0x3cU)) 
          | vlSelf->__VicoTriggered.at(0x3fU))) {
-        VPvuTop___024root___ico_comb__TOP__56(vlSelf);
-        vlSelf->__Vm_traceActivity[0x46U] = 1U;
+        VPvuTop___024root___ico_comb__TOP__57(vlSelf);
+        vlSelf->__Vm_traceActivity[0x47U] = 1U;
     }
     if ((((((((((((((((((((((((((((((((((((((((((((
                                                    (((((((((((((((vlSelf->__VicoTriggered.at(0U) 
@@ -3560,7 +3598,7 @@ void VPvuTop___024root___eval_ico(VPvuTop___024root* vlSelf) {
              | vlSelf->__VicoTriggered.at(0x63U)) | vlSelf->__VicoTriggered.at(0x64U)) 
            | vlSelf->__VicoTriggered.at(0x65U)) | vlSelf->__VicoTriggered.at(0x66U)) 
          | vlSelf->__VicoTriggered.at(0x67U))) {
-        VPvuTop___024root___ico_comb__TOP__57(vlSelf);
+        VPvuTop___024root___ico_comb__TOP__58(vlSelf);
     }
     if (((((((((((((((((((vlSelf->__VicoTriggered.at(0U) 
                           | vlSelf->__VicoTriggered.at(6U)) 
@@ -3579,8 +3617,8 @@ void VPvuTop___024root___eval_ico(VPvuTop___024root* vlSelf) {
              | vlSelf->__VicoTriggered.at(0x35U)) | vlSelf->__VicoTriggered.at(0x36U)) 
            | vlSelf->__VicoTriggered.at(0x39U)) | vlSelf->__VicoTriggered.at(0x3cU)) 
          | vlSelf->__VicoTriggered.at(0x3fU))) {
-        VPvuTop___024root___ico_comb__TOP__58(vlSelf);
-        vlSelf->__Vm_traceActivity[0x47U] = 1U;
+        VPvuTop___024root___ico_comb__TOP__59(vlSelf);
+        vlSelf->__Vm_traceActivity[0x48U] = 1U;
     }
     if ((((((((((((((((((((((((((((((((((((((((((((
                                                    (((((((((((((((vlSelf->__VicoTriggered.at(0U) 
@@ -3640,7 +3678,7 @@ void VPvuTop___024root___eval_ico(VPvuTop___024root* vlSelf) {
              | vlSelf->__VicoTriggered.at(0x63U)) | vlSelf->__VicoTriggered.at(0x64U)) 
            | vlSelf->__VicoTriggered.at(0x65U)) | vlSelf->__VicoTriggered.at(0x66U)) 
          | vlSelf->__VicoTriggered.at(0x67U))) {
-        VPvuTop___024root___ico_comb__TOP__59(vlSelf);
+        VPvuTop___024root___ico_comb__TOP__60(vlSelf);
     }
     if (((((((((((((((((((vlSelf->__VicoTriggered.at(0U) 
                           | vlSelf->__VicoTriggered.at(4U)) 
@@ -3659,8 +3697,8 @@ void VPvuTop___024root___eval_ico(VPvuTop___024root* vlSelf) {
              | vlSelf->__VicoTriggered.at(0x35U)) | vlSelf->__VicoTriggered.at(0x36U)) 
            | vlSelf->__VicoTriggered.at(0x39U)) | vlSelf->__VicoTriggered.at(0x3cU)) 
          | vlSelf->__VicoTriggered.at(0x3fU))) {
-        VPvuTop___024root___ico_comb__TOP__60(vlSelf);
-        vlSelf->__Vm_traceActivity[0x48U] = 1U;
+        VPvuTop___024root___ico_comb__TOP__61(vlSelf);
+        vlSelf->__Vm_traceActivity[0x49U] = 1U;
     }
     if (((((((((((((((vlSelf->__VicoTriggered.at(0U) 
                       | vlSelf->__VicoTriggered.at(1U)) 
@@ -3675,8 +3713,8 @@ void VPvuTop___024root___eval_ico(VPvuTop___024root* vlSelf) {
              | vlSelf->__VicoTriggered.at(0x35U)) | vlSelf->__VicoTriggered.at(0x36U)) 
            | vlSelf->__VicoTriggered.at(0x39U)) | vlSelf->__VicoTriggered.at(0x3cU)) 
          | vlSelf->__VicoTriggered.at(0x3fU))) {
-        VPvuTop___024root___ico_comb__TOP__61(vlSelf);
-        vlSelf->__Vm_traceActivity[0x49U] = 1U;
+        VPvuTop___024root___ico_comb__TOP__62(vlSelf);
+        vlSelf->__Vm_traceActivity[0x4aU] = 1U;
     }
 }
 
@@ -3947,117 +3985,6 @@ void VPvuTop___024root___eval_triggers__act(VPvuTop___024root* vlSelf) {
     vlSelf->__VactTriggered.at(0x14U) = (vlSelf->PvuTop__DOT__dot_decoder__DOT__lzcModule__DOT__gen_lzc__DOT__sel_nodes 
                                          != vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__dot_decoder__DOT__lzcModule__DOT__gen_lzc__DOT__sel_nodes);
     vlSelf->__VactTriggered.at(0x15U) = ((0U != (((
-                                                   (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__sel_nodes[0U] 
-                                                    ^ 
-                                                    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__sel_nodes[0U]) 
-                                                   | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__sel_nodes[1U] 
-                                                      ^ 
-                                                      vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__sel_nodes[1U])) 
-                                                  | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__sel_nodes[2U] 
-                                                     ^ 
-                                                     vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__sel_nodes[2U])) 
-                                                 | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__sel_nodes[3U] 
-                                                    ^ 
-                                                    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__sel_nodes[3U]))) 
-                                         | (0U != (
-                                                   (((((((((((((((((((((((((((vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[0U] 
-                                                                              ^ 
-                                                                              vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__index_nodes[0U]) 
-                                                                             | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[1U] 
-                                                                                ^ 
-                                                                                vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__index_nodes[1U])) 
-                                                                            | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[2U] 
-                                                                               ^ 
-                                                                               vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__index_nodes[2U])) 
-                                                                           | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[3U] 
-                                                                              ^ 
-                                                                              vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__index_nodes[3U])) 
-                                                                          | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[4U] 
-                                                                             ^ 
-                                                                             vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__index_nodes[4U])) 
-                                                                         | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[5U] 
-                                                                            ^ 
-                                                                            vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__index_nodes[5U])) 
-                                                                        | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[6U] 
-                                                                           ^ 
-                                                                           vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__index_nodes[6U])) 
-                                                                       | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[7U] 
-                                                                          ^ 
-                                                                          vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__index_nodes[7U])) 
-                                                                      | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[8U] 
-                                                                         ^ 
-                                                                         vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__index_nodes[8U])) 
-                                                                     | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[9U] 
-                                                                        ^ 
-                                                                        vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__index_nodes[9U])) 
-                                                                    | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[0xaU] 
-                                                                       ^ 
-                                                                       vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__index_nodes[0xaU])) 
-                                                                   | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[0xbU] 
-                                                                      ^ 
-                                                                      vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__index_nodes[0xbU])) 
-                                                                  | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[0xcU] 
-                                                                     ^ 
-                                                                     vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__index_nodes[0xcU])) 
-                                                                 | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[0xdU] 
-                                                                    ^ 
-                                                                    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__index_nodes[0xdU])) 
-                                                                | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[0xeU] 
-                                                                   ^ 
-                                                                   vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__index_nodes[0xeU])) 
-                                                               | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[0xfU] 
-                                                                  ^ 
-                                                                  vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__index_nodes[0xfU])) 
-                                                              | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[0x10U] 
-                                                                 ^ 
-                                                                 vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__index_nodes[0x10U])) 
-                                                             | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[0x11U] 
-                                                                ^ 
-                                                                vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__index_nodes[0x11U])) 
-                                                            | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[0x12U] 
-                                                               ^ 
-                                                               vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__index_nodes[0x12U])) 
-                                                           | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[0x13U] 
-                                                              ^ 
-                                                              vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__index_nodes[0x13U])) 
-                                                          | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[0x14U] 
-                                                             ^ 
-                                                             vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__index_nodes[0x14U])) 
-                                                         | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[0x15U] 
-                                                            ^ 
-                                                            vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__index_nodes[0x15U])) 
-                                                        | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[0x16U] 
-                                                           ^ 
-                                                           vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__index_nodes[0x16U])) 
-                                                       | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[0x17U] 
-                                                          ^ 
-                                                          vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__index_nodes[0x17U])) 
-                                                      | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[0x18U] 
-                                                         ^ 
-                                                         vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__index_nodes[0x18U])) 
-                                                     | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[0x19U] 
-                                                        ^ 
-                                                        vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__index_nodes[0x19U])) 
-                                                    | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[0x1aU] 
-                                                       ^ 
-                                                       vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__index_nodes[0x1aU])) 
-                                                   | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[0x1bU] 
-                                                      ^ 
-                                                      vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__index_nodes[0x1bU]))));
-    vlSelf->__VactTriggered.at(0x16U) = (0U != ((((
-                                                   vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__sel_nodes[0U] 
-                                                   ^ 
-                                                   vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__sel_nodes[0U]) 
-                                                  | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__sel_nodes[1U] 
-                                                     ^ 
-                                                     vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__sel_nodes[1U])) 
-                                                 | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__sel_nodes[2U] 
-                                                    ^ 
-                                                    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__sel_nodes[2U])) 
-                                                | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__sel_nodes[3U] 
-                                                   ^ 
-                                                   vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__sel_nodes[3U])));
-    vlSelf->__VactTriggered.at(0x17U) = ((0U != (((
                                                    (vlSymsp->TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod.__PVT__gen_lzc__DOT__sel_nodes[0U] 
                                                     ^ 
                                                     vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod____PVT__gen_lzc__DOT__sel_nodes[0U]) 
@@ -4155,7 +4082,7 @@ void VPvuTop___024root___eval_triggers__act(VPvuTop___024root* vlSelf) {
                                                    | (vlSymsp->TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[0x1bU] 
                                                       ^ 
                                                       vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod____PVT__gen_lzc__DOT__index_nodes[0x1bU]))));
-    vlSelf->__VactTriggered.at(0x18U) = (0U != ((((
+    vlSelf->__VactTriggered.at(0x16U) = (0U != ((((
                                                    vlSymsp->TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod.__PVT__gen_lzc__DOT__sel_nodes[0U] 
                                                    ^ 
                                                    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod____PVT__gen_lzc__DOT__sel_nodes[0U]) 
@@ -4168,118 +4095,118 @@ void VPvuTop___024root___eval_triggers__act(VPvuTop___024root* vlSelf) {
                                                 | (vlSymsp->TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod.__PVT__gen_lzc__DOT__sel_nodes[3U] 
                                                    ^ 
                                                    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod____PVT__gen_lzc__DOT__sel_nodes[3U])));
-    vlSelf->__VactTriggered.at(0x19U) = ((0U != (((
-                                                   (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__sel_nodes[0U] 
+    vlSelf->__VactTriggered.at(0x17U) = ((0U != (((
+                                                   (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__sel_nodes[0U] 
                                                     ^ 
-                                                    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__sel_nodes[0U]) 
-                                                   | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__sel_nodes[1U] 
+                                                    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__sel_nodes[0U]) 
+                                                   | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__sel_nodes[1U] 
                                                       ^ 
-                                                      vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__sel_nodes[1U])) 
-                                                  | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__sel_nodes[2U] 
+                                                      vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__sel_nodes[1U])) 
+                                                  | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__sel_nodes[2U] 
                                                      ^ 
-                                                     vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__sel_nodes[2U])) 
-                                                 | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__sel_nodes[3U] 
+                                                     vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__sel_nodes[2U])) 
+                                                 | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__sel_nodes[3U] 
                                                     ^ 
-                                                    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__sel_nodes[3U]))) 
+                                                    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__sel_nodes[3U]))) 
                                          | (0U != (
-                                                   (((((((((((((((((((((((((((vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[0U] 
+                                                   (((((((((((((((((((((((((((vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[0U] 
                                                                               ^ 
-                                                                              vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__index_nodes[0U]) 
-                                                                             | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[1U] 
+                                                                              vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__index_nodes[0U]) 
+                                                                             | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[1U] 
                                                                                 ^ 
-                                                                                vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__index_nodes[1U])) 
-                                                                            | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[2U] 
+                                                                                vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__index_nodes[1U])) 
+                                                                            | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[2U] 
                                                                                ^ 
-                                                                               vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__index_nodes[2U])) 
-                                                                           | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[3U] 
+                                                                               vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__index_nodes[2U])) 
+                                                                           | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[3U] 
                                                                               ^ 
-                                                                              vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__index_nodes[3U])) 
-                                                                          | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[4U] 
+                                                                              vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__index_nodes[3U])) 
+                                                                          | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[4U] 
                                                                              ^ 
-                                                                             vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__index_nodes[4U])) 
-                                                                         | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[5U] 
+                                                                             vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__index_nodes[4U])) 
+                                                                         | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[5U] 
                                                                             ^ 
-                                                                            vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__index_nodes[5U])) 
-                                                                        | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[6U] 
+                                                                            vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__index_nodes[5U])) 
+                                                                        | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[6U] 
                                                                            ^ 
-                                                                           vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__index_nodes[6U])) 
-                                                                       | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[7U] 
+                                                                           vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__index_nodes[6U])) 
+                                                                       | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[7U] 
                                                                           ^ 
-                                                                          vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__index_nodes[7U])) 
-                                                                      | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[8U] 
+                                                                          vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__index_nodes[7U])) 
+                                                                      | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[8U] 
                                                                          ^ 
-                                                                         vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__index_nodes[8U])) 
-                                                                     | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[9U] 
+                                                                         vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__index_nodes[8U])) 
+                                                                     | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[9U] 
                                                                         ^ 
-                                                                        vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__index_nodes[9U])) 
-                                                                    | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[0xaU] 
+                                                                        vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__index_nodes[9U])) 
+                                                                    | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[0xaU] 
                                                                        ^ 
-                                                                       vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__index_nodes[0xaU])) 
-                                                                   | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[0xbU] 
+                                                                       vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__index_nodes[0xaU])) 
+                                                                   | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[0xbU] 
                                                                       ^ 
-                                                                      vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__index_nodes[0xbU])) 
-                                                                  | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[0xcU] 
+                                                                      vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__index_nodes[0xbU])) 
+                                                                  | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[0xcU] 
                                                                      ^ 
-                                                                     vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__index_nodes[0xcU])) 
-                                                                 | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[0xdU] 
+                                                                     vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__index_nodes[0xcU])) 
+                                                                 | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[0xdU] 
                                                                     ^ 
-                                                                    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__index_nodes[0xdU])) 
-                                                                | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[0xeU] 
+                                                                    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__index_nodes[0xdU])) 
+                                                                | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[0xeU] 
                                                                    ^ 
-                                                                   vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__index_nodes[0xeU])) 
-                                                               | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[0xfU] 
+                                                                   vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__index_nodes[0xeU])) 
+                                                               | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[0xfU] 
                                                                   ^ 
-                                                                  vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__index_nodes[0xfU])) 
-                                                              | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[0x10U] 
+                                                                  vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__index_nodes[0xfU])) 
+                                                              | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[0x10U] 
                                                                  ^ 
-                                                                 vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__index_nodes[0x10U])) 
-                                                             | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[0x11U] 
+                                                                 vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__index_nodes[0x10U])) 
+                                                             | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[0x11U] 
                                                                 ^ 
-                                                                vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__index_nodes[0x11U])) 
-                                                            | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[0x12U] 
+                                                                vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__index_nodes[0x11U])) 
+                                                            | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[0x12U] 
                                                                ^ 
-                                                               vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__index_nodes[0x12U])) 
-                                                           | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[0x13U] 
+                                                               vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__index_nodes[0x12U])) 
+                                                           | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[0x13U] 
                                                               ^ 
-                                                              vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__index_nodes[0x13U])) 
-                                                          | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[0x14U] 
+                                                              vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__index_nodes[0x13U])) 
+                                                          | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[0x14U] 
                                                              ^ 
-                                                             vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__index_nodes[0x14U])) 
-                                                         | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[0x15U] 
+                                                             vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__index_nodes[0x14U])) 
+                                                         | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[0x15U] 
                                                             ^ 
-                                                            vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__index_nodes[0x15U])) 
-                                                        | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[0x16U] 
+                                                            vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__index_nodes[0x15U])) 
+                                                        | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[0x16U] 
                                                            ^ 
-                                                           vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__index_nodes[0x16U])) 
-                                                       | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[0x17U] 
+                                                           vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__index_nodes[0x16U])) 
+                                                       | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[0x17U] 
                                                           ^ 
-                                                          vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__index_nodes[0x17U])) 
-                                                      | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[0x18U] 
+                                                          vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__index_nodes[0x17U])) 
+                                                      | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[0x18U] 
                                                          ^ 
-                                                         vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__index_nodes[0x18U])) 
-                                                     | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[0x19U] 
+                                                         vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__index_nodes[0x18U])) 
+                                                     | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[0x19U] 
                                                         ^ 
-                                                        vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__index_nodes[0x19U])) 
-                                                    | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[0x1aU] 
+                                                        vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__index_nodes[0x19U])) 
+                                                    | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[0x1aU] 
                                                        ^ 
-                                                       vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__index_nodes[0x1aU])) 
-                                                   | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[0x1bU] 
+                                                       vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__index_nodes[0x1aU])) 
+                                                   | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[0x1bU] 
                                                       ^ 
-                                                      vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__index_nodes[0x1bU]))));
-    vlSelf->__VactTriggered.at(0x1aU) = (0U != ((((
-                                                   vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__sel_nodes[0U] 
+                                                      vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__index_nodes[0x1bU]))));
+    vlSelf->__VactTriggered.at(0x18U) = (0U != ((((
+                                                   vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__sel_nodes[0U] 
                                                    ^ 
-                                                   vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__sel_nodes[0U]) 
-                                                  | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__sel_nodes[1U] 
+                                                   vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__sel_nodes[0U]) 
+                                                  | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__sel_nodes[1U] 
                                                      ^ 
-                                                     vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__sel_nodes[1U])) 
-                                                 | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__sel_nodes[2U] 
+                                                     vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__sel_nodes[1U])) 
+                                                 | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__sel_nodes[2U] 
                                                     ^ 
-                                                    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__sel_nodes[2U])) 
-                                                | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__sel_nodes[3U] 
+                                                    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__sel_nodes[2U])) 
+                                                | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__sel_nodes[3U] 
                                                    ^ 
-                                                   vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__sel_nodes[3U])));
-    vlSelf->__VactTriggered.at(0x1bU) = ((0U != (((
+                                                   vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__sel_nodes[3U])));
+    vlSelf->__VactTriggered.at(0x19U) = ((0U != (((
                                                    (vlSymsp->TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod_1.__PVT__gen_lzc__DOT__sel_nodes[0U] 
                                                     ^ 
                                                     vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod_1____PVT__gen_lzc__DOT__sel_nodes[0U]) 
@@ -4377,7 +4304,7 @@ void VPvuTop___024root___eval_triggers__act(VPvuTop___024root* vlSelf) {
                                                    | (vlSymsp->TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[0x1bU] 
                                                       ^ 
                                                       vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod_1____PVT__gen_lzc__DOT__index_nodes[0x1bU]))));
-    vlSelf->__VactTriggered.at(0x1cU) = (0U != ((((
+    vlSelf->__VactTriggered.at(0x1aU) = (0U != ((((
                                                    vlSymsp->TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod_1.__PVT__gen_lzc__DOT__sel_nodes[0U] 
                                                    ^ 
                                                    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod_1____PVT__gen_lzc__DOT__sel_nodes[0U]) 
@@ -4390,118 +4317,118 @@ void VPvuTop___024root___eval_triggers__act(VPvuTop___024root* vlSelf) {
                                                 | (vlSymsp->TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod_1.__PVT__gen_lzc__DOT__sel_nodes[3U] 
                                                    ^ 
                                                    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod_1____PVT__gen_lzc__DOT__sel_nodes[3U])));
-    vlSelf->__VactTriggered.at(0x1dU) = ((0U != (((
-                                                   (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__sel_nodes[0U] 
+    vlSelf->__VactTriggered.at(0x1bU) = ((0U != (((
+                                                   (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__sel_nodes[0U] 
                                                     ^ 
-                                                    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__sel_nodes[0U]) 
-                                                   | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__sel_nodes[1U] 
+                                                    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__sel_nodes[0U]) 
+                                                   | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__sel_nodes[1U] 
                                                       ^ 
-                                                      vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__sel_nodes[1U])) 
-                                                  | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__sel_nodes[2U] 
+                                                      vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__sel_nodes[1U])) 
+                                                  | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__sel_nodes[2U] 
                                                      ^ 
-                                                     vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__sel_nodes[2U])) 
-                                                 | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__sel_nodes[3U] 
+                                                     vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__sel_nodes[2U])) 
+                                                 | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__sel_nodes[3U] 
                                                     ^ 
-                                                    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__sel_nodes[3U]))) 
+                                                    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__sel_nodes[3U]))) 
                                          | (0U != (
-                                                   (((((((((((((((((((((((((((vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[0U] 
+                                                   (((((((((((((((((((((((((((vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[0U] 
                                                                               ^ 
-                                                                              vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__index_nodes[0U]) 
-                                                                             | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[1U] 
+                                                                              vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__index_nodes[0U]) 
+                                                                             | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[1U] 
                                                                                 ^ 
-                                                                                vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__index_nodes[1U])) 
-                                                                            | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[2U] 
+                                                                                vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__index_nodes[1U])) 
+                                                                            | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[2U] 
                                                                                ^ 
-                                                                               vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__index_nodes[2U])) 
-                                                                           | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[3U] 
+                                                                               vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__index_nodes[2U])) 
+                                                                           | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[3U] 
                                                                               ^ 
-                                                                              vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__index_nodes[3U])) 
-                                                                          | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[4U] 
+                                                                              vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__index_nodes[3U])) 
+                                                                          | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[4U] 
                                                                              ^ 
-                                                                             vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__index_nodes[4U])) 
-                                                                         | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[5U] 
+                                                                             vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__index_nodes[4U])) 
+                                                                         | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[5U] 
                                                                             ^ 
-                                                                            vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__index_nodes[5U])) 
-                                                                        | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[6U] 
+                                                                            vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__index_nodes[5U])) 
+                                                                        | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[6U] 
                                                                            ^ 
-                                                                           vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__index_nodes[6U])) 
-                                                                       | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[7U] 
+                                                                           vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__index_nodes[6U])) 
+                                                                       | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[7U] 
                                                                           ^ 
-                                                                          vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__index_nodes[7U])) 
-                                                                      | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[8U] 
+                                                                          vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__index_nodes[7U])) 
+                                                                      | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[8U] 
                                                                          ^ 
-                                                                         vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__index_nodes[8U])) 
-                                                                     | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[9U] 
+                                                                         vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__index_nodes[8U])) 
+                                                                     | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[9U] 
                                                                         ^ 
-                                                                        vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__index_nodes[9U])) 
-                                                                    | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[0xaU] 
+                                                                        vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__index_nodes[9U])) 
+                                                                    | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[0xaU] 
                                                                        ^ 
-                                                                       vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__index_nodes[0xaU])) 
-                                                                   | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[0xbU] 
+                                                                       vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__index_nodes[0xaU])) 
+                                                                   | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[0xbU] 
                                                                       ^ 
-                                                                      vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__index_nodes[0xbU])) 
-                                                                  | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[0xcU] 
+                                                                      vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__index_nodes[0xbU])) 
+                                                                  | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[0xcU] 
                                                                      ^ 
-                                                                     vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__index_nodes[0xcU])) 
-                                                                 | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[0xdU] 
+                                                                     vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__index_nodes[0xcU])) 
+                                                                 | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[0xdU] 
                                                                     ^ 
-                                                                    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__index_nodes[0xdU])) 
-                                                                | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[0xeU] 
+                                                                    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__index_nodes[0xdU])) 
+                                                                | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[0xeU] 
                                                                    ^ 
-                                                                   vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__index_nodes[0xeU])) 
-                                                               | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[0xfU] 
+                                                                   vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__index_nodes[0xeU])) 
+                                                               | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[0xfU] 
                                                                   ^ 
-                                                                  vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__index_nodes[0xfU])) 
-                                                              | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[0x10U] 
+                                                                  vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__index_nodes[0xfU])) 
+                                                              | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[0x10U] 
                                                                  ^ 
-                                                                 vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__index_nodes[0x10U])) 
-                                                             | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[0x11U] 
+                                                                 vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__index_nodes[0x10U])) 
+                                                             | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[0x11U] 
                                                                 ^ 
-                                                                vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__index_nodes[0x11U])) 
-                                                            | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[0x12U] 
+                                                                vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__index_nodes[0x11U])) 
+                                                            | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[0x12U] 
                                                                ^ 
-                                                               vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__index_nodes[0x12U])) 
-                                                           | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[0x13U] 
+                                                               vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__index_nodes[0x12U])) 
+                                                           | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[0x13U] 
                                                               ^ 
-                                                              vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__index_nodes[0x13U])) 
-                                                          | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[0x14U] 
+                                                              vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__index_nodes[0x13U])) 
+                                                          | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[0x14U] 
                                                              ^ 
-                                                             vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__index_nodes[0x14U])) 
-                                                         | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[0x15U] 
+                                                             vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__index_nodes[0x14U])) 
+                                                         | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[0x15U] 
                                                             ^ 
-                                                            vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__index_nodes[0x15U])) 
-                                                        | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[0x16U] 
+                                                            vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__index_nodes[0x15U])) 
+                                                        | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[0x16U] 
                                                            ^ 
-                                                           vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__index_nodes[0x16U])) 
-                                                       | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[0x17U] 
+                                                           vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__index_nodes[0x16U])) 
+                                                       | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[0x17U] 
                                                           ^ 
-                                                          vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__index_nodes[0x17U])) 
-                                                      | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[0x18U] 
+                                                          vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__index_nodes[0x17U])) 
+                                                      | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[0x18U] 
                                                          ^ 
-                                                         vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__index_nodes[0x18U])) 
-                                                     | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[0x19U] 
+                                                         vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__index_nodes[0x18U])) 
+                                                     | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[0x19U] 
                                                         ^ 
-                                                        vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__index_nodes[0x19U])) 
-                                                    | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[0x1aU] 
+                                                        vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__index_nodes[0x19U])) 
+                                                    | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[0x1aU] 
                                                        ^ 
-                                                       vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__index_nodes[0x1aU])) 
-                                                   | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[0x1bU] 
+                                                       vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__index_nodes[0x1aU])) 
+                                                   | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[0x1bU] 
                                                       ^ 
-                                                      vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__index_nodes[0x1bU]))));
-    vlSelf->__VactTriggered.at(0x1eU) = (0U != ((((
-                                                   vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__sel_nodes[0U] 
+                                                      vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__index_nodes[0x1bU]))));
+    vlSelf->__VactTriggered.at(0x1cU) = (0U != ((((
+                                                   vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__sel_nodes[0U] 
                                                    ^ 
-                                                   vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__sel_nodes[0U]) 
-                                                  | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__sel_nodes[1U] 
+                                                   vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__sel_nodes[0U]) 
+                                                  | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__sel_nodes[1U] 
                                                      ^ 
-                                                     vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__sel_nodes[1U])) 
-                                                 | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__sel_nodes[2U] 
+                                                     vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__sel_nodes[1U])) 
+                                                 | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__sel_nodes[2U] 
                                                     ^ 
-                                                    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__sel_nodes[2U])) 
-                                                | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__sel_nodes[3U] 
+                                                    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__sel_nodes[2U])) 
+                                                | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__sel_nodes[3U] 
                                                    ^ 
-                                                   vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__sel_nodes[3U])));
-    vlSelf->__VactTriggered.at(0x1fU) = ((0U != (((
+                                                   vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__sel_nodes[3U])));
+    vlSelf->__VactTriggered.at(0x1dU) = ((0U != (((
                                                    (vlSymsp->TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod_2.__PVT__gen_lzc__DOT__sel_nodes[0U] 
                                                     ^ 
                                                     vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod_2____PVT__gen_lzc__DOT__sel_nodes[0U]) 
@@ -4599,7 +4526,7 @@ void VPvuTop___024root___eval_triggers__act(VPvuTop___024root* vlSelf) {
                                                    | (vlSymsp->TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[0x1bU] 
                                                       ^ 
                                                       vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod_2____PVT__gen_lzc__DOT__index_nodes[0x1bU]))));
-    vlSelf->__VactTriggered.at(0x20U) = (0U != ((((
+    vlSelf->__VactTriggered.at(0x1eU) = (0U != ((((
                                                    vlSymsp->TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod_2.__PVT__gen_lzc__DOT__sel_nodes[0U] 
                                                    ^ 
                                                    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod_2____PVT__gen_lzc__DOT__sel_nodes[0U]) 
@@ -4612,118 +4539,118 @@ void VPvuTop___024root___eval_triggers__act(VPvuTop___024root* vlSelf) {
                                                 | (vlSymsp->TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod_2.__PVT__gen_lzc__DOT__sel_nodes[3U] 
                                                    ^ 
                                                    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod_2____PVT__gen_lzc__DOT__sel_nodes[3U])));
-    vlSelf->__VactTriggered.at(0x21U) = ((0U != (((
-                                                   (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__sel_nodes[0U] 
+    vlSelf->__VactTriggered.at(0x1fU) = ((0U != (((
+                                                   (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__sel_nodes[0U] 
                                                     ^ 
-                                                    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__sel_nodes[0U]) 
-                                                   | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__sel_nodes[1U] 
+                                                    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__sel_nodes[0U]) 
+                                                   | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__sel_nodes[1U] 
                                                       ^ 
-                                                      vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__sel_nodes[1U])) 
-                                                  | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__sel_nodes[2U] 
+                                                      vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__sel_nodes[1U])) 
+                                                  | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__sel_nodes[2U] 
                                                      ^ 
-                                                     vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__sel_nodes[2U])) 
-                                                 | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__sel_nodes[3U] 
+                                                     vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__sel_nodes[2U])) 
+                                                 | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__sel_nodes[3U] 
                                                     ^ 
-                                                    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__sel_nodes[3U]))) 
+                                                    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__sel_nodes[3U]))) 
                                          | (0U != (
-                                                   (((((((((((((((((((((((((((vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[0U] 
+                                                   (((((((((((((((((((((((((((vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[0U] 
                                                                               ^ 
-                                                                              vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__index_nodes[0U]) 
-                                                                             | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[1U] 
+                                                                              vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__index_nodes[0U]) 
+                                                                             | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[1U] 
                                                                                 ^ 
-                                                                                vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__index_nodes[1U])) 
-                                                                            | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[2U] 
+                                                                                vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__index_nodes[1U])) 
+                                                                            | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[2U] 
                                                                                ^ 
-                                                                               vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__index_nodes[2U])) 
-                                                                           | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[3U] 
+                                                                               vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__index_nodes[2U])) 
+                                                                           | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[3U] 
                                                                               ^ 
-                                                                              vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__index_nodes[3U])) 
-                                                                          | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[4U] 
+                                                                              vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__index_nodes[3U])) 
+                                                                          | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[4U] 
                                                                              ^ 
-                                                                             vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__index_nodes[4U])) 
-                                                                         | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[5U] 
+                                                                             vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__index_nodes[4U])) 
+                                                                         | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[5U] 
                                                                             ^ 
-                                                                            vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__index_nodes[5U])) 
-                                                                        | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[6U] 
+                                                                            vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__index_nodes[5U])) 
+                                                                        | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[6U] 
                                                                            ^ 
-                                                                           vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__index_nodes[6U])) 
-                                                                       | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[7U] 
+                                                                           vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__index_nodes[6U])) 
+                                                                       | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[7U] 
                                                                           ^ 
-                                                                          vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__index_nodes[7U])) 
-                                                                      | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[8U] 
+                                                                          vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__index_nodes[7U])) 
+                                                                      | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[8U] 
                                                                          ^ 
-                                                                         vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__index_nodes[8U])) 
-                                                                     | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[9U] 
+                                                                         vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__index_nodes[8U])) 
+                                                                     | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[9U] 
                                                                         ^ 
-                                                                        vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__index_nodes[9U])) 
-                                                                    | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[0xaU] 
+                                                                        vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__index_nodes[9U])) 
+                                                                    | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[0xaU] 
                                                                        ^ 
-                                                                       vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__index_nodes[0xaU])) 
-                                                                   | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[0xbU] 
+                                                                       vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__index_nodes[0xaU])) 
+                                                                   | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[0xbU] 
                                                                       ^ 
-                                                                      vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__index_nodes[0xbU])) 
-                                                                  | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[0xcU] 
+                                                                      vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__index_nodes[0xbU])) 
+                                                                  | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[0xcU] 
                                                                      ^ 
-                                                                     vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__index_nodes[0xcU])) 
-                                                                 | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[0xdU] 
+                                                                     vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__index_nodes[0xcU])) 
+                                                                 | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[0xdU] 
                                                                     ^ 
-                                                                    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__index_nodes[0xdU])) 
-                                                                | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[0xeU] 
+                                                                    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__index_nodes[0xdU])) 
+                                                                | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[0xeU] 
                                                                    ^ 
-                                                                   vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__index_nodes[0xeU])) 
-                                                               | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[0xfU] 
+                                                                   vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__index_nodes[0xeU])) 
+                                                               | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[0xfU] 
                                                                   ^ 
-                                                                  vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__index_nodes[0xfU])) 
-                                                              | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[0x10U] 
+                                                                  vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__index_nodes[0xfU])) 
+                                                              | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[0x10U] 
                                                                  ^ 
-                                                                 vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__index_nodes[0x10U])) 
-                                                             | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[0x11U] 
+                                                                 vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__index_nodes[0x10U])) 
+                                                             | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[0x11U] 
                                                                 ^ 
-                                                                vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__index_nodes[0x11U])) 
-                                                            | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[0x12U] 
+                                                                vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__index_nodes[0x11U])) 
+                                                            | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[0x12U] 
                                                                ^ 
-                                                               vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__index_nodes[0x12U])) 
-                                                           | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[0x13U] 
+                                                               vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__index_nodes[0x12U])) 
+                                                           | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[0x13U] 
                                                               ^ 
-                                                              vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__index_nodes[0x13U])) 
-                                                          | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[0x14U] 
+                                                              vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__index_nodes[0x13U])) 
+                                                          | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[0x14U] 
                                                              ^ 
-                                                             vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__index_nodes[0x14U])) 
-                                                         | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[0x15U] 
+                                                             vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__index_nodes[0x14U])) 
+                                                         | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[0x15U] 
                                                             ^ 
-                                                            vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__index_nodes[0x15U])) 
-                                                        | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[0x16U] 
+                                                            vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__index_nodes[0x15U])) 
+                                                        | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[0x16U] 
                                                            ^ 
-                                                           vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__index_nodes[0x16U])) 
-                                                       | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[0x17U] 
+                                                           vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__index_nodes[0x16U])) 
+                                                       | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[0x17U] 
                                                           ^ 
-                                                          vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__index_nodes[0x17U])) 
-                                                      | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[0x18U] 
+                                                          vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__index_nodes[0x17U])) 
+                                                      | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[0x18U] 
                                                          ^ 
-                                                         vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__index_nodes[0x18U])) 
-                                                     | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[0x19U] 
+                                                         vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__index_nodes[0x18U])) 
+                                                     | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[0x19U] 
                                                         ^ 
-                                                        vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__index_nodes[0x19U])) 
-                                                    | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[0x1aU] 
+                                                        vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__index_nodes[0x19U])) 
+                                                    | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[0x1aU] 
                                                        ^ 
-                                                       vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__index_nodes[0x1aU])) 
-                                                   | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[0x1bU] 
+                                                       vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__index_nodes[0x1aU])) 
+                                                   | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[0x1bU] 
                                                       ^ 
-                                                      vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__index_nodes[0x1bU]))));
-    vlSelf->__VactTriggered.at(0x22U) = (0U != ((((
-                                                   vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__sel_nodes[0U] 
+                                                      vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__index_nodes[0x1bU]))));
+    vlSelf->__VactTriggered.at(0x20U) = (0U != ((((
+                                                   vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__sel_nodes[0U] 
                                                    ^ 
-                                                   vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__sel_nodes[0U]) 
-                                                  | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__sel_nodes[1U] 
+                                                   vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__sel_nodes[0U]) 
+                                                  | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__sel_nodes[1U] 
                                                      ^ 
-                                                     vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__sel_nodes[1U])) 
-                                                 | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__sel_nodes[2U] 
+                                                     vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__sel_nodes[1U])) 
+                                                 | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__sel_nodes[2U] 
                                                     ^ 
-                                                    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__sel_nodes[2U])) 
-                                                | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__sel_nodes[3U] 
+                                                    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__sel_nodes[2U])) 
+                                                | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__sel_nodes[3U] 
                                                    ^ 
-                                                   vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__sel_nodes[3U])));
-    vlSelf->__VactTriggered.at(0x23U) = ((0U != (((
+                                                   vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__sel_nodes[3U])));
+    vlSelf->__VactTriggered.at(0x21U) = ((0U != (((
                                                    (vlSymsp->TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod_3.__PVT__gen_lzc__DOT__sel_nodes[0U] 
                                                     ^ 
                                                     vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod_3____PVT__gen_lzc__DOT__sel_nodes[0U]) 
@@ -4821,7 +4748,7 @@ void VPvuTop___024root___eval_triggers__act(VPvuTop___024root* vlSelf) {
                                                    | (vlSymsp->TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[0x1bU] 
                                                       ^ 
                                                       vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod_3____PVT__gen_lzc__DOT__index_nodes[0x1bU]))));
-    vlSelf->__VactTriggered.at(0x24U) = (0U != ((((
+    vlSelf->__VactTriggered.at(0x22U) = (0U != ((((
                                                    vlSymsp->TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod_3.__PVT__gen_lzc__DOT__sel_nodes[0U] 
                                                    ^ 
                                                    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod_3____PVT__gen_lzc__DOT__sel_nodes[0U]) 
@@ -4834,6 +4761,117 @@ void VPvuTop___024root___eval_triggers__act(VPvuTop___024root* vlSelf) {
                                                 | (vlSymsp->TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod_3.__PVT__gen_lzc__DOT__sel_nodes[3U] 
                                                    ^ 
                                                    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod_3____PVT__gen_lzc__DOT__sel_nodes[3U])));
+    vlSelf->__VactTriggered.at(0x23U) = ((0U != (((
+                                                   (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__sel_nodes[0U] 
+                                                    ^ 
+                                                    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__sel_nodes[0U]) 
+                                                   | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__sel_nodes[1U] 
+                                                      ^ 
+                                                      vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__sel_nodes[1U])) 
+                                                  | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__sel_nodes[2U] 
+                                                     ^ 
+                                                     vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__sel_nodes[2U])) 
+                                                 | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__sel_nodes[3U] 
+                                                    ^ 
+                                                    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__sel_nodes[3U]))) 
+                                         | (0U != (
+                                                   (((((((((((((((((((((((((((vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[0U] 
+                                                                              ^ 
+                                                                              vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__index_nodes[0U]) 
+                                                                             | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[1U] 
+                                                                                ^ 
+                                                                                vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__index_nodes[1U])) 
+                                                                            | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[2U] 
+                                                                               ^ 
+                                                                               vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__index_nodes[2U])) 
+                                                                           | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[3U] 
+                                                                              ^ 
+                                                                              vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__index_nodes[3U])) 
+                                                                          | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[4U] 
+                                                                             ^ 
+                                                                             vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__index_nodes[4U])) 
+                                                                         | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[5U] 
+                                                                            ^ 
+                                                                            vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__index_nodes[5U])) 
+                                                                        | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[6U] 
+                                                                           ^ 
+                                                                           vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__index_nodes[6U])) 
+                                                                       | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[7U] 
+                                                                          ^ 
+                                                                          vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__index_nodes[7U])) 
+                                                                      | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[8U] 
+                                                                         ^ 
+                                                                         vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__index_nodes[8U])) 
+                                                                     | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[9U] 
+                                                                        ^ 
+                                                                        vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__index_nodes[9U])) 
+                                                                    | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[0xaU] 
+                                                                       ^ 
+                                                                       vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__index_nodes[0xaU])) 
+                                                                   | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[0xbU] 
+                                                                      ^ 
+                                                                      vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__index_nodes[0xbU])) 
+                                                                  | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[0xcU] 
+                                                                     ^ 
+                                                                     vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__index_nodes[0xcU])) 
+                                                                 | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[0xdU] 
+                                                                    ^ 
+                                                                    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__index_nodes[0xdU])) 
+                                                                | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[0xeU] 
+                                                                   ^ 
+                                                                   vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__index_nodes[0xeU])) 
+                                                               | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[0xfU] 
+                                                                  ^ 
+                                                                  vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__index_nodes[0xfU])) 
+                                                              | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[0x10U] 
+                                                                 ^ 
+                                                                 vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__index_nodes[0x10U])) 
+                                                             | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[0x11U] 
+                                                                ^ 
+                                                                vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__index_nodes[0x11U])) 
+                                                            | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[0x12U] 
+                                                               ^ 
+                                                               vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__index_nodes[0x12U])) 
+                                                           | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[0x13U] 
+                                                              ^ 
+                                                              vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__index_nodes[0x13U])) 
+                                                          | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[0x14U] 
+                                                             ^ 
+                                                             vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__index_nodes[0x14U])) 
+                                                         | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[0x15U] 
+                                                            ^ 
+                                                            vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__index_nodes[0x15U])) 
+                                                        | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[0x16U] 
+                                                           ^ 
+                                                           vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__index_nodes[0x16U])) 
+                                                       | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[0x17U] 
+                                                          ^ 
+                                                          vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__index_nodes[0x17U])) 
+                                                      | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[0x18U] 
+                                                         ^ 
+                                                         vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__index_nodes[0x18U])) 
+                                                     | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[0x19U] 
+                                                        ^ 
+                                                        vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__index_nodes[0x19U])) 
+                                                    | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[0x1aU] 
+                                                       ^ 
+                                                       vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__index_nodes[0x1aU])) 
+                                                   | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[0x1bU] 
+                                                      ^ 
+                                                      vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__index_nodes[0x1bU]))));
+    vlSelf->__VactTriggered.at(0x24U) = (0U != ((((
+                                                   vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__sel_nodes[0U] 
+                                                   ^ 
+                                                   vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__sel_nodes[0U]) 
+                                                  | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__sel_nodes[1U] 
+                                                     ^ 
+                                                     vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__sel_nodes[1U])) 
+                                                 | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__sel_nodes[2U] 
+                                                    ^ 
+                                                    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__sel_nodes[2U])) 
+                                                | (vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__sel_nodes[3U] 
+                                                   ^ 
+                                                   vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__sel_nodes[3U])));
     vlSelf->__VactTriggered.at(0x25U) = ((vlSymsp->TOP__PvuTop__DOT__decode1.__PVT__lzcModule__DOT__gen_lzc__DOT__sel_nodes 
                                           != vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__decode1____PVT__lzcModule__DOT__gen_lzc__DOT__sel_nodes) 
                                          | (0U != (
@@ -5804,70 +5842,6 @@ void VPvuTop___024root___eval_triggers__act(VPvuTop___024root* vlSelf) {
         = vlSelf->PvuTop__DOT__dot_decoder__DOT__lzcModule__DOT__gen_lzc__DOT__index_nodes[3U];
     vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__dot_decoder__DOT__lzcModule__DOT__gen_lzc__DOT__index_nodes[4U] 
         = vlSelf->PvuTop__DOT__dot_decoder__DOT__lzcModule__DOT__gen_lzc__DOT__index_nodes[4U];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__sel_nodes[0U] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__sel_nodes[0U];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__sel_nodes[1U] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__sel_nodes[1U];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__sel_nodes[2U] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__sel_nodes[2U];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__sel_nodes[3U] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__sel_nodes[3U];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__index_nodes[0U] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[0U];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__index_nodes[1U] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[1U];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__index_nodes[2U] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[2U];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__index_nodes[3U] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[3U];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__index_nodes[4U] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[4U];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__index_nodes[5U] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[5U];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__index_nodes[6U] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[6U];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__index_nodes[7U] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[7U];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__index_nodes[8U] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[8U];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__index_nodes[9U] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[9U];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__index_nodes[0xaU] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[0xaU];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__index_nodes[0xbU] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[0xbU];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__index_nodes[0xcU] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[0xcU];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__index_nodes[0xdU] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[0xdU];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__index_nodes[0xeU] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[0xeU];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__index_nodes[0xfU] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[0xfU];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__index_nodes[0x10U] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[0x10U];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__index_nodes[0x11U] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[0x11U];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__index_nodes[0x12U] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[0x12U];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__index_nodes[0x13U] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[0x13U];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__index_nodes[0x14U] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[0x14U];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__index_nodes[0x15U] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[0x15U];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__index_nodes[0x16U] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[0x16U];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__index_nodes[0x17U] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[0x17U];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__index_nodes[0x18U] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[0x18U];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__index_nodes[0x19U] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[0x19U];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__index_nodes[0x1aU] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[0x1aU];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__index_nodes[0x1bU] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[0x1bU];
     vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod____PVT__gen_lzc__DOT__sel_nodes[0U] 
         = vlSymsp->TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod.__PVT__gen_lzc__DOT__sel_nodes[0U];
     vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod____PVT__gen_lzc__DOT__sel_nodes[1U] 
@@ -5932,70 +5906,70 @@ void VPvuTop___024root___eval_triggers__act(VPvuTop___024root* vlSelf) {
         = vlSymsp->TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[0x1aU];
     vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod____PVT__gen_lzc__DOT__index_nodes[0x1bU] 
         = vlSymsp->TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[0x1bU];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__sel_nodes[0U] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__sel_nodes[0U];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__sel_nodes[1U] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__sel_nodes[1U];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__sel_nodes[2U] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__sel_nodes[2U];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__sel_nodes[3U] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__sel_nodes[3U];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__index_nodes[0U] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[0U];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__index_nodes[1U] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[1U];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__index_nodes[2U] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[2U];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__index_nodes[3U] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[3U];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__index_nodes[4U] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[4U];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__index_nodes[5U] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[5U];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__index_nodes[6U] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[6U];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__index_nodes[7U] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[7U];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__index_nodes[8U] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[8U];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__index_nodes[9U] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[9U];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__index_nodes[0xaU] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[0xaU];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__index_nodes[0xbU] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[0xbU];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__index_nodes[0xcU] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[0xcU];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__index_nodes[0xdU] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[0xdU];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__index_nodes[0xeU] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[0xeU];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__index_nodes[0xfU] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[0xfU];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__index_nodes[0x10U] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[0x10U];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__index_nodes[0x11U] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[0x11U];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__index_nodes[0x12U] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[0x12U];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__index_nodes[0x13U] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[0x13U];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__index_nodes[0x14U] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[0x14U];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__index_nodes[0x15U] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[0x15U];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__index_nodes[0x16U] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[0x16U];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__index_nodes[0x17U] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[0x17U];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__index_nodes[0x18U] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[0x18U];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__index_nodes[0x19U] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[0x19U];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__index_nodes[0x1aU] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[0x1aU];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__index_nodes[0x1bU] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[0x1bU];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__sel_nodes[0U] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__sel_nodes[0U];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__sel_nodes[1U] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__sel_nodes[1U];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__sel_nodes[2U] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__sel_nodes[2U];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__sel_nodes[3U] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__sel_nodes[3U];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__index_nodes[0U] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[0U];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__index_nodes[1U] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[1U];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__index_nodes[2U] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[2U];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__index_nodes[3U] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[3U];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__index_nodes[4U] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[4U];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__index_nodes[5U] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[5U];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__index_nodes[6U] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[6U];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__index_nodes[7U] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[7U];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__index_nodes[8U] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[8U];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__index_nodes[9U] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[9U];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__index_nodes[0xaU] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[0xaU];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__index_nodes[0xbU] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[0xbU];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__index_nodes[0xcU] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[0xcU];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__index_nodes[0xdU] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[0xdU];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__index_nodes[0xeU] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[0xeU];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__index_nodes[0xfU] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[0xfU];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__index_nodes[0x10U] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[0x10U];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__index_nodes[0x11U] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[0x11U];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__index_nodes[0x12U] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[0x12U];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__index_nodes[0x13U] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[0x13U];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__index_nodes[0x14U] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[0x14U];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__index_nodes[0x15U] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[0x15U];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__index_nodes[0x16U] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[0x16U];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__index_nodes[0x17U] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[0x17U];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__index_nodes[0x18U] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[0x18U];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__index_nodes[0x19U] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[0x19U];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__index_nodes[0x1aU] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[0x1aU];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod____PVT__gen_lzc__DOT__index_nodes[0x1bU] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod.__PVT__gen_lzc__DOT__index_nodes[0x1bU];
     vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod_1____PVT__gen_lzc__DOT__sel_nodes[0U] 
         = vlSymsp->TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod_1.__PVT__gen_lzc__DOT__sel_nodes[0U];
     vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod_1____PVT__gen_lzc__DOT__sel_nodes[1U] 
@@ -6060,70 +6034,70 @@ void VPvuTop___024root___eval_triggers__act(VPvuTop___024root* vlSelf) {
         = vlSymsp->TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[0x1aU];
     vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod_1____PVT__gen_lzc__DOT__index_nodes[0x1bU] 
         = vlSymsp->TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[0x1bU];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__sel_nodes[0U] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__sel_nodes[0U];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__sel_nodes[1U] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__sel_nodes[1U];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__sel_nodes[2U] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__sel_nodes[2U];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__sel_nodes[3U] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__sel_nodes[3U];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__index_nodes[0U] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[0U];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__index_nodes[1U] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[1U];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__index_nodes[2U] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[2U];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__index_nodes[3U] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[3U];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__index_nodes[4U] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[4U];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__index_nodes[5U] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[5U];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__index_nodes[6U] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[6U];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__index_nodes[7U] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[7U];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__index_nodes[8U] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[8U];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__index_nodes[9U] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[9U];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__index_nodes[0xaU] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[0xaU];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__index_nodes[0xbU] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[0xbU];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__index_nodes[0xcU] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[0xcU];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__index_nodes[0xdU] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[0xdU];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__index_nodes[0xeU] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[0xeU];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__index_nodes[0xfU] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[0xfU];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__index_nodes[0x10U] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[0x10U];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__index_nodes[0x11U] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[0x11U];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__index_nodes[0x12U] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[0x12U];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__index_nodes[0x13U] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[0x13U];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__index_nodes[0x14U] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[0x14U];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__index_nodes[0x15U] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[0x15U];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__index_nodes[0x16U] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[0x16U];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__index_nodes[0x17U] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[0x17U];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__index_nodes[0x18U] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[0x18U];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__index_nodes[0x19U] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[0x19U];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__index_nodes[0x1aU] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[0x1aU];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__index_nodes[0x1bU] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[0x1bU];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__sel_nodes[0U] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__sel_nodes[0U];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__sel_nodes[1U] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__sel_nodes[1U];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__sel_nodes[2U] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__sel_nodes[2U];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__sel_nodes[3U] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__sel_nodes[3U];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__index_nodes[0U] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[0U];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__index_nodes[1U] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[1U];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__index_nodes[2U] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[2U];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__index_nodes[3U] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[3U];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__index_nodes[4U] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[4U];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__index_nodes[5U] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[5U];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__index_nodes[6U] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[6U];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__index_nodes[7U] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[7U];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__index_nodes[8U] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[8U];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__index_nodes[9U] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[9U];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__index_nodes[0xaU] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[0xaU];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__index_nodes[0xbU] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[0xbU];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__index_nodes[0xcU] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[0xcU];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__index_nodes[0xdU] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[0xdU];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__index_nodes[0xeU] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[0xeU];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__index_nodes[0xfU] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[0xfU];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__index_nodes[0x10U] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[0x10U];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__index_nodes[0x11U] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[0x11U];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__index_nodes[0x12U] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[0x12U];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__index_nodes[0x13U] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[0x13U];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__index_nodes[0x14U] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[0x14U];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__index_nodes[0x15U] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[0x15U];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__index_nodes[0x16U] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[0x16U];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__index_nodes[0x17U] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[0x17U];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__index_nodes[0x18U] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[0x18U];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__index_nodes[0x19U] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[0x19U];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__index_nodes[0x1aU] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[0x1aU];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1____PVT__gen_lzc__DOT__index_nodes[0x1bU] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1.__PVT__gen_lzc__DOT__index_nodes[0x1bU];
     vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod_2____PVT__gen_lzc__DOT__sel_nodes[0U] 
         = vlSymsp->TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod_2.__PVT__gen_lzc__DOT__sel_nodes[0U];
     vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod_2____PVT__gen_lzc__DOT__sel_nodes[1U] 
@@ -6188,70 +6162,70 @@ void VPvuTop___024root___eval_triggers__act(VPvuTop___024root* vlSelf) {
         = vlSymsp->TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[0x1aU];
     vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod_2____PVT__gen_lzc__DOT__index_nodes[0x1bU] 
         = vlSymsp->TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[0x1bU];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__sel_nodes[0U] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__sel_nodes[0U];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__sel_nodes[1U] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__sel_nodes[1U];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__sel_nodes[2U] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__sel_nodes[2U];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__sel_nodes[3U] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__sel_nodes[3U];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__index_nodes[0U] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[0U];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__index_nodes[1U] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[1U];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__index_nodes[2U] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[2U];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__index_nodes[3U] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[3U];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__index_nodes[4U] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[4U];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__index_nodes[5U] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[5U];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__index_nodes[6U] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[6U];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__index_nodes[7U] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[7U];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__index_nodes[8U] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[8U];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__index_nodes[9U] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[9U];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__index_nodes[0xaU] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[0xaU];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__index_nodes[0xbU] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[0xbU];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__index_nodes[0xcU] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[0xcU];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__index_nodes[0xdU] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[0xdU];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__index_nodes[0xeU] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[0xeU];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__index_nodes[0xfU] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[0xfU];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__index_nodes[0x10U] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[0x10U];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__index_nodes[0x11U] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[0x11U];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__index_nodes[0x12U] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[0x12U];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__index_nodes[0x13U] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[0x13U];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__index_nodes[0x14U] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[0x14U];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__index_nodes[0x15U] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[0x15U];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__index_nodes[0x16U] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[0x16U];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__index_nodes[0x17U] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[0x17U];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__index_nodes[0x18U] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[0x18U];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__index_nodes[0x19U] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[0x19U];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__index_nodes[0x1aU] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[0x1aU];
-    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__index_nodes[0x1bU] 
-        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[0x1bU];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__sel_nodes[0U] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__sel_nodes[0U];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__sel_nodes[1U] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__sel_nodes[1U];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__sel_nodes[2U] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__sel_nodes[2U];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__sel_nodes[3U] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__sel_nodes[3U];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__index_nodes[0U] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[0U];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__index_nodes[1U] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[1U];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__index_nodes[2U] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[2U];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__index_nodes[3U] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[3U];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__index_nodes[4U] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[4U];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__index_nodes[5U] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[5U];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__index_nodes[6U] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[6U];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__index_nodes[7U] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[7U];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__index_nodes[8U] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[8U];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__index_nodes[9U] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[9U];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__index_nodes[0xaU] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[0xaU];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__index_nodes[0xbU] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[0xbU];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__index_nodes[0xcU] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[0xcU];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__index_nodes[0xdU] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[0xdU];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__index_nodes[0xeU] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[0xeU];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__index_nodes[0xfU] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[0xfU];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__index_nodes[0x10U] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[0x10U];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__index_nodes[0x11U] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[0x11U];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__index_nodes[0x12U] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[0x12U];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__index_nodes[0x13U] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[0x13U];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__index_nodes[0x14U] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[0x14U];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__index_nodes[0x15U] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[0x15U];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__index_nodes[0x16U] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[0x16U];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__index_nodes[0x17U] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[0x17U];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__index_nodes[0x18U] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[0x18U];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__index_nodes[0x19U] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[0x19U];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__index_nodes[0x1aU] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[0x1aU];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__index_nodes[0x1bU] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2.__PVT__gen_lzc__DOT__index_nodes[0x1bU];
     vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod_3____PVT__gen_lzc__DOT__sel_nodes[0U] 
         = vlSymsp->TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod_3.__PVT__gen_lzc__DOT__sel_nodes[0U];
     vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod_3____PVT__gen_lzc__DOT__sel_nodes[1U] 
@@ -6316,6 +6290,70 @@ void VPvuTop___024root___eval_triggers__act(VPvuTop___024root* vlSelf) {
         = vlSymsp->TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[0x1aU];
     vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod_3____PVT__gen_lzc__DOT__index_nodes[0x1bU] 
         = vlSymsp->TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[0x1bU];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__sel_nodes[0U] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__sel_nodes[0U];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__sel_nodes[1U] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__sel_nodes[1U];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__sel_nodes[2U] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__sel_nodes[2U];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__sel_nodes[3U] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__sel_nodes[3U];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__index_nodes[0U] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[0U];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__index_nodes[1U] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[1U];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__index_nodes[2U] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[2U];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__index_nodes[3U] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[3U];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__index_nodes[4U] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[4U];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__index_nodes[5U] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[5U];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__index_nodes[6U] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[6U];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__index_nodes[7U] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[7U];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__index_nodes[8U] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[8U];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__index_nodes[9U] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[9U];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__index_nodes[0xaU] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[0xaU];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__index_nodes[0xbU] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[0xbU];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__index_nodes[0xcU] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[0xcU];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__index_nodes[0xdU] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[0xdU];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__index_nodes[0xeU] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[0xeU];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__index_nodes[0xfU] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[0xfU];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__index_nodes[0x10U] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[0x10U];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__index_nodes[0x11U] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[0x11U];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__index_nodes[0x12U] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[0x12U];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__index_nodes[0x13U] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[0x13U];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__index_nodes[0x14U] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[0x14U];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__index_nodes[0x15U] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[0x15U];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__index_nodes[0x16U] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[0x16U];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__index_nodes[0x17U] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[0x17U];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__index_nodes[0x18U] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[0x18U];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__index_nodes[0x19U] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[0x19U];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__index_nodes[0x1aU] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[0x1aU];
+    vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__index_nodes[0x1bU] 
+        = vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3.__PVT__gen_lzc__DOT__index_nodes[0x1bU];
     vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__decode1____PVT__lzcModule__DOT__gen_lzc__DOT__sel_nodes 
         = vlSymsp->TOP__PvuTop__DOT__decode1.__PVT__lzcModule__DOT__gen_lzc__DOT__sel_nodes;
     vlSelf->__Vtrigrprev__TOP__PvuTop__DOT__decode1____PVT__lzcModule__DOT__gen_lzc__DOT__index_nodes[0U] 
