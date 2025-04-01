@@ -13,7 +13,7 @@ void VPvuTop___024root__trace_chg_sub_4(VPvuTop___024root* vlSelf, VerilatedVcd:
     VPvuTop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     VL_DEBUG_IF(VL_DBG_MSGF("+    VPvuTop___024root__trace_chg_sub_4\n"); );
     // Init
-    uint32_t* const oldp VL_ATTR_UNUSED = bufp->oldp(vlSymsp->__Vm_baseCode + 11315);
+    uint32_t* const oldp VL_ATTR_UNUSED = bufp->oldp(vlSymsp->__Vm_baseCode + 11319);
     VlWide<14>/*447:0*/ __Vtemp_h00f98dcf__0;
     VlWide<25>/*799:0*/ __Vtemp_hce4e04db__0;
     VlWide<11>/*351:0*/ __Vtemp_h83549217__0;

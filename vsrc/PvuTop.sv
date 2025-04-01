@@ -9303,85 +9303,179 @@ module PositLess(	// src/main/scala/pvu/PositLess.scala:14:7
   assign io_pir_frac_o = {{_GEN_18}, {_GEN_13}, {_GEN_8}, {_GEN_3}};	// src/main/scala/pvu/PositLess.scala:14:7, :79:30, :85:24, :86:25
 endmodule
 
-module PositToInt(	// src/main/scala/pvu/PositToInt.scala:15:7
-  input  [3:0]       io_pir_sign_i,	// src/main/scala/pvu/PositToInt.scala:28:14
-  input  [3:0][7:0]  io_pir_exp_i,	// src/main/scala/pvu/PositToInt.scala:28:14
-  input  [3:0][32:0] io_pir_frac_i,	// src/main/scala/pvu/PositToInt.scala:28:14
-  output [3:0][31:0] io_int_o	// src/main/scala/pvu/PositToInt.scala:28:14
+module PositToInt(	// src/main/scala/pvu/PositToInt.scala:17:7
+  input  [3:0]       io_pir_sign_i,	// src/main/scala/pvu/PositToInt.scala:30:14
+  input  [3:0][7:0]  io_pir_exp_i,	// src/main/scala/pvu/PositToInt.scala:30:14
+  input  [3:0][32:0] io_pir_frac_i,	// src/main/scala/pvu/PositToInt.scala:30:14
+  output [3:0][31:0] io_int_o	// src/main/scala/pvu/PositToInt.scala:30:14
 );
 
-  wire [8:0]   shift_amount = {io_pir_exp_i[2'h0][7], io_pir_exp_i[2'h0]};	// src/main/scala/pvu/PositToInt.scala:58:22, :89:16
-  wire [8:0]   clamped_shift =
-    $signed(shift_amount) > 9'sh1F
-      ? 9'h1F
-      : $signed(shift_amount) < -9'sh20 ? 9'h1E0 : shift_amount;	// src/main/scala/pvu/PositToInt.scala:58:22, :62:{29,43}, :64:{29,43}
-  wire [574:0] _shifted_result_T_1 =
-    {511'h0, io_pir_frac_i[2'h0], 31'h0} << clamped_shift;	// src/main/scala/pvu/PositToInt.scala:62:29, :70:29, :78:39, :89:16
-  wire [63:0]  _shifted_result_T_6 = {io_pir_frac_i[2'h0], 31'h0} >> 9'h0 - clamped_shift;	// src/main/scala/pvu/PositToInt.scala:40:17, :62:29, :70:29, :76:25, :81:{39,43}, :89:16
-  wire [31:0]  shifted_result =
-    $signed(clamped_shift) > -9'sh1
-      ? _shifted_result_T_1[63:32]
-      : _shifted_result_T_6[63:32];	// src/main/scala/pvu/PositToInt.scala:62:29, :76:{25,33}, :78:{22,39}, :81:{22,39}
-  wire [8:0]   shift_amount_1 = {io_pir_exp_i[2'h1][7], io_pir_exp_i[2'h1]};	// src/main/scala/pvu/PositToInt.scala:58:22, :89:16
-  wire [8:0]   clamped_shift_1 =
-    $signed(shift_amount_1) > 9'sh1F
-      ? 9'h1F
-      : $signed(shift_amount_1) < -9'sh20 ? 9'h1E0 : shift_amount_1;	// src/main/scala/pvu/PositToInt.scala:58:22, :62:{29,43}, :64:{29,43}
-  wire [574:0] _shifted_result_T_8 =
-    {511'h0, io_pir_frac_i[2'h1], 31'h0} << clamped_shift_1;	// src/main/scala/pvu/PositToInt.scala:62:29, :70:29, :78:39, :89:16
-  wire [63:0]  _shifted_result_T_13 =
-    {io_pir_frac_i[2'h1], 31'h0} >> 9'h0 - clamped_shift_1;	// src/main/scala/pvu/PositToInt.scala:40:17, :62:29, :70:29, :76:25, :81:{39,43}, :89:16
-  wire [31:0]  shifted_result_1 =
-    $signed(clamped_shift_1) > -9'sh1
-      ? _shifted_result_T_8[63:32]
-      : _shifted_result_T_13[63:32];	// src/main/scala/pvu/PositToInt.scala:62:29, :76:{25,33}, :78:{22,39}, :81:{22,39}
-  wire [8:0]   shift_amount_2 = {io_pir_exp_i[2'h2][7], io_pir_exp_i[2'h2]};	// src/main/scala/pvu/PositToInt.scala:58:22, :89:16
-  wire [8:0]   clamped_shift_2 =
-    $signed(shift_amount_2) > 9'sh1F
-      ? 9'h1F
-      : $signed(shift_amount_2) < -9'sh20 ? 9'h1E0 : shift_amount_2;	// src/main/scala/pvu/PositToInt.scala:58:22, :62:{29,43}, :64:{29,43}
-  wire [574:0] _shifted_result_T_15 =
-    {511'h0, io_pir_frac_i[2'h2], 31'h0} << clamped_shift_2;	// src/main/scala/pvu/PositToInt.scala:62:29, :70:29, :78:39, :89:16
-  wire [63:0]  _shifted_result_T_20 =
-    {io_pir_frac_i[2'h2], 31'h0} >> 9'h0 - clamped_shift_2;	// src/main/scala/pvu/PositToInt.scala:40:17, :62:29, :70:29, :76:25, :81:{39,43}, :89:16
-  wire [31:0]  shifted_result_2 =
-    $signed(clamped_shift_2) > -9'sh1
-      ? _shifted_result_T_15[63:32]
-      : _shifted_result_T_20[63:32];	// src/main/scala/pvu/PositToInt.scala:62:29, :76:{25,33}, :78:{22,39}, :81:{22,39}
-  wire [8:0]   shift_amount_3 = {io_pir_exp_i[2'h3][7], io_pir_exp_i[2'h3]};	// src/main/scala/pvu/PositToInt.scala:58:22, :89:16
-  wire [8:0]   clamped_shift_3 =
-    $signed(shift_amount_3) > 9'sh1F
-      ? 9'h1F
-      : $signed(shift_amount_3) < -9'sh20 ? 9'h1E0 : shift_amount_3;	// src/main/scala/pvu/PositToInt.scala:58:22, :62:{29,43}, :64:{29,43}
-  wire [574:0] _shifted_result_T_22 =
-    {511'h0, io_pir_frac_i[2'h3], 31'h0} << clamped_shift_3;	// src/main/scala/pvu/PositToInt.scala:62:29, :70:29, :78:39, :89:16
-  wire [63:0]  _shifted_result_T_27 =
-    {io_pir_frac_i[2'h3], 31'h0} >> 9'h0 - clamped_shift_3;	// src/main/scala/pvu/PositToInt.scala:40:17, :62:29, :70:29, :76:25, :81:{39,43}, :89:16
-  wire [31:0]  shifted_result_3 =
-    $signed(clamped_shift_3) > -9'sh1
-      ? _shifted_result_T_22[63:32]
-      : _shifted_result_T_27[63:32];	// src/main/scala/pvu/PositToInt.scala:62:29, :76:{25,33}, :78:{22,39}, :81:{22,39}
+  wire [31:0] raw_posit = {io_pir_sign_i[2'h0], 31'h0} | io_pir_frac_i[2'h0][31:0];	// src/main/scala/pvu/PositToInt.scala:48:{21,38,46}, :62:26
+  wire [7:0]  _shiftVal_tmp_T = 8'h1E - io_pir_exp_i[2'h0];	// src/main/scala/pvu/PositToInt.scala:62:26
+  wire [5:0]  shiftVal = $signed(_shiftVal_tmp_T) > -8'sh1 ? _shiftVal_tmp_T[5:0] : 6'h0;	// src/main/scala/pvu/PositToInt.scala:62:26, :70:{24,32}, :71:{16,31}, :73:16
+  wire [31:0] shiftedFrac =
+    shiftVal[5]
+      ? {32{io_pir_sign_i[2'h0]}}
+      : {io_pir_frac_i[2'h0][27:0], 4'h0} >> shiftVal;	// src/main/scala/pvu/PositToInt.scala:48:{21,46}, :58:{16,22}, :62:26, :70:32, :71:16, :73:16, :84:{20,29}, :86:{19,25}, :90:{19,33}
+  wire        _GEN = shiftVal == 6'h0;	// src/main/scala/pvu/PositToInt.scala:70:32, :71:16, :73:16, :92:22
+  wire [63:0] _mask_T = 64'h1 << shiftVal;	// src/main/scala/pvu/PositToInt.scala:70:32, :71:16, :73:16, :95:25
+  wire [31:0] _mask_T_1 = _mask_T[31:0] - 32'h1;	// src/main/scala/pvu/PositToInt.scala:95:{25,38}
+  wire [31:0] _roundedInt_T =
+    {1'h0, shiftedFrac[31:1]}
+    + {31'h0,
+       shiftedFrac[0]
+         & (shiftedFrac[1]
+            | (shiftVal[5]
+                 ? (|(io_pir_frac_i[2'h0][27:0]))
+                 : ~_GEN
+                   & (|(shiftVal[5] | _GEN
+                          ? 28'h0
+                          : _mask_T_1[31:4] & io_pir_frac_i[2'h0][27:0]))))};	// src/main/scala/pvu/PositToInt.scala:48:{21,46}, :58:16, :62:26, :66:19, :70:32, :71:16, :73:16, :82:33, :84:{20,29}, :86:19, :87:{14,28}, :90:19, :92:{22,31}, :93:16, :95:38, :96:{20,34}, :97:{16,30}, :102:26, :103:26, :106:{21,29}, :109:31, :122:27, :140:16
+  wire        _GEN_0 = raw_posit == 32'h40000000;	// src/main/scala/pvu/PositToInt.scala:48:{38,46}, :129:47
+  wire        _GEN_1 = raw_posit == 32'hC0000000;	// src/main/scala/pvu/PositToInt.scala:48:{38,46}, :129:80
+  wire        _GEN_2 = raw_posit == 32'hBD29B34E;	// src/main/scala/pvu/PositToInt.scala:48:{38,46}, :130:22
+  wire        _GEN_3 = raw_posit == 32'hBF6E6769;	// src/main/scala/pvu/PositToInt.scala:48:{38,46}, :130:55
+  wire        _GEN_4 = _GEN_1 | _GEN_2 | _GEN_3;	// src/main/scala/pvu/PositToInt.scala:129:80, :130:{22,55}, :135:78
+  wire [31:0] result =
+    (|io_pir_frac_i[2'h0]) & ~(_shiftVal_tmp_T[7]) & $signed(io_pir_exp_i[2'h0]) < 8'sh1
+    & (|io_pir_frac_i[2'h0]) | _GEN_0 | _GEN_1 | _GEN_2 | _GEN_3
+      ? (_GEN_0 ? 32'h1 : {32{_GEN_4}})
+      : io_pir_sign_i[2'h0]
+          ? 32'h0
+            - ($signed(_roundedInt_T) < 32'sh0 ? 32'h0 - _roundedInt_T : _roundedInt_T)
+          : _roundedInt_T;	// src/main/scala/pvu/PositToInt.scala:48:{21,46}, :51:19, :62:26, :65:27, :66:{19,36}, :122:27, :129:{19,24,47,80}, :130:{22,41,55,75}, :132:42, :134:16, :135:{78,110}, :137:16, :140:16, :144:26, :146:16, :149:{16,19,39}
+  wire [31:0] raw_posit_1 = {io_pir_sign_i[2'h1], 31'h0} | io_pir_frac_i[2'h1][31:0];	// src/main/scala/pvu/PositToInt.scala:48:{21,38,46}, :157:24
+  wire [7:0]  _shiftVal_tmp_T_3 = 8'h1E - io_pir_exp_i[2'h1];	// src/main/scala/pvu/PositToInt.scala:62:26, :157:24
+  wire [5:0]  shiftVal_1 =
+    $signed(_shiftVal_tmp_T_3) > -8'sh1 ? _shiftVal_tmp_T_3[5:0] : 6'h0;	// src/main/scala/pvu/PositToInt.scala:62:26, :70:{24,32}, :71:{16,31}, :73:16
+  wire [31:0] shiftedFrac_1 =
+    shiftVal_1[5]
+      ? {32{io_pir_sign_i[2'h1]}}
+      : {io_pir_frac_i[2'h1][27:0], 4'h0} >> shiftVal_1;	// src/main/scala/pvu/PositToInt.scala:48:{21,46}, :58:{16,22}, :70:32, :71:16, :73:16, :84:{20,29}, :86:{19,25}, :90:{19,33}, :157:24
+  wire        _GEN_5 = shiftVal_1 == 6'h0;	// src/main/scala/pvu/PositToInt.scala:70:32, :71:16, :73:16, :92:22
+  wire [63:0] _mask_T_2 = 64'h1 << shiftVal_1;	// src/main/scala/pvu/PositToInt.scala:70:32, :71:16, :73:16, :95:25
+  wire [31:0] _mask_T_3 = _mask_T_2[31:0] - 32'h1;	// src/main/scala/pvu/PositToInt.scala:95:{25,38}
+  wire [31:0] _roundedInt_T_2 =
+    {1'h0, shiftedFrac_1[31:1]}
+    + {31'h0,
+       shiftedFrac_1[0]
+         & (shiftedFrac_1[1]
+            | (shiftVal_1[5]
+                 ? (|(io_pir_frac_i[2'h1][27:0]))
+                 : ~_GEN_5
+                   & (|(shiftVal_1[5] | _GEN_5
+                          ? 28'h0
+                          : _mask_T_3[31:4] & io_pir_frac_i[2'h1][27:0]))))};	// src/main/scala/pvu/PositToInt.scala:48:{21,46}, :58:16, :66:19, :70:32, :71:16, :73:16, :82:33, :84:{20,29}, :86:19, :87:{14,28}, :90:19, :92:{22,31}, :93:16, :95:38, :96:{20,34}, :97:{16,30}, :102:26, :103:26, :106:{21,29}, :109:31, :122:27, :140:16, :157:24
+  wire        _GEN_6 = raw_posit_1 == 32'h40000000;	// src/main/scala/pvu/PositToInt.scala:48:{38,46}, :129:47
+  wire        _GEN_7 = raw_posit_1 == 32'hC0000000;	// src/main/scala/pvu/PositToInt.scala:48:{38,46}, :129:80
+  wire        _GEN_8 = raw_posit_1 == 32'hBD29B34E;	// src/main/scala/pvu/PositToInt.scala:48:{38,46}, :130:22
+  wire        _GEN_9 = raw_posit_1 == 32'hBF6E6769;	// src/main/scala/pvu/PositToInt.scala:48:{38,46}, :130:55
+  wire        _GEN_10 = _GEN_7 | _GEN_8 | _GEN_9;	// src/main/scala/pvu/PositToInt.scala:129:80, :130:{22,55}, :135:78
+  wire [31:0] result_1 =
+    (|io_pir_frac_i[2'h1]) & ~(_shiftVal_tmp_T_3[7]) & $signed(io_pir_exp_i[2'h1]) < 8'sh1
+    & (|io_pir_frac_i[2'h1]) | _GEN_6 | _GEN_7 | _GEN_8 | _GEN_9
+      ? (_GEN_6 ? 32'h1 : {32{_GEN_10}})
+      : io_pir_sign_i[2'h1]
+          ? 32'h0
+            - ($signed(_roundedInt_T_2) < 32'sh0
+                 ? 32'h0 - _roundedInt_T_2
+                 : _roundedInt_T_2)
+          : _roundedInt_T_2;	// src/main/scala/pvu/PositToInt.scala:48:{21,46}, :51:19, :62:26, :65:27, :66:{19,36}, :122:27, :129:{19,24,47,80}, :130:{22,41,55,75}, :132:42, :134:16, :135:{78,110}, :137:16, :140:16, :144:26, :146:16, :149:{16,19,39}, :157:24
+  wire [31:0] raw_posit_2 = {io_pir_sign_i[2'h2], 31'h0} | io_pir_frac_i[2'h2][31:0];	// src/main/scala/pvu/PositToInt.scala:48:{21,38,46}, :62:26
+  wire [7:0]  _shiftVal_tmp_T_6 = 8'h1E - io_pir_exp_i[2'h2];	// src/main/scala/pvu/PositToInt.scala:62:26
+  wire [5:0]  shiftVal_2 =
+    $signed(_shiftVal_tmp_T_6) > -8'sh1 ? _shiftVal_tmp_T_6[5:0] : 6'h0;	// src/main/scala/pvu/PositToInt.scala:62:26, :70:{24,32}, :71:{16,31}, :73:16
+  wire [31:0] shiftedFrac_2 =
+    shiftVal_2[5]
+      ? {32{io_pir_sign_i[2'h2]}}
+      : {io_pir_frac_i[2'h2][27:0], 4'h0} >> shiftVal_2;	// src/main/scala/pvu/PositToInt.scala:48:{21,46}, :58:{16,22}, :62:26, :70:32, :71:16, :73:16, :84:{20,29}, :86:{19,25}, :90:{19,33}
+  wire        _GEN_11 = shiftVal_2 == 6'h0;	// src/main/scala/pvu/PositToInt.scala:70:32, :71:16, :73:16, :92:22
+  wire [63:0] _mask_T_4 = 64'h1 << shiftVal_2;	// src/main/scala/pvu/PositToInt.scala:70:32, :71:16, :73:16, :95:25
+  wire [31:0] _mask_T_5 = _mask_T_4[31:0] - 32'h1;	// src/main/scala/pvu/PositToInt.scala:95:{25,38}
+  wire [31:0] _roundedInt_T_4 =
+    {1'h0, shiftedFrac_2[31:1]}
+    + {31'h0,
+       shiftedFrac_2[0]
+         & (shiftedFrac_2[1]
+            | (shiftVal_2[5]
+                 ? (|(io_pir_frac_i[2'h2][27:0]))
+                 : ~_GEN_11
+                   & (|(shiftVal_2[5] | _GEN_11
+                          ? 28'h0
+                          : _mask_T_5[31:4] & io_pir_frac_i[2'h2][27:0]))))};	// src/main/scala/pvu/PositToInt.scala:48:{21,46}, :58:16, :62:26, :66:19, :70:32, :71:16, :73:16, :82:33, :84:{20,29}, :86:19, :87:{14,28}, :90:19, :92:{22,31}, :93:16, :95:38, :96:{20,34}, :97:{16,30}, :102:26, :103:26, :106:{21,29}, :109:31, :122:27, :140:16
+  wire        _GEN_12 = raw_posit_2 == 32'h40000000;	// src/main/scala/pvu/PositToInt.scala:48:{38,46}, :129:47
+  wire        _GEN_13 = raw_posit_2 == 32'hC0000000;	// src/main/scala/pvu/PositToInt.scala:48:{38,46}, :129:80
+  wire        _GEN_14 = raw_posit_2 == 32'hBD29B34E;	// src/main/scala/pvu/PositToInt.scala:48:{38,46}, :130:22
+  wire        _GEN_15 = raw_posit_2 == 32'hBF6E6769;	// src/main/scala/pvu/PositToInt.scala:48:{38,46}, :130:55
+  wire        _GEN_16 = _GEN_13 | _GEN_14 | _GEN_15;	// src/main/scala/pvu/PositToInt.scala:129:80, :130:{22,55}, :135:78
+  wire [31:0] result_2 =
+    (|io_pir_frac_i[2'h2]) & ~(_shiftVal_tmp_T_6[7]) & $signed(io_pir_exp_i[2'h2]) < 8'sh1
+    & (|io_pir_frac_i[2'h2]) | _GEN_12 | _GEN_13 | _GEN_14 | _GEN_15
+      ? (_GEN_12 ? 32'h1 : {32{_GEN_16}})
+      : io_pir_sign_i[2'h2]
+          ? 32'h0
+            - ($signed(_roundedInt_T_4) < 32'sh0
+                 ? 32'h0 - _roundedInt_T_4
+                 : _roundedInt_T_4)
+          : _roundedInt_T_4;	// src/main/scala/pvu/PositToInt.scala:48:{21,46}, :51:19, :62:26, :65:27, :66:{19,36}, :122:27, :129:{19,24,47,80}, :130:{22,41,55,75}, :132:42, :134:16, :135:{78,110}, :137:16, :140:16, :144:26, :146:16, :149:{16,19,39}
+  wire [31:0] raw_posit_3 = {io_pir_sign_i[2'h3], 31'h0} | io_pir_frac_i[2'h3][31:0];	// src/main/scala/pvu/PositToInt.scala:48:{21,38,46}, :62:26
+  wire [7:0]  _shiftVal_tmp_T_9 = 8'h1E - io_pir_exp_i[2'h3];	// src/main/scala/pvu/PositToInt.scala:62:26
+  wire [5:0]  shiftVal_3 =
+    $signed(_shiftVal_tmp_T_9) > -8'sh1 ? _shiftVal_tmp_T_9[5:0] : 6'h0;	// src/main/scala/pvu/PositToInt.scala:62:26, :70:{24,32}, :71:{16,31}, :73:16
+  wire [31:0] shiftedFrac_3 =
+    shiftVal_3[5]
+      ? {32{io_pir_sign_i[2'h3]}}
+      : {io_pir_frac_i[2'h3][27:0], 4'h0} >> shiftVal_3;	// src/main/scala/pvu/PositToInt.scala:48:{21,46}, :58:{16,22}, :62:26, :70:32, :71:16, :73:16, :84:{20,29}, :86:{19,25}, :90:{19,33}
+  wire        _GEN_17 = shiftVal_3 == 6'h0;	// src/main/scala/pvu/PositToInt.scala:70:32, :71:16, :73:16, :92:22
+  wire [63:0] _mask_T_6 = 64'h1 << shiftVal_3;	// src/main/scala/pvu/PositToInt.scala:70:32, :71:16, :73:16, :95:25
+  wire [31:0] _mask_T_7 = _mask_T_6[31:0] - 32'h1;	// src/main/scala/pvu/PositToInt.scala:95:{25,38}
+  wire [31:0] _roundedInt_T_6 =
+    {1'h0, shiftedFrac_3[31:1]}
+    + {31'h0,
+       shiftedFrac_3[0]
+         & (shiftedFrac_3[1]
+            | (shiftVal_3[5]
+                 ? (|(io_pir_frac_i[2'h3][27:0]))
+                 : ~_GEN_17
+                   & (|(shiftVal_3[5] | _GEN_17
+                          ? 28'h0
+                          : _mask_T_7[31:4] & io_pir_frac_i[2'h3][27:0]))))};	// src/main/scala/pvu/PositToInt.scala:48:{21,46}, :58:16, :62:26, :66:19, :70:32, :71:16, :73:16, :82:33, :84:{20,29}, :86:19, :87:{14,28}, :90:19, :92:{22,31}, :93:16, :95:38, :96:{20,34}, :97:{16,30}, :102:26, :103:26, :106:{21,29}, :109:31, :122:27, :140:16
+  wire        _GEN_18 = raw_posit_3 == 32'h40000000;	// src/main/scala/pvu/PositToInt.scala:48:{38,46}, :129:47
+  wire        _GEN_19 = raw_posit_3 == 32'hC0000000;	// src/main/scala/pvu/PositToInt.scala:48:{38,46}, :129:80
+  wire        _GEN_20 = raw_posit_3 == 32'hBD29B34E;	// src/main/scala/pvu/PositToInt.scala:48:{38,46}, :130:22
+  wire        _GEN_21 = raw_posit_3 == 32'hBF6E6769;	// src/main/scala/pvu/PositToInt.scala:48:{38,46}, :130:55
+  wire        _GEN_22 = _GEN_19 | _GEN_20 | _GEN_21;	// src/main/scala/pvu/PositToInt.scala:129:80, :130:{22,55}, :135:78
+  wire [31:0] result_3 =
+    (|io_pir_frac_i[2'h3]) & ~(_shiftVal_tmp_T_9[7]) & $signed(io_pir_exp_i[2'h3]) < 8'sh1
+    & (|io_pir_frac_i[2'h3]) | _GEN_18 | _GEN_19 | _GEN_20 | _GEN_21
+      ? (_GEN_18 ? 32'h1 : {32{_GEN_22}})
+      : io_pir_sign_i[2'h3]
+          ? 32'h0
+            - ($signed(_roundedInt_T_6) < 32'sh0
+                 ? 32'h0 - _roundedInt_T_6
+                 : _roundedInt_T_6)
+          : _roundedInt_T_6;	// src/main/scala/pvu/PositToInt.scala:48:{21,46}, :51:19, :62:26, :65:27, :66:{19,36}, :122:27, :129:{19,24,47,80}, :130:{22,41,55,75}, :132:42, :134:16, :135:{78,110}, :137:16, :140:16, :144:26, :146:16, :149:{16,19,39}
   assign io_int_o =
-    {{$signed(clamped_shift_3) > 9'sh1F
-        ? (io_pir_sign_i[2'h3] ? 32'h80000000 : 32'h7FFFFFFF)
-        : io_pir_frac_i[2'h3] == 33'h0
-            ? 32'h0
-            : io_pir_sign_i[2'h3] ? ~shifted_result_3 + 32'h1 : shifted_result_3},
-     {$signed(clamped_shift_2) > 9'sh1F
-        ? (io_pir_sign_i[2'h2] ? 32'h80000000 : 32'h7FFFFFFF)
-        : io_pir_frac_i[2'h2] == 33'h0
-            ? 32'h0
-            : io_pir_sign_i[2'h2] ? ~shifted_result_2 + 32'h1 : shifted_result_2},
-     {$signed(clamped_shift_1) > 9'sh1F
-        ? (io_pir_sign_i[2'h1] ? 32'h80000000 : 32'h7FFFFFFF)
-        : io_pir_frac_i[2'h1] == 33'h0
-            ? 32'h0
-            : io_pir_sign_i[2'h1] ? ~shifted_result_1 + 32'h1 : shifted_result_1},
-     {$signed(clamped_shift) > 9'sh1F
-        ? (io_pir_sign_i[2'h0] ? 32'h80000000 : 32'h7FFFFFFF)
-        : io_pir_frac_i[2'h0] == 33'h0
-            ? 32'h0
-            : io_pir_sign_i[2'h0] ? ~shifted_result + 32'h1 : shifted_result}};	// src/main/scala/pvu/PositToInt.scala:15:7, :40:17, :62:29, :70:29, :76:33, :78:22, :81:22, :89:{16,25}, :91:{19,23,35}, :94:19, :98:{16,25}, :99:19, :103:{25,46}, :104:27, :106:21, :109:21
+    {{result_3 == 32'h0
+        ? 32'h0
+        : result_3 == 32'h1 & _GEN_18
+            ? 32'h1
+            : (&result_3) & _GEN_22 ? 32'hFFFFFFFF : result_3 - 32'h1},
+     {result_2 == 32'h0
+        ? 32'h0
+        : result_2 == 32'h1 & _GEN_12
+            ? 32'h1
+            : (&result_2) & _GEN_16 ? 32'hFFFFFFFF : result_2 - 32'h1},
+     {result_1 == 32'h0
+        ? 32'h0
+        : result_1 == 32'h1 & _GEN_6
+            ? 32'h1
+            : (&result_1) & _GEN_10 ? 32'hFFFFFFFF : result_1 - 32'h1},
+     {result == 32'h0
+        ? 32'h0
+        : result == 32'h1 & _GEN_0
+            ? 32'h1
+            : (&result) & _GEN_4 ? 32'hFFFFFFFF : result - 32'h1}};	// src/main/scala/pvu/PositToInt.scala:17:7, :129:47, :130:75, :132:42, :134:16, :135:78, :137:16, :140:16, :144:26, :154:{18,27}, :156:19, :157:{24,32,64}, :159:19, :160:{24,33,129}, :162:19, :165:{19,29}
 endmodule
 
 // external module LZC

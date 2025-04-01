@@ -50,6 +50,7 @@ VM_USER_CLASSES = \
 	main_resnet_mul_p32 \
 	main_resnet_p32Tofp32 \
 	main_resnet_sub_p32 \
+	main_resnet_truncate_p32 \
 	main_simple_test \
 
 # User .cpp directories (from .cpp's on Verilator command line)
@@ -83,6 +84,8 @@ main_resnet_mul_p32.o: /home/wuxy/BPVU/csrc/main_resnet_mul_p32.cpp
 main_resnet_p32Tofp32.o: /home/wuxy/BPVU/csrc/main_resnet_p32Tofp32.cpp
 	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
 main_resnet_sub_p32.o: /home/wuxy/BPVU/csrc/main_resnet_sub_p32.cpp
+	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
+main_resnet_truncate_p32.o: /home/wuxy/BPVU/csrc/main_resnet_truncate_p32.cpp
 	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
 main_simple_test.o: /home/wuxy/BPVU/csrc/main_simple_test.cpp
 	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<

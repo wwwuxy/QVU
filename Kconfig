@@ -62,6 +62,12 @@ menu "RESNET_TEST"
         help
             Enable Posit32 less comparison test.
 
+    config RESNET_TRUNCATE_P32
+        bool "resnet_truncate_p32_test"
+        default n
+        help
+            Enable Posit32 to Int32 truncation test.
+
     endchoice
 endmenu
 

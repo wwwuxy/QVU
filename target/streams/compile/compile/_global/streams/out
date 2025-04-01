@@ -1,4 +1,4 @@
-[error] /home/wuxy/BPVU/src/main/scala/pvu/PvuTop.scala:774:6: return outside method definition
-[error]      return
-[error]      ^
+[error] /home/wuxy/BPVU/src/main/scala/pvu/PositToInt.scala:111:40: value downto is not a member of Int
+[error]     intPart := Cat(sgn, shiftedFrac(31 downto 1))
+[error]                                        ^
 [error] one error found

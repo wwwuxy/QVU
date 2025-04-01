@@ -531,6 +531,22 @@ class VPvuTop___024root final : public VerilatedModule {
         CData/*4:0*/ PvuTop__DOT__less__DOT__encode__DOT____Vcellinp__barrel_shifter_1__io_shift_amount;
         CData/*4:0*/ PvuTop__DOT__less__DOT__encode__DOT____Vcellinp__barrel_shifter_2__io_shift_amount;
         CData/*4:0*/ PvuTop__DOT__less__DOT__encode__DOT____Vcellinp__barrel_shifter_3__io_shift_amount;
+        CData/*5:0*/ PvuTop__DOT__tranInt__DOT__shiftVal;
+        CData/*0:0*/ PvuTop__DOT__tranInt__DOT___GEN_4;
+        CData/*5:0*/ PvuTop__DOT__tranInt__DOT__shiftVal_1;
+        CData/*0:0*/ PvuTop__DOT__tranInt__DOT___GEN_10;
+        CData/*5:0*/ PvuTop__DOT__tranInt__DOT__shiftVal_2;
+        CData/*0:0*/ PvuTop__DOT__tranInt__DOT___GEN_16;
+        CData/*5:0*/ PvuTop__DOT__tranInt__DOT__shiftVal_3;
+        CData/*0:0*/ PvuTop__DOT__tranInt__DOT___GEN_22;
+        CData/*0:0*/ PvuTop__DOT__tranInt__DOT____VdfgTmp_hf936d8b2__0;
+        CData/*0:0*/ PvuTop__DOT__tranInt__DOT____VdfgTmp_hdbc354e5__0;
+        CData/*0:0*/ PvuTop__DOT__tranInt__DOT____VdfgTmp_hd092db84__0;
+        CData/*0:0*/ PvuTop__DOT__tranInt__DOT____VdfgTmp_hdee4f6f7__0;
+        CData/*0:0*/ PvuTop__DOT__tranInt__DOT____VdfgTmp_h75cc7c16__0;
+        CData/*0:0*/ PvuTop__DOT__tranInt__DOT____VdfgTmp_hdd893d74__0;
+        CData/*0:0*/ PvuTop__DOT__tranInt__DOT____VdfgTmp_hebc2a567__0;
+        CData/*0:0*/ PvuTop__DOT__tranInt__DOT____VdfgTmp_hdd03ac44__0;
         VlWide<12>/*383:0*/ PvuTop__DOT__frac_norm_dot__DOT__lzcMod__DOT__gen_lzc__DOT__index_nodes;
         VlWide<5>/*159:0*/ PvuTop__DOT__frac_norm_add__DOT__lzcMod__DOT__gen_lzc__DOT__index_nodes;
         VlWide<5>/*159:0*/ PvuTop__DOT__frac_norm_add__DOT__lzcMod_1__DOT__gen_lzc__DOT__index_nodes;
@@ -558,6 +574,8 @@ class VPvuTop___024root final : public VerilatedModule {
         CData/*4:0*/ PvuTop__DOT__encode__DOT____VdfgTmp_h1c495847__0;
         CData/*0:0*/ PvuTop__DOT__encode__DOT____VdfgTmp_h1c07425a__0;
         CData/*4:0*/ PvuTop__DOT__encode__DOT____VdfgTmp_h1ce83255__0;
+    };
+    struct {
         CData/*0:0*/ PvuTop__DOT__encode__DOT____VdfgTmp_h1ce7231a__0;
         CData/*4:0*/ PvuTop__DOT__encode__DOT____VdfgTmp_h1cf3a611__0;
         CData/*4:0*/ PvuTop__DOT__result_encoder__DOT____Vcellinp__barrel_shifter__io_shift_amount;
@@ -574,8 +592,6 @@ class VPvuTop___024root final : public VerilatedModule {
         CData/*0:0*/ PvuTop__DOT__floatEncoder__DOT____VdfgTmp_h8d992a04__0;
         CData/*0:0*/ PvuTop__DOT__floatEncoder__DOT____VdfgTmp_hc13edb1c__0;
         CData/*0:0*/ PvuTop__DOT__floatEncoder__DOT____VdfgTmp_h554a23d6__0;
-    };
-    struct {
         CData/*0:0*/ PvuTop__DOT__floatEncoder__DOT____VdfgTmp_h8d85fb91__0;
         CData/*0:0*/ PvuTop__DOT__floatEncoder__DOT____VdfgTmp_hc13a8a89__0;
         CData/*0:0*/ __VdfgTmp_h0d51cdd3__0;
@@ -624,6 +640,8 @@ class VPvuTop___024root final : public VerilatedModule {
         CData/*0:0*/ __VdfgTmp_heea12cbb__0;
         CData/*0:0*/ __VdfgTmp_ha768b880__0;
         CData/*0:0*/ __VdfgTmp_h0ac2602d__0;
+    };
+    struct {
         CData/*0:0*/ __VdfgTmp_h7f9446f2__0;
         CData/*0:0*/ __VdfgTmp_hb52a27cf__0;
         CData/*0:0*/ __VdfgTmp_h431d52cc__0;
@@ -640,8 +658,6 @@ class VPvuTop___024root final : public VerilatedModule {
         CData/*0:0*/ __VdfgTmp_hffb5dbbb__0;
         CData/*7:0*/ __VdfgTmp_h55b4dffa__0;
         CData/*7:0*/ __VdfgTmp_h7ac7367c__0;
-    };
-    struct {
         CData/*7:0*/ __VdfgTmp_hdf046a1b__0;
         CData/*7:0*/ __VdfgTmp_hc5219626__0;
         CData/*7:0*/ __VdfgTmp_ha33f4f0c__0;
@@ -690,6 +706,8 @@ class VPvuTop___024root final : public VerilatedModule {
         VlWide<28>/*895:0*/ __Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2____PVT__gen_lzc__DOT__index_nodes;
         VlWide<28>/*895:0*/ __Vtrigrprev__TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod_3____PVT__gen_lzc__DOT__index_nodes;
         VlWide<28>/*895:0*/ __Vtrigrprev__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3____PVT__gen_lzc__DOT__index_nodes;
+    };
+    struct {
         VlWide<5>/*159:0*/ __Vtrigrprev__TOP__PvuTop__DOT__decode1____PVT__lzcModule__DOT__gen_lzc__DOT__index_nodes;
         VlWide<5>/*159:0*/ __Vtrigrprev__TOP__PvuTop__DOT__decode1____PVT__lzcModule_1__DOT__gen_lzc__DOT__index_nodes;
         VlWide<5>/*159:0*/ __Vtrigrprev__TOP__PvuTop__DOT__decode1____PVT__lzcModule_2__DOT__gen_lzc__DOT__index_nodes;
@@ -706,8 +724,6 @@ class VPvuTop___024root final : public VerilatedModule {
         VlWide<5>/*159:0*/ __Vtrigrprev__TOP__PvuTop__DOT__posit2float_fp8__DOT__positDecoder____PVT__lzcModule_1__DOT__gen_lzc__DOT__index_nodes;
         VlWide<5>/*159:0*/ __Vtrigrprev__TOP__PvuTop__DOT__posit2float_fp8__DOT__positDecoder____PVT__lzcModule_2__DOT__gen_lzc__DOT__index_nodes;
         VlWide<5>/*159:0*/ __Vtrigrprev__TOP__PvuTop__DOT__posit2float_fp8__DOT__positDecoder____PVT__lzcModule_3__DOT__gen_lzc__DOT__index_nodes;
-    };
-    struct {
         VlWide<5>/*159:0*/ __Vtrigrprev__TOP__PvuTop__DOT__posit2float_fp16__DOT__positDecoder____PVT__lzcModule__DOT__gen_lzc__DOT__index_nodes;
         VlWide<5>/*159:0*/ __Vtrigrprev__TOP__PvuTop__DOT__posit2float_fp16__DOT__positDecoder____PVT__lzcModule_1__DOT__gen_lzc__DOT__index_nodes;
         VlWide<5>/*159:0*/ __Vtrigrprev__TOP__PvuTop__DOT__posit2float_fp16__DOT__positDecoder____PVT__lzcModule_2__DOT__gen_lzc__DOT__index_nodes;
@@ -740,14 +756,6 @@ class VPvuTop___024root final : public VerilatedModule {
         SData/*11:0*/ PvuTop__DOT__float2posit_fp64__DOT____VdfgTmp_h5572f924__0;
         SData/*11:0*/ PvuTop__DOT__float2posit_fp64__DOT____VdfgTmp_h5489a20c__0;
         SData/*11:0*/ PvuTop__DOT__float2posit_fp64__DOT____VdfgTmp_h54dd53e7__0;
-        SData/*8:0*/ PvuTop__DOT__tranInt__DOT__shift_amount;
-        SData/*8:0*/ PvuTop__DOT__tranInt__DOT__clamped_shift;
-        SData/*8:0*/ PvuTop__DOT__tranInt__DOT__shift_amount_1;
-        SData/*8:0*/ PvuTop__DOT__tranInt__DOT__clamped_shift_1;
-        SData/*8:0*/ PvuTop__DOT__tranInt__DOT__shift_amount_2;
-        SData/*8:0*/ PvuTop__DOT__tranInt__DOT__clamped_shift_2;
-        SData/*8:0*/ PvuTop__DOT__tranInt__DOT__shift_amount_3;
-        SData/*8:0*/ PvuTop__DOT__tranInt__DOT__clamped_shift_3;
         SData/*10:0*/ __VdfgTmp_h8be48673__0;
         SData/*10:0*/ __VdfgTmp_h2da98235__0;
         SData/*10:0*/ __VdfgTmp_h459491c7__0;
@@ -764,6 +772,8 @@ class VPvuTop___024root final : public VerilatedModule {
         VL_IN(io_posit_i2_1,31,0);
         VL_IN(io_posit_i2_2,31,0);
         VL_IN(io_posit_i2_3,31,0);
+    };
+    struct {
         VL_OUT(io_posit_o_0,31,0);
         VL_OUT(io_posit_o_1,31,0);
         VL_OUT(io_posit_o_2,31,0);
@@ -772,8 +782,6 @@ class VPvuTop___024root final : public VerilatedModule {
         VL_OUT(io_int_o_0,31,0);
         VL_OUT(io_int_o_1,31,0);
         VL_OUT(io_int_o_2,31,0);
-    };
-    struct {
         VL_OUT(io_int_o_3,31,0);
         IData/*31:0*/ PvuTop__DOT___GEN_57;
         IData/*31:0*/ PvuTop__DOT___GEN_58;
@@ -830,6 +838,8 @@ class VPvuTop___024root final : public VerilatedModule {
         VlWide<3>/*67:0*/ PvuTop__DOT____VdfgTmp_h663e95d2__0;
         IData/*22:0*/ PvuTop__DOT__floatDecode1__DOT____VdfgTmp_h8a383c23__0;
         IData/*22:0*/ PvuTop__DOT__floatDecode1__DOT____VdfgTmp_h898ddcf9__0;
+    };
+    struct {
         IData/*22:0*/ PvuTop__DOT__floatDecode1__DOT____VdfgTmp_h8933512e__0;
         IData/*22:0*/ PvuTop__DOT__floatDecode1__DOT____VdfgTmp_h88bc2594__0;
         IData/*22:0*/ PvuTop__DOT__floatDecode2__DOT____VdfgTmp_h8a383c23__0;
@@ -838,8 +848,6 @@ class VPvuTop___024root final : public VerilatedModule {
         IData/*22:0*/ PvuTop__DOT__floatDecode2__DOT____VdfgTmp_h88bc2594__0;
         IData/*30:0*/ PvuTop__DOT__add__DOT__sum;
         IData/*30:0*/ PvuTop__DOT__add__DOT__sum_1;
-    };
-    struct {
         IData/*30:0*/ PvuTop__DOT__add__DOT__sum_2;
         IData/*30:0*/ PvuTop__DOT__add__DOT__sum_3;
         IData/*29:0*/ PvuTop__DOT__add__DOT____VdfgTmp_h3a630f85__0;
@@ -896,6 +904,8 @@ class VPvuTop___024root final : public VerilatedModule {
         VlWide<3>/*89:0*/ PvuTop__DOT__float2posit_fp32__DOT__positEncoder__DOT____Vcellinp__barrel_shifter_2__io_operand_i;
         VlWide<3>/*89:0*/ PvuTop__DOT__float2posit_fp32__DOT__positEncoder__DOT____Vcellinp__barrel_shifter_3__io_operand_i;
         IData/*27:0*/ PvuTop__DOT__posit2float_fp32__DOT__shifted_base;
+    };
+    struct {
         IData/*27:0*/ PvuTop__DOT__posit2float_fp32__DOT__shifted_base_1;
         IData/*27:0*/ PvuTop__DOT__posit2float_fp32__DOT__shifted_base_2;
         IData/*27:0*/ PvuTop__DOT__posit2float_fp32__DOT__shifted_base_3;
@@ -904,8 +914,6 @@ class VPvuTop___024root final : public VerilatedModule {
         IData/*22:0*/ PvuTop__DOT__posit2float_fp32__DOT__floatEncoder__DOT____VdfgTmp_h96993e88__0;
         IData/*22:0*/ PvuTop__DOT__posit2float_fp32__DOT__floatEncoder__DOT____VdfgTmp_h96e1e555__0;
         VlWide<3>/*89:0*/ PvuTop__DOT__float2posit_fp64__DOT__positEncoder__DOT___barrel_shifter_3_io_result_o;
-    };
-    struct {
         VlWide<3>/*89:0*/ PvuTop__DOT__float2posit_fp64__DOT__positEncoder__DOT___barrel_shifter_2_io_result_o;
         VlWide<3>/*89:0*/ PvuTop__DOT__float2posit_fp64__DOT__positEncoder__DOT___barrel_shifter_1_io_result_o;
         VlWide<3>/*89:0*/ PvuTop__DOT__float2posit_fp64__DOT__positEncoder__DOT___barrel_shifter_io_result_o;
@@ -941,10 +949,18 @@ class VPvuTop___024root final : public VerilatedModule {
         VlWide<3>/*89:0*/ PvuTop__DOT__less__DOT__encode__DOT____Vcellinp__barrel_shifter_1__io_operand_i;
         VlWide<3>/*89:0*/ PvuTop__DOT__less__DOT__encode__DOT____Vcellinp__barrel_shifter_2__io_operand_i;
         VlWide<3>/*89:0*/ PvuTop__DOT__less__DOT__encode__DOT____Vcellinp__barrel_shifter_3__io_operand_i;
-        IData/*31:0*/ PvuTop__DOT__tranInt__DOT__shifted_result;
-        IData/*31:0*/ PvuTop__DOT__tranInt__DOT__shifted_result_1;
-        IData/*31:0*/ PvuTop__DOT__tranInt__DOT__shifted_result_2;
-        IData/*31:0*/ PvuTop__DOT__tranInt__DOT__shifted_result_3;
+        IData/*31:0*/ PvuTop__DOT__tranInt__DOT__raw_posit;
+        IData/*31:0*/ PvuTop__DOT__tranInt__DOT__shiftedFrac;
+        IData/*31:0*/ PvuTop__DOT__tranInt__DOT__result;
+        IData/*31:0*/ PvuTop__DOT__tranInt__DOT__raw_posit_1;
+        IData/*31:0*/ PvuTop__DOT__tranInt__DOT__shiftedFrac_1;
+        IData/*31:0*/ PvuTop__DOT__tranInt__DOT__result_1;
+        IData/*31:0*/ PvuTop__DOT__tranInt__DOT__raw_posit_2;
+        IData/*31:0*/ PvuTop__DOT__tranInt__DOT__shiftedFrac_2;
+        IData/*31:0*/ PvuTop__DOT__tranInt__DOT__result_2;
+        IData/*31:0*/ PvuTop__DOT__tranInt__DOT__raw_posit_3;
+        IData/*31:0*/ PvuTop__DOT__tranInt__DOT__shiftedFrac_3;
+        IData/*31:0*/ PvuTop__DOT__tranInt__DOT__result_3;
         IData/*29:0*/ PvuTop__DOT__frac_norm_add__DOT___shifter_3_io_result_o;
         IData/*29:0*/ PvuTop__DOT__frac_norm_add__DOT___shifter_2_io_result_o;
         IData/*29:0*/ PvuTop__DOT__frac_norm_add__DOT___shifter_1_io_result_o;
@@ -954,6 +970,8 @@ class VPvuTop___024root final : public VerilatedModule {
         IData/*29:0*/ PvuTop__DOT__frac_norm_add__DOT____Vcellinp__shifter_2__io_operand_i;
         IData/*29:0*/ PvuTop__DOT__frac_norm_add__DOT____Vcellinp__shifter_3__io_operand_i;
         IData/*31:0*/ PvuTop__DOT__frac_norm_add__DOT__lzcMod__DOT__gen_lzc__DOT__sel_nodes;
+    };
+    struct {
         IData/*29:0*/ PvuTop__DOT__frac_norm_add__DOT__lzcMod__DOT__gen_lzc__DOT__in_tmp;
         IData/*31:0*/ PvuTop__DOT__frac_norm_add__DOT__lzcMod_1__DOT__gen_lzc__DOT__sel_nodes;
         IData/*29:0*/ PvuTop__DOT__frac_norm_add__DOT__lzcMod_1__DOT__gen_lzc__DOT__in_tmp;
@@ -970,8 +988,6 @@ class VPvuTop___024root final : public VerilatedModule {
         IData/*29:0*/ PvuTop__DOT__frac_norm_sub__DOT____Vcellinp__shifter_2__io_operand_i;
         IData/*29:0*/ PvuTop__DOT__frac_norm_sub__DOT____Vcellinp__shifter_3__io_operand_i;
         IData/*31:0*/ PvuTop__DOT__frac_norm_sub__DOT__lzcMod__DOT__gen_lzc__DOT__sel_nodes;
-    };
-    struct {
         IData/*29:0*/ PvuTop__DOT__frac_norm_sub__DOT__lzcMod__DOT__gen_lzc__DOT__in_tmp;
         IData/*31:0*/ PvuTop__DOT__frac_norm_sub__DOT__lzcMod_1__DOT__gen_lzc__DOT__sel_nodes;
         IData/*29:0*/ PvuTop__DOT__frac_norm_sub__DOT__lzcMod_1__DOT__gen_lzc__DOT__in_tmp;
@@ -1020,6 +1036,8 @@ class VPvuTop___024root final : public VerilatedModule {
         VlWide<3>/*89:0*/ PvuTop__DOT__encode__DOT___barrel_shifter_io_result_o;
         IData/*30:0*/ PvuTop__DOT__encode__DOT___value_after_round_0_T;
         IData/*30:0*/ PvuTop__DOT__encode__DOT___value_after_round_1_T;
+    };
+    struct {
         IData/*30:0*/ PvuTop__DOT__encode__DOT___value_after_round_2_T;
         IData/*30:0*/ PvuTop__DOT__encode__DOT___value_after_round_3_T;
         VlWide<3>/*89:0*/ PvuTop__DOT__encode__DOT____Vcellinp__barrel_shifter__io_operand_i;
@@ -1036,8 +1054,6 @@ class VPvuTop___024root final : public VerilatedModule {
         VlWide<3>/*89:0*/ PvuTop__DOT__result_encoder__DOT___barrel_shifter_io_result_o;
         VlWide<3>/*89:0*/ PvuTop__DOT__result_encoder__DOT____Vcellinp__barrel_shifter__io_operand_i;
         VlWide<3>/*89:0*/ PvuTop__DOT__result_encoder__DOT____Vcellinp__barrel_shifter_1__io_operand_i;
-    };
-    struct {
         VlWide<3>/*89:0*/ PvuTop__DOT__result_encoder__DOT____Vcellinp__barrel_shifter_2__io_operand_i;
         VlWide<3>/*89:0*/ PvuTop__DOT__result_encoder__DOT____Vcellinp__barrel_shifter_3__io_operand_i;
         IData/*22:0*/ PvuTop__DOT__floatEncoder__DOT____VdfgTmp_h93d0764a__0;
@@ -1086,6 +1102,8 @@ class VPvuTop___024root final : public VerilatedModule {
         IData/*31:0*/ __Vtrigrprev__TOP__PvuTop__DOT__decode1____PVT__lzcModule_2__DOT__gen_lzc__DOT__sel_nodes;
         IData/*31:0*/ __Vtrigrprev__TOP__PvuTop__DOT__decode1____PVT__lzcModule_3__DOT__gen_lzc__DOT__sel_nodes;
         IData/*31:0*/ __Vtrigrprev__TOP__PvuTop__DOT__decode2____PVT__lzcModule__DOT__gen_lzc__DOT__sel_nodes;
+    };
+    struct {
         IData/*31:0*/ __Vtrigrprev__TOP__PvuTop__DOT__decode2____PVT__lzcModule_1__DOT__gen_lzc__DOT__sel_nodes;
         IData/*31:0*/ __Vtrigrprev__TOP__PvuTop__DOT__decode2____PVT__lzcModule_2__DOT__gen_lzc__DOT__sel_nodes;
         IData/*31:0*/ __Vtrigrprev__TOP__PvuTop__DOT__decode2____PVT__lzcModule_3__DOT__gen_lzc__DOT__sel_nodes;
@@ -1102,8 +1120,6 @@ class VPvuTop___024root final : public VerilatedModule {
         IData/*31:0*/ __Vtrigrprev__TOP__PvuTop__DOT__posit2float_fp16__DOT__positDecoder____PVT__lzcModule_2__DOT__gen_lzc__DOT__sel_nodes;
         IData/*31:0*/ __Vtrigrprev__TOP__PvuTop__DOT__posit2float_fp16__DOT__positDecoder____PVT__lzcModule_3__DOT__gen_lzc__DOT__sel_nodes;
         IData/*31:0*/ __Vtrigrprev__TOP__PvuTop__DOT__posit2float_fp32__DOT__positDecoder____PVT__lzcModule__DOT__gen_lzc__DOT__sel_nodes;
-    };
-    struct {
         IData/*31:0*/ __Vtrigrprev__TOP__PvuTop__DOT__posit2float_fp32__DOT__positDecoder____PVT__lzcModule_1__DOT__gen_lzc__DOT__sel_nodes;
         IData/*31:0*/ __Vtrigrprev__TOP__PvuTop__DOT__posit2float_fp32__DOT__positDecoder____PVT__lzcModule_2__DOT__gen_lzc__DOT__sel_nodes;
         IData/*31:0*/ __Vtrigrprev__TOP__PvuTop__DOT__posit2float_fp32__DOT__positDecoder____PVT__lzcModule_3__DOT__gen_lzc__DOT__sel_nodes;
@@ -1152,6 +1168,8 @@ class VPvuTop___024root final : public VerilatedModule {
         QData/*32:0*/ PvuTop__DOT__greater__DOT____VdfgTmp_h7ed67781__0;
         QData/*32:0*/ PvuTop__DOT__greater__DOT____VdfgTmp_h29ad7f4e__0;
         QData/*32:0*/ PvuTop__DOT__greater__DOT____VdfgTmp_h097c16a4__0;
+    };
+    struct {
         QData/*32:0*/ PvuTop__DOT__greater__DOT____VdfgTmp_h7b53ba00__0;
         QData/*32:0*/ PvuTop__DOT__greater__DOT____VdfgTmp_h2a5eb3cf__0;
         QData/*32:0*/ PvuTop__DOT__greater__DOT____VdfgTmp_hc3975437__0;
@@ -1168,8 +1186,6 @@ class VPvuTop___024root final : public VerilatedModule {
         QData/*58:0*/ PvuTop__DOT__frac_norm_dot__DOT__shifter__DOT___temp_results_0_T_2;
         QData/*58:0*/ PvuTop__DOT__frac_norm_dot__DOT__shifter_1__DOT___temp_results_0_T_2;
         QData/*55:0*/ __VdfgTmp_h1a8c0352__0;
-    };
-    struct {
         QData/*55:0*/ __VdfgTmp_h35a0e36b__0;
         QData/*55:0*/ __VdfgTmp_h34eee576__0;
         QData/*55:0*/ __VdfgTmp_h9c6aa78d__0;

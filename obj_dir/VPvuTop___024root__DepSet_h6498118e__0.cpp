@@ -6731,24 +6731,33 @@ VL_INLINE_OPT void VPvuTop___024root___ico_comb__TOP__10(VPvuTop___024root* vlSe
                                                             (vlSelf->PvuTop__DOT____Vcellinp__fracalign_1__io_pir_exp2_i 
                                                              >> 0x18U));
     vlSelf->PvuTop__DOT__dotproduct__DOT__mul__DOT__sum_3 
-        = (0x1ffU & ((IData)(vlSelf->PvuTop__DOT__tranInt__DOT__shift_amount_3) 
+        = (0x1ffU & (((0x100U & (vlSelf->PvuTop__DOT____Vcellinp__fracalign_1__io_pir_exp1_i 
+                                 >> 0x17U)) | (vlSelf->PvuTop__DOT____Vcellinp__fracalign_1__io_pir_exp1_i 
+                                               >> 0x18U)) 
                      + ((0x100U & (vlSelf->PvuTop__DOT____Vcellinp__fracalign_1__io_pir_exp2_i 
                                    >> 0x17U)) | (vlSelf->PvuTop__DOT____Vcellinp__fracalign_1__io_pir_exp2_i 
                                                  >> 0x18U))));
     vlSelf->PvuTop__DOT__dotproduct__DOT__mul__DOT__sum_2 
-        = (0x1ffU & ((IData)(vlSelf->PvuTop__DOT__tranInt__DOT__shift_amount_2) 
+        = (0x1ffU & (((0x100U & (vlSelf->PvuTop__DOT____Vcellinp__fracalign_1__io_pir_exp1_i 
+                                 >> 0xfU)) | (0xffU 
+                                              & (vlSelf->PvuTop__DOT____Vcellinp__fracalign_1__io_pir_exp1_i 
+                                                 >> 0x10U))) 
                      + ((0x100U & (vlSelf->PvuTop__DOT____Vcellinp__fracalign_1__io_pir_exp2_i 
                                    >> 0xfU)) | (0xffU 
                                                 & (vlSelf->PvuTop__DOT____Vcellinp__fracalign_1__io_pir_exp2_i 
                                                    >> 0x10U)))));
     vlSelf->PvuTop__DOT__dotproduct__DOT__mul__DOT__sum_1 
-        = (0x1ffU & ((IData)(vlSelf->PvuTop__DOT__tranInt__DOT__shift_amount_1) 
+        = (0x1ffU & (((0x100U & (vlSelf->PvuTop__DOT____Vcellinp__fracalign_1__io_pir_exp1_i 
+                                 >> 7U)) | (0xffU & 
+                                            (vlSelf->PvuTop__DOT____Vcellinp__fracalign_1__io_pir_exp1_i 
+                                             >> 8U))) 
                      + ((0x100U & (vlSelf->PvuTop__DOT____Vcellinp__fracalign_1__io_pir_exp2_i 
                                    >> 7U)) | (0xffU 
                                               & (vlSelf->PvuTop__DOT____Vcellinp__fracalign_1__io_pir_exp2_i 
                                                  >> 8U)))));
     vlSelf->PvuTop__DOT__dotproduct__DOT__mul__DOT__sum 
-        = (0x1ffU & ((IData)(vlSelf->PvuTop__DOT__tranInt__DOT__shift_amount) 
+        = (0x1ffU & (((0x100U & (vlSelf->PvuTop__DOT____Vcellinp__fracalign_1__io_pir_exp1_i 
+                                 << 1U)) | (0xffU & vlSelf->PvuTop__DOT____Vcellinp__fracalign_1__io_pir_exp1_i)) 
                      + ((0x100U & (vlSelf->PvuTop__DOT____Vcellinp__fracalign_1__io_pir_exp2_i 
                                    << 1U)) | (0xffU 
                                               & vlSelf->PvuTop__DOT____Vcellinp__fracalign_1__io_pir_exp2_i))));

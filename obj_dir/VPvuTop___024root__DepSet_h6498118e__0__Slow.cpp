@@ -42,7 +42,7 @@ VL_ATTR_COLD void VPvuTop___024root___eval_settle(VPvuTop___024root* vlSelf) {
 #ifdef VL_DEBUG
                 VPvuTop___024root___dump_triggers__stl(vlSelf);
 #endif
-                VL_FATAL_MT("/home/wuxy/BPVU/vsrc/PvuTop.sv", 9970, "", "Settle region did not converge.");
+                VL_FATAL_MT("/home/wuxy/BPVU/vsrc/PvuTop.sv", 10064, "", "Settle region did not converge.");
             }
             vlSelf->__VstlIterCount = ((IData)(1U) 
                                        + vlSelf->__VstlIterCount);
@@ -2058,18 +2058,34 @@ VL_ATTR_COLD void VPvuTop___024root___ctor_var_reset(VPvuTop___024root* vlSelf) 
     VL_RAND_RESET_W(90, vlSelf->PvuTop__DOT__less__DOT__encode__DOT____Vcellinp__barrel_shifter_2__io_operand_i);
     vlSelf->PvuTop__DOT__less__DOT__encode__DOT____Vcellinp__barrel_shifter_3__io_shift_amount = VL_RAND_RESET_I(5);
     VL_RAND_RESET_W(90, vlSelf->PvuTop__DOT__less__DOT__encode__DOT____Vcellinp__barrel_shifter_3__io_operand_i);
-    vlSelf->PvuTop__DOT__tranInt__DOT__shift_amount = VL_RAND_RESET_I(9);
-    vlSelf->PvuTop__DOT__tranInt__DOT__clamped_shift = VL_RAND_RESET_I(9);
-    vlSelf->PvuTop__DOT__tranInt__DOT__shifted_result = VL_RAND_RESET_I(32);
-    vlSelf->PvuTop__DOT__tranInt__DOT__shift_amount_1 = VL_RAND_RESET_I(9);
-    vlSelf->PvuTop__DOT__tranInt__DOT__clamped_shift_1 = VL_RAND_RESET_I(9);
-    vlSelf->PvuTop__DOT__tranInt__DOT__shifted_result_1 = VL_RAND_RESET_I(32);
-    vlSelf->PvuTop__DOT__tranInt__DOT__shift_amount_2 = VL_RAND_RESET_I(9);
-    vlSelf->PvuTop__DOT__tranInt__DOT__clamped_shift_2 = VL_RAND_RESET_I(9);
-    vlSelf->PvuTop__DOT__tranInt__DOT__shifted_result_2 = VL_RAND_RESET_I(32);
-    vlSelf->PvuTop__DOT__tranInt__DOT__shift_amount_3 = VL_RAND_RESET_I(9);
-    vlSelf->PvuTop__DOT__tranInt__DOT__clamped_shift_3 = VL_RAND_RESET_I(9);
-    vlSelf->PvuTop__DOT__tranInt__DOT__shifted_result_3 = VL_RAND_RESET_I(32);
+    vlSelf->PvuTop__DOT__tranInt__DOT__raw_posit = VL_RAND_RESET_I(32);
+    vlSelf->PvuTop__DOT__tranInt__DOT__shiftVal = VL_RAND_RESET_I(6);
+    vlSelf->PvuTop__DOT__tranInt__DOT__shiftedFrac = VL_RAND_RESET_I(32);
+    vlSelf->PvuTop__DOT__tranInt__DOT___GEN_4 = VL_RAND_RESET_I(1);
+    vlSelf->PvuTop__DOT__tranInt__DOT__result = VL_RAND_RESET_I(32);
+    vlSelf->PvuTop__DOT__tranInt__DOT__raw_posit_1 = VL_RAND_RESET_I(32);
+    vlSelf->PvuTop__DOT__tranInt__DOT__shiftVal_1 = VL_RAND_RESET_I(6);
+    vlSelf->PvuTop__DOT__tranInt__DOT__shiftedFrac_1 = VL_RAND_RESET_I(32);
+    vlSelf->PvuTop__DOT__tranInt__DOT___GEN_10 = VL_RAND_RESET_I(1);
+    vlSelf->PvuTop__DOT__tranInt__DOT__result_1 = VL_RAND_RESET_I(32);
+    vlSelf->PvuTop__DOT__tranInt__DOT__raw_posit_2 = VL_RAND_RESET_I(32);
+    vlSelf->PvuTop__DOT__tranInt__DOT__shiftVal_2 = VL_RAND_RESET_I(6);
+    vlSelf->PvuTop__DOT__tranInt__DOT__shiftedFrac_2 = VL_RAND_RESET_I(32);
+    vlSelf->PvuTop__DOT__tranInt__DOT___GEN_16 = VL_RAND_RESET_I(1);
+    vlSelf->PvuTop__DOT__tranInt__DOT__result_2 = VL_RAND_RESET_I(32);
+    vlSelf->PvuTop__DOT__tranInt__DOT__raw_posit_3 = VL_RAND_RESET_I(32);
+    vlSelf->PvuTop__DOT__tranInt__DOT__shiftVal_3 = VL_RAND_RESET_I(6);
+    vlSelf->PvuTop__DOT__tranInt__DOT__shiftedFrac_3 = VL_RAND_RESET_I(32);
+    vlSelf->PvuTop__DOT__tranInt__DOT___GEN_22 = VL_RAND_RESET_I(1);
+    vlSelf->PvuTop__DOT__tranInt__DOT__result_3 = VL_RAND_RESET_I(32);
+    vlSelf->PvuTop__DOT__tranInt__DOT____VdfgTmp_hf936d8b2__0 = 0;
+    vlSelf->PvuTop__DOT__tranInt__DOT____VdfgTmp_hdbc354e5__0 = 0;
+    vlSelf->PvuTop__DOT__tranInt__DOT____VdfgTmp_hd092db84__0 = 0;
+    vlSelf->PvuTop__DOT__tranInt__DOT____VdfgTmp_hdee4f6f7__0 = 0;
+    vlSelf->PvuTop__DOT__tranInt__DOT____VdfgTmp_h75cc7c16__0 = 0;
+    vlSelf->PvuTop__DOT__tranInt__DOT____VdfgTmp_hdd893d74__0 = 0;
+    vlSelf->PvuTop__DOT__tranInt__DOT____VdfgTmp_hebc2a567__0 = 0;
+    vlSelf->PvuTop__DOT__tranInt__DOT____VdfgTmp_hdd03ac44__0 = 0;
     vlSelf->PvuTop__DOT__frac_norm_dot__DOT__frac_shifted = VL_RAND_RESET_Q(55);
     vlSelf->PvuTop__DOT__frac_norm_dot__DOT__lzcMod__DOT__gen_lzc__DOT__sel_nodes = VL_RAND_RESET_Q(64);
     VL_RAND_RESET_W(384, vlSelf->PvuTop__DOT__frac_norm_dot__DOT__lzcMod__DOT__gen_lzc__DOT__index_nodes);
