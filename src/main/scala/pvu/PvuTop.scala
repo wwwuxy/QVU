@@ -680,18 +680,28 @@
    }.elsewhen(io.op === 8.U) {  // Greater - 比较并输出较大值
      val greater = Module(new PositGreater(MAX_POSIT_WIDTH, MAX_VECTOR_SIZE, MAX_ALIGN_WIDTH, ES))
      
-     // 连接输入
+     // 连接输入 - 使用解码后的PIR格式数据
      greater.io.pir_sign1_i := pir_sign
      greater.io.pir_sign2_i := pir_sign2
      greater.io.pir_exp1_i  := pir_exp
      greater.io.pir_exp2_i  := pir_exp2
      greater.io.pir_frac1_i := pir_frac
      greater.io.pir_frac2_i := pir_frac2
+     greater.io.posit_i1    := io.posit_i1  // 传递原始Posit输入用于特殊值检测
+     greater.io.posit_i2    := io.posit_i2  // 传递原始Posit输入用于特殊值检测
+     greater.io.dst_posit_width := io.dst_posit_width
      
-     // 连接输出
+     // 连接输出 - 保存PIR格式结果以便与其他模块兼容
      pir_sign_rst := greater.io.pir_sign_o
      pir_exp_rst  := greater.io.pir_exp_o
      pir_frac_rst := greater.io.pir_frac_o
+     
+     // 直接使用greater模块的posit输出
+     for(i <- 0 until MAX_VECTOR_SIZE) {
+       when(valid_range(i)) {
+         io.posit_o(i) := greater.io.posit_o(i)
+       }
+     }
    }.elsewhen(io.op === 9.U) {  // Less - 比较并输出较小值
      val less = Module(new PositLess(MAX_POSIT_WIDTH, MAX_VECTOR_SIZE, MAX_ALIGN_WIDTH, ES))
      

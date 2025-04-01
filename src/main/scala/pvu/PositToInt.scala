@@ -21,8 +21,8 @@ class PositToInt(
 ) extends Module {
   
   // 定义相关常量
-  val SRC_ND_MAX: Int = log2Ceil(MAX_POSIT_WIDTH - 1)
-  val SRC_EXP_WIDTH_MAX: Int = SRC_ND_MAX + ES + 1
+  val SRC_ND_MAX: Int         = log2Ceil(MAX_POSIT_WIDTH - 1)
+  val SRC_EXP_WIDTH_MAX: Int  = SRC_ND_MAX + ES + 1
   val SRC_FRAC_WIDTH_MAX: Int = MAX_POSIT_WIDTH + 1
   
   val io = IO(new Bundle {
@@ -54,12 +54,12 @@ class PositToInt(
     
     // 根据指数计算需要左移(正指数)或右移(负指数)的位数
     // 注意: 在Posit中尾数部分已经包含隐藏位(1.xxxx格式)
-    val shift_amount = Wire(SInt((SRC_EXP_WIDTH_MAX + 1).W))
-    shift_amount := exp
+    val shift_amount  = Wire(SInt((SRC_EXP_WIDTH_MAX + 1).W))
+        shift_amount := exp
     
     // 限制移位范围,防止溢出
-    val clamped_shift = Wire(SInt((SRC_EXP_WIDTH_MAX + 1).W))
-    clamped_shift := Mux(shift_amount > (INT_WIDTH - 1).S, 
+    val clamped_shift  = Wire(SInt((SRC_EXP_WIDTH_MAX + 1).W))
+        clamped_shift := Mux(shift_amount > (INT_WIDTH - 1).S, 
                          (INT_WIDTH - 1).S, 
                          Mux(shift_amount < (-(MAX_POSIT_WIDTH)).S, 
                             (-(MAX_POSIT_WIDTH)).S, 

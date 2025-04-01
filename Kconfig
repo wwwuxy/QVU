@@ -49,6 +49,12 @@ menu "RESNET_TEST"
         default n
         help
             Enable Posit32 to IEEE-754 FP32 conversion test.
+            
+    config RESNET_GREATER_P32
+        bool "resnet_greater_p32_test"
+        default n
+        help
+            Enable Posit32 greater comparison test.
 
     endchoice
 endmenu

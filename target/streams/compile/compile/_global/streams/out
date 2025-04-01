@@ -1,0 +1,4 @@
+[error] /home/wuxy/BPVU/src/main/scala/pvu/PvuTop.scala:774:6: return outside method definition
+[error]      return
+[error]      ^
+[error] one error found
