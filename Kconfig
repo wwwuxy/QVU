@@ -56,6 +56,12 @@ menu "RESNET_TEST"
         help
             Enable Posit32 greater comparison test.
 
+    config RESNET_LESS_P32
+        bool "resnet_less_p32_test"
+        default n
+        help
+            Enable Posit32 less comparison test.
+
     endchoice
 endmenu
 

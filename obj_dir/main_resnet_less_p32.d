@@ -1,4 +1,4 @@
-main_fp32_to_posit32.o: /home/wuxy/BPVU/csrc/main_fp32_to_posit32.cpp \
+main_resnet_less_p32.o: /home/wuxy/BPVU/csrc/main_resnet_less_p32.cpp \
  /home/wuxy/BPVU/csrc/../config.h \
  /usr/local/share/verilator/include/verilated.h \
  /usr/local/share/verilator/include/verilatedos.h \

@@ -46,6 +46,7 @@ VM_USER_CLASSES = \
 	main_resnet_dot_p32 \
 	main_resnet_fp32Top32 \
 	main_resnet_greater_p32 \
+	main_resnet_less_p32 \
 	main_resnet_mul_p32 \
 	main_resnet_p32Tofp32 \
 	main_resnet_sub_p32 \
@@ -74,6 +75,8 @@ main_resnet_dot_p32.o: /home/wuxy/BPVU/csrc/main_resnet_dot_p32.cpp
 main_resnet_fp32Top32.o: /home/wuxy/BPVU/csrc/main_resnet_fp32Top32.cpp
 	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
 main_resnet_greater_p32.o: /home/wuxy/BPVU/csrc/main_resnet_greater_p32.cpp
+	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
+main_resnet_less_p32.o: /home/wuxy/BPVU/csrc/main_resnet_less_p32.cpp
 	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
 main_resnet_mul_p32.o: /home/wuxy/BPVU/csrc/main_resnet_mul_p32.cpp
 	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<

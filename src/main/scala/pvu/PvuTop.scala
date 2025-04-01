@@ -705,18 +705,28 @@
    }.elsewhen(io.op === 9.U) {  // Less - 比较并输出较小值
      val less = Module(new PositLess(MAX_POSIT_WIDTH, MAX_VECTOR_SIZE, MAX_ALIGN_WIDTH, ES))
      
-     // 连接输入
+     // 连接输入 - 使用解码后的PIR格式数据
      less.io.pir_sign1_i := pir_sign
      less.io.pir_sign2_i := pir_sign2
      less.io.pir_exp1_i  := pir_exp
      less.io.pir_exp2_i  := pir_exp2
      less.io.pir_frac1_i := pir_frac
      less.io.pir_frac2_i := pir_frac2
+     less.io.posit_i1    := io.posit_i1  // 传递原始Posit输入用于特殊值检测
+     less.io.posit_i2    := io.posit_i2  // 传递原始Posit输入用于特殊值检测
+     less.io.dst_posit_width := io.dst_posit_width
      
-     // 连接输出
+     // 连接输出 - 保存PIR格式结果以便与其他模块兼容
      pir_sign_rst := less.io.pir_sign_o
      pir_exp_rst  := less.io.pir_exp_o
      pir_frac_rst := less.io.pir_frac_o
+     
+     // 直接使用less模块的posit输出
+     for(i <- 0 until MAX_VECTOR_SIZE) {
+       when(valid_range(i)) {
+         io.posit_o(i) := less.io.posit_o(i)
+       }
+     }
    }.elsewhen(io.op === 10.U) {  // TranInt - Posit转Int
      val tranInt = Module(new PositToInt(
        MAX_POSIT_WIDTH,

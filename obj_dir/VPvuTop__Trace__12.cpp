@@ -9,7 +9,7 @@ void VPvuTop___024root__trace_chg_sub_12(VPvuTop___024root* vlSelf, VerilatedVcd
     VPvuTop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     VL_DEBUG_IF(VL_DBG_MSGF("+    VPvuTop___024root__trace_chg_sub_12\n"); );
     // Init
-    uint32_t* const oldp VL_ATTR_UNUSED = bufp->oldp(vlSymsp->__Vm_baseCode + 36541);
+    uint32_t* const oldp VL_ATTR_UNUSED = bufp->oldp(vlSymsp->__Vm_baseCode + 36512);
     // Body
     if (VL_UNLIKELY((vlSelf->__Vm_traceActivity[0x29U] 
                      | vlSelf->__Vm_traceActivity[0x72U]))) {
