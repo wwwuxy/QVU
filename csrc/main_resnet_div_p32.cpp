@@ -87,6 +87,36 @@ bool posit_equal(uint32_t a, uint32_t b) {
     return std::abs(ia - ib) <= 1;
 }
 
+// 计算两个posit值之间的误差（基于整数差异）
+double calc_posit_error(uint32_t a, uint32_t b) {
+    // 特殊情况处理：NaR值（最高位为1，其余为0）
+    bool a_is_nar = (a == 0x80000000);
+    bool b_is_nar = (b == 0x80000000);
+    
+    // 如果两个都是NaR或都是0，则误差为0
+    if ((a_is_nar && b_is_nar) || (a == 0 && b == 0)) {
+        return 0.0;
+    }
+    
+    // 如果一个是NaR而另一个不是，则误差设为最大
+    if (a_is_nar || b_is_nar) {
+        return 100.0;
+    }
+    
+    // 计算相对误差（基于原始位表示）
+    int32_t ia = static_cast<int32_t>(a);
+    int32_t ib = static_cast<int32_t>(b);
+    double diff = std::abs(ia - ib);
+    
+    // 计算相对误差（取较大值作为基准）
+    double base = std::max(std::abs(ia), std::abs(ib));
+    if (base < 1e-10) {
+        return diff > 0 ? 100.0 : 0.0;
+    }
+    
+    return (diff / base) * 100.0;
+}
+
 int main(int argc, char** argv) {
     Verilated::commandArgs(argc, argv);
     
@@ -118,6 +148,7 @@ int main(int argc, char** argv) {
 
     size_t errors = 0;
     const size_t total = SAMPLE_NUM;
+    double total_error = 0.0; // 总误差
 
     // 测试主循环
     for (size_t i = 0; i < total; ++i) {
@@ -178,15 +209,22 @@ int main(int argc, char** argv) {
         hw_result[2] = top->io_posit_o_2;
         hw_result[3] = top->io_posit_o_3;
 
-        for(int j = 0; j < 4; j++){
+        for(int j = 0; j < 4; j++) {
             if (!posit_equal(hw_result[j], golden[j])) {
-            std::cerr << "样本 " << i << " 不匹配\n"
-                      << "  硬件: 0x" << std::hex <<hw_result[0] << ", " << hw_result[1] << ", " << hw_result[2] << "," << hw_result[3] << "\n"
-                      << "  预期: 0x" << std::hex << golden[0] << ", " <<  golden[1] << ", " <<  golden[2] << "," <<  golden[3] << "\n"
-                      << "  激活数据: " << std::hex << act[0] << ", " << act[1] << ", " << act[2] << "," << act[3] << "\n"
-                      << "  权重数据: " << std::hex << weight[0] << ", " << weight[1] << ", " << weight[2] << "," << weight[3] << "\n";
-            errors++;
-        }
+                // 计算误差
+                double error = calc_posit_error(hw_result[j], golden[j]);
+                
+                // 累加总误差
+                total_error += error;
+                
+                std::cerr << "样本 " << i << " 元素 " << j << " 不匹配\n"
+                          << "  硬件结果: 0x" << std::hex << hw_result[j] << "\n"
+                          << "  预期结果: 0x" << std::hex << golden[j] << "\n"
+                          << "  输入数据: 被除数=0x" << std::hex << act[j] 
+                          << ", 除数=0x" << std::hex << weight[j] << "\n"
+                          << "  相对误差: " << std::dec << error << "%\n";
+                errors++;
+            }
         }
        
 
@@ -197,6 +235,9 @@ int main(int argc, char** argv) {
                       << std::endl;
         }
     }
+
+    // 计算平均误差
+    double avg_error = errors > 0 ? total_error / errors : 0.0;
 
     // 资源清理
     tfp->close();  // 关闭波形文件
@@ -210,7 +251,8 @@ int main(int argc, char** argv) {
               << "\n总样本数: " << total
               << "\n错误数量: " << errors
               << "\n错误率:   " << std::fixed << std::setprecision(2)
-              << (errors*25.0/total) << "%\n";
+              << (errors*25.0/total) << "%"
+              << "\n平均相对误差: " << std::fixed << std::setprecision(2) << avg_error << "%\n";
 
     return errors ? EXIT_FAILURE : EXIT_SUCCESS;
 }

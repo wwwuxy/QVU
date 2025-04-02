@@ -26,113 +26,129 @@ module PositDecode(	// src/main/scala/pvu/PositDecode.scala:7:7
   output [3:0][27:0] io_Frac	// src/main/scala/pvu/PositDecode.scala:12:14
 );
 
-  wire [30:0] _barrel_shifter_3_io_result_o;	// src/main/scala/pvu/PositDecode.scala:66:32
-  wire [30:0] _barrel_shifter_2_io_result_o;	// src/main/scala/pvu/PositDecode.scala:66:32
-  wire [30:0] _barrel_shifter_1_io_result_o;	// src/main/scala/pvu/PositDecode.scala:66:32
-  wire [30:0] _barrel_shifter_io_result_o;	// src/main/scala/pvu/PositDecode.scala:66:32
-  wire [4:0]  _lzcModule_3_cnt_o;	// src/main/scala/pvu/PositDecode.scala:40:27
-  wire        _lzcModule_3_empty_o;	// src/main/scala/pvu/PositDecode.scala:40:27
-  wire [4:0]  _lzcModule_2_cnt_o;	// src/main/scala/pvu/PositDecode.scala:40:27
-  wire        _lzcModule_2_empty_o;	// src/main/scala/pvu/PositDecode.scala:40:27
-  wire [4:0]  _lzcModule_1_cnt_o;	// src/main/scala/pvu/PositDecode.scala:40:27
-  wire        _lzcModule_1_empty_o;	// src/main/scala/pvu/PositDecode.scala:40:27
-  wire [4:0]  _lzcModule_cnt_o;	// src/main/scala/pvu/PositDecode.scala:40:27
-  wire        _lzcModule_empty_o;	// src/main/scala/pvu/PositDecode.scala:40:27
+  wire [3:0]  isNaR;	// src/main/scala/pvu/PositDecode.scala:23:14
+  wire [30:0] _barrel_shifter_3_io_result_o;	// src/main/scala/pvu/PositDecode.scala:72:32
+  wire [30:0] _barrel_shifter_2_io_result_o;	// src/main/scala/pvu/PositDecode.scala:72:32
+  wire [30:0] _barrel_shifter_1_io_result_o;	// src/main/scala/pvu/PositDecode.scala:72:32
+  wire [30:0] _barrel_shifter_io_result_o;	// src/main/scala/pvu/PositDecode.scala:72:32
+  wire [4:0]  _lzcModule_3_cnt_o;	// src/main/scala/pvu/PositDecode.scala:46:27
+  wire        _lzcModule_3_empty_o;	// src/main/scala/pvu/PositDecode.scala:46:27
+  wire [4:0]  _lzcModule_2_cnt_o;	// src/main/scala/pvu/PositDecode.scala:46:27
+  wire        _lzcModule_2_empty_o;	// src/main/scala/pvu/PositDecode.scala:46:27
+  wire [4:0]  _lzcModule_1_cnt_o;	// src/main/scala/pvu/PositDecode.scala:46:27
+  wire        _lzcModule_1_empty_o;	// src/main/scala/pvu/PositDecode.scala:46:27
+  wire [4:0]  _lzcModule_cnt_o;	// src/main/scala/pvu/PositDecode.scala:46:27
+  wire        _lzcModule_empty_o;	// src/main/scala/pvu/PositDecode.scala:46:27
+  wire [3:0]  _GEN =
+    {{io_posit[2'h3][31]},
+     {io_posit[2'h2][31]},
+     {io_posit[2'h1][31]},
+     {io_posit[2'h0][31]}};	// src/main/scala/pvu/PositDecode.scala:23:{14,29}, :29:16, :82:19
+  assign isNaR =
+    _GEN
+    & {{io_posit[2'h3][30:0] == 31'h0},
+       {io_posit[2'h2][30:0] == 31'h0},
+       {io_posit[2'h1][30:0] == 31'h0},
+       {io_posit[2'h0][30:0] == 31'h0}};	// src/main/scala/pvu/PositDecode.scala:23:{14,29,69,88}, :29:16, :82:19
   wire [30:0] _operand_0_T_6 =
-    io_posit[2'h0][31] ? ~(io_posit[2'h0][30:0]) + 31'h1 : io_posit[2'h0][30:0];	// src/main/scala/pvu/PositDecode.scala:23:30, :24:{22,44,56,77}, :76:19
+    io_posit[2'h0][31] ? ~(io_posit[2'h0][30:0]) + 31'h1 : io_posit[2'h0][30:0];	// src/main/scala/pvu/PositDecode.scala:23:{29,69}, :30:{22,44,77}, :82:19
   wire [30:0] _operand_1_T_6 =
-    io_posit[2'h1][31] ? ~(io_posit[2'h1][30:0]) + 31'h1 : io_posit[2'h1][30:0];	// src/main/scala/pvu/PositDecode.scala:23:{16,30}, :24:{22,44,56,77}
+    io_posit[2'h1][31] ? ~(io_posit[2'h1][30:0]) + 31'h1 : io_posit[2'h1][30:0];	// src/main/scala/pvu/PositDecode.scala:23:{29,69}, :29:16, :30:{22,44,77}
   wire [30:0] _operand_2_T_6 =
-    io_posit[2'h2][31] ? ~(io_posit[2'h2][30:0]) + 31'h1 : io_posit[2'h2][30:0];	// src/main/scala/pvu/PositDecode.scala:23:{16,30}, :24:{22,44,56,77}
+    io_posit[2'h2][31] ? ~(io_posit[2'h2][30:0]) + 31'h1 : io_posit[2'h2][30:0];	// src/main/scala/pvu/PositDecode.scala:23:{29,69}, :29:16, :30:{22,44,77}
   wire [30:0] _operand_3_T_6 =
-    io_posit[2'h3][31] ? ~(io_posit[2'h3][30:0]) + 31'h1 : io_posit[2'h3][30:0];	// src/main/scala/pvu/PositDecode.scala:23:{16,30}, :24:{22,44,56,77}
+    io_posit[2'h3][31] ? ~(io_posit[2'h3][30:0]) + 31'h1 : io_posit[2'h3][30:0];	// src/main/scala/pvu/PositDecode.scala:23:{29,69}, :29:16, :30:{22,44,77}
   LZC #(
     .MODE(1),
     .WIDTH(31)
-  ) lzcModule (	// src/main/scala/pvu/PositDecode.scala:40:27
-    .in_i    ({31{_operand_0_T_6[30]}} ^ _operand_0_T_6),	// src/main/scala/pvu/PositDecode.scala:24:22, :34:33, :35:26
+  ) lzcModule (	// src/main/scala/pvu/PositDecode.scala:46:27
+    .in_i    ({31{_operand_0_T_6[30]}} ^ _operand_0_T_6),	// src/main/scala/pvu/PositDecode.scala:30:22, :40:33, :41:26
     .cnt_o   (_lzcModule_cnt_o),
     .empty_o (_lzcModule_empty_o)
   );
   LZC #(
     .MODE(1),
     .WIDTH(31)
-  ) lzcModule_1 (	// src/main/scala/pvu/PositDecode.scala:40:27
-    .in_i    ({31{_operand_1_T_6[30]}} ^ _operand_1_T_6),	// src/main/scala/pvu/PositDecode.scala:24:22, :34:33, :35:26
+  ) lzcModule_1 (	// src/main/scala/pvu/PositDecode.scala:46:27
+    .in_i    ({31{_operand_1_T_6[30]}} ^ _operand_1_T_6),	// src/main/scala/pvu/PositDecode.scala:30:22, :40:33, :41:26
     .cnt_o   (_lzcModule_1_cnt_o),
     .empty_o (_lzcModule_1_empty_o)
   );
   LZC #(
     .MODE(1),
     .WIDTH(31)
-  ) lzcModule_2 (	// src/main/scala/pvu/PositDecode.scala:40:27
-    .in_i    ({31{_operand_2_T_6[30]}} ^ _operand_2_T_6),	// src/main/scala/pvu/PositDecode.scala:24:22, :34:33, :35:26
+  ) lzcModule_2 (	// src/main/scala/pvu/PositDecode.scala:46:27
+    .in_i    ({31{_operand_2_T_6[30]}} ^ _operand_2_T_6),	// src/main/scala/pvu/PositDecode.scala:30:22, :40:33, :41:26
     .cnt_o   (_lzcModule_2_cnt_o),
     .empty_o (_lzcModule_2_empty_o)
   );
   LZC #(
     .MODE(1),
     .WIDTH(31)
-  ) lzcModule_3 (	// src/main/scala/pvu/PositDecode.scala:40:27
-    .in_i    ({31{_operand_3_T_6[30]}} ^ _operand_3_T_6),	// src/main/scala/pvu/PositDecode.scala:24:22, :34:33, :35:26
+  ) lzcModule_3 (	// src/main/scala/pvu/PositDecode.scala:46:27
+    .in_i    ({31{_operand_3_T_6[30]}} ^ _operand_3_T_6),	// src/main/scala/pvu/PositDecode.scala:30:22, :40:33, :41:26
     .cnt_o   (_lzcModule_3_cnt_o),
     .empty_o (_lzcModule_3_empty_o)
   );
-  BarrelShifter barrel_shifter (	// src/main/scala/pvu/PositDecode.scala:66:32
-    .io_operand_i    (_operand_0_T_6),	// src/main/scala/pvu/PositDecode.scala:24:22
-    .io_shift_amount (_lzcModule_cnt_o + 5'h1),	// src/main/scala/pvu/PositDecode.scala:40:27, :57:61, :68:54
+  BarrelShifter barrel_shifter (	// src/main/scala/pvu/PositDecode.scala:72:32
+    .io_operand_i    (_operand_0_T_6),	// src/main/scala/pvu/PositDecode.scala:30:22
+    .io_shift_amount (_lzcModule_cnt_o + 5'h1),	// src/main/scala/pvu/PositDecode.scala:46:27, :63:61, :74:54
     .io_result_o     (_barrel_shifter_io_result_o)
   );
-  BarrelShifter barrel_shifter_1 (	// src/main/scala/pvu/PositDecode.scala:66:32
-    .io_operand_i    (_operand_1_T_6),	// src/main/scala/pvu/PositDecode.scala:24:22
-    .io_shift_amount (_lzcModule_1_cnt_o + 5'h1),	// src/main/scala/pvu/PositDecode.scala:40:27, :57:61, :68:54
+  BarrelShifter barrel_shifter_1 (	// src/main/scala/pvu/PositDecode.scala:72:32
+    .io_operand_i    (_operand_1_T_6),	// src/main/scala/pvu/PositDecode.scala:30:22
+    .io_shift_amount (_lzcModule_1_cnt_o + 5'h1),	// src/main/scala/pvu/PositDecode.scala:46:27, :63:61, :74:54
     .io_result_o     (_barrel_shifter_1_io_result_o)
   );
-  BarrelShifter barrel_shifter_2 (	// src/main/scala/pvu/PositDecode.scala:66:32
-    .io_operand_i    (_operand_2_T_6),	// src/main/scala/pvu/PositDecode.scala:24:22
-    .io_shift_amount (_lzcModule_2_cnt_o + 5'h1),	// src/main/scala/pvu/PositDecode.scala:40:27, :57:61, :68:54
+  BarrelShifter barrel_shifter_2 (	// src/main/scala/pvu/PositDecode.scala:72:32
+    .io_operand_i    (_operand_2_T_6),	// src/main/scala/pvu/PositDecode.scala:30:22
+    .io_shift_amount (_lzcModule_2_cnt_o + 5'h1),	// src/main/scala/pvu/PositDecode.scala:46:27, :63:61, :74:54
     .io_result_o     (_barrel_shifter_2_io_result_o)
   );
-  BarrelShifter barrel_shifter_3 (	// src/main/scala/pvu/PositDecode.scala:66:32
-    .io_operand_i    (_operand_3_T_6),	// src/main/scala/pvu/PositDecode.scala:24:22
-    .io_shift_amount (_lzcModule_3_cnt_o + 5'h1),	// src/main/scala/pvu/PositDecode.scala:40:27, :57:61, :68:54
+  BarrelShifter barrel_shifter_3 (	// src/main/scala/pvu/PositDecode.scala:72:32
+    .io_operand_i    (_operand_3_T_6),	// src/main/scala/pvu/PositDecode.scala:30:22
+    .io_shift_amount (_lzcModule_3_cnt_o + 5'h1),	// src/main/scala/pvu/PositDecode.scala:46:27, :63:61, :74:54
     .io_result_o     (_barrel_shifter_3_io_result_o)
   );
-  assign io_Sign =
-    {{io_posit[2'h3][31]},
-     {io_posit[2'h2][31]},
-     {io_posit[2'h1][31]},
-     {io_posit[2'h0][31]}};	// src/main/scala/pvu/PositDecode.scala:7:7, :23:{16,30}, :76:19
+  assign io_Sign = _GEN;	// src/main/scala/pvu/PositDecode.scala:7:7, :23:14
   assign io_Exp =
-    {{{_lzcModule_3_empty_o
-         ? 6'h0
-         : _operand_3_T_6[30]
-             ? {1'h0, _lzcModule_3_cnt_o - 5'h1}
-             : {1'h1, ~_lzcModule_3_cnt_o + 5'h1},
-       _lzcModule_3_empty_o ? 2'h0 : _barrel_shifter_3_io_result_o[30:29]}},
-     {{_lzcModule_2_empty_o
-         ? 6'h0
-         : _operand_2_T_6[30]
-             ? {1'h0, _lzcModule_2_cnt_o - 5'h1}
-             : {1'h1, ~_lzcModule_2_cnt_o + 5'h1},
-       _lzcModule_2_empty_o ? 2'h0 : _barrel_shifter_2_io_result_o[30:29]}},
-     {{_lzcModule_1_empty_o
-         ? 6'h0
-         : _operand_1_T_6[30]
-             ? {1'h0, _lzcModule_1_cnt_o - 5'h1}
-             : {1'h1, ~_lzcModule_1_cnt_o + 5'h1},
-       _lzcModule_1_empty_o ? 2'h0 : _barrel_shifter_1_io_result_o[30:29]}},
-     {{_lzcModule_empty_o
-         ? 6'h0
-         : _operand_0_T_6[30]
-             ? {1'h0, _lzcModule_cnt_o - 5'h1}
-             : {1'h1, ~_lzcModule_cnt_o + 5'h1},
-       _lzcModule_empty_o ? 2'h0 : _barrel_shifter_io_result_o[30:29]}}};	// src/main/scala/pvu/PositDecode.scala:7:7, :24:{22,34}, :34:33, :40:27, :54:32, :55:22, :57:{22,29,48,61,72,78,86}, :66:32, :75:35, :76:19, :78:{19,44}, :80:23
+    {{isNaR[2'h3]
+        ? 8'h0
+        : {_lzcModule_3_empty_o
+             ? 6'h0
+             : _operand_3_T_6[30]
+                 ? {1'h0, _lzcModule_3_cnt_o - 5'h1}
+                 : {1'h1, ~_lzcModule_3_cnt_o + 5'h1},
+           _lzcModule_3_empty_o ? 2'h0 : _barrel_shifter_3_io_result_o[30:29]}},
+     {isNaR[2'h2]
+        ? 8'h0
+        : {_lzcModule_2_empty_o
+             ? 6'h0
+             : _operand_2_T_6[30]
+                 ? {1'h0, _lzcModule_2_cnt_o - 5'h1}
+                 : {1'h1, ~_lzcModule_2_cnt_o + 5'h1},
+           _lzcModule_2_empty_o ? 2'h0 : _barrel_shifter_2_io_result_o[30:29]}},
+     {isNaR[2'h1]
+        ? 8'h0
+        : {_lzcModule_1_empty_o
+             ? 6'h0
+             : _operand_1_T_6[30]
+                 ? {1'h0, _lzcModule_1_cnt_o - 5'h1}
+                 : {1'h1, ~_lzcModule_1_cnt_o + 5'h1},
+           _lzcModule_1_empty_o ? 2'h0 : _barrel_shifter_1_io_result_o[30:29]}},
+     {isNaR[2'h0]
+        ? 8'h0
+        : {_lzcModule_empty_o
+             ? 6'h0
+             : _operand_0_T_6[30]
+                 ? {1'h0, _lzcModule_cnt_o - 5'h1}
+                 : {1'h1, ~_lzcModule_cnt_o + 5'h1},
+           _lzcModule_empty_o ? 2'h0 : _barrel_shifter_io_result_o[30:29]}}};	// src/main/scala/pvu/PositDecode.scala:7:7, :23:{14,45,88}, :29:16, :30:22, :40:33, :46:27, :60:32, :61:22, :63:{22,29,48,61,72,78,86}, :72:32, :81:35, :82:19, :84:{19,44}, :88:20, :89:17, :91:{17,23}
   assign io_Frac =
-    {{{|_operand_3_T_6, _barrel_shifter_3_io_result_o[28:2]}},
-     {{|_operand_2_T_6, _barrel_shifter_2_io_result_o[28:2]}},
-     {{|_operand_1_T_6, _barrel_shifter_1_io_result_o[28:2]}},
-     {{|_operand_0_T_6, _barrel_shifter_io_result_o[28:2]}}};	// src/main/scala/pvu/PositDecode.scala:7:7, :24:22, :66:32, :89:56, :90:{22,63}
+    {{isNaR[2'h3] ? 28'h0 : {|_operand_3_T_6, _barrel_shifter_3_io_result_o[28:2]}},
+     {isNaR[2'h2] ? 28'h0 : {|_operand_2_T_6, _barrel_shifter_2_io_result_o[28:2]}},
+     {isNaR[2'h1] ? 28'h0 : {|_operand_1_T_6, _barrel_shifter_1_io_result_o[28:2]}},
+     {isNaR[2'h0] ? 28'h0 : {|_operand_0_T_6, _barrel_shifter_io_result_o[28:2]}}};	// src/main/scala/pvu/PositDecode.scala:7:7, :23:14, :29:16, :30:22, :72:32, :82:19, :101:56, :104:20, :105:18, :107:{18,24,65}
 endmodule
 
 module FloatDecode(	// src/main/scala/pvu/FloatDecode.scala:19:7
@@ -2442,3600 +2458,6 @@ module Mul(	// src/main/scala/pvu/Mul.scala:7:7
         : _radix4BoothMultiplier_io_sum_o + _radix4BoothMultiplier_io_carry_o}};	// src/main/scala/pvu/Mul.scala:7:7, :37:39, :42:56, :50:34, :51:20, :54:27
 endmodule
 
-module IntReciprocal(	// src/main/scala/pvu/IntReciprocal.scala:7:7
-  input  [27:0] io_num_i,	// src/main/scala/pvu/IntReciprocal.scala:8:14
-  output [55:0] io_reciprocal_o	// src/main/scala/pvu/IntReciprocal.scala:8:14
-);
-
-  wire [55:0] _GEN = {28'h0, io_num_i};	// src/main/scala/pvu/IntReciprocal.scala:18:23
-  wire [55:0] x0 = 56'h10000000 / _GEN;	// src/main/scala/pvu/IntReciprocal.scala:18:23
-  wire [83:0] x1_x_new_full = {28'h0, x0} * {28'h0, 56'h20000000 - _GEN * x0};	// src/main/scala/pvu/IntReciprocal.scala:18:23, :29:22, :36:20, :42:25
-  wire [83:0] x2_x_new_full =
-    {28'h0, x1_x_new_full[83:28]} * {28'h0, 56'h20000000 - _GEN * x1_x_new_full[83:28]};	// src/main/scala/pvu/IntReciprocal.scala:18:23, :29:22, :36:20, :42:25, :45:{29,38}
-  wire [83:0] x3_x_new_full =
-    {28'h0, x2_x_new_full[83:28]} * {28'h0, 56'h20000000 - _GEN * x2_x_new_full[83:28]};	// src/main/scala/pvu/IntReciprocal.scala:18:23, :29:22, :36:20, :42:25, :45:{29,38}
-  assign io_reciprocal_o = x3_x_new_full[83:28];	// src/main/scala/pvu/IntReciprocal.scala:7:7, :42:25, :45:{29,38}
-endmodule
-
-module GenProduct_60(	// src/main/scala/pvu/GenProduct.scala:17:7
-  input  [55:0] io_multiplicand,	// src/main/scala/pvu/GenProduct.scala:18:14
-  input  [2:0]  io_code,	// src/main/scala/pvu/GenProduct.scala:18:14
-  output [56:0] io_partial_prod,	// src/main/scala/pvu/GenProduct.scala:18:14
-  output        io_sign	// src/main/scala/pvu/GenProduct.scala:18:14
-);
-
-  wire _boothEncoder_io_neg;	// src/main/scala/pvu/GenProduct.scala:27:28
-  wire _boothEncoder_io_one;	// src/main/scala/pvu/GenProduct.scala:27:28
-  wire _boothEncoder_io_two;	// src/main/scala/pvu/GenProduct.scala:27:28
-  BoothEncoder boothEncoder (	// src/main/scala/pvu/GenProduct.scala:27:28
-    .io_code (io_code),
-    .io_neg  (_boothEncoder_io_neg),
-    .io_zero (/* unused */),
-    .io_one  (_boothEncoder_io_one),
-    .io_two  (_boothEncoder_io_two)
-  );
-  assign io_partial_prod =
-    {57{_boothEncoder_io_neg}}
-    ^ (_boothEncoder_io_one
-         ? {1'h0, io_multiplicand}
-         : _boothEncoder_io_two ? {io_multiplicand, 1'h0} : 57'h0);	// src/main/scala/pvu/GenProduct.scala:17:7, :27:28, :35:30, :36:14, :37:37, :38:{14,33}, :40:14, :45:25
-  assign io_sign = _boothEncoder_io_neg;	// src/main/scala/pvu/GenProduct.scala:17:7, :27:28
-endmodule
-
-module GenProds_4(	// src/main/scala/pvu/GenProds.scala:23:7
-  input  [55:0]        io_operand_a,	// src/main/scala/pvu/GenProds.scala:27:14
-                       io_operand_b,	// src/main/scala/pvu/GenProds.scala:27:14
-  output [28:0][111:0] io_partial_prods	// src/main/scala/pvu/GenProds.scala:27:14
-);
-
-  wire [56:0] _genProdLast_io_partial_prod;	// src/main/scala/pvu/GenProds.scala:83:27
-  wire [56:0] _genProd_26_io_partial_prod;	// src/main/scala/pvu/GenProds.scala:61:25
-  wire        _genProd_26_io_sign;	// src/main/scala/pvu/GenProds.scala:61:25
-  wire [56:0] _genProd_25_io_partial_prod;	// src/main/scala/pvu/GenProds.scala:61:25
-  wire        _genProd_25_io_sign;	// src/main/scala/pvu/GenProds.scala:61:25
-  wire [56:0] _genProd_24_io_partial_prod;	// src/main/scala/pvu/GenProds.scala:61:25
-  wire        _genProd_24_io_sign;	// src/main/scala/pvu/GenProds.scala:61:25
-  wire [56:0] _genProd_23_io_partial_prod;	// src/main/scala/pvu/GenProds.scala:61:25
-  wire        _genProd_23_io_sign;	// src/main/scala/pvu/GenProds.scala:61:25
-  wire [56:0] _genProd_22_io_partial_prod;	// src/main/scala/pvu/GenProds.scala:61:25
-  wire        _genProd_22_io_sign;	// src/main/scala/pvu/GenProds.scala:61:25
-  wire [56:0] _genProd_21_io_partial_prod;	// src/main/scala/pvu/GenProds.scala:61:25
-  wire        _genProd_21_io_sign;	// src/main/scala/pvu/GenProds.scala:61:25
-  wire [56:0] _genProd_20_io_partial_prod;	// src/main/scala/pvu/GenProds.scala:61:25
-  wire        _genProd_20_io_sign;	// src/main/scala/pvu/GenProds.scala:61:25
-  wire [56:0] _genProd_19_io_partial_prod;	// src/main/scala/pvu/GenProds.scala:61:25
-  wire        _genProd_19_io_sign;	// src/main/scala/pvu/GenProds.scala:61:25
-  wire [56:0] _genProd_18_io_partial_prod;	// src/main/scala/pvu/GenProds.scala:61:25
-  wire        _genProd_18_io_sign;	// src/main/scala/pvu/GenProds.scala:61:25
-  wire [56:0] _genProd_17_io_partial_prod;	// src/main/scala/pvu/GenProds.scala:61:25
-  wire        _genProd_17_io_sign;	// src/main/scala/pvu/GenProds.scala:61:25
-  wire [56:0] _genProd_16_io_partial_prod;	// src/main/scala/pvu/GenProds.scala:61:25
-  wire        _genProd_16_io_sign;	// src/main/scala/pvu/GenProds.scala:61:25
-  wire [56:0] _genProd_15_io_partial_prod;	// src/main/scala/pvu/GenProds.scala:61:25
-  wire        _genProd_15_io_sign;	// src/main/scala/pvu/GenProds.scala:61:25
-  wire [56:0] _genProd_14_io_partial_prod;	// src/main/scala/pvu/GenProds.scala:61:25
-  wire        _genProd_14_io_sign;	// src/main/scala/pvu/GenProds.scala:61:25
-  wire [56:0] _genProd_13_io_partial_prod;	// src/main/scala/pvu/GenProds.scala:61:25
-  wire        _genProd_13_io_sign;	// src/main/scala/pvu/GenProds.scala:61:25
-  wire [56:0] _genProd_12_io_partial_prod;	// src/main/scala/pvu/GenProds.scala:61:25
-  wire        _genProd_12_io_sign;	// src/main/scala/pvu/GenProds.scala:61:25
-  wire [56:0] _genProd_11_io_partial_prod;	// src/main/scala/pvu/GenProds.scala:61:25
-  wire        _genProd_11_io_sign;	// src/main/scala/pvu/GenProds.scala:61:25
-  wire [56:0] _genProd_10_io_partial_prod;	// src/main/scala/pvu/GenProds.scala:61:25
-  wire        _genProd_10_io_sign;	// src/main/scala/pvu/GenProds.scala:61:25
-  wire [56:0] _genProd_9_io_partial_prod;	// src/main/scala/pvu/GenProds.scala:61:25
-  wire        _genProd_9_io_sign;	// src/main/scala/pvu/GenProds.scala:61:25
-  wire [56:0] _genProd_8_io_partial_prod;	// src/main/scala/pvu/GenProds.scala:61:25
-  wire        _genProd_8_io_sign;	// src/main/scala/pvu/GenProds.scala:61:25
-  wire [56:0] _genProd_7_io_partial_prod;	// src/main/scala/pvu/GenProds.scala:61:25
-  wire        _genProd_7_io_sign;	// src/main/scala/pvu/GenProds.scala:61:25
-  wire [56:0] _genProd_6_io_partial_prod;	// src/main/scala/pvu/GenProds.scala:61:25
-  wire        _genProd_6_io_sign;	// src/main/scala/pvu/GenProds.scala:61:25
-  wire [56:0] _genProd_5_io_partial_prod;	// src/main/scala/pvu/GenProds.scala:61:25
-  wire        _genProd_5_io_sign;	// src/main/scala/pvu/GenProds.scala:61:25
-  wire [56:0] _genProd_4_io_partial_prod;	// src/main/scala/pvu/GenProds.scala:61:25
-  wire        _genProd_4_io_sign;	// src/main/scala/pvu/GenProds.scala:61:25
-  wire [56:0] _genProd_3_io_partial_prod;	// src/main/scala/pvu/GenProds.scala:61:25
-  wire        _genProd_3_io_sign;	// src/main/scala/pvu/GenProds.scala:61:25
-  wire [56:0] _genProd_2_io_partial_prod;	// src/main/scala/pvu/GenProds.scala:61:25
-  wire        _genProd_2_io_sign;	// src/main/scala/pvu/GenProds.scala:61:25
-  wire [56:0] _genProd_1_io_partial_prod;	// src/main/scala/pvu/GenProds.scala:61:25
-  wire        _genProd_1_io_sign;	// src/main/scala/pvu/GenProds.scala:61:25
-  wire [56:0] _genProd_io_partial_prod;	// src/main/scala/pvu/GenProds.scala:61:25
-  wire        _genProd_io_sign;	// src/main/scala/pvu/GenProds.scala:61:25
-  wire [56:0] _genProdFirst_io_partial_prod;	// src/main/scala/pvu/GenProds.scala:45:28
-  wire        _genProdFirst_io_sign;	// src/main/scala/pvu/GenProds.scala:45:28
-  GenProduct_60 genProdFirst (	// src/main/scala/pvu/GenProds.scala:45:28
-    .io_multiplicand (io_operand_a),
-    .io_code         ({io_operand_b[1:0], 1'h0}),	// src/main/scala/pvu/GenProds.scala:35:24, :42:25
-    .io_partial_prod (_genProdFirst_io_partial_prod),
-    .io_sign         (_genProdFirst_io_sign)
-  );
-  GenProduct_60 genProd (	// src/main/scala/pvu/GenProds.scala:61:25
-    .io_multiplicand (io_operand_a),
-    .io_code         (io_operand_b[3:1]),	// src/main/scala/pvu/GenProds.scala:58:27
-    .io_partial_prod (_genProd_io_partial_prod),
-    .io_sign         (_genProd_io_sign)
-  );
-  GenProduct_60 genProd_1 (	// src/main/scala/pvu/GenProds.scala:61:25
-    .io_multiplicand (io_operand_a),
-    .io_code         (io_operand_b[5:3]),	// src/main/scala/pvu/GenProds.scala:58:27
-    .io_partial_prod (_genProd_1_io_partial_prod),
-    .io_sign         (_genProd_1_io_sign)
-  );
-  GenProduct_60 genProd_2 (	// src/main/scala/pvu/GenProds.scala:61:25
-    .io_multiplicand (io_operand_a),
-    .io_code         (io_operand_b[7:5]),	// src/main/scala/pvu/GenProds.scala:58:27
-    .io_partial_prod (_genProd_2_io_partial_prod),
-    .io_sign         (_genProd_2_io_sign)
-  );
-  GenProduct_60 genProd_3 (	// src/main/scala/pvu/GenProds.scala:61:25
-    .io_multiplicand (io_operand_a),
-    .io_code         (io_operand_b[9:7]),	// src/main/scala/pvu/GenProds.scala:58:27
-    .io_partial_prod (_genProd_3_io_partial_prod),
-    .io_sign         (_genProd_3_io_sign)
-  );
-  GenProduct_60 genProd_4 (	// src/main/scala/pvu/GenProds.scala:61:25
-    .io_multiplicand (io_operand_a),
-    .io_code         (io_operand_b[11:9]),	// src/main/scala/pvu/GenProds.scala:58:27
-    .io_partial_prod (_genProd_4_io_partial_prod),
-    .io_sign         (_genProd_4_io_sign)
-  );
-  GenProduct_60 genProd_5 (	// src/main/scala/pvu/GenProds.scala:61:25
-    .io_multiplicand (io_operand_a),
-    .io_code         (io_operand_b[13:11]),	// src/main/scala/pvu/GenProds.scala:58:27
-    .io_partial_prod (_genProd_5_io_partial_prod),
-    .io_sign         (_genProd_5_io_sign)
-  );
-  GenProduct_60 genProd_6 (	// src/main/scala/pvu/GenProds.scala:61:25
-    .io_multiplicand (io_operand_a),
-    .io_code         (io_operand_b[15:13]),	// src/main/scala/pvu/GenProds.scala:58:27
-    .io_partial_prod (_genProd_6_io_partial_prod),
-    .io_sign         (_genProd_6_io_sign)
-  );
-  GenProduct_60 genProd_7 (	// src/main/scala/pvu/GenProds.scala:61:25
-    .io_multiplicand (io_operand_a),
-    .io_code         (io_operand_b[17:15]),	// src/main/scala/pvu/GenProds.scala:58:27
-    .io_partial_prod (_genProd_7_io_partial_prod),
-    .io_sign         (_genProd_7_io_sign)
-  );
-  GenProduct_60 genProd_8 (	// src/main/scala/pvu/GenProds.scala:61:25
-    .io_multiplicand (io_operand_a),
-    .io_code         (io_operand_b[19:17]),	// src/main/scala/pvu/GenProds.scala:58:27
-    .io_partial_prod (_genProd_8_io_partial_prod),
-    .io_sign         (_genProd_8_io_sign)
-  );
-  GenProduct_60 genProd_9 (	// src/main/scala/pvu/GenProds.scala:61:25
-    .io_multiplicand (io_operand_a),
-    .io_code         (io_operand_b[21:19]),	// src/main/scala/pvu/GenProds.scala:58:27
-    .io_partial_prod (_genProd_9_io_partial_prod),
-    .io_sign         (_genProd_9_io_sign)
-  );
-  GenProduct_60 genProd_10 (	// src/main/scala/pvu/GenProds.scala:61:25
-    .io_multiplicand (io_operand_a),
-    .io_code         (io_operand_b[23:21]),	// src/main/scala/pvu/GenProds.scala:58:27
-    .io_partial_prod (_genProd_10_io_partial_prod),
-    .io_sign         (_genProd_10_io_sign)
-  );
-  GenProduct_60 genProd_11 (	// src/main/scala/pvu/GenProds.scala:61:25
-    .io_multiplicand (io_operand_a),
-    .io_code         (io_operand_b[25:23]),	// src/main/scala/pvu/GenProds.scala:58:27
-    .io_partial_prod (_genProd_11_io_partial_prod),
-    .io_sign         (_genProd_11_io_sign)
-  );
-  GenProduct_60 genProd_12 (	// src/main/scala/pvu/GenProds.scala:61:25
-    .io_multiplicand (io_operand_a),
-    .io_code         (io_operand_b[27:25]),	// src/main/scala/pvu/GenProds.scala:58:27
-    .io_partial_prod (_genProd_12_io_partial_prod),
-    .io_sign         (_genProd_12_io_sign)
-  );
-  GenProduct_60 genProd_13 (	// src/main/scala/pvu/GenProds.scala:61:25
-    .io_multiplicand (io_operand_a),
-    .io_code         (io_operand_b[29:27]),	// src/main/scala/pvu/GenProds.scala:58:27
-    .io_partial_prod (_genProd_13_io_partial_prod),
-    .io_sign         (_genProd_13_io_sign)
-  );
-  GenProduct_60 genProd_14 (	// src/main/scala/pvu/GenProds.scala:61:25
-    .io_multiplicand (io_operand_a),
-    .io_code         (io_operand_b[31:29]),	// src/main/scala/pvu/GenProds.scala:58:27
-    .io_partial_prod (_genProd_14_io_partial_prod),
-    .io_sign         (_genProd_14_io_sign)
-  );
-  GenProduct_60 genProd_15 (	// src/main/scala/pvu/GenProds.scala:61:25
-    .io_multiplicand (io_operand_a),
-    .io_code         (io_operand_b[33:31]),	// src/main/scala/pvu/GenProds.scala:58:27
-    .io_partial_prod (_genProd_15_io_partial_prod),
-    .io_sign         (_genProd_15_io_sign)
-  );
-  GenProduct_60 genProd_16 (	// src/main/scala/pvu/GenProds.scala:61:25
-    .io_multiplicand (io_operand_a),
-    .io_code         (io_operand_b[35:33]),	// src/main/scala/pvu/GenProds.scala:58:27
-    .io_partial_prod (_genProd_16_io_partial_prod),
-    .io_sign         (_genProd_16_io_sign)
-  );
-  GenProduct_60 genProd_17 (	// src/main/scala/pvu/GenProds.scala:61:25
-    .io_multiplicand (io_operand_a),
-    .io_code         (io_operand_b[37:35]),	// src/main/scala/pvu/GenProds.scala:58:27
-    .io_partial_prod (_genProd_17_io_partial_prod),
-    .io_sign         (_genProd_17_io_sign)
-  );
-  GenProduct_60 genProd_18 (	// src/main/scala/pvu/GenProds.scala:61:25
-    .io_multiplicand (io_operand_a),
-    .io_code         (io_operand_b[39:37]),	// src/main/scala/pvu/GenProds.scala:58:27
-    .io_partial_prod (_genProd_18_io_partial_prod),
-    .io_sign         (_genProd_18_io_sign)
-  );
-  GenProduct_60 genProd_19 (	// src/main/scala/pvu/GenProds.scala:61:25
-    .io_multiplicand (io_operand_a),
-    .io_code         (io_operand_b[41:39]),	// src/main/scala/pvu/GenProds.scala:58:27
-    .io_partial_prod (_genProd_19_io_partial_prod),
-    .io_sign         (_genProd_19_io_sign)
-  );
-  GenProduct_60 genProd_20 (	// src/main/scala/pvu/GenProds.scala:61:25
-    .io_multiplicand (io_operand_a),
-    .io_code         (io_operand_b[43:41]),	// src/main/scala/pvu/GenProds.scala:58:27
-    .io_partial_prod (_genProd_20_io_partial_prod),
-    .io_sign         (_genProd_20_io_sign)
-  );
-  GenProduct_60 genProd_21 (	// src/main/scala/pvu/GenProds.scala:61:25
-    .io_multiplicand (io_operand_a),
-    .io_code         (io_operand_b[45:43]),	// src/main/scala/pvu/GenProds.scala:58:27
-    .io_partial_prod (_genProd_21_io_partial_prod),
-    .io_sign         (_genProd_21_io_sign)
-  );
-  GenProduct_60 genProd_22 (	// src/main/scala/pvu/GenProds.scala:61:25
-    .io_multiplicand (io_operand_a),
-    .io_code         (io_operand_b[47:45]),	// src/main/scala/pvu/GenProds.scala:58:27
-    .io_partial_prod (_genProd_22_io_partial_prod),
-    .io_sign         (_genProd_22_io_sign)
-  );
-  GenProduct_60 genProd_23 (	// src/main/scala/pvu/GenProds.scala:61:25
-    .io_multiplicand (io_operand_a),
-    .io_code         (io_operand_b[49:47]),	// src/main/scala/pvu/GenProds.scala:58:27
-    .io_partial_prod (_genProd_23_io_partial_prod),
-    .io_sign         (_genProd_23_io_sign)
-  );
-  GenProduct_60 genProd_24 (	// src/main/scala/pvu/GenProds.scala:61:25
-    .io_multiplicand (io_operand_a),
-    .io_code         (io_operand_b[51:49]),	// src/main/scala/pvu/GenProds.scala:58:27
-    .io_partial_prod (_genProd_24_io_partial_prod),
-    .io_sign         (_genProd_24_io_sign)
-  );
-  GenProduct_60 genProd_25 (	// src/main/scala/pvu/GenProds.scala:61:25
-    .io_multiplicand (io_operand_a),
-    .io_code         (io_operand_b[53:51]),	// src/main/scala/pvu/GenProds.scala:58:27
-    .io_partial_prod (_genProd_25_io_partial_prod),
-    .io_sign         (_genProd_25_io_sign)
-  );
-  GenProduct_60 genProd_26 (	// src/main/scala/pvu/GenProds.scala:61:25
-    .io_multiplicand (io_operand_a),
-    .io_code         (io_operand_b[55:53]),	// src/main/scala/pvu/GenProds.scala:58:27
-    .io_partial_prod (_genProd_26_io_partial_prod),
-    .io_sign         (_genProd_26_io_sign)
-  );
-  GenProduct_60 genProdLast (	// src/main/scala/pvu/GenProds.scala:83:27
-    .io_multiplicand (io_operand_a),
-    .io_code         ({2'h0, io_operand_b[55]}),	// src/main/scala/pvu/GenProds.scala:35:24, :81:33
-    .io_partial_prod (_genProdLast_io_partial_prod),
-    .io_sign         (/* unused */)
-  );
-  assign io_partial_prods =
-    {{{_genProdLast_io_partial_prod[55:0], 1'h0, _genProd_26_io_sign, 54'h0}},
-     {{~_genProd_26_io_sign,
-       _genProd_26_io_partial_prod,
-       1'h0,
-       _genProd_25_io_sign,
-       52'h0}},
-     {{2'h1,
-       ~_genProd_25_io_sign,
-       _genProd_25_io_partial_prod,
-       1'h0,
-       _genProd_24_io_sign,
-       50'h0}},
-     {{4'h1,
-       ~_genProd_24_io_sign,
-       _genProd_24_io_partial_prod,
-       1'h0,
-       _genProd_23_io_sign,
-       48'h0}},
-     {{6'h1,
-       ~_genProd_23_io_sign,
-       _genProd_23_io_partial_prod,
-       1'h0,
-       _genProd_22_io_sign,
-       46'h0}},
-     {{8'h1,
-       ~_genProd_22_io_sign,
-       _genProd_22_io_partial_prod,
-       1'h0,
-       _genProd_21_io_sign,
-       44'h0}},
-     {{10'h1,
-       ~_genProd_21_io_sign,
-       _genProd_21_io_partial_prod,
-       1'h0,
-       _genProd_20_io_sign,
-       42'h0}},
-     {{12'h1,
-       ~_genProd_20_io_sign,
-       _genProd_20_io_partial_prod,
-       1'h0,
-       _genProd_19_io_sign,
-       40'h0}},
-     {{14'h1,
-       ~_genProd_19_io_sign,
-       _genProd_19_io_partial_prod,
-       1'h0,
-       _genProd_18_io_sign,
-       38'h0}},
-     {{16'h1,
-       ~_genProd_18_io_sign,
-       _genProd_18_io_partial_prod,
-       1'h0,
-       _genProd_17_io_sign,
-       36'h0}},
-     {{18'h1,
-       ~_genProd_17_io_sign,
-       _genProd_17_io_partial_prod,
-       1'h0,
-       _genProd_16_io_sign,
-       34'h0}},
-     {{20'h1,
-       ~_genProd_16_io_sign,
-       _genProd_16_io_partial_prod,
-       1'h0,
-       _genProd_15_io_sign,
-       32'h0}},
-     {{22'h1,
-       ~_genProd_15_io_sign,
-       _genProd_15_io_partial_prod,
-       1'h0,
-       _genProd_14_io_sign,
-       30'h0}},
-     {{24'h1,
-       ~_genProd_14_io_sign,
-       _genProd_14_io_partial_prod,
-       1'h0,
-       _genProd_13_io_sign,
-       28'h0}},
-     {{26'h1,
-       ~_genProd_13_io_sign,
-       _genProd_13_io_partial_prod,
-       1'h0,
-       _genProd_12_io_sign,
-       26'h0}},
-     {{28'h1,
-       ~_genProd_12_io_sign,
-       _genProd_12_io_partial_prod,
-       1'h0,
-       _genProd_11_io_sign,
-       24'h0}},
-     {{30'h1,
-       ~_genProd_11_io_sign,
-       _genProd_11_io_partial_prod,
-       1'h0,
-       _genProd_10_io_sign,
-       22'h0}},
-     {{32'h1,
-       ~_genProd_10_io_sign,
-       _genProd_10_io_partial_prod,
-       1'h0,
-       _genProd_9_io_sign,
-       20'h0}},
-     {{34'h1,
-       ~_genProd_9_io_sign,
-       _genProd_9_io_partial_prod,
-       1'h0,
-       _genProd_8_io_sign,
-       18'h0}},
-     {{36'h1,
-       ~_genProd_8_io_sign,
-       _genProd_8_io_partial_prod,
-       1'h0,
-       _genProd_7_io_sign,
-       16'h0}},
-     {{38'h1,
-       ~_genProd_7_io_sign,
-       _genProd_7_io_partial_prod,
-       1'h0,
-       _genProd_6_io_sign,
-       14'h0}},
-     {{40'h1,
-       ~_genProd_6_io_sign,
-       _genProd_6_io_partial_prod,
-       1'h0,
-       _genProd_5_io_sign,
-       12'h0}},
-     {{42'h1,
-       ~_genProd_5_io_sign,
-       _genProd_5_io_partial_prod,
-       1'h0,
-       _genProd_4_io_sign,
-       10'h0}},
-     {{44'h1,
-       ~_genProd_4_io_sign,
-       _genProd_4_io_partial_prod,
-       1'h0,
-       _genProd_3_io_sign,
-       8'h0}},
-     {{46'h1,
-       ~_genProd_3_io_sign,
-       _genProd_3_io_partial_prod,
-       1'h0,
-       _genProd_2_io_sign,
-       6'h0}},
-     {{48'h1,
-       ~_genProd_2_io_sign,
-       _genProd_2_io_partial_prod,
-       1'h0,
-       _genProd_1_io_sign,
-       4'h0}},
-     {{50'h1,
-       ~_genProd_1_io_sign,
-       _genProd_1_io_partial_prod,
-       1'h0,
-       _genProd_io_sign,
-       2'h0}},
-     {{52'h1, ~_genProd_io_sign, _genProd_io_partial_prod, 1'h0, _genProdFirst_io_sign}},
-     {{52'h0,
-       ~_genProdFirst_io_sign,
-       {2{_genProdFirst_io_sign}},
-       _genProdFirst_io_partial_prod}}};	// src/main/scala/pvu/GenProds.scala:23:7, :35:24, :45:28, :52:{23,29,30}, :61:25, :71:7, :76:{25,42}, :83:27, :95:{31,52}
-endmodule
-
-module Compressor3to2_4(	// src/main/scala/pvu/Compressor3to2.scala:21:7
-  input  [2:0][111:0] io_operands_i,	// src/main/scala/pvu/Compressor3to2.scala:22:14
-  output [111:0]      io_sum_o,	// src/main/scala/pvu/Compressor3to2.scala:22:14
-                      io_carry_o	// src/main/scala/pvu/Compressor3to2.scala:22:14
-);
-
-  wire _fa_111_io_sum;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_110_io_sum;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_110_io_carry;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_109_io_sum;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_109_io_carry;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_108_io_sum;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_108_io_carry;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_107_io_sum;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_107_io_carry;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_106_io_sum;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_106_io_carry;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_105_io_sum;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_105_io_carry;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_104_io_sum;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_104_io_carry;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_103_io_sum;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_103_io_carry;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_102_io_sum;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_102_io_carry;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_101_io_sum;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_101_io_carry;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_100_io_sum;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_100_io_carry;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_99_io_sum;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_99_io_carry;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_98_io_sum;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_98_io_carry;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_97_io_sum;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_97_io_carry;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_96_io_sum;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_96_io_carry;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_95_io_sum;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_95_io_carry;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_94_io_sum;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_94_io_carry;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_93_io_sum;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_93_io_carry;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_92_io_sum;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_92_io_carry;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_91_io_sum;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_91_io_carry;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_90_io_sum;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_90_io_carry;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_89_io_sum;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_89_io_carry;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_88_io_sum;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_88_io_carry;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_87_io_sum;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_87_io_carry;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_86_io_sum;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_86_io_carry;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_85_io_sum;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_85_io_carry;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_84_io_sum;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_84_io_carry;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_83_io_sum;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_83_io_carry;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_82_io_sum;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_82_io_carry;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_81_io_sum;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_81_io_carry;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_80_io_sum;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_80_io_carry;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_79_io_sum;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_79_io_carry;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_78_io_sum;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_78_io_carry;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_77_io_sum;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_77_io_carry;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_76_io_sum;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_76_io_carry;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_75_io_sum;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_75_io_carry;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_74_io_sum;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_74_io_carry;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_73_io_sum;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_73_io_carry;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_72_io_sum;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_72_io_carry;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_71_io_sum;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_71_io_carry;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_70_io_sum;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_70_io_carry;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_69_io_sum;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_69_io_carry;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_68_io_sum;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_68_io_carry;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_67_io_sum;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_67_io_carry;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_66_io_sum;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_66_io_carry;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_65_io_sum;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_65_io_carry;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_64_io_sum;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_64_io_carry;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_63_io_sum;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_63_io_carry;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_62_io_sum;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_62_io_carry;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_61_io_sum;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_61_io_carry;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_60_io_sum;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_60_io_carry;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_59_io_sum;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_59_io_carry;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_58_io_sum;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_58_io_carry;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_57_io_sum;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_57_io_carry;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_56_io_sum;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_56_io_carry;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_55_io_sum;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_55_io_carry;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_54_io_sum;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_54_io_carry;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_53_io_sum;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_53_io_carry;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_52_io_sum;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_52_io_carry;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_51_io_sum;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_51_io_carry;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_50_io_sum;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_50_io_carry;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_49_io_sum;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_49_io_carry;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_48_io_sum;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_48_io_carry;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_47_io_sum;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_47_io_carry;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_46_io_sum;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_46_io_carry;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_45_io_sum;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_45_io_carry;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_44_io_sum;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_44_io_carry;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_43_io_sum;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_43_io_carry;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_42_io_sum;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_42_io_carry;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_41_io_sum;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_41_io_carry;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_40_io_sum;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_40_io_carry;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_39_io_sum;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_39_io_carry;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_38_io_sum;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_38_io_carry;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_37_io_sum;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_37_io_carry;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_36_io_sum;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_36_io_carry;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_35_io_sum;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_35_io_carry;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_34_io_sum;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_34_io_carry;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_33_io_sum;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_33_io_carry;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_32_io_sum;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_32_io_carry;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_31_io_sum;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_31_io_carry;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_30_io_sum;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_30_io_carry;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_29_io_sum;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_29_io_carry;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_28_io_sum;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_28_io_carry;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_27_io_sum;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_27_io_carry;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_26_io_sum;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_26_io_carry;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_25_io_sum;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_25_io_carry;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_24_io_sum;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_24_io_carry;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_23_io_sum;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_23_io_carry;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_22_io_sum;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_22_io_carry;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_21_io_sum;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_21_io_carry;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_20_io_sum;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_20_io_carry;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_19_io_sum;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_19_io_carry;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_18_io_sum;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_18_io_carry;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_17_io_sum;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_17_io_carry;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_16_io_sum;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_16_io_carry;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_15_io_sum;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_15_io_carry;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_14_io_sum;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_14_io_carry;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_13_io_sum;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_13_io_carry;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_12_io_sum;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_12_io_carry;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_11_io_sum;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_11_io_carry;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_10_io_sum;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_10_io_carry;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_9_io_sum;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_9_io_carry;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_8_io_sum;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_8_io_carry;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_7_io_sum;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_7_io_carry;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_6_io_sum;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_6_io_carry;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_5_io_sum;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_5_io_carry;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_4_io_sum;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_4_io_carry;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_3_io_sum;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_3_io_carry;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_2_io_sum;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_2_io_carry;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_1_io_sum;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_1_io_carry;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_io_sum;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  wire _fa_io_carry;	// src/main/scala/pvu/Compressor3to2.scala:35:20
-  FullAdder fa (	// src/main/scala/pvu/Compressor3to2.scala:35:20
-    .io_x     (io_operands_i[2'h0][0]),	// src/main/scala/pvu/Compressor3to2.scala:36:32
-    .io_y     (io_operands_i[2'h1][0]),	// src/main/scala/pvu/Compressor3to2.scala:37:32
-    .io_z     (io_operands_i[2'h2][0]),	// src/main/scala/pvu/Compressor3to2.scala:38:32
-    .io_sum   (_fa_io_sum),
-    .io_carry (_fa_io_carry)
-  );
-  FullAdder fa_1 (	// src/main/scala/pvu/Compressor3to2.scala:35:20
-    .io_x     (io_operands_i[2'h0][1]),	// src/main/scala/pvu/Compressor3to2.scala:36:32
-    .io_y     (io_operands_i[2'h1][1]),	// src/main/scala/pvu/Compressor3to2.scala:37:32
-    .io_z     (io_operands_i[2'h2][1]),	// src/main/scala/pvu/Compressor3to2.scala:38:32
-    .io_sum   (_fa_1_io_sum),
-    .io_carry (_fa_1_io_carry)
-  );
-  FullAdder fa_2 (	// src/main/scala/pvu/Compressor3to2.scala:35:20
-    .io_x     (io_operands_i[2'h0][2]),	// src/main/scala/pvu/Compressor3to2.scala:36:32
-    .io_y     (io_operands_i[2'h1][2]),	// src/main/scala/pvu/Compressor3to2.scala:37:32
-    .io_z     (io_operands_i[2'h2][2]),	// src/main/scala/pvu/Compressor3to2.scala:38:32
-    .io_sum   (_fa_2_io_sum),
-    .io_carry (_fa_2_io_carry)
-  );
-  FullAdder fa_3 (	// src/main/scala/pvu/Compressor3to2.scala:35:20
-    .io_x     (io_operands_i[2'h0][3]),	// src/main/scala/pvu/Compressor3to2.scala:36:32
-    .io_y     (io_operands_i[2'h1][3]),	// src/main/scala/pvu/Compressor3to2.scala:37:32
-    .io_z     (io_operands_i[2'h2][3]),	// src/main/scala/pvu/Compressor3to2.scala:38:32
-    .io_sum   (_fa_3_io_sum),
-    .io_carry (_fa_3_io_carry)
-  );
-  FullAdder fa_4 (	// src/main/scala/pvu/Compressor3to2.scala:35:20
-    .io_x     (io_operands_i[2'h0][4]),	// src/main/scala/pvu/Compressor3to2.scala:36:32
-    .io_y     (io_operands_i[2'h1][4]),	// src/main/scala/pvu/Compressor3to2.scala:37:32
-    .io_z     (io_operands_i[2'h2][4]),	// src/main/scala/pvu/Compressor3to2.scala:38:32
-    .io_sum   (_fa_4_io_sum),
-    .io_carry (_fa_4_io_carry)
-  );
-  FullAdder fa_5 (	// src/main/scala/pvu/Compressor3to2.scala:35:20
-    .io_x     (io_operands_i[2'h0][5]),	// src/main/scala/pvu/Compressor3to2.scala:36:32
-    .io_y     (io_operands_i[2'h1][5]),	// src/main/scala/pvu/Compressor3to2.scala:37:32
-    .io_z     (io_operands_i[2'h2][5]),	// src/main/scala/pvu/Compressor3to2.scala:38:32
-    .io_sum   (_fa_5_io_sum),
-    .io_carry (_fa_5_io_carry)
-  );
-  FullAdder fa_6 (	// src/main/scala/pvu/Compressor3to2.scala:35:20
-    .io_x     (io_operands_i[2'h0][6]),	// src/main/scala/pvu/Compressor3to2.scala:36:32
-    .io_y     (io_operands_i[2'h1][6]),	// src/main/scala/pvu/Compressor3to2.scala:37:32
-    .io_z     (io_operands_i[2'h2][6]),	// src/main/scala/pvu/Compressor3to2.scala:38:32
-    .io_sum   (_fa_6_io_sum),
-    .io_carry (_fa_6_io_carry)
-  );
-  FullAdder fa_7 (	// src/main/scala/pvu/Compressor3to2.scala:35:20
-    .io_x     (io_operands_i[2'h0][7]),	// src/main/scala/pvu/Compressor3to2.scala:36:32
-    .io_y     (io_operands_i[2'h1][7]),	// src/main/scala/pvu/Compressor3to2.scala:37:32
-    .io_z     (io_operands_i[2'h2][7]),	// src/main/scala/pvu/Compressor3to2.scala:38:32
-    .io_sum   (_fa_7_io_sum),
-    .io_carry (_fa_7_io_carry)
-  );
-  FullAdder fa_8 (	// src/main/scala/pvu/Compressor3to2.scala:35:20
-    .io_x     (io_operands_i[2'h0][8]),	// src/main/scala/pvu/Compressor3to2.scala:36:32
-    .io_y     (io_operands_i[2'h1][8]),	// src/main/scala/pvu/Compressor3to2.scala:37:32
-    .io_z     (io_operands_i[2'h2][8]),	// src/main/scala/pvu/Compressor3to2.scala:38:32
-    .io_sum   (_fa_8_io_sum),
-    .io_carry (_fa_8_io_carry)
-  );
-  FullAdder fa_9 (	// src/main/scala/pvu/Compressor3to2.scala:35:20
-    .io_x     (io_operands_i[2'h0][9]),	// src/main/scala/pvu/Compressor3to2.scala:36:32
-    .io_y     (io_operands_i[2'h1][9]),	// src/main/scala/pvu/Compressor3to2.scala:37:32
-    .io_z     (io_operands_i[2'h2][9]),	// src/main/scala/pvu/Compressor3to2.scala:38:32
-    .io_sum   (_fa_9_io_sum),
-    .io_carry (_fa_9_io_carry)
-  );
-  FullAdder fa_10 (	// src/main/scala/pvu/Compressor3to2.scala:35:20
-    .io_x     (io_operands_i[2'h0][10]),	// src/main/scala/pvu/Compressor3to2.scala:36:32
-    .io_y     (io_operands_i[2'h1][10]),	// src/main/scala/pvu/Compressor3to2.scala:37:32
-    .io_z     (io_operands_i[2'h2][10]),	// src/main/scala/pvu/Compressor3to2.scala:38:32
-    .io_sum   (_fa_10_io_sum),
-    .io_carry (_fa_10_io_carry)
-  );
-  FullAdder fa_11 (	// src/main/scala/pvu/Compressor3to2.scala:35:20
-    .io_x     (io_operands_i[2'h0][11]),	// src/main/scala/pvu/Compressor3to2.scala:36:32
-    .io_y     (io_operands_i[2'h1][11]),	// src/main/scala/pvu/Compressor3to2.scala:37:32
-    .io_z     (io_operands_i[2'h2][11]),	// src/main/scala/pvu/Compressor3to2.scala:38:32
-    .io_sum   (_fa_11_io_sum),
-    .io_carry (_fa_11_io_carry)
-  );
-  FullAdder fa_12 (	// src/main/scala/pvu/Compressor3to2.scala:35:20
-    .io_x     (io_operands_i[2'h0][12]),	// src/main/scala/pvu/Compressor3to2.scala:36:32
-    .io_y     (io_operands_i[2'h1][12]),	// src/main/scala/pvu/Compressor3to2.scala:37:32
-    .io_z     (io_operands_i[2'h2][12]),	// src/main/scala/pvu/Compressor3to2.scala:38:32
-    .io_sum   (_fa_12_io_sum),
-    .io_carry (_fa_12_io_carry)
-  );
-  FullAdder fa_13 (	// src/main/scala/pvu/Compressor3to2.scala:35:20
-    .io_x     (io_operands_i[2'h0][13]),	// src/main/scala/pvu/Compressor3to2.scala:36:32
-    .io_y     (io_operands_i[2'h1][13]),	// src/main/scala/pvu/Compressor3to2.scala:37:32
-    .io_z     (io_operands_i[2'h2][13]),	// src/main/scala/pvu/Compressor3to2.scala:38:32
-    .io_sum   (_fa_13_io_sum),
-    .io_carry (_fa_13_io_carry)
-  );
-  FullAdder fa_14 (	// src/main/scala/pvu/Compressor3to2.scala:35:20
-    .io_x     (io_operands_i[2'h0][14]),	// src/main/scala/pvu/Compressor3to2.scala:36:32
-    .io_y     (io_operands_i[2'h1][14]),	// src/main/scala/pvu/Compressor3to2.scala:37:32
-    .io_z     (io_operands_i[2'h2][14]),	// src/main/scala/pvu/Compressor3to2.scala:38:32
-    .io_sum   (_fa_14_io_sum),
-    .io_carry (_fa_14_io_carry)
-  );
-  FullAdder fa_15 (	// src/main/scala/pvu/Compressor3to2.scala:35:20
-    .io_x     (io_operands_i[2'h0][15]),	// src/main/scala/pvu/Compressor3to2.scala:36:32
-    .io_y     (io_operands_i[2'h1][15]),	// src/main/scala/pvu/Compressor3to2.scala:37:32
-    .io_z     (io_operands_i[2'h2][15]),	// src/main/scala/pvu/Compressor3to2.scala:38:32
-    .io_sum   (_fa_15_io_sum),
-    .io_carry (_fa_15_io_carry)
-  );
-  FullAdder fa_16 (	// src/main/scala/pvu/Compressor3to2.scala:35:20
-    .io_x     (io_operands_i[2'h0][16]),	// src/main/scala/pvu/Compressor3to2.scala:36:32
-    .io_y     (io_operands_i[2'h1][16]),	// src/main/scala/pvu/Compressor3to2.scala:37:32
-    .io_z     (io_operands_i[2'h2][16]),	// src/main/scala/pvu/Compressor3to2.scala:38:32
-    .io_sum   (_fa_16_io_sum),
-    .io_carry (_fa_16_io_carry)
-  );
-  FullAdder fa_17 (	// src/main/scala/pvu/Compressor3to2.scala:35:20
-    .io_x     (io_operands_i[2'h0][17]),	// src/main/scala/pvu/Compressor3to2.scala:36:32
-    .io_y     (io_operands_i[2'h1][17]),	// src/main/scala/pvu/Compressor3to2.scala:37:32
-    .io_z     (io_operands_i[2'h2][17]),	// src/main/scala/pvu/Compressor3to2.scala:38:32
-    .io_sum   (_fa_17_io_sum),
-    .io_carry (_fa_17_io_carry)
-  );
-  FullAdder fa_18 (	// src/main/scala/pvu/Compressor3to2.scala:35:20
-    .io_x     (io_operands_i[2'h0][18]),	// src/main/scala/pvu/Compressor3to2.scala:36:32
-    .io_y     (io_operands_i[2'h1][18]),	// src/main/scala/pvu/Compressor3to2.scala:37:32
-    .io_z     (io_operands_i[2'h2][18]),	// src/main/scala/pvu/Compressor3to2.scala:38:32
-    .io_sum   (_fa_18_io_sum),
-    .io_carry (_fa_18_io_carry)
-  );
-  FullAdder fa_19 (	// src/main/scala/pvu/Compressor3to2.scala:35:20
-    .io_x     (io_operands_i[2'h0][19]),	// src/main/scala/pvu/Compressor3to2.scala:36:32
-    .io_y     (io_operands_i[2'h1][19]),	// src/main/scala/pvu/Compressor3to2.scala:37:32
-    .io_z     (io_operands_i[2'h2][19]),	// src/main/scala/pvu/Compressor3to2.scala:38:32
-    .io_sum   (_fa_19_io_sum),
-    .io_carry (_fa_19_io_carry)
-  );
-  FullAdder fa_20 (	// src/main/scala/pvu/Compressor3to2.scala:35:20
-    .io_x     (io_operands_i[2'h0][20]),	// src/main/scala/pvu/Compressor3to2.scala:36:32
-    .io_y     (io_operands_i[2'h1][20]),	// src/main/scala/pvu/Compressor3to2.scala:37:32
-    .io_z     (io_operands_i[2'h2][20]),	// src/main/scala/pvu/Compressor3to2.scala:38:32
-    .io_sum   (_fa_20_io_sum),
-    .io_carry (_fa_20_io_carry)
-  );
-  FullAdder fa_21 (	// src/main/scala/pvu/Compressor3to2.scala:35:20
-    .io_x     (io_operands_i[2'h0][21]),	// src/main/scala/pvu/Compressor3to2.scala:36:32
-    .io_y     (io_operands_i[2'h1][21]),	// src/main/scala/pvu/Compressor3to2.scala:37:32
-    .io_z     (io_operands_i[2'h2][21]),	// src/main/scala/pvu/Compressor3to2.scala:38:32
-    .io_sum   (_fa_21_io_sum),
-    .io_carry (_fa_21_io_carry)
-  );
-  FullAdder fa_22 (	// src/main/scala/pvu/Compressor3to2.scala:35:20
-    .io_x     (io_operands_i[2'h0][22]),	// src/main/scala/pvu/Compressor3to2.scala:36:32
-    .io_y     (io_operands_i[2'h1][22]),	// src/main/scala/pvu/Compressor3to2.scala:37:32
-    .io_z     (io_operands_i[2'h2][22]),	// src/main/scala/pvu/Compressor3to2.scala:38:32
-    .io_sum   (_fa_22_io_sum),
-    .io_carry (_fa_22_io_carry)
-  );
-  FullAdder fa_23 (	// src/main/scala/pvu/Compressor3to2.scala:35:20
-    .io_x     (io_operands_i[2'h0][23]),	// src/main/scala/pvu/Compressor3to2.scala:36:32
-    .io_y     (io_operands_i[2'h1][23]),	// src/main/scala/pvu/Compressor3to2.scala:37:32
-    .io_z     (io_operands_i[2'h2][23]),	// src/main/scala/pvu/Compressor3to2.scala:38:32
-    .io_sum   (_fa_23_io_sum),
-    .io_carry (_fa_23_io_carry)
-  );
-  FullAdder fa_24 (	// src/main/scala/pvu/Compressor3to2.scala:35:20
-    .io_x     (io_operands_i[2'h0][24]),	// src/main/scala/pvu/Compressor3to2.scala:36:32
-    .io_y     (io_operands_i[2'h1][24]),	// src/main/scala/pvu/Compressor3to2.scala:37:32
-    .io_z     (io_operands_i[2'h2][24]),	// src/main/scala/pvu/Compressor3to2.scala:38:32
-    .io_sum   (_fa_24_io_sum),
-    .io_carry (_fa_24_io_carry)
-  );
-  FullAdder fa_25 (	// src/main/scala/pvu/Compressor3to2.scala:35:20
-    .io_x     (io_operands_i[2'h0][25]),	// src/main/scala/pvu/Compressor3to2.scala:36:32
-    .io_y     (io_operands_i[2'h1][25]),	// src/main/scala/pvu/Compressor3to2.scala:37:32
-    .io_z     (io_operands_i[2'h2][25]),	// src/main/scala/pvu/Compressor3to2.scala:38:32
-    .io_sum   (_fa_25_io_sum),
-    .io_carry (_fa_25_io_carry)
-  );
-  FullAdder fa_26 (	// src/main/scala/pvu/Compressor3to2.scala:35:20
-    .io_x     (io_operands_i[2'h0][26]),	// src/main/scala/pvu/Compressor3to2.scala:36:32
-    .io_y     (io_operands_i[2'h1][26]),	// src/main/scala/pvu/Compressor3to2.scala:37:32
-    .io_z     (io_operands_i[2'h2][26]),	// src/main/scala/pvu/Compressor3to2.scala:38:32
-    .io_sum   (_fa_26_io_sum),
-    .io_carry (_fa_26_io_carry)
-  );
-  FullAdder fa_27 (	// src/main/scala/pvu/Compressor3to2.scala:35:20
-    .io_x     (io_operands_i[2'h0][27]),	// src/main/scala/pvu/Compressor3to2.scala:36:32
-    .io_y     (io_operands_i[2'h1][27]),	// src/main/scala/pvu/Compressor3to2.scala:37:32
-    .io_z     (io_operands_i[2'h2][27]),	// src/main/scala/pvu/Compressor3to2.scala:38:32
-    .io_sum   (_fa_27_io_sum),
-    .io_carry (_fa_27_io_carry)
-  );
-  FullAdder fa_28 (	// src/main/scala/pvu/Compressor3to2.scala:35:20
-    .io_x     (io_operands_i[2'h0][28]),	// src/main/scala/pvu/Compressor3to2.scala:36:32
-    .io_y     (io_operands_i[2'h1][28]),	// src/main/scala/pvu/Compressor3to2.scala:37:32
-    .io_z     (io_operands_i[2'h2][28]),	// src/main/scala/pvu/Compressor3to2.scala:38:32
-    .io_sum   (_fa_28_io_sum),
-    .io_carry (_fa_28_io_carry)
-  );
-  FullAdder fa_29 (	// src/main/scala/pvu/Compressor3to2.scala:35:20
-    .io_x     (io_operands_i[2'h0][29]),	// src/main/scala/pvu/Compressor3to2.scala:36:32
-    .io_y     (io_operands_i[2'h1][29]),	// src/main/scala/pvu/Compressor3to2.scala:37:32
-    .io_z     (io_operands_i[2'h2][29]),	// src/main/scala/pvu/Compressor3to2.scala:38:32
-    .io_sum   (_fa_29_io_sum),
-    .io_carry (_fa_29_io_carry)
-  );
-  FullAdder fa_30 (	// src/main/scala/pvu/Compressor3to2.scala:35:20
-    .io_x     (io_operands_i[2'h0][30]),	// src/main/scala/pvu/Compressor3to2.scala:36:32
-    .io_y     (io_operands_i[2'h1][30]),	// src/main/scala/pvu/Compressor3to2.scala:37:32
-    .io_z     (io_operands_i[2'h2][30]),	// src/main/scala/pvu/Compressor3to2.scala:38:32
-    .io_sum   (_fa_30_io_sum),
-    .io_carry (_fa_30_io_carry)
-  );
-  FullAdder fa_31 (	// src/main/scala/pvu/Compressor3to2.scala:35:20
-    .io_x     (io_operands_i[2'h0][31]),	// src/main/scala/pvu/Compressor3to2.scala:36:32
-    .io_y     (io_operands_i[2'h1][31]),	// src/main/scala/pvu/Compressor3to2.scala:37:32
-    .io_z     (io_operands_i[2'h2][31]),	// src/main/scala/pvu/Compressor3to2.scala:38:32
-    .io_sum   (_fa_31_io_sum),
-    .io_carry (_fa_31_io_carry)
-  );
-  FullAdder fa_32 (	// src/main/scala/pvu/Compressor3to2.scala:35:20
-    .io_x     (io_operands_i[2'h0][32]),	// src/main/scala/pvu/Compressor3to2.scala:36:32
-    .io_y     (io_operands_i[2'h1][32]),	// src/main/scala/pvu/Compressor3to2.scala:37:32
-    .io_z     (io_operands_i[2'h2][32]),	// src/main/scala/pvu/Compressor3to2.scala:38:32
-    .io_sum   (_fa_32_io_sum),
-    .io_carry (_fa_32_io_carry)
-  );
-  FullAdder fa_33 (	// src/main/scala/pvu/Compressor3to2.scala:35:20
-    .io_x     (io_operands_i[2'h0][33]),	// src/main/scala/pvu/Compressor3to2.scala:36:32
-    .io_y     (io_operands_i[2'h1][33]),	// src/main/scala/pvu/Compressor3to2.scala:37:32
-    .io_z     (io_operands_i[2'h2][33]),	// src/main/scala/pvu/Compressor3to2.scala:38:32
-    .io_sum   (_fa_33_io_sum),
-    .io_carry (_fa_33_io_carry)
-  );
-  FullAdder fa_34 (	// src/main/scala/pvu/Compressor3to2.scala:35:20
-    .io_x     (io_operands_i[2'h0][34]),	// src/main/scala/pvu/Compressor3to2.scala:36:32
-    .io_y     (io_operands_i[2'h1][34]),	// src/main/scala/pvu/Compressor3to2.scala:37:32
-    .io_z     (io_operands_i[2'h2][34]),	// src/main/scala/pvu/Compressor3to2.scala:38:32
-    .io_sum   (_fa_34_io_sum),
-    .io_carry (_fa_34_io_carry)
-  );
-  FullAdder fa_35 (	// src/main/scala/pvu/Compressor3to2.scala:35:20
-    .io_x     (io_operands_i[2'h0][35]),	// src/main/scala/pvu/Compressor3to2.scala:36:32
-    .io_y     (io_operands_i[2'h1][35]),	// src/main/scala/pvu/Compressor3to2.scala:37:32
-    .io_z     (io_operands_i[2'h2][35]),	// src/main/scala/pvu/Compressor3to2.scala:38:32
-    .io_sum   (_fa_35_io_sum),
-    .io_carry (_fa_35_io_carry)
-  );
-  FullAdder fa_36 (	// src/main/scala/pvu/Compressor3to2.scala:35:20
-    .io_x     (io_operands_i[2'h0][36]),	// src/main/scala/pvu/Compressor3to2.scala:36:32
-    .io_y     (io_operands_i[2'h1][36]),	// src/main/scala/pvu/Compressor3to2.scala:37:32
-    .io_z     (io_operands_i[2'h2][36]),	// src/main/scala/pvu/Compressor3to2.scala:38:32
-    .io_sum   (_fa_36_io_sum),
-    .io_carry (_fa_36_io_carry)
-  );
-  FullAdder fa_37 (	// src/main/scala/pvu/Compressor3to2.scala:35:20
-    .io_x     (io_operands_i[2'h0][37]),	// src/main/scala/pvu/Compressor3to2.scala:36:32
-    .io_y     (io_operands_i[2'h1][37]),	// src/main/scala/pvu/Compressor3to2.scala:37:32
-    .io_z     (io_operands_i[2'h2][37]),	// src/main/scala/pvu/Compressor3to2.scala:38:32
-    .io_sum   (_fa_37_io_sum),
-    .io_carry (_fa_37_io_carry)
-  );
-  FullAdder fa_38 (	// src/main/scala/pvu/Compressor3to2.scala:35:20
-    .io_x     (io_operands_i[2'h0][38]),	// src/main/scala/pvu/Compressor3to2.scala:36:32
-    .io_y     (io_operands_i[2'h1][38]),	// src/main/scala/pvu/Compressor3to2.scala:37:32
-    .io_z     (io_operands_i[2'h2][38]),	// src/main/scala/pvu/Compressor3to2.scala:38:32
-    .io_sum   (_fa_38_io_sum),
-    .io_carry (_fa_38_io_carry)
-  );
-  FullAdder fa_39 (	// src/main/scala/pvu/Compressor3to2.scala:35:20
-    .io_x     (io_operands_i[2'h0][39]),	// src/main/scala/pvu/Compressor3to2.scala:36:32
-    .io_y     (io_operands_i[2'h1][39]),	// src/main/scala/pvu/Compressor3to2.scala:37:32
-    .io_z     (io_operands_i[2'h2][39]),	// src/main/scala/pvu/Compressor3to2.scala:38:32
-    .io_sum   (_fa_39_io_sum),
-    .io_carry (_fa_39_io_carry)
-  );
-  FullAdder fa_40 (	// src/main/scala/pvu/Compressor3to2.scala:35:20
-    .io_x     (io_operands_i[2'h0][40]),	// src/main/scala/pvu/Compressor3to2.scala:36:32
-    .io_y     (io_operands_i[2'h1][40]),	// src/main/scala/pvu/Compressor3to2.scala:37:32
-    .io_z     (io_operands_i[2'h2][40]),	// src/main/scala/pvu/Compressor3to2.scala:38:32
-    .io_sum   (_fa_40_io_sum),
-    .io_carry (_fa_40_io_carry)
-  );
-  FullAdder fa_41 (	// src/main/scala/pvu/Compressor3to2.scala:35:20
-    .io_x     (io_operands_i[2'h0][41]),	// src/main/scala/pvu/Compressor3to2.scala:36:32
-    .io_y     (io_operands_i[2'h1][41]),	// src/main/scala/pvu/Compressor3to2.scala:37:32
-    .io_z     (io_operands_i[2'h2][41]),	// src/main/scala/pvu/Compressor3to2.scala:38:32
-    .io_sum   (_fa_41_io_sum),
-    .io_carry (_fa_41_io_carry)
-  );
-  FullAdder fa_42 (	// src/main/scala/pvu/Compressor3to2.scala:35:20
-    .io_x     (io_operands_i[2'h0][42]),	// src/main/scala/pvu/Compressor3to2.scala:36:32
-    .io_y     (io_operands_i[2'h1][42]),	// src/main/scala/pvu/Compressor3to2.scala:37:32
-    .io_z     (io_operands_i[2'h2][42]),	// src/main/scala/pvu/Compressor3to2.scala:38:32
-    .io_sum   (_fa_42_io_sum),
-    .io_carry (_fa_42_io_carry)
-  );
-  FullAdder fa_43 (	// src/main/scala/pvu/Compressor3to2.scala:35:20
-    .io_x     (io_operands_i[2'h0][43]),	// src/main/scala/pvu/Compressor3to2.scala:36:32
-    .io_y     (io_operands_i[2'h1][43]),	// src/main/scala/pvu/Compressor3to2.scala:37:32
-    .io_z     (io_operands_i[2'h2][43]),	// src/main/scala/pvu/Compressor3to2.scala:38:32
-    .io_sum   (_fa_43_io_sum),
-    .io_carry (_fa_43_io_carry)
-  );
-  FullAdder fa_44 (	// src/main/scala/pvu/Compressor3to2.scala:35:20
-    .io_x     (io_operands_i[2'h0][44]),	// src/main/scala/pvu/Compressor3to2.scala:36:32
-    .io_y     (io_operands_i[2'h1][44]),	// src/main/scala/pvu/Compressor3to2.scala:37:32
-    .io_z     (io_operands_i[2'h2][44]),	// src/main/scala/pvu/Compressor3to2.scala:38:32
-    .io_sum   (_fa_44_io_sum),
-    .io_carry (_fa_44_io_carry)
-  );
-  FullAdder fa_45 (	// src/main/scala/pvu/Compressor3to2.scala:35:20
-    .io_x     (io_operands_i[2'h0][45]),	// src/main/scala/pvu/Compressor3to2.scala:36:32
-    .io_y     (io_operands_i[2'h1][45]),	// src/main/scala/pvu/Compressor3to2.scala:37:32
-    .io_z     (io_operands_i[2'h2][45]),	// src/main/scala/pvu/Compressor3to2.scala:38:32
-    .io_sum   (_fa_45_io_sum),
-    .io_carry (_fa_45_io_carry)
-  );
-  FullAdder fa_46 (	// src/main/scala/pvu/Compressor3to2.scala:35:20
-    .io_x     (io_operands_i[2'h0][46]),	// src/main/scala/pvu/Compressor3to2.scala:36:32
-    .io_y     (io_operands_i[2'h1][46]),	// src/main/scala/pvu/Compressor3to2.scala:37:32
-    .io_z     (io_operands_i[2'h2][46]),	// src/main/scala/pvu/Compressor3to2.scala:38:32
-    .io_sum   (_fa_46_io_sum),
-    .io_carry (_fa_46_io_carry)
-  );
-  FullAdder fa_47 (	// src/main/scala/pvu/Compressor3to2.scala:35:20
-    .io_x     (io_operands_i[2'h0][47]),	// src/main/scala/pvu/Compressor3to2.scala:36:32
-    .io_y     (io_operands_i[2'h1][47]),	// src/main/scala/pvu/Compressor3to2.scala:37:32
-    .io_z     (io_operands_i[2'h2][47]),	// src/main/scala/pvu/Compressor3to2.scala:38:32
-    .io_sum   (_fa_47_io_sum),
-    .io_carry (_fa_47_io_carry)
-  );
-  FullAdder fa_48 (	// src/main/scala/pvu/Compressor3to2.scala:35:20
-    .io_x     (io_operands_i[2'h0][48]),	// src/main/scala/pvu/Compressor3to2.scala:36:32
-    .io_y     (io_operands_i[2'h1][48]),	// src/main/scala/pvu/Compressor3to2.scala:37:32
-    .io_z     (io_operands_i[2'h2][48]),	// src/main/scala/pvu/Compressor3to2.scala:38:32
-    .io_sum   (_fa_48_io_sum),
-    .io_carry (_fa_48_io_carry)
-  );
-  FullAdder fa_49 (	// src/main/scala/pvu/Compressor3to2.scala:35:20
-    .io_x     (io_operands_i[2'h0][49]),	// src/main/scala/pvu/Compressor3to2.scala:36:32
-    .io_y     (io_operands_i[2'h1][49]),	// src/main/scala/pvu/Compressor3to2.scala:37:32
-    .io_z     (io_operands_i[2'h2][49]),	// src/main/scala/pvu/Compressor3to2.scala:38:32
-    .io_sum   (_fa_49_io_sum),
-    .io_carry (_fa_49_io_carry)
-  );
-  FullAdder fa_50 (	// src/main/scala/pvu/Compressor3to2.scala:35:20
-    .io_x     (io_operands_i[2'h0][50]),	// src/main/scala/pvu/Compressor3to2.scala:36:32
-    .io_y     (io_operands_i[2'h1][50]),	// src/main/scala/pvu/Compressor3to2.scala:37:32
-    .io_z     (io_operands_i[2'h2][50]),	// src/main/scala/pvu/Compressor3to2.scala:38:32
-    .io_sum   (_fa_50_io_sum),
-    .io_carry (_fa_50_io_carry)
-  );
-  FullAdder fa_51 (	// src/main/scala/pvu/Compressor3to2.scala:35:20
-    .io_x     (io_operands_i[2'h0][51]),	// src/main/scala/pvu/Compressor3to2.scala:36:32
-    .io_y     (io_operands_i[2'h1][51]),	// src/main/scala/pvu/Compressor3to2.scala:37:32
-    .io_z     (io_operands_i[2'h2][51]),	// src/main/scala/pvu/Compressor3to2.scala:38:32
-    .io_sum   (_fa_51_io_sum),
-    .io_carry (_fa_51_io_carry)
-  );
-  FullAdder fa_52 (	// src/main/scala/pvu/Compressor3to2.scala:35:20
-    .io_x     (io_operands_i[2'h0][52]),	// src/main/scala/pvu/Compressor3to2.scala:36:32
-    .io_y     (io_operands_i[2'h1][52]),	// src/main/scala/pvu/Compressor3to2.scala:37:32
-    .io_z     (io_operands_i[2'h2][52]),	// src/main/scala/pvu/Compressor3to2.scala:38:32
-    .io_sum   (_fa_52_io_sum),
-    .io_carry (_fa_52_io_carry)
-  );
-  FullAdder fa_53 (	// src/main/scala/pvu/Compressor3to2.scala:35:20
-    .io_x     (io_operands_i[2'h0][53]),	// src/main/scala/pvu/Compressor3to2.scala:36:32
-    .io_y     (io_operands_i[2'h1][53]),	// src/main/scala/pvu/Compressor3to2.scala:37:32
-    .io_z     (io_operands_i[2'h2][53]),	// src/main/scala/pvu/Compressor3to2.scala:38:32
-    .io_sum   (_fa_53_io_sum),
-    .io_carry (_fa_53_io_carry)
-  );
-  FullAdder fa_54 (	// src/main/scala/pvu/Compressor3to2.scala:35:20
-    .io_x     (io_operands_i[2'h0][54]),	// src/main/scala/pvu/Compressor3to2.scala:36:32
-    .io_y     (io_operands_i[2'h1][54]),	// src/main/scala/pvu/Compressor3to2.scala:37:32
-    .io_z     (io_operands_i[2'h2][54]),	// src/main/scala/pvu/Compressor3to2.scala:38:32
-    .io_sum   (_fa_54_io_sum),
-    .io_carry (_fa_54_io_carry)
-  );
-  FullAdder fa_55 (	// src/main/scala/pvu/Compressor3to2.scala:35:20
-    .io_x     (io_operands_i[2'h0][55]),	// src/main/scala/pvu/Compressor3to2.scala:36:32
-    .io_y     (io_operands_i[2'h1][55]),	// src/main/scala/pvu/Compressor3to2.scala:37:32
-    .io_z     (io_operands_i[2'h2][55]),	// src/main/scala/pvu/Compressor3to2.scala:38:32
-    .io_sum   (_fa_55_io_sum),
-    .io_carry (_fa_55_io_carry)
-  );
-  FullAdder fa_56 (	// src/main/scala/pvu/Compressor3to2.scala:35:20
-    .io_x     (io_operands_i[2'h0][56]),	// src/main/scala/pvu/Compressor3to2.scala:36:32
-    .io_y     (io_operands_i[2'h1][56]),	// src/main/scala/pvu/Compressor3to2.scala:37:32
-    .io_z     (io_operands_i[2'h2][56]),	// src/main/scala/pvu/Compressor3to2.scala:38:32
-    .io_sum   (_fa_56_io_sum),
-    .io_carry (_fa_56_io_carry)
-  );
-  FullAdder fa_57 (	// src/main/scala/pvu/Compressor3to2.scala:35:20
-    .io_x     (io_operands_i[2'h0][57]),	// src/main/scala/pvu/Compressor3to2.scala:36:32
-    .io_y     (io_operands_i[2'h1][57]),	// src/main/scala/pvu/Compressor3to2.scala:37:32
-    .io_z     (io_operands_i[2'h2][57]),	// src/main/scala/pvu/Compressor3to2.scala:38:32
-    .io_sum   (_fa_57_io_sum),
-    .io_carry (_fa_57_io_carry)
-  );
-  FullAdder fa_58 (	// src/main/scala/pvu/Compressor3to2.scala:35:20
-    .io_x     (io_operands_i[2'h0][58]),	// src/main/scala/pvu/Compressor3to2.scala:36:32
-    .io_y     (io_operands_i[2'h1][58]),	// src/main/scala/pvu/Compressor3to2.scala:37:32
-    .io_z     (io_operands_i[2'h2][58]),	// src/main/scala/pvu/Compressor3to2.scala:38:32
-    .io_sum   (_fa_58_io_sum),
-    .io_carry (_fa_58_io_carry)
-  );
-  FullAdder fa_59 (	// src/main/scala/pvu/Compressor3to2.scala:35:20
-    .io_x     (io_operands_i[2'h0][59]),	// src/main/scala/pvu/Compressor3to2.scala:36:32
-    .io_y     (io_operands_i[2'h1][59]),	// src/main/scala/pvu/Compressor3to2.scala:37:32
-    .io_z     (io_operands_i[2'h2][59]),	// src/main/scala/pvu/Compressor3to2.scala:38:32
-    .io_sum   (_fa_59_io_sum),
-    .io_carry (_fa_59_io_carry)
-  );
-  FullAdder fa_60 (	// src/main/scala/pvu/Compressor3to2.scala:35:20
-    .io_x     (io_operands_i[2'h0][60]),	// src/main/scala/pvu/Compressor3to2.scala:36:32
-    .io_y     (io_operands_i[2'h1][60]),	// src/main/scala/pvu/Compressor3to2.scala:37:32
-    .io_z     (io_operands_i[2'h2][60]),	// src/main/scala/pvu/Compressor3to2.scala:38:32
-    .io_sum   (_fa_60_io_sum),
-    .io_carry (_fa_60_io_carry)
-  );
-  FullAdder fa_61 (	// src/main/scala/pvu/Compressor3to2.scala:35:20
-    .io_x     (io_operands_i[2'h0][61]),	// src/main/scala/pvu/Compressor3to2.scala:36:32
-    .io_y     (io_operands_i[2'h1][61]),	// src/main/scala/pvu/Compressor3to2.scala:37:32
-    .io_z     (io_operands_i[2'h2][61]),	// src/main/scala/pvu/Compressor3to2.scala:38:32
-    .io_sum   (_fa_61_io_sum),
-    .io_carry (_fa_61_io_carry)
-  );
-  FullAdder fa_62 (	// src/main/scala/pvu/Compressor3to2.scala:35:20
-    .io_x     (io_operands_i[2'h0][62]),	// src/main/scala/pvu/Compressor3to2.scala:36:32
-    .io_y     (io_operands_i[2'h1][62]),	// src/main/scala/pvu/Compressor3to2.scala:37:32
-    .io_z     (io_operands_i[2'h2][62]),	// src/main/scala/pvu/Compressor3to2.scala:38:32
-    .io_sum   (_fa_62_io_sum),
-    .io_carry (_fa_62_io_carry)
-  );
-  FullAdder fa_63 (	// src/main/scala/pvu/Compressor3to2.scala:35:20
-    .io_x     (io_operands_i[2'h0][63]),	// src/main/scala/pvu/Compressor3to2.scala:36:32
-    .io_y     (io_operands_i[2'h1][63]),	// src/main/scala/pvu/Compressor3to2.scala:37:32
-    .io_z     (io_operands_i[2'h2][63]),	// src/main/scala/pvu/Compressor3to2.scala:38:32
-    .io_sum   (_fa_63_io_sum),
-    .io_carry (_fa_63_io_carry)
-  );
-  FullAdder fa_64 (	// src/main/scala/pvu/Compressor3to2.scala:35:20
-    .io_x     (io_operands_i[2'h0][64]),	// src/main/scala/pvu/Compressor3to2.scala:36:32
-    .io_y     (io_operands_i[2'h1][64]),	// src/main/scala/pvu/Compressor3to2.scala:37:32
-    .io_z     (io_operands_i[2'h2][64]),	// src/main/scala/pvu/Compressor3to2.scala:38:32
-    .io_sum   (_fa_64_io_sum),
-    .io_carry (_fa_64_io_carry)
-  );
-  FullAdder fa_65 (	// src/main/scala/pvu/Compressor3to2.scala:35:20
-    .io_x     (io_operands_i[2'h0][65]),	// src/main/scala/pvu/Compressor3to2.scala:36:32
-    .io_y     (io_operands_i[2'h1][65]),	// src/main/scala/pvu/Compressor3to2.scala:37:32
-    .io_z     (io_operands_i[2'h2][65]),	// src/main/scala/pvu/Compressor3to2.scala:38:32
-    .io_sum   (_fa_65_io_sum),
-    .io_carry (_fa_65_io_carry)
-  );
-  FullAdder fa_66 (	// src/main/scala/pvu/Compressor3to2.scala:35:20
-    .io_x     (io_operands_i[2'h0][66]),	// src/main/scala/pvu/Compressor3to2.scala:36:32
-    .io_y     (io_operands_i[2'h1][66]),	// src/main/scala/pvu/Compressor3to2.scala:37:32
-    .io_z     (io_operands_i[2'h2][66]),	// src/main/scala/pvu/Compressor3to2.scala:38:32
-    .io_sum   (_fa_66_io_sum),
-    .io_carry (_fa_66_io_carry)
-  );
-  FullAdder fa_67 (	// src/main/scala/pvu/Compressor3to2.scala:35:20
-    .io_x     (io_operands_i[2'h0][67]),	// src/main/scala/pvu/Compressor3to2.scala:36:32
-    .io_y     (io_operands_i[2'h1][67]),	// src/main/scala/pvu/Compressor3to2.scala:37:32
-    .io_z     (io_operands_i[2'h2][67]),	// src/main/scala/pvu/Compressor3to2.scala:38:32
-    .io_sum   (_fa_67_io_sum),
-    .io_carry (_fa_67_io_carry)
-  );
-  FullAdder fa_68 (	// src/main/scala/pvu/Compressor3to2.scala:35:20
-    .io_x     (io_operands_i[2'h0][68]),	// src/main/scala/pvu/Compressor3to2.scala:36:32
-    .io_y     (io_operands_i[2'h1][68]),	// src/main/scala/pvu/Compressor3to2.scala:37:32
-    .io_z     (io_operands_i[2'h2][68]),	// src/main/scala/pvu/Compressor3to2.scala:38:32
-    .io_sum   (_fa_68_io_sum),
-    .io_carry (_fa_68_io_carry)
-  );
-  FullAdder fa_69 (	// src/main/scala/pvu/Compressor3to2.scala:35:20
-    .io_x     (io_operands_i[2'h0][69]),	// src/main/scala/pvu/Compressor3to2.scala:36:32
-    .io_y     (io_operands_i[2'h1][69]),	// src/main/scala/pvu/Compressor3to2.scala:37:32
-    .io_z     (io_operands_i[2'h2][69]),	// src/main/scala/pvu/Compressor3to2.scala:38:32
-    .io_sum   (_fa_69_io_sum),
-    .io_carry (_fa_69_io_carry)
-  );
-  FullAdder fa_70 (	// src/main/scala/pvu/Compressor3to2.scala:35:20
-    .io_x     (io_operands_i[2'h0][70]),	// src/main/scala/pvu/Compressor3to2.scala:36:32
-    .io_y     (io_operands_i[2'h1][70]),	// src/main/scala/pvu/Compressor3to2.scala:37:32
-    .io_z     (io_operands_i[2'h2][70]),	// src/main/scala/pvu/Compressor3to2.scala:38:32
-    .io_sum   (_fa_70_io_sum),
-    .io_carry (_fa_70_io_carry)
-  );
-  FullAdder fa_71 (	// src/main/scala/pvu/Compressor3to2.scala:35:20
-    .io_x     (io_operands_i[2'h0][71]),	// src/main/scala/pvu/Compressor3to2.scala:36:32
-    .io_y     (io_operands_i[2'h1][71]),	// src/main/scala/pvu/Compressor3to2.scala:37:32
-    .io_z     (io_operands_i[2'h2][71]),	// src/main/scala/pvu/Compressor3to2.scala:38:32
-    .io_sum   (_fa_71_io_sum),
-    .io_carry (_fa_71_io_carry)
-  );
-  FullAdder fa_72 (	// src/main/scala/pvu/Compressor3to2.scala:35:20
-    .io_x     (io_operands_i[2'h0][72]),	// src/main/scala/pvu/Compressor3to2.scala:36:32
-    .io_y     (io_operands_i[2'h1][72]),	// src/main/scala/pvu/Compressor3to2.scala:37:32
-    .io_z     (io_operands_i[2'h2][72]),	// src/main/scala/pvu/Compressor3to2.scala:38:32
-    .io_sum   (_fa_72_io_sum),
-    .io_carry (_fa_72_io_carry)
-  );
-  FullAdder fa_73 (	// src/main/scala/pvu/Compressor3to2.scala:35:20
-    .io_x     (io_operands_i[2'h0][73]),	// src/main/scala/pvu/Compressor3to2.scala:36:32
-    .io_y     (io_operands_i[2'h1][73]),	// src/main/scala/pvu/Compressor3to2.scala:37:32
-    .io_z     (io_operands_i[2'h2][73]),	// src/main/scala/pvu/Compressor3to2.scala:38:32
-    .io_sum   (_fa_73_io_sum),
-    .io_carry (_fa_73_io_carry)
-  );
-  FullAdder fa_74 (	// src/main/scala/pvu/Compressor3to2.scala:35:20
-    .io_x     (io_operands_i[2'h0][74]),	// src/main/scala/pvu/Compressor3to2.scala:36:32
-    .io_y     (io_operands_i[2'h1][74]),	// src/main/scala/pvu/Compressor3to2.scala:37:32
-    .io_z     (io_operands_i[2'h2][74]),	// src/main/scala/pvu/Compressor3to2.scala:38:32
-    .io_sum   (_fa_74_io_sum),
-    .io_carry (_fa_74_io_carry)
-  );
-  FullAdder fa_75 (	// src/main/scala/pvu/Compressor3to2.scala:35:20
-    .io_x     (io_operands_i[2'h0][75]),	// src/main/scala/pvu/Compressor3to2.scala:36:32
-    .io_y     (io_operands_i[2'h1][75]),	// src/main/scala/pvu/Compressor3to2.scala:37:32
-    .io_z     (io_operands_i[2'h2][75]),	// src/main/scala/pvu/Compressor3to2.scala:38:32
-    .io_sum   (_fa_75_io_sum),
-    .io_carry (_fa_75_io_carry)
-  );
-  FullAdder fa_76 (	// src/main/scala/pvu/Compressor3to2.scala:35:20
-    .io_x     (io_operands_i[2'h0][76]),	// src/main/scala/pvu/Compressor3to2.scala:36:32
-    .io_y     (io_operands_i[2'h1][76]),	// src/main/scala/pvu/Compressor3to2.scala:37:32
-    .io_z     (io_operands_i[2'h2][76]),	// src/main/scala/pvu/Compressor3to2.scala:38:32
-    .io_sum   (_fa_76_io_sum),
-    .io_carry (_fa_76_io_carry)
-  );
-  FullAdder fa_77 (	// src/main/scala/pvu/Compressor3to2.scala:35:20
-    .io_x     (io_operands_i[2'h0][77]),	// src/main/scala/pvu/Compressor3to2.scala:36:32
-    .io_y     (io_operands_i[2'h1][77]),	// src/main/scala/pvu/Compressor3to2.scala:37:32
-    .io_z     (io_operands_i[2'h2][77]),	// src/main/scala/pvu/Compressor3to2.scala:38:32
-    .io_sum   (_fa_77_io_sum),
-    .io_carry (_fa_77_io_carry)
-  );
-  FullAdder fa_78 (	// src/main/scala/pvu/Compressor3to2.scala:35:20
-    .io_x     (io_operands_i[2'h0][78]),	// src/main/scala/pvu/Compressor3to2.scala:36:32
-    .io_y     (io_operands_i[2'h1][78]),	// src/main/scala/pvu/Compressor3to2.scala:37:32
-    .io_z     (io_operands_i[2'h2][78]),	// src/main/scala/pvu/Compressor3to2.scala:38:32
-    .io_sum   (_fa_78_io_sum),
-    .io_carry (_fa_78_io_carry)
-  );
-  FullAdder fa_79 (	// src/main/scala/pvu/Compressor3to2.scala:35:20
-    .io_x     (io_operands_i[2'h0][79]),	// src/main/scala/pvu/Compressor3to2.scala:36:32
-    .io_y     (io_operands_i[2'h1][79]),	// src/main/scala/pvu/Compressor3to2.scala:37:32
-    .io_z     (io_operands_i[2'h2][79]),	// src/main/scala/pvu/Compressor3to2.scala:38:32
-    .io_sum   (_fa_79_io_sum),
-    .io_carry (_fa_79_io_carry)
-  );
-  FullAdder fa_80 (	// src/main/scala/pvu/Compressor3to2.scala:35:20
-    .io_x     (io_operands_i[2'h0][80]),	// src/main/scala/pvu/Compressor3to2.scala:36:32
-    .io_y     (io_operands_i[2'h1][80]),	// src/main/scala/pvu/Compressor3to2.scala:37:32
-    .io_z     (io_operands_i[2'h2][80]),	// src/main/scala/pvu/Compressor3to2.scala:38:32
-    .io_sum   (_fa_80_io_sum),
-    .io_carry (_fa_80_io_carry)
-  );
-  FullAdder fa_81 (	// src/main/scala/pvu/Compressor3to2.scala:35:20
-    .io_x     (io_operands_i[2'h0][81]),	// src/main/scala/pvu/Compressor3to2.scala:36:32
-    .io_y     (io_operands_i[2'h1][81]),	// src/main/scala/pvu/Compressor3to2.scala:37:32
-    .io_z     (io_operands_i[2'h2][81]),	// src/main/scala/pvu/Compressor3to2.scala:38:32
-    .io_sum   (_fa_81_io_sum),
-    .io_carry (_fa_81_io_carry)
-  );
-  FullAdder fa_82 (	// src/main/scala/pvu/Compressor3to2.scala:35:20
-    .io_x     (io_operands_i[2'h0][82]),	// src/main/scala/pvu/Compressor3to2.scala:36:32
-    .io_y     (io_operands_i[2'h1][82]),	// src/main/scala/pvu/Compressor3to2.scala:37:32
-    .io_z     (io_operands_i[2'h2][82]),	// src/main/scala/pvu/Compressor3to2.scala:38:32
-    .io_sum   (_fa_82_io_sum),
-    .io_carry (_fa_82_io_carry)
-  );
-  FullAdder fa_83 (	// src/main/scala/pvu/Compressor3to2.scala:35:20
-    .io_x     (io_operands_i[2'h0][83]),	// src/main/scala/pvu/Compressor3to2.scala:36:32
-    .io_y     (io_operands_i[2'h1][83]),	// src/main/scala/pvu/Compressor3to2.scala:37:32
-    .io_z     (io_operands_i[2'h2][83]),	// src/main/scala/pvu/Compressor3to2.scala:38:32
-    .io_sum   (_fa_83_io_sum),
-    .io_carry (_fa_83_io_carry)
-  );
-  FullAdder fa_84 (	// src/main/scala/pvu/Compressor3to2.scala:35:20
-    .io_x     (io_operands_i[2'h0][84]),	// src/main/scala/pvu/Compressor3to2.scala:36:32
-    .io_y     (io_operands_i[2'h1][84]),	// src/main/scala/pvu/Compressor3to2.scala:37:32
-    .io_z     (io_operands_i[2'h2][84]),	// src/main/scala/pvu/Compressor3to2.scala:38:32
-    .io_sum   (_fa_84_io_sum),
-    .io_carry (_fa_84_io_carry)
-  );
-  FullAdder fa_85 (	// src/main/scala/pvu/Compressor3to2.scala:35:20
-    .io_x     (io_operands_i[2'h0][85]),	// src/main/scala/pvu/Compressor3to2.scala:36:32
-    .io_y     (io_operands_i[2'h1][85]),	// src/main/scala/pvu/Compressor3to2.scala:37:32
-    .io_z     (io_operands_i[2'h2][85]),	// src/main/scala/pvu/Compressor3to2.scala:38:32
-    .io_sum   (_fa_85_io_sum),
-    .io_carry (_fa_85_io_carry)
-  );
-  FullAdder fa_86 (	// src/main/scala/pvu/Compressor3to2.scala:35:20
-    .io_x     (io_operands_i[2'h0][86]),	// src/main/scala/pvu/Compressor3to2.scala:36:32
-    .io_y     (io_operands_i[2'h1][86]),	// src/main/scala/pvu/Compressor3to2.scala:37:32
-    .io_z     (io_operands_i[2'h2][86]),	// src/main/scala/pvu/Compressor3to2.scala:38:32
-    .io_sum   (_fa_86_io_sum),
-    .io_carry (_fa_86_io_carry)
-  );
-  FullAdder fa_87 (	// src/main/scala/pvu/Compressor3to2.scala:35:20
-    .io_x     (io_operands_i[2'h0][87]),	// src/main/scala/pvu/Compressor3to2.scala:36:32
-    .io_y     (io_operands_i[2'h1][87]),	// src/main/scala/pvu/Compressor3to2.scala:37:32
-    .io_z     (io_operands_i[2'h2][87]),	// src/main/scala/pvu/Compressor3to2.scala:38:32
-    .io_sum   (_fa_87_io_sum),
-    .io_carry (_fa_87_io_carry)
-  );
-  FullAdder fa_88 (	// src/main/scala/pvu/Compressor3to2.scala:35:20
-    .io_x     (io_operands_i[2'h0][88]),	// src/main/scala/pvu/Compressor3to2.scala:36:32
-    .io_y     (io_operands_i[2'h1][88]),	// src/main/scala/pvu/Compressor3to2.scala:37:32
-    .io_z     (io_operands_i[2'h2][88]),	// src/main/scala/pvu/Compressor3to2.scala:38:32
-    .io_sum   (_fa_88_io_sum),
-    .io_carry (_fa_88_io_carry)
-  );
-  FullAdder fa_89 (	// src/main/scala/pvu/Compressor3to2.scala:35:20
-    .io_x     (io_operands_i[2'h0][89]),	// src/main/scala/pvu/Compressor3to2.scala:36:32
-    .io_y     (io_operands_i[2'h1][89]),	// src/main/scala/pvu/Compressor3to2.scala:37:32
-    .io_z     (io_operands_i[2'h2][89]),	// src/main/scala/pvu/Compressor3to2.scala:38:32
-    .io_sum   (_fa_89_io_sum),
-    .io_carry (_fa_89_io_carry)
-  );
-  FullAdder fa_90 (	// src/main/scala/pvu/Compressor3to2.scala:35:20
-    .io_x     (io_operands_i[2'h0][90]),	// src/main/scala/pvu/Compressor3to2.scala:36:32
-    .io_y     (io_operands_i[2'h1][90]),	// src/main/scala/pvu/Compressor3to2.scala:37:32
-    .io_z     (io_operands_i[2'h2][90]),	// src/main/scala/pvu/Compressor3to2.scala:38:32
-    .io_sum   (_fa_90_io_sum),
-    .io_carry (_fa_90_io_carry)
-  );
-  FullAdder fa_91 (	// src/main/scala/pvu/Compressor3to2.scala:35:20
-    .io_x     (io_operands_i[2'h0][91]),	// src/main/scala/pvu/Compressor3to2.scala:36:32
-    .io_y     (io_operands_i[2'h1][91]),	// src/main/scala/pvu/Compressor3to2.scala:37:32
-    .io_z     (io_operands_i[2'h2][91]),	// src/main/scala/pvu/Compressor3to2.scala:38:32
-    .io_sum   (_fa_91_io_sum),
-    .io_carry (_fa_91_io_carry)
-  );
-  FullAdder fa_92 (	// src/main/scala/pvu/Compressor3to2.scala:35:20
-    .io_x     (io_operands_i[2'h0][92]),	// src/main/scala/pvu/Compressor3to2.scala:36:32
-    .io_y     (io_operands_i[2'h1][92]),	// src/main/scala/pvu/Compressor3to2.scala:37:32
-    .io_z     (io_operands_i[2'h2][92]),	// src/main/scala/pvu/Compressor3to2.scala:38:32
-    .io_sum   (_fa_92_io_sum),
-    .io_carry (_fa_92_io_carry)
-  );
-  FullAdder fa_93 (	// src/main/scala/pvu/Compressor3to2.scala:35:20
-    .io_x     (io_operands_i[2'h0][93]),	// src/main/scala/pvu/Compressor3to2.scala:36:32
-    .io_y     (io_operands_i[2'h1][93]),	// src/main/scala/pvu/Compressor3to2.scala:37:32
-    .io_z     (io_operands_i[2'h2][93]),	// src/main/scala/pvu/Compressor3to2.scala:38:32
-    .io_sum   (_fa_93_io_sum),
-    .io_carry (_fa_93_io_carry)
-  );
-  FullAdder fa_94 (	// src/main/scala/pvu/Compressor3to2.scala:35:20
-    .io_x     (io_operands_i[2'h0][94]),	// src/main/scala/pvu/Compressor3to2.scala:36:32
-    .io_y     (io_operands_i[2'h1][94]),	// src/main/scala/pvu/Compressor3to2.scala:37:32
-    .io_z     (io_operands_i[2'h2][94]),	// src/main/scala/pvu/Compressor3to2.scala:38:32
-    .io_sum   (_fa_94_io_sum),
-    .io_carry (_fa_94_io_carry)
-  );
-  FullAdder fa_95 (	// src/main/scala/pvu/Compressor3to2.scala:35:20
-    .io_x     (io_operands_i[2'h0][95]),	// src/main/scala/pvu/Compressor3to2.scala:36:32
-    .io_y     (io_operands_i[2'h1][95]),	// src/main/scala/pvu/Compressor3to2.scala:37:32
-    .io_z     (io_operands_i[2'h2][95]),	// src/main/scala/pvu/Compressor3to2.scala:38:32
-    .io_sum   (_fa_95_io_sum),
-    .io_carry (_fa_95_io_carry)
-  );
-  FullAdder fa_96 (	// src/main/scala/pvu/Compressor3to2.scala:35:20
-    .io_x     (io_operands_i[2'h0][96]),	// src/main/scala/pvu/Compressor3to2.scala:36:32
-    .io_y     (io_operands_i[2'h1][96]),	// src/main/scala/pvu/Compressor3to2.scala:37:32
-    .io_z     (io_operands_i[2'h2][96]),	// src/main/scala/pvu/Compressor3to2.scala:38:32
-    .io_sum   (_fa_96_io_sum),
-    .io_carry (_fa_96_io_carry)
-  );
-  FullAdder fa_97 (	// src/main/scala/pvu/Compressor3to2.scala:35:20
-    .io_x     (io_operands_i[2'h0][97]),	// src/main/scala/pvu/Compressor3to2.scala:36:32
-    .io_y     (io_operands_i[2'h1][97]),	// src/main/scala/pvu/Compressor3to2.scala:37:32
-    .io_z     (io_operands_i[2'h2][97]),	// src/main/scala/pvu/Compressor3to2.scala:38:32
-    .io_sum   (_fa_97_io_sum),
-    .io_carry (_fa_97_io_carry)
-  );
-  FullAdder fa_98 (	// src/main/scala/pvu/Compressor3to2.scala:35:20
-    .io_x     (io_operands_i[2'h0][98]),	// src/main/scala/pvu/Compressor3to2.scala:36:32
-    .io_y     (io_operands_i[2'h1][98]),	// src/main/scala/pvu/Compressor3to2.scala:37:32
-    .io_z     (io_operands_i[2'h2][98]),	// src/main/scala/pvu/Compressor3to2.scala:38:32
-    .io_sum   (_fa_98_io_sum),
-    .io_carry (_fa_98_io_carry)
-  );
-  FullAdder fa_99 (	// src/main/scala/pvu/Compressor3to2.scala:35:20
-    .io_x     (io_operands_i[2'h0][99]),	// src/main/scala/pvu/Compressor3to2.scala:36:32
-    .io_y     (io_operands_i[2'h1][99]),	// src/main/scala/pvu/Compressor3to2.scala:37:32
-    .io_z     (io_operands_i[2'h2][99]),	// src/main/scala/pvu/Compressor3to2.scala:38:32
-    .io_sum   (_fa_99_io_sum),
-    .io_carry (_fa_99_io_carry)
-  );
-  FullAdder fa_100 (	// src/main/scala/pvu/Compressor3to2.scala:35:20
-    .io_x     (io_operands_i[2'h0][100]),	// src/main/scala/pvu/Compressor3to2.scala:36:32
-    .io_y     (io_operands_i[2'h1][100]),	// src/main/scala/pvu/Compressor3to2.scala:37:32
-    .io_z     (io_operands_i[2'h2][100]),	// src/main/scala/pvu/Compressor3to2.scala:38:32
-    .io_sum   (_fa_100_io_sum),
-    .io_carry (_fa_100_io_carry)
-  );
-  FullAdder fa_101 (	// src/main/scala/pvu/Compressor3to2.scala:35:20
-    .io_x     (io_operands_i[2'h0][101]),	// src/main/scala/pvu/Compressor3to2.scala:36:32
-    .io_y     (io_operands_i[2'h1][101]),	// src/main/scala/pvu/Compressor3to2.scala:37:32
-    .io_z     (io_operands_i[2'h2][101]),	// src/main/scala/pvu/Compressor3to2.scala:38:32
-    .io_sum   (_fa_101_io_sum),
-    .io_carry (_fa_101_io_carry)
-  );
-  FullAdder fa_102 (	// src/main/scala/pvu/Compressor3to2.scala:35:20
-    .io_x     (io_operands_i[2'h0][102]),	// src/main/scala/pvu/Compressor3to2.scala:36:32
-    .io_y     (io_operands_i[2'h1][102]),	// src/main/scala/pvu/Compressor3to2.scala:37:32
-    .io_z     (io_operands_i[2'h2][102]),	// src/main/scala/pvu/Compressor3to2.scala:38:32
-    .io_sum   (_fa_102_io_sum),
-    .io_carry (_fa_102_io_carry)
-  );
-  FullAdder fa_103 (	// src/main/scala/pvu/Compressor3to2.scala:35:20
-    .io_x     (io_operands_i[2'h0][103]),	// src/main/scala/pvu/Compressor3to2.scala:36:32
-    .io_y     (io_operands_i[2'h1][103]),	// src/main/scala/pvu/Compressor3to2.scala:37:32
-    .io_z     (io_operands_i[2'h2][103]),	// src/main/scala/pvu/Compressor3to2.scala:38:32
-    .io_sum   (_fa_103_io_sum),
-    .io_carry (_fa_103_io_carry)
-  );
-  FullAdder fa_104 (	// src/main/scala/pvu/Compressor3to2.scala:35:20
-    .io_x     (io_operands_i[2'h0][104]),	// src/main/scala/pvu/Compressor3to2.scala:36:32
-    .io_y     (io_operands_i[2'h1][104]),	// src/main/scala/pvu/Compressor3to2.scala:37:32
-    .io_z     (io_operands_i[2'h2][104]),	// src/main/scala/pvu/Compressor3to2.scala:38:32
-    .io_sum   (_fa_104_io_sum),
-    .io_carry (_fa_104_io_carry)
-  );
-  FullAdder fa_105 (	// src/main/scala/pvu/Compressor3to2.scala:35:20
-    .io_x     (io_operands_i[2'h0][105]),	// src/main/scala/pvu/Compressor3to2.scala:36:32
-    .io_y     (io_operands_i[2'h1][105]),	// src/main/scala/pvu/Compressor3to2.scala:37:32
-    .io_z     (io_operands_i[2'h2][105]),	// src/main/scala/pvu/Compressor3to2.scala:38:32
-    .io_sum   (_fa_105_io_sum),
-    .io_carry (_fa_105_io_carry)
-  );
-  FullAdder fa_106 (	// src/main/scala/pvu/Compressor3to2.scala:35:20
-    .io_x     (io_operands_i[2'h0][106]),	// src/main/scala/pvu/Compressor3to2.scala:36:32
-    .io_y     (io_operands_i[2'h1][106]),	// src/main/scala/pvu/Compressor3to2.scala:37:32
-    .io_z     (io_operands_i[2'h2][106]),	// src/main/scala/pvu/Compressor3to2.scala:38:32
-    .io_sum   (_fa_106_io_sum),
-    .io_carry (_fa_106_io_carry)
-  );
-  FullAdder fa_107 (	// src/main/scala/pvu/Compressor3to2.scala:35:20
-    .io_x     (io_operands_i[2'h0][107]),	// src/main/scala/pvu/Compressor3to2.scala:36:32
-    .io_y     (io_operands_i[2'h1][107]),	// src/main/scala/pvu/Compressor3to2.scala:37:32
-    .io_z     (io_operands_i[2'h2][107]),	// src/main/scala/pvu/Compressor3to2.scala:38:32
-    .io_sum   (_fa_107_io_sum),
-    .io_carry (_fa_107_io_carry)
-  );
-  FullAdder fa_108 (	// src/main/scala/pvu/Compressor3to2.scala:35:20
-    .io_x     (io_operands_i[2'h0][108]),	// src/main/scala/pvu/Compressor3to2.scala:36:32
-    .io_y     (io_operands_i[2'h1][108]),	// src/main/scala/pvu/Compressor3to2.scala:37:32
-    .io_z     (io_operands_i[2'h2][108]),	// src/main/scala/pvu/Compressor3to2.scala:38:32
-    .io_sum   (_fa_108_io_sum),
-    .io_carry (_fa_108_io_carry)
-  );
-  FullAdder fa_109 (	// src/main/scala/pvu/Compressor3to2.scala:35:20
-    .io_x     (io_operands_i[2'h0][109]),	// src/main/scala/pvu/Compressor3to2.scala:36:32
-    .io_y     (io_operands_i[2'h1][109]),	// src/main/scala/pvu/Compressor3to2.scala:37:32
-    .io_z     (io_operands_i[2'h2][109]),	// src/main/scala/pvu/Compressor3to2.scala:38:32
-    .io_sum   (_fa_109_io_sum),
-    .io_carry (_fa_109_io_carry)
-  );
-  FullAdder fa_110 (	// src/main/scala/pvu/Compressor3to2.scala:35:20
-    .io_x     (io_operands_i[2'h0][110]),	// src/main/scala/pvu/Compressor3to2.scala:36:32
-    .io_y     (io_operands_i[2'h1][110]),	// src/main/scala/pvu/Compressor3to2.scala:37:32
-    .io_z     (io_operands_i[2'h2][110]),	// src/main/scala/pvu/Compressor3to2.scala:38:32
-    .io_sum   (_fa_110_io_sum),
-    .io_carry (_fa_110_io_carry)
-  );
-  FullAdder fa_111 (	// src/main/scala/pvu/Compressor3to2.scala:35:20
-    .io_x     (io_operands_i[2'h0][111]),	// src/main/scala/pvu/Compressor3to2.scala:36:32
-    .io_y     (io_operands_i[2'h1][111]),	// src/main/scala/pvu/Compressor3to2.scala:37:32
-    .io_z     (io_operands_i[2'h2][111]),	// src/main/scala/pvu/Compressor3to2.scala:38:32
-    .io_sum   (_fa_111_io_sum),
-    .io_carry (/* unused */)
-  );
-  assign io_sum_o =
-    {_fa_111_io_sum,
-     _fa_110_io_sum,
-     _fa_109_io_sum,
-     _fa_108_io_sum,
-     _fa_107_io_sum,
-     _fa_106_io_sum,
-     _fa_105_io_sum,
-     _fa_104_io_sum,
-     _fa_103_io_sum,
-     _fa_102_io_sum,
-     _fa_101_io_sum,
-     _fa_100_io_sum,
-     _fa_99_io_sum,
-     _fa_98_io_sum,
-     _fa_97_io_sum,
-     _fa_96_io_sum,
-     _fa_95_io_sum,
-     _fa_94_io_sum,
-     _fa_93_io_sum,
-     _fa_92_io_sum,
-     _fa_91_io_sum,
-     _fa_90_io_sum,
-     _fa_89_io_sum,
-     _fa_88_io_sum,
-     _fa_87_io_sum,
-     _fa_86_io_sum,
-     _fa_85_io_sum,
-     _fa_84_io_sum,
-     _fa_83_io_sum,
-     _fa_82_io_sum,
-     _fa_81_io_sum,
-     _fa_80_io_sum,
-     _fa_79_io_sum,
-     _fa_78_io_sum,
-     _fa_77_io_sum,
-     _fa_76_io_sum,
-     _fa_75_io_sum,
-     _fa_74_io_sum,
-     _fa_73_io_sum,
-     _fa_72_io_sum,
-     _fa_71_io_sum,
-     _fa_70_io_sum,
-     _fa_69_io_sum,
-     _fa_68_io_sum,
-     _fa_67_io_sum,
-     _fa_66_io_sum,
-     _fa_65_io_sum,
-     _fa_64_io_sum,
-     _fa_63_io_sum,
-     _fa_62_io_sum,
-     _fa_61_io_sum,
-     _fa_60_io_sum,
-     _fa_59_io_sum,
-     _fa_58_io_sum,
-     _fa_57_io_sum,
-     _fa_56_io_sum,
-     _fa_55_io_sum,
-     _fa_54_io_sum,
-     _fa_53_io_sum,
-     _fa_52_io_sum,
-     _fa_51_io_sum,
-     _fa_50_io_sum,
-     _fa_49_io_sum,
-     _fa_48_io_sum,
-     _fa_47_io_sum,
-     _fa_46_io_sum,
-     _fa_45_io_sum,
-     _fa_44_io_sum,
-     _fa_43_io_sum,
-     _fa_42_io_sum,
-     _fa_41_io_sum,
-     _fa_40_io_sum,
-     _fa_39_io_sum,
-     _fa_38_io_sum,
-     _fa_37_io_sum,
-     _fa_36_io_sum,
-     _fa_35_io_sum,
-     _fa_34_io_sum,
-     _fa_33_io_sum,
-     _fa_32_io_sum,
-     _fa_31_io_sum,
-     _fa_30_io_sum,
-     _fa_29_io_sum,
-     _fa_28_io_sum,
-     _fa_27_io_sum,
-     _fa_26_io_sum,
-     _fa_25_io_sum,
-     _fa_24_io_sum,
-     _fa_23_io_sum,
-     _fa_22_io_sum,
-     _fa_21_io_sum,
-     _fa_20_io_sum,
-     _fa_19_io_sum,
-     _fa_18_io_sum,
-     _fa_17_io_sum,
-     _fa_16_io_sum,
-     _fa_15_io_sum,
-     _fa_14_io_sum,
-     _fa_13_io_sum,
-     _fa_12_io_sum,
-     _fa_11_io_sum,
-     _fa_10_io_sum,
-     _fa_9_io_sum,
-     _fa_8_io_sum,
-     _fa_7_io_sum,
-     _fa_6_io_sum,
-     _fa_5_io_sum,
-     _fa_4_io_sum,
-     _fa_3_io_sum,
-     _fa_2_io_sum,
-     _fa_1_io_sum,
-     _fa_io_sum};	// src/main/scala/pvu/Compressor3to2.scala:21:7, :35:20, :45:23
-  assign io_carry_o =
-    {_fa_110_io_carry,
-     _fa_109_io_carry,
-     _fa_108_io_carry,
-     _fa_107_io_carry,
-     _fa_106_io_carry,
-     _fa_105_io_carry,
-     _fa_104_io_carry,
-     _fa_103_io_carry,
-     _fa_102_io_carry,
-     _fa_101_io_carry,
-     _fa_100_io_carry,
-     _fa_99_io_carry,
-     _fa_98_io_carry,
-     _fa_97_io_carry,
-     _fa_96_io_carry,
-     _fa_95_io_carry,
-     _fa_94_io_carry,
-     _fa_93_io_carry,
-     _fa_92_io_carry,
-     _fa_91_io_carry,
-     _fa_90_io_carry,
-     _fa_89_io_carry,
-     _fa_88_io_carry,
-     _fa_87_io_carry,
-     _fa_86_io_carry,
-     _fa_85_io_carry,
-     _fa_84_io_carry,
-     _fa_83_io_carry,
-     _fa_82_io_carry,
-     _fa_81_io_carry,
-     _fa_80_io_carry,
-     _fa_79_io_carry,
-     _fa_78_io_carry,
-     _fa_77_io_carry,
-     _fa_76_io_carry,
-     _fa_75_io_carry,
-     _fa_74_io_carry,
-     _fa_73_io_carry,
-     _fa_72_io_carry,
-     _fa_71_io_carry,
-     _fa_70_io_carry,
-     _fa_69_io_carry,
-     _fa_68_io_carry,
-     _fa_67_io_carry,
-     _fa_66_io_carry,
-     _fa_65_io_carry,
-     _fa_64_io_carry,
-     _fa_63_io_carry,
-     _fa_62_io_carry,
-     _fa_61_io_carry,
-     _fa_60_io_carry,
-     _fa_59_io_carry,
-     _fa_58_io_carry,
-     _fa_57_io_carry,
-     _fa_56_io_carry,
-     _fa_55_io_carry,
-     _fa_54_io_carry,
-     _fa_53_io_carry,
-     _fa_52_io_carry,
-     _fa_51_io_carry,
-     _fa_50_io_carry,
-     _fa_49_io_carry,
-     _fa_48_io_carry,
-     _fa_47_io_carry,
-     _fa_46_io_carry,
-     _fa_45_io_carry,
-     _fa_44_io_carry,
-     _fa_43_io_carry,
-     _fa_42_io_carry,
-     _fa_41_io_carry,
-     _fa_40_io_carry,
-     _fa_39_io_carry,
-     _fa_38_io_carry,
-     _fa_37_io_carry,
-     _fa_36_io_carry,
-     _fa_35_io_carry,
-     _fa_34_io_carry,
-     _fa_33_io_carry,
-     _fa_32_io_carry,
-     _fa_31_io_carry,
-     _fa_30_io_carry,
-     _fa_29_io_carry,
-     _fa_28_io_carry,
-     _fa_27_io_carry,
-     _fa_26_io_carry,
-     _fa_25_io_carry,
-     _fa_24_io_carry,
-     _fa_23_io_carry,
-     _fa_22_io_carry,
-     _fa_21_io_carry,
-     _fa_20_io_carry,
-     _fa_19_io_carry,
-     _fa_18_io_carry,
-     _fa_17_io_carry,
-     _fa_16_io_carry,
-     _fa_15_io_carry,
-     _fa_14_io_carry,
-     _fa_13_io_carry,
-     _fa_12_io_carry,
-     _fa_11_io_carry,
-     _fa_10_io_carry,
-     _fa_9_io_carry,
-     _fa_8_io_carry,
-     _fa_7_io_carry,
-     _fa_6_io_carry,
-     _fa_5_io_carry,
-     _fa_4_io_carry,
-     _fa_3_io_carry,
-     _fa_2_io_carry,
-     _fa_1_io_carry,
-     _fa_io_carry,
-     1'h0};	// src/main/scala/pvu/Compressor3to2.scala:21:7, :35:20, :47:{14,20}
-endmodule
-
-module CsaTree_28(	// src/main/scala/pvu/CsaTree.scala:7:7
-  input  [2:0][111:0] io_operands_i,	// src/main/scala/pvu/CsaTree.scala:8:14
-  output [111:0]      io_sum_o,	// src/main/scala/pvu/CsaTree.scala:8:14
-                      io_carry_o	// src/main/scala/pvu/CsaTree.scala:8:14
-);
-
-  Compressor3to2_4 compressor (	// src/main/scala/pvu/CsaTree.scala:31:28
-    .io_operands_i (io_operands_i),
-    .io_sum_o      (io_sum_o),
-    .io_carry_o    (io_carry_o)
-  );
-endmodule
-
-module Compressor4to2_24(	// src/main/scala/pvu/Compressor4to2.scala:29:7
-  input  [3:0][111:0] io_operands_i,	// src/main/scala/pvu/Compressor4to2.scala:31:14
-  output [111:0]      io_sum_o,	// src/main/scala/pvu/Compressor4to2.scala:31:14
-                      io_carry_o	// src/main/scala/pvu/Compressor4to2.scala:31:14
-);
-
-  wire _counter_111_io_sum;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_110_io_sum;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_110_io_carry;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_110_io_cout;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_109_io_sum;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_109_io_carry;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_109_io_cout;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_108_io_sum;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_108_io_carry;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_108_io_cout;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_107_io_sum;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_107_io_carry;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_107_io_cout;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_106_io_sum;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_106_io_carry;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_106_io_cout;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_105_io_sum;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_105_io_carry;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_105_io_cout;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_104_io_sum;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_104_io_carry;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_104_io_cout;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_103_io_sum;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_103_io_carry;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_103_io_cout;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_102_io_sum;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_102_io_carry;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_102_io_cout;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_101_io_sum;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_101_io_carry;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_101_io_cout;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_100_io_sum;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_100_io_carry;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_100_io_cout;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_99_io_sum;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_99_io_carry;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_99_io_cout;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_98_io_sum;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_98_io_carry;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_98_io_cout;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_97_io_sum;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_97_io_carry;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_97_io_cout;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_96_io_sum;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_96_io_carry;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_96_io_cout;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_95_io_sum;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_95_io_carry;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_95_io_cout;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_94_io_sum;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_94_io_carry;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_94_io_cout;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_93_io_sum;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_93_io_carry;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_93_io_cout;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_92_io_sum;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_92_io_carry;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_92_io_cout;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_91_io_sum;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_91_io_carry;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_91_io_cout;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_90_io_sum;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_90_io_carry;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_90_io_cout;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_89_io_sum;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_89_io_carry;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_89_io_cout;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_88_io_sum;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_88_io_carry;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_88_io_cout;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_87_io_sum;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_87_io_carry;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_87_io_cout;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_86_io_sum;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_86_io_carry;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_86_io_cout;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_85_io_sum;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_85_io_carry;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_85_io_cout;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_84_io_sum;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_84_io_carry;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_84_io_cout;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_83_io_sum;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_83_io_carry;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_83_io_cout;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_82_io_sum;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_82_io_carry;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_82_io_cout;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_81_io_sum;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_81_io_carry;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_81_io_cout;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_80_io_sum;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_80_io_carry;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_80_io_cout;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_79_io_sum;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_79_io_carry;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_79_io_cout;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_78_io_sum;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_78_io_carry;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_78_io_cout;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_77_io_sum;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_77_io_carry;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_77_io_cout;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_76_io_sum;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_76_io_carry;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_76_io_cout;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_75_io_sum;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_75_io_carry;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_75_io_cout;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_74_io_sum;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_74_io_carry;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_74_io_cout;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_73_io_sum;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_73_io_carry;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_73_io_cout;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_72_io_sum;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_72_io_carry;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_72_io_cout;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_71_io_sum;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_71_io_carry;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_71_io_cout;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_70_io_sum;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_70_io_carry;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_70_io_cout;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_69_io_sum;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_69_io_carry;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_69_io_cout;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_68_io_sum;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_68_io_carry;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_68_io_cout;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_67_io_sum;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_67_io_carry;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_67_io_cout;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_66_io_sum;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_66_io_carry;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_66_io_cout;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_65_io_sum;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_65_io_carry;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_65_io_cout;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_64_io_sum;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_64_io_carry;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_64_io_cout;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_63_io_sum;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_63_io_carry;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_63_io_cout;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_62_io_sum;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_62_io_carry;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_62_io_cout;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_61_io_sum;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_61_io_carry;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_61_io_cout;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_60_io_sum;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_60_io_carry;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_60_io_cout;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_59_io_sum;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_59_io_carry;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_59_io_cout;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_58_io_sum;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_58_io_carry;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_58_io_cout;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_57_io_sum;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_57_io_carry;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_57_io_cout;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_56_io_sum;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_56_io_carry;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_56_io_cout;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_55_io_sum;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_55_io_carry;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_55_io_cout;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_54_io_sum;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_54_io_carry;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_54_io_cout;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_53_io_sum;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_53_io_carry;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_53_io_cout;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_52_io_sum;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_52_io_carry;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_52_io_cout;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_51_io_sum;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_51_io_carry;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_51_io_cout;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_50_io_sum;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_50_io_carry;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_50_io_cout;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_49_io_sum;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_49_io_carry;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_49_io_cout;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_48_io_sum;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_48_io_carry;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_48_io_cout;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_47_io_sum;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_47_io_carry;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_47_io_cout;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_46_io_sum;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_46_io_carry;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_46_io_cout;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_45_io_sum;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_45_io_carry;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_45_io_cout;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_44_io_sum;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_44_io_carry;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_44_io_cout;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_43_io_sum;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_43_io_carry;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_43_io_cout;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_42_io_sum;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_42_io_carry;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_42_io_cout;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_41_io_sum;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_41_io_carry;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_41_io_cout;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_40_io_sum;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_40_io_carry;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_40_io_cout;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_39_io_sum;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_39_io_carry;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_39_io_cout;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_38_io_sum;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_38_io_carry;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_38_io_cout;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_37_io_sum;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_37_io_carry;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_37_io_cout;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_36_io_sum;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_36_io_carry;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_36_io_cout;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_35_io_sum;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_35_io_carry;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_35_io_cout;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_34_io_sum;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_34_io_carry;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_34_io_cout;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_33_io_sum;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_33_io_carry;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_33_io_cout;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_32_io_sum;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_32_io_carry;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_32_io_cout;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_31_io_sum;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_31_io_carry;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_31_io_cout;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_30_io_sum;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_30_io_carry;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_30_io_cout;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_29_io_sum;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_29_io_carry;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_29_io_cout;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_28_io_sum;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_28_io_carry;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_28_io_cout;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_27_io_sum;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_27_io_carry;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_27_io_cout;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_26_io_sum;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_26_io_carry;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_26_io_cout;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_25_io_sum;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_25_io_carry;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_25_io_cout;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_24_io_sum;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_24_io_carry;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_24_io_cout;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_23_io_sum;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_23_io_carry;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_23_io_cout;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_22_io_sum;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_22_io_carry;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_22_io_cout;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_21_io_sum;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_21_io_carry;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_21_io_cout;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_20_io_sum;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_20_io_carry;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_20_io_cout;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_19_io_sum;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_19_io_carry;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_19_io_cout;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_18_io_sum;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_18_io_carry;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_18_io_cout;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_17_io_sum;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_17_io_carry;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_17_io_cout;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_16_io_sum;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_16_io_carry;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_16_io_cout;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_15_io_sum;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_15_io_carry;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_15_io_cout;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_14_io_sum;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_14_io_carry;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_14_io_cout;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_13_io_sum;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_13_io_carry;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_13_io_cout;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_12_io_sum;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_12_io_carry;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_12_io_cout;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_11_io_sum;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_11_io_carry;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_11_io_cout;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_10_io_sum;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_10_io_carry;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_10_io_cout;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_9_io_sum;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_9_io_carry;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_9_io_cout;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_8_io_sum;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_8_io_carry;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_8_io_cout;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_7_io_sum;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_7_io_carry;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_7_io_cout;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_6_io_sum;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_6_io_carry;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_6_io_cout;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_5_io_sum;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_5_io_carry;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_5_io_cout;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_4_io_sum;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_4_io_carry;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_4_io_cout;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_3_io_sum;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_3_io_carry;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_3_io_cout;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_2_io_sum;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_2_io_carry;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_2_io_cout;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_1_io_sum;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_1_io_carry;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_1_io_cout;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_io_sum;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_io_carry;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  wire _counter_io_cout;	// src/main/scala/pvu/Compressor4to2.scala:48:25
-  Counter5to3 counter (	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_x1    (io_operands_i[2'h0][0]),	// src/main/scala/pvu/Compressor4to2.scala:49:39
-    .io_x2    (io_operands_i[2'h1][0]),	// src/main/scala/pvu/Compressor4to2.scala:50:39
-    .io_x3    (io_operands_i[2'h2][0]),	// src/main/scala/pvu/Compressor4to2.scala:51:39
-    .io_x4    (io_operands_i[2'h3][0]),	// src/main/scala/pvu/Compressor4to2.scala:52:39
-    .io_cin   (1'h0),	// src/main/scala/pvu/Compressor4to2.scala:44:13, :48:25
-    .io_sum   (_counter_io_sum),
-    .io_carry (_counter_io_carry),
-    .io_cout  (_counter_io_cout)
-  );
-  Counter5to3 counter_1 (	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_x1    (io_operands_i[2'h0][1]),	// src/main/scala/pvu/Compressor4to2.scala:49:39
-    .io_x2    (io_operands_i[2'h1][1]),	// src/main/scala/pvu/Compressor4to2.scala:50:39
-    .io_x3    (io_operands_i[2'h2][1]),	// src/main/scala/pvu/Compressor4to2.scala:51:39
-    .io_x4    (io_operands_i[2'h3][1]),	// src/main/scala/pvu/Compressor4to2.scala:52:39
-    .io_cin   (_counter_io_cout),	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_sum   (_counter_1_io_sum),
-    .io_carry (_counter_1_io_carry),
-    .io_cout  (_counter_1_io_cout)
-  );
-  Counter5to3 counter_2 (	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_x1    (io_operands_i[2'h0][2]),	// src/main/scala/pvu/Compressor4to2.scala:49:39
-    .io_x2    (io_operands_i[2'h1][2]),	// src/main/scala/pvu/Compressor4to2.scala:50:39
-    .io_x3    (io_operands_i[2'h2][2]),	// src/main/scala/pvu/Compressor4to2.scala:51:39
-    .io_x4    (io_operands_i[2'h3][2]),	// src/main/scala/pvu/Compressor4to2.scala:52:39
-    .io_cin   (_counter_1_io_cout),	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_sum   (_counter_2_io_sum),
-    .io_carry (_counter_2_io_carry),
-    .io_cout  (_counter_2_io_cout)
-  );
-  Counter5to3 counter_3 (	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_x1    (io_operands_i[2'h0][3]),	// src/main/scala/pvu/Compressor4to2.scala:49:39
-    .io_x2    (io_operands_i[2'h1][3]),	// src/main/scala/pvu/Compressor4to2.scala:50:39
-    .io_x3    (io_operands_i[2'h2][3]),	// src/main/scala/pvu/Compressor4to2.scala:51:39
-    .io_x4    (io_operands_i[2'h3][3]),	// src/main/scala/pvu/Compressor4to2.scala:52:39
-    .io_cin   (_counter_2_io_cout),	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_sum   (_counter_3_io_sum),
-    .io_carry (_counter_3_io_carry),
-    .io_cout  (_counter_3_io_cout)
-  );
-  Counter5to3 counter_4 (	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_x1    (io_operands_i[2'h0][4]),	// src/main/scala/pvu/Compressor4to2.scala:49:39
-    .io_x2    (io_operands_i[2'h1][4]),	// src/main/scala/pvu/Compressor4to2.scala:50:39
-    .io_x3    (io_operands_i[2'h2][4]),	// src/main/scala/pvu/Compressor4to2.scala:51:39
-    .io_x4    (io_operands_i[2'h3][4]),	// src/main/scala/pvu/Compressor4to2.scala:52:39
-    .io_cin   (_counter_3_io_cout),	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_sum   (_counter_4_io_sum),
-    .io_carry (_counter_4_io_carry),
-    .io_cout  (_counter_4_io_cout)
-  );
-  Counter5to3 counter_5 (	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_x1    (io_operands_i[2'h0][5]),	// src/main/scala/pvu/Compressor4to2.scala:49:39
-    .io_x2    (io_operands_i[2'h1][5]),	// src/main/scala/pvu/Compressor4to2.scala:50:39
-    .io_x3    (io_operands_i[2'h2][5]),	// src/main/scala/pvu/Compressor4to2.scala:51:39
-    .io_x4    (io_operands_i[2'h3][5]),	// src/main/scala/pvu/Compressor4to2.scala:52:39
-    .io_cin   (_counter_4_io_cout),	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_sum   (_counter_5_io_sum),
-    .io_carry (_counter_5_io_carry),
-    .io_cout  (_counter_5_io_cout)
-  );
-  Counter5to3 counter_6 (	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_x1    (io_operands_i[2'h0][6]),	// src/main/scala/pvu/Compressor4to2.scala:49:39
-    .io_x2    (io_operands_i[2'h1][6]),	// src/main/scala/pvu/Compressor4to2.scala:50:39
-    .io_x3    (io_operands_i[2'h2][6]),	// src/main/scala/pvu/Compressor4to2.scala:51:39
-    .io_x4    (io_operands_i[2'h3][6]),	// src/main/scala/pvu/Compressor4to2.scala:52:39
-    .io_cin   (_counter_5_io_cout),	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_sum   (_counter_6_io_sum),
-    .io_carry (_counter_6_io_carry),
-    .io_cout  (_counter_6_io_cout)
-  );
-  Counter5to3 counter_7 (	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_x1    (io_operands_i[2'h0][7]),	// src/main/scala/pvu/Compressor4to2.scala:49:39
-    .io_x2    (io_operands_i[2'h1][7]),	// src/main/scala/pvu/Compressor4to2.scala:50:39
-    .io_x3    (io_operands_i[2'h2][7]),	// src/main/scala/pvu/Compressor4to2.scala:51:39
-    .io_x4    (io_operands_i[2'h3][7]),	// src/main/scala/pvu/Compressor4to2.scala:52:39
-    .io_cin   (_counter_6_io_cout),	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_sum   (_counter_7_io_sum),
-    .io_carry (_counter_7_io_carry),
-    .io_cout  (_counter_7_io_cout)
-  );
-  Counter5to3 counter_8 (	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_x1    (io_operands_i[2'h0][8]),	// src/main/scala/pvu/Compressor4to2.scala:49:39
-    .io_x2    (io_operands_i[2'h1][8]),	// src/main/scala/pvu/Compressor4to2.scala:50:39
-    .io_x3    (io_operands_i[2'h2][8]),	// src/main/scala/pvu/Compressor4to2.scala:51:39
-    .io_x4    (io_operands_i[2'h3][8]),	// src/main/scala/pvu/Compressor4to2.scala:52:39
-    .io_cin   (_counter_7_io_cout),	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_sum   (_counter_8_io_sum),
-    .io_carry (_counter_8_io_carry),
-    .io_cout  (_counter_8_io_cout)
-  );
-  Counter5to3 counter_9 (	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_x1    (io_operands_i[2'h0][9]),	// src/main/scala/pvu/Compressor4to2.scala:49:39
-    .io_x2    (io_operands_i[2'h1][9]),	// src/main/scala/pvu/Compressor4to2.scala:50:39
-    .io_x3    (io_operands_i[2'h2][9]),	// src/main/scala/pvu/Compressor4to2.scala:51:39
-    .io_x4    (io_operands_i[2'h3][9]),	// src/main/scala/pvu/Compressor4to2.scala:52:39
-    .io_cin   (_counter_8_io_cout),	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_sum   (_counter_9_io_sum),
-    .io_carry (_counter_9_io_carry),
-    .io_cout  (_counter_9_io_cout)
-  );
-  Counter5to3 counter_10 (	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_x1    (io_operands_i[2'h0][10]),	// src/main/scala/pvu/Compressor4to2.scala:49:39
-    .io_x2    (io_operands_i[2'h1][10]),	// src/main/scala/pvu/Compressor4to2.scala:50:39
-    .io_x3    (io_operands_i[2'h2][10]),	// src/main/scala/pvu/Compressor4to2.scala:51:39
-    .io_x4    (io_operands_i[2'h3][10]),	// src/main/scala/pvu/Compressor4to2.scala:52:39
-    .io_cin   (_counter_9_io_cout),	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_sum   (_counter_10_io_sum),
-    .io_carry (_counter_10_io_carry),
-    .io_cout  (_counter_10_io_cout)
-  );
-  Counter5to3 counter_11 (	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_x1    (io_operands_i[2'h0][11]),	// src/main/scala/pvu/Compressor4to2.scala:49:39
-    .io_x2    (io_operands_i[2'h1][11]),	// src/main/scala/pvu/Compressor4to2.scala:50:39
-    .io_x3    (io_operands_i[2'h2][11]),	// src/main/scala/pvu/Compressor4to2.scala:51:39
-    .io_x4    (io_operands_i[2'h3][11]),	// src/main/scala/pvu/Compressor4to2.scala:52:39
-    .io_cin   (_counter_10_io_cout),	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_sum   (_counter_11_io_sum),
-    .io_carry (_counter_11_io_carry),
-    .io_cout  (_counter_11_io_cout)
-  );
-  Counter5to3 counter_12 (	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_x1    (io_operands_i[2'h0][12]),	// src/main/scala/pvu/Compressor4to2.scala:49:39
-    .io_x2    (io_operands_i[2'h1][12]),	// src/main/scala/pvu/Compressor4to2.scala:50:39
-    .io_x3    (io_operands_i[2'h2][12]),	// src/main/scala/pvu/Compressor4to2.scala:51:39
-    .io_x4    (io_operands_i[2'h3][12]),	// src/main/scala/pvu/Compressor4to2.scala:52:39
-    .io_cin   (_counter_11_io_cout),	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_sum   (_counter_12_io_sum),
-    .io_carry (_counter_12_io_carry),
-    .io_cout  (_counter_12_io_cout)
-  );
-  Counter5to3 counter_13 (	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_x1    (io_operands_i[2'h0][13]),	// src/main/scala/pvu/Compressor4to2.scala:49:39
-    .io_x2    (io_operands_i[2'h1][13]),	// src/main/scala/pvu/Compressor4to2.scala:50:39
-    .io_x3    (io_operands_i[2'h2][13]),	// src/main/scala/pvu/Compressor4to2.scala:51:39
-    .io_x4    (io_operands_i[2'h3][13]),	// src/main/scala/pvu/Compressor4to2.scala:52:39
-    .io_cin   (_counter_12_io_cout),	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_sum   (_counter_13_io_sum),
-    .io_carry (_counter_13_io_carry),
-    .io_cout  (_counter_13_io_cout)
-  );
-  Counter5to3 counter_14 (	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_x1    (io_operands_i[2'h0][14]),	// src/main/scala/pvu/Compressor4to2.scala:49:39
-    .io_x2    (io_operands_i[2'h1][14]),	// src/main/scala/pvu/Compressor4to2.scala:50:39
-    .io_x3    (io_operands_i[2'h2][14]),	// src/main/scala/pvu/Compressor4to2.scala:51:39
-    .io_x4    (io_operands_i[2'h3][14]),	// src/main/scala/pvu/Compressor4to2.scala:52:39
-    .io_cin   (_counter_13_io_cout),	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_sum   (_counter_14_io_sum),
-    .io_carry (_counter_14_io_carry),
-    .io_cout  (_counter_14_io_cout)
-  );
-  Counter5to3 counter_15 (	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_x1    (io_operands_i[2'h0][15]),	// src/main/scala/pvu/Compressor4to2.scala:49:39
-    .io_x2    (io_operands_i[2'h1][15]),	// src/main/scala/pvu/Compressor4to2.scala:50:39
-    .io_x3    (io_operands_i[2'h2][15]),	// src/main/scala/pvu/Compressor4to2.scala:51:39
-    .io_x4    (io_operands_i[2'h3][15]),	// src/main/scala/pvu/Compressor4to2.scala:52:39
-    .io_cin   (_counter_14_io_cout),	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_sum   (_counter_15_io_sum),
-    .io_carry (_counter_15_io_carry),
-    .io_cout  (_counter_15_io_cout)
-  );
-  Counter5to3 counter_16 (	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_x1    (io_operands_i[2'h0][16]),	// src/main/scala/pvu/Compressor4to2.scala:49:39
-    .io_x2    (io_operands_i[2'h1][16]),	// src/main/scala/pvu/Compressor4to2.scala:50:39
-    .io_x3    (io_operands_i[2'h2][16]),	// src/main/scala/pvu/Compressor4to2.scala:51:39
-    .io_x4    (io_operands_i[2'h3][16]),	// src/main/scala/pvu/Compressor4to2.scala:52:39
-    .io_cin   (_counter_15_io_cout),	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_sum   (_counter_16_io_sum),
-    .io_carry (_counter_16_io_carry),
-    .io_cout  (_counter_16_io_cout)
-  );
-  Counter5to3 counter_17 (	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_x1    (io_operands_i[2'h0][17]),	// src/main/scala/pvu/Compressor4to2.scala:49:39
-    .io_x2    (io_operands_i[2'h1][17]),	// src/main/scala/pvu/Compressor4to2.scala:50:39
-    .io_x3    (io_operands_i[2'h2][17]),	// src/main/scala/pvu/Compressor4to2.scala:51:39
-    .io_x4    (io_operands_i[2'h3][17]),	// src/main/scala/pvu/Compressor4to2.scala:52:39
-    .io_cin   (_counter_16_io_cout),	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_sum   (_counter_17_io_sum),
-    .io_carry (_counter_17_io_carry),
-    .io_cout  (_counter_17_io_cout)
-  );
-  Counter5to3 counter_18 (	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_x1    (io_operands_i[2'h0][18]),	// src/main/scala/pvu/Compressor4to2.scala:49:39
-    .io_x2    (io_operands_i[2'h1][18]),	// src/main/scala/pvu/Compressor4to2.scala:50:39
-    .io_x3    (io_operands_i[2'h2][18]),	// src/main/scala/pvu/Compressor4to2.scala:51:39
-    .io_x4    (io_operands_i[2'h3][18]),	// src/main/scala/pvu/Compressor4to2.scala:52:39
-    .io_cin   (_counter_17_io_cout),	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_sum   (_counter_18_io_sum),
-    .io_carry (_counter_18_io_carry),
-    .io_cout  (_counter_18_io_cout)
-  );
-  Counter5to3 counter_19 (	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_x1    (io_operands_i[2'h0][19]),	// src/main/scala/pvu/Compressor4to2.scala:49:39
-    .io_x2    (io_operands_i[2'h1][19]),	// src/main/scala/pvu/Compressor4to2.scala:50:39
-    .io_x3    (io_operands_i[2'h2][19]),	// src/main/scala/pvu/Compressor4to2.scala:51:39
-    .io_x4    (io_operands_i[2'h3][19]),	// src/main/scala/pvu/Compressor4to2.scala:52:39
-    .io_cin   (_counter_18_io_cout),	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_sum   (_counter_19_io_sum),
-    .io_carry (_counter_19_io_carry),
-    .io_cout  (_counter_19_io_cout)
-  );
-  Counter5to3 counter_20 (	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_x1    (io_operands_i[2'h0][20]),	// src/main/scala/pvu/Compressor4to2.scala:49:39
-    .io_x2    (io_operands_i[2'h1][20]),	// src/main/scala/pvu/Compressor4to2.scala:50:39
-    .io_x3    (io_operands_i[2'h2][20]),	// src/main/scala/pvu/Compressor4to2.scala:51:39
-    .io_x4    (io_operands_i[2'h3][20]),	// src/main/scala/pvu/Compressor4to2.scala:52:39
-    .io_cin   (_counter_19_io_cout),	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_sum   (_counter_20_io_sum),
-    .io_carry (_counter_20_io_carry),
-    .io_cout  (_counter_20_io_cout)
-  );
-  Counter5to3 counter_21 (	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_x1    (io_operands_i[2'h0][21]),	// src/main/scala/pvu/Compressor4to2.scala:49:39
-    .io_x2    (io_operands_i[2'h1][21]),	// src/main/scala/pvu/Compressor4to2.scala:50:39
-    .io_x3    (io_operands_i[2'h2][21]),	// src/main/scala/pvu/Compressor4to2.scala:51:39
-    .io_x4    (io_operands_i[2'h3][21]),	// src/main/scala/pvu/Compressor4to2.scala:52:39
-    .io_cin   (_counter_20_io_cout),	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_sum   (_counter_21_io_sum),
-    .io_carry (_counter_21_io_carry),
-    .io_cout  (_counter_21_io_cout)
-  );
-  Counter5to3 counter_22 (	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_x1    (io_operands_i[2'h0][22]),	// src/main/scala/pvu/Compressor4to2.scala:49:39
-    .io_x2    (io_operands_i[2'h1][22]),	// src/main/scala/pvu/Compressor4to2.scala:50:39
-    .io_x3    (io_operands_i[2'h2][22]),	// src/main/scala/pvu/Compressor4to2.scala:51:39
-    .io_x4    (io_operands_i[2'h3][22]),	// src/main/scala/pvu/Compressor4to2.scala:52:39
-    .io_cin   (_counter_21_io_cout),	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_sum   (_counter_22_io_sum),
-    .io_carry (_counter_22_io_carry),
-    .io_cout  (_counter_22_io_cout)
-  );
-  Counter5to3 counter_23 (	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_x1    (io_operands_i[2'h0][23]),	// src/main/scala/pvu/Compressor4to2.scala:49:39
-    .io_x2    (io_operands_i[2'h1][23]),	// src/main/scala/pvu/Compressor4to2.scala:50:39
-    .io_x3    (io_operands_i[2'h2][23]),	// src/main/scala/pvu/Compressor4to2.scala:51:39
-    .io_x4    (io_operands_i[2'h3][23]),	// src/main/scala/pvu/Compressor4to2.scala:52:39
-    .io_cin   (_counter_22_io_cout),	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_sum   (_counter_23_io_sum),
-    .io_carry (_counter_23_io_carry),
-    .io_cout  (_counter_23_io_cout)
-  );
-  Counter5to3 counter_24 (	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_x1    (io_operands_i[2'h0][24]),	// src/main/scala/pvu/Compressor4to2.scala:49:39
-    .io_x2    (io_operands_i[2'h1][24]),	// src/main/scala/pvu/Compressor4to2.scala:50:39
-    .io_x3    (io_operands_i[2'h2][24]),	// src/main/scala/pvu/Compressor4to2.scala:51:39
-    .io_x4    (io_operands_i[2'h3][24]),	// src/main/scala/pvu/Compressor4to2.scala:52:39
-    .io_cin   (_counter_23_io_cout),	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_sum   (_counter_24_io_sum),
-    .io_carry (_counter_24_io_carry),
-    .io_cout  (_counter_24_io_cout)
-  );
-  Counter5to3 counter_25 (	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_x1    (io_operands_i[2'h0][25]),	// src/main/scala/pvu/Compressor4to2.scala:49:39
-    .io_x2    (io_operands_i[2'h1][25]),	// src/main/scala/pvu/Compressor4to2.scala:50:39
-    .io_x3    (io_operands_i[2'h2][25]),	// src/main/scala/pvu/Compressor4to2.scala:51:39
-    .io_x4    (io_operands_i[2'h3][25]),	// src/main/scala/pvu/Compressor4to2.scala:52:39
-    .io_cin   (_counter_24_io_cout),	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_sum   (_counter_25_io_sum),
-    .io_carry (_counter_25_io_carry),
-    .io_cout  (_counter_25_io_cout)
-  );
-  Counter5to3 counter_26 (	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_x1    (io_operands_i[2'h0][26]),	// src/main/scala/pvu/Compressor4to2.scala:49:39
-    .io_x2    (io_operands_i[2'h1][26]),	// src/main/scala/pvu/Compressor4to2.scala:50:39
-    .io_x3    (io_operands_i[2'h2][26]),	// src/main/scala/pvu/Compressor4to2.scala:51:39
-    .io_x4    (io_operands_i[2'h3][26]),	// src/main/scala/pvu/Compressor4to2.scala:52:39
-    .io_cin   (_counter_25_io_cout),	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_sum   (_counter_26_io_sum),
-    .io_carry (_counter_26_io_carry),
-    .io_cout  (_counter_26_io_cout)
-  );
-  Counter5to3 counter_27 (	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_x1    (io_operands_i[2'h0][27]),	// src/main/scala/pvu/Compressor4to2.scala:49:39
-    .io_x2    (io_operands_i[2'h1][27]),	// src/main/scala/pvu/Compressor4to2.scala:50:39
-    .io_x3    (io_operands_i[2'h2][27]),	// src/main/scala/pvu/Compressor4to2.scala:51:39
-    .io_x4    (io_operands_i[2'h3][27]),	// src/main/scala/pvu/Compressor4to2.scala:52:39
-    .io_cin   (_counter_26_io_cout),	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_sum   (_counter_27_io_sum),
-    .io_carry (_counter_27_io_carry),
-    .io_cout  (_counter_27_io_cout)
-  );
-  Counter5to3 counter_28 (	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_x1    (io_operands_i[2'h0][28]),	// src/main/scala/pvu/Compressor4to2.scala:49:39
-    .io_x2    (io_operands_i[2'h1][28]),	// src/main/scala/pvu/Compressor4to2.scala:50:39
-    .io_x3    (io_operands_i[2'h2][28]),	// src/main/scala/pvu/Compressor4to2.scala:51:39
-    .io_x4    (io_operands_i[2'h3][28]),	// src/main/scala/pvu/Compressor4to2.scala:52:39
-    .io_cin   (_counter_27_io_cout),	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_sum   (_counter_28_io_sum),
-    .io_carry (_counter_28_io_carry),
-    .io_cout  (_counter_28_io_cout)
-  );
-  Counter5to3 counter_29 (	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_x1    (io_operands_i[2'h0][29]),	// src/main/scala/pvu/Compressor4to2.scala:49:39
-    .io_x2    (io_operands_i[2'h1][29]),	// src/main/scala/pvu/Compressor4to2.scala:50:39
-    .io_x3    (io_operands_i[2'h2][29]),	// src/main/scala/pvu/Compressor4to2.scala:51:39
-    .io_x4    (io_operands_i[2'h3][29]),	// src/main/scala/pvu/Compressor4to2.scala:52:39
-    .io_cin   (_counter_28_io_cout),	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_sum   (_counter_29_io_sum),
-    .io_carry (_counter_29_io_carry),
-    .io_cout  (_counter_29_io_cout)
-  );
-  Counter5to3 counter_30 (	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_x1    (io_operands_i[2'h0][30]),	// src/main/scala/pvu/Compressor4to2.scala:49:39
-    .io_x2    (io_operands_i[2'h1][30]),	// src/main/scala/pvu/Compressor4to2.scala:50:39
-    .io_x3    (io_operands_i[2'h2][30]),	// src/main/scala/pvu/Compressor4to2.scala:51:39
-    .io_x4    (io_operands_i[2'h3][30]),	// src/main/scala/pvu/Compressor4to2.scala:52:39
-    .io_cin   (_counter_29_io_cout),	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_sum   (_counter_30_io_sum),
-    .io_carry (_counter_30_io_carry),
-    .io_cout  (_counter_30_io_cout)
-  );
-  Counter5to3 counter_31 (	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_x1    (io_operands_i[2'h0][31]),	// src/main/scala/pvu/Compressor4to2.scala:49:39
-    .io_x2    (io_operands_i[2'h1][31]),	// src/main/scala/pvu/Compressor4to2.scala:50:39
-    .io_x3    (io_operands_i[2'h2][31]),	// src/main/scala/pvu/Compressor4to2.scala:51:39
-    .io_x4    (io_operands_i[2'h3][31]),	// src/main/scala/pvu/Compressor4to2.scala:52:39
-    .io_cin   (_counter_30_io_cout),	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_sum   (_counter_31_io_sum),
-    .io_carry (_counter_31_io_carry),
-    .io_cout  (_counter_31_io_cout)
-  );
-  Counter5to3 counter_32 (	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_x1    (io_operands_i[2'h0][32]),	// src/main/scala/pvu/Compressor4to2.scala:49:39
-    .io_x2    (io_operands_i[2'h1][32]),	// src/main/scala/pvu/Compressor4to2.scala:50:39
-    .io_x3    (io_operands_i[2'h2][32]),	// src/main/scala/pvu/Compressor4to2.scala:51:39
-    .io_x4    (io_operands_i[2'h3][32]),	// src/main/scala/pvu/Compressor4to2.scala:52:39
-    .io_cin   (_counter_31_io_cout),	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_sum   (_counter_32_io_sum),
-    .io_carry (_counter_32_io_carry),
-    .io_cout  (_counter_32_io_cout)
-  );
-  Counter5to3 counter_33 (	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_x1    (io_operands_i[2'h0][33]),	// src/main/scala/pvu/Compressor4to2.scala:49:39
-    .io_x2    (io_operands_i[2'h1][33]),	// src/main/scala/pvu/Compressor4to2.scala:50:39
-    .io_x3    (io_operands_i[2'h2][33]),	// src/main/scala/pvu/Compressor4to2.scala:51:39
-    .io_x4    (io_operands_i[2'h3][33]),	// src/main/scala/pvu/Compressor4to2.scala:52:39
-    .io_cin   (_counter_32_io_cout),	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_sum   (_counter_33_io_sum),
-    .io_carry (_counter_33_io_carry),
-    .io_cout  (_counter_33_io_cout)
-  );
-  Counter5to3 counter_34 (	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_x1    (io_operands_i[2'h0][34]),	// src/main/scala/pvu/Compressor4to2.scala:49:39
-    .io_x2    (io_operands_i[2'h1][34]),	// src/main/scala/pvu/Compressor4to2.scala:50:39
-    .io_x3    (io_operands_i[2'h2][34]),	// src/main/scala/pvu/Compressor4to2.scala:51:39
-    .io_x4    (io_operands_i[2'h3][34]),	// src/main/scala/pvu/Compressor4to2.scala:52:39
-    .io_cin   (_counter_33_io_cout),	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_sum   (_counter_34_io_sum),
-    .io_carry (_counter_34_io_carry),
-    .io_cout  (_counter_34_io_cout)
-  );
-  Counter5to3 counter_35 (	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_x1    (io_operands_i[2'h0][35]),	// src/main/scala/pvu/Compressor4to2.scala:49:39
-    .io_x2    (io_operands_i[2'h1][35]),	// src/main/scala/pvu/Compressor4to2.scala:50:39
-    .io_x3    (io_operands_i[2'h2][35]),	// src/main/scala/pvu/Compressor4to2.scala:51:39
-    .io_x4    (io_operands_i[2'h3][35]),	// src/main/scala/pvu/Compressor4to2.scala:52:39
-    .io_cin   (_counter_34_io_cout),	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_sum   (_counter_35_io_sum),
-    .io_carry (_counter_35_io_carry),
-    .io_cout  (_counter_35_io_cout)
-  );
-  Counter5to3 counter_36 (	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_x1    (io_operands_i[2'h0][36]),	// src/main/scala/pvu/Compressor4to2.scala:49:39
-    .io_x2    (io_operands_i[2'h1][36]),	// src/main/scala/pvu/Compressor4to2.scala:50:39
-    .io_x3    (io_operands_i[2'h2][36]),	// src/main/scala/pvu/Compressor4to2.scala:51:39
-    .io_x4    (io_operands_i[2'h3][36]),	// src/main/scala/pvu/Compressor4to2.scala:52:39
-    .io_cin   (_counter_35_io_cout),	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_sum   (_counter_36_io_sum),
-    .io_carry (_counter_36_io_carry),
-    .io_cout  (_counter_36_io_cout)
-  );
-  Counter5to3 counter_37 (	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_x1    (io_operands_i[2'h0][37]),	// src/main/scala/pvu/Compressor4to2.scala:49:39
-    .io_x2    (io_operands_i[2'h1][37]),	// src/main/scala/pvu/Compressor4to2.scala:50:39
-    .io_x3    (io_operands_i[2'h2][37]),	// src/main/scala/pvu/Compressor4to2.scala:51:39
-    .io_x4    (io_operands_i[2'h3][37]),	// src/main/scala/pvu/Compressor4to2.scala:52:39
-    .io_cin   (_counter_36_io_cout),	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_sum   (_counter_37_io_sum),
-    .io_carry (_counter_37_io_carry),
-    .io_cout  (_counter_37_io_cout)
-  );
-  Counter5to3 counter_38 (	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_x1    (io_operands_i[2'h0][38]),	// src/main/scala/pvu/Compressor4to2.scala:49:39
-    .io_x2    (io_operands_i[2'h1][38]),	// src/main/scala/pvu/Compressor4to2.scala:50:39
-    .io_x3    (io_operands_i[2'h2][38]),	// src/main/scala/pvu/Compressor4to2.scala:51:39
-    .io_x4    (io_operands_i[2'h3][38]),	// src/main/scala/pvu/Compressor4to2.scala:52:39
-    .io_cin   (_counter_37_io_cout),	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_sum   (_counter_38_io_sum),
-    .io_carry (_counter_38_io_carry),
-    .io_cout  (_counter_38_io_cout)
-  );
-  Counter5to3 counter_39 (	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_x1    (io_operands_i[2'h0][39]),	// src/main/scala/pvu/Compressor4to2.scala:49:39
-    .io_x2    (io_operands_i[2'h1][39]),	// src/main/scala/pvu/Compressor4to2.scala:50:39
-    .io_x3    (io_operands_i[2'h2][39]),	// src/main/scala/pvu/Compressor4to2.scala:51:39
-    .io_x4    (io_operands_i[2'h3][39]),	// src/main/scala/pvu/Compressor4to2.scala:52:39
-    .io_cin   (_counter_38_io_cout),	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_sum   (_counter_39_io_sum),
-    .io_carry (_counter_39_io_carry),
-    .io_cout  (_counter_39_io_cout)
-  );
-  Counter5to3 counter_40 (	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_x1    (io_operands_i[2'h0][40]),	// src/main/scala/pvu/Compressor4to2.scala:49:39
-    .io_x2    (io_operands_i[2'h1][40]),	// src/main/scala/pvu/Compressor4to2.scala:50:39
-    .io_x3    (io_operands_i[2'h2][40]),	// src/main/scala/pvu/Compressor4to2.scala:51:39
-    .io_x4    (io_operands_i[2'h3][40]),	// src/main/scala/pvu/Compressor4to2.scala:52:39
-    .io_cin   (_counter_39_io_cout),	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_sum   (_counter_40_io_sum),
-    .io_carry (_counter_40_io_carry),
-    .io_cout  (_counter_40_io_cout)
-  );
-  Counter5to3 counter_41 (	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_x1    (io_operands_i[2'h0][41]),	// src/main/scala/pvu/Compressor4to2.scala:49:39
-    .io_x2    (io_operands_i[2'h1][41]),	// src/main/scala/pvu/Compressor4to2.scala:50:39
-    .io_x3    (io_operands_i[2'h2][41]),	// src/main/scala/pvu/Compressor4to2.scala:51:39
-    .io_x4    (io_operands_i[2'h3][41]),	// src/main/scala/pvu/Compressor4to2.scala:52:39
-    .io_cin   (_counter_40_io_cout),	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_sum   (_counter_41_io_sum),
-    .io_carry (_counter_41_io_carry),
-    .io_cout  (_counter_41_io_cout)
-  );
-  Counter5to3 counter_42 (	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_x1    (io_operands_i[2'h0][42]),	// src/main/scala/pvu/Compressor4to2.scala:49:39
-    .io_x2    (io_operands_i[2'h1][42]),	// src/main/scala/pvu/Compressor4to2.scala:50:39
-    .io_x3    (io_operands_i[2'h2][42]),	// src/main/scala/pvu/Compressor4to2.scala:51:39
-    .io_x4    (io_operands_i[2'h3][42]),	// src/main/scala/pvu/Compressor4to2.scala:52:39
-    .io_cin   (_counter_41_io_cout),	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_sum   (_counter_42_io_sum),
-    .io_carry (_counter_42_io_carry),
-    .io_cout  (_counter_42_io_cout)
-  );
-  Counter5to3 counter_43 (	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_x1    (io_operands_i[2'h0][43]),	// src/main/scala/pvu/Compressor4to2.scala:49:39
-    .io_x2    (io_operands_i[2'h1][43]),	// src/main/scala/pvu/Compressor4to2.scala:50:39
-    .io_x3    (io_operands_i[2'h2][43]),	// src/main/scala/pvu/Compressor4to2.scala:51:39
-    .io_x4    (io_operands_i[2'h3][43]),	// src/main/scala/pvu/Compressor4to2.scala:52:39
-    .io_cin   (_counter_42_io_cout),	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_sum   (_counter_43_io_sum),
-    .io_carry (_counter_43_io_carry),
-    .io_cout  (_counter_43_io_cout)
-  );
-  Counter5to3 counter_44 (	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_x1    (io_operands_i[2'h0][44]),	// src/main/scala/pvu/Compressor4to2.scala:49:39
-    .io_x2    (io_operands_i[2'h1][44]),	// src/main/scala/pvu/Compressor4to2.scala:50:39
-    .io_x3    (io_operands_i[2'h2][44]),	// src/main/scala/pvu/Compressor4to2.scala:51:39
-    .io_x4    (io_operands_i[2'h3][44]),	// src/main/scala/pvu/Compressor4to2.scala:52:39
-    .io_cin   (_counter_43_io_cout),	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_sum   (_counter_44_io_sum),
-    .io_carry (_counter_44_io_carry),
-    .io_cout  (_counter_44_io_cout)
-  );
-  Counter5to3 counter_45 (	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_x1    (io_operands_i[2'h0][45]),	// src/main/scala/pvu/Compressor4to2.scala:49:39
-    .io_x2    (io_operands_i[2'h1][45]),	// src/main/scala/pvu/Compressor4to2.scala:50:39
-    .io_x3    (io_operands_i[2'h2][45]),	// src/main/scala/pvu/Compressor4to2.scala:51:39
-    .io_x4    (io_operands_i[2'h3][45]),	// src/main/scala/pvu/Compressor4to2.scala:52:39
-    .io_cin   (_counter_44_io_cout),	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_sum   (_counter_45_io_sum),
-    .io_carry (_counter_45_io_carry),
-    .io_cout  (_counter_45_io_cout)
-  );
-  Counter5to3 counter_46 (	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_x1    (io_operands_i[2'h0][46]),	// src/main/scala/pvu/Compressor4to2.scala:49:39
-    .io_x2    (io_operands_i[2'h1][46]),	// src/main/scala/pvu/Compressor4to2.scala:50:39
-    .io_x3    (io_operands_i[2'h2][46]),	// src/main/scala/pvu/Compressor4to2.scala:51:39
-    .io_x4    (io_operands_i[2'h3][46]),	// src/main/scala/pvu/Compressor4to2.scala:52:39
-    .io_cin   (_counter_45_io_cout),	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_sum   (_counter_46_io_sum),
-    .io_carry (_counter_46_io_carry),
-    .io_cout  (_counter_46_io_cout)
-  );
-  Counter5to3 counter_47 (	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_x1    (io_operands_i[2'h0][47]),	// src/main/scala/pvu/Compressor4to2.scala:49:39
-    .io_x2    (io_operands_i[2'h1][47]),	// src/main/scala/pvu/Compressor4to2.scala:50:39
-    .io_x3    (io_operands_i[2'h2][47]),	// src/main/scala/pvu/Compressor4to2.scala:51:39
-    .io_x4    (io_operands_i[2'h3][47]),	// src/main/scala/pvu/Compressor4to2.scala:52:39
-    .io_cin   (_counter_46_io_cout),	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_sum   (_counter_47_io_sum),
-    .io_carry (_counter_47_io_carry),
-    .io_cout  (_counter_47_io_cout)
-  );
-  Counter5to3 counter_48 (	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_x1    (io_operands_i[2'h0][48]),	// src/main/scala/pvu/Compressor4to2.scala:49:39
-    .io_x2    (io_operands_i[2'h1][48]),	// src/main/scala/pvu/Compressor4to2.scala:50:39
-    .io_x3    (io_operands_i[2'h2][48]),	// src/main/scala/pvu/Compressor4to2.scala:51:39
-    .io_x4    (io_operands_i[2'h3][48]),	// src/main/scala/pvu/Compressor4to2.scala:52:39
-    .io_cin   (_counter_47_io_cout),	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_sum   (_counter_48_io_sum),
-    .io_carry (_counter_48_io_carry),
-    .io_cout  (_counter_48_io_cout)
-  );
-  Counter5to3 counter_49 (	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_x1    (io_operands_i[2'h0][49]),	// src/main/scala/pvu/Compressor4to2.scala:49:39
-    .io_x2    (io_operands_i[2'h1][49]),	// src/main/scala/pvu/Compressor4to2.scala:50:39
-    .io_x3    (io_operands_i[2'h2][49]),	// src/main/scala/pvu/Compressor4to2.scala:51:39
-    .io_x4    (io_operands_i[2'h3][49]),	// src/main/scala/pvu/Compressor4to2.scala:52:39
-    .io_cin   (_counter_48_io_cout),	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_sum   (_counter_49_io_sum),
-    .io_carry (_counter_49_io_carry),
-    .io_cout  (_counter_49_io_cout)
-  );
-  Counter5to3 counter_50 (	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_x1    (io_operands_i[2'h0][50]),	// src/main/scala/pvu/Compressor4to2.scala:49:39
-    .io_x2    (io_operands_i[2'h1][50]),	// src/main/scala/pvu/Compressor4to2.scala:50:39
-    .io_x3    (io_operands_i[2'h2][50]),	// src/main/scala/pvu/Compressor4to2.scala:51:39
-    .io_x4    (io_operands_i[2'h3][50]),	// src/main/scala/pvu/Compressor4to2.scala:52:39
-    .io_cin   (_counter_49_io_cout),	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_sum   (_counter_50_io_sum),
-    .io_carry (_counter_50_io_carry),
-    .io_cout  (_counter_50_io_cout)
-  );
-  Counter5to3 counter_51 (	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_x1    (io_operands_i[2'h0][51]),	// src/main/scala/pvu/Compressor4to2.scala:49:39
-    .io_x2    (io_operands_i[2'h1][51]),	// src/main/scala/pvu/Compressor4to2.scala:50:39
-    .io_x3    (io_operands_i[2'h2][51]),	// src/main/scala/pvu/Compressor4to2.scala:51:39
-    .io_x4    (io_operands_i[2'h3][51]),	// src/main/scala/pvu/Compressor4to2.scala:52:39
-    .io_cin   (_counter_50_io_cout),	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_sum   (_counter_51_io_sum),
-    .io_carry (_counter_51_io_carry),
-    .io_cout  (_counter_51_io_cout)
-  );
-  Counter5to3 counter_52 (	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_x1    (io_operands_i[2'h0][52]),	// src/main/scala/pvu/Compressor4to2.scala:49:39
-    .io_x2    (io_operands_i[2'h1][52]),	// src/main/scala/pvu/Compressor4to2.scala:50:39
-    .io_x3    (io_operands_i[2'h2][52]),	// src/main/scala/pvu/Compressor4to2.scala:51:39
-    .io_x4    (io_operands_i[2'h3][52]),	// src/main/scala/pvu/Compressor4to2.scala:52:39
-    .io_cin   (_counter_51_io_cout),	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_sum   (_counter_52_io_sum),
-    .io_carry (_counter_52_io_carry),
-    .io_cout  (_counter_52_io_cout)
-  );
-  Counter5to3 counter_53 (	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_x1    (io_operands_i[2'h0][53]),	// src/main/scala/pvu/Compressor4to2.scala:49:39
-    .io_x2    (io_operands_i[2'h1][53]),	// src/main/scala/pvu/Compressor4to2.scala:50:39
-    .io_x3    (io_operands_i[2'h2][53]),	// src/main/scala/pvu/Compressor4to2.scala:51:39
-    .io_x4    (io_operands_i[2'h3][53]),	// src/main/scala/pvu/Compressor4to2.scala:52:39
-    .io_cin   (_counter_52_io_cout),	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_sum   (_counter_53_io_sum),
-    .io_carry (_counter_53_io_carry),
-    .io_cout  (_counter_53_io_cout)
-  );
-  Counter5to3 counter_54 (	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_x1    (io_operands_i[2'h0][54]),	// src/main/scala/pvu/Compressor4to2.scala:49:39
-    .io_x2    (io_operands_i[2'h1][54]),	// src/main/scala/pvu/Compressor4to2.scala:50:39
-    .io_x3    (io_operands_i[2'h2][54]),	// src/main/scala/pvu/Compressor4to2.scala:51:39
-    .io_x4    (io_operands_i[2'h3][54]),	// src/main/scala/pvu/Compressor4to2.scala:52:39
-    .io_cin   (_counter_53_io_cout),	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_sum   (_counter_54_io_sum),
-    .io_carry (_counter_54_io_carry),
-    .io_cout  (_counter_54_io_cout)
-  );
-  Counter5to3 counter_55 (	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_x1    (io_operands_i[2'h0][55]),	// src/main/scala/pvu/Compressor4to2.scala:49:39
-    .io_x2    (io_operands_i[2'h1][55]),	// src/main/scala/pvu/Compressor4to2.scala:50:39
-    .io_x3    (io_operands_i[2'h2][55]),	// src/main/scala/pvu/Compressor4to2.scala:51:39
-    .io_x4    (io_operands_i[2'h3][55]),	// src/main/scala/pvu/Compressor4to2.scala:52:39
-    .io_cin   (_counter_54_io_cout),	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_sum   (_counter_55_io_sum),
-    .io_carry (_counter_55_io_carry),
-    .io_cout  (_counter_55_io_cout)
-  );
-  Counter5to3 counter_56 (	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_x1    (io_operands_i[2'h0][56]),	// src/main/scala/pvu/Compressor4to2.scala:49:39
-    .io_x2    (io_operands_i[2'h1][56]),	// src/main/scala/pvu/Compressor4to2.scala:50:39
-    .io_x3    (io_operands_i[2'h2][56]),	// src/main/scala/pvu/Compressor4to2.scala:51:39
-    .io_x4    (io_operands_i[2'h3][56]),	// src/main/scala/pvu/Compressor4to2.scala:52:39
-    .io_cin   (_counter_55_io_cout),	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_sum   (_counter_56_io_sum),
-    .io_carry (_counter_56_io_carry),
-    .io_cout  (_counter_56_io_cout)
-  );
-  Counter5to3 counter_57 (	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_x1    (io_operands_i[2'h0][57]),	// src/main/scala/pvu/Compressor4to2.scala:49:39
-    .io_x2    (io_operands_i[2'h1][57]),	// src/main/scala/pvu/Compressor4to2.scala:50:39
-    .io_x3    (io_operands_i[2'h2][57]),	// src/main/scala/pvu/Compressor4to2.scala:51:39
-    .io_x4    (io_operands_i[2'h3][57]),	// src/main/scala/pvu/Compressor4to2.scala:52:39
-    .io_cin   (_counter_56_io_cout),	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_sum   (_counter_57_io_sum),
-    .io_carry (_counter_57_io_carry),
-    .io_cout  (_counter_57_io_cout)
-  );
-  Counter5to3 counter_58 (	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_x1    (io_operands_i[2'h0][58]),	// src/main/scala/pvu/Compressor4to2.scala:49:39
-    .io_x2    (io_operands_i[2'h1][58]),	// src/main/scala/pvu/Compressor4to2.scala:50:39
-    .io_x3    (io_operands_i[2'h2][58]),	// src/main/scala/pvu/Compressor4to2.scala:51:39
-    .io_x4    (io_operands_i[2'h3][58]),	// src/main/scala/pvu/Compressor4to2.scala:52:39
-    .io_cin   (_counter_57_io_cout),	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_sum   (_counter_58_io_sum),
-    .io_carry (_counter_58_io_carry),
-    .io_cout  (_counter_58_io_cout)
-  );
-  Counter5to3 counter_59 (	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_x1    (io_operands_i[2'h0][59]),	// src/main/scala/pvu/Compressor4to2.scala:49:39
-    .io_x2    (io_operands_i[2'h1][59]),	// src/main/scala/pvu/Compressor4to2.scala:50:39
-    .io_x3    (io_operands_i[2'h2][59]),	// src/main/scala/pvu/Compressor4to2.scala:51:39
-    .io_x4    (io_operands_i[2'h3][59]),	// src/main/scala/pvu/Compressor4to2.scala:52:39
-    .io_cin   (_counter_58_io_cout),	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_sum   (_counter_59_io_sum),
-    .io_carry (_counter_59_io_carry),
-    .io_cout  (_counter_59_io_cout)
-  );
-  Counter5to3 counter_60 (	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_x1    (io_operands_i[2'h0][60]),	// src/main/scala/pvu/Compressor4to2.scala:49:39
-    .io_x2    (io_operands_i[2'h1][60]),	// src/main/scala/pvu/Compressor4to2.scala:50:39
-    .io_x3    (io_operands_i[2'h2][60]),	// src/main/scala/pvu/Compressor4to2.scala:51:39
-    .io_x4    (io_operands_i[2'h3][60]),	// src/main/scala/pvu/Compressor4to2.scala:52:39
-    .io_cin   (_counter_59_io_cout),	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_sum   (_counter_60_io_sum),
-    .io_carry (_counter_60_io_carry),
-    .io_cout  (_counter_60_io_cout)
-  );
-  Counter5to3 counter_61 (	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_x1    (io_operands_i[2'h0][61]),	// src/main/scala/pvu/Compressor4to2.scala:49:39
-    .io_x2    (io_operands_i[2'h1][61]),	// src/main/scala/pvu/Compressor4to2.scala:50:39
-    .io_x3    (io_operands_i[2'h2][61]),	// src/main/scala/pvu/Compressor4to2.scala:51:39
-    .io_x4    (io_operands_i[2'h3][61]),	// src/main/scala/pvu/Compressor4to2.scala:52:39
-    .io_cin   (_counter_60_io_cout),	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_sum   (_counter_61_io_sum),
-    .io_carry (_counter_61_io_carry),
-    .io_cout  (_counter_61_io_cout)
-  );
-  Counter5to3 counter_62 (	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_x1    (io_operands_i[2'h0][62]),	// src/main/scala/pvu/Compressor4to2.scala:49:39
-    .io_x2    (io_operands_i[2'h1][62]),	// src/main/scala/pvu/Compressor4to2.scala:50:39
-    .io_x3    (io_operands_i[2'h2][62]),	// src/main/scala/pvu/Compressor4to2.scala:51:39
-    .io_x4    (io_operands_i[2'h3][62]),	// src/main/scala/pvu/Compressor4to2.scala:52:39
-    .io_cin   (_counter_61_io_cout),	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_sum   (_counter_62_io_sum),
-    .io_carry (_counter_62_io_carry),
-    .io_cout  (_counter_62_io_cout)
-  );
-  Counter5to3 counter_63 (	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_x1    (io_operands_i[2'h0][63]),	// src/main/scala/pvu/Compressor4to2.scala:49:39
-    .io_x2    (io_operands_i[2'h1][63]),	// src/main/scala/pvu/Compressor4to2.scala:50:39
-    .io_x3    (io_operands_i[2'h2][63]),	// src/main/scala/pvu/Compressor4to2.scala:51:39
-    .io_x4    (io_operands_i[2'h3][63]),	// src/main/scala/pvu/Compressor4to2.scala:52:39
-    .io_cin   (_counter_62_io_cout),	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_sum   (_counter_63_io_sum),
-    .io_carry (_counter_63_io_carry),
-    .io_cout  (_counter_63_io_cout)
-  );
-  Counter5to3 counter_64 (	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_x1    (io_operands_i[2'h0][64]),	// src/main/scala/pvu/Compressor4to2.scala:49:39
-    .io_x2    (io_operands_i[2'h1][64]),	// src/main/scala/pvu/Compressor4to2.scala:50:39
-    .io_x3    (io_operands_i[2'h2][64]),	// src/main/scala/pvu/Compressor4to2.scala:51:39
-    .io_x4    (io_operands_i[2'h3][64]),	// src/main/scala/pvu/Compressor4to2.scala:52:39
-    .io_cin   (_counter_63_io_cout),	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_sum   (_counter_64_io_sum),
-    .io_carry (_counter_64_io_carry),
-    .io_cout  (_counter_64_io_cout)
-  );
-  Counter5to3 counter_65 (	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_x1    (io_operands_i[2'h0][65]),	// src/main/scala/pvu/Compressor4to2.scala:49:39
-    .io_x2    (io_operands_i[2'h1][65]),	// src/main/scala/pvu/Compressor4to2.scala:50:39
-    .io_x3    (io_operands_i[2'h2][65]),	// src/main/scala/pvu/Compressor4to2.scala:51:39
-    .io_x4    (io_operands_i[2'h3][65]),	// src/main/scala/pvu/Compressor4to2.scala:52:39
-    .io_cin   (_counter_64_io_cout),	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_sum   (_counter_65_io_sum),
-    .io_carry (_counter_65_io_carry),
-    .io_cout  (_counter_65_io_cout)
-  );
-  Counter5to3 counter_66 (	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_x1    (io_operands_i[2'h0][66]),	// src/main/scala/pvu/Compressor4to2.scala:49:39
-    .io_x2    (io_operands_i[2'h1][66]),	// src/main/scala/pvu/Compressor4to2.scala:50:39
-    .io_x3    (io_operands_i[2'h2][66]),	// src/main/scala/pvu/Compressor4to2.scala:51:39
-    .io_x4    (io_operands_i[2'h3][66]),	// src/main/scala/pvu/Compressor4to2.scala:52:39
-    .io_cin   (_counter_65_io_cout),	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_sum   (_counter_66_io_sum),
-    .io_carry (_counter_66_io_carry),
-    .io_cout  (_counter_66_io_cout)
-  );
-  Counter5to3 counter_67 (	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_x1    (io_operands_i[2'h0][67]),	// src/main/scala/pvu/Compressor4to2.scala:49:39
-    .io_x2    (io_operands_i[2'h1][67]),	// src/main/scala/pvu/Compressor4to2.scala:50:39
-    .io_x3    (io_operands_i[2'h2][67]),	// src/main/scala/pvu/Compressor4to2.scala:51:39
-    .io_x4    (io_operands_i[2'h3][67]),	// src/main/scala/pvu/Compressor4to2.scala:52:39
-    .io_cin   (_counter_66_io_cout),	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_sum   (_counter_67_io_sum),
-    .io_carry (_counter_67_io_carry),
-    .io_cout  (_counter_67_io_cout)
-  );
-  Counter5to3 counter_68 (	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_x1    (io_operands_i[2'h0][68]),	// src/main/scala/pvu/Compressor4to2.scala:49:39
-    .io_x2    (io_operands_i[2'h1][68]),	// src/main/scala/pvu/Compressor4to2.scala:50:39
-    .io_x3    (io_operands_i[2'h2][68]),	// src/main/scala/pvu/Compressor4to2.scala:51:39
-    .io_x4    (io_operands_i[2'h3][68]),	// src/main/scala/pvu/Compressor4to2.scala:52:39
-    .io_cin   (_counter_67_io_cout),	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_sum   (_counter_68_io_sum),
-    .io_carry (_counter_68_io_carry),
-    .io_cout  (_counter_68_io_cout)
-  );
-  Counter5to3 counter_69 (	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_x1    (io_operands_i[2'h0][69]),	// src/main/scala/pvu/Compressor4to2.scala:49:39
-    .io_x2    (io_operands_i[2'h1][69]),	// src/main/scala/pvu/Compressor4to2.scala:50:39
-    .io_x3    (io_operands_i[2'h2][69]),	// src/main/scala/pvu/Compressor4to2.scala:51:39
-    .io_x4    (io_operands_i[2'h3][69]),	// src/main/scala/pvu/Compressor4to2.scala:52:39
-    .io_cin   (_counter_68_io_cout),	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_sum   (_counter_69_io_sum),
-    .io_carry (_counter_69_io_carry),
-    .io_cout  (_counter_69_io_cout)
-  );
-  Counter5to3 counter_70 (	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_x1    (io_operands_i[2'h0][70]),	// src/main/scala/pvu/Compressor4to2.scala:49:39
-    .io_x2    (io_operands_i[2'h1][70]),	// src/main/scala/pvu/Compressor4to2.scala:50:39
-    .io_x3    (io_operands_i[2'h2][70]),	// src/main/scala/pvu/Compressor4to2.scala:51:39
-    .io_x4    (io_operands_i[2'h3][70]),	// src/main/scala/pvu/Compressor4to2.scala:52:39
-    .io_cin   (_counter_69_io_cout),	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_sum   (_counter_70_io_sum),
-    .io_carry (_counter_70_io_carry),
-    .io_cout  (_counter_70_io_cout)
-  );
-  Counter5to3 counter_71 (	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_x1    (io_operands_i[2'h0][71]),	// src/main/scala/pvu/Compressor4to2.scala:49:39
-    .io_x2    (io_operands_i[2'h1][71]),	// src/main/scala/pvu/Compressor4to2.scala:50:39
-    .io_x3    (io_operands_i[2'h2][71]),	// src/main/scala/pvu/Compressor4to2.scala:51:39
-    .io_x4    (io_operands_i[2'h3][71]),	// src/main/scala/pvu/Compressor4to2.scala:52:39
-    .io_cin   (_counter_70_io_cout),	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_sum   (_counter_71_io_sum),
-    .io_carry (_counter_71_io_carry),
-    .io_cout  (_counter_71_io_cout)
-  );
-  Counter5to3 counter_72 (	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_x1    (io_operands_i[2'h0][72]),	// src/main/scala/pvu/Compressor4to2.scala:49:39
-    .io_x2    (io_operands_i[2'h1][72]),	// src/main/scala/pvu/Compressor4to2.scala:50:39
-    .io_x3    (io_operands_i[2'h2][72]),	// src/main/scala/pvu/Compressor4to2.scala:51:39
-    .io_x4    (io_operands_i[2'h3][72]),	// src/main/scala/pvu/Compressor4to2.scala:52:39
-    .io_cin   (_counter_71_io_cout),	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_sum   (_counter_72_io_sum),
-    .io_carry (_counter_72_io_carry),
-    .io_cout  (_counter_72_io_cout)
-  );
-  Counter5to3 counter_73 (	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_x1    (io_operands_i[2'h0][73]),	// src/main/scala/pvu/Compressor4to2.scala:49:39
-    .io_x2    (io_operands_i[2'h1][73]),	// src/main/scala/pvu/Compressor4to2.scala:50:39
-    .io_x3    (io_operands_i[2'h2][73]),	// src/main/scala/pvu/Compressor4to2.scala:51:39
-    .io_x4    (io_operands_i[2'h3][73]),	// src/main/scala/pvu/Compressor4to2.scala:52:39
-    .io_cin   (_counter_72_io_cout),	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_sum   (_counter_73_io_sum),
-    .io_carry (_counter_73_io_carry),
-    .io_cout  (_counter_73_io_cout)
-  );
-  Counter5to3 counter_74 (	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_x1    (io_operands_i[2'h0][74]),	// src/main/scala/pvu/Compressor4to2.scala:49:39
-    .io_x2    (io_operands_i[2'h1][74]),	// src/main/scala/pvu/Compressor4to2.scala:50:39
-    .io_x3    (io_operands_i[2'h2][74]),	// src/main/scala/pvu/Compressor4to2.scala:51:39
-    .io_x4    (io_operands_i[2'h3][74]),	// src/main/scala/pvu/Compressor4to2.scala:52:39
-    .io_cin   (_counter_73_io_cout),	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_sum   (_counter_74_io_sum),
-    .io_carry (_counter_74_io_carry),
-    .io_cout  (_counter_74_io_cout)
-  );
-  Counter5to3 counter_75 (	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_x1    (io_operands_i[2'h0][75]),	// src/main/scala/pvu/Compressor4to2.scala:49:39
-    .io_x2    (io_operands_i[2'h1][75]),	// src/main/scala/pvu/Compressor4to2.scala:50:39
-    .io_x3    (io_operands_i[2'h2][75]),	// src/main/scala/pvu/Compressor4to2.scala:51:39
-    .io_x4    (io_operands_i[2'h3][75]),	// src/main/scala/pvu/Compressor4to2.scala:52:39
-    .io_cin   (_counter_74_io_cout),	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_sum   (_counter_75_io_sum),
-    .io_carry (_counter_75_io_carry),
-    .io_cout  (_counter_75_io_cout)
-  );
-  Counter5to3 counter_76 (	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_x1    (io_operands_i[2'h0][76]),	// src/main/scala/pvu/Compressor4to2.scala:49:39
-    .io_x2    (io_operands_i[2'h1][76]),	// src/main/scala/pvu/Compressor4to2.scala:50:39
-    .io_x3    (io_operands_i[2'h2][76]),	// src/main/scala/pvu/Compressor4to2.scala:51:39
-    .io_x4    (io_operands_i[2'h3][76]),	// src/main/scala/pvu/Compressor4to2.scala:52:39
-    .io_cin   (_counter_75_io_cout),	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_sum   (_counter_76_io_sum),
-    .io_carry (_counter_76_io_carry),
-    .io_cout  (_counter_76_io_cout)
-  );
-  Counter5to3 counter_77 (	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_x1    (io_operands_i[2'h0][77]),	// src/main/scala/pvu/Compressor4to2.scala:49:39
-    .io_x2    (io_operands_i[2'h1][77]),	// src/main/scala/pvu/Compressor4to2.scala:50:39
-    .io_x3    (io_operands_i[2'h2][77]),	// src/main/scala/pvu/Compressor4to2.scala:51:39
-    .io_x4    (io_operands_i[2'h3][77]),	// src/main/scala/pvu/Compressor4to2.scala:52:39
-    .io_cin   (_counter_76_io_cout),	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_sum   (_counter_77_io_sum),
-    .io_carry (_counter_77_io_carry),
-    .io_cout  (_counter_77_io_cout)
-  );
-  Counter5to3 counter_78 (	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_x1    (io_operands_i[2'h0][78]),	// src/main/scala/pvu/Compressor4to2.scala:49:39
-    .io_x2    (io_operands_i[2'h1][78]),	// src/main/scala/pvu/Compressor4to2.scala:50:39
-    .io_x3    (io_operands_i[2'h2][78]),	// src/main/scala/pvu/Compressor4to2.scala:51:39
-    .io_x4    (io_operands_i[2'h3][78]),	// src/main/scala/pvu/Compressor4to2.scala:52:39
-    .io_cin   (_counter_77_io_cout),	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_sum   (_counter_78_io_sum),
-    .io_carry (_counter_78_io_carry),
-    .io_cout  (_counter_78_io_cout)
-  );
-  Counter5to3 counter_79 (	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_x1    (io_operands_i[2'h0][79]),	// src/main/scala/pvu/Compressor4to2.scala:49:39
-    .io_x2    (io_operands_i[2'h1][79]),	// src/main/scala/pvu/Compressor4to2.scala:50:39
-    .io_x3    (io_operands_i[2'h2][79]),	// src/main/scala/pvu/Compressor4to2.scala:51:39
-    .io_x4    (io_operands_i[2'h3][79]),	// src/main/scala/pvu/Compressor4to2.scala:52:39
-    .io_cin   (_counter_78_io_cout),	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_sum   (_counter_79_io_sum),
-    .io_carry (_counter_79_io_carry),
-    .io_cout  (_counter_79_io_cout)
-  );
-  Counter5to3 counter_80 (	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_x1    (io_operands_i[2'h0][80]),	// src/main/scala/pvu/Compressor4to2.scala:49:39
-    .io_x2    (io_operands_i[2'h1][80]),	// src/main/scala/pvu/Compressor4to2.scala:50:39
-    .io_x3    (io_operands_i[2'h2][80]),	// src/main/scala/pvu/Compressor4to2.scala:51:39
-    .io_x4    (io_operands_i[2'h3][80]),	// src/main/scala/pvu/Compressor4to2.scala:52:39
-    .io_cin   (_counter_79_io_cout),	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_sum   (_counter_80_io_sum),
-    .io_carry (_counter_80_io_carry),
-    .io_cout  (_counter_80_io_cout)
-  );
-  Counter5to3 counter_81 (	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_x1    (io_operands_i[2'h0][81]),	// src/main/scala/pvu/Compressor4to2.scala:49:39
-    .io_x2    (io_operands_i[2'h1][81]),	// src/main/scala/pvu/Compressor4to2.scala:50:39
-    .io_x3    (io_operands_i[2'h2][81]),	// src/main/scala/pvu/Compressor4to2.scala:51:39
-    .io_x4    (io_operands_i[2'h3][81]),	// src/main/scala/pvu/Compressor4to2.scala:52:39
-    .io_cin   (_counter_80_io_cout),	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_sum   (_counter_81_io_sum),
-    .io_carry (_counter_81_io_carry),
-    .io_cout  (_counter_81_io_cout)
-  );
-  Counter5to3 counter_82 (	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_x1    (io_operands_i[2'h0][82]),	// src/main/scala/pvu/Compressor4to2.scala:49:39
-    .io_x2    (io_operands_i[2'h1][82]),	// src/main/scala/pvu/Compressor4to2.scala:50:39
-    .io_x3    (io_operands_i[2'h2][82]),	// src/main/scala/pvu/Compressor4to2.scala:51:39
-    .io_x4    (io_operands_i[2'h3][82]),	// src/main/scala/pvu/Compressor4to2.scala:52:39
-    .io_cin   (_counter_81_io_cout),	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_sum   (_counter_82_io_sum),
-    .io_carry (_counter_82_io_carry),
-    .io_cout  (_counter_82_io_cout)
-  );
-  Counter5to3 counter_83 (	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_x1    (io_operands_i[2'h0][83]),	// src/main/scala/pvu/Compressor4to2.scala:49:39
-    .io_x2    (io_operands_i[2'h1][83]),	// src/main/scala/pvu/Compressor4to2.scala:50:39
-    .io_x3    (io_operands_i[2'h2][83]),	// src/main/scala/pvu/Compressor4to2.scala:51:39
-    .io_x4    (io_operands_i[2'h3][83]),	// src/main/scala/pvu/Compressor4to2.scala:52:39
-    .io_cin   (_counter_82_io_cout),	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_sum   (_counter_83_io_sum),
-    .io_carry (_counter_83_io_carry),
-    .io_cout  (_counter_83_io_cout)
-  );
-  Counter5to3 counter_84 (	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_x1    (io_operands_i[2'h0][84]),	// src/main/scala/pvu/Compressor4to2.scala:49:39
-    .io_x2    (io_operands_i[2'h1][84]),	// src/main/scala/pvu/Compressor4to2.scala:50:39
-    .io_x3    (io_operands_i[2'h2][84]),	// src/main/scala/pvu/Compressor4to2.scala:51:39
-    .io_x4    (io_operands_i[2'h3][84]),	// src/main/scala/pvu/Compressor4to2.scala:52:39
-    .io_cin   (_counter_83_io_cout),	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_sum   (_counter_84_io_sum),
-    .io_carry (_counter_84_io_carry),
-    .io_cout  (_counter_84_io_cout)
-  );
-  Counter5to3 counter_85 (	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_x1    (io_operands_i[2'h0][85]),	// src/main/scala/pvu/Compressor4to2.scala:49:39
-    .io_x2    (io_operands_i[2'h1][85]),	// src/main/scala/pvu/Compressor4to2.scala:50:39
-    .io_x3    (io_operands_i[2'h2][85]),	// src/main/scala/pvu/Compressor4to2.scala:51:39
-    .io_x4    (io_operands_i[2'h3][85]),	// src/main/scala/pvu/Compressor4to2.scala:52:39
-    .io_cin   (_counter_84_io_cout),	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_sum   (_counter_85_io_sum),
-    .io_carry (_counter_85_io_carry),
-    .io_cout  (_counter_85_io_cout)
-  );
-  Counter5to3 counter_86 (	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_x1    (io_operands_i[2'h0][86]),	// src/main/scala/pvu/Compressor4to2.scala:49:39
-    .io_x2    (io_operands_i[2'h1][86]),	// src/main/scala/pvu/Compressor4to2.scala:50:39
-    .io_x3    (io_operands_i[2'h2][86]),	// src/main/scala/pvu/Compressor4to2.scala:51:39
-    .io_x4    (io_operands_i[2'h3][86]),	// src/main/scala/pvu/Compressor4to2.scala:52:39
-    .io_cin   (_counter_85_io_cout),	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_sum   (_counter_86_io_sum),
-    .io_carry (_counter_86_io_carry),
-    .io_cout  (_counter_86_io_cout)
-  );
-  Counter5to3 counter_87 (	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_x1    (io_operands_i[2'h0][87]),	// src/main/scala/pvu/Compressor4to2.scala:49:39
-    .io_x2    (io_operands_i[2'h1][87]),	// src/main/scala/pvu/Compressor4to2.scala:50:39
-    .io_x3    (io_operands_i[2'h2][87]),	// src/main/scala/pvu/Compressor4to2.scala:51:39
-    .io_x4    (io_operands_i[2'h3][87]),	// src/main/scala/pvu/Compressor4to2.scala:52:39
-    .io_cin   (_counter_86_io_cout),	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_sum   (_counter_87_io_sum),
-    .io_carry (_counter_87_io_carry),
-    .io_cout  (_counter_87_io_cout)
-  );
-  Counter5to3 counter_88 (	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_x1    (io_operands_i[2'h0][88]),	// src/main/scala/pvu/Compressor4to2.scala:49:39
-    .io_x2    (io_operands_i[2'h1][88]),	// src/main/scala/pvu/Compressor4to2.scala:50:39
-    .io_x3    (io_operands_i[2'h2][88]),	// src/main/scala/pvu/Compressor4to2.scala:51:39
-    .io_x4    (io_operands_i[2'h3][88]),	// src/main/scala/pvu/Compressor4to2.scala:52:39
-    .io_cin   (_counter_87_io_cout),	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_sum   (_counter_88_io_sum),
-    .io_carry (_counter_88_io_carry),
-    .io_cout  (_counter_88_io_cout)
-  );
-  Counter5to3 counter_89 (	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_x1    (io_operands_i[2'h0][89]),	// src/main/scala/pvu/Compressor4to2.scala:49:39
-    .io_x2    (io_operands_i[2'h1][89]),	// src/main/scala/pvu/Compressor4to2.scala:50:39
-    .io_x3    (io_operands_i[2'h2][89]),	// src/main/scala/pvu/Compressor4to2.scala:51:39
-    .io_x4    (io_operands_i[2'h3][89]),	// src/main/scala/pvu/Compressor4to2.scala:52:39
-    .io_cin   (_counter_88_io_cout),	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_sum   (_counter_89_io_sum),
-    .io_carry (_counter_89_io_carry),
-    .io_cout  (_counter_89_io_cout)
-  );
-  Counter5to3 counter_90 (	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_x1    (io_operands_i[2'h0][90]),	// src/main/scala/pvu/Compressor4to2.scala:49:39
-    .io_x2    (io_operands_i[2'h1][90]),	// src/main/scala/pvu/Compressor4to2.scala:50:39
-    .io_x3    (io_operands_i[2'h2][90]),	// src/main/scala/pvu/Compressor4to2.scala:51:39
-    .io_x4    (io_operands_i[2'h3][90]),	// src/main/scala/pvu/Compressor4to2.scala:52:39
-    .io_cin   (_counter_89_io_cout),	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_sum   (_counter_90_io_sum),
-    .io_carry (_counter_90_io_carry),
-    .io_cout  (_counter_90_io_cout)
-  );
-  Counter5to3 counter_91 (	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_x1    (io_operands_i[2'h0][91]),	// src/main/scala/pvu/Compressor4to2.scala:49:39
-    .io_x2    (io_operands_i[2'h1][91]),	// src/main/scala/pvu/Compressor4to2.scala:50:39
-    .io_x3    (io_operands_i[2'h2][91]),	// src/main/scala/pvu/Compressor4to2.scala:51:39
-    .io_x4    (io_operands_i[2'h3][91]),	// src/main/scala/pvu/Compressor4to2.scala:52:39
-    .io_cin   (_counter_90_io_cout),	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_sum   (_counter_91_io_sum),
-    .io_carry (_counter_91_io_carry),
-    .io_cout  (_counter_91_io_cout)
-  );
-  Counter5to3 counter_92 (	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_x1    (io_operands_i[2'h0][92]),	// src/main/scala/pvu/Compressor4to2.scala:49:39
-    .io_x2    (io_operands_i[2'h1][92]),	// src/main/scala/pvu/Compressor4to2.scala:50:39
-    .io_x3    (io_operands_i[2'h2][92]),	// src/main/scala/pvu/Compressor4to2.scala:51:39
-    .io_x4    (io_operands_i[2'h3][92]),	// src/main/scala/pvu/Compressor4to2.scala:52:39
-    .io_cin   (_counter_91_io_cout),	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_sum   (_counter_92_io_sum),
-    .io_carry (_counter_92_io_carry),
-    .io_cout  (_counter_92_io_cout)
-  );
-  Counter5to3 counter_93 (	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_x1    (io_operands_i[2'h0][93]),	// src/main/scala/pvu/Compressor4to2.scala:49:39
-    .io_x2    (io_operands_i[2'h1][93]),	// src/main/scala/pvu/Compressor4to2.scala:50:39
-    .io_x3    (io_operands_i[2'h2][93]),	// src/main/scala/pvu/Compressor4to2.scala:51:39
-    .io_x4    (io_operands_i[2'h3][93]),	// src/main/scala/pvu/Compressor4to2.scala:52:39
-    .io_cin   (_counter_92_io_cout),	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_sum   (_counter_93_io_sum),
-    .io_carry (_counter_93_io_carry),
-    .io_cout  (_counter_93_io_cout)
-  );
-  Counter5to3 counter_94 (	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_x1    (io_operands_i[2'h0][94]),	// src/main/scala/pvu/Compressor4to2.scala:49:39
-    .io_x2    (io_operands_i[2'h1][94]),	// src/main/scala/pvu/Compressor4to2.scala:50:39
-    .io_x3    (io_operands_i[2'h2][94]),	// src/main/scala/pvu/Compressor4to2.scala:51:39
-    .io_x4    (io_operands_i[2'h3][94]),	// src/main/scala/pvu/Compressor4to2.scala:52:39
-    .io_cin   (_counter_93_io_cout),	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_sum   (_counter_94_io_sum),
-    .io_carry (_counter_94_io_carry),
-    .io_cout  (_counter_94_io_cout)
-  );
-  Counter5to3 counter_95 (	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_x1    (io_operands_i[2'h0][95]),	// src/main/scala/pvu/Compressor4to2.scala:49:39
-    .io_x2    (io_operands_i[2'h1][95]),	// src/main/scala/pvu/Compressor4to2.scala:50:39
-    .io_x3    (io_operands_i[2'h2][95]),	// src/main/scala/pvu/Compressor4to2.scala:51:39
-    .io_x4    (io_operands_i[2'h3][95]),	// src/main/scala/pvu/Compressor4to2.scala:52:39
-    .io_cin   (_counter_94_io_cout),	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_sum   (_counter_95_io_sum),
-    .io_carry (_counter_95_io_carry),
-    .io_cout  (_counter_95_io_cout)
-  );
-  Counter5to3 counter_96 (	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_x1    (io_operands_i[2'h0][96]),	// src/main/scala/pvu/Compressor4to2.scala:49:39
-    .io_x2    (io_operands_i[2'h1][96]),	// src/main/scala/pvu/Compressor4to2.scala:50:39
-    .io_x3    (io_operands_i[2'h2][96]),	// src/main/scala/pvu/Compressor4to2.scala:51:39
-    .io_x4    (io_operands_i[2'h3][96]),	// src/main/scala/pvu/Compressor4to2.scala:52:39
-    .io_cin   (_counter_95_io_cout),	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_sum   (_counter_96_io_sum),
-    .io_carry (_counter_96_io_carry),
-    .io_cout  (_counter_96_io_cout)
-  );
-  Counter5to3 counter_97 (	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_x1    (io_operands_i[2'h0][97]),	// src/main/scala/pvu/Compressor4to2.scala:49:39
-    .io_x2    (io_operands_i[2'h1][97]),	// src/main/scala/pvu/Compressor4to2.scala:50:39
-    .io_x3    (io_operands_i[2'h2][97]),	// src/main/scala/pvu/Compressor4to2.scala:51:39
-    .io_x4    (io_operands_i[2'h3][97]),	// src/main/scala/pvu/Compressor4to2.scala:52:39
-    .io_cin   (_counter_96_io_cout),	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_sum   (_counter_97_io_sum),
-    .io_carry (_counter_97_io_carry),
-    .io_cout  (_counter_97_io_cout)
-  );
-  Counter5to3 counter_98 (	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_x1    (io_operands_i[2'h0][98]),	// src/main/scala/pvu/Compressor4to2.scala:49:39
-    .io_x2    (io_operands_i[2'h1][98]),	// src/main/scala/pvu/Compressor4to2.scala:50:39
-    .io_x3    (io_operands_i[2'h2][98]),	// src/main/scala/pvu/Compressor4to2.scala:51:39
-    .io_x4    (io_operands_i[2'h3][98]),	// src/main/scala/pvu/Compressor4to2.scala:52:39
-    .io_cin   (_counter_97_io_cout),	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_sum   (_counter_98_io_sum),
-    .io_carry (_counter_98_io_carry),
-    .io_cout  (_counter_98_io_cout)
-  );
-  Counter5to3 counter_99 (	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_x1    (io_operands_i[2'h0][99]),	// src/main/scala/pvu/Compressor4to2.scala:49:39
-    .io_x2    (io_operands_i[2'h1][99]),	// src/main/scala/pvu/Compressor4to2.scala:50:39
-    .io_x3    (io_operands_i[2'h2][99]),	// src/main/scala/pvu/Compressor4to2.scala:51:39
-    .io_x4    (io_operands_i[2'h3][99]),	// src/main/scala/pvu/Compressor4to2.scala:52:39
-    .io_cin   (_counter_98_io_cout),	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_sum   (_counter_99_io_sum),
-    .io_carry (_counter_99_io_carry),
-    .io_cout  (_counter_99_io_cout)
-  );
-  Counter5to3 counter_100 (	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_x1    (io_operands_i[2'h0][100]),	// src/main/scala/pvu/Compressor4to2.scala:49:39
-    .io_x2    (io_operands_i[2'h1][100]),	// src/main/scala/pvu/Compressor4to2.scala:50:39
-    .io_x3    (io_operands_i[2'h2][100]),	// src/main/scala/pvu/Compressor4to2.scala:51:39
-    .io_x4    (io_operands_i[2'h3][100]),	// src/main/scala/pvu/Compressor4to2.scala:52:39
-    .io_cin   (_counter_99_io_cout),	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_sum   (_counter_100_io_sum),
-    .io_carry (_counter_100_io_carry),
-    .io_cout  (_counter_100_io_cout)
-  );
-  Counter5to3 counter_101 (	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_x1    (io_operands_i[2'h0][101]),	// src/main/scala/pvu/Compressor4to2.scala:49:39
-    .io_x2    (io_operands_i[2'h1][101]),	// src/main/scala/pvu/Compressor4to2.scala:50:39
-    .io_x3    (io_operands_i[2'h2][101]),	// src/main/scala/pvu/Compressor4to2.scala:51:39
-    .io_x4    (io_operands_i[2'h3][101]),	// src/main/scala/pvu/Compressor4to2.scala:52:39
-    .io_cin   (_counter_100_io_cout),	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_sum   (_counter_101_io_sum),
-    .io_carry (_counter_101_io_carry),
-    .io_cout  (_counter_101_io_cout)
-  );
-  Counter5to3 counter_102 (	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_x1    (io_operands_i[2'h0][102]),	// src/main/scala/pvu/Compressor4to2.scala:49:39
-    .io_x2    (io_operands_i[2'h1][102]),	// src/main/scala/pvu/Compressor4to2.scala:50:39
-    .io_x3    (io_operands_i[2'h2][102]),	// src/main/scala/pvu/Compressor4to2.scala:51:39
-    .io_x4    (io_operands_i[2'h3][102]),	// src/main/scala/pvu/Compressor4to2.scala:52:39
-    .io_cin   (_counter_101_io_cout),	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_sum   (_counter_102_io_sum),
-    .io_carry (_counter_102_io_carry),
-    .io_cout  (_counter_102_io_cout)
-  );
-  Counter5to3 counter_103 (	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_x1    (io_operands_i[2'h0][103]),	// src/main/scala/pvu/Compressor4to2.scala:49:39
-    .io_x2    (io_operands_i[2'h1][103]),	// src/main/scala/pvu/Compressor4to2.scala:50:39
-    .io_x3    (io_operands_i[2'h2][103]),	// src/main/scala/pvu/Compressor4to2.scala:51:39
-    .io_x4    (io_operands_i[2'h3][103]),	// src/main/scala/pvu/Compressor4to2.scala:52:39
-    .io_cin   (_counter_102_io_cout),	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_sum   (_counter_103_io_sum),
-    .io_carry (_counter_103_io_carry),
-    .io_cout  (_counter_103_io_cout)
-  );
-  Counter5to3 counter_104 (	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_x1    (io_operands_i[2'h0][104]),	// src/main/scala/pvu/Compressor4to2.scala:49:39
-    .io_x2    (io_operands_i[2'h1][104]),	// src/main/scala/pvu/Compressor4to2.scala:50:39
-    .io_x3    (io_operands_i[2'h2][104]),	// src/main/scala/pvu/Compressor4to2.scala:51:39
-    .io_x4    (io_operands_i[2'h3][104]),	// src/main/scala/pvu/Compressor4to2.scala:52:39
-    .io_cin   (_counter_103_io_cout),	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_sum   (_counter_104_io_sum),
-    .io_carry (_counter_104_io_carry),
-    .io_cout  (_counter_104_io_cout)
-  );
-  Counter5to3 counter_105 (	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_x1    (io_operands_i[2'h0][105]),	// src/main/scala/pvu/Compressor4to2.scala:49:39
-    .io_x2    (io_operands_i[2'h1][105]),	// src/main/scala/pvu/Compressor4to2.scala:50:39
-    .io_x3    (io_operands_i[2'h2][105]),	// src/main/scala/pvu/Compressor4to2.scala:51:39
-    .io_x4    (io_operands_i[2'h3][105]),	// src/main/scala/pvu/Compressor4to2.scala:52:39
-    .io_cin   (_counter_104_io_cout),	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_sum   (_counter_105_io_sum),
-    .io_carry (_counter_105_io_carry),
-    .io_cout  (_counter_105_io_cout)
-  );
-  Counter5to3 counter_106 (	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_x1    (io_operands_i[2'h0][106]),	// src/main/scala/pvu/Compressor4to2.scala:49:39
-    .io_x2    (io_operands_i[2'h1][106]),	// src/main/scala/pvu/Compressor4to2.scala:50:39
-    .io_x3    (io_operands_i[2'h2][106]),	// src/main/scala/pvu/Compressor4to2.scala:51:39
-    .io_x4    (io_operands_i[2'h3][106]),	// src/main/scala/pvu/Compressor4to2.scala:52:39
-    .io_cin   (_counter_105_io_cout),	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_sum   (_counter_106_io_sum),
-    .io_carry (_counter_106_io_carry),
-    .io_cout  (_counter_106_io_cout)
-  );
-  Counter5to3 counter_107 (	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_x1    (io_operands_i[2'h0][107]),	// src/main/scala/pvu/Compressor4to2.scala:49:39
-    .io_x2    (io_operands_i[2'h1][107]),	// src/main/scala/pvu/Compressor4to2.scala:50:39
-    .io_x3    (io_operands_i[2'h2][107]),	// src/main/scala/pvu/Compressor4to2.scala:51:39
-    .io_x4    (io_operands_i[2'h3][107]),	// src/main/scala/pvu/Compressor4to2.scala:52:39
-    .io_cin   (_counter_106_io_cout),	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_sum   (_counter_107_io_sum),
-    .io_carry (_counter_107_io_carry),
-    .io_cout  (_counter_107_io_cout)
-  );
-  Counter5to3 counter_108 (	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_x1    (io_operands_i[2'h0][108]),	// src/main/scala/pvu/Compressor4to2.scala:49:39
-    .io_x2    (io_operands_i[2'h1][108]),	// src/main/scala/pvu/Compressor4to2.scala:50:39
-    .io_x3    (io_operands_i[2'h2][108]),	// src/main/scala/pvu/Compressor4to2.scala:51:39
-    .io_x4    (io_operands_i[2'h3][108]),	// src/main/scala/pvu/Compressor4to2.scala:52:39
-    .io_cin   (_counter_107_io_cout),	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_sum   (_counter_108_io_sum),
-    .io_carry (_counter_108_io_carry),
-    .io_cout  (_counter_108_io_cout)
-  );
-  Counter5to3 counter_109 (	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_x1    (io_operands_i[2'h0][109]),	// src/main/scala/pvu/Compressor4to2.scala:49:39
-    .io_x2    (io_operands_i[2'h1][109]),	// src/main/scala/pvu/Compressor4to2.scala:50:39
-    .io_x3    (io_operands_i[2'h2][109]),	// src/main/scala/pvu/Compressor4to2.scala:51:39
-    .io_x4    (io_operands_i[2'h3][109]),	// src/main/scala/pvu/Compressor4to2.scala:52:39
-    .io_cin   (_counter_108_io_cout),	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_sum   (_counter_109_io_sum),
-    .io_carry (_counter_109_io_carry),
-    .io_cout  (_counter_109_io_cout)
-  );
-  Counter5to3 counter_110 (	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_x1    (io_operands_i[2'h0][110]),	// src/main/scala/pvu/Compressor4to2.scala:49:39
-    .io_x2    (io_operands_i[2'h1][110]),	// src/main/scala/pvu/Compressor4to2.scala:50:39
-    .io_x3    (io_operands_i[2'h2][110]),	// src/main/scala/pvu/Compressor4to2.scala:51:39
-    .io_x4    (io_operands_i[2'h3][110]),	// src/main/scala/pvu/Compressor4to2.scala:52:39
-    .io_cin   (_counter_109_io_cout),	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_sum   (_counter_110_io_sum),
-    .io_carry (_counter_110_io_carry),
-    .io_cout  (_counter_110_io_cout)
-  );
-  Counter5to3 counter_111 (	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_x1    (io_operands_i[2'h0][111]),	// src/main/scala/pvu/Compressor4to2.scala:49:39
-    .io_x2    (io_operands_i[2'h1][111]),	// src/main/scala/pvu/Compressor4to2.scala:50:39
-    .io_x3    (io_operands_i[2'h2][111]),	// src/main/scala/pvu/Compressor4to2.scala:51:39
-    .io_x4    (io_operands_i[2'h3][111]),	// src/main/scala/pvu/Compressor4to2.scala:52:39
-    .io_cin   (_counter_110_io_cout),	// src/main/scala/pvu/Compressor4to2.scala:48:25
-    .io_sum   (_counter_111_io_sum),
-    .io_carry (/* unused */),
-    .io_cout  (/* unused */)
-  );
-  assign io_sum_o =
-    {_counter_111_io_sum,
-     _counter_110_io_sum,
-     _counter_109_io_sum,
-     _counter_108_io_sum,
-     _counter_107_io_sum,
-     _counter_106_io_sum,
-     _counter_105_io_sum,
-     _counter_104_io_sum,
-     _counter_103_io_sum,
-     _counter_102_io_sum,
-     _counter_101_io_sum,
-     _counter_100_io_sum,
-     _counter_99_io_sum,
-     _counter_98_io_sum,
-     _counter_97_io_sum,
-     _counter_96_io_sum,
-     _counter_95_io_sum,
-     _counter_94_io_sum,
-     _counter_93_io_sum,
-     _counter_92_io_sum,
-     _counter_91_io_sum,
-     _counter_90_io_sum,
-     _counter_89_io_sum,
-     _counter_88_io_sum,
-     _counter_87_io_sum,
-     _counter_86_io_sum,
-     _counter_85_io_sum,
-     _counter_84_io_sum,
-     _counter_83_io_sum,
-     _counter_82_io_sum,
-     _counter_81_io_sum,
-     _counter_80_io_sum,
-     _counter_79_io_sum,
-     _counter_78_io_sum,
-     _counter_77_io_sum,
-     _counter_76_io_sum,
-     _counter_75_io_sum,
-     _counter_74_io_sum,
-     _counter_73_io_sum,
-     _counter_72_io_sum,
-     _counter_71_io_sum,
-     _counter_70_io_sum,
-     _counter_69_io_sum,
-     _counter_68_io_sum,
-     _counter_67_io_sum,
-     _counter_66_io_sum,
-     _counter_65_io_sum,
-     _counter_64_io_sum,
-     _counter_63_io_sum,
-     _counter_62_io_sum,
-     _counter_61_io_sum,
-     _counter_60_io_sum,
-     _counter_59_io_sum,
-     _counter_58_io_sum,
-     _counter_57_io_sum,
-     _counter_56_io_sum,
-     _counter_55_io_sum,
-     _counter_54_io_sum,
-     _counter_53_io_sum,
-     _counter_52_io_sum,
-     _counter_51_io_sum,
-     _counter_50_io_sum,
-     _counter_49_io_sum,
-     _counter_48_io_sum,
-     _counter_47_io_sum,
-     _counter_46_io_sum,
-     _counter_45_io_sum,
-     _counter_44_io_sum,
-     _counter_43_io_sum,
-     _counter_42_io_sum,
-     _counter_41_io_sum,
-     _counter_40_io_sum,
-     _counter_39_io_sum,
-     _counter_38_io_sum,
-     _counter_37_io_sum,
-     _counter_36_io_sum,
-     _counter_35_io_sum,
-     _counter_34_io_sum,
-     _counter_33_io_sum,
-     _counter_32_io_sum,
-     _counter_31_io_sum,
-     _counter_30_io_sum,
-     _counter_29_io_sum,
-     _counter_28_io_sum,
-     _counter_27_io_sum,
-     _counter_26_io_sum,
-     _counter_25_io_sum,
-     _counter_24_io_sum,
-     _counter_23_io_sum,
-     _counter_22_io_sum,
-     _counter_21_io_sum,
-     _counter_20_io_sum,
-     _counter_19_io_sum,
-     _counter_18_io_sum,
-     _counter_17_io_sum,
-     _counter_16_io_sum,
-     _counter_15_io_sum,
-     _counter_14_io_sum,
-     _counter_13_io_sum,
-     _counter_12_io_sum,
-     _counter_11_io_sum,
-     _counter_10_io_sum,
-     _counter_9_io_sum,
-     _counter_8_io_sum,
-     _counter_7_io_sum,
-     _counter_6_io_sum,
-     _counter_5_io_sum,
-     _counter_4_io_sum,
-     _counter_3_io_sum,
-     _counter_2_io_sum,
-     _counter_1_io_sum,
-     _counter_io_sum};	// src/main/scala/pvu/Compressor4to2.scala:29:7, :48:25, :69:22
-  assign io_carry_o =
-    {_counter_110_io_carry,
-     _counter_109_io_carry,
-     _counter_108_io_carry,
-     _counter_107_io_carry,
-     _counter_106_io_carry,
-     _counter_105_io_carry,
-     _counter_104_io_carry,
-     _counter_103_io_carry,
-     _counter_102_io_carry,
-     _counter_101_io_carry,
-     _counter_100_io_carry,
-     _counter_99_io_carry,
-     _counter_98_io_carry,
-     _counter_97_io_carry,
-     _counter_96_io_carry,
-     _counter_95_io_carry,
-     _counter_94_io_carry,
-     _counter_93_io_carry,
-     _counter_92_io_carry,
-     _counter_91_io_carry,
-     _counter_90_io_carry,
-     _counter_89_io_carry,
-     _counter_88_io_carry,
-     _counter_87_io_carry,
-     _counter_86_io_carry,
-     _counter_85_io_carry,
-     _counter_84_io_carry,
-     _counter_83_io_carry,
-     _counter_82_io_carry,
-     _counter_81_io_carry,
-     _counter_80_io_carry,
-     _counter_79_io_carry,
-     _counter_78_io_carry,
-     _counter_77_io_carry,
-     _counter_76_io_carry,
-     _counter_75_io_carry,
-     _counter_74_io_carry,
-     _counter_73_io_carry,
-     _counter_72_io_carry,
-     _counter_71_io_carry,
-     _counter_70_io_carry,
-     _counter_69_io_carry,
-     _counter_68_io_carry,
-     _counter_67_io_carry,
-     _counter_66_io_carry,
-     _counter_65_io_carry,
-     _counter_64_io_carry,
-     _counter_63_io_carry,
-     _counter_62_io_carry,
-     _counter_61_io_carry,
-     _counter_60_io_carry,
-     _counter_59_io_carry,
-     _counter_58_io_carry,
-     _counter_57_io_carry,
-     _counter_56_io_carry,
-     _counter_55_io_carry,
-     _counter_54_io_carry,
-     _counter_53_io_carry,
-     _counter_52_io_carry,
-     _counter_51_io_carry,
-     _counter_50_io_carry,
-     _counter_49_io_carry,
-     _counter_48_io_carry,
-     _counter_47_io_carry,
-     _counter_46_io_carry,
-     _counter_45_io_carry,
-     _counter_44_io_carry,
-     _counter_43_io_carry,
-     _counter_42_io_carry,
-     _counter_41_io_carry,
-     _counter_40_io_carry,
-     _counter_39_io_carry,
-     _counter_38_io_carry,
-     _counter_37_io_carry,
-     _counter_36_io_carry,
-     _counter_35_io_carry,
-     _counter_34_io_carry,
-     _counter_33_io_carry,
-     _counter_32_io_carry,
-     _counter_31_io_carry,
-     _counter_30_io_carry,
-     _counter_29_io_carry,
-     _counter_28_io_carry,
-     _counter_27_io_carry,
-     _counter_26_io_carry,
-     _counter_25_io_carry,
-     _counter_24_io_carry,
-     _counter_23_io_carry,
-     _counter_22_io_carry,
-     _counter_21_io_carry,
-     _counter_20_io_carry,
-     _counter_19_io_carry,
-     _counter_18_io_carry,
-     _counter_17_io_carry,
-     _counter_16_io_carry,
-     _counter_15_io_carry,
-     _counter_14_io_carry,
-     _counter_13_io_carry,
-     _counter_12_io_carry,
-     _counter_11_io_carry,
-     _counter_10_io_carry,
-     _counter_9_io_carry,
-     _counter_8_io_carry,
-     _counter_7_io_carry,
-     _counter_6_io_carry,
-     _counter_5_io_carry,
-     _counter_4_io_carry,
-     _counter_3_io_carry,
-     _counter_2_io_carry,
-     _counter_1_io_carry,
-     _counter_io_carry,
-     1'h0};	// src/main/scala/pvu/Compressor4to2.scala:29:7, :44:13, :48:25, :75:14
-endmodule
-
-module CsaTree_29(	// src/main/scala/pvu/CsaTree.scala:7:7
-  input  [3:0][111:0] io_operands_i,	// src/main/scala/pvu/CsaTree.scala:8:14
-  output [111:0]      io_sum_o,	// src/main/scala/pvu/CsaTree.scala:8:14
-                      io_carry_o	// src/main/scala/pvu/CsaTree.scala:8:14
-);
-
-  Compressor4to2_24 compressor (	// src/main/scala/pvu/CsaTree.scala:38:28
-    .io_operands_i (io_operands_i),
-    .io_sum_o      (io_sum_o),
-    .io_carry_o    (io_carry_o)
-  );
-endmodule
-
-module CsaTree_30(	// src/main/scala/pvu/CsaTree.scala:7:7
-  input  [6:0][111:0] io_operands_i,	// src/main/scala/pvu/CsaTree.scala:8:14
-  output [111:0]      io_sum_o,	// src/main/scala/pvu/CsaTree.scala:8:14
-                      io_carry_o	// src/main/scala/pvu/CsaTree.scala:8:14
-);
-
-  wire [111:0] _csa_tree_B_io_sum_o;	// src/main/scala/pvu/CsaTree.scala:66:28
-  wire [111:0] _csa_tree_B_io_carry_o;	// src/main/scala/pvu/CsaTree.scala:66:28
-  wire [111:0] _csa_tree_A_io_sum_o;	// src/main/scala/pvu/CsaTree.scala:61:28
-  wire [111:0] _csa_tree_A_io_carry_o;	// src/main/scala/pvu/CsaTree.scala:61:28
-  CsaTree_28 csa_tree_A (	// src/main/scala/pvu/CsaTree.scala:61:28
-    .io_operands_i (io_operands_i[3'h0 +: 3]),	// src/main/scala/pvu/CsaTree.scala:45:28, :53:23
-    .io_sum_o      (_csa_tree_A_io_sum_o),
-    .io_carry_o    (_csa_tree_A_io_carry_o)
-  );
-  CsaTree_29 csa_tree_B (	// src/main/scala/pvu/CsaTree.scala:66:28
-    .io_operands_i (io_operands_i[3'h3 +: 4]),	// src/main/scala/pvu/CsaTree.scala:46:28, :57:23
-    .io_sum_o      (_csa_tree_B_io_sum_o),
-    .io_carry_o    (_csa_tree_B_io_carry_o)
-  );
-  Compressor4to2_24 compressor (	// src/main/scala/pvu/CsaTree.scala:79:28
-    .io_operands_i
-      ({{_csa_tree_B_io_carry_o},
-        {_csa_tree_B_io_sum_o},
-        {_csa_tree_A_io_carry_o},
-        {_csa_tree_A_io_sum_o}}),	// src/main/scala/pvu/CsaTree.scala:61:28, :66:28, :72:28
-    .io_sum_o      (io_sum_o),
-    .io_carry_o    (io_carry_o)
-  );
-endmodule
-
-module CsaTree_34(	// src/main/scala/pvu/CsaTree.scala:7:7
-  input  [13:0][111:0] io_operands_i,	// src/main/scala/pvu/CsaTree.scala:8:14
-  output [111:0]       io_sum_o,	// src/main/scala/pvu/CsaTree.scala:8:14
-                       io_carry_o	// src/main/scala/pvu/CsaTree.scala:8:14
-);
-
-  wire [111:0] _csa_tree_B_io_sum_o;	// src/main/scala/pvu/CsaTree.scala:66:28
-  wire [111:0] _csa_tree_B_io_carry_o;	// src/main/scala/pvu/CsaTree.scala:66:28
-  wire [111:0] _csa_tree_A_io_sum_o;	// src/main/scala/pvu/CsaTree.scala:61:28
-  wire [111:0] _csa_tree_A_io_carry_o;	// src/main/scala/pvu/CsaTree.scala:61:28
-  CsaTree_30 csa_tree_A (	// src/main/scala/pvu/CsaTree.scala:61:28
-    .io_operands_i (io_operands_i[4'h0 +: 7]),	// src/main/scala/pvu/CsaTree.scala:45:28, :53:23
-    .io_sum_o      (_csa_tree_A_io_sum_o),
-    .io_carry_o    (_csa_tree_A_io_carry_o)
-  );
-  CsaTree_30 csa_tree_B (	// src/main/scala/pvu/CsaTree.scala:66:28
-    .io_operands_i (io_operands_i[4'h7 +: 7]),	// src/main/scala/pvu/CsaTree.scala:46:28, :57:23
-    .io_sum_o      (_csa_tree_B_io_sum_o),
-    .io_carry_o    (_csa_tree_B_io_carry_o)
-  );
-  Compressor4to2_24 compressor (	// src/main/scala/pvu/CsaTree.scala:79:28
-    .io_operands_i
-      ({{_csa_tree_B_io_carry_o},
-        {_csa_tree_B_io_sum_o},
-        {_csa_tree_A_io_carry_o},
-        {_csa_tree_A_io_sum_o}}),	// src/main/scala/pvu/CsaTree.scala:61:28, :66:28, :72:28
-    .io_sum_o      (io_sum_o),
-    .io_carry_o    (io_carry_o)
-  );
-endmodule
-
-module CsaTree_40(	// src/main/scala/pvu/CsaTree.scala:7:7
-  input  [7:0][111:0] io_operands_i,	// src/main/scala/pvu/CsaTree.scala:8:14
-  output [111:0]      io_sum_o,	// src/main/scala/pvu/CsaTree.scala:8:14
-                      io_carry_o	// src/main/scala/pvu/CsaTree.scala:8:14
-);
-
-  wire [111:0] _csa_tree_B_io_sum_o;	// src/main/scala/pvu/CsaTree.scala:66:28
-  wire [111:0] _csa_tree_B_io_carry_o;	// src/main/scala/pvu/CsaTree.scala:66:28
-  wire [111:0] _csa_tree_A_io_sum_o;	// src/main/scala/pvu/CsaTree.scala:61:28
-  wire [111:0] _csa_tree_A_io_carry_o;	// src/main/scala/pvu/CsaTree.scala:61:28
-  CsaTree_29 csa_tree_A (	// src/main/scala/pvu/CsaTree.scala:61:28
-    .io_operands_i (io_operands_i[3'h0 +: 4]),	// src/main/scala/pvu/CsaTree.scala:45:28, :53:23
-    .io_sum_o      (_csa_tree_A_io_sum_o),
-    .io_carry_o    (_csa_tree_A_io_carry_o)
-  );
-  CsaTree_29 csa_tree_B (	// src/main/scala/pvu/CsaTree.scala:66:28
-    .io_operands_i (io_operands_i[3'h4 +: 4]),	// src/main/scala/pvu/CsaTree.scala:46:28, :57:23
-    .io_sum_o      (_csa_tree_B_io_sum_o),
-    .io_carry_o    (_csa_tree_B_io_carry_o)
-  );
-  Compressor4to2_24 compressor (	// src/main/scala/pvu/CsaTree.scala:79:28
-    .io_operands_i
-      ({{_csa_tree_B_io_carry_o},
-        {_csa_tree_B_io_sum_o},
-        {_csa_tree_A_io_carry_o},
-        {_csa_tree_A_io_sum_o}}),	// src/main/scala/pvu/CsaTree.scala:61:28, :66:28, :72:28
-    .io_sum_o      (io_sum_o),
-    .io_carry_o    (io_carry_o)
-  );
-endmodule
-
-module CsaTree_41(	// src/main/scala/pvu/CsaTree.scala:7:7
-  input  [14:0][111:0] io_operands_i,	// src/main/scala/pvu/CsaTree.scala:8:14
-  output [111:0]       io_sum_o,	// src/main/scala/pvu/CsaTree.scala:8:14
-                       io_carry_o	// src/main/scala/pvu/CsaTree.scala:8:14
-);
-
-  wire [111:0] _csa_tree_B_io_sum_o;	// src/main/scala/pvu/CsaTree.scala:66:28
-  wire [111:0] _csa_tree_B_io_carry_o;	// src/main/scala/pvu/CsaTree.scala:66:28
-  wire [111:0] _csa_tree_A_io_sum_o;	// src/main/scala/pvu/CsaTree.scala:61:28
-  wire [111:0] _csa_tree_A_io_carry_o;	// src/main/scala/pvu/CsaTree.scala:61:28
-  CsaTree_30 csa_tree_A (	// src/main/scala/pvu/CsaTree.scala:61:28
-    .io_operands_i (io_operands_i[4'h0 +: 7]),	// src/main/scala/pvu/CsaTree.scala:45:28, :53:23
-    .io_sum_o      (_csa_tree_A_io_sum_o),
-    .io_carry_o    (_csa_tree_A_io_carry_o)
-  );
-  CsaTree_40 csa_tree_B (	// src/main/scala/pvu/CsaTree.scala:66:28
-    .io_operands_i (io_operands_i[4'h7 +: 8]),	// src/main/scala/pvu/CsaTree.scala:46:28, :57:23
-    .io_sum_o      (_csa_tree_B_io_sum_o),
-    .io_carry_o    (_csa_tree_B_io_carry_o)
-  );
-  Compressor4to2_24 compressor (	// src/main/scala/pvu/CsaTree.scala:79:28
-    .io_operands_i
-      ({{_csa_tree_B_io_carry_o},
-        {_csa_tree_B_io_sum_o},
-        {_csa_tree_A_io_carry_o},
-        {_csa_tree_A_io_sum_o}}),	// src/main/scala/pvu/CsaTree.scala:61:28, :66:28, :72:28
-    .io_sum_o      (io_sum_o),
-    .io_carry_o    (io_carry_o)
-  );
-endmodule
-
-module CsaTree_42(	// src/main/scala/pvu/CsaTree.scala:7:7
-  input  [28:0][111:0] io_operands_i,	// src/main/scala/pvu/CsaTree.scala:8:14
-  output [111:0]       io_sum_o,	// src/main/scala/pvu/CsaTree.scala:8:14
-                       io_carry_o	// src/main/scala/pvu/CsaTree.scala:8:14
-);
-
-  wire [111:0] _csa_tree_B_io_sum_o;	// src/main/scala/pvu/CsaTree.scala:66:28
-  wire [111:0] _csa_tree_B_io_carry_o;	// src/main/scala/pvu/CsaTree.scala:66:28
-  wire [111:0] _csa_tree_A_io_sum_o;	// src/main/scala/pvu/CsaTree.scala:61:28
-  wire [111:0] _csa_tree_A_io_carry_o;	// src/main/scala/pvu/CsaTree.scala:61:28
-  CsaTree_34 csa_tree_A (	// src/main/scala/pvu/CsaTree.scala:61:28
-    .io_operands_i (io_operands_i[5'h0 +: 14]),	// src/main/scala/pvu/CsaTree.scala:45:28, :53:23
-    .io_sum_o      (_csa_tree_A_io_sum_o),
-    .io_carry_o    (_csa_tree_A_io_carry_o)
-  );
-  CsaTree_41 csa_tree_B (	// src/main/scala/pvu/CsaTree.scala:66:28
-    .io_operands_i (io_operands_i[5'hE +: 15]),	// src/main/scala/pvu/CsaTree.scala:46:28, :57:23
-    .io_sum_o      (_csa_tree_B_io_sum_o),
-    .io_carry_o    (_csa_tree_B_io_carry_o)
-  );
-  Compressor4to2_24 compressor (	// src/main/scala/pvu/CsaTree.scala:79:28
-    .io_operands_i
-      ({{_csa_tree_B_io_carry_o},
-        {_csa_tree_B_io_sum_o},
-        {_csa_tree_A_io_carry_o},
-        {_csa_tree_A_io_sum_o}}),	// src/main/scala/pvu/CsaTree.scala:61:28, :66:28, :72:28
-    .io_sum_o      (io_sum_o),
-    .io_carry_o    (io_carry_o)
-  );
-endmodule
-
-module Radix4BoothMultiplier_4(	// src/main/scala/pvu/Radix4_Booth_Multiplier.scala:7:7
-  input  [55:0]  io_operand_a,	// src/main/scala/pvu/Radix4_Booth_Multiplier.scala:12:14
-                 io_operand_b,	// src/main/scala/pvu/Radix4_Booth_Multiplier.scala:12:14
-  output [111:0] io_sum_o,	// src/main/scala/pvu/Radix4_Booth_Multiplier.scala:12:14
-                 io_carry_o	// src/main/scala/pvu/Radix4_Booth_Multiplier.scala:12:14
-);
-
-  wire [28:0][111:0] _genProds_io_partial_prods;	// src/main/scala/pvu/Radix4_Booth_Multiplier.scala:21:24
-  GenProds_4 genProds (	// src/main/scala/pvu/Radix4_Booth_Multiplier.scala:21:24
-    .io_operand_a     (io_operand_a),
-    .io_operand_b     (io_operand_b),
-    .io_partial_prods (_genProds_io_partial_prods)
-  );
-  CsaTree_42 csaTree (	// src/main/scala/pvu/Radix4_Booth_Multiplier.scala:26:23
-    .io_operands_i (_genProds_io_partial_prods),	// src/main/scala/pvu/Radix4_Booth_Multiplier.scala:21:24
-    .io_sum_o      (io_sum_o),
-    .io_carry_o    (io_carry_o)
-  );
-endmodule
-
-module IntDivider(	// src/main/scala/pvu/IntDivider.scala:9:7
-  input  [27:0] io_dividend,	// src/main/scala/pvu/IntDivider.scala:10:14
-                io_divisor,	// src/main/scala/pvu/IntDivider.scala:10:14
-  output [55:0] io_quotient	// src/main/scala/pvu/IntDivider.scala:10:14
-);
-
-  wire [111:0] _boothMult_io_sum_o;	// src/main/scala/pvu/IntDivider.scala:27:25
-  wire [111:0] _boothMult_io_carry_o;	// src/main/scala/pvu/IntDivider.scala:27:25
-  wire [55:0]  _reciprocalMod_io_reciprocal_o;	// src/main/scala/pvu/IntDivider.scala:18:29
-  wire [56:0]  _product_T = _boothMult_io_sum_o[56:0] + _boothMult_io_carry_o[56:0];	// src/main/scala/pvu/IntDivider.scala:27:25, :31:36
-  IntReciprocal reciprocalMod (	// src/main/scala/pvu/IntDivider.scala:18:29
-    .io_num_i        (io_divisor),
-    .io_reciprocal_o (_reciprocalMod_io_reciprocal_o)
-  );
-  Radix4BoothMultiplier_4 boothMult (	// src/main/scala/pvu/IntDivider.scala:27:25
-    .io_operand_a ({io_dividend, 28'h0}),	// src/main/scala/pvu/IntDivider.scala:23:37
-    .io_operand_b (_reciprocalMod_io_reciprocal_o),	// src/main/scala/pvu/IntDivider.scala:18:29
-    .io_sum_o     (_boothMult_io_sum_o),
-    .io_carry_o   (_boothMult_io_carry_o)
-  );
-  assign io_quotient = {_product_T[56:28], 27'h0};	// src/main/scala/pvu/IntDivider.scala:9:7, :31:36, :36:{15,27}
-endmodule
-
 module Div(	// src/main/scala/pvu/Div.scala:8:7
   input  [3:0]       io_pir_sign1_i,	// src/main/scala/pvu/Div.scala:14:14
                      io_pir_sign2_i,	// src/main/scala/pvu/Div.scala:14:14
@@ -6048,41 +2470,1381 @@ module Div(	// src/main/scala/pvu/Div.scala:8:7
   output [3:0][55:0] io_pir_frac_o	// src/main/scala/pvu/Div.scala:14:14
 );
 
-  wire [55:0] _intdivider_3_io_quotient;	// src/main/scala/pvu/Div.scala:31:41
-  wire [55:0] _intdivider_2_io_quotient;	// src/main/scala/pvu/Div.scala:31:41
-  wire [55:0] _intdivider_1_io_quotient;	// src/main/scala/pvu/Div.scala:31:41
-  wire [55:0] _intdivider_io_quotient;	// src/main/scala/pvu/Div.scala:31:41
-  IntDivider intdivider (	// src/main/scala/pvu/Div.scala:31:41
-    .io_dividend (io_pir_frac1_i[2'h0]),	// src/main/scala/pvu/Div.scala:32:32, :36:52
-    .io_divisor  (io_pir_frac2_i[2'h0]),	// src/main/scala/pvu/Div.scala:33:32, :36:52
-    .io_quotient (_intdivider_io_quotient)
-  );
-  IntDivider intdivider_1 (	// src/main/scala/pvu/Div.scala:31:41
-    .io_dividend (io_pir_frac1_i[2'h1]),	// src/main/scala/pvu/Div.scala:32:32, :36:52
-    .io_divisor  (io_pir_frac2_i[2'h1]),	// src/main/scala/pvu/Div.scala:33:32, :36:52
-    .io_quotient (_intdivider_1_io_quotient)
-  );
-  IntDivider intdivider_2 (	// src/main/scala/pvu/Div.scala:31:41
-    .io_dividend (io_pir_frac1_i[2'h2]),	// src/main/scala/pvu/Div.scala:32:32, :36:52
-    .io_divisor  (io_pir_frac2_i[2'h2]),	// src/main/scala/pvu/Div.scala:33:32, :36:52
-    .io_quotient (_intdivider_2_io_quotient)
-  );
-  IntDivider intdivider_3 (	// src/main/scala/pvu/Div.scala:31:41
-    .io_dividend (io_pir_frac1_i[2'h3]),	// src/main/scala/pvu/Div.scala:32:32, :36:52
-    .io_divisor  (io_pir_frac2_i[2'h3]),	// src/main/scala/pvu/Div.scala:33:32, :36:52
-    .io_quotient (_intdivider_3_io_quotient)
-  );
-  assign io_pir_sign_o = io_pir_sign1_i ^ io_pir_sign2_i;	// src/main/scala/pvu/Div.scala:8:7
+  wire [7:0]   _exp_diff_T = io_pir_exp1_i[2'h0] - io_pir_exp2_i[2'h0];	// src/main/scala/pvu/Div.scala:33:37, :38:45
+  wire         is_zero_dividend = io_pir_frac1_i[2'h0] == 28'h0;	// src/main/scala/pvu/Div.scala:37:46, :38:45
+  wire         is_zero_divisor = io_pir_frac2_i[2'h0] == 28'h0;	// src/main/scala/pvu/Div.scala:37:46, :38:45
+  wire         _GEN = is_zero_dividend & is_zero_divisor;	// src/main/scala/pvu/Div.scala:37:46, :38:45, :40:28
+  wire [28:0]  _GEN_0 = {1'h0, io_pir_frac2_i[2'h0]};	// src/main/scala/pvu/Div.scala:37:46, :38:45, :88:47
+  wire [28:0]  _next_remainder_T_2 = {io_pir_frac1_i[2'h0], 1'h0} - _GEN_0;	// src/main/scala/pvu/Div.scala:37:46, :38:45, :88:47
+  wire [28:0]  _GEN_1 = {_next_remainder_T_2[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :88:47
+  wire [28:0]  next_remainder_1 =
+    _next_remainder_T_2[28] ? _GEN_1 + _GEN_0 : _GEN_1 - _GEN_0;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_2 = {next_remainder_1[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_2 =
+    next_remainder_1[28] ? _GEN_2 + _GEN_0 : _GEN_2 - _GEN_0;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_3 = {next_remainder_2[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_3 =
+    next_remainder_2[28] ? _GEN_3 + _GEN_0 : _GEN_3 - _GEN_0;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_4 = {next_remainder_3[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_4 =
+    next_remainder_3[28] ? _GEN_4 + _GEN_0 : _GEN_4 - _GEN_0;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_5 = {next_remainder_4[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_5 =
+    next_remainder_4[28] ? _GEN_5 + _GEN_0 : _GEN_5 - _GEN_0;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_6 = {next_remainder_5[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_6 =
+    next_remainder_5[28] ? _GEN_6 + _GEN_0 : _GEN_6 - _GEN_0;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_7 = {next_remainder_6[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_7 =
+    next_remainder_6[28] ? _GEN_7 + _GEN_0 : _GEN_7 - _GEN_0;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_8 = {next_remainder_7[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_8 =
+    next_remainder_7[28] ? _GEN_8 + _GEN_0 : _GEN_8 - _GEN_0;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_9 = {next_remainder_8[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_9 =
+    next_remainder_8[28] ? _GEN_9 + _GEN_0 : _GEN_9 - _GEN_0;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_10 = {next_remainder_9[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_10 =
+    next_remainder_9[28] ? _GEN_10 + _GEN_0 : _GEN_10 - _GEN_0;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_11 = {next_remainder_10[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_11 =
+    next_remainder_10[28] ? _GEN_11 + _GEN_0 : _GEN_11 - _GEN_0;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_12 = {next_remainder_11[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_12 =
+    next_remainder_11[28] ? _GEN_12 + _GEN_0 : _GEN_12 - _GEN_0;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_13 = {next_remainder_12[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_13 =
+    next_remainder_12[28] ? _GEN_13 + _GEN_0 : _GEN_13 - _GEN_0;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_14 = {next_remainder_13[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_14 =
+    next_remainder_13[28] ? _GEN_14 + _GEN_0 : _GEN_14 - _GEN_0;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_15 = {next_remainder_14[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_15 =
+    next_remainder_14[28] ? _GEN_15 + _GEN_0 : _GEN_15 - _GEN_0;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_16 = {next_remainder_15[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_16 =
+    next_remainder_15[28] ? _GEN_16 + _GEN_0 : _GEN_16 - _GEN_0;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_17 = {next_remainder_16[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_17 =
+    next_remainder_16[28] ? _GEN_17 + _GEN_0 : _GEN_17 - _GEN_0;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_18 = {next_remainder_17[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_18 =
+    next_remainder_17[28] ? _GEN_18 + _GEN_0 : _GEN_18 - _GEN_0;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_19 = {next_remainder_18[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_19 =
+    next_remainder_18[28] ? _GEN_19 + _GEN_0 : _GEN_19 - _GEN_0;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_20 = {next_remainder_19[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_20 =
+    next_remainder_19[28] ? _GEN_20 + _GEN_0 : _GEN_20 - _GEN_0;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_21 = {next_remainder_20[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_21 =
+    next_remainder_20[28] ? _GEN_21 + _GEN_0 : _GEN_21 - _GEN_0;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_22 = {next_remainder_21[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_22 =
+    next_remainder_21[28] ? _GEN_22 + _GEN_0 : _GEN_22 - _GEN_0;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_23 = {next_remainder_22[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_23 =
+    next_remainder_22[28] ? _GEN_23 + _GEN_0 : _GEN_23 - _GEN_0;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_24 = {next_remainder_23[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_24 =
+    next_remainder_23[28] ? _GEN_24 + _GEN_0 : _GEN_24 - _GEN_0;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_25 = {next_remainder_24[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_25 =
+    next_remainder_24[28] ? _GEN_25 + _GEN_0 : _GEN_25 - _GEN_0;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_26 = {next_remainder_25[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_26 =
+    next_remainder_25[28] ? _GEN_26 + _GEN_0 : _GEN_26 - _GEN_0;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_27 = {next_remainder_26[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_27 =
+    next_remainder_26[28] ? _GEN_27 + _GEN_0 : _GEN_27 - _GEN_0;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_28 = {next_remainder_27[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_28 =
+    next_remainder_27[28] ? _GEN_28 + _GEN_0 : _GEN_28 - _GEN_0;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_29 = {next_remainder_28[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_29 =
+    next_remainder_28[28] ? _GEN_29 + _GEN_0 : _GEN_29 - _GEN_0;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_30 = {next_remainder_29[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_30 =
+    next_remainder_29[28] ? _GEN_30 + _GEN_0 : _GEN_30 - _GEN_0;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_31 = {next_remainder_30[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_31 =
+    next_remainder_30[28] ? _GEN_31 + _GEN_0 : _GEN_31 - _GEN_0;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_32 = {next_remainder_31[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_32 =
+    next_remainder_31[28] ? _GEN_32 + _GEN_0 : _GEN_32 - _GEN_0;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_33 = {next_remainder_32[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_33 =
+    next_remainder_32[28] ? _GEN_33 + _GEN_0 : _GEN_33 - _GEN_0;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_34 = {next_remainder_33[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_34 =
+    next_remainder_33[28] ? _GEN_34 + _GEN_0 : _GEN_34 - _GEN_0;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_35 = {next_remainder_34[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_35 =
+    next_remainder_34[28] ? _GEN_35 + _GEN_0 : _GEN_35 - _GEN_0;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_36 = {next_remainder_35[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_36 =
+    next_remainder_35[28] ? _GEN_36 + _GEN_0 : _GEN_36 - _GEN_0;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_37 = {next_remainder_36[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_37 =
+    next_remainder_36[28] ? _GEN_37 + _GEN_0 : _GEN_37 - _GEN_0;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_38 = {next_remainder_37[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_38 =
+    next_remainder_37[28] ? _GEN_38 + _GEN_0 : _GEN_38 - _GEN_0;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_39 = {next_remainder_38[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_39 =
+    next_remainder_38[28] ? _GEN_39 + _GEN_0 : _GEN_39 - _GEN_0;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_40 = {next_remainder_39[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_40 =
+    next_remainder_39[28] ? _GEN_40 + _GEN_0 : _GEN_40 - _GEN_0;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_41 = {next_remainder_40[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_41 =
+    next_remainder_40[28] ? _GEN_41 + _GEN_0 : _GEN_41 - _GEN_0;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_42 = {next_remainder_41[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_42 =
+    next_remainder_41[28] ? _GEN_42 + _GEN_0 : _GEN_42 - _GEN_0;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_43 = {next_remainder_42[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_43 =
+    next_remainder_42[28] ? _GEN_43 + _GEN_0 : _GEN_43 - _GEN_0;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_44 = {next_remainder_43[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_44 =
+    next_remainder_43[28] ? _GEN_44 + _GEN_0 : _GEN_44 - _GEN_0;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_45 = {next_remainder_44[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_45 =
+    next_remainder_44[28] ? _GEN_45 + _GEN_0 : _GEN_45 - _GEN_0;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_46 = {next_remainder_45[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_46 =
+    next_remainder_45[28] ? _GEN_46 + _GEN_0 : _GEN_46 - _GEN_0;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_47 = {next_remainder_46[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_47 =
+    next_remainder_46[28] ? _GEN_47 + _GEN_0 : _GEN_47 - _GEN_0;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_48 = {next_remainder_47[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_48 =
+    next_remainder_47[28] ? _GEN_48 + _GEN_0 : _GEN_48 - _GEN_0;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_49 = {next_remainder_48[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_49 =
+    next_remainder_48[28] ? _GEN_49 + _GEN_0 : _GEN_49 - _GEN_0;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_50 = {next_remainder_49[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_50 =
+    next_remainder_49[28] ? _GEN_50 + _GEN_0 : _GEN_50 - _GEN_0;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_51 = {next_remainder_50[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_51 =
+    next_remainder_50[28] ? _GEN_51 + _GEN_0 : _GEN_51 - _GEN_0;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_52 = {next_remainder_51[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  _next_remainder_T_522 = _GEN_52 - _GEN_0;	// src/main/scala/pvu/Div.scala:88:47
+  wire [28:0]  _next_remainder_T_527 = _GEN_52 + _GEN_0;	// src/main/scala/pvu/Div.scala:88:47, :91:47
+  wire         next_remainder_52 =
+    next_remainder_51[28] ? _next_remainder_T_527[28] : _next_remainder_T_522[28];	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [5:0]   leading_zeros =
+    next_remainder_52
+      ? (next_remainder_51[28]
+           ? (next_remainder_50[28]
+                ? (next_remainder_49[28]
+                     ? (next_remainder_48[28]
+                          ? (next_remainder_47[28]
+                               ? (next_remainder_46[28]
+                                    ? (next_remainder_45[28]
+                                         ? (next_remainder_44[28]
+                                              ? (next_remainder_43[28]
+                                                   ? (next_remainder_42[28]
+                                                        ? (next_remainder_41[28]
+                                                             ? (next_remainder_40[28]
+                                                                  ? (next_remainder_39[28]
+                                                                       ? (next_remainder_38[28]
+                                                                            ? (next_remainder_37[28]
+                                                                                 ? (next_remainder_36[28]
+                                                                                      ? (next_remainder_35[28]
+                                                                                           ? (next_remainder_34[28]
+                                                                                                ? (next_remainder_33[28]
+                                                                                                     ? (next_remainder_32[28]
+                                                                                                          ? (next_remainder_31[28]
+                                                                                                               ? (next_remainder_30[28]
+                                                                                                                    ? (next_remainder_29[28]
+                                                                                                                         ? (next_remainder_28[28]
+                                                                                                                              ? (next_remainder_27[28]
+                                                                                                                                   ? (next_remainder_26[28]
+                                                                                                                                        ? (next_remainder_25[28]
+                                                                                                                                             ? (next_remainder_24[28]
+                                                                                                                                                  ? (next_remainder_23[28]
+                                                                                                                                                       ? (next_remainder_22[28]
+                                                                                                                                                            ? (next_remainder_21[28]
+                                                                                                                                                                 ? (next_remainder_20[28]
+                                                                                                                                                                      ? (next_remainder_19[28]
+                                                                                                                                                                           ? (next_remainder_18[28]
+                                                                                                                                                                                ? (next_remainder_17[28]
+                                                                                                                                                                                     ? (next_remainder_16[28]
+                                                                                                                                                                                          ? (next_remainder_15[28]
+                                                                                                                                                                                               ? (next_remainder_14[28]
+                                                                                                                                                                                                    ? (next_remainder_13[28]
+                                                                                                                                                                                                         ? (next_remainder_12[28]
+                                                                                                                                                                                                              ? (next_remainder_11[28]
+                                                                                                                                                                                                                   ? (next_remainder_10[28]
+                                                                                                                                                                                                                        ? (next_remainder_9[28]
+                                                                                                                                                                                                                             ? (next_remainder_8[28]
+                                                                                                                                                                                                                                  ? (next_remainder_7[28]
+                                                                                                                                                                                                                                       ? (next_remainder_6[28]
+                                                                                                                                                                                                                                            ? (next_remainder_5[28]
+                                                                                                                                                                                                                                                 ? (next_remainder_4[28]
+                                                                                                                                                                                                                                                      ? (next_remainder_3[28]
+                                                                                                                                                                                                                                                           ? (next_remainder_2[28]
+                                                                                                                                                                                                                                                                ? (next_remainder_1[28]
+                                                                                                                                                                                                                                                                     ? {5'h1A,
+                                                                                                                                                                                                                                                                        _next_remainder_T_2[28]}
+                                                                                                                                                                                                                                                                     : 6'h33)
+                                                                                                                                                                                                                                                                : 6'h32)
+                                                                                                                                                                                                                                                           : 6'h31)
+                                                                                                                                                                                                                                                      : 6'h30)
+                                                                                                                                                                                                                                                 : 6'h2F)
+                                                                                                                                                                                                                                            : 6'h2E)
+                                                                                                                                                                                                                                       : 6'h2D)
+                                                                                                                                                                                                                                  : 6'h2C)
+                                                                                                                                                                                                                             : 6'h2B)
+                                                                                                                                                                                                                        : 6'h2A)
+                                                                                                                                                                                                                   : 6'h29)
+                                                                                                                                                                                                              : 6'h28)
+                                                                                                                                                                                                         : 6'h27)
+                                                                                                                                                                                                    : 6'h26)
+                                                                                                                                                                                               : 6'h25)
+                                                                                                                                                                                          : 6'h24)
+                                                                                                                                                                                     : 6'h23)
+                                                                                                                                                                                : 6'h22)
+                                                                                                                                                                           : 6'h21)
+                                                                                                                                                                      : 6'h20)
+                                                                                                                                                                 : 6'h1F)
+                                                                                                                                                            : 6'h1E)
+                                                                                                                                                       : 6'h1D)
+                                                                                                                                                  : 6'h1C)
+                                                                                                                                             : 6'h1B)
+                                                                                                                                        : 6'h1A)
+                                                                                                                                   : 6'h19)
+                                                                                                                              : 6'h18)
+                                                                                                                         : 6'h17)
+                                                                                                                    : 6'h16)
+                                                                                                               : 6'h15)
+                                                                                                          : 6'h14)
+                                                                                                     : 6'h13)
+                                                                                                : 6'h12)
+                                                                                           : 6'h11)
+                                                                                      : 6'h10)
+                                                                                 : 6'hF)
+                                                                            : 6'hE)
+                                                                       : 6'hD)
+                                                                  : 6'hC)
+                                                             : 6'hB)
+                                                        : 6'hA)
+                                                   : 6'h9)
+                                              : 6'h8)
+                                         : 6'h7)
+                                    : 6'h6)
+                               : 6'h5)
+                          : 6'h4)
+                     : 6'h3)
+                : 6'h2)
+           : 6'h1)
+      : 6'h0;	// src/main/scala/chisel3/util/Mux.scala:50:70, src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:26
+  wire [116:0] _normalized_quotient_T =
+    {63'h0,
+     ~next_remainder_52,
+     ~(next_remainder_51[28]),
+     ~(next_remainder_50[28]),
+     ~(next_remainder_49[28]),
+     ~(next_remainder_48[28]),
+     ~(next_remainder_47[28]),
+     ~(next_remainder_46[28]),
+     ~(next_remainder_45[28]),
+     ~(next_remainder_44[28]),
+     ~(next_remainder_43[28]),
+     ~(next_remainder_42[28]),
+     ~(next_remainder_41[28]),
+     ~(next_remainder_40[28]),
+     ~(next_remainder_39[28]),
+     ~(next_remainder_38[28]),
+     ~(next_remainder_37[28]),
+     ~(next_remainder_36[28]),
+     ~(next_remainder_35[28]),
+     ~(next_remainder_34[28]),
+     ~(next_remainder_33[28]),
+     ~(next_remainder_32[28]),
+     ~(next_remainder_31[28]),
+     ~(next_remainder_30[28]),
+     ~(next_remainder_29[28]),
+     ~(next_remainder_28[28]),
+     ~(next_remainder_27[28]),
+     ~(next_remainder_26[28]),
+     ~(next_remainder_25[28]),
+     ~(next_remainder_24[28]),
+     ~(next_remainder_23[28]),
+     ~(next_remainder_22[28]),
+     ~(next_remainder_21[28]),
+     ~(next_remainder_20[28]),
+     ~(next_remainder_19[28]),
+     ~(next_remainder_18[28]),
+     ~(next_remainder_17[28]),
+     ~(next_remainder_16[28]),
+     ~(next_remainder_15[28]),
+     ~(next_remainder_14[28]),
+     ~(next_remainder_13[28]),
+     ~(next_remainder_12[28]),
+     ~(next_remainder_11[28]),
+     ~(next_remainder_10[28]),
+     ~(next_remainder_9[28]),
+     ~(next_remainder_8[28]),
+     ~(next_remainder_7[28]),
+     ~(next_remainder_6[28]),
+     ~(next_remainder_5[28]),
+     ~(next_remainder_4[28]),
+     ~(next_remainder_3[28]),
+     ~(next_remainder_2[28]),
+     ~(next_remainder_1[28]),
+     ~(_next_remainder_T_2[28]),
+     1'h1} << leading_zeros;	// src/main/scala/chisel3/util/Mux.scala:50:70, src/main/scala/pvu/Div.scala:42:24, :81:{28,46}, :86:29, :88:{26,47}, :91:26, :103:47
+  wire [7:0]   _exp_diff_T_2 = io_pir_exp1_i[2'h1] - io_pir_exp2_i[2'h1];	// src/main/scala/pvu/Div.scala:33:37, :38:45
+  wire         is_zero_dividend_1 = io_pir_frac1_i[2'h1] == 28'h0;	// src/main/scala/pvu/Div.scala:37:46, :38:45
+  wire         is_zero_divisor_1 = io_pir_frac2_i[2'h1] == 28'h0;	// src/main/scala/pvu/Div.scala:37:46, :38:45
+  wire         _GEN_53 = is_zero_dividend_1 & is_zero_divisor_1;	// src/main/scala/pvu/Div.scala:37:46, :38:45, :40:28
+  wire [28:0]  _GEN_54 = {1'h0, io_pir_frac2_i[2'h1]};	// src/main/scala/pvu/Div.scala:37:46, :38:45, :88:47
+  wire [28:0]  _next_remainder_T_542 = {io_pir_frac1_i[2'h1], 1'h0} - _GEN_54;	// src/main/scala/pvu/Div.scala:37:46, :38:45, :88:47
+  wire [28:0]  _GEN_55 = {_next_remainder_T_542[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :88:47
+  wire [28:0]  next_remainder_55 =
+    _next_remainder_T_542[28] ? _GEN_55 + _GEN_54 : _GEN_55 - _GEN_54;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_56 = {next_remainder_55[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_56 =
+    next_remainder_55[28] ? _GEN_56 + _GEN_54 : _GEN_56 - _GEN_54;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_57 = {next_remainder_56[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_57 =
+    next_remainder_56[28] ? _GEN_57 + _GEN_54 : _GEN_57 - _GEN_54;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_58 = {next_remainder_57[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_58 =
+    next_remainder_57[28] ? _GEN_58 + _GEN_54 : _GEN_58 - _GEN_54;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_59 = {next_remainder_58[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_59 =
+    next_remainder_58[28] ? _GEN_59 + _GEN_54 : _GEN_59 - _GEN_54;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_60 = {next_remainder_59[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_60 =
+    next_remainder_59[28] ? _GEN_60 + _GEN_54 : _GEN_60 - _GEN_54;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_61 = {next_remainder_60[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_61 =
+    next_remainder_60[28] ? _GEN_61 + _GEN_54 : _GEN_61 - _GEN_54;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_62 = {next_remainder_61[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_62 =
+    next_remainder_61[28] ? _GEN_62 + _GEN_54 : _GEN_62 - _GEN_54;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_63 = {next_remainder_62[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_63 =
+    next_remainder_62[28] ? _GEN_63 + _GEN_54 : _GEN_63 - _GEN_54;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_64 = {next_remainder_63[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_64 =
+    next_remainder_63[28] ? _GEN_64 + _GEN_54 : _GEN_64 - _GEN_54;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_65 = {next_remainder_64[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_65 =
+    next_remainder_64[28] ? _GEN_65 + _GEN_54 : _GEN_65 - _GEN_54;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_66 = {next_remainder_65[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_66 =
+    next_remainder_65[28] ? _GEN_66 + _GEN_54 : _GEN_66 - _GEN_54;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_67 = {next_remainder_66[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_67 =
+    next_remainder_66[28] ? _GEN_67 + _GEN_54 : _GEN_67 - _GEN_54;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_68 = {next_remainder_67[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_68 =
+    next_remainder_67[28] ? _GEN_68 + _GEN_54 : _GEN_68 - _GEN_54;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_69 = {next_remainder_68[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_69 =
+    next_remainder_68[28] ? _GEN_69 + _GEN_54 : _GEN_69 - _GEN_54;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_70 = {next_remainder_69[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_70 =
+    next_remainder_69[28] ? _GEN_70 + _GEN_54 : _GEN_70 - _GEN_54;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_71 = {next_remainder_70[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_71 =
+    next_remainder_70[28] ? _GEN_71 + _GEN_54 : _GEN_71 - _GEN_54;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_72 = {next_remainder_71[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_72 =
+    next_remainder_71[28] ? _GEN_72 + _GEN_54 : _GEN_72 - _GEN_54;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_73 = {next_remainder_72[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_73 =
+    next_remainder_72[28] ? _GEN_73 + _GEN_54 : _GEN_73 - _GEN_54;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_74 = {next_remainder_73[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_74 =
+    next_remainder_73[28] ? _GEN_74 + _GEN_54 : _GEN_74 - _GEN_54;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_75 = {next_remainder_74[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_75 =
+    next_remainder_74[28] ? _GEN_75 + _GEN_54 : _GEN_75 - _GEN_54;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_76 = {next_remainder_75[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_76 =
+    next_remainder_75[28] ? _GEN_76 + _GEN_54 : _GEN_76 - _GEN_54;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_77 = {next_remainder_76[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_77 =
+    next_remainder_76[28] ? _GEN_77 + _GEN_54 : _GEN_77 - _GEN_54;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_78 = {next_remainder_77[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_78 =
+    next_remainder_77[28] ? _GEN_78 + _GEN_54 : _GEN_78 - _GEN_54;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_79 = {next_remainder_78[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_79 =
+    next_remainder_78[28] ? _GEN_79 + _GEN_54 : _GEN_79 - _GEN_54;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_80 = {next_remainder_79[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_80 =
+    next_remainder_79[28] ? _GEN_80 + _GEN_54 : _GEN_80 - _GEN_54;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_81 = {next_remainder_80[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_81 =
+    next_remainder_80[28] ? _GEN_81 + _GEN_54 : _GEN_81 - _GEN_54;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_82 = {next_remainder_81[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_82 =
+    next_remainder_81[28] ? _GEN_82 + _GEN_54 : _GEN_82 - _GEN_54;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_83 = {next_remainder_82[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_83 =
+    next_remainder_82[28] ? _GEN_83 + _GEN_54 : _GEN_83 - _GEN_54;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_84 = {next_remainder_83[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_84 =
+    next_remainder_83[28] ? _GEN_84 + _GEN_54 : _GEN_84 - _GEN_54;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_85 = {next_remainder_84[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_85 =
+    next_remainder_84[28] ? _GEN_85 + _GEN_54 : _GEN_85 - _GEN_54;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_86 = {next_remainder_85[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_86 =
+    next_remainder_85[28] ? _GEN_86 + _GEN_54 : _GEN_86 - _GEN_54;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_87 = {next_remainder_86[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_87 =
+    next_remainder_86[28] ? _GEN_87 + _GEN_54 : _GEN_87 - _GEN_54;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_88 = {next_remainder_87[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_88 =
+    next_remainder_87[28] ? _GEN_88 + _GEN_54 : _GEN_88 - _GEN_54;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_89 = {next_remainder_88[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_89 =
+    next_remainder_88[28] ? _GEN_89 + _GEN_54 : _GEN_89 - _GEN_54;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_90 = {next_remainder_89[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_90 =
+    next_remainder_89[28] ? _GEN_90 + _GEN_54 : _GEN_90 - _GEN_54;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_91 = {next_remainder_90[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_91 =
+    next_remainder_90[28] ? _GEN_91 + _GEN_54 : _GEN_91 - _GEN_54;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_92 = {next_remainder_91[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_92 =
+    next_remainder_91[28] ? _GEN_92 + _GEN_54 : _GEN_92 - _GEN_54;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_93 = {next_remainder_92[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_93 =
+    next_remainder_92[28] ? _GEN_93 + _GEN_54 : _GEN_93 - _GEN_54;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_94 = {next_remainder_93[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_94 =
+    next_remainder_93[28] ? _GEN_94 + _GEN_54 : _GEN_94 - _GEN_54;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_95 = {next_remainder_94[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_95 =
+    next_remainder_94[28] ? _GEN_95 + _GEN_54 : _GEN_95 - _GEN_54;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_96 = {next_remainder_95[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_96 =
+    next_remainder_95[28] ? _GEN_96 + _GEN_54 : _GEN_96 - _GEN_54;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_97 = {next_remainder_96[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_97 =
+    next_remainder_96[28] ? _GEN_97 + _GEN_54 : _GEN_97 - _GEN_54;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_98 = {next_remainder_97[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_98 =
+    next_remainder_97[28] ? _GEN_98 + _GEN_54 : _GEN_98 - _GEN_54;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_99 = {next_remainder_98[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_99 =
+    next_remainder_98[28] ? _GEN_99 + _GEN_54 : _GEN_99 - _GEN_54;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_100 = {next_remainder_99[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_100 =
+    next_remainder_99[28] ? _GEN_100 + _GEN_54 : _GEN_100 - _GEN_54;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_101 = {next_remainder_100[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_101 =
+    next_remainder_100[28] ? _GEN_101 + _GEN_54 : _GEN_101 - _GEN_54;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_102 = {next_remainder_101[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_102 =
+    next_remainder_101[28] ? _GEN_102 + _GEN_54 : _GEN_102 - _GEN_54;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_103 = {next_remainder_102[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_103 =
+    next_remainder_102[28] ? _GEN_103 + _GEN_54 : _GEN_103 - _GEN_54;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_104 = {next_remainder_103[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_104 =
+    next_remainder_103[28] ? _GEN_104 + _GEN_54 : _GEN_104 - _GEN_54;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_105 = {next_remainder_104[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_105 =
+    next_remainder_104[28] ? _GEN_105 + _GEN_54 : _GEN_105 - _GEN_54;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_106 = {next_remainder_105[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  _next_remainder_T_1062 = _GEN_106 - _GEN_54;	// src/main/scala/pvu/Div.scala:88:47
+  wire [28:0]  _next_remainder_T_1067 = _GEN_106 + _GEN_54;	// src/main/scala/pvu/Div.scala:88:47, :91:47
+  wire         next_remainder_106 =
+    next_remainder_105[28] ? _next_remainder_T_1067[28] : _next_remainder_T_1062[28];	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [5:0]   leading_zeros_1 =
+    next_remainder_106
+      ? (next_remainder_105[28]
+           ? (next_remainder_104[28]
+                ? (next_remainder_103[28]
+                     ? (next_remainder_102[28]
+                          ? (next_remainder_101[28]
+                               ? (next_remainder_100[28]
+                                    ? (next_remainder_99[28]
+                                         ? (next_remainder_98[28]
+                                              ? (next_remainder_97[28]
+                                                   ? (next_remainder_96[28]
+                                                        ? (next_remainder_95[28]
+                                                             ? (next_remainder_94[28]
+                                                                  ? (next_remainder_93[28]
+                                                                       ? (next_remainder_92[28]
+                                                                            ? (next_remainder_91[28]
+                                                                                 ? (next_remainder_90[28]
+                                                                                      ? (next_remainder_89[28]
+                                                                                           ? (next_remainder_88[28]
+                                                                                                ? (next_remainder_87[28]
+                                                                                                     ? (next_remainder_86[28]
+                                                                                                          ? (next_remainder_85[28]
+                                                                                                               ? (next_remainder_84[28]
+                                                                                                                    ? (next_remainder_83[28]
+                                                                                                                         ? (next_remainder_82[28]
+                                                                                                                              ? (next_remainder_81[28]
+                                                                                                                                   ? (next_remainder_80[28]
+                                                                                                                                        ? (next_remainder_79[28]
+                                                                                                                                             ? (next_remainder_78[28]
+                                                                                                                                                  ? (next_remainder_77[28]
+                                                                                                                                                       ? (next_remainder_76[28]
+                                                                                                                                                            ? (next_remainder_75[28]
+                                                                                                                                                                 ? (next_remainder_74[28]
+                                                                                                                                                                      ? (next_remainder_73[28]
+                                                                                                                                                                           ? (next_remainder_72[28]
+                                                                                                                                                                                ? (next_remainder_71[28]
+                                                                                                                                                                                     ? (next_remainder_70[28]
+                                                                                                                                                                                          ? (next_remainder_69[28]
+                                                                                                                                                                                               ? (next_remainder_68[28]
+                                                                                                                                                                                                    ? (next_remainder_67[28]
+                                                                                                                                                                                                         ? (next_remainder_66[28]
+                                                                                                                                                                                                              ? (next_remainder_65[28]
+                                                                                                                                                                                                                   ? (next_remainder_64[28]
+                                                                                                                                                                                                                        ? (next_remainder_63[28]
+                                                                                                                                                                                                                             ? (next_remainder_62[28]
+                                                                                                                                                                                                                                  ? (next_remainder_61[28]
+                                                                                                                                                                                                                                       ? (next_remainder_60[28]
+                                                                                                                                                                                                                                            ? (next_remainder_59[28]
+                                                                                                                                                                                                                                                 ? (next_remainder_58[28]
+                                                                                                                                                                                                                                                      ? (next_remainder_57[28]
+                                                                                                                                                                                                                                                           ? (next_remainder_56[28]
+                                                                                                                                                                                                                                                                ? (next_remainder_55[28]
+                                                                                                                                                                                                                                                                     ? {5'h1A,
+                                                                                                                                                                                                                                                                        _next_remainder_T_542[28]}
+                                                                                                                                                                                                                                                                     : 6'h33)
+                                                                                                                                                                                                                                                                : 6'h32)
+                                                                                                                                                                                                                                                           : 6'h31)
+                                                                                                                                                                                                                                                      : 6'h30)
+                                                                                                                                                                                                                                                 : 6'h2F)
+                                                                                                                                                                                                                                            : 6'h2E)
+                                                                                                                                                                                                                                       : 6'h2D)
+                                                                                                                                                                                                                                  : 6'h2C)
+                                                                                                                                                                                                                             : 6'h2B)
+                                                                                                                                                                                                                        : 6'h2A)
+                                                                                                                                                                                                                   : 6'h29)
+                                                                                                                                                                                                              : 6'h28)
+                                                                                                                                                                                                         : 6'h27)
+                                                                                                                                                                                                    : 6'h26)
+                                                                                                                                                                                               : 6'h25)
+                                                                                                                                                                                          : 6'h24)
+                                                                                                                                                                                     : 6'h23)
+                                                                                                                                                                                : 6'h22)
+                                                                                                                                                                           : 6'h21)
+                                                                                                                                                                      : 6'h20)
+                                                                                                                                                                 : 6'h1F)
+                                                                                                                                                            : 6'h1E)
+                                                                                                                                                       : 6'h1D)
+                                                                                                                                                  : 6'h1C)
+                                                                                                                                             : 6'h1B)
+                                                                                                                                        : 6'h1A)
+                                                                                                                                   : 6'h19)
+                                                                                                                              : 6'h18)
+                                                                                                                         : 6'h17)
+                                                                                                                    : 6'h16)
+                                                                                                               : 6'h15)
+                                                                                                          : 6'h14)
+                                                                                                     : 6'h13)
+                                                                                                : 6'h12)
+                                                                                           : 6'h11)
+                                                                                      : 6'h10)
+                                                                                 : 6'hF)
+                                                                            : 6'hE)
+                                                                       : 6'hD)
+                                                                  : 6'hC)
+                                                             : 6'hB)
+                                                        : 6'hA)
+                                                   : 6'h9)
+                                              : 6'h8)
+                                         : 6'h7)
+                                    : 6'h6)
+                               : 6'h5)
+                          : 6'h4)
+                     : 6'h3)
+                : 6'h2)
+           : 6'h1)
+      : 6'h0;	// src/main/scala/chisel3/util/Mux.scala:50:70, src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:26
+  wire [116:0] _normalized_quotient_T_1 =
+    {63'h0,
+     ~next_remainder_106,
+     ~(next_remainder_105[28]),
+     ~(next_remainder_104[28]),
+     ~(next_remainder_103[28]),
+     ~(next_remainder_102[28]),
+     ~(next_remainder_101[28]),
+     ~(next_remainder_100[28]),
+     ~(next_remainder_99[28]),
+     ~(next_remainder_98[28]),
+     ~(next_remainder_97[28]),
+     ~(next_remainder_96[28]),
+     ~(next_remainder_95[28]),
+     ~(next_remainder_94[28]),
+     ~(next_remainder_93[28]),
+     ~(next_remainder_92[28]),
+     ~(next_remainder_91[28]),
+     ~(next_remainder_90[28]),
+     ~(next_remainder_89[28]),
+     ~(next_remainder_88[28]),
+     ~(next_remainder_87[28]),
+     ~(next_remainder_86[28]),
+     ~(next_remainder_85[28]),
+     ~(next_remainder_84[28]),
+     ~(next_remainder_83[28]),
+     ~(next_remainder_82[28]),
+     ~(next_remainder_81[28]),
+     ~(next_remainder_80[28]),
+     ~(next_remainder_79[28]),
+     ~(next_remainder_78[28]),
+     ~(next_remainder_77[28]),
+     ~(next_remainder_76[28]),
+     ~(next_remainder_75[28]),
+     ~(next_remainder_74[28]),
+     ~(next_remainder_73[28]),
+     ~(next_remainder_72[28]),
+     ~(next_remainder_71[28]),
+     ~(next_remainder_70[28]),
+     ~(next_remainder_69[28]),
+     ~(next_remainder_68[28]),
+     ~(next_remainder_67[28]),
+     ~(next_remainder_66[28]),
+     ~(next_remainder_65[28]),
+     ~(next_remainder_64[28]),
+     ~(next_remainder_63[28]),
+     ~(next_remainder_62[28]),
+     ~(next_remainder_61[28]),
+     ~(next_remainder_60[28]),
+     ~(next_remainder_59[28]),
+     ~(next_remainder_58[28]),
+     ~(next_remainder_57[28]),
+     ~(next_remainder_56[28]),
+     ~(next_remainder_55[28]),
+     ~(_next_remainder_T_542[28]),
+     1'h1} << leading_zeros_1;	// src/main/scala/chisel3/util/Mux.scala:50:70, src/main/scala/pvu/Div.scala:42:24, :81:{28,46}, :86:29, :88:{26,47}, :91:26, :103:47
+  wire [7:0]   _exp_diff_T_4 = io_pir_exp1_i[2'h2] - io_pir_exp2_i[2'h2];	// src/main/scala/pvu/Div.scala:33:37, :38:45
+  wire         is_zero_dividend_2 = io_pir_frac1_i[2'h2] == 28'h0;	// src/main/scala/pvu/Div.scala:37:46, :38:45
+  wire         is_zero_divisor_2 = io_pir_frac2_i[2'h2] == 28'h0;	// src/main/scala/pvu/Div.scala:37:46, :38:45
+  wire         _GEN_107 = is_zero_dividend_2 & is_zero_divisor_2;	// src/main/scala/pvu/Div.scala:37:46, :38:45, :40:28
+  wire [28:0]  _GEN_108 = {1'h0, io_pir_frac2_i[2'h2]};	// src/main/scala/pvu/Div.scala:37:46, :38:45, :88:47
+  wire [28:0]  _next_remainder_T_1082 = {io_pir_frac1_i[2'h2], 1'h0} - _GEN_108;	// src/main/scala/pvu/Div.scala:37:46, :38:45, :88:47
+  wire [28:0]  _GEN_109 = {_next_remainder_T_1082[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :88:47
+  wire [28:0]  next_remainder_109 =
+    _next_remainder_T_1082[28] ? _GEN_109 + _GEN_108 : _GEN_109 - _GEN_108;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_110 = {next_remainder_109[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_110 =
+    next_remainder_109[28] ? _GEN_110 + _GEN_108 : _GEN_110 - _GEN_108;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_111 = {next_remainder_110[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_111 =
+    next_remainder_110[28] ? _GEN_111 + _GEN_108 : _GEN_111 - _GEN_108;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_112 = {next_remainder_111[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_112 =
+    next_remainder_111[28] ? _GEN_112 + _GEN_108 : _GEN_112 - _GEN_108;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_113 = {next_remainder_112[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_113 =
+    next_remainder_112[28] ? _GEN_113 + _GEN_108 : _GEN_113 - _GEN_108;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_114 = {next_remainder_113[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_114 =
+    next_remainder_113[28] ? _GEN_114 + _GEN_108 : _GEN_114 - _GEN_108;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_115 = {next_remainder_114[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_115 =
+    next_remainder_114[28] ? _GEN_115 + _GEN_108 : _GEN_115 - _GEN_108;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_116 = {next_remainder_115[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_116 =
+    next_remainder_115[28] ? _GEN_116 + _GEN_108 : _GEN_116 - _GEN_108;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_117 = {next_remainder_116[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_117 =
+    next_remainder_116[28] ? _GEN_117 + _GEN_108 : _GEN_117 - _GEN_108;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_118 = {next_remainder_117[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_118 =
+    next_remainder_117[28] ? _GEN_118 + _GEN_108 : _GEN_118 - _GEN_108;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_119 = {next_remainder_118[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_119 =
+    next_remainder_118[28] ? _GEN_119 + _GEN_108 : _GEN_119 - _GEN_108;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_120 = {next_remainder_119[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_120 =
+    next_remainder_119[28] ? _GEN_120 + _GEN_108 : _GEN_120 - _GEN_108;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_121 = {next_remainder_120[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_121 =
+    next_remainder_120[28] ? _GEN_121 + _GEN_108 : _GEN_121 - _GEN_108;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_122 = {next_remainder_121[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_122 =
+    next_remainder_121[28] ? _GEN_122 + _GEN_108 : _GEN_122 - _GEN_108;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_123 = {next_remainder_122[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_123 =
+    next_remainder_122[28] ? _GEN_123 + _GEN_108 : _GEN_123 - _GEN_108;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_124 = {next_remainder_123[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_124 =
+    next_remainder_123[28] ? _GEN_124 + _GEN_108 : _GEN_124 - _GEN_108;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_125 = {next_remainder_124[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_125 =
+    next_remainder_124[28] ? _GEN_125 + _GEN_108 : _GEN_125 - _GEN_108;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_126 = {next_remainder_125[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_126 =
+    next_remainder_125[28] ? _GEN_126 + _GEN_108 : _GEN_126 - _GEN_108;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_127 = {next_remainder_126[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_127 =
+    next_remainder_126[28] ? _GEN_127 + _GEN_108 : _GEN_127 - _GEN_108;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_128 = {next_remainder_127[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_128 =
+    next_remainder_127[28] ? _GEN_128 + _GEN_108 : _GEN_128 - _GEN_108;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_129 = {next_remainder_128[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_129 =
+    next_remainder_128[28] ? _GEN_129 + _GEN_108 : _GEN_129 - _GEN_108;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_130 = {next_remainder_129[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_130 =
+    next_remainder_129[28] ? _GEN_130 + _GEN_108 : _GEN_130 - _GEN_108;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_131 = {next_remainder_130[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_131 =
+    next_remainder_130[28] ? _GEN_131 + _GEN_108 : _GEN_131 - _GEN_108;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_132 = {next_remainder_131[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_132 =
+    next_remainder_131[28] ? _GEN_132 + _GEN_108 : _GEN_132 - _GEN_108;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_133 = {next_remainder_132[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_133 =
+    next_remainder_132[28] ? _GEN_133 + _GEN_108 : _GEN_133 - _GEN_108;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_134 = {next_remainder_133[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_134 =
+    next_remainder_133[28] ? _GEN_134 + _GEN_108 : _GEN_134 - _GEN_108;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_135 = {next_remainder_134[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_135 =
+    next_remainder_134[28] ? _GEN_135 + _GEN_108 : _GEN_135 - _GEN_108;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_136 = {next_remainder_135[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_136 =
+    next_remainder_135[28] ? _GEN_136 + _GEN_108 : _GEN_136 - _GEN_108;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_137 = {next_remainder_136[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_137 =
+    next_remainder_136[28] ? _GEN_137 + _GEN_108 : _GEN_137 - _GEN_108;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_138 = {next_remainder_137[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_138 =
+    next_remainder_137[28] ? _GEN_138 + _GEN_108 : _GEN_138 - _GEN_108;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_139 = {next_remainder_138[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_139 =
+    next_remainder_138[28] ? _GEN_139 + _GEN_108 : _GEN_139 - _GEN_108;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_140 = {next_remainder_139[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_140 =
+    next_remainder_139[28] ? _GEN_140 + _GEN_108 : _GEN_140 - _GEN_108;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_141 = {next_remainder_140[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_141 =
+    next_remainder_140[28] ? _GEN_141 + _GEN_108 : _GEN_141 - _GEN_108;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_142 = {next_remainder_141[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_142 =
+    next_remainder_141[28] ? _GEN_142 + _GEN_108 : _GEN_142 - _GEN_108;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_143 = {next_remainder_142[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_143 =
+    next_remainder_142[28] ? _GEN_143 + _GEN_108 : _GEN_143 - _GEN_108;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_144 = {next_remainder_143[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_144 =
+    next_remainder_143[28] ? _GEN_144 + _GEN_108 : _GEN_144 - _GEN_108;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_145 = {next_remainder_144[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_145 =
+    next_remainder_144[28] ? _GEN_145 + _GEN_108 : _GEN_145 - _GEN_108;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_146 = {next_remainder_145[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_146 =
+    next_remainder_145[28] ? _GEN_146 + _GEN_108 : _GEN_146 - _GEN_108;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_147 = {next_remainder_146[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_147 =
+    next_remainder_146[28] ? _GEN_147 + _GEN_108 : _GEN_147 - _GEN_108;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_148 = {next_remainder_147[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_148 =
+    next_remainder_147[28] ? _GEN_148 + _GEN_108 : _GEN_148 - _GEN_108;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_149 = {next_remainder_148[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_149 =
+    next_remainder_148[28] ? _GEN_149 + _GEN_108 : _GEN_149 - _GEN_108;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_150 = {next_remainder_149[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_150 =
+    next_remainder_149[28] ? _GEN_150 + _GEN_108 : _GEN_150 - _GEN_108;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_151 = {next_remainder_150[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_151 =
+    next_remainder_150[28] ? _GEN_151 + _GEN_108 : _GEN_151 - _GEN_108;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_152 = {next_remainder_151[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_152 =
+    next_remainder_151[28] ? _GEN_152 + _GEN_108 : _GEN_152 - _GEN_108;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_153 = {next_remainder_152[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_153 =
+    next_remainder_152[28] ? _GEN_153 + _GEN_108 : _GEN_153 - _GEN_108;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_154 = {next_remainder_153[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_154 =
+    next_remainder_153[28] ? _GEN_154 + _GEN_108 : _GEN_154 - _GEN_108;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_155 = {next_remainder_154[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_155 =
+    next_remainder_154[28] ? _GEN_155 + _GEN_108 : _GEN_155 - _GEN_108;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_156 = {next_remainder_155[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_156 =
+    next_remainder_155[28] ? _GEN_156 + _GEN_108 : _GEN_156 - _GEN_108;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_157 = {next_remainder_156[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_157 =
+    next_remainder_156[28] ? _GEN_157 + _GEN_108 : _GEN_157 - _GEN_108;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_158 = {next_remainder_157[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_158 =
+    next_remainder_157[28] ? _GEN_158 + _GEN_108 : _GEN_158 - _GEN_108;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_159 = {next_remainder_158[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_159 =
+    next_remainder_158[28] ? _GEN_159 + _GEN_108 : _GEN_159 - _GEN_108;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_160 = {next_remainder_159[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  _next_remainder_T_1602 = _GEN_160 - _GEN_108;	// src/main/scala/pvu/Div.scala:88:47
+  wire [28:0]  _next_remainder_T_1607 = _GEN_160 + _GEN_108;	// src/main/scala/pvu/Div.scala:88:47, :91:47
+  wire         next_remainder_160 =
+    next_remainder_159[28] ? _next_remainder_T_1607[28] : _next_remainder_T_1602[28];	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [5:0]   leading_zeros_2 =
+    next_remainder_160
+      ? (next_remainder_159[28]
+           ? (next_remainder_158[28]
+                ? (next_remainder_157[28]
+                     ? (next_remainder_156[28]
+                          ? (next_remainder_155[28]
+                               ? (next_remainder_154[28]
+                                    ? (next_remainder_153[28]
+                                         ? (next_remainder_152[28]
+                                              ? (next_remainder_151[28]
+                                                   ? (next_remainder_150[28]
+                                                        ? (next_remainder_149[28]
+                                                             ? (next_remainder_148[28]
+                                                                  ? (next_remainder_147[28]
+                                                                       ? (next_remainder_146[28]
+                                                                            ? (next_remainder_145[28]
+                                                                                 ? (next_remainder_144[28]
+                                                                                      ? (next_remainder_143[28]
+                                                                                           ? (next_remainder_142[28]
+                                                                                                ? (next_remainder_141[28]
+                                                                                                     ? (next_remainder_140[28]
+                                                                                                          ? (next_remainder_139[28]
+                                                                                                               ? (next_remainder_138[28]
+                                                                                                                    ? (next_remainder_137[28]
+                                                                                                                         ? (next_remainder_136[28]
+                                                                                                                              ? (next_remainder_135[28]
+                                                                                                                                   ? (next_remainder_134[28]
+                                                                                                                                        ? (next_remainder_133[28]
+                                                                                                                                             ? (next_remainder_132[28]
+                                                                                                                                                  ? (next_remainder_131[28]
+                                                                                                                                                       ? (next_remainder_130[28]
+                                                                                                                                                            ? (next_remainder_129[28]
+                                                                                                                                                                 ? (next_remainder_128[28]
+                                                                                                                                                                      ? (next_remainder_127[28]
+                                                                                                                                                                           ? (next_remainder_126[28]
+                                                                                                                                                                                ? (next_remainder_125[28]
+                                                                                                                                                                                     ? (next_remainder_124[28]
+                                                                                                                                                                                          ? (next_remainder_123[28]
+                                                                                                                                                                                               ? (next_remainder_122[28]
+                                                                                                                                                                                                    ? (next_remainder_121[28]
+                                                                                                                                                                                                         ? (next_remainder_120[28]
+                                                                                                                                                                                                              ? (next_remainder_119[28]
+                                                                                                                                                                                                                   ? (next_remainder_118[28]
+                                                                                                                                                                                                                        ? (next_remainder_117[28]
+                                                                                                                                                                                                                             ? (next_remainder_116[28]
+                                                                                                                                                                                                                                  ? (next_remainder_115[28]
+                                                                                                                                                                                                                                       ? (next_remainder_114[28]
+                                                                                                                                                                                                                                            ? (next_remainder_113[28]
+                                                                                                                                                                                                                                                 ? (next_remainder_112[28]
+                                                                                                                                                                                                                                                      ? (next_remainder_111[28]
+                                                                                                                                                                                                                                                           ? (next_remainder_110[28]
+                                                                                                                                                                                                                                                                ? (next_remainder_109[28]
+                                                                                                                                                                                                                                                                     ? {5'h1A,
+                                                                                                                                                                                                                                                                        _next_remainder_T_1082[28]}
+                                                                                                                                                                                                                                                                     : 6'h33)
+                                                                                                                                                                                                                                                                : 6'h32)
+                                                                                                                                                                                                                                                           : 6'h31)
+                                                                                                                                                                                                                                                      : 6'h30)
+                                                                                                                                                                                                                                                 : 6'h2F)
+                                                                                                                                                                                                                                            : 6'h2E)
+                                                                                                                                                                                                                                       : 6'h2D)
+                                                                                                                                                                                                                                  : 6'h2C)
+                                                                                                                                                                                                                             : 6'h2B)
+                                                                                                                                                                                                                        : 6'h2A)
+                                                                                                                                                                                                                   : 6'h29)
+                                                                                                                                                                                                              : 6'h28)
+                                                                                                                                                                                                         : 6'h27)
+                                                                                                                                                                                                    : 6'h26)
+                                                                                                                                                                                               : 6'h25)
+                                                                                                                                                                                          : 6'h24)
+                                                                                                                                                                                     : 6'h23)
+                                                                                                                                                                                : 6'h22)
+                                                                                                                                                                           : 6'h21)
+                                                                                                                                                                      : 6'h20)
+                                                                                                                                                                 : 6'h1F)
+                                                                                                                                                            : 6'h1E)
+                                                                                                                                                       : 6'h1D)
+                                                                                                                                                  : 6'h1C)
+                                                                                                                                             : 6'h1B)
+                                                                                                                                        : 6'h1A)
+                                                                                                                                   : 6'h19)
+                                                                                                                              : 6'h18)
+                                                                                                                         : 6'h17)
+                                                                                                                    : 6'h16)
+                                                                                                               : 6'h15)
+                                                                                                          : 6'h14)
+                                                                                                     : 6'h13)
+                                                                                                : 6'h12)
+                                                                                           : 6'h11)
+                                                                                      : 6'h10)
+                                                                                 : 6'hF)
+                                                                            : 6'hE)
+                                                                       : 6'hD)
+                                                                  : 6'hC)
+                                                             : 6'hB)
+                                                        : 6'hA)
+                                                   : 6'h9)
+                                              : 6'h8)
+                                         : 6'h7)
+                                    : 6'h6)
+                               : 6'h5)
+                          : 6'h4)
+                     : 6'h3)
+                : 6'h2)
+           : 6'h1)
+      : 6'h0;	// src/main/scala/chisel3/util/Mux.scala:50:70, src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:26
+  wire [116:0] _normalized_quotient_T_2 =
+    {63'h0,
+     ~next_remainder_160,
+     ~(next_remainder_159[28]),
+     ~(next_remainder_158[28]),
+     ~(next_remainder_157[28]),
+     ~(next_remainder_156[28]),
+     ~(next_remainder_155[28]),
+     ~(next_remainder_154[28]),
+     ~(next_remainder_153[28]),
+     ~(next_remainder_152[28]),
+     ~(next_remainder_151[28]),
+     ~(next_remainder_150[28]),
+     ~(next_remainder_149[28]),
+     ~(next_remainder_148[28]),
+     ~(next_remainder_147[28]),
+     ~(next_remainder_146[28]),
+     ~(next_remainder_145[28]),
+     ~(next_remainder_144[28]),
+     ~(next_remainder_143[28]),
+     ~(next_remainder_142[28]),
+     ~(next_remainder_141[28]),
+     ~(next_remainder_140[28]),
+     ~(next_remainder_139[28]),
+     ~(next_remainder_138[28]),
+     ~(next_remainder_137[28]),
+     ~(next_remainder_136[28]),
+     ~(next_remainder_135[28]),
+     ~(next_remainder_134[28]),
+     ~(next_remainder_133[28]),
+     ~(next_remainder_132[28]),
+     ~(next_remainder_131[28]),
+     ~(next_remainder_130[28]),
+     ~(next_remainder_129[28]),
+     ~(next_remainder_128[28]),
+     ~(next_remainder_127[28]),
+     ~(next_remainder_126[28]),
+     ~(next_remainder_125[28]),
+     ~(next_remainder_124[28]),
+     ~(next_remainder_123[28]),
+     ~(next_remainder_122[28]),
+     ~(next_remainder_121[28]),
+     ~(next_remainder_120[28]),
+     ~(next_remainder_119[28]),
+     ~(next_remainder_118[28]),
+     ~(next_remainder_117[28]),
+     ~(next_remainder_116[28]),
+     ~(next_remainder_115[28]),
+     ~(next_remainder_114[28]),
+     ~(next_remainder_113[28]),
+     ~(next_remainder_112[28]),
+     ~(next_remainder_111[28]),
+     ~(next_remainder_110[28]),
+     ~(next_remainder_109[28]),
+     ~(_next_remainder_T_1082[28]),
+     1'h1} << leading_zeros_2;	// src/main/scala/chisel3/util/Mux.scala:50:70, src/main/scala/pvu/Div.scala:42:24, :81:{28,46}, :86:29, :88:{26,47}, :91:26, :103:47
+  wire [7:0]   _exp_diff_T_6 = io_pir_exp1_i[2'h3] - io_pir_exp2_i[2'h3];	// src/main/scala/pvu/Div.scala:33:37, :38:45
+  wire         is_zero_dividend_3 = io_pir_frac1_i[2'h3] == 28'h0;	// src/main/scala/pvu/Div.scala:37:46, :38:45
+  wire         is_zero_divisor_3 = io_pir_frac2_i[2'h3] == 28'h0;	// src/main/scala/pvu/Div.scala:37:46, :38:45
+  wire         _GEN_161 = is_zero_dividend_3 & is_zero_divisor_3;	// src/main/scala/pvu/Div.scala:37:46, :38:45, :40:28
+  wire [28:0]  _GEN_162 = {1'h0, io_pir_frac2_i[2'h3]};	// src/main/scala/pvu/Div.scala:37:46, :38:45, :88:47
+  wire [28:0]  _next_remainder_T_1622 = {io_pir_frac1_i[2'h3], 1'h0} - _GEN_162;	// src/main/scala/pvu/Div.scala:37:46, :38:45, :88:47
+  wire [28:0]  _GEN_163 = {_next_remainder_T_1622[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :88:47
+  wire [28:0]  next_remainder_163 =
+    _next_remainder_T_1622[28] ? _GEN_163 + _GEN_162 : _GEN_163 - _GEN_162;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_164 = {next_remainder_163[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_164 =
+    next_remainder_163[28] ? _GEN_164 + _GEN_162 : _GEN_164 - _GEN_162;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_165 = {next_remainder_164[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_165 =
+    next_remainder_164[28] ? _GEN_165 + _GEN_162 : _GEN_165 - _GEN_162;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_166 = {next_remainder_165[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_166 =
+    next_remainder_165[28] ? _GEN_166 + _GEN_162 : _GEN_166 - _GEN_162;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_167 = {next_remainder_166[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_167 =
+    next_remainder_166[28] ? _GEN_167 + _GEN_162 : _GEN_167 - _GEN_162;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_168 = {next_remainder_167[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_168 =
+    next_remainder_167[28] ? _GEN_168 + _GEN_162 : _GEN_168 - _GEN_162;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_169 = {next_remainder_168[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_169 =
+    next_remainder_168[28] ? _GEN_169 + _GEN_162 : _GEN_169 - _GEN_162;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_170 = {next_remainder_169[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_170 =
+    next_remainder_169[28] ? _GEN_170 + _GEN_162 : _GEN_170 - _GEN_162;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_171 = {next_remainder_170[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_171 =
+    next_remainder_170[28] ? _GEN_171 + _GEN_162 : _GEN_171 - _GEN_162;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_172 = {next_remainder_171[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_172 =
+    next_remainder_171[28] ? _GEN_172 + _GEN_162 : _GEN_172 - _GEN_162;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_173 = {next_remainder_172[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_173 =
+    next_remainder_172[28] ? _GEN_173 + _GEN_162 : _GEN_173 - _GEN_162;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_174 = {next_remainder_173[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_174 =
+    next_remainder_173[28] ? _GEN_174 + _GEN_162 : _GEN_174 - _GEN_162;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_175 = {next_remainder_174[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_175 =
+    next_remainder_174[28] ? _GEN_175 + _GEN_162 : _GEN_175 - _GEN_162;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_176 = {next_remainder_175[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_176 =
+    next_remainder_175[28] ? _GEN_176 + _GEN_162 : _GEN_176 - _GEN_162;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_177 = {next_remainder_176[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_177 =
+    next_remainder_176[28] ? _GEN_177 + _GEN_162 : _GEN_177 - _GEN_162;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_178 = {next_remainder_177[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_178 =
+    next_remainder_177[28] ? _GEN_178 + _GEN_162 : _GEN_178 - _GEN_162;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_179 = {next_remainder_178[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_179 =
+    next_remainder_178[28] ? _GEN_179 + _GEN_162 : _GEN_179 - _GEN_162;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_180 = {next_remainder_179[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_180 =
+    next_remainder_179[28] ? _GEN_180 + _GEN_162 : _GEN_180 - _GEN_162;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_181 = {next_remainder_180[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_181 =
+    next_remainder_180[28] ? _GEN_181 + _GEN_162 : _GEN_181 - _GEN_162;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_182 = {next_remainder_181[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_182 =
+    next_remainder_181[28] ? _GEN_182 + _GEN_162 : _GEN_182 - _GEN_162;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_183 = {next_remainder_182[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_183 =
+    next_remainder_182[28] ? _GEN_183 + _GEN_162 : _GEN_183 - _GEN_162;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_184 = {next_remainder_183[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_184 =
+    next_remainder_183[28] ? _GEN_184 + _GEN_162 : _GEN_184 - _GEN_162;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_185 = {next_remainder_184[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_185 =
+    next_remainder_184[28] ? _GEN_185 + _GEN_162 : _GEN_185 - _GEN_162;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_186 = {next_remainder_185[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_186 =
+    next_remainder_185[28] ? _GEN_186 + _GEN_162 : _GEN_186 - _GEN_162;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_187 = {next_remainder_186[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_187 =
+    next_remainder_186[28] ? _GEN_187 + _GEN_162 : _GEN_187 - _GEN_162;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_188 = {next_remainder_187[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_188 =
+    next_remainder_187[28] ? _GEN_188 + _GEN_162 : _GEN_188 - _GEN_162;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_189 = {next_remainder_188[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_189 =
+    next_remainder_188[28] ? _GEN_189 + _GEN_162 : _GEN_189 - _GEN_162;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_190 = {next_remainder_189[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_190 =
+    next_remainder_189[28] ? _GEN_190 + _GEN_162 : _GEN_190 - _GEN_162;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_191 = {next_remainder_190[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_191 =
+    next_remainder_190[28] ? _GEN_191 + _GEN_162 : _GEN_191 - _GEN_162;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_192 = {next_remainder_191[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_192 =
+    next_remainder_191[28] ? _GEN_192 + _GEN_162 : _GEN_192 - _GEN_162;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_193 = {next_remainder_192[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_193 =
+    next_remainder_192[28] ? _GEN_193 + _GEN_162 : _GEN_193 - _GEN_162;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_194 = {next_remainder_193[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_194 =
+    next_remainder_193[28] ? _GEN_194 + _GEN_162 : _GEN_194 - _GEN_162;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_195 = {next_remainder_194[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_195 =
+    next_remainder_194[28] ? _GEN_195 + _GEN_162 : _GEN_195 - _GEN_162;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_196 = {next_remainder_195[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_196 =
+    next_remainder_195[28] ? _GEN_196 + _GEN_162 : _GEN_196 - _GEN_162;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_197 = {next_remainder_196[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_197 =
+    next_remainder_196[28] ? _GEN_197 + _GEN_162 : _GEN_197 - _GEN_162;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_198 = {next_remainder_197[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_198 =
+    next_remainder_197[28] ? _GEN_198 + _GEN_162 : _GEN_198 - _GEN_162;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_199 = {next_remainder_198[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_199 =
+    next_remainder_198[28] ? _GEN_199 + _GEN_162 : _GEN_199 - _GEN_162;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_200 = {next_remainder_199[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_200 =
+    next_remainder_199[28] ? _GEN_200 + _GEN_162 : _GEN_200 - _GEN_162;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_201 = {next_remainder_200[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_201 =
+    next_remainder_200[28] ? _GEN_201 + _GEN_162 : _GEN_201 - _GEN_162;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_202 = {next_remainder_201[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_202 =
+    next_remainder_201[28] ? _GEN_202 + _GEN_162 : _GEN_202 - _GEN_162;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_203 = {next_remainder_202[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_203 =
+    next_remainder_202[28] ? _GEN_203 + _GEN_162 : _GEN_203 - _GEN_162;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_204 = {next_remainder_203[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_204 =
+    next_remainder_203[28] ? _GEN_204 + _GEN_162 : _GEN_204 - _GEN_162;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_205 = {next_remainder_204[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_205 =
+    next_remainder_204[28] ? _GEN_205 + _GEN_162 : _GEN_205 - _GEN_162;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_206 = {next_remainder_205[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_206 =
+    next_remainder_205[28] ? _GEN_206 + _GEN_162 : _GEN_206 - _GEN_162;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_207 = {next_remainder_206[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_207 =
+    next_remainder_206[28] ? _GEN_207 + _GEN_162 : _GEN_207 - _GEN_162;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_208 = {next_remainder_207[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_208 =
+    next_remainder_207[28] ? _GEN_208 + _GEN_162 : _GEN_208 - _GEN_162;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_209 = {next_remainder_208[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_209 =
+    next_remainder_208[28] ? _GEN_209 + _GEN_162 : _GEN_209 - _GEN_162;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_210 = {next_remainder_209[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_210 =
+    next_remainder_209[28] ? _GEN_210 + _GEN_162 : _GEN_210 - _GEN_162;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_211 = {next_remainder_210[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_211 =
+    next_remainder_210[28] ? _GEN_211 + _GEN_162 : _GEN_211 - _GEN_162;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_212 = {next_remainder_211[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_212 =
+    next_remainder_211[28] ? _GEN_212 + _GEN_162 : _GEN_212 - _GEN_162;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_213 = {next_remainder_212[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  next_remainder_213 =
+    next_remainder_212[28] ? _GEN_213 + _GEN_162 : _GEN_213 - _GEN_162;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [28:0]  _GEN_214 = {next_remainder_213[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+  wire [28:0]  _next_remainder_T_2142 = _GEN_214 - _GEN_162;	// src/main/scala/pvu/Div.scala:88:47
+  wire [28:0]  _next_remainder_T_2147 = _GEN_214 + _GEN_162;	// src/main/scala/pvu/Div.scala:88:47, :91:47
+  wire         next_remainder_214 =
+    next_remainder_213[28] ? _next_remainder_T_2147[28] : _next_remainder_T_2142[28];	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+  wire [5:0]   leading_zeros_3 =
+    next_remainder_214
+      ? (next_remainder_213[28]
+           ? (next_remainder_212[28]
+                ? (next_remainder_211[28]
+                     ? (next_remainder_210[28]
+                          ? (next_remainder_209[28]
+                               ? (next_remainder_208[28]
+                                    ? (next_remainder_207[28]
+                                         ? (next_remainder_206[28]
+                                              ? (next_remainder_205[28]
+                                                   ? (next_remainder_204[28]
+                                                        ? (next_remainder_203[28]
+                                                             ? (next_remainder_202[28]
+                                                                  ? (next_remainder_201[28]
+                                                                       ? (next_remainder_200[28]
+                                                                            ? (next_remainder_199[28]
+                                                                                 ? (next_remainder_198[28]
+                                                                                      ? (next_remainder_197[28]
+                                                                                           ? (next_remainder_196[28]
+                                                                                                ? (next_remainder_195[28]
+                                                                                                     ? (next_remainder_194[28]
+                                                                                                          ? (next_remainder_193[28]
+                                                                                                               ? (next_remainder_192[28]
+                                                                                                                    ? (next_remainder_191[28]
+                                                                                                                         ? (next_remainder_190[28]
+                                                                                                                              ? (next_remainder_189[28]
+                                                                                                                                   ? (next_remainder_188[28]
+                                                                                                                                        ? (next_remainder_187[28]
+                                                                                                                                             ? (next_remainder_186[28]
+                                                                                                                                                  ? (next_remainder_185[28]
+                                                                                                                                                       ? (next_remainder_184[28]
+                                                                                                                                                            ? (next_remainder_183[28]
+                                                                                                                                                                 ? (next_remainder_182[28]
+                                                                                                                                                                      ? (next_remainder_181[28]
+                                                                                                                                                                           ? (next_remainder_180[28]
+                                                                                                                                                                                ? (next_remainder_179[28]
+                                                                                                                                                                                     ? (next_remainder_178[28]
+                                                                                                                                                                                          ? (next_remainder_177[28]
+                                                                                                                                                                                               ? (next_remainder_176[28]
+                                                                                                                                                                                                    ? (next_remainder_175[28]
+                                                                                                                                                                                                         ? (next_remainder_174[28]
+                                                                                                                                                                                                              ? (next_remainder_173[28]
+                                                                                                                                                                                                                   ? (next_remainder_172[28]
+                                                                                                                                                                                                                        ? (next_remainder_171[28]
+                                                                                                                                                                                                                             ? (next_remainder_170[28]
+                                                                                                                                                                                                                                  ? (next_remainder_169[28]
+                                                                                                                                                                                                                                       ? (next_remainder_168[28]
+                                                                                                                                                                                                                                            ? (next_remainder_167[28]
+                                                                                                                                                                                                                                                 ? (next_remainder_166[28]
+                                                                                                                                                                                                                                                      ? (next_remainder_165[28]
+                                                                                                                                                                                                                                                           ? (next_remainder_164[28]
+                                                                                                                                                                                                                                                                ? (next_remainder_163[28]
+                                                                                                                                                                                                                                                                     ? {5'h1A,
+                                                                                                                                                                                                                                                                        _next_remainder_T_1622[28]}
+                                                                                                                                                                                                                                                                     : 6'h33)
+                                                                                                                                                                                                                                                                : 6'h32)
+                                                                                                                                                                                                                                                           : 6'h31)
+                                                                                                                                                                                                                                                      : 6'h30)
+                                                                                                                                                                                                                                                 : 6'h2F)
+                                                                                                                                                                                                                                            : 6'h2E)
+                                                                                                                                                                                                                                       : 6'h2D)
+                                                                                                                                                                                                                                  : 6'h2C)
+                                                                                                                                                                                                                             : 6'h2B)
+                                                                                                                                                                                                                        : 6'h2A)
+                                                                                                                                                                                                                   : 6'h29)
+                                                                                                                                                                                                              : 6'h28)
+                                                                                                                                                                                                         : 6'h27)
+                                                                                                                                                                                                    : 6'h26)
+                                                                                                                                                                                               : 6'h25)
+                                                                                                                                                                                          : 6'h24)
+                                                                                                                                                                                     : 6'h23)
+                                                                                                                                                                                : 6'h22)
+                                                                                                                                                                           : 6'h21)
+                                                                                                                                                                      : 6'h20)
+                                                                                                                                                                 : 6'h1F)
+                                                                                                                                                            : 6'h1E)
+                                                                                                                                                       : 6'h1D)
+                                                                                                                                                  : 6'h1C)
+                                                                                                                                             : 6'h1B)
+                                                                                                                                        : 6'h1A)
+                                                                                                                                   : 6'h19)
+                                                                                                                              : 6'h18)
+                                                                                                                         : 6'h17)
+                                                                                                                    : 6'h16)
+                                                                                                               : 6'h15)
+                                                                                                          : 6'h14)
+                                                                                                     : 6'h13)
+                                                                                                : 6'h12)
+                                                                                           : 6'h11)
+                                                                                      : 6'h10)
+                                                                                 : 6'hF)
+                                                                            : 6'hE)
+                                                                       : 6'hD)
+                                                                  : 6'hC)
+                                                             : 6'hB)
+                                                        : 6'hA)
+                                                   : 6'h9)
+                                              : 6'h8)
+                                         : 6'h7)
+                                    : 6'h6)
+                               : 6'h5)
+                          : 6'h4)
+                     : 6'h3)
+                : 6'h2)
+           : 6'h1)
+      : 6'h0;	// src/main/scala/chisel3/util/Mux.scala:50:70, src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:26
+  wire [116:0] _normalized_quotient_T_3 =
+    {63'h0,
+     ~next_remainder_214,
+     ~(next_remainder_213[28]),
+     ~(next_remainder_212[28]),
+     ~(next_remainder_211[28]),
+     ~(next_remainder_210[28]),
+     ~(next_remainder_209[28]),
+     ~(next_remainder_208[28]),
+     ~(next_remainder_207[28]),
+     ~(next_remainder_206[28]),
+     ~(next_remainder_205[28]),
+     ~(next_remainder_204[28]),
+     ~(next_remainder_203[28]),
+     ~(next_remainder_202[28]),
+     ~(next_remainder_201[28]),
+     ~(next_remainder_200[28]),
+     ~(next_remainder_199[28]),
+     ~(next_remainder_198[28]),
+     ~(next_remainder_197[28]),
+     ~(next_remainder_196[28]),
+     ~(next_remainder_195[28]),
+     ~(next_remainder_194[28]),
+     ~(next_remainder_193[28]),
+     ~(next_remainder_192[28]),
+     ~(next_remainder_191[28]),
+     ~(next_remainder_190[28]),
+     ~(next_remainder_189[28]),
+     ~(next_remainder_188[28]),
+     ~(next_remainder_187[28]),
+     ~(next_remainder_186[28]),
+     ~(next_remainder_185[28]),
+     ~(next_remainder_184[28]),
+     ~(next_remainder_183[28]),
+     ~(next_remainder_182[28]),
+     ~(next_remainder_181[28]),
+     ~(next_remainder_180[28]),
+     ~(next_remainder_179[28]),
+     ~(next_remainder_178[28]),
+     ~(next_remainder_177[28]),
+     ~(next_remainder_176[28]),
+     ~(next_remainder_175[28]),
+     ~(next_remainder_174[28]),
+     ~(next_remainder_173[28]),
+     ~(next_remainder_172[28]),
+     ~(next_remainder_171[28]),
+     ~(next_remainder_170[28]),
+     ~(next_remainder_169[28]),
+     ~(next_remainder_168[28]),
+     ~(next_remainder_167[28]),
+     ~(next_remainder_166[28]),
+     ~(next_remainder_165[28]),
+     ~(next_remainder_164[28]),
+     ~(next_remainder_163[28]),
+     ~(_next_remainder_T_1622[28]),
+     1'h1} << leading_zeros_3;	// src/main/scala/chisel3/util/Mux.scala:50:70, src/main/scala/pvu/Div.scala:42:24, :81:{28,46}, :86:29, :88:{26,47}, :91:26, :103:47
+  assign io_pir_sign_o =
+    {{_GEN_161 | io_pir_sign1_i[2'h3] ^ io_pir_sign2_i[2'h3]},
+     {_GEN_107 | io_pir_sign1_i[2'h2] ^ io_pir_sign2_i[2'h2]},
+     {_GEN_53 | io_pir_sign1_i[2'h1] ^ io_pir_sign2_i[2'h1]},
+     {_GEN | io_pir_sign1_i[2'h0] ^ io_pir_sign2_i[2'h0]}};	// src/main/scala/pvu/Div.scala:8:7, :29:{22,43}, :38:45, :40:{28,48}, :42:24
   assign io_pir_exp_o =
-    {{io_pir_exp1_i[2'h3] - io_pir_exp2_i[2'h3]},
-     {io_pir_exp1_i[2'h2] - io_pir_exp2_i[2'h2]},
-     {io_pir_exp1_i[2'h1] - io_pir_exp2_i[2'h1]},
-     {io_pir_exp1_i[2'h0] - io_pir_exp2_i[2'h0]}};	// src/main/scala/pvu/Div.scala:8:7, :36:52
+    {{_GEN_161
+        ? 8'h0
+        : is_zero_dividend_3 | is_zero_divisor_3
+            ? _exp_diff_T_6
+            : _exp_diff_T_6 - {{2{leading_zeros_3[5]}}, leading_zeros_3}},
+     {_GEN_107
+        ? 8'h0
+        : is_zero_dividend_2 | is_zero_divisor_2
+            ? _exp_diff_T_4
+            : _exp_diff_T_4 - {{2{leading_zeros_2[5]}}, leading_zeros_2}},
+     {_GEN_53
+        ? 8'h0
+        : is_zero_dividend_1 | is_zero_divisor_1
+            ? _exp_diff_T_2
+            : _exp_diff_T_2 - {{2{leading_zeros_1[5]}}, leading_zeros_1}},
+     {_GEN
+        ? 8'h0
+        : is_zero_dividend | is_zero_divisor
+            ? _exp_diff_T
+            : _exp_diff_T - {{2{leading_zeros[5]}}, leading_zeros}}};	// src/main/scala/chisel3/util/Mux.scala:50:70, src/main/scala/pvu/Div.scala:8:7, :33:37, :37:46, :38:45, :40:{28,48}, :44:23, :45:35, :48:23, :49:34, :52:23, :128:32, :129:23
   assign io_pir_frac_o =
-    {{_intdivider_3_io_quotient},
-     {_intdivider_2_io_quotient},
-     {_intdivider_1_io_quotient},
-     {_intdivider_io_quotient}};	// src/main/scala/pvu/Div.scala:8:7, :31:41
+    {{_GEN_161 | is_zero_dividend_3
+        ? 56'h0
+        : is_zero_divisor_3
+            ? 56'h7FFFFFFFFFFFFF
+            : {_normalized_quotient_T_3[26]
+               & (_normalized_quotient_T_3[27] | _normalized_quotient_T_3[25]
+                  | (|(_normalized_quotient_T_3[24:0])))
+                 ? _normalized_quotient_T_3[53:27] + 27'h1
+                 : _normalized_quotient_T_3[53:27],
+               29'h0}},
+     {_GEN_107 | is_zero_dividend_2
+        ? 56'h0
+        : is_zero_divisor_2
+            ? 56'h7FFFFFFFFFFFFF
+            : {_normalized_quotient_T_2[26]
+               & (_normalized_quotient_T_2[27] | _normalized_quotient_T_2[25]
+                  | (|(_normalized_quotient_T_2[24:0])))
+                 ? _normalized_quotient_T_2[53:27] + 27'h1
+                 : _normalized_quotient_T_2[53:27],
+               29'h0}},
+     {_GEN_53 | is_zero_dividend_1
+        ? 56'h0
+        : is_zero_divisor_1
+            ? 56'h7FFFFFFFFFFFFF
+            : {_normalized_quotient_T_1[26]
+               & (_normalized_quotient_T_1[27] | _normalized_quotient_T_1[25]
+                  | (|(_normalized_quotient_T_1[24:0])))
+                 ? _normalized_quotient_T_1[53:27] + 27'h1
+                 : _normalized_quotient_T_1[53:27],
+               29'h0}},
+     {_GEN | is_zero_dividend
+        ? 56'h0
+        : is_zero_divisor
+            ? 56'h7FFFFFFFFFFFFF
+            : {_normalized_quotient_T[26]
+               & (_normalized_quotient_T[27] | _normalized_quotient_T[25]
+                  | (|(_normalized_quotient_T[24:0])))
+                 ? _normalized_quotient_T[53:27] + 27'h1
+                 : _normalized_quotient_T[53:27],
+               29'h0}}};	// src/main/scala/pvu/Div.scala:8:7, :37:46, :38:45, :40:{28,48}, :43:24, :45:35, :47:24, :49:34, :51:{24,28}, :103:{47,64}, :112:39, :113:40, :114:63, :115:{64,85}, :118:{30,38,51}, :119:{32,46,52}, :120:46, :132:24
 endmodule
 
 module Comparator(	// src/main/scala/pvu/Comparator.scala:13:7
@@ -6153,7 +3915,7 @@ module FractionAlignment_DotProduct(	// src/main/scala/pvu/FractionAlignment_Dot
   assign io_pir_max_exp = _comptree_io_result_o;	// src/main/scala/pvu/FractionAlignment_DotProduct.scala:8:7, :23:26
 endmodule
 
-module Compressor4to2_96(	// src/main/scala/pvu/Compressor4to2.scala:29:7
+module Compressor4to2_48(	// src/main/scala/pvu/Compressor4to2.scala:29:7
   input  [3:0][57:0] io_operands_i,	// src/main/scala/pvu/Compressor4to2.scala:31:14
   output [57:0]      io_sum_o,	// src/main/scala/pvu/Compressor4to2.scala:31:14
                      io_carry_o	// src/main/scala/pvu/Compressor4to2.scala:31:14
@@ -7031,13 +4793,13 @@ module Compressor4to2_96(	// src/main/scala/pvu/Compressor4to2.scala:29:7
      1'h0};	// src/main/scala/pvu/Compressor4to2.scala:29:7, :44:13, :48:25, :75:14
 endmodule
 
-module CsaTree_116(	// src/main/scala/pvu/CsaTree.scala:7:7
+module CsaTree_56(	// src/main/scala/pvu/CsaTree.scala:7:7
   input  [3:0][57:0] io_operands_i,	// src/main/scala/pvu/CsaTree.scala:8:14
   output [57:0]      io_sum_o,	// src/main/scala/pvu/CsaTree.scala:8:14
                      io_carry_o	// src/main/scala/pvu/CsaTree.scala:8:14
 );
 
-  Compressor4to2_96 compressor (	// src/main/scala/pvu/CsaTree.scala:38:28
+  Compressor4to2_48 compressor (	// src/main/scala/pvu/CsaTree.scala:38:28
     .io_operands_i (io_operands_i),
     .io_sum_o      (io_sum_o),
     .io_carry_o    (io_carry_o)
@@ -7098,7 +4860,7 @@ module DotProduct(	// src/main/scala/pvu/DotProduct.scala:7:7
     .io_pir_frac_align (_frac_compare_io_pir_frac_align),
     .io_pir_max_exp    (io_pir_exp_o)
   );
-  CsaTree_116 csaTree (	// src/main/scala/pvu/DotProduct.scala:74:23
+  CsaTree_56 csaTree (	// src/main/scala/pvu/DotProduct.scala:74:23
     .io_operands_i
       ({{{2'h0, _frac_compare_io_pir_frac_align[2'h3]}},
         {{2'h0, _frac_compare_io_pir_frac_align[2'h2]}},
@@ -7237,11 +4999,11 @@ module PositEncode(	// src/main/scala/pvu/PositEncode.scala:7:7
       ({io_pir_exp[2'h0][7] ? 31'h1 : 31'h7FFFFFFE,
         io_pir_exp[2'h0][1:0],
         io_pir_frac[2'h0][26:0],
-        30'h0}),	// src/main/scala/pvu/PositEncode.scala:23:35, :30:33, :31:33, :40:19, :43:31, :44:{21,54}, :58:65, :77:45, :103:39
+        30'h0}),	// src/main/scala/pvu/PositEncode.scala:23:35, :30:33, :31:33, :40:19, :43:31, :44:{21,54}, :58:65, :77:45, :104:33
     .io_shift_amount
       ((io_pir_exp[2'h0][7]
           ? ~(io_pir_exp[2'h0][6:2]) + 5'h2
-          : io_pir_exp[2'h0][6:2] + 5'h2) - 5'h2),	// src/main/scala/pvu/PositEncode.scala:30:{17,33}, :43:31, :51:{27,49,69,89}, :67:123, :103:39
+          : io_pir_exp[2'h0][6:2] + 5'h2) - 5'h2),	// src/main/scala/pvu/PositEncode.scala:30:{17,33}, :43:31, :51:{27,49,69,89}, :67:123, :104:33
     .io_result_o     (_barrel_shifter_io_result_o)
   );
   BarrelShifter_8 barrel_shifter_1 (	// src/main/scala/pvu/PositEncode.scala:78:32
@@ -7249,11 +5011,11 @@ module PositEncode(	// src/main/scala/pvu/PositEncode.scala:7:7
       ({io_pir_exp[2'h1][7] ? 31'h1 : 31'h7FFFFFFE,
         io_pir_exp[2'h1][1:0],
         io_pir_frac[2'h1][26:0],
-        30'h0}),	// src/main/scala/pvu/PositEncode.scala:23:35, :30:33, :31:33, :40:19, :43:31, :44:{21,54}, :58:65, :77:45, :103:39
+        30'h0}),	// src/main/scala/pvu/PositEncode.scala:23:35, :30:33, :31:33, :40:19, :43:31, :44:{21,54}, :58:65, :77:45, :104:33
     .io_shift_amount
       ((io_pir_exp[2'h1][7]
           ? ~(io_pir_exp[2'h1][6:2]) + 5'h2
-          : io_pir_exp[2'h1][6:2] + 5'h2) - 5'h2),	// src/main/scala/pvu/PositEncode.scala:30:{17,33}, :43:31, :51:{27,49,69,89}, :67:123, :103:39
+          : io_pir_exp[2'h1][6:2] + 5'h2) - 5'h2),	// src/main/scala/pvu/PositEncode.scala:30:{17,33}, :43:31, :51:{27,49,69,89}, :67:123, :104:33
     .io_result_o     (_barrel_shifter_1_io_result_o)
   );
   BarrelShifter_8 barrel_shifter_2 (	// src/main/scala/pvu/PositEncode.scala:78:32
@@ -7273,34 +5035,42 @@ module PositEncode(	// src/main/scala/pvu/PositEncode.scala:7:7
       ({io_pir_exp[2'h3][7] ? 31'h1 : 31'h7FFFFFFE,
         io_pir_exp[2'h3][1:0],
         io_pir_frac[2'h3][26:0],
-        30'h0}),	// src/main/scala/pvu/PositEncode.scala:23:35, :30:33, :31:33, :40:19, :43:31, :44:{21,54}, :58:65, :77:45, :103:39
+        30'h0}),	// src/main/scala/pvu/PositEncode.scala:23:35, :30:33, :31:33, :40:19, :43:31, :44:{21,54}, :58:65, :77:45, :104:33
     .io_shift_amount
       ((io_pir_exp[2'h3][7]
           ? ~(io_pir_exp[2'h3][6:2]) + 5'h2
-          : io_pir_exp[2'h3][6:2] + 5'h2) - 5'h2),	// src/main/scala/pvu/PositEncode.scala:30:{17,33}, :43:31, :51:{27,49,69,89}, :67:123, :103:39
+          : io_pir_exp[2'h3][6:2] + 5'h2) - 5'h2),	// src/main/scala/pvu/PositEncode.scala:30:{17,33}, :43:31, :51:{27,49,69,89}, :67:123, :104:33
     .io_result_o     (_barrel_shifter_3_io_result_o)
   );
   assign io_posit =
-    {{io_pir_frac[2'h3][27]
-        ? (io_pir_sign[2'h3]
-             ? {1'h1, ~_value_after_round_3_T + 31'h1}
-             : {1'h0, _value_after_round_3_T})
-        : 32'h0},
-     {io_pir_frac[2'h2][27]
-        ? (io_pir_sign[2'h2]
-             ? {1'h1, ~_value_after_round_2_T + 31'h1}
-             : {1'h0, _value_after_round_2_T})
-        : 32'h0},
-     {io_pir_frac[2'h1][27]
-        ? (io_pir_sign[2'h1]
-             ? {1'h1, ~_value_after_round_1_T + 31'h1}
-             : {1'h0, _value_after_round_1_T})
-        : 32'h0},
-     {io_pir_frac[2'h0][27]
-        ? (io_pir_sign[2'h0]
-             ? {1'h1, ~_value_after_round_0_T + 31'h1}
-             : {1'h0, _value_after_round_0_T})
-        : 32'h0}};	// src/main/scala/pvu/PositEncode.scala:7:7, :23:35, :40:19, :51:89, :96:50, :103:{23,39,51,57,79,90}, :104:23
+    {{io_pir_sign[2'h3] & io_pir_frac[2'h3] == 28'h0
+        ? 32'h80000000
+        : io_pir_frac[2'h3][27]
+            ? (io_pir_sign[2'h3]
+                 ? {1'h1, ~_value_after_round_3_T + 31'h1}
+                 : {1'h0, _value_after_round_3_T})
+            : 32'h0},
+     {io_pir_sign[2'h2] & io_pir_frac[2'h2] == 28'h0
+        ? 32'h80000000
+        : io_pir_frac[2'h2][27]
+            ? (io_pir_sign[2'h2]
+                 ? {1'h1, ~_value_after_round_2_T + 31'h1}
+                 : {1'h0, _value_after_round_2_T})
+            : 32'h0},
+     {io_pir_sign[2'h1] & io_pir_frac[2'h1] == 28'h0
+        ? 32'h80000000
+        : io_pir_frac[2'h1][27]
+            ? (io_pir_sign[2'h1]
+                 ? {1'h1, ~_value_after_round_1_T + 31'h1}
+                 : {1'h0, _value_after_round_1_T})
+            : 32'h0},
+     {io_pir_sign[2'h0] & io_pir_frac[2'h0] == 28'h0
+        ? 32'h80000000
+        : io_pir_frac[2'h0][27]
+            ? (io_pir_sign[2'h0]
+                 ? {1'h1, ~_value_after_round_0_T + 31'h1}
+                 : {1'h0, _value_after_round_0_T})
+            : 32'h0}};	// src/main/scala/pvu/PositEncode.scala:7:7, :23:35, :40:19, :51:89, :96:50, :104:{33,42,61}, :106:{23,51,57,79,90}, :108:{23,68}
 endmodule
 
 module FloatToPosit(	// src/main/scala/pvu/FloatToPosit.scala:16:7
@@ -9959,33 +7729,41 @@ module PositDecode_7(	// src/main/scala/pvu/PositDecode.scala:7:7
   output [0:0][27:0] io_Frac	// src/main/scala/pvu/PositDecode.scala:12:14
 );
 
-  wire [30:0] _barrel_shifter_io_result_o;	// src/main/scala/pvu/PositDecode.scala:66:32
-  wire [4:0]  _lzcModule_cnt_o;	// src/main/scala/pvu/PositDecode.scala:40:27
-  wire        _lzcModule_empty_o;	// src/main/scala/pvu/PositDecode.scala:40:27
+  wire [0:0]  isNaR;	// src/main/scala/pvu/PositDecode.scala:23:14
+  wire [30:0] _barrel_shifter_io_result_o;	// src/main/scala/pvu/PositDecode.scala:72:32
+  wire [4:0]  _lzcModule_cnt_o;	// src/main/scala/pvu/PositDecode.scala:46:27
+  wire        _lzcModule_empty_o;	// src/main/scala/pvu/PositDecode.scala:46:27
+  wire [0:0]  _GEN = {1{io_posit[1'h0][31]}};	// src/main/scala/pvu/PositDecode.scala:23:{14,29,88}
+  wire        _GEN_0 = /*cast(bit)*/_GEN;	// src/main/scala/pvu/PositDecode.scala:23:14
+  wire        _GEN_1 = /*cast(bit)*/{1{io_posit[1'h0][30:0] == 31'h0}};	// src/main/scala/pvu/PositDecode.scala:23:{14,29,69,88}
+  assign isNaR = /*cast(bit[0:0])*/_GEN_0 & _GEN_1;	// src/main/scala/pvu/PositDecode.scala:23:14
   wire [30:0] _operand_0_T_6 =
-    io_posit[1'h0][31] ? ~(io_posit[1'h0][30:0]) + 31'h1 : io_posit[1'h0][30:0];	// src/main/scala/pvu/PositDecode.scala:23:30, :24:{22,44,56,77}, :55:22
+    io_posit[1'h0][31] ? ~(io_posit[1'h0][30:0]) + 31'h1 : io_posit[1'h0][30:0];	// src/main/scala/pvu/PositDecode.scala:23:{29,69,88}, :30:{22,44,77}
   LZC #(
     .MODE(1),
     .WIDTH(31)
-  ) lzcModule (	// src/main/scala/pvu/PositDecode.scala:40:27
-    .in_i    ({31{_operand_0_T_6[30]}} ^ _operand_0_T_6),	// src/main/scala/pvu/PositDecode.scala:24:22, :34:33, :35:26
+  ) lzcModule (	// src/main/scala/pvu/PositDecode.scala:46:27
+    .in_i    ({31{_operand_0_T_6[30]}} ^ _operand_0_T_6),	// src/main/scala/pvu/PositDecode.scala:30:22, :40:33, :41:26
     .cnt_o   (_lzcModule_cnt_o),
     .empty_o (_lzcModule_empty_o)
   );
-  BarrelShifter barrel_shifter (	// src/main/scala/pvu/PositDecode.scala:66:32
-    .io_operand_i    (_operand_0_T_6),	// src/main/scala/pvu/PositDecode.scala:24:22
-    .io_shift_amount (_lzcModule_cnt_o + 5'h1),	// src/main/scala/pvu/PositDecode.scala:40:27, :57:61, :68:54
+  BarrelShifter barrel_shifter (	// src/main/scala/pvu/PositDecode.scala:72:32
+    .io_operand_i    (_operand_0_T_6),	// src/main/scala/pvu/PositDecode.scala:30:22
+    .io_shift_amount (_lzcModule_cnt_o + 5'h1),	// src/main/scala/pvu/PositDecode.scala:46:27, :63:61, :74:54
     .io_result_o     (_barrel_shifter_io_result_o)
   );
-  assign io_Sign = {1{io_posit[1'h0][31]}};	// src/main/scala/pvu/PositDecode.scala:7:7, :23:{16,30}, :55:22
+  assign io_Sign = _GEN;	// src/main/scala/pvu/PositDecode.scala:7:7, :23:14
   assign io_Exp =
-    {1{{_lzcModule_empty_o
-          ? 6'h0
-          : _operand_0_T_6[30]
-              ? {1'h0, _lzcModule_cnt_o - 5'h1}
-              : {1'h1, ~_lzcModule_cnt_o + 5'h1},
-        _lzcModule_empty_o ? 2'h0 : _barrel_shifter_io_result_o[30:29]}}};	// src/main/scala/pvu/PositDecode.scala:7:7, :24:{22,34}, :34:33, :40:27, :54:32, :55:22, :57:{22,29,48,61,72,78,86}, :66:32, :75:35, :76:19, :78:{19,44}, :80:23
-  assign io_Frac = {1{{|_operand_0_T_6, _barrel_shifter_io_result_o[28:2]}}};	// src/main/scala/pvu/PositDecode.scala:7:7, :24:22, :66:32, :89:56, :90:{22,63}
+    {1{isNaR[1'h0]
+         ? 8'h0
+         : {_lzcModule_empty_o
+              ? 6'h0
+              : _operand_0_T_6[30]
+                  ? {1'h0, _lzcModule_cnt_o - 5'h1}
+                  : {1'h1, ~_lzcModule_cnt_o + 5'h1},
+            _lzcModule_empty_o ? 2'h0 : _barrel_shifter_io_result_o[30:29]}}};	// src/main/scala/pvu/PositDecode.scala:7:7, :23:{14,45,88}, :30:22, :40:33, :46:27, :60:32, :61:22, :63:{22,29,48,61,72,78,86}, :72:32, :81:35, :82:19, :84:{19,44}, :88:20, :89:17, :91:{17,23}
+  assign io_Frac =
+    {1{isNaR[1'h0] ? 28'h0 : {|_operand_0_T_6, _barrel_shifter_io_result_o[28:2]}}};	// src/main/scala/pvu/PositDecode.scala:7:7, :23:{14,88}, :30:22, :72:32, :101:56, :104:20, :105:18, :107:{18,24,65}
 endmodule
 
 module PositConvert_1(	// src/main/scala/pvu/PositConvert.scala:18:7
@@ -10021,19 +7799,21 @@ module PositEncode_7(	// src/main/scala/pvu/PositEncode.scala:7:7
       ({io_pir_exp[1'h0][7] ? 31'h1 : 31'h7FFFFFFE,
         io_pir_exp[1'h0][1:0],
         io_pir_frac[1'h0][26:0],
-        30'h0}),	// src/main/scala/pvu/PositEncode.scala:23:35, :30:33, :31:33, :40:19, :43:31, :44:{21,54}, :58:65, :77:45, :103:90
+        30'h0}),	// src/main/scala/pvu/PositEncode.scala:23:35, :30:33, :31:33, :40:19, :43:31, :44:{21,54}, :58:65, :77:45, :104:61
     .io_shift_amount
       ((io_pir_exp[1'h0][7]
           ? ~(io_pir_exp[1'h0][6:2]) + 5'h2
-          : io_pir_exp[1'h0][6:2] + 5'h2) - 5'h2),	// src/main/scala/pvu/PositEncode.scala:30:{17,33}, :43:31, :51:{27,49,69,89}, :67:123, :103:90
+          : io_pir_exp[1'h0][6:2] + 5'h2) - 5'h2),	// src/main/scala/pvu/PositEncode.scala:30:{17,33}, :43:31, :51:{27,49,69,89}, :67:123, :104:61
     .io_result_o     (_barrel_shifter_io_result_o)
   );
   assign io_posit =
-    {1{io_pir_frac[1'h0][27]
-         ? (io_pir_sign[1'h0]
-              ? {1'h1, ~_value_after_round_0_T + 31'h1}
-              : {1'h0, _value_after_round_0_T})
-         : 32'h0}};	// src/main/scala/pvu/PositEncode.scala:7:7, :23:35, :40:19, :96:50, :103:{23,39,51,57,79,90}, :104:23
+    {1{io_pir_sign[1'h0] & io_pir_frac[1'h0] == 28'h0
+         ? 32'h80000000
+         : io_pir_frac[1'h0][27]
+             ? (io_pir_sign[1'h0]
+                  ? {1'h1, ~_value_after_round_0_T + 31'h1}
+                  : {1'h0, _value_after_round_0_T})
+             : 32'h0}};	// src/main/scala/pvu/PositEncode.scala:7:7, :23:35, :40:19, :96:50, :104:{33,42,61}, :106:{23,51,57,79,90}, :108:{23,68}
 endmodule
 
 module FloatEncode_5(	// src/main/scala/pvu/FloatEncode.scala:29:7

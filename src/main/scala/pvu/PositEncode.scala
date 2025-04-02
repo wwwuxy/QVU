@@ -99,9 +99,13 @@ class PositEncode(val POSIT_WIDTH: Int, val VECTOR_SIZE: Int, val ES: Int) exten
   // OutputPosit --> ConvertToComplement
   for(i <- 0 until VECTOR_SIZE){
     val result   = Wire(UInt(POSIT_WIDTH.W))
-
+    
+    // 检测NaR条件：符号位为1且尾数为0
+    val isNaR = (io.pir_sign(i) === 1.U) && (io.pir_frac(i) === 0.U)
+    
     result      := Mux(io.pir_sign(i) === 1.U, Cat(1.U, ~value_after_round(i) + 1.U), Cat(0.U, value_after_round(i)))
-    io.posit(i) := Mux(frac_hide(i) === 1.U, result, 0.U)
+    // 当检测到NaR时，输出80000000，否则基于frac_hide的值决定
+    io.posit(i) := Mux(isNaR, (BigInt(1) << (POSIT_WIDTH-1)).U, Mux(frac_hide(i) === 1.U, result, 0.U))
   }
 }
 

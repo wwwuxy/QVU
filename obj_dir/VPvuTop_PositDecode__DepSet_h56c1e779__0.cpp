@@ -2808,97 +2808,85 @@ VL_INLINE_OPT void VPvuTop_PositDecode___ico_comb__TOP__PvuTop__DOT__decode1__12
     VPvuTop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     VL_DEBUG_IF(VL_DBG_MSGF("+          VPvuTop_PositDecode___ico_comb__TOP__PvuTop__DOT__decode1__12\n"); );
     // Body
-    vlSelf->io_Exp = ((((1U & vlSelf->__PVT__lzcModule_3__DOT__gen_lzc__DOT__sel_nodes)
-                         ? ((0x40000000U & vlSelf->__PVT___operand_3_T_6)
-                             ? (0x1fU & (vlSelf->__PVT__lzcModule_3__DOT__gen_lzc__DOT__index_nodes[0U] 
-                                         - (IData)(1U)))
-                             : (0x20U | (0x1fU & ((IData)(1U) 
-                                                  + 
-                                                  (~ 
-                                                   vlSelf->__PVT__lzcModule_3__DOT__gen_lzc__DOT__index_nodes[0U])))))
-                         : 0U) << 0x1aU) | ((((1U & vlSelf->__PVT__lzcModule_3__DOT__gen_lzc__DOT__sel_nodes)
-                                               ? (3U 
-                                                  & (vlSelf->__PVT___barrel_shifter_3_io_result_o 
-                                                     >> 0x1dU))
-                                               : 0U) 
-                                             << 0x18U) 
-                                            | ((((1U 
-                                                  & vlSelf->__PVT__lzcModule_2__DOT__gen_lzc__DOT__sel_nodes)
-                                                  ? 
-                                                 ((0x40000000U 
-                                                   & vlSelf->__PVT___operand_2_T_6)
+    vlSelf->io_Exp = ((((8U & (IData)(vlSelf->__PVT__isNaR))
+                         ? 0U : ((((1U & vlSelf->__PVT__lzcModule_3__DOT__gen_lzc__DOT__sel_nodes)
+                                    ? ((0x40000000U 
+                                        & vlSelf->__PVT___operand_3_T_6)
+                                        ? (0x1fU & 
+                                           (vlSelf->__PVT__lzcModule_3__DOT__gen_lzc__DOT__index_nodes[0U] 
+                                            - (IData)(1U)))
+                                        : (0x20U | 
+                                           (0x1fU & 
+                                            ((IData)(1U) 
+                                             + (~ vlSelf->__PVT__lzcModule_3__DOT__gen_lzc__DOT__index_nodes[0U])))))
+                                    : 0U) << 2U) | 
+                                 ((1U & vlSelf->__PVT__lzcModule_3__DOT__gen_lzc__DOT__sel_nodes)
+                                   ? (3U & (vlSelf->__PVT___barrel_shifter_3_io_result_o 
+                                            >> 0x1dU))
+                                   : 0U))) << 0x18U) 
+                      | ((((4U & (IData)(vlSelf->__PVT__isNaR))
+                            ? 0U : ((((1U & vlSelf->__PVT__lzcModule_2__DOT__gen_lzc__DOT__sel_nodes)
+                                       ? ((0x40000000U 
+                                           & vlSelf->__PVT___operand_2_T_6)
+                                           ? (0x1fU 
+                                              & (vlSelf->__PVT__lzcModule_2__DOT__gen_lzc__DOT__index_nodes[0U] 
+                                                 - (IData)(1U)))
+                                           : (0x20U 
+                                              | (0x1fU 
+                                                 & ((IData)(1U) 
+                                                    + 
+                                                    (~ 
+                                                     vlSelf->__PVT__lzcModule_2__DOT__gen_lzc__DOT__index_nodes[0U])))))
+                                       : 0U) << 2U) 
+                                    | ((1U & vlSelf->__PVT__lzcModule_2__DOT__gen_lzc__DOT__sel_nodes)
+                                        ? (3U & (vlSelf->__PVT___barrel_shifter_2_io_result_o 
+                                                 >> 0x1dU))
+                                        : 0U))) << 0x10U) 
+                         | ((((2U & (IData)(vlSelf->__PVT__isNaR))
+                               ? 0U : ((((1U & vlSelf->__PVT__lzcModule_1__DOT__gen_lzc__DOT__sel_nodes)
+                                          ? ((0x40000000U 
+                                              & vlSelf->__PVT___operand_1_T_6)
+                                              ? (0x1fU 
+                                                 & (vlSelf->__PVT__lzcModule_1__DOT__gen_lzc__DOT__index_nodes[0U] 
+                                                    - (IData)(1U)))
+                                              : (0x20U 
+                                                 | (0x1fU 
+                                                    & ((IData)(1U) 
+                                                       + 
+                                                       (~ 
+                                                        vlSelf->__PVT__lzcModule_1__DOT__gen_lzc__DOT__index_nodes[0U])))))
+                                          : 0U) << 2U) 
+                                       | ((1U & vlSelf->__PVT__lzcModule_1__DOT__gen_lzc__DOT__sel_nodes)
+                                           ? (3U & 
+                                              (vlSelf->__PVT___barrel_shifter_1_io_result_o 
+                                               >> 0x1dU))
+                                           : 0U))) 
+                             << 8U) | ((1U & (IData)(vlSelf->__PVT__isNaR))
+                                        ? 0U : ((((1U 
+                                                   & vlSelf->__PVT__lzcModule__DOT__gen_lzc__DOT__sel_nodes)
                                                    ? 
-                                                  (0x1fU 
-                                                   & (vlSelf->__PVT__lzcModule_2__DOT__gen_lzc__DOT__index_nodes[0U] 
-                                                      - (IData)(1U)))
-                                                   : 
-                                                  (0x20U 
-                                                   | (0x1fU 
-                                                      & ((IData)(1U) 
-                                                         + 
-                                                         (~ 
-                                                          vlSelf->__PVT__lzcModule_2__DOT__gen_lzc__DOT__index_nodes[0U])))))
-                                                  : 0U) 
-                                                << 0x12U) 
-                                               | ((((1U 
-                                                     & vlSelf->__PVT__lzcModule_2__DOT__gen_lzc__DOT__sel_nodes)
-                                                     ? 
-                                                    (3U 
-                                                     & (vlSelf->__PVT___barrel_shifter_2_io_result_o 
-                                                        >> 0x1dU))
-                                                     : 0U) 
-                                                   << 0x10U) 
-                                                  | ((((1U 
-                                                        & vlSelf->__PVT__lzcModule_1__DOT__gen_lzc__DOT__sel_nodes)
-                                                        ? 
-                                                       ((0x40000000U 
-                                                         & vlSelf->__PVT___operand_1_T_6)
-                                                         ? 
-                                                        (0x1fU 
-                                                         & (vlSelf->__PVT__lzcModule_1__DOT__gen_lzc__DOT__index_nodes[0U] 
-                                                            - (IData)(1U)))
-                                                         : 
-                                                        (0x20U 
-                                                         | (0x1fU 
-                                                            & ((IData)(1U) 
-                                                               + 
-                                                               (~ 
-                                                                vlSelf->__PVT__lzcModule_1__DOT__gen_lzc__DOT__index_nodes[0U])))))
-                                                        : 0U) 
-                                                      << 0xaU) 
-                                                     | ((((1U 
-                                                           & vlSelf->__PVT__lzcModule_1__DOT__gen_lzc__DOT__sel_nodes)
-                                                           ? 
-                                                          (3U 
-                                                           & (vlSelf->__PVT___barrel_shifter_1_io_result_o 
-                                                              >> 0x1dU))
-                                                           : 0U) 
-                                                         << 8U) 
-                                                        | ((((1U 
-                                                              & vlSelf->__PVT__lzcModule__DOT__gen_lzc__DOT__sel_nodes)
-                                                              ? 
-                                                             ((0x40000000U 
-                                                               & vlSelf->__PVT___operand_0_T_6)
-                                                               ? 
-                                                              (0x1fU 
-                                                               & (vlSelf->__PVT__lzcModule__DOT__gen_lzc__DOT__index_nodes[0U] 
-                                                                  - (IData)(1U)))
-                                                               : 
-                                                              (0x20U 
-                                                               | (0x1fU 
-                                                                  & ((IData)(1U) 
-                                                                     + 
-                                                                     (~ 
-                                                                      vlSelf->__PVT__lzcModule__DOT__gen_lzc__DOT__index_nodes[0U])))))
-                                                              : 0U) 
-                                                            << 2U) 
-                                                           | ((1U 
-                                                               & vlSelf->__PVT__lzcModule__DOT__gen_lzc__DOT__sel_nodes)
-                                                               ? 
-                                                              (3U 
-                                                               & (vlSelf->__PVT___barrel_shifter_io_result_o 
-                                                                  >> 0x1dU))
-                                                               : 0U))))))));
+                                                  ((0x40000000U 
+                                                    & vlSelf->__PVT___operand_0_T_6)
+                                                    ? 
+                                                   (0x1fU 
+                                                    & (vlSelf->__PVT__lzcModule__DOT__gen_lzc__DOT__index_nodes[0U] 
+                                                       - (IData)(1U)))
+                                                    : 
+                                                   (0x20U 
+                                                    | (0x1fU 
+                                                       & ((IData)(1U) 
+                                                          + 
+                                                          (~ 
+                                                           vlSelf->__PVT__lzcModule__DOT__gen_lzc__DOT__index_nodes[0U])))))
+                                                   : 0U) 
+                                                 << 2U) 
+                                                | ((1U 
+                                                    & vlSelf->__PVT__lzcModule__DOT__gen_lzc__DOT__sel_nodes)
+                                                    ? 
+                                                   (3U 
+                                                    & (vlSelf->__PVT___barrel_shifter_io_result_o 
+                                                       >> 0x1dU))
+                                                    : 0U))))));
 }
 
 VL_INLINE_OPT void VPvuTop_PositDecode___ico_comb__TOP__PvuTop__DOT__decode1__13(VPvuTop_PositDecode* vlSelf) {
@@ -2907,50 +2895,82 @@ VL_INLINE_OPT void VPvuTop_PositDecode___ico_comb__TOP__PvuTop__DOT__decode1__13
     VL_DEBUG_IF(VL_DBG_MSGF("+          VPvuTop_PositDecode___ico_comb__TOP__PvuTop__DOT__decode1__13\n"); );
     // Body
     vlSelf->io_Frac[0U] = (IData)((((QData)((IData)(
-                                                    (0U 
-                                                     != vlSelf->__PVT___operand_1_T_6))) 
-                                    << 0x37U) | (((QData)((IData)(
-                                                                  (0x7ffffffU 
-                                                                   & (vlSelf->__PVT___barrel_shifter_1_io_result_o 
-                                                                      >> 2U)))) 
-                                                  << 0x1cU) 
-                                                 | (QData)((IData)(
-                                                                   (((IData)(
-                                                                             (0U 
-                                                                              != vlSelf->__PVT___operand_0_T_6)) 
-                                                                     << 0x1bU) 
-                                                                    | (0x7ffffffU 
-                                                                       & (vlSelf->__PVT___barrel_shifter_io_result_o 
-                                                                          >> 2U))))))));
-    vlSelf->io_Frac[1U] = ((0xff000000U & (vlSelf->__PVT___barrel_shifter_2_io_result_o 
-                                           << 0x16U)) 
+                                                    ((2U 
+                                                      & (IData)(vlSelf->__PVT__isNaR))
+                                                      ? 0U
+                                                      : 
+                                                     (((IData)(
+                                                               (0U 
+                                                                != vlSelf->__PVT___operand_1_T_6)) 
+                                                       << 0x1bU) 
+                                                      | (0x7ffffffU 
+                                                         & (vlSelf->__PVT___barrel_shifter_1_io_result_o 
+                                                            >> 2U)))))) 
+                                    << 0x1cU) | (QData)((IData)(
+                                                                ((1U 
+                                                                  & (IData)(vlSelf->__PVT__isNaR))
+                                                                  ? 0U
+                                                                  : 
+                                                                 (((IData)(
+                                                                           (0U 
+                                                                            != vlSelf->__PVT___operand_0_T_6)) 
+                                                                   << 0x1bU) 
+                                                                  | (0x7ffffffU 
+                                                                     & (vlSelf->__PVT___barrel_shifter_io_result_o 
+                                                                        >> 2U))))))));
+    vlSelf->io_Frac[1U] = ((((4U & (IData)(vlSelf->__PVT__isNaR))
+                              ? 0U : (((IData)((0U 
+                                                != vlSelf->__PVT___operand_2_T_6)) 
+                                       << 0x1bU) | 
+                                      (0x7ffffffU & 
+                                       (vlSelf->__PVT___barrel_shifter_2_io_result_o 
+                                        >> 2U)))) << 0x18U) 
                            | (IData)(((((QData)((IData)(
-                                                        (0U 
-                                                         != vlSelf->__PVT___operand_1_T_6))) 
-                                        << 0x37U) | 
-                                       (((QData)((IData)(
-                                                         (0x7ffffffU 
-                                                          & (vlSelf->__PVT___barrel_shifter_1_io_result_o 
-                                                             >> 2U)))) 
-                                         << 0x1cU) 
-                                        | (QData)((IData)(
-                                                          (((IData)(
-                                                                    (0U 
-                                                                     != vlSelf->__PVT___operand_0_T_6)) 
-                                                            << 0x1bU) 
-                                                           | (0x7ffffffU 
-                                                              & (vlSelf->__PVT___barrel_shifter_io_result_o 
-                                                                 >> 2U))))))) 
+                                                        ((2U 
+                                                          & (IData)(vlSelf->__PVT__isNaR))
+                                                          ? 0U
+                                                          : 
+                                                         (((IData)(
+                                                                   (0U 
+                                                                    != vlSelf->__PVT___operand_1_T_6)) 
+                                                           << 0x1bU) 
+                                                          | (0x7ffffffU 
+                                                             & (vlSelf->__PVT___barrel_shifter_1_io_result_o 
+                                                                >> 2U)))))) 
+                                        << 0x1cU) | (QData)((IData)(
+                                                                    ((1U 
+                                                                      & (IData)(vlSelf->__PVT__isNaR))
+                                                                      ? 0U
+                                                                      : 
+                                                                     (((IData)(
+                                                                               (0U 
+                                                                                != vlSelf->__PVT___operand_0_T_6)) 
+                                                                       << 0x1bU) 
+                                                                      | (0x7ffffffU 
+                                                                         & (vlSelf->__PVT___barrel_shifter_io_result_o 
+                                                                            >> 2U))))))) 
                                       >> 0x20U)));
-    vlSelf->io_Frac[2U] = ((0xfff00000U & (vlSelf->__PVT___barrel_shifter_3_io_result_o 
-                                           << 0x12U)) 
-                           | (((IData)((0U != vlSelf->__PVT___operand_2_T_6)) 
-                               << 0x13U) | (0x7ffffU 
-                                            & (vlSelf->__PVT___barrel_shifter_2_io_result_o 
-                                               >> 0xaU))));
-    vlSelf->io_Frac[3U] = (((IData)((0U != vlSelf->__PVT___operand_3_T_6)) 
-                            << 0xfU) | (0x7fffU & (vlSelf->__PVT___barrel_shifter_3_io_result_o 
-                                                   >> 0xeU)));
+    vlSelf->io_Frac[2U] = ((((8U & (IData)(vlSelf->__PVT__isNaR))
+                              ? 0U : (((IData)((0U 
+                                                != vlSelf->__PVT___operand_3_T_6)) 
+                                       << 0x1bU) | 
+                                      (0x7ffffffU & 
+                                       (vlSelf->__PVT___barrel_shifter_3_io_result_o 
+                                        >> 2U)))) << 0x14U) 
+                           | (((4U & (IData)(vlSelf->__PVT__isNaR))
+                                ? 0U : (((IData)((0U 
+                                                  != vlSelf->__PVT___operand_2_T_6)) 
+                                         << 0x1bU) 
+                                        | (0x7ffffffU 
+                                           & (vlSelf->__PVT___barrel_shifter_2_io_result_o 
+                                              >> 2U)))) 
+                              >> 8U));
+    vlSelf->io_Frac[3U] = (((8U & (IData)(vlSelf->__PVT__isNaR))
+                             ? 0U : (((IData)((0U != vlSelf->__PVT___operand_3_T_6)) 
+                                      << 0x1bU) | (0x7ffffffU 
+                                                   & (vlSelf->__PVT___barrel_shifter_3_io_result_o 
+                                                      >> 2U)))) 
+                           >> 0xcU);
 }
 
 VL_INLINE_OPT void VPvuTop_PositDecode___ico_comb__TOP__PvuTop__DOT__posit2float_fp4__DOT__positDecoder__1(VPvuTop_PositDecode* vlSelf) {

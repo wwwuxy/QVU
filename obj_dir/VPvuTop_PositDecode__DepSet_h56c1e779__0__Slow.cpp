@@ -15,6 +15,7 @@ VL_ATTR_COLD void VPvuTop_PositDecode___ctor_var_reset(VPvuTop_PositDecode* vlSe
     vlSelf->io_Sign = VL_RAND_RESET_I(4);
     vlSelf->io_Exp = VL_RAND_RESET_I(32);
     VL_RAND_RESET_W(112, vlSelf->io_Frac);
+    vlSelf->__PVT__isNaR = VL_RAND_RESET_I(4);
     vlSelf->__PVT___barrel_shifter_3_io_result_o = VL_RAND_RESET_I(31);
     vlSelf->__PVT___barrel_shifter_2_io_result_o = VL_RAND_RESET_I(31);
     vlSelf->__PVT___barrel_shifter_1_io_result_o = VL_RAND_RESET_I(31);

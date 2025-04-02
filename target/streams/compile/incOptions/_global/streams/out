@@ -1,2 +1,11 @@
 [debug] Created transactional ClassFileManager with tempDir = /home/wuxy/BPVU/target/scala-2.13/classes.bak
+[debug] About to delete class files:
+[debug] 	PositEncode$$anon$1.class
+[debug] 	PositEncode.class
+[debug] We backup class files:
+[debug] 	PositEncode$$anon$1.class
+[debug] 	PositEncode.class
+[debug] Registering generated classes:
+[debug] 	PositEncode$$anon$1.class
+[debug] 	PositEncode.class
 [debug] Removing the temporary directory used for backing up class files: /home/wuxy/BPVU/target/scala-2.13/classes.bak

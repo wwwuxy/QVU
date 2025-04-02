@@ -15,7 +15,6 @@ class VPvuTop___024root;
 class VerilatedVcdC;
 class VPvuTop_PositDecode;
 class VPvuTop_Radix4BoothMultiplier;
-class VPvuTop_IntDivider;
 class VPvuTop_LZC__M1_W44;
 
 
@@ -80,10 +79,6 @@ class VPvuTop VL_NOT_FINAL : public VerilatedModel {
     VPvuTop_Radix4BoothMultiplier* const __PVT__PvuTop__DOT__mul__DOT__radix4BoothMultiplier_1;
     VPvuTop_Radix4BoothMultiplier* const __PVT__PvuTop__DOT__mul__DOT__radix4BoothMultiplier_2;
     VPvuTop_Radix4BoothMultiplier* const __PVT__PvuTop__DOT__mul__DOT__radix4BoothMultiplier_3;
-    VPvuTop_IntDivider* const __PVT__PvuTop__DOT__div__DOT__intdivider;
-    VPvuTop_IntDivider* const __PVT__PvuTop__DOT__div__DOT__intdivider_1;
-    VPvuTop_IntDivider* const __PVT__PvuTop__DOT__div__DOT__intdivider_2;
-    VPvuTop_IntDivider* const __PVT__PvuTop__DOT__div__DOT__intdivider_3;
     VPvuTop_Radix4BoothMultiplier* const __PVT__PvuTop__DOT__dotproduct__DOT__mul__DOT__radix4BoothMultiplier;
     VPvuTop_Radix4BoothMultiplier* const __PVT__PvuTop__DOT__dotproduct__DOT__mul__DOT__radix4BoothMultiplier_1;
     VPvuTop_Radix4BoothMultiplier* const __PVT__PvuTop__DOT__dotproduct__DOT__mul__DOT__radix4BoothMultiplier_2;

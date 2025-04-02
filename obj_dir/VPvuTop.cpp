@@ -57,10 +57,6 @@ VPvuTop::VPvuTop(VerilatedContext* _vcontextp__, const char* _vcname__)
     , __PVT__PvuTop__DOT__mul__DOT__radix4BoothMultiplier_1{vlSymsp->TOP.__PVT__PvuTop__DOT__mul__DOT__radix4BoothMultiplier_1}
     , __PVT__PvuTop__DOT__mul__DOT__radix4BoothMultiplier_2{vlSymsp->TOP.__PVT__PvuTop__DOT__mul__DOT__radix4BoothMultiplier_2}
     , __PVT__PvuTop__DOT__mul__DOT__radix4BoothMultiplier_3{vlSymsp->TOP.__PVT__PvuTop__DOT__mul__DOT__radix4BoothMultiplier_3}
-    , __PVT__PvuTop__DOT__div__DOT__intdivider{vlSymsp->TOP.__PVT__PvuTop__DOT__div__DOT__intdivider}
-    , __PVT__PvuTop__DOT__div__DOT__intdivider_1{vlSymsp->TOP.__PVT__PvuTop__DOT__div__DOT__intdivider_1}
-    , __PVT__PvuTop__DOT__div__DOT__intdivider_2{vlSymsp->TOP.__PVT__PvuTop__DOT__div__DOT__intdivider_2}
-    , __PVT__PvuTop__DOT__div__DOT__intdivider_3{vlSymsp->TOP.__PVT__PvuTop__DOT__div__DOT__intdivider_3}
     , __PVT__PvuTop__DOT__dotproduct__DOT__mul__DOT__radix4BoothMultiplier{vlSymsp->TOP.__PVT__PvuTop__DOT__dotproduct__DOT__mul__DOT__radix4BoothMultiplier}
     , __PVT__PvuTop__DOT__dotproduct__DOT__mul__DOT__radix4BoothMultiplier_1{vlSymsp->TOP.__PVT__PvuTop__DOT__dotproduct__DOT__mul__DOT__radix4BoothMultiplier_1}
     , __PVT__PvuTop__DOT__dotproduct__DOT__mul__DOT__radix4BoothMultiplier_2{vlSymsp->TOP.__PVT__PvuTop__DOT__dotproduct__DOT__mul__DOT__radix4BoothMultiplier_2}

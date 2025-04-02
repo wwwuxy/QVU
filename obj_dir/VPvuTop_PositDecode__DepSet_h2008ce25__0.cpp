@@ -21,6 +21,15 @@ VL_INLINE_OPT void VPvuTop_PositDecode___ico_sequent__TOP__PvuTop__DOT__decode1_
     CData/*0:0*/ lzcModule_3__DOT____Vlvbound_hefa3c05c__0;
     lzcModule_3__DOT____Vlvbound_hefa3c05c__0 = 0;
     // Body
+    vlSelf->io_Sign = ((8U & (vlSymsp->TOP.PvuTop__DOT____Vcellinp__decode1__io_posit[3U] 
+                              >> 0x1cU)) | ((4U & (
+                                                   vlSymsp->TOP.PvuTop__DOT____Vcellinp__decode1__io_posit[2U] 
+                                                   >> 0x1dU)) 
+                                            | ((2U 
+                                                & (vlSymsp->TOP.PvuTop__DOT____Vcellinp__decode1__io_posit[1U] 
+                                                   >> 0x1eU)) 
+                                               | (vlSymsp->TOP.PvuTop__DOT____Vcellinp__decode1__io_posit[0U] 
+                                                  >> 0x1fU))));
     vlSelf->__PVT___operand_3_T_6 = (0x7fffffffU & 
                                      ((vlSymsp->TOP.PvuTop__DOT____Vcellinp__decode1__io_posit[3U] 
                                        >> 0x1fU) ? 
@@ -45,6 +54,19 @@ VL_INLINE_OPT void VPvuTop_PositDecode___ico_sequent__TOP__PvuTop__DOT__decode1_
                                       ((IData)(1U) 
                                        + (~ vlSymsp->TOP.PvuTop__DOT____Vcellinp__decode1__io_posit[0U]))
                                        : vlSymsp->TOP.PvuTop__DOT____Vcellinp__decode1__io_posit[0U]));
+    vlSelf->__PVT__isNaR = ((IData)(vlSelf->io_Sign) 
+                            & (((0U == (0x7fffffffU 
+                                        & vlSymsp->TOP.PvuTop__DOT____Vcellinp__decode1__io_posit[3U])) 
+                                << 3U) | (((0U == (0x7fffffffU 
+                                                   & vlSymsp->TOP.PvuTop__DOT____Vcellinp__decode1__io_posit[2U])) 
+                                           << 2U) | 
+                                          (((0U == 
+                                             (0x7fffffffU 
+                                              & vlSymsp->TOP.PvuTop__DOT____Vcellinp__decode1__io_posit[1U])) 
+                                            << 1U) 
+                                           | (0U == 
+                                              (0x7fffffffU 
+                                               & vlSymsp->TOP.PvuTop__DOT____Vcellinp__decode1__io_posit[0U]))))));
     vlSelf->__Vcellinp__lzcModule_3__in_i = (0x7fffffffU 
                                              & ((- (IData)(
                                                            (1U 
@@ -944,6 +966,15 @@ VL_INLINE_OPT void VPvuTop_PositDecode___ico_sequent__TOP__PvuTop__DOT__decode2_
     CData/*0:0*/ lzcModule_3__DOT____Vlvbound_hefa3c05c__0;
     lzcModule_3__DOT____Vlvbound_hefa3c05c__0 = 0;
     // Body
+    vlSelf->io_Sign = ((8U & (vlSymsp->TOP.PvuTop__DOT____Vcellinp__decode2__io_posit[3U] 
+                              >> 0x1cU)) | ((4U & (
+                                                   vlSymsp->TOP.PvuTop__DOT____Vcellinp__decode2__io_posit[2U] 
+                                                   >> 0x1dU)) 
+                                            | ((2U 
+                                                & (vlSymsp->TOP.PvuTop__DOT____Vcellinp__decode2__io_posit[1U] 
+                                                   >> 0x1eU)) 
+                                               | (vlSymsp->TOP.PvuTop__DOT____Vcellinp__decode2__io_posit[0U] 
+                                                  >> 0x1fU))));
     vlSelf->__PVT___operand_3_T_6 = (0x7fffffffU & 
                                      ((vlSymsp->TOP.PvuTop__DOT____Vcellinp__decode2__io_posit[3U] 
                                        >> 0x1fU) ? 
@@ -968,6 +999,19 @@ VL_INLINE_OPT void VPvuTop_PositDecode___ico_sequent__TOP__PvuTop__DOT__decode2_
                                       ((IData)(1U) 
                                        + (~ vlSymsp->TOP.PvuTop__DOT____Vcellinp__decode2__io_posit[0U]))
                                        : vlSymsp->TOP.PvuTop__DOT____Vcellinp__decode2__io_posit[0U]));
+    vlSelf->__PVT__isNaR = ((IData)(vlSelf->io_Sign) 
+                            & (((0U == (0x7fffffffU 
+                                        & vlSymsp->TOP.PvuTop__DOT____Vcellinp__decode2__io_posit[3U])) 
+                                << 3U) | (((0U == (0x7fffffffU 
+                                                   & vlSymsp->TOP.PvuTop__DOT____Vcellinp__decode2__io_posit[2U])) 
+                                           << 2U) | 
+                                          (((0U == 
+                                             (0x7fffffffU 
+                                              & vlSymsp->TOP.PvuTop__DOT____Vcellinp__decode2__io_posit[1U])) 
+                                            << 1U) 
+                                           | (0U == 
+                                              (0x7fffffffU 
+                                               & vlSymsp->TOP.PvuTop__DOT____Vcellinp__decode2__io_posit[0U]))))));
     vlSelf->__Vcellinp__lzcModule_3__in_i = (0x7fffffffU 
                                              & ((- (IData)(
                                                            (1U 
@@ -1900,6 +1944,19 @@ VL_INLINE_OPT void VPvuTop_PositDecode___ico_sequent__TOP__PvuTop__DOT__posit2fl
                                       ((IData)(1U) 
                                        + (~ vlSymsp->TOP.PvuTop__DOT__posit2float_fp16__DOT____Vcellinp__positDecoder__io_posit[0U]))
                                        : vlSymsp->TOP.PvuTop__DOT__posit2float_fp16__DOT____Vcellinp__positDecoder__io_posit[0U]));
+    vlSelf->__PVT__isNaR = ((IData)(vlSelf->io_Sign) 
+                            & (((0U == (0x7fffffffU 
+                                        & vlSymsp->TOP.PvuTop__DOT__posit2float_fp16__DOT____Vcellinp__positDecoder__io_posit[3U])) 
+                                << 3U) | (((0U == (0x7fffffffU 
+                                                   & vlSymsp->TOP.PvuTop__DOT__posit2float_fp16__DOT____Vcellinp__positDecoder__io_posit[2U])) 
+                                           << 2U) | 
+                                          (((0U == 
+                                             (0x7fffffffU 
+                                              & vlSymsp->TOP.PvuTop__DOT__posit2float_fp16__DOT____Vcellinp__positDecoder__io_posit[1U])) 
+                                            << 1U) 
+                                           | (0U == 
+                                              (0x7fffffffU 
+                                               & vlSymsp->TOP.PvuTop__DOT__posit2float_fp16__DOT____Vcellinp__positDecoder__io_posit[0U]))))));
     vlSelf->__Vcellinp__lzcModule_3__in_i = (0x7fffffffU 
                                              & ((- (IData)(
                                                            (1U 

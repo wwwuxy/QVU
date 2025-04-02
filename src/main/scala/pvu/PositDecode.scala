@@ -17,6 +17,12 @@ class PositDecode(val POSIT_WIDTH: Int, val VECTOR_SIZE: Int, val ES: Int) exten
     val Frac = Output(Vec(VECTOR_SIZE, UInt((FRAC_WIDTH+1).W)))
   })
 
+  // 检测NaR (Not a Real) - 80000000 (最高位为1，其余位为0)
+  val isNaR = Wire(Vec(VECTOR_SIZE, Bool()))
+  for (i <- 0 until VECTOR_SIZE) {
+    isNaR(i) := (io.posit(i)(POSIT_WIDTH-1) === 1.U) && (io.posit(i)(POSIT_WIDTH-2, 0) === 0.U)
+  }
+
   // Handling symbols and operand 将负数转换为补码
   val operand = Wire(Vec(VECTOR_SIZE, UInt((POSIT_WIDTH - 1).W))) // Remove the sign bit
   for (i <- 0 until VECTOR_SIZE) {
@@ -77,7 +83,13 @@ class PositDecode(val POSIT_WIDTH: Int, val VECTOR_SIZE: Int, val ES: Int) exten
     }.otherwise {
       es_value(i) := operand_after_shift(i)(POSIT_WIDTH - 2, POSIT_WIDTH - 3)
     }
-    io.Exp(i)   := Cat(regime_r(i), es_value(i)).asSInt
+    
+    // 根据是否为NaR设置指数值
+    when(isNaR(i)) {
+      io.Exp(i) := 0.S  // NaR的指数为0
+    }.otherwise {
+      io.Exp(i) := Cat(regime_r(i), es_value(i)).asSInt
+    }
     // printf("es_value[%d] = %b, regime_r[%d] = %d, io.Exp[%d] = %b\n", i.U, es_value(i), i.U, regime_r(i), i.U, io.Exp(i))
   }
 
@@ -87,7 +99,13 @@ class PositDecode(val POSIT_WIDTH: Int, val VECTOR_SIZE: Int, val ES: Int) exten
   val implicit_bits = Wire(Vec(VECTOR_SIZE, UInt(1.W)))
   for (i <- 0 until VECTOR_SIZE) {
     implicit_bits(i) := operand(i)(POSIT_WIDTH - 2, 0).orR // |operand_after_shift(i)(POSIT_WIDTH - 2 - es, 2)
-    io.Frac(i) := Cat(implicit_bits(i), operand_after_shift(i)(POSIT_WIDTH - 2 - ES, 2))
+    
+    // 根据是否为NaR设置尾数值
+    when(isNaR(i)) {
+      io.Frac(i) := 0.U  // NaR的尾数为0
+    }.otherwise {
+      io.Frac(i) := Cat(implicit_bits(i), operand_after_shift(i)(POSIT_WIDTH - 2 - ES, 2))
+    }
   }
 
   // printf("implicit_bits(0) = %d, io.Frac(0) = %b\n", implicit_bits(0), io.Frac(0));

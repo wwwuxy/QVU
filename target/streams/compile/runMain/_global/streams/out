@@ -1,2 +1,24 @@
-[error] chisel3.internal.Errors: Fatal errors during hardware elaboration. Look above for error list. Rerun with --throw-on-first-error if you wish to see a stack trace.
-[error] (Compile / runMain) chisel3.internal.Errors: Fatal errors during hardware elaboration. Look above for error list. Rerun with --throw-on-first-error if you wish to see a stack trace.
+[error] circt.stage.phases.Exceptions$FirtoolNonZeroExitCode: /home/wuxy/.cache/llvm-firtool/1.62.0/bin/firtool returned a non-zero exit code. Note that this version of Chisel (6.2.0) was published against firtool version 1.62.0.
+[error] ------------------------------------------------------------------------------
+[error] ExitCode:
+[error] 1
+[error] STDOUT:
+[error] 
+[error] STDERR:
+[error] src/main/scala/pvu/Div.scala:8:7: error: detected combinational cycle in a FIRRTL module, sample path: Div.{_io_pir_exp_o_0_T_6 <- ... <- _io_pir_exp_o_0_T_5 <- ... <- _io_pir_exp_o_0_T_4 <- ... <- io.pir_exp_o[0] <- ... <- _io_pir_exp_o_0_T_6}
+[error] class Div(val POSIT_WIDTH: Int, val VECTOR_SIZE: Int, val ALIGN_WIDTH: Int, val ES: Int) extends Module {
+[error]       ^
+[error] 
+[error] ------------------------------------------------------------------------------
+[error] (Compile / runMain) circt.stage.phases.Exceptions$FirtoolNonZeroExitCode: /home/wuxy/.cache/llvm-firtool/1.62.0/bin/firtool returned a non-zero exit code. Note that this version of Chisel (6.2.0) was published against firtool version 1.62.0.
+[error] ------------------------------------------------------------------------------
+[error] ExitCode:
+[error] 1
+[error] STDOUT:
+[error] 
+[error] STDERR:
+[error] src/main/scala/pvu/Div.scala:8:7: error: detected combinational cycle in a FIRRTL module, sample path: Div.{_io_pir_exp_o_0_T_6 <- ... <- _io_pir_exp_o_0_T_5 <- ... <- _io_pir_exp_o_0_T_4 <- ... <- io.pir_exp_o[0] <- ... <- _io_pir_exp_o_0_T_6}
+[error] class Div(val POSIT_WIDTH: Int, val VECTOR_SIZE: Int, val ALIGN_WIDTH: Int, val ES: Int) extends Module {
+[error]       ^
+[error] 
+[error] ------------------------------------------------------------------------------

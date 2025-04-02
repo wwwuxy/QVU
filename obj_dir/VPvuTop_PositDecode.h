@@ -15,6 +15,7 @@ class VPvuTop_PositDecode final : public VerilatedModule {
     // DESIGN SPECIFIC STATE
     VL_OUT8(io_Sign,3,0);
     VL_OUT(io_Exp,31,0);
+    CData/*3:0*/ __PVT__isNaR;
     VlWide<5>/*159:0*/ __PVT__lzcModule__DOT__gen_lzc__DOT__index_nodes;
     VlWide<5>/*159:0*/ __PVT__lzcModule_1__DOT__gen_lzc__DOT__index_nodes;
     VlWide<5>/*159:0*/ __PVT__lzcModule_2__DOT__gen_lzc__DOT__index_nodes;
