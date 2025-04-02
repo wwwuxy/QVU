@@ -2473,167 +2473,174 @@ module Div(	// src/main/scala/pvu/Div.scala:8:7
   wire [7:0]   _exp_diff_T = io_pir_exp1_i[2'h0] - io_pir_exp2_i[2'h0];	// src/main/scala/pvu/Div.scala:33:37, :38:45
   wire         is_zero_dividend = io_pir_frac1_i[2'h0] == 28'h0;	// src/main/scala/pvu/Div.scala:37:46, :38:45
   wire         is_zero_divisor = io_pir_frac2_i[2'h0] == 28'h0;	// src/main/scala/pvu/Div.scala:37:46, :38:45
-  wire         _GEN = is_zero_dividend & is_zero_divisor;	// src/main/scala/pvu/Div.scala:37:46, :38:45, :40:28
-  wire [28:0]  _GEN_0 = {1'h0, io_pir_frac2_i[2'h0]};	// src/main/scala/pvu/Div.scala:37:46, :38:45, :88:47
-  wire [28:0]  _next_remainder_T_2 = {io_pir_frac1_i[2'h0], 1'h0} - _GEN_0;	// src/main/scala/pvu/Div.scala:37:46, :38:45, :88:47
-  wire [28:0]  _GEN_1 = {_next_remainder_T_2[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :88:47
+  wire         _is_dividend_40000000_T_1 = io_pir_exp1_i[2'h0] == 8'h0;	// src/main/scala/pvu/Div.scala:33:37, :38:45, :39:92, :50:23
+  wire         _is_divisor_40000000_T_1 = io_pir_exp2_i[2'h0] == 8'h0;	// src/main/scala/pvu/Div.scala:33:37, :38:45, :40:91, :50:23
+  wire         _GEN = is_zero_dividend & is_zero_divisor;	// src/main/scala/pvu/Div.scala:37:46, :38:45, :46:28
+  wire         _GEN_0 =
+    io_pir_frac1_i[2'h0] == 28'h8000000 & _is_dividend_40000000_T_1
+    & io_pir_frac2_i[2'h0] == 28'h8000000 & _is_divisor_40000000_T_1
+    | ~io_pir_sign1_i[2'h0] & _is_dividend_40000000_T_1 & io_pir_frac1_i[2'h0][27]
+    & ~io_pir_sign2_i[2'h0] & _is_divisor_40000000_T_1 & io_pir_frac2_i[2'h0][27];	// src/main/scala/pvu/Div.scala:29:{22,43}, :37:46, :38:45, :39:{46,55,92}, :40:{45,91}, :43:{51,111}, :44:{50,110}, :51:{33,52}, :53:24, :56:{38,62}, :58:24
+  wire [28:0]  _GEN_1 = {1'h0, io_pir_frac2_i[2'h0]};	// src/main/scala/pvu/Div.scala:37:46, :38:45, :104:47
+  wire [28:0]  _next_remainder_T_2 = {io_pir_frac1_i[2'h0], 1'h0} - _GEN_1;	// src/main/scala/pvu/Div.scala:37:46, :38:45, :104:47
+  wire [28:0]  _GEN_2 = {_next_remainder_T_2[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :104:47
   wire [28:0]  next_remainder_1 =
-    _next_remainder_T_2[28] ? _GEN_1 + _GEN_0 : _GEN_1 - _GEN_0;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_2 = {next_remainder_1[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    _next_remainder_T_2[28] ? _GEN_2 + _GEN_1 : _GEN_2 - _GEN_1;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_3 = {next_remainder_1[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_2 =
-    next_remainder_1[28] ? _GEN_2 + _GEN_0 : _GEN_2 - _GEN_0;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_3 = {next_remainder_2[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_1[28] ? _GEN_3 + _GEN_1 : _GEN_3 - _GEN_1;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_4 = {next_remainder_2[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_3 =
-    next_remainder_2[28] ? _GEN_3 + _GEN_0 : _GEN_3 - _GEN_0;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_4 = {next_remainder_3[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_2[28] ? _GEN_4 + _GEN_1 : _GEN_4 - _GEN_1;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_5 = {next_remainder_3[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_4 =
-    next_remainder_3[28] ? _GEN_4 + _GEN_0 : _GEN_4 - _GEN_0;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_5 = {next_remainder_4[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_3[28] ? _GEN_5 + _GEN_1 : _GEN_5 - _GEN_1;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_6 = {next_remainder_4[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_5 =
-    next_remainder_4[28] ? _GEN_5 + _GEN_0 : _GEN_5 - _GEN_0;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_6 = {next_remainder_5[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_4[28] ? _GEN_6 + _GEN_1 : _GEN_6 - _GEN_1;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_7 = {next_remainder_5[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_6 =
-    next_remainder_5[28] ? _GEN_6 + _GEN_0 : _GEN_6 - _GEN_0;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_7 = {next_remainder_6[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_5[28] ? _GEN_7 + _GEN_1 : _GEN_7 - _GEN_1;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_8 = {next_remainder_6[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_7 =
-    next_remainder_6[28] ? _GEN_7 + _GEN_0 : _GEN_7 - _GEN_0;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_8 = {next_remainder_7[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_6[28] ? _GEN_8 + _GEN_1 : _GEN_8 - _GEN_1;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_9 = {next_remainder_7[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_8 =
-    next_remainder_7[28] ? _GEN_8 + _GEN_0 : _GEN_8 - _GEN_0;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_9 = {next_remainder_8[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_7[28] ? _GEN_9 + _GEN_1 : _GEN_9 - _GEN_1;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_10 = {next_remainder_8[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_9 =
-    next_remainder_8[28] ? _GEN_9 + _GEN_0 : _GEN_9 - _GEN_0;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_10 = {next_remainder_9[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_8[28] ? _GEN_10 + _GEN_1 : _GEN_10 - _GEN_1;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_11 = {next_remainder_9[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_10 =
-    next_remainder_9[28] ? _GEN_10 + _GEN_0 : _GEN_10 - _GEN_0;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_11 = {next_remainder_10[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_9[28] ? _GEN_11 + _GEN_1 : _GEN_11 - _GEN_1;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_12 = {next_remainder_10[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_11 =
-    next_remainder_10[28] ? _GEN_11 + _GEN_0 : _GEN_11 - _GEN_0;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_12 = {next_remainder_11[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_10[28] ? _GEN_12 + _GEN_1 : _GEN_12 - _GEN_1;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_13 = {next_remainder_11[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_12 =
-    next_remainder_11[28] ? _GEN_12 + _GEN_0 : _GEN_12 - _GEN_0;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_13 = {next_remainder_12[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_11[28] ? _GEN_13 + _GEN_1 : _GEN_13 - _GEN_1;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_14 = {next_remainder_12[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_13 =
-    next_remainder_12[28] ? _GEN_13 + _GEN_0 : _GEN_13 - _GEN_0;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_14 = {next_remainder_13[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_12[28] ? _GEN_14 + _GEN_1 : _GEN_14 - _GEN_1;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_15 = {next_remainder_13[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_14 =
-    next_remainder_13[28] ? _GEN_14 + _GEN_0 : _GEN_14 - _GEN_0;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_15 = {next_remainder_14[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_13[28] ? _GEN_15 + _GEN_1 : _GEN_15 - _GEN_1;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_16 = {next_remainder_14[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_15 =
-    next_remainder_14[28] ? _GEN_15 + _GEN_0 : _GEN_15 - _GEN_0;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_16 = {next_remainder_15[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_14[28] ? _GEN_16 + _GEN_1 : _GEN_16 - _GEN_1;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_17 = {next_remainder_15[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_16 =
-    next_remainder_15[28] ? _GEN_16 + _GEN_0 : _GEN_16 - _GEN_0;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_17 = {next_remainder_16[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_15[28] ? _GEN_17 + _GEN_1 : _GEN_17 - _GEN_1;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_18 = {next_remainder_16[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_17 =
-    next_remainder_16[28] ? _GEN_17 + _GEN_0 : _GEN_17 - _GEN_0;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_18 = {next_remainder_17[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_16[28] ? _GEN_18 + _GEN_1 : _GEN_18 - _GEN_1;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_19 = {next_remainder_17[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_18 =
-    next_remainder_17[28] ? _GEN_18 + _GEN_0 : _GEN_18 - _GEN_0;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_19 = {next_remainder_18[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_17[28] ? _GEN_19 + _GEN_1 : _GEN_19 - _GEN_1;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_20 = {next_remainder_18[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_19 =
-    next_remainder_18[28] ? _GEN_19 + _GEN_0 : _GEN_19 - _GEN_0;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_20 = {next_remainder_19[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_18[28] ? _GEN_20 + _GEN_1 : _GEN_20 - _GEN_1;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_21 = {next_remainder_19[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_20 =
-    next_remainder_19[28] ? _GEN_20 + _GEN_0 : _GEN_20 - _GEN_0;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_21 = {next_remainder_20[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_19[28] ? _GEN_21 + _GEN_1 : _GEN_21 - _GEN_1;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_22 = {next_remainder_20[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_21 =
-    next_remainder_20[28] ? _GEN_21 + _GEN_0 : _GEN_21 - _GEN_0;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_22 = {next_remainder_21[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_20[28] ? _GEN_22 + _GEN_1 : _GEN_22 - _GEN_1;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_23 = {next_remainder_21[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_22 =
-    next_remainder_21[28] ? _GEN_22 + _GEN_0 : _GEN_22 - _GEN_0;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_23 = {next_remainder_22[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_21[28] ? _GEN_23 + _GEN_1 : _GEN_23 - _GEN_1;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_24 = {next_remainder_22[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_23 =
-    next_remainder_22[28] ? _GEN_23 + _GEN_0 : _GEN_23 - _GEN_0;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_24 = {next_remainder_23[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_22[28] ? _GEN_24 + _GEN_1 : _GEN_24 - _GEN_1;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_25 = {next_remainder_23[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_24 =
-    next_remainder_23[28] ? _GEN_24 + _GEN_0 : _GEN_24 - _GEN_0;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_25 = {next_remainder_24[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_23[28] ? _GEN_25 + _GEN_1 : _GEN_25 - _GEN_1;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_26 = {next_remainder_24[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_25 =
-    next_remainder_24[28] ? _GEN_25 + _GEN_0 : _GEN_25 - _GEN_0;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_26 = {next_remainder_25[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_24[28] ? _GEN_26 + _GEN_1 : _GEN_26 - _GEN_1;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_27 = {next_remainder_25[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_26 =
-    next_remainder_25[28] ? _GEN_26 + _GEN_0 : _GEN_26 - _GEN_0;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_27 = {next_remainder_26[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_25[28] ? _GEN_27 + _GEN_1 : _GEN_27 - _GEN_1;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_28 = {next_remainder_26[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_27 =
-    next_remainder_26[28] ? _GEN_27 + _GEN_0 : _GEN_27 - _GEN_0;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_28 = {next_remainder_27[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_26[28] ? _GEN_28 + _GEN_1 : _GEN_28 - _GEN_1;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_29 = {next_remainder_27[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_28 =
-    next_remainder_27[28] ? _GEN_28 + _GEN_0 : _GEN_28 - _GEN_0;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_29 = {next_remainder_28[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_27[28] ? _GEN_29 + _GEN_1 : _GEN_29 - _GEN_1;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_30 = {next_remainder_28[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_29 =
-    next_remainder_28[28] ? _GEN_29 + _GEN_0 : _GEN_29 - _GEN_0;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_30 = {next_remainder_29[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_28[28] ? _GEN_30 + _GEN_1 : _GEN_30 - _GEN_1;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_31 = {next_remainder_29[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_30 =
-    next_remainder_29[28] ? _GEN_30 + _GEN_0 : _GEN_30 - _GEN_0;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_31 = {next_remainder_30[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_29[28] ? _GEN_31 + _GEN_1 : _GEN_31 - _GEN_1;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_32 = {next_remainder_30[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_31 =
-    next_remainder_30[28] ? _GEN_31 + _GEN_0 : _GEN_31 - _GEN_0;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_32 = {next_remainder_31[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_30[28] ? _GEN_32 + _GEN_1 : _GEN_32 - _GEN_1;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_33 = {next_remainder_31[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_32 =
-    next_remainder_31[28] ? _GEN_32 + _GEN_0 : _GEN_32 - _GEN_0;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_33 = {next_remainder_32[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_31[28] ? _GEN_33 + _GEN_1 : _GEN_33 - _GEN_1;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_34 = {next_remainder_32[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_33 =
-    next_remainder_32[28] ? _GEN_33 + _GEN_0 : _GEN_33 - _GEN_0;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_34 = {next_remainder_33[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_32[28] ? _GEN_34 + _GEN_1 : _GEN_34 - _GEN_1;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_35 = {next_remainder_33[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_34 =
-    next_remainder_33[28] ? _GEN_34 + _GEN_0 : _GEN_34 - _GEN_0;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_35 = {next_remainder_34[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_33[28] ? _GEN_35 + _GEN_1 : _GEN_35 - _GEN_1;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_36 = {next_remainder_34[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_35 =
-    next_remainder_34[28] ? _GEN_35 + _GEN_0 : _GEN_35 - _GEN_0;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_36 = {next_remainder_35[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_34[28] ? _GEN_36 + _GEN_1 : _GEN_36 - _GEN_1;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_37 = {next_remainder_35[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_36 =
-    next_remainder_35[28] ? _GEN_36 + _GEN_0 : _GEN_36 - _GEN_0;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_37 = {next_remainder_36[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_35[28] ? _GEN_37 + _GEN_1 : _GEN_37 - _GEN_1;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_38 = {next_remainder_36[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_37 =
-    next_remainder_36[28] ? _GEN_37 + _GEN_0 : _GEN_37 - _GEN_0;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_38 = {next_remainder_37[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_36[28] ? _GEN_38 + _GEN_1 : _GEN_38 - _GEN_1;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_39 = {next_remainder_37[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_38 =
-    next_remainder_37[28] ? _GEN_38 + _GEN_0 : _GEN_38 - _GEN_0;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_39 = {next_remainder_38[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_37[28] ? _GEN_39 + _GEN_1 : _GEN_39 - _GEN_1;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_40 = {next_remainder_38[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_39 =
-    next_remainder_38[28] ? _GEN_39 + _GEN_0 : _GEN_39 - _GEN_0;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_40 = {next_remainder_39[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_38[28] ? _GEN_40 + _GEN_1 : _GEN_40 - _GEN_1;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_41 = {next_remainder_39[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_40 =
-    next_remainder_39[28] ? _GEN_40 + _GEN_0 : _GEN_40 - _GEN_0;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_41 = {next_remainder_40[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_39[28] ? _GEN_41 + _GEN_1 : _GEN_41 - _GEN_1;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_42 = {next_remainder_40[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_41 =
-    next_remainder_40[28] ? _GEN_41 + _GEN_0 : _GEN_41 - _GEN_0;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_42 = {next_remainder_41[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_40[28] ? _GEN_42 + _GEN_1 : _GEN_42 - _GEN_1;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_43 = {next_remainder_41[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_42 =
-    next_remainder_41[28] ? _GEN_42 + _GEN_0 : _GEN_42 - _GEN_0;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_43 = {next_remainder_42[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_41[28] ? _GEN_43 + _GEN_1 : _GEN_43 - _GEN_1;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_44 = {next_remainder_42[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_43 =
-    next_remainder_42[28] ? _GEN_43 + _GEN_0 : _GEN_43 - _GEN_0;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_44 = {next_remainder_43[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_42[28] ? _GEN_44 + _GEN_1 : _GEN_44 - _GEN_1;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_45 = {next_remainder_43[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_44 =
-    next_remainder_43[28] ? _GEN_44 + _GEN_0 : _GEN_44 - _GEN_0;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_45 = {next_remainder_44[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_43[28] ? _GEN_45 + _GEN_1 : _GEN_45 - _GEN_1;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_46 = {next_remainder_44[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_45 =
-    next_remainder_44[28] ? _GEN_45 + _GEN_0 : _GEN_45 - _GEN_0;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_46 = {next_remainder_45[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_44[28] ? _GEN_46 + _GEN_1 : _GEN_46 - _GEN_1;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_47 = {next_remainder_45[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_46 =
-    next_remainder_45[28] ? _GEN_46 + _GEN_0 : _GEN_46 - _GEN_0;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_47 = {next_remainder_46[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_45[28] ? _GEN_47 + _GEN_1 : _GEN_47 - _GEN_1;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_48 = {next_remainder_46[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_47 =
-    next_remainder_46[28] ? _GEN_47 + _GEN_0 : _GEN_47 - _GEN_0;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_48 = {next_remainder_47[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_46[28] ? _GEN_48 + _GEN_1 : _GEN_48 - _GEN_1;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_49 = {next_remainder_47[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_48 =
-    next_remainder_47[28] ? _GEN_48 + _GEN_0 : _GEN_48 - _GEN_0;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_49 = {next_remainder_48[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_47[28] ? _GEN_49 + _GEN_1 : _GEN_49 - _GEN_1;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_50 = {next_remainder_48[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_49 =
-    next_remainder_48[28] ? _GEN_49 + _GEN_0 : _GEN_49 - _GEN_0;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_50 = {next_remainder_49[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_48[28] ? _GEN_50 + _GEN_1 : _GEN_50 - _GEN_1;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_51 = {next_remainder_49[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_50 =
-    next_remainder_49[28] ? _GEN_50 + _GEN_0 : _GEN_50 - _GEN_0;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_51 = {next_remainder_50[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_49[28] ? _GEN_51 + _GEN_1 : _GEN_51 - _GEN_1;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_52 = {next_remainder_50[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_51 =
-    next_remainder_50[28] ? _GEN_51 + _GEN_0 : _GEN_51 - _GEN_0;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_52 = {next_remainder_51[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
-  wire [28:0]  _next_remainder_T_522 = _GEN_52 - _GEN_0;	// src/main/scala/pvu/Div.scala:88:47
-  wire [28:0]  _next_remainder_T_527 = _GEN_52 + _GEN_0;	// src/main/scala/pvu/Div.scala:88:47, :91:47
+    next_remainder_50[28] ? _GEN_52 + _GEN_1 : _GEN_52 - _GEN_1;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_53 = {next_remainder_51[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
+  wire [28:0]  _next_remainder_T_522 = _GEN_53 - _GEN_1;	// src/main/scala/pvu/Div.scala:104:47
+  wire [28:0]  _next_remainder_T_527 = _GEN_53 + _GEN_1;	// src/main/scala/pvu/Div.scala:104:47, :107:47
   wire         next_remainder_52 =
-    next_remainder_51[28] ? _next_remainder_T_527[28] : _next_remainder_T_522[28];	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+    next_remainder_51[28] ? _next_remainder_T_527[28] : _next_remainder_T_522[28];	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
   wire [5:0]   leading_zeros =
     next_remainder_52
       ? (next_remainder_51[28]
@@ -2740,7 +2747,7 @@ module Div(	// src/main/scala/pvu/Div.scala:8:7
                      : 6'h3)
                 : 6'h2)
            : 6'h1)
-      : 6'h0;	// src/main/scala/chisel3/util/Mux.scala:50:70, src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:26
+      : 6'h0;	// src/main/scala/chisel3/util/Mux.scala:50:70, src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:26
   wire [116:0] _normalized_quotient_T =
     {63'h0,
      ~next_remainder_52,
@@ -2796,171 +2803,178 @@ module Div(	// src/main/scala/pvu/Div.scala:8:7
      ~(next_remainder_2[28]),
      ~(next_remainder_1[28]),
      ~(_next_remainder_T_2[28]),
-     1'h1} << leading_zeros;	// src/main/scala/chisel3/util/Mux.scala:50:70, src/main/scala/pvu/Div.scala:42:24, :81:{28,46}, :86:29, :88:{26,47}, :91:26, :103:47
+     1'h1} << leading_zeros;	// src/main/scala/chisel3/util/Mux.scala:50:70, src/main/scala/pvu/Div.scala:39:55, :97:{28,46}, :102:29, :104:{26,47}, :107:26, :119:47
   wire [7:0]   _exp_diff_T_2 = io_pir_exp1_i[2'h1] - io_pir_exp2_i[2'h1];	// src/main/scala/pvu/Div.scala:33:37, :38:45
   wire         is_zero_dividend_1 = io_pir_frac1_i[2'h1] == 28'h0;	// src/main/scala/pvu/Div.scala:37:46, :38:45
   wire         is_zero_divisor_1 = io_pir_frac2_i[2'h1] == 28'h0;	// src/main/scala/pvu/Div.scala:37:46, :38:45
-  wire         _GEN_53 = is_zero_dividend_1 & is_zero_divisor_1;	// src/main/scala/pvu/Div.scala:37:46, :38:45, :40:28
-  wire [28:0]  _GEN_54 = {1'h0, io_pir_frac2_i[2'h1]};	// src/main/scala/pvu/Div.scala:37:46, :38:45, :88:47
-  wire [28:0]  _next_remainder_T_542 = {io_pir_frac1_i[2'h1], 1'h0} - _GEN_54;	// src/main/scala/pvu/Div.scala:37:46, :38:45, :88:47
-  wire [28:0]  _GEN_55 = {_next_remainder_T_542[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :88:47
+  wire         _is_dividend_40000000_T_6 = io_pir_exp1_i[2'h1] == 8'h0;	// src/main/scala/pvu/Div.scala:33:37, :38:45, :39:92, :50:23
+  wire         _is_divisor_40000000_T_6 = io_pir_exp2_i[2'h1] == 8'h0;	// src/main/scala/pvu/Div.scala:33:37, :38:45, :40:91, :50:23
+  wire         _GEN_54 = is_zero_dividend_1 & is_zero_divisor_1;	// src/main/scala/pvu/Div.scala:37:46, :38:45, :46:28
+  wire         _GEN_55 =
+    io_pir_frac1_i[2'h1] == 28'h8000000 & _is_dividend_40000000_T_6
+    & io_pir_frac2_i[2'h1] == 28'h8000000 & _is_divisor_40000000_T_6
+    | ~io_pir_sign1_i[2'h1] & _is_dividend_40000000_T_6 & io_pir_frac1_i[2'h1][27]
+    & ~io_pir_sign2_i[2'h1] & _is_divisor_40000000_T_6 & io_pir_frac2_i[2'h1][27];	// src/main/scala/pvu/Div.scala:29:{22,43}, :37:46, :38:45, :39:{46,55,92}, :40:{45,91}, :43:{51,111}, :44:{50,110}, :51:{33,52}, :53:24, :56:{38,62}, :58:24
+  wire [28:0]  _GEN_56 = {1'h0, io_pir_frac2_i[2'h1]};	// src/main/scala/pvu/Div.scala:37:46, :38:45, :104:47
+  wire [28:0]  _next_remainder_T_542 = {io_pir_frac1_i[2'h1], 1'h0} - _GEN_56;	// src/main/scala/pvu/Div.scala:37:46, :38:45, :104:47
+  wire [28:0]  _GEN_57 = {_next_remainder_T_542[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :104:47
   wire [28:0]  next_remainder_55 =
-    _next_remainder_T_542[28] ? _GEN_55 + _GEN_54 : _GEN_55 - _GEN_54;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_56 = {next_remainder_55[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    _next_remainder_T_542[28] ? _GEN_57 + _GEN_56 : _GEN_57 - _GEN_56;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_58 = {next_remainder_55[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_56 =
-    next_remainder_55[28] ? _GEN_56 + _GEN_54 : _GEN_56 - _GEN_54;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_57 = {next_remainder_56[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_55[28] ? _GEN_58 + _GEN_56 : _GEN_58 - _GEN_56;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_59 = {next_remainder_56[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_57 =
-    next_remainder_56[28] ? _GEN_57 + _GEN_54 : _GEN_57 - _GEN_54;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_58 = {next_remainder_57[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_56[28] ? _GEN_59 + _GEN_56 : _GEN_59 - _GEN_56;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_60 = {next_remainder_57[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_58 =
-    next_remainder_57[28] ? _GEN_58 + _GEN_54 : _GEN_58 - _GEN_54;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_59 = {next_remainder_58[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_57[28] ? _GEN_60 + _GEN_56 : _GEN_60 - _GEN_56;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_61 = {next_remainder_58[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_59 =
-    next_remainder_58[28] ? _GEN_59 + _GEN_54 : _GEN_59 - _GEN_54;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_60 = {next_remainder_59[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_58[28] ? _GEN_61 + _GEN_56 : _GEN_61 - _GEN_56;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_62 = {next_remainder_59[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_60 =
-    next_remainder_59[28] ? _GEN_60 + _GEN_54 : _GEN_60 - _GEN_54;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_61 = {next_remainder_60[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_59[28] ? _GEN_62 + _GEN_56 : _GEN_62 - _GEN_56;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_63 = {next_remainder_60[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_61 =
-    next_remainder_60[28] ? _GEN_61 + _GEN_54 : _GEN_61 - _GEN_54;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_62 = {next_remainder_61[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_60[28] ? _GEN_63 + _GEN_56 : _GEN_63 - _GEN_56;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_64 = {next_remainder_61[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_62 =
-    next_remainder_61[28] ? _GEN_62 + _GEN_54 : _GEN_62 - _GEN_54;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_63 = {next_remainder_62[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_61[28] ? _GEN_64 + _GEN_56 : _GEN_64 - _GEN_56;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_65 = {next_remainder_62[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_63 =
-    next_remainder_62[28] ? _GEN_63 + _GEN_54 : _GEN_63 - _GEN_54;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_64 = {next_remainder_63[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_62[28] ? _GEN_65 + _GEN_56 : _GEN_65 - _GEN_56;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_66 = {next_remainder_63[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_64 =
-    next_remainder_63[28] ? _GEN_64 + _GEN_54 : _GEN_64 - _GEN_54;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_65 = {next_remainder_64[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_63[28] ? _GEN_66 + _GEN_56 : _GEN_66 - _GEN_56;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_67 = {next_remainder_64[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_65 =
-    next_remainder_64[28] ? _GEN_65 + _GEN_54 : _GEN_65 - _GEN_54;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_66 = {next_remainder_65[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_64[28] ? _GEN_67 + _GEN_56 : _GEN_67 - _GEN_56;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_68 = {next_remainder_65[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_66 =
-    next_remainder_65[28] ? _GEN_66 + _GEN_54 : _GEN_66 - _GEN_54;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_67 = {next_remainder_66[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_65[28] ? _GEN_68 + _GEN_56 : _GEN_68 - _GEN_56;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_69 = {next_remainder_66[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_67 =
-    next_remainder_66[28] ? _GEN_67 + _GEN_54 : _GEN_67 - _GEN_54;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_68 = {next_remainder_67[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_66[28] ? _GEN_69 + _GEN_56 : _GEN_69 - _GEN_56;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_70 = {next_remainder_67[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_68 =
-    next_remainder_67[28] ? _GEN_68 + _GEN_54 : _GEN_68 - _GEN_54;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_69 = {next_remainder_68[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_67[28] ? _GEN_70 + _GEN_56 : _GEN_70 - _GEN_56;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_71 = {next_remainder_68[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_69 =
-    next_remainder_68[28] ? _GEN_69 + _GEN_54 : _GEN_69 - _GEN_54;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_70 = {next_remainder_69[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_68[28] ? _GEN_71 + _GEN_56 : _GEN_71 - _GEN_56;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_72 = {next_remainder_69[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_70 =
-    next_remainder_69[28] ? _GEN_70 + _GEN_54 : _GEN_70 - _GEN_54;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_71 = {next_remainder_70[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_69[28] ? _GEN_72 + _GEN_56 : _GEN_72 - _GEN_56;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_73 = {next_remainder_70[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_71 =
-    next_remainder_70[28] ? _GEN_71 + _GEN_54 : _GEN_71 - _GEN_54;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_72 = {next_remainder_71[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_70[28] ? _GEN_73 + _GEN_56 : _GEN_73 - _GEN_56;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_74 = {next_remainder_71[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_72 =
-    next_remainder_71[28] ? _GEN_72 + _GEN_54 : _GEN_72 - _GEN_54;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_73 = {next_remainder_72[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_71[28] ? _GEN_74 + _GEN_56 : _GEN_74 - _GEN_56;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_75 = {next_remainder_72[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_73 =
-    next_remainder_72[28] ? _GEN_73 + _GEN_54 : _GEN_73 - _GEN_54;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_74 = {next_remainder_73[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_72[28] ? _GEN_75 + _GEN_56 : _GEN_75 - _GEN_56;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_76 = {next_remainder_73[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_74 =
-    next_remainder_73[28] ? _GEN_74 + _GEN_54 : _GEN_74 - _GEN_54;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_75 = {next_remainder_74[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_73[28] ? _GEN_76 + _GEN_56 : _GEN_76 - _GEN_56;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_77 = {next_remainder_74[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_75 =
-    next_remainder_74[28] ? _GEN_75 + _GEN_54 : _GEN_75 - _GEN_54;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_76 = {next_remainder_75[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_74[28] ? _GEN_77 + _GEN_56 : _GEN_77 - _GEN_56;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_78 = {next_remainder_75[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_76 =
-    next_remainder_75[28] ? _GEN_76 + _GEN_54 : _GEN_76 - _GEN_54;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_77 = {next_remainder_76[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_75[28] ? _GEN_78 + _GEN_56 : _GEN_78 - _GEN_56;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_79 = {next_remainder_76[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_77 =
-    next_remainder_76[28] ? _GEN_77 + _GEN_54 : _GEN_77 - _GEN_54;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_78 = {next_remainder_77[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_76[28] ? _GEN_79 + _GEN_56 : _GEN_79 - _GEN_56;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_80 = {next_remainder_77[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_78 =
-    next_remainder_77[28] ? _GEN_78 + _GEN_54 : _GEN_78 - _GEN_54;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_79 = {next_remainder_78[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_77[28] ? _GEN_80 + _GEN_56 : _GEN_80 - _GEN_56;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_81 = {next_remainder_78[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_79 =
-    next_remainder_78[28] ? _GEN_79 + _GEN_54 : _GEN_79 - _GEN_54;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_80 = {next_remainder_79[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_78[28] ? _GEN_81 + _GEN_56 : _GEN_81 - _GEN_56;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_82 = {next_remainder_79[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_80 =
-    next_remainder_79[28] ? _GEN_80 + _GEN_54 : _GEN_80 - _GEN_54;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_81 = {next_remainder_80[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_79[28] ? _GEN_82 + _GEN_56 : _GEN_82 - _GEN_56;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_83 = {next_remainder_80[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_81 =
-    next_remainder_80[28] ? _GEN_81 + _GEN_54 : _GEN_81 - _GEN_54;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_82 = {next_remainder_81[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_80[28] ? _GEN_83 + _GEN_56 : _GEN_83 - _GEN_56;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_84 = {next_remainder_81[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_82 =
-    next_remainder_81[28] ? _GEN_82 + _GEN_54 : _GEN_82 - _GEN_54;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_83 = {next_remainder_82[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_81[28] ? _GEN_84 + _GEN_56 : _GEN_84 - _GEN_56;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_85 = {next_remainder_82[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_83 =
-    next_remainder_82[28] ? _GEN_83 + _GEN_54 : _GEN_83 - _GEN_54;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_84 = {next_remainder_83[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_82[28] ? _GEN_85 + _GEN_56 : _GEN_85 - _GEN_56;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_86 = {next_remainder_83[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_84 =
-    next_remainder_83[28] ? _GEN_84 + _GEN_54 : _GEN_84 - _GEN_54;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_85 = {next_remainder_84[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_83[28] ? _GEN_86 + _GEN_56 : _GEN_86 - _GEN_56;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_87 = {next_remainder_84[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_85 =
-    next_remainder_84[28] ? _GEN_85 + _GEN_54 : _GEN_85 - _GEN_54;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_86 = {next_remainder_85[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_84[28] ? _GEN_87 + _GEN_56 : _GEN_87 - _GEN_56;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_88 = {next_remainder_85[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_86 =
-    next_remainder_85[28] ? _GEN_86 + _GEN_54 : _GEN_86 - _GEN_54;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_87 = {next_remainder_86[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_85[28] ? _GEN_88 + _GEN_56 : _GEN_88 - _GEN_56;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_89 = {next_remainder_86[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_87 =
-    next_remainder_86[28] ? _GEN_87 + _GEN_54 : _GEN_87 - _GEN_54;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_88 = {next_remainder_87[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_86[28] ? _GEN_89 + _GEN_56 : _GEN_89 - _GEN_56;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_90 = {next_remainder_87[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_88 =
-    next_remainder_87[28] ? _GEN_88 + _GEN_54 : _GEN_88 - _GEN_54;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_89 = {next_remainder_88[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_87[28] ? _GEN_90 + _GEN_56 : _GEN_90 - _GEN_56;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_91 = {next_remainder_88[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_89 =
-    next_remainder_88[28] ? _GEN_89 + _GEN_54 : _GEN_89 - _GEN_54;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_90 = {next_remainder_89[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_88[28] ? _GEN_91 + _GEN_56 : _GEN_91 - _GEN_56;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_92 = {next_remainder_89[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_90 =
-    next_remainder_89[28] ? _GEN_90 + _GEN_54 : _GEN_90 - _GEN_54;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_91 = {next_remainder_90[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_89[28] ? _GEN_92 + _GEN_56 : _GEN_92 - _GEN_56;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_93 = {next_remainder_90[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_91 =
-    next_remainder_90[28] ? _GEN_91 + _GEN_54 : _GEN_91 - _GEN_54;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_92 = {next_remainder_91[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_90[28] ? _GEN_93 + _GEN_56 : _GEN_93 - _GEN_56;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_94 = {next_remainder_91[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_92 =
-    next_remainder_91[28] ? _GEN_92 + _GEN_54 : _GEN_92 - _GEN_54;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_93 = {next_remainder_92[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_91[28] ? _GEN_94 + _GEN_56 : _GEN_94 - _GEN_56;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_95 = {next_remainder_92[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_93 =
-    next_remainder_92[28] ? _GEN_93 + _GEN_54 : _GEN_93 - _GEN_54;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_94 = {next_remainder_93[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_92[28] ? _GEN_95 + _GEN_56 : _GEN_95 - _GEN_56;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_96 = {next_remainder_93[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_94 =
-    next_remainder_93[28] ? _GEN_94 + _GEN_54 : _GEN_94 - _GEN_54;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_95 = {next_remainder_94[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_93[28] ? _GEN_96 + _GEN_56 : _GEN_96 - _GEN_56;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_97 = {next_remainder_94[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_95 =
-    next_remainder_94[28] ? _GEN_95 + _GEN_54 : _GEN_95 - _GEN_54;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_96 = {next_remainder_95[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_94[28] ? _GEN_97 + _GEN_56 : _GEN_97 - _GEN_56;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_98 = {next_remainder_95[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_96 =
-    next_remainder_95[28] ? _GEN_96 + _GEN_54 : _GEN_96 - _GEN_54;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_97 = {next_remainder_96[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_95[28] ? _GEN_98 + _GEN_56 : _GEN_98 - _GEN_56;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_99 = {next_remainder_96[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_97 =
-    next_remainder_96[28] ? _GEN_97 + _GEN_54 : _GEN_97 - _GEN_54;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_98 = {next_remainder_97[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_96[28] ? _GEN_99 + _GEN_56 : _GEN_99 - _GEN_56;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_100 = {next_remainder_97[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_98 =
-    next_remainder_97[28] ? _GEN_98 + _GEN_54 : _GEN_98 - _GEN_54;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_99 = {next_remainder_98[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_97[28] ? _GEN_100 + _GEN_56 : _GEN_100 - _GEN_56;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_101 = {next_remainder_98[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_99 =
-    next_remainder_98[28] ? _GEN_99 + _GEN_54 : _GEN_99 - _GEN_54;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_100 = {next_remainder_99[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_98[28] ? _GEN_101 + _GEN_56 : _GEN_101 - _GEN_56;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_102 = {next_remainder_99[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_100 =
-    next_remainder_99[28] ? _GEN_100 + _GEN_54 : _GEN_100 - _GEN_54;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_101 = {next_remainder_100[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_99[28] ? _GEN_102 + _GEN_56 : _GEN_102 - _GEN_56;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_103 = {next_remainder_100[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_101 =
-    next_remainder_100[28] ? _GEN_101 + _GEN_54 : _GEN_101 - _GEN_54;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_102 = {next_remainder_101[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_100[28] ? _GEN_103 + _GEN_56 : _GEN_103 - _GEN_56;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_104 = {next_remainder_101[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_102 =
-    next_remainder_101[28] ? _GEN_102 + _GEN_54 : _GEN_102 - _GEN_54;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_103 = {next_remainder_102[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_101[28] ? _GEN_104 + _GEN_56 : _GEN_104 - _GEN_56;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_105 = {next_remainder_102[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_103 =
-    next_remainder_102[28] ? _GEN_103 + _GEN_54 : _GEN_103 - _GEN_54;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_104 = {next_remainder_103[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_102[28] ? _GEN_105 + _GEN_56 : _GEN_105 - _GEN_56;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_106 = {next_remainder_103[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_104 =
-    next_remainder_103[28] ? _GEN_104 + _GEN_54 : _GEN_104 - _GEN_54;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_105 = {next_remainder_104[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_103[28] ? _GEN_106 + _GEN_56 : _GEN_106 - _GEN_56;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_107 = {next_remainder_104[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_105 =
-    next_remainder_104[28] ? _GEN_105 + _GEN_54 : _GEN_105 - _GEN_54;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_106 = {next_remainder_105[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
-  wire [28:0]  _next_remainder_T_1062 = _GEN_106 - _GEN_54;	// src/main/scala/pvu/Div.scala:88:47
-  wire [28:0]  _next_remainder_T_1067 = _GEN_106 + _GEN_54;	// src/main/scala/pvu/Div.scala:88:47, :91:47
+    next_remainder_104[28] ? _GEN_107 + _GEN_56 : _GEN_107 - _GEN_56;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_108 = {next_remainder_105[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
+  wire [28:0]  _next_remainder_T_1062 = _GEN_108 - _GEN_56;	// src/main/scala/pvu/Div.scala:104:47
+  wire [28:0]  _next_remainder_T_1067 = _GEN_108 + _GEN_56;	// src/main/scala/pvu/Div.scala:104:47, :107:47
   wire         next_remainder_106 =
-    next_remainder_105[28] ? _next_remainder_T_1067[28] : _next_remainder_T_1062[28];	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+    next_remainder_105[28] ? _next_remainder_T_1067[28] : _next_remainder_T_1062[28];	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
   wire [5:0]   leading_zeros_1 =
     next_remainder_106
       ? (next_remainder_105[28]
@@ -3067,7 +3081,7 @@ module Div(	// src/main/scala/pvu/Div.scala:8:7
                      : 6'h3)
                 : 6'h2)
            : 6'h1)
-      : 6'h0;	// src/main/scala/chisel3/util/Mux.scala:50:70, src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:26
+      : 6'h0;	// src/main/scala/chisel3/util/Mux.scala:50:70, src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:26
   wire [116:0] _normalized_quotient_T_1 =
     {63'h0,
      ~next_remainder_106,
@@ -3123,171 +3137,178 @@ module Div(	// src/main/scala/pvu/Div.scala:8:7
      ~(next_remainder_56[28]),
      ~(next_remainder_55[28]),
      ~(_next_remainder_T_542[28]),
-     1'h1} << leading_zeros_1;	// src/main/scala/chisel3/util/Mux.scala:50:70, src/main/scala/pvu/Div.scala:42:24, :81:{28,46}, :86:29, :88:{26,47}, :91:26, :103:47
+     1'h1} << leading_zeros_1;	// src/main/scala/chisel3/util/Mux.scala:50:70, src/main/scala/pvu/Div.scala:39:55, :97:{28,46}, :102:29, :104:{26,47}, :107:26, :119:47
   wire [7:0]   _exp_diff_T_4 = io_pir_exp1_i[2'h2] - io_pir_exp2_i[2'h2];	// src/main/scala/pvu/Div.scala:33:37, :38:45
   wire         is_zero_dividend_2 = io_pir_frac1_i[2'h2] == 28'h0;	// src/main/scala/pvu/Div.scala:37:46, :38:45
   wire         is_zero_divisor_2 = io_pir_frac2_i[2'h2] == 28'h0;	// src/main/scala/pvu/Div.scala:37:46, :38:45
-  wire         _GEN_107 = is_zero_dividend_2 & is_zero_divisor_2;	// src/main/scala/pvu/Div.scala:37:46, :38:45, :40:28
-  wire [28:0]  _GEN_108 = {1'h0, io_pir_frac2_i[2'h2]};	// src/main/scala/pvu/Div.scala:37:46, :38:45, :88:47
-  wire [28:0]  _next_remainder_T_1082 = {io_pir_frac1_i[2'h2], 1'h0} - _GEN_108;	// src/main/scala/pvu/Div.scala:37:46, :38:45, :88:47
-  wire [28:0]  _GEN_109 = {_next_remainder_T_1082[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :88:47
+  wire         _is_dividend_40000000_T_11 = io_pir_exp1_i[2'h2] == 8'h0;	// src/main/scala/pvu/Div.scala:33:37, :38:45, :39:92, :50:23
+  wire         _is_divisor_40000000_T_11 = io_pir_exp2_i[2'h2] == 8'h0;	// src/main/scala/pvu/Div.scala:33:37, :38:45, :40:91, :50:23
+  wire         _GEN_109 = is_zero_dividend_2 & is_zero_divisor_2;	// src/main/scala/pvu/Div.scala:37:46, :38:45, :46:28
+  wire         _GEN_110 =
+    io_pir_frac1_i[2'h2] == 28'h8000000 & _is_dividend_40000000_T_11
+    & io_pir_frac2_i[2'h2] == 28'h8000000 & _is_divisor_40000000_T_11
+    | ~io_pir_sign1_i[2'h2] & _is_dividend_40000000_T_11 & io_pir_frac1_i[2'h2][27]
+    & ~io_pir_sign2_i[2'h2] & _is_divisor_40000000_T_11 & io_pir_frac2_i[2'h2][27];	// src/main/scala/pvu/Div.scala:29:{22,43}, :37:46, :38:45, :39:{46,55,92}, :40:{45,91}, :43:{51,111}, :44:{50,110}, :51:{33,52}, :53:24, :56:{38,62}, :58:24
+  wire [28:0]  _GEN_111 = {1'h0, io_pir_frac2_i[2'h2]};	// src/main/scala/pvu/Div.scala:37:46, :38:45, :104:47
+  wire [28:0]  _next_remainder_T_1082 = {io_pir_frac1_i[2'h2], 1'h0} - _GEN_111;	// src/main/scala/pvu/Div.scala:37:46, :38:45, :104:47
+  wire [28:0]  _GEN_112 = {_next_remainder_T_1082[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :104:47
   wire [28:0]  next_remainder_109 =
-    _next_remainder_T_1082[28] ? _GEN_109 + _GEN_108 : _GEN_109 - _GEN_108;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_110 = {next_remainder_109[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    _next_remainder_T_1082[28] ? _GEN_112 + _GEN_111 : _GEN_112 - _GEN_111;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_113 = {next_remainder_109[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_110 =
-    next_remainder_109[28] ? _GEN_110 + _GEN_108 : _GEN_110 - _GEN_108;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_111 = {next_remainder_110[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_109[28] ? _GEN_113 + _GEN_111 : _GEN_113 - _GEN_111;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_114 = {next_remainder_110[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_111 =
-    next_remainder_110[28] ? _GEN_111 + _GEN_108 : _GEN_111 - _GEN_108;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_112 = {next_remainder_111[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_110[28] ? _GEN_114 + _GEN_111 : _GEN_114 - _GEN_111;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_115 = {next_remainder_111[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_112 =
-    next_remainder_111[28] ? _GEN_112 + _GEN_108 : _GEN_112 - _GEN_108;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_113 = {next_remainder_112[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_111[28] ? _GEN_115 + _GEN_111 : _GEN_115 - _GEN_111;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_116 = {next_remainder_112[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_113 =
-    next_remainder_112[28] ? _GEN_113 + _GEN_108 : _GEN_113 - _GEN_108;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_114 = {next_remainder_113[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_112[28] ? _GEN_116 + _GEN_111 : _GEN_116 - _GEN_111;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_117 = {next_remainder_113[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_114 =
-    next_remainder_113[28] ? _GEN_114 + _GEN_108 : _GEN_114 - _GEN_108;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_115 = {next_remainder_114[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_113[28] ? _GEN_117 + _GEN_111 : _GEN_117 - _GEN_111;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_118 = {next_remainder_114[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_115 =
-    next_remainder_114[28] ? _GEN_115 + _GEN_108 : _GEN_115 - _GEN_108;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_116 = {next_remainder_115[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_114[28] ? _GEN_118 + _GEN_111 : _GEN_118 - _GEN_111;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_119 = {next_remainder_115[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_116 =
-    next_remainder_115[28] ? _GEN_116 + _GEN_108 : _GEN_116 - _GEN_108;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_117 = {next_remainder_116[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_115[28] ? _GEN_119 + _GEN_111 : _GEN_119 - _GEN_111;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_120 = {next_remainder_116[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_117 =
-    next_remainder_116[28] ? _GEN_117 + _GEN_108 : _GEN_117 - _GEN_108;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_118 = {next_remainder_117[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_116[28] ? _GEN_120 + _GEN_111 : _GEN_120 - _GEN_111;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_121 = {next_remainder_117[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_118 =
-    next_remainder_117[28] ? _GEN_118 + _GEN_108 : _GEN_118 - _GEN_108;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_119 = {next_remainder_118[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_117[28] ? _GEN_121 + _GEN_111 : _GEN_121 - _GEN_111;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_122 = {next_remainder_118[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_119 =
-    next_remainder_118[28] ? _GEN_119 + _GEN_108 : _GEN_119 - _GEN_108;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_120 = {next_remainder_119[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_118[28] ? _GEN_122 + _GEN_111 : _GEN_122 - _GEN_111;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_123 = {next_remainder_119[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_120 =
-    next_remainder_119[28] ? _GEN_120 + _GEN_108 : _GEN_120 - _GEN_108;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_121 = {next_remainder_120[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_119[28] ? _GEN_123 + _GEN_111 : _GEN_123 - _GEN_111;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_124 = {next_remainder_120[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_121 =
-    next_remainder_120[28] ? _GEN_121 + _GEN_108 : _GEN_121 - _GEN_108;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_122 = {next_remainder_121[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_120[28] ? _GEN_124 + _GEN_111 : _GEN_124 - _GEN_111;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_125 = {next_remainder_121[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_122 =
-    next_remainder_121[28] ? _GEN_122 + _GEN_108 : _GEN_122 - _GEN_108;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_123 = {next_remainder_122[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_121[28] ? _GEN_125 + _GEN_111 : _GEN_125 - _GEN_111;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_126 = {next_remainder_122[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_123 =
-    next_remainder_122[28] ? _GEN_123 + _GEN_108 : _GEN_123 - _GEN_108;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_124 = {next_remainder_123[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_122[28] ? _GEN_126 + _GEN_111 : _GEN_126 - _GEN_111;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_127 = {next_remainder_123[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_124 =
-    next_remainder_123[28] ? _GEN_124 + _GEN_108 : _GEN_124 - _GEN_108;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_125 = {next_remainder_124[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_123[28] ? _GEN_127 + _GEN_111 : _GEN_127 - _GEN_111;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_128 = {next_remainder_124[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_125 =
-    next_remainder_124[28] ? _GEN_125 + _GEN_108 : _GEN_125 - _GEN_108;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_126 = {next_remainder_125[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_124[28] ? _GEN_128 + _GEN_111 : _GEN_128 - _GEN_111;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_129 = {next_remainder_125[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_126 =
-    next_remainder_125[28] ? _GEN_126 + _GEN_108 : _GEN_126 - _GEN_108;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_127 = {next_remainder_126[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_125[28] ? _GEN_129 + _GEN_111 : _GEN_129 - _GEN_111;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_130 = {next_remainder_126[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_127 =
-    next_remainder_126[28] ? _GEN_127 + _GEN_108 : _GEN_127 - _GEN_108;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_128 = {next_remainder_127[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_126[28] ? _GEN_130 + _GEN_111 : _GEN_130 - _GEN_111;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_131 = {next_remainder_127[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_128 =
-    next_remainder_127[28] ? _GEN_128 + _GEN_108 : _GEN_128 - _GEN_108;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_129 = {next_remainder_128[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_127[28] ? _GEN_131 + _GEN_111 : _GEN_131 - _GEN_111;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_132 = {next_remainder_128[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_129 =
-    next_remainder_128[28] ? _GEN_129 + _GEN_108 : _GEN_129 - _GEN_108;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_130 = {next_remainder_129[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_128[28] ? _GEN_132 + _GEN_111 : _GEN_132 - _GEN_111;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_133 = {next_remainder_129[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_130 =
-    next_remainder_129[28] ? _GEN_130 + _GEN_108 : _GEN_130 - _GEN_108;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_131 = {next_remainder_130[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_129[28] ? _GEN_133 + _GEN_111 : _GEN_133 - _GEN_111;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_134 = {next_remainder_130[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_131 =
-    next_remainder_130[28] ? _GEN_131 + _GEN_108 : _GEN_131 - _GEN_108;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_132 = {next_remainder_131[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_130[28] ? _GEN_134 + _GEN_111 : _GEN_134 - _GEN_111;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_135 = {next_remainder_131[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_132 =
-    next_remainder_131[28] ? _GEN_132 + _GEN_108 : _GEN_132 - _GEN_108;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_133 = {next_remainder_132[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_131[28] ? _GEN_135 + _GEN_111 : _GEN_135 - _GEN_111;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_136 = {next_remainder_132[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_133 =
-    next_remainder_132[28] ? _GEN_133 + _GEN_108 : _GEN_133 - _GEN_108;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_134 = {next_remainder_133[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_132[28] ? _GEN_136 + _GEN_111 : _GEN_136 - _GEN_111;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_137 = {next_remainder_133[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_134 =
-    next_remainder_133[28] ? _GEN_134 + _GEN_108 : _GEN_134 - _GEN_108;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_135 = {next_remainder_134[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_133[28] ? _GEN_137 + _GEN_111 : _GEN_137 - _GEN_111;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_138 = {next_remainder_134[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_135 =
-    next_remainder_134[28] ? _GEN_135 + _GEN_108 : _GEN_135 - _GEN_108;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_136 = {next_remainder_135[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_134[28] ? _GEN_138 + _GEN_111 : _GEN_138 - _GEN_111;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_139 = {next_remainder_135[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_136 =
-    next_remainder_135[28] ? _GEN_136 + _GEN_108 : _GEN_136 - _GEN_108;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_137 = {next_remainder_136[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_135[28] ? _GEN_139 + _GEN_111 : _GEN_139 - _GEN_111;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_140 = {next_remainder_136[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_137 =
-    next_remainder_136[28] ? _GEN_137 + _GEN_108 : _GEN_137 - _GEN_108;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_138 = {next_remainder_137[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_136[28] ? _GEN_140 + _GEN_111 : _GEN_140 - _GEN_111;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_141 = {next_remainder_137[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_138 =
-    next_remainder_137[28] ? _GEN_138 + _GEN_108 : _GEN_138 - _GEN_108;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_139 = {next_remainder_138[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_137[28] ? _GEN_141 + _GEN_111 : _GEN_141 - _GEN_111;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_142 = {next_remainder_138[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_139 =
-    next_remainder_138[28] ? _GEN_139 + _GEN_108 : _GEN_139 - _GEN_108;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_140 = {next_remainder_139[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_138[28] ? _GEN_142 + _GEN_111 : _GEN_142 - _GEN_111;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_143 = {next_remainder_139[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_140 =
-    next_remainder_139[28] ? _GEN_140 + _GEN_108 : _GEN_140 - _GEN_108;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_141 = {next_remainder_140[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_139[28] ? _GEN_143 + _GEN_111 : _GEN_143 - _GEN_111;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_144 = {next_remainder_140[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_141 =
-    next_remainder_140[28] ? _GEN_141 + _GEN_108 : _GEN_141 - _GEN_108;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_142 = {next_remainder_141[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_140[28] ? _GEN_144 + _GEN_111 : _GEN_144 - _GEN_111;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_145 = {next_remainder_141[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_142 =
-    next_remainder_141[28] ? _GEN_142 + _GEN_108 : _GEN_142 - _GEN_108;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_143 = {next_remainder_142[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_141[28] ? _GEN_145 + _GEN_111 : _GEN_145 - _GEN_111;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_146 = {next_remainder_142[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_143 =
-    next_remainder_142[28] ? _GEN_143 + _GEN_108 : _GEN_143 - _GEN_108;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_144 = {next_remainder_143[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_142[28] ? _GEN_146 + _GEN_111 : _GEN_146 - _GEN_111;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_147 = {next_remainder_143[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_144 =
-    next_remainder_143[28] ? _GEN_144 + _GEN_108 : _GEN_144 - _GEN_108;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_145 = {next_remainder_144[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_143[28] ? _GEN_147 + _GEN_111 : _GEN_147 - _GEN_111;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_148 = {next_remainder_144[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_145 =
-    next_remainder_144[28] ? _GEN_145 + _GEN_108 : _GEN_145 - _GEN_108;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_146 = {next_remainder_145[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_144[28] ? _GEN_148 + _GEN_111 : _GEN_148 - _GEN_111;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_149 = {next_remainder_145[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_146 =
-    next_remainder_145[28] ? _GEN_146 + _GEN_108 : _GEN_146 - _GEN_108;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_147 = {next_remainder_146[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_145[28] ? _GEN_149 + _GEN_111 : _GEN_149 - _GEN_111;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_150 = {next_remainder_146[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_147 =
-    next_remainder_146[28] ? _GEN_147 + _GEN_108 : _GEN_147 - _GEN_108;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_148 = {next_remainder_147[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_146[28] ? _GEN_150 + _GEN_111 : _GEN_150 - _GEN_111;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_151 = {next_remainder_147[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_148 =
-    next_remainder_147[28] ? _GEN_148 + _GEN_108 : _GEN_148 - _GEN_108;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_149 = {next_remainder_148[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_147[28] ? _GEN_151 + _GEN_111 : _GEN_151 - _GEN_111;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_152 = {next_remainder_148[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_149 =
-    next_remainder_148[28] ? _GEN_149 + _GEN_108 : _GEN_149 - _GEN_108;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_150 = {next_remainder_149[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_148[28] ? _GEN_152 + _GEN_111 : _GEN_152 - _GEN_111;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_153 = {next_remainder_149[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_150 =
-    next_remainder_149[28] ? _GEN_150 + _GEN_108 : _GEN_150 - _GEN_108;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_151 = {next_remainder_150[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_149[28] ? _GEN_153 + _GEN_111 : _GEN_153 - _GEN_111;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_154 = {next_remainder_150[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_151 =
-    next_remainder_150[28] ? _GEN_151 + _GEN_108 : _GEN_151 - _GEN_108;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_152 = {next_remainder_151[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_150[28] ? _GEN_154 + _GEN_111 : _GEN_154 - _GEN_111;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_155 = {next_remainder_151[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_152 =
-    next_remainder_151[28] ? _GEN_152 + _GEN_108 : _GEN_152 - _GEN_108;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_153 = {next_remainder_152[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_151[28] ? _GEN_155 + _GEN_111 : _GEN_155 - _GEN_111;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_156 = {next_remainder_152[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_153 =
-    next_remainder_152[28] ? _GEN_153 + _GEN_108 : _GEN_153 - _GEN_108;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_154 = {next_remainder_153[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_152[28] ? _GEN_156 + _GEN_111 : _GEN_156 - _GEN_111;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_157 = {next_remainder_153[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_154 =
-    next_remainder_153[28] ? _GEN_154 + _GEN_108 : _GEN_154 - _GEN_108;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_155 = {next_remainder_154[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_153[28] ? _GEN_157 + _GEN_111 : _GEN_157 - _GEN_111;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_158 = {next_remainder_154[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_155 =
-    next_remainder_154[28] ? _GEN_155 + _GEN_108 : _GEN_155 - _GEN_108;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_156 = {next_remainder_155[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_154[28] ? _GEN_158 + _GEN_111 : _GEN_158 - _GEN_111;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_159 = {next_remainder_155[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_156 =
-    next_remainder_155[28] ? _GEN_156 + _GEN_108 : _GEN_156 - _GEN_108;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_157 = {next_remainder_156[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_155[28] ? _GEN_159 + _GEN_111 : _GEN_159 - _GEN_111;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_160 = {next_remainder_156[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_157 =
-    next_remainder_156[28] ? _GEN_157 + _GEN_108 : _GEN_157 - _GEN_108;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_158 = {next_remainder_157[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_156[28] ? _GEN_160 + _GEN_111 : _GEN_160 - _GEN_111;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_161 = {next_remainder_157[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_158 =
-    next_remainder_157[28] ? _GEN_158 + _GEN_108 : _GEN_158 - _GEN_108;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_159 = {next_remainder_158[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_157[28] ? _GEN_161 + _GEN_111 : _GEN_161 - _GEN_111;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_162 = {next_remainder_158[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_159 =
-    next_remainder_158[28] ? _GEN_159 + _GEN_108 : _GEN_159 - _GEN_108;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_160 = {next_remainder_159[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
-  wire [28:0]  _next_remainder_T_1602 = _GEN_160 - _GEN_108;	// src/main/scala/pvu/Div.scala:88:47
-  wire [28:0]  _next_remainder_T_1607 = _GEN_160 + _GEN_108;	// src/main/scala/pvu/Div.scala:88:47, :91:47
+    next_remainder_158[28] ? _GEN_162 + _GEN_111 : _GEN_162 - _GEN_111;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_163 = {next_remainder_159[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
+  wire [28:0]  _next_remainder_T_1602 = _GEN_163 - _GEN_111;	// src/main/scala/pvu/Div.scala:104:47
+  wire [28:0]  _next_remainder_T_1607 = _GEN_163 + _GEN_111;	// src/main/scala/pvu/Div.scala:104:47, :107:47
   wire         next_remainder_160 =
-    next_remainder_159[28] ? _next_remainder_T_1607[28] : _next_remainder_T_1602[28];	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+    next_remainder_159[28] ? _next_remainder_T_1607[28] : _next_remainder_T_1602[28];	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
   wire [5:0]   leading_zeros_2 =
     next_remainder_160
       ? (next_remainder_159[28]
@@ -3394,7 +3415,7 @@ module Div(	// src/main/scala/pvu/Div.scala:8:7
                      : 6'h3)
                 : 6'h2)
            : 6'h1)
-      : 6'h0;	// src/main/scala/chisel3/util/Mux.scala:50:70, src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:26
+      : 6'h0;	// src/main/scala/chisel3/util/Mux.scala:50:70, src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:26
   wire [116:0] _normalized_quotient_T_2 =
     {63'h0,
      ~next_remainder_160,
@@ -3450,171 +3471,178 @@ module Div(	// src/main/scala/pvu/Div.scala:8:7
      ~(next_remainder_110[28]),
      ~(next_remainder_109[28]),
      ~(_next_remainder_T_1082[28]),
-     1'h1} << leading_zeros_2;	// src/main/scala/chisel3/util/Mux.scala:50:70, src/main/scala/pvu/Div.scala:42:24, :81:{28,46}, :86:29, :88:{26,47}, :91:26, :103:47
+     1'h1} << leading_zeros_2;	// src/main/scala/chisel3/util/Mux.scala:50:70, src/main/scala/pvu/Div.scala:39:55, :97:{28,46}, :102:29, :104:{26,47}, :107:26, :119:47
   wire [7:0]   _exp_diff_T_6 = io_pir_exp1_i[2'h3] - io_pir_exp2_i[2'h3];	// src/main/scala/pvu/Div.scala:33:37, :38:45
   wire         is_zero_dividend_3 = io_pir_frac1_i[2'h3] == 28'h0;	// src/main/scala/pvu/Div.scala:37:46, :38:45
   wire         is_zero_divisor_3 = io_pir_frac2_i[2'h3] == 28'h0;	// src/main/scala/pvu/Div.scala:37:46, :38:45
-  wire         _GEN_161 = is_zero_dividend_3 & is_zero_divisor_3;	// src/main/scala/pvu/Div.scala:37:46, :38:45, :40:28
-  wire [28:0]  _GEN_162 = {1'h0, io_pir_frac2_i[2'h3]};	// src/main/scala/pvu/Div.scala:37:46, :38:45, :88:47
-  wire [28:0]  _next_remainder_T_1622 = {io_pir_frac1_i[2'h3], 1'h0} - _GEN_162;	// src/main/scala/pvu/Div.scala:37:46, :38:45, :88:47
-  wire [28:0]  _GEN_163 = {_next_remainder_T_1622[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :88:47
+  wire         _is_dividend_40000000_T_16 = io_pir_exp1_i[2'h3] == 8'h0;	// src/main/scala/pvu/Div.scala:33:37, :38:45, :39:92, :50:23
+  wire         _is_divisor_40000000_T_16 = io_pir_exp2_i[2'h3] == 8'h0;	// src/main/scala/pvu/Div.scala:33:37, :38:45, :40:91, :50:23
+  wire         _GEN_164 = is_zero_dividend_3 & is_zero_divisor_3;	// src/main/scala/pvu/Div.scala:37:46, :38:45, :46:28
+  wire         _GEN_165 =
+    io_pir_frac1_i[2'h3] == 28'h8000000 & _is_dividend_40000000_T_16
+    & io_pir_frac2_i[2'h3] == 28'h8000000 & _is_divisor_40000000_T_16
+    | ~io_pir_sign1_i[2'h3] & _is_dividend_40000000_T_16 & io_pir_frac1_i[2'h3][27]
+    & ~io_pir_sign2_i[2'h3] & _is_divisor_40000000_T_16 & io_pir_frac2_i[2'h3][27];	// src/main/scala/pvu/Div.scala:29:{22,43}, :37:46, :38:45, :39:{46,55,92}, :40:{45,91}, :43:{51,111}, :44:{50,110}, :51:{33,52}, :53:24, :56:{38,62}, :58:24
+  wire [28:0]  _GEN_166 = {1'h0, io_pir_frac2_i[2'h3]};	// src/main/scala/pvu/Div.scala:37:46, :38:45, :104:47
+  wire [28:0]  _next_remainder_T_1622 = {io_pir_frac1_i[2'h3], 1'h0} - _GEN_166;	// src/main/scala/pvu/Div.scala:37:46, :38:45, :104:47
+  wire [28:0]  _GEN_167 = {_next_remainder_T_1622[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :104:47
   wire [28:0]  next_remainder_163 =
-    _next_remainder_T_1622[28] ? _GEN_163 + _GEN_162 : _GEN_163 - _GEN_162;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_164 = {next_remainder_163[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    _next_remainder_T_1622[28] ? _GEN_167 + _GEN_166 : _GEN_167 - _GEN_166;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_168 = {next_remainder_163[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_164 =
-    next_remainder_163[28] ? _GEN_164 + _GEN_162 : _GEN_164 - _GEN_162;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_165 = {next_remainder_164[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_163[28] ? _GEN_168 + _GEN_166 : _GEN_168 - _GEN_166;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_169 = {next_remainder_164[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_165 =
-    next_remainder_164[28] ? _GEN_165 + _GEN_162 : _GEN_165 - _GEN_162;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_166 = {next_remainder_165[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_164[28] ? _GEN_169 + _GEN_166 : _GEN_169 - _GEN_166;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_170 = {next_remainder_165[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_166 =
-    next_remainder_165[28] ? _GEN_166 + _GEN_162 : _GEN_166 - _GEN_162;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_167 = {next_remainder_166[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_165[28] ? _GEN_170 + _GEN_166 : _GEN_170 - _GEN_166;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_171 = {next_remainder_166[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_167 =
-    next_remainder_166[28] ? _GEN_167 + _GEN_162 : _GEN_167 - _GEN_162;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_168 = {next_remainder_167[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_166[28] ? _GEN_171 + _GEN_166 : _GEN_171 - _GEN_166;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_172 = {next_remainder_167[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_168 =
-    next_remainder_167[28] ? _GEN_168 + _GEN_162 : _GEN_168 - _GEN_162;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_169 = {next_remainder_168[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_167[28] ? _GEN_172 + _GEN_166 : _GEN_172 - _GEN_166;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_173 = {next_remainder_168[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_169 =
-    next_remainder_168[28] ? _GEN_169 + _GEN_162 : _GEN_169 - _GEN_162;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_170 = {next_remainder_169[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_168[28] ? _GEN_173 + _GEN_166 : _GEN_173 - _GEN_166;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_174 = {next_remainder_169[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_170 =
-    next_remainder_169[28] ? _GEN_170 + _GEN_162 : _GEN_170 - _GEN_162;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_171 = {next_remainder_170[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_169[28] ? _GEN_174 + _GEN_166 : _GEN_174 - _GEN_166;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_175 = {next_remainder_170[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_171 =
-    next_remainder_170[28] ? _GEN_171 + _GEN_162 : _GEN_171 - _GEN_162;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_172 = {next_remainder_171[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_170[28] ? _GEN_175 + _GEN_166 : _GEN_175 - _GEN_166;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_176 = {next_remainder_171[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_172 =
-    next_remainder_171[28] ? _GEN_172 + _GEN_162 : _GEN_172 - _GEN_162;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_173 = {next_remainder_172[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_171[28] ? _GEN_176 + _GEN_166 : _GEN_176 - _GEN_166;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_177 = {next_remainder_172[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_173 =
-    next_remainder_172[28] ? _GEN_173 + _GEN_162 : _GEN_173 - _GEN_162;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_174 = {next_remainder_173[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_172[28] ? _GEN_177 + _GEN_166 : _GEN_177 - _GEN_166;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_178 = {next_remainder_173[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_174 =
-    next_remainder_173[28] ? _GEN_174 + _GEN_162 : _GEN_174 - _GEN_162;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_175 = {next_remainder_174[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_173[28] ? _GEN_178 + _GEN_166 : _GEN_178 - _GEN_166;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_179 = {next_remainder_174[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_175 =
-    next_remainder_174[28] ? _GEN_175 + _GEN_162 : _GEN_175 - _GEN_162;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_176 = {next_remainder_175[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_174[28] ? _GEN_179 + _GEN_166 : _GEN_179 - _GEN_166;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_180 = {next_remainder_175[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_176 =
-    next_remainder_175[28] ? _GEN_176 + _GEN_162 : _GEN_176 - _GEN_162;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_177 = {next_remainder_176[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_175[28] ? _GEN_180 + _GEN_166 : _GEN_180 - _GEN_166;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_181 = {next_remainder_176[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_177 =
-    next_remainder_176[28] ? _GEN_177 + _GEN_162 : _GEN_177 - _GEN_162;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_178 = {next_remainder_177[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_176[28] ? _GEN_181 + _GEN_166 : _GEN_181 - _GEN_166;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_182 = {next_remainder_177[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_178 =
-    next_remainder_177[28] ? _GEN_178 + _GEN_162 : _GEN_178 - _GEN_162;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_179 = {next_remainder_178[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_177[28] ? _GEN_182 + _GEN_166 : _GEN_182 - _GEN_166;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_183 = {next_remainder_178[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_179 =
-    next_remainder_178[28] ? _GEN_179 + _GEN_162 : _GEN_179 - _GEN_162;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_180 = {next_remainder_179[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_178[28] ? _GEN_183 + _GEN_166 : _GEN_183 - _GEN_166;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_184 = {next_remainder_179[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_180 =
-    next_remainder_179[28] ? _GEN_180 + _GEN_162 : _GEN_180 - _GEN_162;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_181 = {next_remainder_180[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_179[28] ? _GEN_184 + _GEN_166 : _GEN_184 - _GEN_166;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_185 = {next_remainder_180[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_181 =
-    next_remainder_180[28] ? _GEN_181 + _GEN_162 : _GEN_181 - _GEN_162;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_182 = {next_remainder_181[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_180[28] ? _GEN_185 + _GEN_166 : _GEN_185 - _GEN_166;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_186 = {next_remainder_181[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_182 =
-    next_remainder_181[28] ? _GEN_182 + _GEN_162 : _GEN_182 - _GEN_162;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_183 = {next_remainder_182[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_181[28] ? _GEN_186 + _GEN_166 : _GEN_186 - _GEN_166;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_187 = {next_remainder_182[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_183 =
-    next_remainder_182[28] ? _GEN_183 + _GEN_162 : _GEN_183 - _GEN_162;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_184 = {next_remainder_183[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_182[28] ? _GEN_187 + _GEN_166 : _GEN_187 - _GEN_166;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_188 = {next_remainder_183[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_184 =
-    next_remainder_183[28] ? _GEN_184 + _GEN_162 : _GEN_184 - _GEN_162;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_185 = {next_remainder_184[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_183[28] ? _GEN_188 + _GEN_166 : _GEN_188 - _GEN_166;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_189 = {next_remainder_184[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_185 =
-    next_remainder_184[28] ? _GEN_185 + _GEN_162 : _GEN_185 - _GEN_162;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_186 = {next_remainder_185[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_184[28] ? _GEN_189 + _GEN_166 : _GEN_189 - _GEN_166;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_190 = {next_remainder_185[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_186 =
-    next_remainder_185[28] ? _GEN_186 + _GEN_162 : _GEN_186 - _GEN_162;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_187 = {next_remainder_186[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_185[28] ? _GEN_190 + _GEN_166 : _GEN_190 - _GEN_166;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_191 = {next_remainder_186[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_187 =
-    next_remainder_186[28] ? _GEN_187 + _GEN_162 : _GEN_187 - _GEN_162;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_188 = {next_remainder_187[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_186[28] ? _GEN_191 + _GEN_166 : _GEN_191 - _GEN_166;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_192 = {next_remainder_187[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_188 =
-    next_remainder_187[28] ? _GEN_188 + _GEN_162 : _GEN_188 - _GEN_162;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_189 = {next_remainder_188[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_187[28] ? _GEN_192 + _GEN_166 : _GEN_192 - _GEN_166;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_193 = {next_remainder_188[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_189 =
-    next_remainder_188[28] ? _GEN_189 + _GEN_162 : _GEN_189 - _GEN_162;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_190 = {next_remainder_189[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_188[28] ? _GEN_193 + _GEN_166 : _GEN_193 - _GEN_166;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_194 = {next_remainder_189[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_190 =
-    next_remainder_189[28] ? _GEN_190 + _GEN_162 : _GEN_190 - _GEN_162;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_191 = {next_remainder_190[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_189[28] ? _GEN_194 + _GEN_166 : _GEN_194 - _GEN_166;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_195 = {next_remainder_190[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_191 =
-    next_remainder_190[28] ? _GEN_191 + _GEN_162 : _GEN_191 - _GEN_162;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_192 = {next_remainder_191[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_190[28] ? _GEN_195 + _GEN_166 : _GEN_195 - _GEN_166;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_196 = {next_remainder_191[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_192 =
-    next_remainder_191[28] ? _GEN_192 + _GEN_162 : _GEN_192 - _GEN_162;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_193 = {next_remainder_192[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_191[28] ? _GEN_196 + _GEN_166 : _GEN_196 - _GEN_166;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_197 = {next_remainder_192[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_193 =
-    next_remainder_192[28] ? _GEN_193 + _GEN_162 : _GEN_193 - _GEN_162;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_194 = {next_remainder_193[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_192[28] ? _GEN_197 + _GEN_166 : _GEN_197 - _GEN_166;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_198 = {next_remainder_193[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_194 =
-    next_remainder_193[28] ? _GEN_194 + _GEN_162 : _GEN_194 - _GEN_162;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_195 = {next_remainder_194[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_193[28] ? _GEN_198 + _GEN_166 : _GEN_198 - _GEN_166;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_199 = {next_remainder_194[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_195 =
-    next_remainder_194[28] ? _GEN_195 + _GEN_162 : _GEN_195 - _GEN_162;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_196 = {next_remainder_195[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_194[28] ? _GEN_199 + _GEN_166 : _GEN_199 - _GEN_166;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_200 = {next_remainder_195[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_196 =
-    next_remainder_195[28] ? _GEN_196 + _GEN_162 : _GEN_196 - _GEN_162;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_197 = {next_remainder_196[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_195[28] ? _GEN_200 + _GEN_166 : _GEN_200 - _GEN_166;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_201 = {next_remainder_196[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_197 =
-    next_remainder_196[28] ? _GEN_197 + _GEN_162 : _GEN_197 - _GEN_162;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_198 = {next_remainder_197[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_196[28] ? _GEN_201 + _GEN_166 : _GEN_201 - _GEN_166;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_202 = {next_remainder_197[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_198 =
-    next_remainder_197[28] ? _GEN_198 + _GEN_162 : _GEN_198 - _GEN_162;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_199 = {next_remainder_198[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_197[28] ? _GEN_202 + _GEN_166 : _GEN_202 - _GEN_166;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_203 = {next_remainder_198[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_199 =
-    next_remainder_198[28] ? _GEN_199 + _GEN_162 : _GEN_199 - _GEN_162;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_200 = {next_remainder_199[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_198[28] ? _GEN_203 + _GEN_166 : _GEN_203 - _GEN_166;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_204 = {next_remainder_199[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_200 =
-    next_remainder_199[28] ? _GEN_200 + _GEN_162 : _GEN_200 - _GEN_162;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_201 = {next_remainder_200[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_199[28] ? _GEN_204 + _GEN_166 : _GEN_204 - _GEN_166;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_205 = {next_remainder_200[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_201 =
-    next_remainder_200[28] ? _GEN_201 + _GEN_162 : _GEN_201 - _GEN_162;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_202 = {next_remainder_201[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_200[28] ? _GEN_205 + _GEN_166 : _GEN_205 - _GEN_166;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_206 = {next_remainder_201[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_202 =
-    next_remainder_201[28] ? _GEN_202 + _GEN_162 : _GEN_202 - _GEN_162;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_203 = {next_remainder_202[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_201[28] ? _GEN_206 + _GEN_166 : _GEN_206 - _GEN_166;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_207 = {next_remainder_202[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_203 =
-    next_remainder_202[28] ? _GEN_203 + _GEN_162 : _GEN_203 - _GEN_162;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_204 = {next_remainder_203[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_202[28] ? _GEN_207 + _GEN_166 : _GEN_207 - _GEN_166;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_208 = {next_remainder_203[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_204 =
-    next_remainder_203[28] ? _GEN_204 + _GEN_162 : _GEN_204 - _GEN_162;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_205 = {next_remainder_204[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_203[28] ? _GEN_208 + _GEN_166 : _GEN_208 - _GEN_166;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_209 = {next_remainder_204[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_205 =
-    next_remainder_204[28] ? _GEN_205 + _GEN_162 : _GEN_205 - _GEN_162;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_206 = {next_remainder_205[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_204[28] ? _GEN_209 + _GEN_166 : _GEN_209 - _GEN_166;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_210 = {next_remainder_205[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_206 =
-    next_remainder_205[28] ? _GEN_206 + _GEN_162 : _GEN_206 - _GEN_162;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_207 = {next_remainder_206[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_205[28] ? _GEN_210 + _GEN_166 : _GEN_210 - _GEN_166;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_211 = {next_remainder_206[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_207 =
-    next_remainder_206[28] ? _GEN_207 + _GEN_162 : _GEN_207 - _GEN_162;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_208 = {next_remainder_207[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_206[28] ? _GEN_211 + _GEN_166 : _GEN_211 - _GEN_166;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_212 = {next_remainder_207[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_208 =
-    next_remainder_207[28] ? _GEN_208 + _GEN_162 : _GEN_208 - _GEN_162;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_209 = {next_remainder_208[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_207[28] ? _GEN_212 + _GEN_166 : _GEN_212 - _GEN_166;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_213 = {next_remainder_208[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_209 =
-    next_remainder_208[28] ? _GEN_209 + _GEN_162 : _GEN_209 - _GEN_162;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_210 = {next_remainder_209[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_208[28] ? _GEN_213 + _GEN_166 : _GEN_213 - _GEN_166;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_214 = {next_remainder_209[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_210 =
-    next_remainder_209[28] ? _GEN_210 + _GEN_162 : _GEN_210 - _GEN_162;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_211 = {next_remainder_210[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_209[28] ? _GEN_214 + _GEN_166 : _GEN_214 - _GEN_166;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_215 = {next_remainder_210[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_211 =
-    next_remainder_210[28] ? _GEN_211 + _GEN_162 : _GEN_211 - _GEN_162;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_212 = {next_remainder_211[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_210[28] ? _GEN_215 + _GEN_166 : _GEN_215 - _GEN_166;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_216 = {next_remainder_211[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_212 =
-    next_remainder_211[28] ? _GEN_212 + _GEN_162 : _GEN_212 - _GEN_162;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_213 = {next_remainder_212[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
+    next_remainder_211[28] ? _GEN_216 + _GEN_166 : _GEN_216 - _GEN_166;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_217 = {next_remainder_212[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
   wire [28:0]  next_remainder_213 =
-    next_remainder_212[28] ? _GEN_213 + _GEN_162 : _GEN_213 - _GEN_162;	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
-  wire [28:0]  _GEN_214 = {next_remainder_213[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :86:29, :88:{26,47}, :91:26
-  wire [28:0]  _next_remainder_T_2142 = _GEN_214 - _GEN_162;	// src/main/scala/pvu/Div.scala:88:47
-  wire [28:0]  _next_remainder_T_2147 = _GEN_214 + _GEN_162;	// src/main/scala/pvu/Div.scala:88:47, :91:47
+    next_remainder_212[28] ? _GEN_217 + _GEN_166 : _GEN_217 - _GEN_166;	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
+  wire [28:0]  _GEN_218 = {next_remainder_213[27:0], 1'h0};	// src/main/scala/pvu/Div.scala:37:46, :102:29, :104:{26,47}, :107:26
+  wire [28:0]  _next_remainder_T_2142 = _GEN_218 - _GEN_166;	// src/main/scala/pvu/Div.scala:104:47
+  wire [28:0]  _next_remainder_T_2147 = _GEN_218 + _GEN_166;	// src/main/scala/pvu/Div.scala:104:47, :107:47
   wire         next_remainder_214 =
-    next_remainder_213[28] ? _next_remainder_T_2147[28] : _next_remainder_T_2142[28];	// src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:{26,47}
+    next_remainder_213[28] ? _next_remainder_T_2147[28] : _next_remainder_T_2142[28];	// src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:{26,47}
   wire [5:0]   leading_zeros_3 =
     next_remainder_214
       ? (next_remainder_213[28]
@@ -3721,7 +3749,7 @@ module Div(	// src/main/scala/pvu/Div.scala:8:7
                      : 6'h3)
                 : 6'h2)
            : 6'h1)
-      : 6'h0;	// src/main/scala/chisel3/util/Mux.scala:50:70, src/main/scala/pvu/Div.scala:81:46, :86:29, :88:{26,47}, :91:26
+      : 6'h0;	// src/main/scala/chisel3/util/Mux.scala:50:70, src/main/scala/pvu/Div.scala:97:46, :102:29, :104:{26,47}, :107:26
   wire [116:0] _normalized_quotient_T_3 =
     {63'h0,
      ~next_remainder_214,
@@ -3777,74 +3805,90 @@ module Div(	// src/main/scala/pvu/Div.scala:8:7
      ~(next_remainder_164[28]),
      ~(next_remainder_163[28]),
      ~(_next_remainder_T_1622[28]),
-     1'h1} << leading_zeros_3;	// src/main/scala/chisel3/util/Mux.scala:50:70, src/main/scala/pvu/Div.scala:42:24, :81:{28,46}, :86:29, :88:{26,47}, :91:26, :103:47
+     1'h1} << leading_zeros_3;	// src/main/scala/chisel3/util/Mux.scala:50:70, src/main/scala/pvu/Div.scala:39:55, :97:{28,46}, :102:29, :104:{26,47}, :107:26, :119:47
   assign io_pir_sign_o =
-    {{_GEN_161 | io_pir_sign1_i[2'h3] ^ io_pir_sign2_i[2'h3]},
-     {_GEN_107 | io_pir_sign1_i[2'h2] ^ io_pir_sign2_i[2'h2]},
-     {_GEN_53 | io_pir_sign1_i[2'h1] ^ io_pir_sign2_i[2'h1]},
-     {_GEN | io_pir_sign1_i[2'h0] ^ io_pir_sign2_i[2'h0]}};	// src/main/scala/pvu/Div.scala:8:7, :29:{22,43}, :38:45, :40:{28,48}, :42:24
+    {{_GEN_164 | ~_GEN_165 & (io_pir_sign1_i[2'h3] ^ io_pir_sign2_i[2'h3])},
+     {_GEN_109 | ~_GEN_110 & (io_pir_sign1_i[2'h2] ^ io_pir_sign2_i[2'h2])},
+     {_GEN_54 | ~_GEN_55 & (io_pir_sign1_i[2'h1] ^ io_pir_sign2_i[2'h1])},
+     {_GEN | ~_GEN_0 & (io_pir_sign1_i[2'h0] ^ io_pir_sign2_i[2'h0])}};	// src/main/scala/pvu/Div.scala:8:7, :29:{22,43}, :38:45, :46:{28,48}, :48:24, :51:52, :53:24, :56:62, :58:24
   assign io_pir_exp_o =
-    {{_GEN_161
+    {{_GEN_164 | _GEN_165
         ? 8'h0
         : is_zero_dividend_3 | is_zero_divisor_3
             ? _exp_diff_T_6
             : _exp_diff_T_6 - {{2{leading_zeros_3[5]}}, leading_zeros_3}},
-     {_GEN_107
+     {_GEN_109 | _GEN_110
         ? 8'h0
         : is_zero_dividend_2 | is_zero_divisor_2
             ? _exp_diff_T_4
             : _exp_diff_T_4 - {{2{leading_zeros_2[5]}}, leading_zeros_2}},
-     {_GEN_53
+     {_GEN_54 | _GEN_55
         ? 8'h0
         : is_zero_dividend_1 | is_zero_divisor_1
             ? _exp_diff_T_2
             : _exp_diff_T_2 - {{2{leading_zeros_1[5]}}, leading_zeros_1}},
-     {_GEN
+     {_GEN | _GEN_0
         ? 8'h0
         : is_zero_dividend | is_zero_divisor
             ? _exp_diff_T
-            : _exp_diff_T - {{2{leading_zeros[5]}}, leading_zeros}}};	// src/main/scala/chisel3/util/Mux.scala:50:70, src/main/scala/pvu/Div.scala:8:7, :33:37, :37:46, :38:45, :40:{28,48}, :44:23, :45:35, :48:23, :49:34, :52:23, :128:32, :129:23
+            : _exp_diff_T - {{2{leading_zeros[5]}}, leading_zeros}}};	// src/main/scala/chisel3/util/Mux.scala:50:70, src/main/scala/pvu/Div.scala:8:7, :29:22, :33:37, :37:46, :38:45, :46:{28,48}, :50:23, :51:52, :53:24, :55:23, :56:62, :58:24, :60:23, :61:35, :64:23, :65:34, :68:23, :144:32, :145:23
   assign io_pir_frac_o =
-    {{_GEN_161 | is_zero_dividend_3
+    {{_GEN_164
         ? 56'h0
-        : is_zero_divisor_3
-            ? 56'h7FFFFFFFFFFFFF
-            : {_normalized_quotient_T_3[26]
-               & (_normalized_quotient_T_3[27] | _normalized_quotient_T_3[25]
-                  | (|(_normalized_quotient_T_3[24:0])))
-                 ? _normalized_quotient_T_3[53:27] + 27'h1
-                 : _normalized_quotient_T_3[53:27],
-               29'h0}},
-     {_GEN_107 | is_zero_dividend_2
+        : _GEN_165
+            ? 56'h8000000
+            : is_zero_dividend_3
+                ? 56'h0
+                : is_zero_divisor_3
+                    ? 56'h7FFFFFFFFFFFFF
+                    : {_normalized_quotient_T_3[26]
+                       & (_normalized_quotient_T_3[27] | _normalized_quotient_T_3[25]
+                          | (|(_normalized_quotient_T_3[24:0])))
+                         ? _normalized_quotient_T_3[53:27] + 27'h1
+                         : _normalized_quotient_T_3[53:27],
+                       29'h0}},
+     {_GEN_109
         ? 56'h0
-        : is_zero_divisor_2
-            ? 56'h7FFFFFFFFFFFFF
-            : {_normalized_quotient_T_2[26]
-               & (_normalized_quotient_T_2[27] | _normalized_quotient_T_2[25]
-                  | (|(_normalized_quotient_T_2[24:0])))
-                 ? _normalized_quotient_T_2[53:27] + 27'h1
-                 : _normalized_quotient_T_2[53:27],
-               29'h0}},
-     {_GEN_53 | is_zero_dividend_1
+        : _GEN_110
+            ? 56'h8000000
+            : is_zero_dividend_2
+                ? 56'h0
+                : is_zero_divisor_2
+                    ? 56'h7FFFFFFFFFFFFF
+                    : {_normalized_quotient_T_2[26]
+                       & (_normalized_quotient_T_2[27] | _normalized_quotient_T_2[25]
+                          | (|(_normalized_quotient_T_2[24:0])))
+                         ? _normalized_quotient_T_2[53:27] + 27'h1
+                         : _normalized_quotient_T_2[53:27],
+                       29'h0}},
+     {_GEN_54
         ? 56'h0
-        : is_zero_divisor_1
-            ? 56'h7FFFFFFFFFFFFF
-            : {_normalized_quotient_T_1[26]
-               & (_normalized_quotient_T_1[27] | _normalized_quotient_T_1[25]
-                  | (|(_normalized_quotient_T_1[24:0])))
-                 ? _normalized_quotient_T_1[53:27] + 27'h1
-                 : _normalized_quotient_T_1[53:27],
-               29'h0}},
-     {_GEN | is_zero_dividend
+        : _GEN_55
+            ? 56'h8000000
+            : is_zero_dividend_1
+                ? 56'h0
+                : is_zero_divisor_1
+                    ? 56'h7FFFFFFFFFFFFF
+                    : {_normalized_quotient_T_1[26]
+                       & (_normalized_quotient_T_1[27] | _normalized_quotient_T_1[25]
+                          | (|(_normalized_quotient_T_1[24:0])))
+                         ? _normalized_quotient_T_1[53:27] + 27'h1
+                         : _normalized_quotient_T_1[53:27],
+                       29'h0}},
+     {_GEN
         ? 56'h0
-        : is_zero_divisor
-            ? 56'h7FFFFFFFFFFFFF
-            : {_normalized_quotient_T[26]
-               & (_normalized_quotient_T[27] | _normalized_quotient_T[25]
-                  | (|(_normalized_quotient_T[24:0])))
-                 ? _normalized_quotient_T[53:27] + 27'h1
-                 : _normalized_quotient_T[53:27],
-               29'h0}}};	// src/main/scala/pvu/Div.scala:8:7, :37:46, :38:45, :40:{28,48}, :43:24, :45:35, :47:24, :49:34, :51:{24,28}, :103:{47,64}, :112:39, :113:40, :114:63, :115:{64,85}, :118:{30,38,51}, :119:{32,46,52}, :120:46, :132:24
+        : _GEN_0
+            ? 56'h8000000
+            : is_zero_dividend
+                ? 56'h0
+                : is_zero_divisor
+                    ? 56'h7FFFFFFFFFFFFF
+                    : {_normalized_quotient_T[26]
+                       & (_normalized_quotient_T[27] | _normalized_quotient_T[25]
+                          | (|(_normalized_quotient_T[24:0])))
+                         ? _normalized_quotient_T[53:27] + 27'h1
+                         : _normalized_quotient_T[53:27],
+                       29'h0}}};	// src/main/scala/pvu/Div.scala:8:7, :29:22, :37:46, :38:45, :46:{28,48}, :49:24, :51:52, :53:24, :54:{24,50}, :56:62, :58:24, :59:24, :61:35, :63:24, :65:34, :67:{24,28}, :119:{47,64}, :128:39, :129:40, :130:63, :131:{64,85}, :134:{30,38,51}, :135:{32,46,52}, :136:46, :148:24
 endmodule
 
 module Comparator(	// src/main/scala/pvu/Comparator.scala:13:7
@@ -5045,32 +5089,44 @@ module PositEncode(	// src/main/scala/pvu/PositEncode.scala:7:7
   assign io_posit =
     {{io_pir_sign[2'h3] & io_pir_frac[2'h3] == 28'h0
         ? 32'h80000000
-        : io_pir_frac[2'h3][27]
-            ? (io_pir_sign[2'h3]
-                 ? {1'h1, ~_value_after_round_3_T + 31'h1}
-                 : {1'h0, _value_after_round_3_T})
-            : 32'h0},
+        : ~io_pir_sign[2'h3] & io_pir_exp[2'h3] == 8'h0 & io_pir_frac[2'h3][27]
+          & io_pir_frac[2'h3][26:0] == 27'h0
+            ? 32'h40000000
+            : io_pir_frac[2'h3][27]
+                ? (io_pir_sign[2'h3]
+                     ? {1'h1, ~_value_after_round_3_T + 31'h1}
+                     : {1'h0, _value_after_round_3_T})
+                : 32'h0},
      {io_pir_sign[2'h2] & io_pir_frac[2'h2] == 28'h0
         ? 32'h80000000
-        : io_pir_frac[2'h2][27]
-            ? (io_pir_sign[2'h2]
-                 ? {1'h1, ~_value_after_round_2_T + 31'h1}
-                 : {1'h0, _value_after_round_2_T})
-            : 32'h0},
+        : ~io_pir_sign[2'h2] & io_pir_exp[2'h2] == 8'h0 & io_pir_frac[2'h2][27]
+          & io_pir_frac[2'h2][26:0] == 27'h0
+            ? 32'h40000000
+            : io_pir_frac[2'h2][27]
+                ? (io_pir_sign[2'h2]
+                     ? {1'h1, ~_value_after_round_2_T + 31'h1}
+                     : {1'h0, _value_after_round_2_T})
+                : 32'h0},
      {io_pir_sign[2'h1] & io_pir_frac[2'h1] == 28'h0
         ? 32'h80000000
-        : io_pir_frac[2'h1][27]
-            ? (io_pir_sign[2'h1]
-                 ? {1'h1, ~_value_after_round_1_T + 31'h1}
-                 : {1'h0, _value_after_round_1_T})
-            : 32'h0},
+        : ~io_pir_sign[2'h1] & io_pir_exp[2'h1] == 8'h0 & io_pir_frac[2'h1][27]
+          & io_pir_frac[2'h1][26:0] == 27'h0
+            ? 32'h40000000
+            : io_pir_frac[2'h1][27]
+                ? (io_pir_sign[2'h1]
+                     ? {1'h1, ~_value_after_round_1_T + 31'h1}
+                     : {1'h0, _value_after_round_1_T})
+                : 32'h0},
      {io_pir_sign[2'h0] & io_pir_frac[2'h0] == 28'h0
         ? 32'h80000000
-        : io_pir_frac[2'h0][27]
-            ? (io_pir_sign[2'h0]
-                 ? {1'h1, ~_value_after_round_0_T + 31'h1}
-                 : {1'h0, _value_after_round_0_T})
-            : 32'h0}};	// src/main/scala/pvu/PositEncode.scala:7:7, :23:35, :40:19, :51:89, :96:50, :104:{33,42,61}, :106:{23,51,57,79,90}, :108:{23,68}
+        : ~io_pir_sign[2'h0] & io_pir_exp[2'h0] == 8'h0 & io_pir_frac[2'h0][27]
+          & io_pir_frac[2'h0][26:0] == 27'h0
+            ? 32'h40000000
+            : io_pir_frac[2'h0][27]
+                ? (io_pir_sign[2'h0]
+                     ? {1'h1, ~_value_after_round_0_T + 31'h1}
+                     : {1'h0, _value_after_round_0_T})
+                : 32'h0}};	// src/main/scala/pvu/PositEncode.scala:7:7, :23:35, :30:33, :40:19, :51:89, :58:65, :96:50, :104:{33,42,61}, :107:{33,60}, :108:{54,90}, :110:{23,51,57,79,90}, :116:17, :117:19, :118:23, :119:19, :121:{19,25}
 endmodule
 
 module FloatToPosit(	// src/main/scala/pvu/FloatToPosit.scala:16:7
@@ -7809,11 +7865,14 @@ module PositEncode_7(	// src/main/scala/pvu/PositEncode.scala:7:7
   assign io_posit =
     {1{io_pir_sign[1'h0] & io_pir_frac[1'h0] == 28'h0
          ? 32'h80000000
-         : io_pir_frac[1'h0][27]
-             ? (io_pir_sign[1'h0]
-                  ? {1'h1, ~_value_after_round_0_T + 31'h1}
-                  : {1'h0, _value_after_round_0_T})
-             : 32'h0}};	// src/main/scala/pvu/PositEncode.scala:7:7, :23:35, :40:19, :96:50, :104:{33,42,61}, :106:{23,51,57,79,90}, :108:{23,68}
+         : ~io_pir_sign[1'h0] & io_pir_exp[1'h0] == 8'h0 & io_pir_frac[1'h0][27]
+           & io_pir_frac[1'h0][26:0] == 27'h0
+             ? 32'h40000000
+             : io_pir_frac[1'h0][27]
+                 ? (io_pir_sign[1'h0]
+                      ? {1'h1, ~_value_after_round_0_T + 31'h1}
+                      : {1'h0, _value_after_round_0_T})
+                 : 32'h0}};	// src/main/scala/pvu/PositEncode.scala:7:7, :23:35, :30:33, :40:19, :58:65, :96:50, :104:{33,42,61}, :107:{33,60}, :108:{54,90}, :110:{23,51,57,79,90}, :116:17, :117:19, :118:23, :119:19, :121:{19,25}
 endmodule
 
 module FloatEncode_5(	// src/main/scala/pvu/FloatEncode.scala:29:7
@@ -7884,58 +7943,58 @@ module PvuTop(	// src/main/scala/pvu/PvuTop.scala:28:8
                 io_int_o_3	// src/main/scala/pvu/PvuTop.scala:77:15
 );
 
-  wire [3:0][31:0] _floatEncoder_io_float;	// src/main/scala/pvu/PvuTop.scala:1093:31
-  wire [3:0][31:0] _result_encoder_io_posit;	// src/main/scala/pvu/PvuTop.scala:1055:35
-  wire [3:0]       _result_converter_io_pir_sign_o;	// src/main/scala/pvu/PvuTop.scala:1029:37
-  wire [3:0][7:0]  _result_converter_io_pir_exp_o;	// src/main/scala/pvu/PvuTop.scala:1029:37
-  wire [3:0][27:0] _result_converter_io_pir_frac_o;	// src/main/scala/pvu/PvuTop.scala:1029:37
-  wire [3:0][31:0] _encode_io_posit;	// src/main/scala/pvu/PvuTop.scala:1010:27
-  wire [3:0][31:0] _convert_encoder_io_posit;	// src/main/scala/pvu/PvuTop.scala:972:34
-  wire [0:0][31:0] _floatDotEncoder_io_float;	// src/main/scala/pvu/PvuTop.scala:946:34
-  wire [0:0][31:0] _dot_encoder_io_posit;	// src/main/scala/pvu/PvuTop.scala:926:30
-  wire [0:0]       _dot_converter_io_pir_sign_o;	// src/main/scala/pvu/PvuTop.scala:912:32
-  wire [0:0][7:0]  _dot_converter_io_pir_exp_o;	// src/main/scala/pvu/PvuTop.scala:912:32
-  wire [0:0][27:0] _dot_converter_io_pir_frac_o;	// src/main/scala/pvu/PvuTop.scala:912:32
-  wire [0:0]       _dot_decoder_io_Sign;	// src/main/scala/pvu/PvuTop.scala:908:30
-  wire [0:0][7:0]  _dot_decoder_io_Exp;	// src/main/scala/pvu/PvuTop.scala:908:30
-  wire [0:0][27:0] _dot_decoder_io_Frac;	// src/main/scala/pvu/PvuTop.scala:908:30
-  wire [31:0]      _encode_dot_io_posit;	// src/main/scala/pvu/PvuTop.scala:899:29
-  wire [3:0][9:0]  _frac_norm_div_io_exp_adjust;	// src/main/scala/pvu/PvuTop.scala:799:47
-  wire [3:0][27:0] _frac_norm_div_io_pir_frac_o;	// src/main/scala/pvu/PvuTop.scala:799:47
-  wire [3:0][9:0]  _frac_norm_mul_io_exp_adjust;	// src/main/scala/pvu/PvuTop.scala:794:47
-  wire [3:0][27:0] _frac_norm_mul_io_pir_frac_o;	// src/main/scala/pvu/PvuTop.scala:794:47
-  wire [3:0][7:0]  _frac_norm_sub_io_exp_adjust;	// src/main/scala/pvu/PvuTop.scala:789:47
-  wire [3:0][27:0] _frac_norm_sub_io_pir_frac_o;	// src/main/scala/pvu/PvuTop.scala:789:47
-  wire [3:0][7:0]  _frac_norm_add_io_exp_adjust;	// src/main/scala/pvu/PvuTop.scala:775:32
-  wire [3:0][27:0] _frac_norm_add_io_pir_frac_o;	// src/main/scala/pvu/PvuTop.scala:775:32
-  wire [8:0]       _frac_norm_dot_io_exp_adjust;	// src/main/scala/pvu/PvuTop.scala:770:30
-  wire [27:0]      _frac_norm_dot_io_pir_frac_o;	// src/main/scala/pvu/PvuTop.scala:770:30
-  wire [3:0][31:0] _tranInt_io_int_o;	// src/main/scala/pvu/PvuTop.scala:731:26
-  wire [3:0][31:0] _less_io_posit_o;	// src/main/scala/pvu/PvuTop.scala:706:23
-  wire [3:0]       _less_io_pir_sign_o;	// src/main/scala/pvu/PvuTop.scala:706:23
-  wire [3:0][7:0]  _less_io_pir_exp_o;	// src/main/scala/pvu/PvuTop.scala:706:23
-  wire [3:0][31:0] _greater_io_posit_o;	// src/main/scala/pvu/PvuTop.scala:681:26
-  wire [3:0]       _greater_io_pir_sign_o;	// src/main/scala/pvu/PvuTop.scala:681:26
-  wire [3:0][7:0]  _greater_io_pir_exp_o;	// src/main/scala/pvu/PvuTop.scala:681:26
-  wire [3:0][63:0] _posit2float_fp64_io_float_out;	// src/main/scala/pvu/PvuTop.scala:656:39
-  wire [3:0][31:0] _float2posit_fp64_io_posit_out;	// src/main/scala/pvu/PvuTop.scala:631:39
-  wire [3:0][31:0] _posit2float_fp32_io_float_out;	// src/main/scala/pvu/PvuTop.scala:618:39
-  wire [3:0][31:0] _float2posit_fp32_io_posit_out;	// src/main/scala/pvu/PvuTop.scala:593:39
-  wire [3:0][15:0] _posit2float_fp16_io_float_out;	// src/main/scala/pvu/PvuTop.scala:580:39
-  wire [3:0][31:0] _float2posit_fp16_io_posit_out;	// src/main/scala/pvu/PvuTop.scala:555:39
-  wire [3:0][7:0]  _posit2float_fp8_io_float_out;	// src/main/scala/pvu/PvuTop.scala:542:38
-  wire [3:0][31:0] _float2posit_fp8_io_posit_out;	// src/main/scala/pvu/PvuTop.scala:517:38
-  wire [3:0][3:0]  _posit2float_fp4_io_float_out;	// src/main/scala/pvu/PvuTop.scala:504:38
-  wire [3:0][31:0] _float2posit_fp4_io_posit_out;	// src/main/scala/pvu/PvuTop.scala:479:38
-  wire [3:0]       _convert_io_pir_sign_o;	// src/main/scala/pvu/PvuTop.scala:449:26
-  wire [3:0][7:0]  _convert_io_pir_exp_o;	// src/main/scala/pvu/PvuTop.scala:449:26
-  wire [3:0][27:0] _convert_io_pir_frac_o;	// src/main/scala/pvu/PvuTop.scala:449:26
-  wire             _dotproduct_io_pir_sign_o;	// src/main/scala/pvu/PvuTop.scala:431:28
-  wire [7:0]       _dotproduct_io_pir_exp_o;	// src/main/scala/pvu/PvuTop.scala:431:28
-  wire [58:0]      _dotproduct_io_pir_frac_o;	// src/main/scala/pvu/PvuTop.scala:431:28
-  wire [3:0]       _div_io_pir_sign_o;	// src/main/scala/pvu/PvuTop.scala:417:22
-  wire [3:0][7:0]  _div_io_pir_exp_o;	// src/main/scala/pvu/PvuTop.scala:417:22
-  wire [3:0][55:0] _div_io_pir_frac_o;	// src/main/scala/pvu/PvuTop.scala:417:22
+  wire [3:0][31:0] _floatEncoder_io_float;	// src/main/scala/pvu/PvuTop.scala:1117:31
+  wire [3:0][31:0] _result_encoder_io_posit;	// src/main/scala/pvu/PvuTop.scala:1075:35
+  wire [3:0]       _result_converter_io_pir_sign_o;	// src/main/scala/pvu/PvuTop.scala:1049:37
+  wire [3:0][7:0]  _result_converter_io_pir_exp_o;	// src/main/scala/pvu/PvuTop.scala:1049:37
+  wire [3:0][27:0] _result_converter_io_pir_frac_o;	// src/main/scala/pvu/PvuTop.scala:1049:37
+  wire [3:0][31:0] _encode_io_posit;	// src/main/scala/pvu/PvuTop.scala:1022:27
+  wire [3:0][31:0] _convert_encoder_io_posit;	// src/main/scala/pvu/PvuTop.scala:984:34
+  wire [0:0][31:0] _floatDotEncoder_io_float;	// src/main/scala/pvu/PvuTop.scala:958:34
+  wire [0:0][31:0] _dot_encoder_io_posit;	// src/main/scala/pvu/PvuTop.scala:938:30
+  wire [0:0]       _dot_converter_io_pir_sign_o;	// src/main/scala/pvu/PvuTop.scala:924:32
+  wire [0:0][7:0]  _dot_converter_io_pir_exp_o;	// src/main/scala/pvu/PvuTop.scala:924:32
+  wire [0:0][27:0] _dot_converter_io_pir_frac_o;	// src/main/scala/pvu/PvuTop.scala:924:32
+  wire [0:0]       _dot_decoder_io_Sign;	// src/main/scala/pvu/PvuTop.scala:920:30
+  wire [0:0][7:0]  _dot_decoder_io_Exp;	// src/main/scala/pvu/PvuTop.scala:920:30
+  wire [0:0][27:0] _dot_decoder_io_Frac;	// src/main/scala/pvu/PvuTop.scala:920:30
+  wire [31:0]      _encode_dot_io_posit;	// src/main/scala/pvu/PvuTop.scala:911:29
+  wire [3:0][9:0]  _frac_norm_div_io_exp_adjust;	// src/main/scala/pvu/PvuTop.scala:811:47
+  wire [3:0][27:0] _frac_norm_div_io_pir_frac_o;	// src/main/scala/pvu/PvuTop.scala:811:47
+  wire [3:0][9:0]  _frac_norm_mul_io_exp_adjust;	// src/main/scala/pvu/PvuTop.scala:806:47
+  wire [3:0][27:0] _frac_norm_mul_io_pir_frac_o;	// src/main/scala/pvu/PvuTop.scala:806:47
+  wire [3:0][7:0]  _frac_norm_sub_io_exp_adjust;	// src/main/scala/pvu/PvuTop.scala:801:47
+  wire [3:0][27:0] _frac_norm_sub_io_pir_frac_o;	// src/main/scala/pvu/PvuTop.scala:801:47
+  wire [3:0][7:0]  _frac_norm_add_io_exp_adjust;	// src/main/scala/pvu/PvuTop.scala:787:32
+  wire [3:0][27:0] _frac_norm_add_io_pir_frac_o;	// src/main/scala/pvu/PvuTop.scala:787:32
+  wire [8:0]       _frac_norm_dot_io_exp_adjust;	// src/main/scala/pvu/PvuTop.scala:782:30
+  wire [27:0]      _frac_norm_dot_io_pir_frac_o;	// src/main/scala/pvu/PvuTop.scala:782:30
+  wire [3:0][31:0] _tranInt_io_int_o;	// src/main/scala/pvu/PvuTop.scala:743:26
+  wire [3:0][31:0] _less_io_posit_o;	// src/main/scala/pvu/PvuTop.scala:718:23
+  wire [3:0]       _less_io_pir_sign_o;	// src/main/scala/pvu/PvuTop.scala:718:23
+  wire [3:0][7:0]  _less_io_pir_exp_o;	// src/main/scala/pvu/PvuTop.scala:718:23
+  wire [3:0][31:0] _greater_io_posit_o;	// src/main/scala/pvu/PvuTop.scala:693:26
+  wire [3:0]       _greater_io_pir_sign_o;	// src/main/scala/pvu/PvuTop.scala:693:26
+  wire [3:0][7:0]  _greater_io_pir_exp_o;	// src/main/scala/pvu/PvuTop.scala:693:26
+  wire [3:0][63:0] _posit2float_fp64_io_float_out;	// src/main/scala/pvu/PvuTop.scala:668:39
+  wire [3:0][31:0] _float2posit_fp64_io_posit_out;	// src/main/scala/pvu/PvuTop.scala:643:39
+  wire [3:0][31:0] _posit2float_fp32_io_float_out;	// src/main/scala/pvu/PvuTop.scala:630:39
+  wire [3:0][31:0] _float2posit_fp32_io_posit_out;	// src/main/scala/pvu/PvuTop.scala:605:39
+  wire [3:0][15:0] _posit2float_fp16_io_float_out;	// src/main/scala/pvu/PvuTop.scala:592:39
+  wire [3:0][31:0] _float2posit_fp16_io_posit_out;	// src/main/scala/pvu/PvuTop.scala:567:39
+  wire [3:0][7:0]  _posit2float_fp8_io_float_out;	// src/main/scala/pvu/PvuTop.scala:554:38
+  wire [3:0][31:0] _float2posit_fp8_io_posit_out;	// src/main/scala/pvu/PvuTop.scala:529:38
+  wire [3:0][3:0]  _posit2float_fp4_io_float_out;	// src/main/scala/pvu/PvuTop.scala:516:38
+  wire [3:0][31:0] _float2posit_fp4_io_posit_out;	// src/main/scala/pvu/PvuTop.scala:491:38
+  wire [3:0]       _convert_io_pir_sign_o;	// src/main/scala/pvu/PvuTop.scala:461:26
+  wire [3:0][7:0]  _convert_io_pir_exp_o;	// src/main/scala/pvu/PvuTop.scala:461:26
+  wire [3:0][27:0] _convert_io_pir_frac_o;	// src/main/scala/pvu/PvuTop.scala:461:26
+  wire             _dotproduct_io_pir_sign_o;	// src/main/scala/pvu/PvuTop.scala:443:28
+  wire [7:0]       _dotproduct_io_pir_exp_o;	// src/main/scala/pvu/PvuTop.scala:443:28
+  wire [58:0]      _dotproduct_io_pir_frac_o;	// src/main/scala/pvu/PvuTop.scala:443:28
+  wire [3:0]       _div_inst_io_pir_sign_o;	// src/main/scala/pvu/PvuTop.scala:417:27
+  wire [3:0][7:0]  _div_inst_io_pir_exp_o;	// src/main/scala/pvu/PvuTop.scala:417:27
+  wire [3:0][55:0] _div_inst_io_pir_frac_o;	// src/main/scala/pvu/PvuTop.scala:417:27
   wire [3:0]       _mul_io_pir_sign_o;	// src/main/scala/pvu/PvuTop.scala:403:22
   wire [3:0][7:0]  _mul_io_pir_exp_o;	// src/main/scala/pvu/PvuTop.scala:403:22
   wire [3:0][55:0] _mul_io_pir_frac_o;	// src/main/scala/pvu/PvuTop.scala:403:22
@@ -7969,10 +8028,10 @@ module PvuTop(	// src/main/scala/pvu/PvuTop.scala:28:8
   wire [3:0]       _decode1_io_Sign;	// src/main/scala/pvu/PvuTop.scala:110:23
   wire [3:0][7:0]  _decode1_io_Exp;	// src/main/scala/pvu/PvuTop.scala:110:23
   wire [3:0][27:0] _decode1_io_Frac;	// src/main/scala/pvu/PvuTop.scala:110:23
-  wire [3:0][7:0]  _GEN = '{8'h0, 8'h0, 8'h0, 8'h0};	// src/main/scala/pvu/PvuTop.scala:325:26, :333:23, :370:29, :402:29, :416:29, :430:29, :444:29
+  wire [3:0][7:0]  _GEN = '{8'h0, 8'h0, 8'h0, 8'h0};	// src/main/scala/pvu/PvuTop.scala:325:26, :333:23, :370:29, :402:29, :416:29, :442:29, :456:29
   wire [3:0][67:0] _GEN_0 = '{68'h0, 68'h0, 68'h0, 68'h0};	// src/main/scala/pvu/PvuTop.scala:321:26, :333:23, :370:29, :402:29
   wire [3:0][29:0] _GEN_1 = '{30'h0, 30'h0, 30'h0, 30'h0};	// src/main/scala/pvu/PvuTop.scala:320:26, :333:23, :370:29
-  wire [3:0][27:0] _GEN_2 = '{28'h0, 28'h0, 28'h0, 28'h0};	// src/main/scala/pvu/PvuTop.scala:326:26, :333:23, :370:29, :402:29, :416:29, :430:29, :444:29
+  wire [3:0][27:0] _GEN_2 = '{28'h0, 28'h0, 28'h0, 28'h0};	// src/main/scala/pvu/PvuTop.scala:326:26, :333:23, :370:29, :402:29, :416:29, :442:29, :456:29
   wire [3:0][31:0] _GEN_3 = '{32'h0, 32'h0, 32'h0, 32'h0};	// src/main/scala/pvu/PvuTop.scala:246:21, :247:28, :263:28
   wire [3:0][31:0] _GEN_4 =
     {{io_posit_i1_3}, {io_posit_i1_2}, {io_posit_i1_1}, {io_posit_i1_0}};	// src/main/scala/pvu/PvuTop.scala:28:8
@@ -8062,83 +8121,83 @@ module PvuTop(	// src/main/scala/pvu/PvuTop.scala:28:8
   wire             _GEN_31 = io_op == 4'h2;	// src/main/scala/pvu/PvuTop.scala:370:21
   wire             _GEN_32 = io_op == 4'h3;	// src/main/scala/pvu/PvuTop.scala:402:21
   wire             _GEN_33 = io_op == 4'h4;	// src/main/scala/pvu/PvuTop.scala:416:21
-  wire             _GEN_34 = io_op == 4'h5;	// src/main/scala/pvu/PvuTop.scala:430:21
-  wire             _GEN_35 = _GEN_30 | _GEN_31 | _GEN_32 | _GEN_33;	// src/main/scala/pvu/PvuTop.scala:329:17, :333:{15,23}, :370:{21,29}, :402:{21,29}, :416:{21,29}, :430:29
-  wire             pir_sign_dot = ~_GEN_35 & _GEN_34 & _dotproduct_io_pir_sign_o;	// src/main/scala/pvu/PvuTop.scala:329:17, :333:23, :370:29, :402:29, :416:29, :430:{21,29}, :431:28
-  wire             _GEN_36 = _GEN_35 | ~_GEN_34;	// src/main/scala/pvu/PvuTop.scala:329:17, :330:17, :333:23, :370:29, :402:29, :416:29, :430:{21,29}
-  wire             _GEN_37 = io_op == 4'h6;	// src/main/scala/pvu/PvuTop.scala:444:21
-  wire             _GEN_38 = _GEN_30 | _GEN_31 | _GEN_32 | _GEN_33 | _GEN_34;	// src/main/scala/pvu/PvuTop.scala:324:26, :333:{15,23}, :370:{21,29}, :402:{21,29}, :416:{21,29}, :430:{21,29}, :444:29
-  wire             _GEN_39 = _GEN_38 | ~_GEN_37;	// src/main/scala/pvu/PvuTop.scala:324:26, :325:26, :333:23, :370:29, :402:29, :416:29, :430:29, :444:{21,29}
-  wire             _GEN_40 = io_op == 4'h7;	// src/main/scala/pvu/PvuTop.scala:466:21
-  wire [5:0]       _float2posit_out_0_T_4 = 6'h20 - ACTUAL_DST_POSIT_WIDTH;	// src/main/scala/pvu/PvuTop.scala:225:36, :230:36, :497:91
+  wire             _GEN_34 = io_op == 4'h5;	// src/main/scala/pvu/PvuTop.scala:442:21
+  wire             _GEN_35 = _GEN_30 | _GEN_31 | _GEN_32 | _GEN_33;	// src/main/scala/pvu/PvuTop.scala:329:17, :333:{15,23}, :370:{21,29}, :402:{21,29}, :416:{21,29}, :442:29
+  wire             pir_sign_dot = ~_GEN_35 & _GEN_34 & _dotproduct_io_pir_sign_o;	// src/main/scala/pvu/PvuTop.scala:329:17, :333:23, :370:29, :402:29, :416:29, :442:{21,29}, :443:28
+  wire             _GEN_36 = _GEN_35 | ~_GEN_34;	// src/main/scala/pvu/PvuTop.scala:329:17, :330:17, :333:23, :370:29, :402:29, :416:29, :442:{21,29}
+  wire             _GEN_37 = io_op == 4'h6;	// src/main/scala/pvu/PvuTop.scala:456:21
+  wire             _GEN_38 = _GEN_30 | _GEN_31 | _GEN_32 | _GEN_33 | _GEN_34;	// src/main/scala/pvu/PvuTop.scala:324:26, :333:{15,23}, :370:{21,29}, :402:{21,29}, :416:{21,29}, :442:{21,29}, :456:29
+  wire             _GEN_39 = _GEN_38 | ~_GEN_37;	// src/main/scala/pvu/PvuTop.scala:324:26, :325:26, :333:23, :370:29, :402:29, :416:29, :442:29, :456:{21,29}
+  wire             _GEN_40 = io_op == 4'h7;	// src/main/scala/pvu/PvuTop.scala:478:21
+  wire [5:0]       _float2posit_out_0_T_4 = 6'h20 - ACTUAL_DST_POSIT_WIDTH;	// src/main/scala/pvu/PvuTop.scala:225:36, :230:36, :509:91
   wire [94:0]      _float2posit_out_0_T_6 =
     {63'h0, _float2posit_fp4_io_posit_out[2'h0] >> _float2posit_out_0_T_4}
-    << _float2posit_out_0_T_4;	// src/main/scala/pvu/PvuTop.scala:28:8, :479:38, :492:67, :497:{69,91,118}
-  wire             _GEN_41 = ACTUAL_DST_POSIT_WIDTH > 6'h20 | ACTUAL_DST_POSIT_WIDTH[5];	// src/main/scala/pvu/PvuTop.scala:225:36, :230:36, :490:{40,61}, :492:33, :493:{46,67}
-  wire [5:0]       _float2posit_out_1_T_4 = 6'h20 - ACTUAL_DST_POSIT_WIDTH;	// src/main/scala/pvu/PvuTop.scala:225:36, :230:36, :497:91
+    << _float2posit_out_0_T_4;	// src/main/scala/pvu/PvuTop.scala:28:8, :491:38, :504:67, :509:{69,91,118}
+  wire             _GEN_41 = ACTUAL_DST_POSIT_WIDTH > 6'h20 | ACTUAL_DST_POSIT_WIDTH[5];	// src/main/scala/pvu/PvuTop.scala:225:36, :230:36, :502:{40,61}, :504:33, :505:{46,67}
+  wire [5:0]       _float2posit_out_1_T_4 = 6'h20 - ACTUAL_DST_POSIT_WIDTH;	// src/main/scala/pvu/PvuTop.scala:225:36, :230:36, :509:91
   wire [94:0]      _float2posit_out_1_T_6 =
     {63'h0, _float2posit_fp4_io_posit_out[2'h1] >> _float2posit_out_1_T_4}
-    << _float2posit_out_1_T_4;	// src/main/scala/pvu/PvuTop.scala:28:8, :479:38, :492:67, :497:{69,91,118}
-  wire [5:0]       _float2posit_out_2_T_4 = 6'h20 - ACTUAL_DST_POSIT_WIDTH;	// src/main/scala/pvu/PvuTop.scala:225:36, :230:36, :497:91
+    << _float2posit_out_1_T_4;	// src/main/scala/pvu/PvuTop.scala:28:8, :491:38, :504:67, :509:{69,91,118}
+  wire [5:0]       _float2posit_out_2_T_4 = 6'h20 - ACTUAL_DST_POSIT_WIDTH;	// src/main/scala/pvu/PvuTop.scala:225:36, :230:36, :509:91
   wire [94:0]      _float2posit_out_2_T_6 =
     {63'h0, _float2posit_fp4_io_posit_out[2'h2] >> _float2posit_out_2_T_4}
-    << _float2posit_out_2_T_4;	// src/main/scala/pvu/PvuTop.scala:234:34, :479:38, :492:67, :497:{69,91,118}
-  wire [5:0]       _float2posit_out_3_T_4 = 6'h20 - ACTUAL_DST_POSIT_WIDTH;	// src/main/scala/pvu/PvuTop.scala:225:36, :230:36, :497:91
+    << _float2posit_out_2_T_4;	// src/main/scala/pvu/PvuTop.scala:234:34, :491:38, :504:67, :509:{69,91,118}
+  wire [5:0]       _float2posit_out_3_T_4 = 6'h20 - ACTUAL_DST_POSIT_WIDTH;	// src/main/scala/pvu/PvuTop.scala:225:36, :230:36, :509:91
   wire [94:0]      _float2posit_out_3_T_6 =
     {63'h0, _float2posit_fp4_io_posit_out[2'h3] >> _float2posit_out_3_T_4}
-    << _float2posit_out_3_T_4;	// src/main/scala/pvu/PvuTop.scala:235:55, :479:38, :492:67, :497:{69,91,118}
-  wire [5:0]       _float2posit_out_0_T_11 = 6'h20 - ACTUAL_DST_POSIT_WIDTH;	// src/main/scala/pvu/PvuTop.scala:225:36, :230:36, :535:91
+    << _float2posit_out_3_T_4;	// src/main/scala/pvu/PvuTop.scala:235:55, :491:38, :504:67, :509:{69,91,118}
+  wire [5:0]       _float2posit_out_0_T_11 = 6'h20 - ACTUAL_DST_POSIT_WIDTH;	// src/main/scala/pvu/PvuTop.scala:225:36, :230:36, :547:91
   wire [94:0]      _float2posit_out_0_T_13 =
     {63'h0, _float2posit_fp8_io_posit_out[2'h0] >> _float2posit_out_0_T_11}
-    << _float2posit_out_0_T_11;	// src/main/scala/pvu/PvuTop.scala:28:8, :497:118, :517:38, :530:67, :535:{69,91,118}
-  wire [5:0]       _float2posit_out_1_T_11 = 6'h20 - ACTUAL_DST_POSIT_WIDTH;	// src/main/scala/pvu/PvuTop.scala:225:36, :230:36, :535:91
+    << _float2posit_out_0_T_11;	// src/main/scala/pvu/PvuTop.scala:28:8, :509:118, :529:38, :542:67, :547:{69,91,118}
+  wire [5:0]       _float2posit_out_1_T_11 = 6'h20 - ACTUAL_DST_POSIT_WIDTH;	// src/main/scala/pvu/PvuTop.scala:225:36, :230:36, :547:91
   wire [94:0]      _float2posit_out_1_T_13 =
     {63'h0, _float2posit_fp8_io_posit_out[2'h1] >> _float2posit_out_1_T_11}
-    << _float2posit_out_1_T_11;	// src/main/scala/pvu/PvuTop.scala:28:8, :497:118, :517:38, :530:67, :535:{69,91,118}
-  wire [5:0]       _float2posit_out_2_T_11 = 6'h20 - ACTUAL_DST_POSIT_WIDTH;	// src/main/scala/pvu/PvuTop.scala:225:36, :230:36, :535:91
+    << _float2posit_out_1_T_11;	// src/main/scala/pvu/PvuTop.scala:28:8, :509:118, :529:38, :542:67, :547:{69,91,118}
+  wire [5:0]       _float2posit_out_2_T_11 = 6'h20 - ACTUAL_DST_POSIT_WIDTH;	// src/main/scala/pvu/PvuTop.scala:225:36, :230:36, :547:91
   wire [94:0]      _float2posit_out_2_T_13 =
     {63'h0, _float2posit_fp8_io_posit_out[2'h2] >> _float2posit_out_2_T_11}
-    << _float2posit_out_2_T_11;	// src/main/scala/pvu/PvuTop.scala:234:34, :497:118, :517:38, :530:67, :535:{69,91,118}
-  wire [5:0]       _float2posit_out_3_T_11 = 6'h20 - ACTUAL_DST_POSIT_WIDTH;	// src/main/scala/pvu/PvuTop.scala:225:36, :230:36, :535:91
+    << _float2posit_out_2_T_11;	// src/main/scala/pvu/PvuTop.scala:234:34, :509:118, :529:38, :542:67, :547:{69,91,118}
+  wire [5:0]       _float2posit_out_3_T_11 = 6'h20 - ACTUAL_DST_POSIT_WIDTH;	// src/main/scala/pvu/PvuTop.scala:225:36, :230:36, :547:91
   wire [94:0]      _float2posit_out_3_T_13 =
     {63'h0, _float2posit_fp8_io_posit_out[2'h3] >> _float2posit_out_3_T_11}
-    << _float2posit_out_3_T_11;	// src/main/scala/pvu/PvuTop.scala:235:55, :497:118, :517:38, :530:67, :535:{69,91,118}
-  wire [5:0]       _float2posit_out_0_T_18 = 6'h20 - ACTUAL_DST_POSIT_WIDTH;	// src/main/scala/pvu/PvuTop.scala:225:36, :230:36, :573:92
+    << _float2posit_out_3_T_11;	// src/main/scala/pvu/PvuTop.scala:235:55, :509:118, :529:38, :542:67, :547:{69,91,118}
+  wire [5:0]       _float2posit_out_0_T_18 = 6'h20 - ACTUAL_DST_POSIT_WIDTH;	// src/main/scala/pvu/PvuTop.scala:225:36, :230:36, :585:92
   wire [94:0]      _float2posit_out_0_T_20 =
     {63'h0, _float2posit_fp16_io_posit_out[2'h0] >> _float2posit_out_0_T_18}
-    << _float2posit_out_0_T_18;	// src/main/scala/pvu/PvuTop.scala:28:8, :497:118, :555:39, :568:68, :573:{70,92,119}
-  wire [5:0]       _float2posit_out_1_T_18 = 6'h20 - ACTUAL_DST_POSIT_WIDTH;	// src/main/scala/pvu/PvuTop.scala:225:36, :230:36, :573:92
+    << _float2posit_out_0_T_18;	// src/main/scala/pvu/PvuTop.scala:28:8, :509:118, :567:39, :580:68, :585:{70,92,119}
+  wire [5:0]       _float2posit_out_1_T_18 = 6'h20 - ACTUAL_DST_POSIT_WIDTH;	// src/main/scala/pvu/PvuTop.scala:225:36, :230:36, :585:92
   wire [94:0]      _float2posit_out_1_T_20 =
     {63'h0, _float2posit_fp16_io_posit_out[2'h1] >> _float2posit_out_1_T_18}
-    << _float2posit_out_1_T_18;	// src/main/scala/pvu/PvuTop.scala:28:8, :497:118, :555:39, :568:68, :573:{70,92,119}
-  wire [5:0]       _float2posit_out_2_T_18 = 6'h20 - ACTUAL_DST_POSIT_WIDTH;	// src/main/scala/pvu/PvuTop.scala:225:36, :230:36, :573:92
+    << _float2posit_out_1_T_18;	// src/main/scala/pvu/PvuTop.scala:28:8, :509:118, :567:39, :580:68, :585:{70,92,119}
+  wire [5:0]       _float2posit_out_2_T_18 = 6'h20 - ACTUAL_DST_POSIT_WIDTH;	// src/main/scala/pvu/PvuTop.scala:225:36, :230:36, :585:92
   wire [94:0]      _float2posit_out_2_T_20 =
     {63'h0, _float2posit_fp16_io_posit_out[2'h2] >> _float2posit_out_2_T_18}
-    << _float2posit_out_2_T_18;	// src/main/scala/pvu/PvuTop.scala:234:34, :497:118, :555:39, :568:68, :573:{70,92,119}
-  wire [5:0]       _float2posit_out_3_T_18 = 6'h20 - ACTUAL_DST_POSIT_WIDTH;	// src/main/scala/pvu/PvuTop.scala:225:36, :230:36, :573:92
+    << _float2posit_out_2_T_18;	// src/main/scala/pvu/PvuTop.scala:234:34, :509:118, :567:39, :580:68, :585:{70,92,119}
+  wire [5:0]       _float2posit_out_3_T_18 = 6'h20 - ACTUAL_DST_POSIT_WIDTH;	// src/main/scala/pvu/PvuTop.scala:225:36, :230:36, :585:92
   wire [94:0]      _float2posit_out_3_T_20 =
     {63'h0, _float2posit_fp16_io_posit_out[2'h3] >> _float2posit_out_3_T_18}
-    << _float2posit_out_3_T_18;	// src/main/scala/pvu/PvuTop.scala:235:55, :497:118, :555:39, :568:68, :573:{70,92,119}
-  wire [5:0]       _float2posit_out_0_T_25 = 6'h20 - ACTUAL_DST_POSIT_WIDTH;	// src/main/scala/pvu/PvuTop.scala:225:36, :230:36, :611:92
+    << _float2posit_out_3_T_18;	// src/main/scala/pvu/PvuTop.scala:235:55, :509:118, :567:39, :580:68, :585:{70,92,119}
+  wire [5:0]       _float2posit_out_0_T_25 = 6'h20 - ACTUAL_DST_POSIT_WIDTH;	// src/main/scala/pvu/PvuTop.scala:225:36, :230:36, :623:92
   wire [94:0]      _float2posit_out_0_T_27 =
     {63'h0, _float2posit_fp32_io_posit_out[2'h0] >> _float2posit_out_0_T_25}
-    << _float2posit_out_0_T_25;	// src/main/scala/pvu/PvuTop.scala:28:8, :497:118, :593:39, :606:68, :611:{70,92,119}
-  wire [5:0]       _float2posit_out_1_T_25 = 6'h20 - ACTUAL_DST_POSIT_WIDTH;	// src/main/scala/pvu/PvuTop.scala:225:36, :230:36, :611:92
+    << _float2posit_out_0_T_25;	// src/main/scala/pvu/PvuTop.scala:28:8, :509:118, :605:39, :618:68, :623:{70,92,119}
+  wire [5:0]       _float2posit_out_1_T_25 = 6'h20 - ACTUAL_DST_POSIT_WIDTH;	// src/main/scala/pvu/PvuTop.scala:225:36, :230:36, :623:92
   wire [94:0]      _float2posit_out_1_T_27 =
     {63'h0, _float2posit_fp32_io_posit_out[2'h1] >> _float2posit_out_1_T_25}
-    << _float2posit_out_1_T_25;	// src/main/scala/pvu/PvuTop.scala:28:8, :497:118, :593:39, :606:68, :611:{70,92,119}
-  wire [5:0]       _float2posit_out_2_T_25 = 6'h20 - ACTUAL_DST_POSIT_WIDTH;	// src/main/scala/pvu/PvuTop.scala:225:36, :230:36, :611:92
+    << _float2posit_out_1_T_25;	// src/main/scala/pvu/PvuTop.scala:28:8, :509:118, :605:39, :618:68, :623:{70,92,119}
+  wire [5:0]       _float2posit_out_2_T_25 = 6'h20 - ACTUAL_DST_POSIT_WIDTH;	// src/main/scala/pvu/PvuTop.scala:225:36, :230:36, :623:92
   wire [94:0]      _float2posit_out_2_T_27 =
     {63'h0, _float2posit_fp32_io_posit_out[2'h2] >> _float2posit_out_2_T_25}
-    << _float2posit_out_2_T_25;	// src/main/scala/pvu/PvuTop.scala:234:34, :497:118, :593:39, :606:68, :611:{70,92,119}
-  wire [5:0]       _float2posit_out_3_T_25 = 6'h20 - ACTUAL_DST_POSIT_WIDTH;	// src/main/scala/pvu/PvuTop.scala:225:36, :230:36, :611:92
+    << _float2posit_out_2_T_25;	// src/main/scala/pvu/PvuTop.scala:234:34, :509:118, :605:39, :618:68, :623:{70,92,119}
+  wire [5:0]       _float2posit_out_3_T_25 = 6'h20 - ACTUAL_DST_POSIT_WIDTH;	// src/main/scala/pvu/PvuTop.scala:225:36, :230:36, :623:92
   wire [94:0]      _float2posit_out_3_T_27 =
     {63'h0, _float2posit_fp32_io_posit_out[2'h3] >> _float2posit_out_3_T_25}
-    << _float2posit_out_3_T_25;	// src/main/scala/pvu/PvuTop.scala:235:55, :497:118, :593:39, :606:68, :611:{70,92,119}
-  wire [5:0]       _float2posit_out_0_T_32 = 6'h20 - ACTUAL_DST_POSIT_WIDTH;	// src/main/scala/pvu/PvuTop.scala:225:36, :230:36, :649:92
+    << _float2posit_out_3_T_25;	// src/main/scala/pvu/PvuTop.scala:235:55, :509:118, :605:39, :618:68, :623:{70,92,119}
+  wire [5:0]       _float2posit_out_0_T_32 = 6'h20 - ACTUAL_DST_POSIT_WIDTH;	// src/main/scala/pvu/PvuTop.scala:225:36, :230:36, :661:92
   wire [94:0]      _float2posit_out_0_T_34 =
     {63'h0, _float2posit_fp64_io_posit_out[2'h0] >> _float2posit_out_0_T_32}
-    << _float2posit_out_0_T_32;	// src/main/scala/pvu/PvuTop.scala:28:8, :497:118, :631:39, :644:68, :649:{70,92,119}
+    << _float2posit_out_0_T_32;	// src/main/scala/pvu/PvuTop.scala:28:8, :509:118, :643:39, :656:68, :661:{70,92,119}
   wire [7:0][31:0] _GEN_42 =
     {{32'h0},
      {32'h0},
@@ -8147,11 +8206,11 @@ module PvuTop(	// src/main/scala/pvu/PvuTop.scala:28:8
      {_GEN_41 ? _float2posit_fp32_io_posit_out[2'h0] : _float2posit_out_0_T_27[31:0]},
      {_GEN_41 ? _float2posit_fp16_io_posit_out[2'h0] : _float2posit_out_0_T_20[31:0]},
      {_GEN_41 ? _float2posit_fp8_io_posit_out[2'h0] : _float2posit_out_0_T_13[31:0]},
-     {_GEN_41 ? _float2posit_fp4_io_posit_out[2'h0] : _float2posit_out_0_T_6[31:0]}};	// src/main/scala/pvu/PvuTop.scala:28:8, :172:{18,28}, :249:28, :250:28, :263:38, :264:38, :472:{22,32}, :476:28, :479:38, :490:61, :492:{33,67}, :493:67, :497:{33,118}, :517:38, :528:61, :530:{33,67}, :531:67, :535:{33,118}, :555:39, :566:61, :568:{33,68}, :569:67, :573:{33,119}, :593:39, :604:61, :606:{33,68}, :607:67, :611:{33,119}, :631:39, :642:61, :644:{33,68}, :645:67, :649:{33,119}, :678:{19,29}
-  wire [5:0]       _float2posit_out_1_T_32 = 6'h20 - ACTUAL_DST_POSIT_WIDTH;	// src/main/scala/pvu/PvuTop.scala:225:36, :230:36, :649:92
+     {_GEN_41 ? _float2posit_fp4_io_posit_out[2'h0] : _float2posit_out_0_T_6[31:0]}};	// src/main/scala/pvu/PvuTop.scala:28:8, :172:{18,28}, :249:28, :250:28, :263:38, :264:38, :484:{22,32}, :488:28, :491:38, :502:61, :504:{33,67}, :505:67, :509:{33,118}, :529:38, :540:61, :542:{33,67}, :543:67, :547:{33,118}, :567:39, :578:61, :580:{33,68}, :581:67, :585:{33,119}, :605:39, :616:61, :618:{33,68}, :619:67, :623:{33,119}, :643:39, :654:61, :656:{33,68}, :657:67, :661:{33,119}, :690:{19,29}
+  wire [5:0]       _float2posit_out_1_T_32 = 6'h20 - ACTUAL_DST_POSIT_WIDTH;	// src/main/scala/pvu/PvuTop.scala:225:36, :230:36, :661:92
   wire [94:0]      _float2posit_out_1_T_34 =
     {63'h0, _float2posit_fp64_io_posit_out[2'h1] >> _float2posit_out_1_T_32}
-    << _float2posit_out_1_T_32;	// src/main/scala/pvu/PvuTop.scala:28:8, :497:118, :631:39, :644:68, :649:{70,92,119}
+    << _float2posit_out_1_T_32;	// src/main/scala/pvu/PvuTop.scala:28:8, :509:118, :643:39, :656:68, :661:{70,92,119}
   wire [7:0][31:0] _GEN_43 =
     {{32'h0},
      {32'h0},
@@ -8160,11 +8219,11 @@ module PvuTop(	// src/main/scala/pvu/PvuTop.scala:28:8
      {_GEN_41 ? _float2posit_fp32_io_posit_out[2'h1] : _float2posit_out_1_T_27[31:0]},
      {_GEN_41 ? _float2posit_fp16_io_posit_out[2'h1] : _float2posit_out_1_T_20[31:0]},
      {_GEN_41 ? _float2posit_fp8_io_posit_out[2'h1] : _float2posit_out_1_T_13[31:0]},
-     {_GEN_41 ? _float2posit_fp4_io_posit_out[2'h1] : _float2posit_out_1_T_6[31:0]}};	// src/main/scala/pvu/PvuTop.scala:28:8, :172:{18,28}, :249:28, :250:28, :263:38, :264:38, :472:{22,32}, :476:28, :479:38, :490:61, :492:{33,67}, :493:67, :497:{33,118}, :517:38, :528:61, :530:{33,67}, :531:67, :535:{33,118}, :555:39, :566:61, :568:{33,68}, :569:67, :573:{33,119}, :593:39, :604:61, :606:{33,68}, :607:67, :611:{33,119}, :631:39, :642:61, :644:{33,68}, :645:67, :649:{33,119}, :678:{19,29}
-  wire [5:0]       _float2posit_out_2_T_32 = 6'h20 - ACTUAL_DST_POSIT_WIDTH;	// src/main/scala/pvu/PvuTop.scala:225:36, :230:36, :649:92
+     {_GEN_41 ? _float2posit_fp4_io_posit_out[2'h1] : _float2posit_out_1_T_6[31:0]}};	// src/main/scala/pvu/PvuTop.scala:28:8, :172:{18,28}, :249:28, :250:28, :263:38, :264:38, :484:{22,32}, :488:28, :491:38, :502:61, :504:{33,67}, :505:67, :509:{33,118}, :529:38, :540:61, :542:{33,67}, :543:67, :547:{33,118}, :567:39, :578:61, :580:{33,68}, :581:67, :585:{33,119}, :605:39, :616:61, :618:{33,68}, :619:67, :623:{33,119}, :643:39, :654:61, :656:{33,68}, :657:67, :661:{33,119}, :690:{19,29}
+  wire [5:0]       _float2posit_out_2_T_32 = 6'h20 - ACTUAL_DST_POSIT_WIDTH;	// src/main/scala/pvu/PvuTop.scala:225:36, :230:36, :661:92
   wire [94:0]      _float2posit_out_2_T_34 =
     {63'h0, _float2posit_fp64_io_posit_out[2'h2] >> _float2posit_out_2_T_32}
-    << _float2posit_out_2_T_32;	// src/main/scala/pvu/PvuTop.scala:234:34, :497:118, :631:39, :644:68, :649:{70,92,119}
+    << _float2posit_out_2_T_32;	// src/main/scala/pvu/PvuTop.scala:234:34, :509:118, :643:39, :656:68, :661:{70,92,119}
   wire [7:0][31:0] _GEN_44 =
     {{32'h0},
      {32'h0},
@@ -8173,11 +8232,11 @@ module PvuTop(	// src/main/scala/pvu/PvuTop.scala:28:8
      {_GEN_41 ? _float2posit_fp32_io_posit_out[2'h2] : _float2posit_out_2_T_27[31:0]},
      {_GEN_41 ? _float2posit_fp16_io_posit_out[2'h2] : _float2posit_out_2_T_20[31:0]},
      {_GEN_41 ? _float2posit_fp8_io_posit_out[2'h2] : _float2posit_out_2_T_13[31:0]},
-     {_GEN_41 ? _float2posit_fp4_io_posit_out[2'h2] : _float2posit_out_2_T_6[31:0]}};	// src/main/scala/pvu/PvuTop.scala:172:{18,28}, :234:34, :249:28, :250:28, :263:38, :264:38, :472:{22,32}, :476:28, :479:38, :490:61, :492:{33,67}, :493:67, :497:{33,118}, :517:38, :528:61, :530:{33,67}, :531:67, :535:{33,118}, :555:39, :566:61, :568:{33,68}, :569:67, :573:{33,119}, :593:39, :604:61, :606:{33,68}, :607:67, :611:{33,119}, :631:39, :642:61, :644:{33,68}, :645:67, :649:{33,119}, :678:{19,29}
-  wire [5:0]       _float2posit_out_3_T_32 = 6'h20 - ACTUAL_DST_POSIT_WIDTH;	// src/main/scala/pvu/PvuTop.scala:225:36, :230:36, :649:92
+     {_GEN_41 ? _float2posit_fp4_io_posit_out[2'h2] : _float2posit_out_2_T_6[31:0]}};	// src/main/scala/pvu/PvuTop.scala:172:{18,28}, :234:34, :249:28, :250:28, :263:38, :264:38, :484:{22,32}, :488:28, :491:38, :502:61, :504:{33,67}, :505:67, :509:{33,118}, :529:38, :540:61, :542:{33,67}, :543:67, :547:{33,118}, :567:39, :578:61, :580:{33,68}, :581:67, :585:{33,119}, :605:39, :616:61, :618:{33,68}, :619:67, :623:{33,119}, :643:39, :654:61, :656:{33,68}, :657:67, :661:{33,119}, :690:{19,29}
+  wire [5:0]       _float2posit_out_3_T_32 = 6'h20 - ACTUAL_DST_POSIT_WIDTH;	// src/main/scala/pvu/PvuTop.scala:225:36, :230:36, :661:92
   wire [94:0]      _float2posit_out_3_T_34 =
     {63'h0, _float2posit_fp64_io_posit_out[2'h3] >> _float2posit_out_3_T_32}
-    << _float2posit_out_3_T_32;	// src/main/scala/pvu/PvuTop.scala:235:55, :497:118, :631:39, :644:68, :649:{70,92,119}
+    << _float2posit_out_3_T_32;	// src/main/scala/pvu/PvuTop.scala:235:55, :509:118, :643:39, :656:68, :661:{70,92,119}
   wire [7:0][31:0] _GEN_45 =
     {{32'h0},
      {32'h0},
@@ -8186,7 +8245,7 @@ module PvuTop(	// src/main/scala/pvu/PvuTop.scala:28:8
      {_GEN_41 ? _float2posit_fp32_io_posit_out[2'h3] : _float2posit_out_3_T_27[31:0]},
      {_GEN_41 ? _float2posit_fp16_io_posit_out[2'h3] : _float2posit_out_3_T_20[31:0]},
      {_GEN_41 ? _float2posit_fp8_io_posit_out[2'h3] : _float2posit_out_3_T_13[31:0]},
-     {_GEN_41 ? _float2posit_fp4_io_posit_out[2'h3] : _float2posit_out_3_T_6[31:0]}};	// src/main/scala/pvu/PvuTop.scala:172:{18,28}, :235:55, :249:28, :250:28, :263:38, :264:38, :472:{22,32}, :476:28, :479:38, :490:61, :492:{33,67}, :493:67, :497:{33,118}, :517:38, :528:61, :530:{33,67}, :531:67, :535:{33,118}, :555:39, :566:61, :568:{33,68}, :569:67, :573:{33,119}, :593:39, :604:61, :606:{33,68}, :607:67, :611:{33,119}, :631:39, :642:61, :644:{33,68}, :645:67, :649:{33,119}, :678:{19,29}
+     {_GEN_41 ? _float2posit_fp4_io_posit_out[2'h3] : _float2posit_out_3_T_6[31:0]}};	// src/main/scala/pvu/PvuTop.scala:172:{18,28}, :235:55, :249:28, :250:28, :263:38, :264:38, :484:{22,32}, :488:28, :491:38, :502:61, :504:{33,67}, :505:67, :509:{33,118}, :529:38, :540:61, :542:{33,67}, :543:67, :547:{33,118}, :567:39, :578:61, :580:{33,68}, :581:67, :585:{33,119}, :605:39, :616:61, :618:{33,68}, :619:67, :623:{33,119}, :643:39, :654:61, :656:{33,68}, :657:67, :661:{33,119}, :690:{19,29}
   wire [7:0][63:0] _GEN_46 =
     {{64'h0},
      {64'h0},
@@ -8195,7 +8254,7 @@ module PvuTop(	// src/main/scala/pvu/PvuTop.scala:28:8
      {{32'h0, _posit2float_fp32_io_float_out[2'h0]}},
      {{48'h0, _posit2float_fp16_io_float_out[2'h0]}},
      {{56'h0, _posit2float_fp8_io_float_out[2'h0]}},
-     {{60'h0, _posit2float_fp4_io_float_out[2'h0]}}};	// src/main/scala/pvu/PvuTop.scala:28:8, :170:{18,28}, :172:{18,28}, :249:{28,38}, :250:{28,38}, :263:38, :264:38, :472:{22,32}, :473:{22,32}, :476:28, :504:38, :512:38, :542:38, :550:38, :580:39, :588:39, :618:39, :626:39, :656:39, :664:39, :674:{19,29}, :678:{19,29}
+     {{60'h0, _posit2float_fp4_io_float_out[2'h0]}}};	// src/main/scala/pvu/PvuTop.scala:28:8, :170:{18,28}, :172:{18,28}, :249:{28,38}, :250:{28,38}, :263:38, :264:38, :484:{22,32}, :485:{22,32}, :488:28, :516:38, :524:38, :554:38, :562:38, :592:39, :600:39, :630:39, :638:39, :668:39, :676:39, :686:{19,29}, :690:{19,29}
   wire [7:0][63:0] _GEN_47 =
     {{64'h0},
      {64'h0},
@@ -8204,7 +8263,7 @@ module PvuTop(	// src/main/scala/pvu/PvuTop.scala:28:8
      {{32'h0, _posit2float_fp32_io_float_out[2'h1]}},
      {{48'h0, _posit2float_fp16_io_float_out[2'h1]}},
      {{56'h0, _posit2float_fp8_io_float_out[2'h1]}},
-     {{60'h0, _posit2float_fp4_io_float_out[2'h1]}}};	// src/main/scala/pvu/PvuTop.scala:28:8, :170:{18,28}, :172:{18,28}, :249:{28,38}, :250:{28,38}, :263:38, :264:38, :472:{22,32}, :473:{22,32}, :476:28, :504:38, :512:38, :542:38, :550:38, :580:39, :588:39, :618:39, :626:39, :656:39, :664:39, :674:{19,29}, :678:{19,29}
+     {{60'h0, _posit2float_fp4_io_float_out[2'h1]}}};	// src/main/scala/pvu/PvuTop.scala:28:8, :170:{18,28}, :172:{18,28}, :249:{28,38}, :250:{28,38}, :263:38, :264:38, :484:{22,32}, :485:{22,32}, :488:28, :516:38, :524:38, :554:38, :562:38, :592:39, :600:39, :630:39, :638:39, :668:39, :676:39, :686:{19,29}, :690:{19,29}
   wire [7:0][63:0] _GEN_48 =
     {{64'h0},
      {64'h0},
@@ -8213,7 +8272,7 @@ module PvuTop(	// src/main/scala/pvu/PvuTop.scala:28:8
      {{32'h0, _posit2float_fp32_io_float_out[2'h2]}},
      {{48'h0, _posit2float_fp16_io_float_out[2'h2]}},
      {{56'h0, _posit2float_fp8_io_float_out[2'h2]}},
-     {{60'h0, _posit2float_fp4_io_float_out[2'h2]}}};	// src/main/scala/pvu/PvuTop.scala:170:{18,28}, :172:{18,28}, :234:34, :249:{28,38}, :250:{28,38}, :263:38, :264:38, :472:{22,32}, :473:{22,32}, :476:28, :504:38, :512:38, :542:38, :550:38, :580:39, :588:39, :618:39, :626:39, :656:39, :664:39, :674:{19,29}, :678:{19,29}
+     {{60'h0, _posit2float_fp4_io_float_out[2'h2]}}};	// src/main/scala/pvu/PvuTop.scala:170:{18,28}, :172:{18,28}, :234:34, :249:{28,38}, :250:{28,38}, :263:38, :264:38, :484:{22,32}, :485:{22,32}, :488:28, :516:38, :524:38, :554:38, :562:38, :592:39, :600:39, :630:39, :638:39, :668:39, :676:39, :686:{19,29}, :690:{19,29}
   wire [7:0][63:0] _GEN_49 =
     {{64'h0},
      {64'h0},
@@ -8222,21 +8281,21 @@ module PvuTop(	// src/main/scala/pvu/PvuTop.scala:28:8
      {{32'h0, _posit2float_fp32_io_float_out[2'h3]}},
      {{48'h0, _posit2float_fp16_io_float_out[2'h3]}},
      {{56'h0, _posit2float_fp8_io_float_out[2'h3]}},
-     {{60'h0, _posit2float_fp4_io_float_out[2'h3]}}};	// src/main/scala/pvu/PvuTop.scala:170:{18,28}, :172:{18,28}, :235:55, :249:{28,38}, :250:{28,38}, :263:38, :264:38, :472:{22,32}, :473:{22,32}, :476:28, :504:38, :512:38, :542:38, :550:38, :580:39, :588:39, :618:39, :626:39, :656:39, :664:39, :674:{19,29}, :678:{19,29}
-  wire             _GEN_50 = ~_GEN_40 | io_float_posit;	// src/main/scala/pvu/PvuTop.scala:170:18, :466:{21,29}, :671:27
-  wire             _GEN_51 = _GEN_30 | _GEN_31 | _GEN_32 | _GEN_33 | _GEN_34 | _GEN_37;	// src/main/scala/pvu/PvuTop.scala:170:18, :333:{15,23}, :370:{21,29}, :402:{21,29}, :416:{21,29}, :430:{21,29}, :444:{21,29}, :466:29
-  wire             _GEN_52 = _GEN_51 | _GEN_50;	// src/main/scala/pvu/PvuTop.scala:170:18, :333:23, :370:29, :402:29, :416:29, :430:29, :444:29, :466:29, :671:27
-  wire [63:0]      _GEN_53 = _GEN_52 ? 64'h0 : _GEN_46[io_float_mode];	// src/main/scala/pvu/PvuTop.scala:170:{18,28}, :249:38, :250:38, :333:23, :370:29, :402:29, :416:29, :430:29, :444:29, :466:29, :473:{22,32}, :476:28, :512:38, :550:38, :588:39, :626:39, :664:39, :674:{19,29}
-  wire [63:0]      _GEN_54 = _GEN_52 ? 64'h0 : _GEN_47[io_float_mode];	// src/main/scala/pvu/PvuTop.scala:170:{18,28}, :249:38, :250:38, :333:23, :370:29, :402:29, :416:29, :430:29, :444:29, :466:29, :473:{22,32}, :476:28, :512:38, :550:38, :588:39, :626:39, :664:39, :674:{19,29}
-  wire [63:0]      _GEN_55 = _GEN_52 ? 64'h0 : _GEN_48[io_float_mode];	// src/main/scala/pvu/PvuTop.scala:170:{18,28}, :249:38, :250:38, :333:23, :370:29, :402:29, :416:29, :430:29, :444:29, :466:29, :473:{22,32}, :476:28, :512:38, :550:38, :588:39, :626:39, :664:39, :674:{19,29}
-  wire [63:0]      _GEN_56 = _GEN_52 ? 64'h0 : _GEN_49[io_float_mode];	// src/main/scala/pvu/PvuTop.scala:170:{18,28}, :249:38, :250:38, :333:23, :370:29, :402:29, :416:29, :430:29, :444:29, :466:29, :473:{22,32}, :476:28, :512:38, :550:38, :588:39, :626:39, :664:39, :674:{19,29}
-  wire [31:0]      _GEN_57 = io_float_posit ? _GEN_42[io_float_mode] : 32'h0;	// src/main/scala/pvu/PvuTop.scala:172:{18,28}, :249:28, :250:28, :263:38, :264:38, :472:{22,32}, :476:28, :490:61, :528:61, :566:61, :604:61, :642:61, :671:27, :673:19, :678:{19,29}
-  wire [31:0]      _GEN_58 = io_float_posit ? _GEN_43[io_float_mode] : 32'h0;	// src/main/scala/pvu/PvuTop.scala:172:{18,28}, :249:28, :250:28, :263:38, :264:38, :472:{22,32}, :476:28, :490:61, :528:61, :566:61, :604:61, :642:61, :671:27, :673:19, :678:{19,29}
-  wire [31:0]      _GEN_59 = io_float_posit ? _GEN_44[io_float_mode] : 32'h0;	// src/main/scala/pvu/PvuTop.scala:172:{18,28}, :249:28, :250:28, :263:38, :264:38, :472:{22,32}, :476:28, :490:61, :528:61, :566:61, :604:61, :642:61, :671:27, :673:19, :678:{19,29}
-  wire [31:0]      _GEN_60 = io_float_posit ? _GEN_45[io_float_mode] : 32'h0;	// src/main/scala/pvu/PvuTop.scala:172:{18,28}, :249:28, :250:28, :263:38, :264:38, :472:{22,32}, :476:28, :490:61, :528:61, :566:61, :604:61, :642:61, :671:27, :673:19, :678:{19,29}
-  wire             _GEN_61 = io_op == 4'h8;	// src/main/scala/pvu/PvuTop.scala:680:21
-  wire             _GEN_62 = io_op == 4'h9;	// src/main/scala/pvu/PvuTop.scala:705:21
-  wire             _GEN_63 = _GEN_34 | _GEN_37 | _GEN_40;	// src/main/scala/pvu/PvuTop.scala:317:26, :430:{21,29}, :444:{21,29}, :466:{21,29}, :680:30
+     {{60'h0, _posit2float_fp4_io_float_out[2'h3]}}};	// src/main/scala/pvu/PvuTop.scala:170:{18,28}, :172:{18,28}, :235:55, :249:{28,38}, :250:{28,38}, :263:38, :264:38, :484:{22,32}, :485:{22,32}, :488:28, :516:38, :524:38, :554:38, :562:38, :592:39, :600:39, :630:39, :638:39, :668:39, :676:39, :686:{19,29}, :690:{19,29}
+  wire             _GEN_50 = ~_GEN_40 | io_float_posit;	// src/main/scala/pvu/PvuTop.scala:170:18, :478:{21,29}, :683:27
+  wire             _GEN_51 = _GEN_30 | _GEN_31 | _GEN_32 | _GEN_33 | _GEN_34 | _GEN_37;	// src/main/scala/pvu/PvuTop.scala:170:18, :333:{15,23}, :370:{21,29}, :402:{21,29}, :416:{21,29}, :442:{21,29}, :456:{21,29}, :478:29
+  wire             _GEN_52 = _GEN_51 | _GEN_50;	// src/main/scala/pvu/PvuTop.scala:170:18, :333:23, :370:29, :402:29, :416:29, :442:29, :456:29, :478:29, :683:27
+  wire [63:0]      _GEN_53 = _GEN_52 ? 64'h0 : _GEN_46[io_float_mode];	// src/main/scala/pvu/PvuTop.scala:170:{18,28}, :249:38, :250:38, :333:23, :370:29, :402:29, :416:29, :442:29, :456:29, :478:29, :485:{22,32}, :488:28, :524:38, :562:38, :600:39, :638:39, :676:39, :686:{19,29}
+  wire [63:0]      _GEN_54 = _GEN_52 ? 64'h0 : _GEN_47[io_float_mode];	// src/main/scala/pvu/PvuTop.scala:170:{18,28}, :249:38, :250:38, :333:23, :370:29, :402:29, :416:29, :442:29, :456:29, :478:29, :485:{22,32}, :488:28, :524:38, :562:38, :600:39, :638:39, :676:39, :686:{19,29}
+  wire [63:0]      _GEN_55 = _GEN_52 ? 64'h0 : _GEN_48[io_float_mode];	// src/main/scala/pvu/PvuTop.scala:170:{18,28}, :249:38, :250:38, :333:23, :370:29, :402:29, :416:29, :442:29, :456:29, :478:29, :485:{22,32}, :488:28, :524:38, :562:38, :600:39, :638:39, :676:39, :686:{19,29}
+  wire [63:0]      _GEN_56 = _GEN_52 ? 64'h0 : _GEN_49[io_float_mode];	// src/main/scala/pvu/PvuTop.scala:170:{18,28}, :249:38, :250:38, :333:23, :370:29, :402:29, :416:29, :442:29, :456:29, :478:29, :485:{22,32}, :488:28, :524:38, :562:38, :600:39, :638:39, :676:39, :686:{19,29}
+  wire [31:0]      _GEN_57 = io_float_posit ? _GEN_42[io_float_mode] : 32'h0;	// src/main/scala/pvu/PvuTop.scala:172:{18,28}, :249:28, :250:28, :263:38, :264:38, :484:{22,32}, :488:28, :502:61, :540:61, :578:61, :616:61, :654:61, :683:27, :685:19, :690:{19,29}
+  wire [31:0]      _GEN_58 = io_float_posit ? _GEN_43[io_float_mode] : 32'h0;	// src/main/scala/pvu/PvuTop.scala:172:{18,28}, :249:28, :250:28, :263:38, :264:38, :484:{22,32}, :488:28, :502:61, :540:61, :578:61, :616:61, :654:61, :683:27, :685:19, :690:{19,29}
+  wire [31:0]      _GEN_59 = io_float_posit ? _GEN_44[io_float_mode] : 32'h0;	// src/main/scala/pvu/PvuTop.scala:172:{18,28}, :249:28, :250:28, :263:38, :264:38, :484:{22,32}, :488:28, :502:61, :540:61, :578:61, :616:61, :654:61, :683:27, :685:19, :690:{19,29}
+  wire [31:0]      _GEN_60 = io_float_posit ? _GEN_45[io_float_mode] : 32'h0;	// src/main/scala/pvu/PvuTop.scala:172:{18,28}, :249:28, :250:28, :263:38, :264:38, :484:{22,32}, :488:28, :502:61, :540:61, :578:61, :616:61, :654:61, :683:27, :685:19, :690:{19,29}
+  wire             _GEN_61 = io_op == 4'h8;	// src/main/scala/pvu/PvuTop.scala:692:21
+  wire             _GEN_62 = io_op == 4'h9;	// src/main/scala/pvu/PvuTop.scala:717:21
+  wire             _GEN_63 = _GEN_34 | _GEN_37 | _GEN_40;	// src/main/scala/pvu/PvuTop.scala:317:26, :442:{21,29}, :456:{21,29}, :478:{21,29}, :692:30
   wire             _GEN_64 =
     _GEN_30
       ? (|ACTUAL_VECTOR_SIZE) & _add_io_pir_sign_o[2'h0]
@@ -8245,11 +8304,11 @@ module PvuTop(	// src/main/scala/pvu/PvuTop.scala:28:8
           : _GEN_32
               ? _mul_io_pir_sign_o[2'h0]
               : _GEN_33
-                  ? _div_io_pir_sign_o[2'h0]
+                  ? _div_inst_io_pir_sign_o[2'h0]
                   : ~_GEN_63
                     & (_GEN_61
                          ? _greater_io_pir_sign_o[2'h0]
-                         : _GEN_62 & _less_io_pir_sign_o[2'h0]);	// src/main/scala/pvu/PvuTop.scala:28:8, :226:36, :242:29, :317:26, :333:{15,23}, :345:28, :361:29, :362:30, :370:{21,29}, :381:28, :395:23, :402:{21,29}, :403:22, :412:23, :416:{21,29}, :417:22, :426:23, :430:29, :444:29, :466:29, :680:{21,30}, :681:26, :695:19, :705:{21,30}, :706:23, :720:19
+                         : _GEN_62 & _less_io_pir_sign_o[2'h0]);	// src/main/scala/pvu/PvuTop.scala:28:8, :226:36, :242:29, :317:26, :333:{15,23}, :345:28, :361:29, :362:30, :370:{21,29}, :381:28, :395:23, :402:{21,29}, :403:22, :412:23, :416:{21,29}, :417:27, :426:23, :442:29, :456:29, :478:29, :692:{21,30}, :693:26, :707:19, :717:{21,30}, :718:23, :732:19
   wire             _GEN_65 =
     _GEN_30
       ? (|(ACTUAL_VECTOR_SIZE[2:1])) & _add_io_pir_sign_o[2'h1]
@@ -8258,11 +8317,11 @@ module PvuTop(	// src/main/scala/pvu/PvuTop.scala:28:8
           : _GEN_32
               ? _mul_io_pir_sign_o[2'h1]
               : _GEN_33
-                  ? _div_io_pir_sign_o[2'h1]
+                  ? _div_inst_io_pir_sign_o[2'h1]
                   : ~_GEN_63
                     & (_GEN_61
                          ? _greater_io_pir_sign_o[2'h1]
-                         : _GEN_62 & _less_io_pir_sign_o[2'h1]);	// src/main/scala/pvu/PvuTop.scala:28:8, :226:36, :242:29, :317:26, :333:{15,23}, :345:28, :361:29, :362:30, :370:{21,29}, :381:28, :395:23, :402:{21,29}, :403:22, :412:23, :416:{21,29}, :417:22, :426:23, :430:29, :444:29, :466:29, :680:{21,30}, :681:26, :695:19, :705:{21,30}, :706:23, :720:19
+                         : _GEN_62 & _less_io_pir_sign_o[2'h1]);	// src/main/scala/pvu/PvuTop.scala:28:8, :226:36, :242:29, :317:26, :333:{15,23}, :345:28, :361:29, :362:30, :370:{21,29}, :381:28, :395:23, :402:{21,29}, :403:22, :412:23, :416:{21,29}, :417:27, :426:23, :442:29, :456:29, :478:29, :692:{21,30}, :693:26, :707:19, :717:{21,30}, :718:23, :732:19
   wire             _GEN_66 =
     _GEN_30
       ? _valid_range_2_T & _add_io_pir_sign_o[2'h2]
@@ -8271,11 +8330,11 @@ module PvuTop(	// src/main/scala/pvu/PvuTop.scala:28:8
           : _GEN_32
               ? _mul_io_pir_sign_o[2'h2]
               : _GEN_33
-                  ? _div_io_pir_sign_o[2'h2]
+                  ? _div_inst_io_pir_sign_o[2'h2]
                   : ~_GEN_63
                     & (_GEN_61
                          ? _greater_io_pir_sign_o[2'h2]
-                         : _GEN_62 & _less_io_pir_sign_o[2'h2]);	// src/main/scala/pvu/PvuTop.scala:234:34, :242:29, :317:26, :333:{15,23}, :345:28, :361:29, :362:30, :370:{21,29}, :381:28, :395:23, :402:{21,29}, :403:22, :412:23, :416:{21,29}, :417:22, :426:23, :430:29, :444:29, :466:29, :680:{21,30}, :681:26, :695:19, :705:{21,30}, :706:23, :720:19
+                         : _GEN_62 & _less_io_pir_sign_o[2'h2]);	// src/main/scala/pvu/PvuTop.scala:234:34, :242:29, :317:26, :333:{15,23}, :345:28, :361:29, :362:30, :370:{21,29}, :381:28, :395:23, :402:{21,29}, :403:22, :412:23, :416:{21,29}, :417:27, :426:23, :442:29, :456:29, :478:29, :692:{21,30}, :693:26, :707:19, :717:{21,30}, :718:23, :732:19
   wire             _GEN_67 =
     _GEN_30
       ? ACTUAL_VECTOR_SIZE[2] & _add_io_pir_sign_o[2'h3]
@@ -8284,14 +8343,14 @@ module PvuTop(	// src/main/scala/pvu/PvuTop.scala:28:8
           : _GEN_32
               ? _mul_io_pir_sign_o[2'h3]
               : _GEN_33
-                  ? _div_io_pir_sign_o[2'h3]
+                  ? _div_inst_io_pir_sign_o[2'h3]
                   : ~_GEN_63
                     & (_GEN_61
                          ? _greater_io_pir_sign_o[2'h3]
-                         : _GEN_62 & _less_io_pir_sign_o[2'h3]);	// src/main/scala/pvu/PvuTop.scala:226:36, :235:55, :242:29, :317:26, :333:{15,23}, :345:28, :361:29, :362:30, :370:{21,29}, :381:28, :395:23, :402:{21,29}, :403:22, :412:23, :416:{21,29}, :417:22, :426:23, :430:29, :444:29, :466:29, :680:{21,30}, :681:26, :695:19, :705:{21,30}, :706:23, :720:19
-  wire             _GEN_68 = _GEN_62 & (|ACTUAL_VECTOR_SIZE);	// src/main/scala/pvu/PvuTop.scala:172:18, :226:36, :242:29, :705:{21,30}, :726:29, :727:24
+                         : _GEN_62 & _less_io_pir_sign_o[2'h3]);	// src/main/scala/pvu/PvuTop.scala:226:36, :235:55, :242:29, :317:26, :333:{15,23}, :345:28, :361:29, :362:30, :370:{21,29}, :381:28, :395:23, :402:{21,29}, :403:22, :412:23, :416:{21,29}, :417:27, :426:23, :442:29, :456:29, :478:29, :692:{21,30}, :693:26, :707:19, :717:{21,30}, :718:23, :732:19
+  wire             _GEN_68 = _GEN_62 & (|ACTUAL_VECTOR_SIZE);	// src/main/scala/pvu/PvuTop.scala:172:18, :226:36, :242:29, :717:{21,30}, :738:29, :739:24
   wire [31:0]      _GEN_69 =
-    _GEN_40 ? _GEN_57 : _GEN_61 | ~_GEN_68 ? 32'h0 : _less_io_posit_o[2'h0];	// src/main/scala/pvu/PvuTop.scala:28:8, :172:{18,28}, :249:28, :250:28, :263:38, :264:38, :466:{21,29}, :472:{22,32}, :671:27, :673:19, :678:{19,29}, :680:{21,30}, :701:29, :705:30, :706:23, :726:29, :727:24
+    _GEN_40 ? _GEN_57 : _GEN_61 | ~_GEN_68 ? 32'h0 : _less_io_posit_o[2'h0];	// src/main/scala/pvu/PvuTop.scala:28:8, :172:{18,28}, :249:28, :250:28, :263:38, :264:38, :478:{21,29}, :484:{22,32}, :683:27, :685:19, :690:{19,29}, :692:{21,30}, :713:29, :717:30, :718:23, :738:29, :739:24
   wire [31:0]      _GEN_70 =
     _GEN_51
       ? 32'h0
@@ -8299,10 +8358,10 @@ module PvuTop(	// src/main/scala/pvu/PvuTop.scala:28:8
           ? _GEN_57
           : _GEN_61
               ? ((|ACTUAL_VECTOR_SIZE) ? _greater_io_posit_o[2'h0] : 32'h0)
-              : _GEN_68 ? _less_io_posit_o[2'h0] : 32'h0;	// src/main/scala/pvu/PvuTop.scala:28:8, :170:18, :172:{18,28}, :226:36, :242:29, :249:28, :250:28, :263:38, :264:38, :333:23, :370:29, :402:29, :416:29, :430:29, :444:29, :466:{21,29}, :472:{22,32}, :671:27, :673:19, :678:{19,29}, :680:{21,30}, :681:26, :701:29, :702:24, :705:30, :706:23, :726:29, :727:24
-  wire             _GEN_71 = _GEN_62 & (|(ACTUAL_VECTOR_SIZE[2:1]));	// src/main/scala/pvu/PvuTop.scala:172:18, :226:36, :242:29, :705:{21,30}, :726:29, :727:24
+              : _GEN_68 ? _less_io_posit_o[2'h0] : 32'h0;	// src/main/scala/pvu/PvuTop.scala:28:8, :170:18, :172:{18,28}, :226:36, :242:29, :249:28, :250:28, :263:38, :264:38, :333:23, :370:29, :402:29, :416:29, :442:29, :456:29, :478:{21,29}, :484:{22,32}, :683:27, :685:19, :690:{19,29}, :692:{21,30}, :693:26, :713:29, :714:24, :717:30, :718:23, :738:29, :739:24
+  wire             _GEN_71 = _GEN_62 & (|(ACTUAL_VECTOR_SIZE[2:1]));	// src/main/scala/pvu/PvuTop.scala:172:18, :226:36, :242:29, :717:{21,30}, :738:29, :739:24
   wire [31:0]      _GEN_72 =
-    _GEN_40 ? _GEN_58 : _GEN_61 | ~_GEN_71 ? 32'h0 : _less_io_posit_o[2'h1];	// src/main/scala/pvu/PvuTop.scala:28:8, :172:{18,28}, :249:28, :250:28, :263:38, :264:38, :466:{21,29}, :472:{22,32}, :671:27, :673:19, :678:{19,29}, :680:{21,30}, :701:29, :705:30, :706:23, :726:29, :727:24
+    _GEN_40 ? _GEN_58 : _GEN_61 | ~_GEN_71 ? 32'h0 : _less_io_posit_o[2'h1];	// src/main/scala/pvu/PvuTop.scala:28:8, :172:{18,28}, :249:28, :250:28, :263:38, :264:38, :478:{21,29}, :484:{22,32}, :683:27, :685:19, :690:{19,29}, :692:{21,30}, :713:29, :717:30, :718:23, :738:29, :739:24
   wire [31:0]      _GEN_73 =
     _GEN_51
       ? 32'h0
@@ -8310,10 +8369,10 @@ module PvuTop(	// src/main/scala/pvu/PvuTop.scala:28:8
           ? _GEN_58
           : _GEN_61
               ? ((|(ACTUAL_VECTOR_SIZE[2:1])) ? _greater_io_posit_o[2'h1] : 32'h0)
-              : _GEN_71 ? _less_io_posit_o[2'h1] : 32'h0;	// src/main/scala/pvu/PvuTop.scala:28:8, :170:18, :172:{18,28}, :226:36, :242:29, :249:28, :250:28, :263:38, :264:38, :333:23, :370:29, :402:29, :416:29, :430:29, :444:29, :466:{21,29}, :472:{22,32}, :671:27, :673:19, :678:{19,29}, :680:{21,30}, :681:26, :701:29, :702:24, :705:30, :706:23, :726:29, :727:24
-  wire             _GEN_74 = _GEN_62 & _valid_range_2_T;	// src/main/scala/pvu/PvuTop.scala:172:18, :242:29, :705:{21,30}, :726:29, :727:24
+              : _GEN_71 ? _less_io_posit_o[2'h1] : 32'h0;	// src/main/scala/pvu/PvuTop.scala:28:8, :170:18, :172:{18,28}, :226:36, :242:29, :249:28, :250:28, :263:38, :264:38, :333:23, :370:29, :402:29, :416:29, :442:29, :456:29, :478:{21,29}, :484:{22,32}, :683:27, :685:19, :690:{19,29}, :692:{21,30}, :693:26, :713:29, :714:24, :717:30, :718:23, :738:29, :739:24
+  wire             _GEN_74 = _GEN_62 & _valid_range_2_T;	// src/main/scala/pvu/PvuTop.scala:172:18, :242:29, :717:{21,30}, :738:29, :739:24
   wire [31:0]      _GEN_75 =
-    _GEN_40 ? _GEN_59 : _GEN_61 | ~_GEN_74 ? 32'h0 : _less_io_posit_o[2'h2];	// src/main/scala/pvu/PvuTop.scala:172:{18,28}, :234:34, :249:28, :250:28, :263:38, :264:38, :466:{21,29}, :472:{22,32}, :671:27, :673:19, :678:{19,29}, :680:{21,30}, :701:29, :705:30, :706:23, :726:29, :727:24
+    _GEN_40 ? _GEN_59 : _GEN_61 | ~_GEN_74 ? 32'h0 : _less_io_posit_o[2'h2];	// src/main/scala/pvu/PvuTop.scala:172:{18,28}, :234:34, :249:28, :250:28, :263:38, :264:38, :478:{21,29}, :484:{22,32}, :683:27, :685:19, :690:{19,29}, :692:{21,30}, :713:29, :717:30, :718:23, :738:29, :739:24
   wire [31:0]      _GEN_76 =
     _GEN_51
       ? 32'h0
@@ -8321,10 +8380,10 @@ module PvuTop(	// src/main/scala/pvu/PvuTop.scala:28:8
           ? _GEN_59
           : _GEN_61
               ? (_valid_range_2_T ? _greater_io_posit_o[2'h2] : 32'h0)
-              : _GEN_74 ? _less_io_posit_o[2'h2] : 32'h0;	// src/main/scala/pvu/PvuTop.scala:170:18, :172:{18,28}, :234:34, :242:29, :249:28, :250:28, :263:38, :264:38, :333:23, :370:29, :402:29, :416:29, :430:29, :444:29, :466:{21,29}, :472:{22,32}, :671:27, :673:19, :678:{19,29}, :680:{21,30}, :681:26, :701:29, :702:24, :705:30, :706:23, :726:29, :727:24
-  wire             _GEN_77 = _GEN_62 & ACTUAL_VECTOR_SIZE[2];	// src/main/scala/pvu/PvuTop.scala:172:18, :226:36, :242:29, :705:{21,30}, :726:29, :727:24
+              : _GEN_74 ? _less_io_posit_o[2'h2] : 32'h0;	// src/main/scala/pvu/PvuTop.scala:170:18, :172:{18,28}, :234:34, :242:29, :249:28, :250:28, :263:38, :264:38, :333:23, :370:29, :402:29, :416:29, :442:29, :456:29, :478:{21,29}, :484:{22,32}, :683:27, :685:19, :690:{19,29}, :692:{21,30}, :693:26, :713:29, :714:24, :717:30, :718:23, :738:29, :739:24
+  wire             _GEN_77 = _GEN_62 & ACTUAL_VECTOR_SIZE[2];	// src/main/scala/pvu/PvuTop.scala:172:18, :226:36, :242:29, :717:{21,30}, :738:29, :739:24
   wire [31:0]      _GEN_78 =
-    _GEN_40 ? _GEN_60 : _GEN_61 | ~_GEN_77 ? 32'h0 : _less_io_posit_o[2'h3];	// src/main/scala/pvu/PvuTop.scala:172:{18,28}, :235:55, :249:28, :250:28, :263:38, :264:38, :466:{21,29}, :472:{22,32}, :671:27, :673:19, :678:{19,29}, :680:{21,30}, :701:29, :705:30, :706:23, :726:29, :727:24
+    _GEN_40 ? _GEN_60 : _GEN_61 | ~_GEN_77 ? 32'h0 : _less_io_posit_o[2'h3];	// src/main/scala/pvu/PvuTop.scala:172:{18,28}, :235:55, :249:28, :250:28, :263:38, :264:38, :478:{21,29}, :484:{22,32}, :683:27, :685:19, :690:{19,29}, :692:{21,30}, :713:29, :717:30, :718:23, :738:29, :739:24
   wire [31:0]      _GEN_79 =
     _GEN_51
       ? 32'h0
@@ -8332,12 +8391,12 @@ module PvuTop(	// src/main/scala/pvu/PvuTop.scala:28:8
           ? _GEN_60
           : _GEN_61
               ? (ACTUAL_VECTOR_SIZE[2] ? _greater_io_posit_o[2'h3] : 32'h0)
-              : _GEN_77 ? _less_io_posit_o[2'h3] : 32'h0;	// src/main/scala/pvu/PvuTop.scala:170:18, :172:{18,28}, :226:36, :235:55, :242:29, :249:28, :250:28, :263:38, :264:38, :333:23, :370:29, :402:29, :416:29, :430:29, :444:29, :466:{21,29}, :472:{22,32}, :671:27, :673:19, :678:{19,29}, :680:{21,30}, :681:26, :701:29, :702:24, :705:30, :706:23, :726:29, :727:24
-  wire             _GEN_80 = io_op == 4'hA;	// src/main/scala/pvu/PvuTop.scala:730:21
+              : _GEN_77 ? _less_io_posit_o[2'h3] : 32'h0;	// src/main/scala/pvu/PvuTop.scala:170:18, :172:{18,28}, :226:36, :235:55, :242:29, :249:28, :250:28, :263:38, :264:38, :333:23, :370:29, :402:29, :416:29, :442:29, :456:29, :478:{21,29}, :484:{22,32}, :683:27, :685:19, :690:{19,29}, :692:{21,30}, :693:26, :713:29, :714:24, :717:30, :718:23, :738:29, :739:24
+  wire             _GEN_80 = io_op == 4'hA;	// src/main/scala/pvu/PvuTop.scala:742:21
   wire             _GEN_81 =
     _GEN_30 | _GEN_31 | _GEN_32 | _GEN_33 | _GEN_34 | _GEN_37 | _GEN_40 | _GEN_61
-    | _GEN_62 | ~_GEN_80;	// src/main/scala/pvu/PvuTop.scala:174:18, :333:{15,23}, :370:{21,29}, :402:{21,29}, :416:{21,29}, :430:{21,29}, :444:{21,29}, :466:{21,29}, :680:{21,30}, :705:{21,30}, :730:{21,31}
-  wire [27:0]      pir_frac_normed_dot = _GEN_34 ? _frac_norm_dot_io_pir_frac_o : 28'h0;	// src/main/scala/pvu/PvuTop.scala:430:21, :762:24, :764:23, :770:30, :772:36, :1015:32
+    | _GEN_62 | ~_GEN_80;	// src/main/scala/pvu/PvuTop.scala:174:18, :333:{15,23}, :370:{21,29}, :402:{21,29}, :416:{21,29}, :442:{21,29}, :456:{21,29}, :478:{21,29}, :692:{21,30}, :717:{21,30}, :742:{21,31}
+  wire [27:0]      pir_frac_normed_dot = _GEN_34 ? _frac_norm_dot_io_pir_frac_o : 28'h0;	// src/main/scala/pvu/PvuTop.scala:442:21, :774:24, :776:23, :782:30, :784:36, :1027:32
   wire [67:0]      _GEN_82 =
     _GEN_34
       ? 68'h0
@@ -8347,7 +8406,7 @@ module PvuTop(	// src/main/scala/pvu/PvuTop.scala:28:8
               ? {40'h0, _frac_norm_sub_io_pir_frac_o[2'h0]}
               : _GEN_32
                   ? {40'h0, _frac_norm_mul_io_pir_frac_o[2'h0]}
-                  : _GEN_33 ? {40'h0, _frac_norm_div_io_pir_frac_o[2'h0]} : 68'h0;	// src/main/scala/pvu/PvuTop.scala:28:8, :210:21, :226:36, :242:29, :333:15, :370:21, :402:21, :416:21, :430:21, :465:23, :759:25, :764:23, :774:29, :775:32, :782:29, :784:41, :788:29, :789:47, :791:38, :793:29, :794:47, :796:38, :798:29, :799:47, :801:38
+                  : _GEN_33 ? {40'h0, _frac_norm_div_io_pir_frac_o[2'h0]} : 68'h0;	// src/main/scala/pvu/PvuTop.scala:28:8, :210:21, :226:36, :242:29, :333:15, :370:21, :402:21, :416:21, :442:21, :477:23, :771:25, :776:23, :786:29, :787:32, :794:29, :796:41, :800:29, :801:47, :803:38, :805:29, :806:47, :808:38, :810:29, :811:47, :813:38
   wire [67:0]      _GEN_83 =
     _GEN_34
       ? 68'h0
@@ -8359,7 +8418,7 @@ module PvuTop(	// src/main/scala/pvu/PvuTop.scala:28:8
               ? {40'h0, _frac_norm_sub_io_pir_frac_o[2'h1]}
               : _GEN_32
                   ? {40'h0, _frac_norm_mul_io_pir_frac_o[2'h1]}
-                  : _GEN_33 ? {40'h0, _frac_norm_div_io_pir_frac_o[2'h1]} : 68'h0;	// src/main/scala/pvu/PvuTop.scala:28:8, :210:21, :226:36, :242:29, :333:15, :370:21, :402:21, :416:21, :430:21, :465:23, :759:25, :764:23, :774:29, :775:32, :782:29, :784:41, :788:29, :789:47, :791:38, :793:29, :794:47, :796:38, :798:29, :799:47, :801:38
+                  : _GEN_33 ? {40'h0, _frac_norm_div_io_pir_frac_o[2'h1]} : 68'h0;	// src/main/scala/pvu/PvuTop.scala:28:8, :210:21, :226:36, :242:29, :333:15, :370:21, :402:21, :416:21, :442:21, :477:23, :771:25, :776:23, :786:29, :787:32, :794:29, :796:41, :800:29, :801:47, :803:38, :805:29, :806:47, :808:38, :810:29, :811:47, :813:38
   wire [67:0]      _GEN_84 =
     _GEN_34
       ? 68'h0
@@ -8369,7 +8428,7 @@ module PvuTop(	// src/main/scala/pvu/PvuTop.scala:28:8
               ? {40'h0, _frac_norm_sub_io_pir_frac_o[2'h2]}
               : _GEN_32
                   ? {40'h0, _frac_norm_mul_io_pir_frac_o[2'h2]}
-                  : _GEN_33 ? {40'h0, _frac_norm_div_io_pir_frac_o[2'h2]} : 68'h0;	// src/main/scala/pvu/PvuTop.scala:210:21, :234:34, :242:29, :333:15, :370:21, :402:21, :416:21, :430:21, :465:23, :759:25, :764:23, :774:29, :775:32, :782:29, :784:41, :788:29, :789:47, :791:38, :793:29, :794:47, :796:38, :798:29, :799:47, :801:38
+                  : _GEN_33 ? {40'h0, _frac_norm_div_io_pir_frac_o[2'h2]} : 68'h0;	// src/main/scala/pvu/PvuTop.scala:210:21, :234:34, :242:29, :333:15, :370:21, :402:21, :416:21, :442:21, :477:23, :771:25, :776:23, :786:29, :787:32, :794:29, :796:41, :800:29, :801:47, :803:38, :805:29, :806:47, :808:38, :810:29, :811:47, :813:38
   wire [67:0]      _GEN_85 =
     _GEN_34
       ? 68'h0
@@ -8379,10 +8438,10 @@ module PvuTop(	// src/main/scala/pvu/PvuTop.scala:28:8
               ? {40'h0, _frac_norm_sub_io_pir_frac_o[2'h3]}
               : _GEN_32
                   ? {40'h0, _frac_norm_mul_io_pir_frac_o[2'h3]}
-                  : _GEN_33 ? {40'h0, _frac_norm_div_io_pir_frac_o[2'h3]} : 68'h0;	// src/main/scala/pvu/PvuTop.scala:210:21, :226:36, :235:55, :242:29, :333:15, :370:21, :402:21, :416:21, :430:21, :465:23, :759:25, :764:23, :774:29, :775:32, :782:29, :784:41, :788:29, :789:47, :791:38, :793:29, :794:47, :796:38, :798:29, :799:47, :801:38
+                  : _GEN_33 ? {40'h0, _frac_norm_div_io_pir_frac_o[2'h3]} : 68'h0;	// src/main/scala/pvu/PvuTop.scala:210:21, :226:36, :235:55, :242:29, :333:15, :370:21, :402:21, :416:21, :442:21, :477:23, :771:25, :776:23, :786:29, :787:32, :794:29, :796:41, :800:29, :801:47, :803:38, :805:29, :806:47, :808:38, :810:29, :811:47, :813:38
   wire [7:0]       _pir_exp_rst_adjusied_dot_T =
     (_GEN_34 ? _frac_norm_dot_io_exp_adjust[7:0] : 8'h0)
-    + (_GEN_36 ? 8'h0 : _dotproduct_io_pir_exp_o);	// src/main/scala/pvu/PvuTop.scala:330:17, :333:23, :370:29, :402:29, :416:29, :430:{21,29}, :431:28, :761:24, :764:23, :770:30, :773:36, :814:{29,39}, :819:53
+    + (_GEN_36 ? 8'h0 : _dotproduct_io_pir_exp_o);	// src/main/scala/pvu/PvuTop.scala:330:17, :333:23, :370:29, :402:29, :416:29, :442:{21,29}, :443:28, :773:24, :776:23, :782:30, :785:36, :826:{29,39}, :831:53
   wire [7:0]       _pir_exp_rst_adjusied_0_T =
     (_GEN_30
        ? ((|ACTUAL_VECTOR_SIZE) ? _add_io_pir_exp_o[2'h0] : 8'h0)
@@ -8391,7 +8450,7 @@ module PvuTop(	// src/main/scala/pvu/PvuTop.scala:28:8
            : _GEN_32
                ? _mul_io_pir_exp_o[2'h0]
                : _GEN_33
-                   ? _div_io_pir_exp_o[2'h0]
+                   ? _div_inst_io_pir_exp_o[2'h0]
                    : _GEN_63
                        ? 8'h0
                        : _GEN_61
@@ -8405,7 +8464,7 @@ module PvuTop(	// src/main/scala/pvu/PvuTop.scala:28:8
                  ? _frac_norm_sub_io_exp_adjust[2'h0]
                  : _GEN_32
                      ? _frac_norm_mul_io_exp_adjust[2'h0][7:0]
-                     : _GEN_33 ? _frac_norm_div_io_exp_adjust[2'h0][7:0] : 8'h0);	// src/main/scala/pvu/PvuTop.scala:28:8, :226:36, :242:29, :317:26, :318:26, :333:{15,23}, :345:28, :361:29, :363:30, :370:{21,29}, :381:28, :396:23, :402:{21,29}, :403:22, :413:23, :416:{21,29}, :417:22, :427:23, :430:{21,29}, :444:29, :466:29, :680:{21,30}, :681:26, :696:19, :705:{21,30}, :706:23, :721:19, :758:25, :764:23, :774:29, :775:32, :782:29, :785:41, :788:29, :789:47, :792:38, :793:29, :794:47, :797:38, :798:29, :799:47, :802:38, :814:{29,39}, :822:50
+                     : _GEN_33 ? _frac_norm_div_io_exp_adjust[2'h0][7:0] : 8'h0);	// src/main/scala/pvu/PvuTop.scala:28:8, :226:36, :242:29, :317:26, :318:26, :333:{15,23}, :345:28, :361:29, :363:30, :370:{21,29}, :381:28, :396:23, :402:{21,29}, :403:22, :413:23, :416:{21,29}, :417:27, :427:23, :442:{21,29}, :456:29, :478:29, :692:{21,30}, :693:26, :708:19, :717:{21,30}, :718:23, :733:19, :770:25, :776:23, :786:29, :787:32, :794:29, :797:41, :800:29, :801:47, :804:38, :805:29, :806:47, :809:38, :810:29, :811:47, :814:38, :826:{29,39}, :834:50
   wire [7:0]       _pir_exp_rst_adjusied_1_T =
     (_GEN_30
        ? ((|(ACTUAL_VECTOR_SIZE[2:1])) ? _add_io_pir_exp_o[2'h1] : 8'h0)
@@ -8414,7 +8473,7 @@ module PvuTop(	// src/main/scala/pvu/PvuTop.scala:28:8
            : _GEN_32
                ? _mul_io_pir_exp_o[2'h1]
                : _GEN_33
-                   ? _div_io_pir_exp_o[2'h1]
+                   ? _div_inst_io_pir_exp_o[2'h1]
                    : _GEN_63
                        ? 8'h0
                        : _GEN_61
@@ -8428,7 +8487,7 @@ module PvuTop(	// src/main/scala/pvu/PvuTop.scala:28:8
                  ? _frac_norm_sub_io_exp_adjust[2'h1]
                  : _GEN_32
                      ? _frac_norm_mul_io_exp_adjust[2'h1][7:0]
-                     : _GEN_33 ? _frac_norm_div_io_exp_adjust[2'h1][7:0] : 8'h0);	// src/main/scala/pvu/PvuTop.scala:28:8, :226:36, :242:29, :317:26, :318:26, :333:{15,23}, :345:28, :361:29, :363:30, :370:{21,29}, :381:28, :396:23, :402:{21,29}, :403:22, :413:23, :416:{21,29}, :417:22, :427:23, :430:{21,29}, :444:29, :466:29, :680:{21,30}, :681:26, :696:19, :705:{21,30}, :706:23, :721:19, :758:25, :764:23, :774:29, :775:32, :782:29, :785:41, :788:29, :789:47, :792:38, :793:29, :794:47, :797:38, :798:29, :799:47, :802:38, :814:{29,39}, :822:50
+                     : _GEN_33 ? _frac_norm_div_io_exp_adjust[2'h1][7:0] : 8'h0);	// src/main/scala/pvu/PvuTop.scala:28:8, :226:36, :242:29, :317:26, :318:26, :333:{15,23}, :345:28, :361:29, :363:30, :370:{21,29}, :381:28, :396:23, :402:{21,29}, :403:22, :413:23, :416:{21,29}, :417:27, :427:23, :442:{21,29}, :456:29, :478:29, :692:{21,30}, :693:26, :708:19, :717:{21,30}, :718:23, :733:19, :770:25, :776:23, :786:29, :787:32, :794:29, :797:41, :800:29, :801:47, :804:38, :805:29, :806:47, :809:38, :810:29, :811:47, :814:38, :826:{29,39}, :834:50
   wire [7:0]       _pir_exp_rst_adjusied_2_T =
     (_GEN_30
        ? (_valid_range_2_T ? _add_io_pir_exp_o[2'h2] : 8'h0)
@@ -8437,7 +8496,7 @@ module PvuTop(	// src/main/scala/pvu/PvuTop.scala:28:8
            : _GEN_32
                ? _mul_io_pir_exp_o[2'h2]
                : _GEN_33
-                   ? _div_io_pir_exp_o[2'h2]
+                   ? _div_inst_io_pir_exp_o[2'h2]
                    : _GEN_63
                        ? 8'h0
                        : _GEN_61
@@ -8451,7 +8510,7 @@ module PvuTop(	// src/main/scala/pvu/PvuTop.scala:28:8
                  ? _frac_norm_sub_io_exp_adjust[2'h2]
                  : _GEN_32
                      ? _frac_norm_mul_io_exp_adjust[2'h2][7:0]
-                     : _GEN_33 ? _frac_norm_div_io_exp_adjust[2'h2][7:0] : 8'h0);	// src/main/scala/pvu/PvuTop.scala:234:34, :242:29, :317:26, :318:26, :333:{15,23}, :345:28, :361:29, :363:30, :370:{21,29}, :381:28, :396:23, :402:{21,29}, :403:22, :413:23, :416:{21,29}, :417:22, :427:23, :430:{21,29}, :444:29, :466:29, :680:{21,30}, :681:26, :696:19, :705:{21,30}, :706:23, :721:19, :758:25, :764:23, :774:29, :775:32, :782:29, :785:41, :788:29, :789:47, :792:38, :793:29, :794:47, :797:38, :798:29, :799:47, :802:38, :814:{29,39}, :822:50
+                     : _GEN_33 ? _frac_norm_div_io_exp_adjust[2'h2][7:0] : 8'h0);	// src/main/scala/pvu/PvuTop.scala:234:34, :242:29, :317:26, :318:26, :333:{15,23}, :345:28, :361:29, :363:30, :370:{21,29}, :381:28, :396:23, :402:{21,29}, :403:22, :413:23, :416:{21,29}, :417:27, :427:23, :442:{21,29}, :456:29, :478:29, :692:{21,30}, :693:26, :708:19, :717:{21,30}, :718:23, :733:19, :770:25, :776:23, :786:29, :787:32, :794:29, :797:41, :800:29, :801:47, :804:38, :805:29, :806:47, :809:38, :810:29, :811:47, :814:38, :826:{29,39}, :834:50
   wire [7:0]       _pir_exp_rst_adjusied_3_T =
     (_GEN_30
        ? (ACTUAL_VECTOR_SIZE[2] ? _add_io_pir_exp_o[2'h3] : 8'h0)
@@ -8460,7 +8519,7 @@ module PvuTop(	// src/main/scala/pvu/PvuTop.scala:28:8
            : _GEN_32
                ? _mul_io_pir_exp_o[2'h3]
                : _GEN_33
-                   ? _div_io_pir_exp_o[2'h3]
+                   ? _div_inst_io_pir_exp_o[2'h3]
                    : _GEN_63
                        ? 8'h0
                        : _GEN_61
@@ -8474,68 +8533,68 @@ module PvuTop(	// src/main/scala/pvu/PvuTop.scala:28:8
                  ? _frac_norm_sub_io_exp_adjust[2'h3]
                  : _GEN_32
                      ? _frac_norm_mul_io_exp_adjust[2'h3][7:0]
-                     : _GEN_33 ? _frac_norm_div_io_exp_adjust[2'h3][7:0] : 8'h0);	// src/main/scala/pvu/PvuTop.scala:226:36, :235:55, :242:29, :317:26, :318:26, :333:{15,23}, :345:28, :361:29, :363:30, :370:{21,29}, :381:28, :396:23, :402:{21,29}, :403:22, :413:23, :416:{21,29}, :417:22, :427:23, :430:{21,29}, :444:29, :466:29, :680:{21,30}, :681:26, :696:19, :705:{21,30}, :706:23, :721:19, :758:25, :764:23, :774:29, :775:32, :782:29, :785:41, :788:29, :789:47, :792:38, :793:29, :794:47, :797:38, :798:29, :799:47, :802:38, :814:{29,39}, :822:50
-  wire             _GEN_86 = io_op < 4'h6;	// src/main/scala/pvu/PvuTop.scala:444:21, :828:15
-  wire             _GEN_87 = _GEN_86 & _GEN_34;	// src/main/scala/pvu/PvuTop.scala:215:25, :430:21, :828:{15,22}, :830:26, :832:30
-  wire [7:0]       _GEN_88 = _GEN_87 & _GEN_34 ? _pir_exp_rst_adjusied_dot_T : 8'h0;	// src/main/scala/pvu/PvuTop.scala:215:25, :216:25, :430:21, :814:{29,39}, :819:53, :828:22, :830:26, :832:30, :833:30
+                     : _GEN_33 ? _frac_norm_div_io_exp_adjust[2'h3][7:0] : 8'h0);	// src/main/scala/pvu/PvuTop.scala:226:36, :235:55, :242:29, :317:26, :318:26, :333:{15,23}, :345:28, :361:29, :363:30, :370:{21,29}, :381:28, :396:23, :402:{21,29}, :403:22, :413:23, :416:{21,29}, :417:27, :427:23, :442:{21,29}, :456:29, :478:29, :692:{21,30}, :693:26, :708:19, :717:{21,30}, :718:23, :733:19, :770:25, :776:23, :786:29, :787:32, :794:29, :797:41, :800:29, :801:47, :804:38, :805:29, :806:47, :809:38, :810:29, :811:47, :814:38, :826:{29,39}, :834:50
+  wire             _GEN_86 = io_op < 4'h6;	// src/main/scala/pvu/PvuTop.scala:456:21, :840:15
+  wire             _GEN_87 = _GEN_86 & _GEN_34;	// src/main/scala/pvu/PvuTop.scala:215:25, :442:21, :840:{15,22}, :842:26, :844:30
+  wire [7:0]       _GEN_88 = _GEN_87 & _GEN_34 ? _pir_exp_rst_adjusied_dot_T : 8'h0;	// src/main/scala/pvu/PvuTop.scala:215:25, :216:25, :442:21, :826:{29,39}, :831:53, :840:22, :842:26, :844:30, :845:30
   wire             _GEN_89 =
     ~io_Isposit & (|ACTUAL_VECTOR_SIZE) & _floatDecode1_io_isNaN[2'h0] | ~io_Isposit
-    & (|ACTUAL_VECTOR_SIZE) & _floatDecode2_io_isNaN[2'h0];	// src/main/scala/pvu/PvuTop.scala:28:8, :114:28, :115:28, :189:26, :192:26, :199:27, :226:36, :242:29, :246:21, :270:29, :274:31, :281:32, :847:56
+    & (|ACTUAL_VECTOR_SIZE) & _floatDecode2_io_isNaN[2'h0];	// src/main/scala/pvu/PvuTop.scala:28:8, :114:28, :115:28, :189:26, :192:26, :199:27, :226:36, :242:29, :246:21, :270:29, :274:31, :281:32, :859:56
   wire             _GEN_90 =
     ~io_Isposit & (|(ACTUAL_VECTOR_SIZE[2:1])) & _floatDecode1_io_isNaN[2'h1]
-    | ~io_Isposit & (|(ACTUAL_VECTOR_SIZE[2:1])) & _floatDecode2_io_isNaN[2'h1];	// src/main/scala/pvu/PvuTop.scala:28:8, :114:28, :115:28, :189:26, :192:26, :199:27, :226:36, :242:29, :246:21, :270:29, :274:31, :281:32, :847:56
+    | ~io_Isposit & (|(ACTUAL_VECTOR_SIZE[2:1])) & _floatDecode2_io_isNaN[2'h1];	// src/main/scala/pvu/PvuTop.scala:28:8, :114:28, :115:28, :189:26, :192:26, :199:27, :226:36, :242:29, :246:21, :270:29, :274:31, :281:32, :859:56
   wire             _GEN_91 =
     ~io_Isposit & _valid_range_2_T & _floatDecode1_io_isNaN[2'h2] | ~io_Isposit
-    & _valid_range_2_T & _floatDecode2_io_isNaN[2'h2];	// src/main/scala/pvu/PvuTop.scala:114:28, :115:28, :189:26, :192:26, :199:27, :234:34, :242:29, :246:21, :270:29, :274:31, :281:32, :847:56
+    & _valid_range_2_T & _floatDecode2_io_isNaN[2'h2];	// src/main/scala/pvu/PvuTop.scala:114:28, :115:28, :189:26, :192:26, :199:27, :234:34, :242:29, :246:21, :270:29, :274:31, :281:32, :859:56
   wire             _GEN_92 =
     ~io_Isposit & ACTUAL_VECTOR_SIZE[2] & _floatDecode1_io_isNaN[2'h3] | ~io_Isposit
-    & ACTUAL_VECTOR_SIZE[2] & _floatDecode2_io_isNaN[2'h3];	// src/main/scala/pvu/PvuTop.scala:114:28, :115:28, :189:26, :192:26, :199:27, :226:36, :235:55, :242:29, :246:21, :270:29, :274:31, :281:32, :847:56
-  wire             _GEN_93 = _GEN_86 & _GEN_34 & ~io_Isposit;	// src/main/scala/pvu/PvuTop.scala:218:25, :430:21, :828:{15,22}, :830:26, :835:30, :845:{13,26}, :847:82
-  wire             _GEN_94 = ~_GEN_86 | _GEN_34;	// src/main/scala/pvu/PvuTop.scala:204:30, :430:21, :828:{15,22}, :830:26
-  wire [7:0]       _GEN_95 = _GEN_94 ? 8'h0 : _pir_exp_rst_adjusied_0_T;	// src/main/scala/pvu/PvuTop.scala:204:30, :814:{29,39}, :822:50, :828:22, :830:26
+    & ACTUAL_VECTOR_SIZE[2] & _floatDecode2_io_isNaN[2'h3];	// src/main/scala/pvu/PvuTop.scala:114:28, :115:28, :189:26, :192:26, :199:27, :226:36, :235:55, :242:29, :246:21, :270:29, :274:31, :281:32, :859:56
+  wire             _GEN_93 = _GEN_86 & _GEN_34 & ~io_Isposit;	// src/main/scala/pvu/PvuTop.scala:218:25, :442:21, :840:{15,22}, :842:26, :847:30, :857:{13,26}, :859:82
+  wire             _GEN_94 = ~_GEN_86 | _GEN_34;	// src/main/scala/pvu/PvuTop.scala:204:30, :442:21, :840:{15,22}, :842:26
+  wire [7:0]       _GEN_95 = _GEN_94 ? 8'h0 : _pir_exp_rst_adjusied_0_T;	// src/main/scala/pvu/PvuTop.scala:204:30, :826:{29,39}, :834:50, :840:22, :842:26
   wire             _GEN_96 =
-    ~_GEN_86 | _GEN_34 | ~(_GEN_30 | _GEN_31 | _GEN_32 | _GEN_33);	// src/main/scala/pvu/PvuTop.scala:204:30, :205:30, :333:15, :370:21, :402:21, :416:21, :430:21, :828:{15,22}, :830:26, :863:30, :864:35, :865:36
-  wire [7:0]       _GEN_97 = _GEN_94 ? 8'h0 : _pir_exp_rst_adjusied_1_T;	// src/main/scala/pvu/PvuTop.scala:204:30, :814:{29,39}, :822:50, :828:22, :830:26
-  wire [7:0]       _GEN_98 = _GEN_94 ? 8'h0 : _pir_exp_rst_adjusied_2_T;	// src/main/scala/pvu/PvuTop.scala:204:30, :814:{29,39}, :822:50, :828:22, :830:26
-  wire [7:0]       _GEN_99 = _GEN_94 ? 8'h0 : _pir_exp_rst_adjusied_3_T;	// src/main/scala/pvu/PvuTop.scala:204:30, :814:{29,39}, :822:50, :828:22, :830:26
-  wire [5:0]       _posit_result_T_4 = 6'h20 - ACTUAL_DST_POSIT_WIDTH;	// src/main/scala/pvu/PvuTop.scala:225:36, :230:36, :940:71
+    ~_GEN_86 | _GEN_34 | ~(_GEN_30 | _GEN_31 | _GEN_32 | _GEN_33);	// src/main/scala/pvu/PvuTop.scala:204:30, :205:30, :333:15, :370:21, :402:21, :416:21, :442:21, :840:{15,22}, :842:26, :875:30, :876:35, :877:36
+  wire [7:0]       _GEN_97 = _GEN_94 ? 8'h0 : _pir_exp_rst_adjusied_1_T;	// src/main/scala/pvu/PvuTop.scala:204:30, :826:{29,39}, :834:50, :840:22, :842:26
+  wire [7:0]       _GEN_98 = _GEN_94 ? 8'h0 : _pir_exp_rst_adjusied_2_T;	// src/main/scala/pvu/PvuTop.scala:204:30, :826:{29,39}, :834:50, :840:22, :842:26
+  wire [7:0]       _GEN_99 = _GEN_94 ? 8'h0 : _pir_exp_rst_adjusied_3_T;	// src/main/scala/pvu/PvuTop.scala:204:30, :826:{29,39}, :834:50, :840:22, :842:26
+  wire [5:0]       _posit_result_T_4 = 6'h20 - ACTUAL_DST_POSIT_WIDTH;	// src/main/scala/pvu/PvuTop.scala:225:36, :230:36, :952:71
   wire [94:0]      _posit_result_T_6 =
-    {63'h0, _dot_encoder_io_posit[1'h0] >> _posit_result_T_4} << _posit_result_T_4;	// src/main/scala/pvu/PvuTop.scala:182:18, :497:118, :926:30, :935:47, :940:{49,71,98}
-  wire [5:0]       _io_posit_o_0_T_4 = 6'h20 - ACTUAL_DST_POSIT_WIDTH;	// src/main/scala/pvu/PvuTop.scala:225:36, :230:36, :986:78
+    {63'h0, _dot_encoder_io_posit[1'h0] >> _posit_result_T_4} << _posit_result_T_4;	// src/main/scala/pvu/PvuTop.scala:182:18, :509:118, :938:30, :947:47, :952:{49,71,98}
+  wire [5:0]       _io_posit_o_0_T_4 = 6'h20 - ACTUAL_DST_POSIT_WIDTH;	// src/main/scala/pvu/PvuTop.scala:225:36, :230:36, :998:78
   wire [94:0]      _io_posit_o_0_T_6 =
-    {63'h0, _convert_encoder_io_posit[2'h0] >> _io_posit_o_0_T_4} << _io_posit_o_0_T_4;	// src/main/scala/pvu/PvuTop.scala:28:8, :497:118, :972:34, :981:54, :986:{56,78,105}
-  wire [5:0]       _io_posit_o_1_T_4 = 6'h20 - ACTUAL_DST_POSIT_WIDTH;	// src/main/scala/pvu/PvuTop.scala:225:36, :230:36, :986:78
+    {63'h0, _convert_encoder_io_posit[2'h0] >> _io_posit_o_0_T_4} << _io_posit_o_0_T_4;	// src/main/scala/pvu/PvuTop.scala:28:8, :509:118, :984:34, :993:54, :998:{56,78,105}
+  wire [5:0]       _io_posit_o_1_T_4 = 6'h20 - ACTUAL_DST_POSIT_WIDTH;	// src/main/scala/pvu/PvuTop.scala:225:36, :230:36, :998:78
   wire [94:0]      _io_posit_o_1_T_6 =
-    {63'h0, _convert_encoder_io_posit[2'h1] >> _io_posit_o_1_T_4} << _io_posit_o_1_T_4;	// src/main/scala/pvu/PvuTop.scala:28:8, :497:118, :972:34, :981:54, :986:{56,78,105}
-  wire [5:0]       _io_posit_o_2_T_4 = 6'h20 - ACTUAL_DST_POSIT_WIDTH;	// src/main/scala/pvu/PvuTop.scala:225:36, :230:36, :986:78
+    {63'h0, _convert_encoder_io_posit[2'h1] >> _io_posit_o_1_T_4} << _io_posit_o_1_T_4;	// src/main/scala/pvu/PvuTop.scala:28:8, :509:118, :984:34, :993:54, :998:{56,78,105}
+  wire [5:0]       _io_posit_o_2_T_4 = 6'h20 - ACTUAL_DST_POSIT_WIDTH;	// src/main/scala/pvu/PvuTop.scala:225:36, :230:36, :998:78
   wire [94:0]      _io_posit_o_2_T_6 =
-    {63'h0, _convert_encoder_io_posit[2'h2] >> _io_posit_o_2_T_4} << _io_posit_o_2_T_4;	// src/main/scala/pvu/PvuTop.scala:234:34, :497:118, :972:34, :981:54, :986:{56,78,105}
-  wire [5:0]       _io_posit_o_3_T_4 = 6'h20 - ACTUAL_DST_POSIT_WIDTH;	// src/main/scala/pvu/PvuTop.scala:225:36, :230:36, :986:78
+    {63'h0, _convert_encoder_io_posit[2'h2] >> _io_posit_o_2_T_4} << _io_posit_o_2_T_4;	// src/main/scala/pvu/PvuTop.scala:234:34, :509:118, :984:34, :993:54, :998:{56,78,105}
+  wire [5:0]       _io_posit_o_3_T_4 = 6'h20 - ACTUAL_DST_POSIT_WIDTH;	// src/main/scala/pvu/PvuTop.scala:225:36, :230:36, :998:78
   wire [94:0]      _io_posit_o_3_T_6 =
-    {63'h0, _convert_encoder_io_posit[2'h3] >> _io_posit_o_3_T_4} << _io_posit_o_3_T_4;	// src/main/scala/pvu/PvuTop.scala:235:55, :497:118, :972:34, :981:54, :986:{56,78,105}
-  wire             _GEN_100 = ACTUAL_DST_POSIT_WIDTH == 6'h20;	// src/main/scala/pvu/PvuTop.scala:225:36, :230:36, :1009:35
-  wire [5:0]       _posit_results_0_T_4 = 6'h20 - ACTUAL_DST_POSIT_WIDTH;	// src/main/scala/pvu/PvuTop.scala:225:36, :230:36, :1083:84
+    {63'h0, _convert_encoder_io_posit[2'h3] >> _io_posit_o_3_T_4} << _io_posit_o_3_T_4;	// src/main/scala/pvu/PvuTop.scala:235:55, :509:118, :984:34, :993:54, :998:{56,78,105}
+  wire             _GEN_100 = ACTUAL_DST_POSIT_WIDTH == 6'h20;	// src/main/scala/pvu/PvuTop.scala:225:36, :230:36, :1021:35
+  wire [5:0]       _posit_results_0_T_4 = 6'h20 - ACTUAL_DST_POSIT_WIDTH;	// src/main/scala/pvu/PvuTop.scala:225:36, :230:36, :1107:84
   wire [94:0]      _posit_results_0_T_6 =
     {63'h0, _result_encoder_io_posit[2'h0] >> _posit_results_0_T_4}
-    << _posit_results_0_T_4;	// src/main/scala/pvu/PvuTop.scala:28:8, :497:118, :1055:35, :1078:60, :1083:{62,84,111}
-  wire [5:0]       _posit_results_1_T_4 = 6'h20 - ACTUAL_DST_POSIT_WIDTH;	// src/main/scala/pvu/PvuTop.scala:225:36, :230:36, :1083:84
+    << _posit_results_0_T_4;	// src/main/scala/pvu/PvuTop.scala:28:8, :509:118, :1075:35, :1102:60, :1107:{62,84,111}
+  wire [5:0]       _posit_results_1_T_4 = 6'h20 - ACTUAL_DST_POSIT_WIDTH;	// src/main/scala/pvu/PvuTop.scala:225:36, :230:36, :1107:84
   wire [94:0]      _posit_results_1_T_6 =
     {63'h0, _result_encoder_io_posit[2'h1] >> _posit_results_1_T_4}
-    << _posit_results_1_T_4;	// src/main/scala/pvu/PvuTop.scala:28:8, :497:118, :1055:35, :1078:60, :1083:{62,84,111}
-  wire [5:0]       _posit_results_2_T_4 = 6'h20 - ACTUAL_DST_POSIT_WIDTH;	// src/main/scala/pvu/PvuTop.scala:225:36, :230:36, :1083:84
+    << _posit_results_1_T_4;	// src/main/scala/pvu/PvuTop.scala:28:8, :509:118, :1075:35, :1102:60, :1107:{62,84,111}
+  wire [5:0]       _posit_results_2_T_4 = 6'h20 - ACTUAL_DST_POSIT_WIDTH;	// src/main/scala/pvu/PvuTop.scala:225:36, :230:36, :1107:84
   wire [94:0]      _posit_results_2_T_6 =
     {63'h0, _result_encoder_io_posit[2'h2] >> _posit_results_2_T_4}
-    << _posit_results_2_T_4;	// src/main/scala/pvu/PvuTop.scala:234:34, :497:118, :1055:35, :1078:60, :1083:{62,84,111}
-  wire [5:0]       _posit_results_3_T_4 = 6'h20 - ACTUAL_DST_POSIT_WIDTH;	// src/main/scala/pvu/PvuTop.scala:225:36, :230:36, :1083:84
+    << _posit_results_2_T_4;	// src/main/scala/pvu/PvuTop.scala:234:34, :509:118, :1075:35, :1102:60, :1107:{62,84,111}
+  wire [5:0]       _posit_results_3_T_4 = 6'h20 - ACTUAL_DST_POSIT_WIDTH;	// src/main/scala/pvu/PvuTop.scala:225:36, :230:36, :1107:84
   wire [94:0]      _posit_results_3_T_6 =
     {63'h0, _result_encoder_io_posit[2'h3] >> _posit_results_3_T_4}
-    << _posit_results_3_T_4;	// src/main/scala/pvu/PvuTop.scala:235:55, :497:118, :1055:35, :1078:60, :1083:{62,84,111}
-  wire             _GEN_101 = (|ACTUAL_VECTOR_SIZE) | _GEN_51;	// src/main/scala/pvu/PvuTop.scala:170:18, :226:36, :242:29, :333:23, :370:29, :402:29, :416:29, :430:29, :444:29, :466:29, :1127:31, :1129:26
-  wire             _GEN_102 = (|(ACTUAL_VECTOR_SIZE[2:1])) | _GEN_51;	// src/main/scala/pvu/PvuTop.scala:170:18, :226:36, :242:29, :333:23, :370:29, :402:29, :416:29, :430:29, :444:29, :466:29, :1127:31, :1129:26
-  wire             _GEN_103 = _valid_range_2_T | _GEN_51;	// src/main/scala/pvu/PvuTop.scala:170:18, :242:29, :333:23, :370:29, :402:29, :416:29, :430:29, :444:29, :466:29, :1127:31, :1129:26
-  wire             _GEN_104 = ACTUAL_VECTOR_SIZE[2] | _GEN_51;	// src/main/scala/pvu/PvuTop.scala:170:18, :226:36, :242:29, :333:23, :370:29, :402:29, :416:29, :430:29, :444:29, :466:29, :1127:31, :1129:26
-  wire             _GEN_105 = _GEN_40 | _GEN_61 | _GEN_62 | _GEN_80;	// src/main/scala/pvu/PvuTop.scala:333:23, :466:21, :680:21, :705:21, :730:21, :991:29, :993:30, :995:30, :997:31, :1124:24
-  wire             _GEN_106 = _GEN_34 | _GEN_37 | _GEN_105;	// src/main/scala/pvu/PvuTop.scala:333:23, :430:21, :444:21, :896:23, :970:29, :991:29, :993:30, :995:30, :997:31, :1124:24
+    << _posit_results_3_T_4;	// src/main/scala/pvu/PvuTop.scala:235:55, :509:118, :1075:35, :1102:60, :1107:{62,84,111}
+  wire             _GEN_101 = (|ACTUAL_VECTOR_SIZE) | _GEN_51;	// src/main/scala/pvu/PvuTop.scala:170:18, :226:36, :242:29, :333:23, :370:29, :402:29, :416:29, :442:29, :456:29, :478:29, :1151:31, :1153:26
+  wire             _GEN_102 = (|(ACTUAL_VECTOR_SIZE[2:1])) | _GEN_51;	// src/main/scala/pvu/PvuTop.scala:170:18, :226:36, :242:29, :333:23, :370:29, :402:29, :416:29, :442:29, :456:29, :478:29, :1151:31, :1153:26
+  wire             _GEN_103 = _valid_range_2_T | _GEN_51;	// src/main/scala/pvu/PvuTop.scala:170:18, :242:29, :333:23, :370:29, :402:29, :416:29, :442:29, :456:29, :478:29, :1151:31, :1153:26
+  wire             _GEN_104 = ACTUAL_VECTOR_SIZE[2] | _GEN_51;	// src/main/scala/pvu/PvuTop.scala:170:18, :226:36, :242:29, :333:23, :370:29, :402:29, :416:29, :442:29, :456:29, :478:29, :1151:31, :1153:26
+  wire             _GEN_105 = _GEN_40 | _GEN_61 | _GEN_62 | _GEN_80;	// src/main/scala/pvu/PvuTop.scala:333:23, :478:21, :692:21, :717:21, :742:21, :1003:29, :1005:30, :1007:30, :1009:31, :1148:24
+  wire             _GEN_106 = _GEN_34 | _GEN_37 | _GEN_105;	// src/main/scala/pvu/PvuTop.scala:333:23, :442:21, :456:21, :908:23, :982:29, :1003:29, :1005:30, :1007:30, :1009:31, :1148:24
   wire [3:0][27:0] _GEN_107 =
     {{_GEN_28[27:0]}, {_GEN_22[27:0]}, {_GEN_16[27:0]}, {_GEN_10[27:0]}};	// src/main/scala/pvu/PvuTop.scala:246:21, :253:29, :270:29, :344:28, :348:31
   wire [3:0][27:0] _GEN_108 =
@@ -8544,7 +8603,7 @@ module PvuTop(	// src/main/scala/pvu/PvuTop.scala:28:8
     {{io_float_i_3[31:0]},
      {io_float_i_2[31:0]},
      {io_float_i_1[31:0]},
-     {io_float_i_0[31:0]}};	// src/main/scala/pvu/PvuTop.scala:177:25, :593:39
+     {io_float_i_0[31:0]}};	// src/main/scala/pvu/PvuTop.scala:177:25, :605:39
   wire [3:0]       _GEN_110 =
     io_Isposit
       ? {{ACTUAL_VECTOR_SIZE[2] & _decode1_io_Sign[2'h3]},
@@ -8564,7 +8623,7 @@ module PvuTop(	// src/main/scala/pvu/PvuTop.scala:28:8
       : {{_GEN_27 ? 8'h0 : _floatDecode1_io_Exp[2'h3][7:0]},
          {_GEN_21 ? 8'h0 : _floatDecode1_io_Exp[2'h2][7:0]},
          {_GEN_15 ? 8'h0 : _floatDecode1_io_Exp[2'h1][7:0]},
-         {_GEN_9 ? 8'h0 : _floatDecode1_io_Exp[2'h0][7:0]}};	// src/main/scala/pvu/PvuTop.scala:28:8, :110:23, :114:28, :119:23, :183:18, :226:36, :234:34, :235:55, :242:29, :246:21, :253:29, :255:23, :270:29, :272:31, :287:23, :814:{29,39}
+         {_GEN_9 ? 8'h0 : _floatDecode1_io_Exp[2'h0][7:0]}};	// src/main/scala/pvu/PvuTop.scala:28:8, :110:23, :114:28, :119:23, :183:18, :226:36, :234:34, :235:55, :242:29, :246:21, :253:29, :255:23, :270:29, :272:31, :287:23, :826:{29,39}
   wire [3:0]       _GEN_112 =
     io_Isposit
       ? {{ACTUAL_VECTOR_SIZE[2] & _decode2_io_Sign[2'h3]},
@@ -8584,22 +8643,22 @@ module PvuTop(	// src/main/scala/pvu/PvuTop.scala:28:8
       : {{_GEN_27 ? 8'h0 : _floatDecode2_io_Exp[2'h3][7:0]},
          {_GEN_21 ? 8'h0 : _floatDecode2_io_Exp[2'h2][7:0]},
          {_GEN_15 ? 8'h0 : _floatDecode2_io_Exp[2'h1][7:0]},
-         {_GEN_9 ? 8'h0 : _floatDecode2_io_Exp[2'h0][7:0]}};	// src/main/scala/pvu/PvuTop.scala:28:8, :111:23, :115:28, :122:23, :183:18, :186:18, :226:36, :234:34, :235:55, :242:29, :246:21, :253:29, :258:23, :270:29, :279:32, :287:23, :290:23, :814:{29,39}
+         {_GEN_9 ? 8'h0 : _floatDecode2_io_Exp[2'h0][7:0]}};	// src/main/scala/pvu/PvuTop.scala:28:8, :111:23, :115:28, :122:23, :183:18, :186:18, :226:36, :234:34, :235:55, :242:29, :246:21, :253:29, :258:23, :270:29, :279:32, :287:23, :290:23, :826:{29,39}
   wire [3:0]       _GEN_114 =
     {{ACTUAL_VECTOR_SIZE[2] & _GEN_67},
      {_valid_range_2_T & _GEN_66},
      {(|(ACTUAL_VECTOR_SIZE[2:1])) & _GEN_65},
-     {(|ACTUAL_VECTOR_SIZE) & _GEN_64}};	// src/main/scala/pvu/PvuTop.scala:226:36, :242:29, :333:23, :361:29, :370:29, :1010:27, :1013:32, :1019:31, :1020:34
+     {(|ACTUAL_VECTOR_SIZE) & _GEN_64}};	// src/main/scala/pvu/PvuTop.scala:226:36, :242:29, :333:23, :361:29, :370:29, :1022:27, :1025:32, :1031:31, :1032:34
   wire [3:0][7:0]  _GEN_115 =
     {{~(ACTUAL_VECTOR_SIZE[2]) | _GEN_34 ? 8'h0 : _pir_exp_rst_adjusied_3_T},
      {~_valid_range_2_T | _GEN_34 ? 8'h0 : _pir_exp_rst_adjusied_2_T},
      {~(|(ACTUAL_VECTOR_SIZE[2:1])) | _GEN_34 ? 8'h0 : _pir_exp_rst_adjusied_1_T},
-     {~(|ACTUAL_VECTOR_SIZE) | _GEN_34 ? 8'h0 : _pir_exp_rst_adjusied_0_T}};	// src/main/scala/pvu/PvuTop.scala:190:26, :226:36, :242:29, :246:21, :270:29, :430:21, :814:{29,39}, :822:50, :1010:27, :1014:32, :1019:31, :1021:34
+     {~(|ACTUAL_VECTOR_SIZE) | _GEN_34 ? 8'h0 : _pir_exp_rst_adjusied_0_T}};	// src/main/scala/pvu/PvuTop.scala:190:26, :226:36, :242:29, :246:21, :270:29, :442:21, :826:{29,39}, :834:50, :1022:27, :1026:32, :1031:31, :1033:34
   wire [3:0][27:0] _GEN_116 =
     {{ACTUAL_VECTOR_SIZE[2] ? _GEN_85[27:0] : 28'h0},
      {_valid_range_2_T ? _GEN_84[27:0] : 28'h0},
      {(|(ACTUAL_VECTOR_SIZE[2:1])) ? _GEN_83[27:0] : 28'h0},
-     {(|ACTUAL_VECTOR_SIZE) ? _GEN_82[27:0] : 28'h0}};	// src/main/scala/pvu/PvuTop.scala:226:36, :242:29, :759:25, :764:23, :774:29, :1010:27, :1015:32, :1019:31, :1022:34
+     {(|ACTUAL_VECTOR_SIZE) ? _GEN_82[27:0] : 28'h0}};	// src/main/scala/pvu/PvuTop.scala:226:36, :242:29, :771:25, :776:23, :786:29, :1022:27, :1027:32, :1031:31, :1034:34
   PositDecode decode1 (	// src/main/scala/pvu/PvuTop.scala:110:23
     .io_posit (io_Isposit ? _GEN_4 : _GEN_3),	// src/main/scala/pvu/PvuTop.scala:28:8, :110:23, :246:21, :247:28, :263:28
     .io_Sign  (_decode1_io_Sign),
@@ -8613,7 +8672,7 @@ module PvuTop(	// src/main/scala/pvu/PvuTop.scala:28:8
     .io_Frac  (_decode2_io_Frac)
   );
   FloatDecode floatDecode1 (	// src/main/scala/pvu/PvuTop.scala:114:28
-    .io_float  (io_Isposit ? _GEN_3 : _GEN_109),	// src/main/scala/pvu/PvuTop.scala:114:28, :246:21, :247:28, :263:28, :593:39
+    .io_float  (io_Isposit ? _GEN_3 : _GEN_109),	// src/main/scala/pvu/PvuTop.scala:114:28, :246:21, :247:28, :263:28, :605:39
     .io_Sign   (_floatDecode1_io_Sign),
     .io_Exp    (_floatDecode1_io_Exp),
     .io_Frac   (_floatDecode1_io_Frac),
@@ -8691,18 +8750,18 @@ module PvuTop(	// src/main/scala/pvu/PvuTop.scala:28:8
     .io_pir_exp_o   (_mul_io_pir_exp_o),
     .io_pir_frac_o  (_mul_io_pir_frac_o)
   );
-  Div div (	// src/main/scala/pvu/PvuTop.scala:417:22
+  Div div_inst (	// src/main/scala/pvu/PvuTop.scala:417:27
     .io_pir_sign1_i (_GEN_110),	// src/main/scala/pvu/PvuTop.scala:118:23
     .io_pir_sign2_i (_GEN_112),	// src/main/scala/pvu/PvuTop.scala:121:23
     .io_pir_exp1_i  (_GEN_111),	// src/main/scala/pvu/PvuTop.scala:119:23
     .io_pir_exp2_i  (_GEN_113),	// src/main/scala/pvu/PvuTop.scala:122:23
     .io_pir_frac1_i (_GEN_107),	// src/main/scala/pvu/PvuTop.scala:344:28
     .io_pir_frac2_i (_GEN_108),	// src/main/scala/pvu/PvuTop.scala:344:28
-    .io_pir_sign_o  (_div_io_pir_sign_o),
-    .io_pir_exp_o   (_div_io_pir_exp_o),
-    .io_pir_frac_o  (_div_io_pir_frac_o)
+    .io_pir_sign_o  (_div_inst_io_pir_sign_o),
+    .io_pir_exp_o   (_div_inst_io_pir_exp_o),
+    .io_pir_frac_o  (_div_inst_io_pir_frac_o)
   );
-  DotProduct dotproduct (	// src/main/scala/pvu/PvuTop.scala:431:28
+  DotProduct dotproduct (	// src/main/scala/pvu/PvuTop.scala:443:28
     .io_pir_sign1_i (_GEN_110),	// src/main/scala/pvu/PvuTop.scala:118:23
     .io_pir_sign2_i (_GEN_112),	// src/main/scala/pvu/PvuTop.scala:121:23
     .io_pir_exp1_i  (_GEN_111),	// src/main/scala/pvu/PvuTop.scala:119:23
@@ -8713,7 +8772,7 @@ module PvuTop(	// src/main/scala/pvu/PvuTop.scala:28:8
     .io_pir_exp_o   (_dotproduct_io_pir_exp_o),
     .io_pir_frac_o  (_dotproduct_io_pir_frac_o)
   );
-  PositConvert convert (	// src/main/scala/pvu/PvuTop.scala:449:26
+  PositConvert convert (	// src/main/scala/pvu/PvuTop.scala:461:26
     .io_pir_sign1_i (_GEN_110),	// src/main/scala/pvu/PvuTop.scala:118:23
     .io_pir_exp1_i  (_GEN_111),	// src/main/scala/pvu/PvuTop.scala:119:23
     .io_pir_frac1_i (_GEN_107),	// src/main/scala/pvu/PvuTop.scala:344:28
@@ -8721,59 +8780,59 @@ module PvuTop(	// src/main/scala/pvu/PvuTop.scala:28:8
     .io_pir_exp_o   (_convert_io_pir_exp_o),
     .io_pir_frac_o  (_convert_io_pir_frac_o)
   );
-  FloatToPosit float2posit_fp4 (	// src/main/scala/pvu/PvuTop.scala:479:38
+  FloatToPosit float2posit_fp4 (	// src/main/scala/pvu/PvuTop.scala:491:38
     .io_float_in
       ({{io_float_i_3[3:0]},
         {io_float_i_2[3:0]},
         {io_float_i_1[3:0]},
-        {io_float_i_0[3:0]}}),	// src/main/scala/pvu/PvuTop.scala:479:38, :486:38
+        {io_float_i_0[3:0]}}),	// src/main/scala/pvu/PvuTop.scala:491:38, :498:38
     .io_posit_out (_float2posit_fp4_io_posit_out)
   );
-  PositToFloat posit2float_fp4 (	// src/main/scala/pvu/PvuTop.scala:504:38
+  PositToFloat posit2float_fp4 (	// src/main/scala/pvu/PvuTop.scala:516:38
     .io_posit_in  (_GEN_4),	// src/main/scala/pvu/PvuTop.scala:28:8
     .io_float_out (_posit2float_fp4_io_float_out)
   );
-  FloatToPosit_1 float2posit_fp8 (	// src/main/scala/pvu/PvuTop.scala:517:38
+  FloatToPosit_1 float2posit_fp8 (	// src/main/scala/pvu/PvuTop.scala:529:38
     .io_float_in
       ({{io_float_i_3[7:0]},
         {io_float_i_2[7:0]},
         {io_float_i_1[7:0]},
-        {io_float_i_0[7:0]}}),	// src/main/scala/pvu/PvuTop.scala:517:38, :524:38
+        {io_float_i_0[7:0]}}),	// src/main/scala/pvu/PvuTop.scala:529:38, :536:38
     .io_posit_out (_float2posit_fp8_io_posit_out)
   );
-  PositToFloat_1 posit2float_fp8 (	// src/main/scala/pvu/PvuTop.scala:542:38
+  PositToFloat_1 posit2float_fp8 (	// src/main/scala/pvu/PvuTop.scala:554:38
     .io_posit_in  (_GEN_4),	// src/main/scala/pvu/PvuTop.scala:28:8
     .io_float_out (_posit2float_fp8_io_float_out)
   );
-  FloatToPosit_2 float2posit_fp16 (	// src/main/scala/pvu/PvuTop.scala:555:39
+  FloatToPosit_2 float2posit_fp16 (	// src/main/scala/pvu/PvuTop.scala:567:39
     .io_float_in
       ({{io_float_i_3[15:0]},
         {io_float_i_2[15:0]},
         {io_float_i_1[15:0]},
-        {io_float_i_0[15:0]}}),	// src/main/scala/pvu/PvuTop.scala:555:39, :562:39
+        {io_float_i_0[15:0]}}),	// src/main/scala/pvu/PvuTop.scala:567:39, :574:39
     .io_posit_out (_float2posit_fp16_io_posit_out)
   );
-  PositToFloat_2 posit2float_fp16 (	// src/main/scala/pvu/PvuTop.scala:580:39
+  PositToFloat_2 posit2float_fp16 (	// src/main/scala/pvu/PvuTop.scala:592:39
     .io_posit_in  (_GEN_4),	// src/main/scala/pvu/PvuTop.scala:28:8
     .io_float_out (_posit2float_fp16_io_float_out)
   );
-  FloatToPosit_3 float2posit_fp32 (	// src/main/scala/pvu/PvuTop.scala:593:39
-    .io_float_in  (_GEN_109),	// src/main/scala/pvu/PvuTop.scala:593:39
+  FloatToPosit_3 float2posit_fp32 (	// src/main/scala/pvu/PvuTop.scala:605:39
+    .io_float_in  (_GEN_109),	// src/main/scala/pvu/PvuTop.scala:605:39
     .io_posit_out (_float2posit_fp32_io_posit_out)
   );
-  PositToFloat_3 posit2float_fp32 (	// src/main/scala/pvu/PvuTop.scala:618:39
+  PositToFloat_3 posit2float_fp32 (	// src/main/scala/pvu/PvuTop.scala:630:39
     .io_posit_in  (_GEN_4),	// src/main/scala/pvu/PvuTop.scala:28:8
     .io_float_out (_posit2float_fp32_io_float_out)
   );
-  FloatToPosit_4 float2posit_fp64 (	// src/main/scala/pvu/PvuTop.scala:631:39
+  FloatToPosit_4 float2posit_fp64 (	// src/main/scala/pvu/PvuTop.scala:643:39
     .io_float_in  ({{io_float_i_3}, {io_float_i_2}, {io_float_i_1}, {io_float_i_0}}),	// src/main/scala/pvu/PvuTop.scala:28:8
     .io_posit_out (_float2posit_fp64_io_posit_out)
   );
-  PositToFloat_4 posit2float_fp64 (	// src/main/scala/pvu/PvuTop.scala:656:39
+  PositToFloat_4 posit2float_fp64 (	// src/main/scala/pvu/PvuTop.scala:668:39
     .io_posit_in  (_GEN_4),	// src/main/scala/pvu/PvuTop.scala:28:8
     .io_float_out (_posit2float_fp64_io_float_out)
   );
-  PositGreater greater (	// src/main/scala/pvu/PvuTop.scala:681:26
+  PositGreater greater (	// src/main/scala/pvu/PvuTop.scala:693:26
     .io_pir_sign1_i     (_GEN_110),	// src/main/scala/pvu/PvuTop.scala:118:23
     .io_pir_sign2_i     (_GEN_112),	// src/main/scala/pvu/PvuTop.scala:121:23
     .io_pir_exp1_i      (_GEN_111),	// src/main/scala/pvu/PvuTop.scala:119:23
@@ -8788,7 +8847,7 @@ module PvuTop(	// src/main/scala/pvu/PvuTop.scala:28:8
     .io_pir_frac_o      (/* unused */),
     .io_dst_posit_width (io_dst_posit_width)
   );
-  PositLess less (	// src/main/scala/pvu/PvuTop.scala:706:23
+  PositLess less (	// src/main/scala/pvu/PvuTop.scala:718:23
     .io_pir_sign1_i     (_GEN_110),	// src/main/scala/pvu/PvuTop.scala:118:23
     .io_pir_sign2_i     (_GEN_112),	// src/main/scala/pvu/PvuTop.scala:121:23
     .io_pir_exp1_i      (_GEN_111),	// src/main/scala/pvu/PvuTop.scala:119:23
@@ -8803,32 +8862,32 @@ module PvuTop(	// src/main/scala/pvu/PvuTop.scala:28:8
     .io_pir_frac_o      (/* unused */),
     .io_dst_posit_width (io_dst_posit_width)
   );
-  PositToInt tranInt (	// src/main/scala/pvu/PvuTop.scala:731:26
+  PositToInt tranInt (	// src/main/scala/pvu/PvuTop.scala:743:26
     .io_pir_sign_i (_GEN_110),	// src/main/scala/pvu/PvuTop.scala:118:23
     .io_pir_exp_i  (_GEN_111),	// src/main/scala/pvu/PvuTop.scala:119:23
     .io_pir_frac_i (pir_frac),	// src/main/scala/pvu/PvuTop.scala:246:21
     .io_int_o      (_tranInt_io_int_o)
   );
-  FracNorm_DotProduct frac_norm_dot (	// src/main/scala/pvu/PvuTop.scala:770:30
-    .io_pir_frac_i (_GEN_36 ? 59'h0 : _dotproduct_io_pir_frac_o),	// src/main/scala/pvu/PvuTop.scala:330:17, :331:17, :333:23, :370:29, :402:29, :416:29, :430:29, :431:28
+  FracNorm_DotProduct frac_norm_dot (	// src/main/scala/pvu/PvuTop.scala:782:30
+    .io_pir_frac_i (_GEN_36 ? 59'h0 : _dotproduct_io_pir_frac_o),	// src/main/scala/pvu/PvuTop.scala:330:17, :331:17, :333:23, :370:29, :402:29, :416:29, :442:29, :443:28
     .io_exp_adjust (_frac_norm_dot_io_exp_adjust),
     .io_pir_frac_o (_frac_norm_dot_io_pir_frac_o)
   );
-  FracNorm frac_norm_add (	// src/main/scala/pvu/PvuTop.scala:775:32
+  FracNorm frac_norm_add (	// src/main/scala/pvu/PvuTop.scala:787:32
     .io_pir_frac_i
       ({{ACTUAL_VECTOR_SIZE[2] & _GEN_30 ? _add_io_pir_frac_o[2'h3] : 30'h0},
         {_valid_range_2_T & _GEN_30 ? _add_io_pir_frac_o[2'h2] : 30'h0},
         {(|(ACTUAL_VECTOR_SIZE[2:1])) & _GEN_30 ? _add_io_pir_frac_o[2'h1] : 30'h0},
-        {(|ACTUAL_VECTOR_SIZE) & _GEN_30 ? _add_io_pir_frac_o[2'h0] : 30'h0}}),	// src/main/scala/pvu/PvuTop.scala:28:8, :226:36, :234:34, :235:55, :242:29, :319:26, :333:15, :345:28, :364:30, :775:32, :778:39, :782:29, :783:41
+        {(|ACTUAL_VECTOR_SIZE) & _GEN_30 ? _add_io_pir_frac_o[2'h0] : 30'h0}}),	// src/main/scala/pvu/PvuTop.scala:28:8, :226:36, :234:34, :235:55, :242:29, :319:26, :333:15, :345:28, :364:30, :787:32, :790:39, :794:29, :795:41
     .io_exp_adjust (_frac_norm_add_io_exp_adjust),
     .io_pir_frac_o (_frac_norm_add_io_pir_frac_o)
   );
-  FracNorm frac_norm_sub (	// src/main/scala/pvu/PvuTop.scala:789:47
+  FracNorm frac_norm_sub (	// src/main/scala/pvu/PvuTop.scala:801:47
     .io_pir_frac_i (_GEN_30 | ~_GEN_31 ? _GEN_1 : _sub_io_pir_frac_o),	// src/main/scala/pvu/PvuTop.scala:300:31, :320:26, :333:{15,23}, :370:{21,29}, :381:28
     .io_exp_adjust (_frac_norm_sub_io_exp_adjust),
     .io_pir_frac_o (_frac_norm_sub_io_pir_frac_o)
   );
-  FracNorm_2 frac_norm_mul (	// src/main/scala/pvu/PvuTop.scala:794:47
+  FracNorm_2 frac_norm_mul (	// src/main/scala/pvu/PvuTop.scala:806:47
     .io_pir_frac_i
       (_GEN_30 | _GEN_31 | ~_GEN_32
          ? _GEN_0
@@ -8839,51 +8898,51 @@ module PvuTop(	// src/main/scala/pvu/PvuTop.scala:28:8
     .io_exp_adjust (_frac_norm_mul_io_exp_adjust),
     .io_pir_frac_o (_frac_norm_mul_io_pir_frac_o)
   );
-  FracNorm_3 frac_norm_div (	// src/main/scala/pvu/PvuTop.scala:799:47
+  FracNorm_3 frac_norm_div (	// src/main/scala/pvu/PvuTop.scala:811:47
     .io_pir_frac_i
       (_GEN_30 | _GEN_31 | _GEN_32 | ~_GEN_33
          ? _GEN_0
-         : {{{12'h0, _div_io_pir_frac_o[2'h3]}},
-            {{12'h0, _div_io_pir_frac_o[2'h2]}},
-            {{12'h0, _div_io_pir_frac_o[2'h1]}},
-            {{12'h0, _div_io_pir_frac_o[2'h0]}}}),	// src/main/scala/pvu/PvuTop.scala:28:8, :234:34, :235:55, :302:31, :321:26, :322:26, :333:{15,23}, :370:{21,29}, :402:{21,29}, :414:23, :416:{21,29}, :417:22, :428:23
+         : {{{12'h0, _div_inst_io_pir_frac_o[2'h3]}},
+            {{12'h0, _div_inst_io_pir_frac_o[2'h2]}},
+            {{12'h0, _div_inst_io_pir_frac_o[2'h1]}},
+            {{12'h0, _div_inst_io_pir_frac_o[2'h0]}}}),	// src/main/scala/pvu/PvuTop.scala:28:8, :234:34, :235:55, :302:31, :321:26, :322:26, :333:{15,23}, :370:{21,29}, :402:{21,29}, :414:23, :416:{21,29}, :417:27, :428:23
     .io_exp_adjust (_frac_norm_div_io_exp_adjust),
     .io_pir_frac_o (_frac_norm_div_io_pir_frac_o)
   );
-  PositEncode_DotProduct encode_dot (	// src/main/scala/pvu/PvuTop.scala:899:29
-    .io_pir_sign (pir_sign_dot),	// src/main/scala/pvu/PvuTop.scala:329:17, :333:23, :370:29, :402:29, :416:29, :430:29
-    .io_pir_exp  (_GEN_34 ? _pir_exp_rst_adjusied_dot_T : 8'h0),	// src/main/scala/pvu/PvuTop.scala:430:21, :814:{29,39}, :815:29, :818:23, :819:{31,53}
-    .io_pir_frac (pir_frac_normed_dot),	// src/main/scala/pvu/PvuTop.scala:762:24, :764:23, :772:36
+  PositEncode_DotProduct encode_dot (	// src/main/scala/pvu/PvuTop.scala:911:29
+    .io_pir_sign (pir_sign_dot),	// src/main/scala/pvu/PvuTop.scala:329:17, :333:23, :370:29, :402:29, :416:29, :442:29
+    .io_pir_exp  (_GEN_34 ? _pir_exp_rst_adjusied_dot_T : 8'h0),	// src/main/scala/pvu/PvuTop.scala:442:21, :826:{29,39}, :827:29, :830:23, :831:{31,53}
+    .io_pir_frac (pir_frac_normed_dot),	// src/main/scala/pvu/PvuTop.scala:774:24, :776:23, :784:36
     .io_posit    (_encode_dot_io_posit)
   );
-  PositDecode_7 dot_decoder (	// src/main/scala/pvu/PvuTop.scala:908:30
-    .io_posit ({1{_encode_dot_io_posit}}),	// src/main/scala/pvu/PvuTop.scala:899:29, :908:30
+  PositDecode_7 dot_decoder (	// src/main/scala/pvu/PvuTop.scala:920:30
+    .io_posit ({1{_encode_dot_io_posit}}),	// src/main/scala/pvu/PvuTop.scala:911:29, :920:30
     .io_Sign  (_dot_decoder_io_Sign),
     .io_Exp   (_dot_decoder_io_Exp),
     .io_Frac  (_dot_decoder_io_Frac)
   );
-  PositConvert_1 dot_converter (	// src/main/scala/pvu/PvuTop.scala:912:32
-    .io_pir_sign1_i (_dot_decoder_io_Sign),	// src/main/scala/pvu/PvuTop.scala:908:30
-    .io_pir_exp1_i  (_dot_decoder_io_Exp),	// src/main/scala/pvu/PvuTop.scala:908:30
-    .io_pir_frac1_i (_dot_decoder_io_Frac),	// src/main/scala/pvu/PvuTop.scala:908:30
+  PositConvert_1 dot_converter (	// src/main/scala/pvu/PvuTop.scala:924:32
+    .io_pir_sign1_i (_dot_decoder_io_Sign),	// src/main/scala/pvu/PvuTop.scala:920:30
+    .io_pir_exp1_i  (_dot_decoder_io_Exp),	// src/main/scala/pvu/PvuTop.scala:920:30
+    .io_pir_frac1_i (_dot_decoder_io_Frac),	// src/main/scala/pvu/PvuTop.scala:920:30
     .io_pir_sign_o  (_dot_converter_io_pir_sign_o),
     .io_pir_exp_o   (_dot_converter_io_pir_exp_o),
     .io_pir_frac_o  (_dot_converter_io_pir_frac_o)
   );
-  PositEncode_7 dot_encoder (	// src/main/scala/pvu/PvuTop.scala:926:30
-    .io_pir_sign (_dot_converter_io_pir_sign_o),	// src/main/scala/pvu/PvuTop.scala:912:32
-    .io_pir_exp  (_dot_converter_io_pir_exp_o),	// src/main/scala/pvu/PvuTop.scala:912:32
-    .io_pir_frac (_dot_converter_io_pir_frac_o),	// src/main/scala/pvu/PvuTop.scala:912:32
+  PositEncode_7 dot_encoder (	// src/main/scala/pvu/PvuTop.scala:938:30
+    .io_pir_sign (_dot_converter_io_pir_sign_o),	// src/main/scala/pvu/PvuTop.scala:924:32
+    .io_pir_exp  (_dot_converter_io_pir_exp_o),	// src/main/scala/pvu/PvuTop.scala:924:32
+    .io_pir_frac (_dot_converter_io_pir_frac_o),	// src/main/scala/pvu/PvuTop.scala:924:32
     .io_posit    (_dot_encoder_io_posit)
   );
-  FloatEncode_5 floatDotEncoder (	// src/main/scala/pvu/PvuTop.scala:946:34
-    .io_Sign   ({1{_GEN_87 & pir_sign_dot}}),	// src/main/scala/pvu/PvuTop.scala:215:25, :329:17, :333:23, :370:29, :402:29, :416:29, :430:29, :828:22, :830:26, :832:30, :946:34
-    .io_Exp    ({1{{_GEN_88[7], _GEN_88}}}),	// src/main/scala/pvu/PvuTop.scala:216:25, :828:22, :830:26, :833:30, :946:34, :953:35
-    .io_Frac   ({1{{1'h0, _GEN_87 ? pir_frac_normed_dot[22:0] : 23'h0}}}),	// src/main/scala/pvu/PvuTop.scala:182:18, :191:26, :215:25, :217:25, :762:24, :764:23, :772:36, :828:22, :830:26, :832:30, :834:{30,52}, :946:34, :954:35
+  FloatEncode_5 floatDotEncoder (	// src/main/scala/pvu/PvuTop.scala:958:34
+    .io_Sign   ({1{_GEN_87 & pir_sign_dot}}),	// src/main/scala/pvu/PvuTop.scala:215:25, :329:17, :333:23, :370:29, :402:29, :416:29, :442:29, :840:22, :842:26, :844:30, :958:34
+    .io_Exp    ({1{{_GEN_88[7], _GEN_88}}}),	// src/main/scala/pvu/PvuTop.scala:216:25, :840:22, :842:26, :845:30, :958:34, :965:35
+    .io_Frac   ({1{{1'h0, _GEN_87 ? pir_frac_normed_dot[22:0] : 23'h0}}}),	// src/main/scala/pvu/PvuTop.scala:182:18, :191:26, :215:25, :217:25, :774:24, :776:23, :784:36, :840:22, :842:26, :844:30, :846:{30,52}, :958:34, :966:35
     .io_isNaN
       ({1{_GEN_93
        & (ACTUAL_VECTOR_SIZE[2] & _GEN_92 | _valid_range_2_T & _GEN_91
-          | (|(ACTUAL_VECTOR_SIZE[2:1])) & _GEN_90 | (|ACTUAL_VECTOR_SIZE) & _GEN_89)}}),	// src/main/scala/pvu/PvuTop.scala:218:25, :226:36, :242:29, :828:22, :830:26, :835:30, :845:26, :847:{32,56,82}, :848:35, :946:34
+          | (|(ACTUAL_VECTOR_SIZE[2:1])) & _GEN_90 | (|ACTUAL_VECTOR_SIZE) & _GEN_89)}}),	// src/main/scala/pvu/PvuTop.scala:218:25, :226:36, :242:29, :840:22, :842:26, :847:30, :857:26, :859:{32,56,82}, :860:35, :958:34
     .io_isInf
       ({1{_GEN_93
        & (ACTUAL_VECTOR_SIZE[2]
@@ -8905,84 +8964,84 @@ module PvuTop(	// src/main/scala/pvu/PvuTop.scala:28:8
              & ~(io_Isposit | ~(|ACTUAL_VECTOR_SIZE) | _floatDecode2_io_isZero[2'h0])
              | _GEN_8
              & ~(io_Isposit | ~(|ACTUAL_VECTOR_SIZE)
-                 | _floatDecode1_io_isZero[2'h0])))}}),	// src/main/scala/pvu/PvuTop.scala:28:8, :114:28, :115:28, :190:26, :193:26, :194:26, :200:27, :201:27, :218:25, :219:25, :226:36, :234:34, :235:55, :242:29, :246:21, :270:29, :276:31, :283:32, :828:22, :830:26, :835:30, :836:30, :845:26, :847:82, :851:{32,57,60,84,109,112,137}, :852:35, :946:34
-    .io_isZero ({1{~_GEN_87 | pir_frac_normed_dot == 28'h0}}),	// src/main/scala/pvu/PvuTop.scala:215:25, :220:25, :762:24, :764:23, :772:36, :828:22, :830:26, :832:30, :840:{33,42}, :946:34, :1015:32
+                 | _floatDecode1_io_isZero[2'h0])))}}),	// src/main/scala/pvu/PvuTop.scala:28:8, :114:28, :115:28, :190:26, :193:26, :194:26, :200:27, :201:27, :218:25, :219:25, :226:36, :234:34, :235:55, :242:29, :246:21, :270:29, :276:31, :283:32, :840:22, :842:26, :847:30, :848:30, :857:26, :859:82, :863:{32,57,60,84,109,112,137}, :864:35, :958:34
+    .io_isZero ({1{~_GEN_87 | pir_frac_normed_dot == 28'h0}}),	// src/main/scala/pvu/PvuTop.scala:215:25, :220:25, :774:24, :776:23, :784:36, :840:22, :842:26, :844:30, :852:{33,42}, :958:34, :1027:32
     .io_float  (_floatDotEncoder_io_float)
   );
-  PositEncode convert_encoder (	// src/main/scala/pvu/PvuTop.scala:972:34
+  PositEncode convert_encoder (	// src/main/scala/pvu/PvuTop.scala:984:34
     .io_pir_sign
       ({{~_GEN_38 & _GEN_37 & _convert_io_pir_sign_o[2'h3]},
         {~_GEN_38 & _GEN_37 & _convert_io_pir_sign_o[2'h2]},
         {~_GEN_38 & _GEN_37 & _convert_io_pir_sign_o[2'h1]},
-        {~_GEN_38 & _GEN_37 & _convert_io_pir_sign_o[2'h0]}}),	// src/main/scala/pvu/PvuTop.scala:28:8, :234:34, :235:55, :306:31, :324:26, :333:23, :370:29, :402:29, :416:29, :430:29, :444:{21,29}, :449:26, :463:23
-    .io_pir_exp  (_GEN_39 ? _GEN : _convert_io_pir_exp_o),	// src/main/scala/pvu/PvuTop.scala:307:31, :325:26, :333:23, :370:29, :402:29, :416:29, :430:29, :444:29, :449:26
-    .io_pir_frac (_GEN_39 ? _GEN_2 : _convert_io_pir_frac_o),	// src/main/scala/pvu/PvuTop.scala:325:26, :326:26, :333:23, :370:29, :402:29, :416:29, :430:29, :444:29, :449:26, :972:34
+        {~_GEN_38 & _GEN_37 & _convert_io_pir_sign_o[2'h0]}}),	// src/main/scala/pvu/PvuTop.scala:28:8, :234:34, :235:55, :306:31, :324:26, :333:23, :370:29, :402:29, :416:29, :442:29, :456:{21,29}, :461:26, :475:23
+    .io_pir_exp  (_GEN_39 ? _GEN : _convert_io_pir_exp_o),	// src/main/scala/pvu/PvuTop.scala:307:31, :325:26, :333:23, :370:29, :402:29, :416:29, :442:29, :456:29, :461:26
+    .io_pir_frac (_GEN_39 ? _GEN_2 : _convert_io_pir_frac_o),	// src/main/scala/pvu/PvuTop.scala:325:26, :326:26, :333:23, :370:29, :402:29, :416:29, :442:29, :456:29, :461:26, :984:34
     .io_posit    (_convert_encoder_io_posit)
   );
-  PositEncode encode (	// src/main/scala/pvu/PvuTop.scala:1010:27
-    .io_pir_sign (_GEN_114),	// src/main/scala/pvu/PvuTop.scala:1010:27
-    .io_pir_exp  (_GEN_115),	// src/main/scala/pvu/PvuTop.scala:1010:27
-    .io_pir_frac (_GEN_116),	// src/main/scala/pvu/PvuTop.scala:1010:27
+  PositEncode encode (	// src/main/scala/pvu/PvuTop.scala:1022:27
+    .io_pir_sign (_GEN_114),	// src/main/scala/pvu/PvuTop.scala:1022:27
+    .io_pir_exp  (_GEN_115),	// src/main/scala/pvu/PvuTop.scala:1022:27
+    .io_pir_frac (_GEN_116),	// src/main/scala/pvu/PvuTop.scala:1022:27
     .io_posit    (_encode_io_posit)
   );
-  PositConvert result_converter (	// src/main/scala/pvu/PvuTop.scala:1029:37
-    .io_pir_sign1_i (_GEN_114),	// src/main/scala/pvu/PvuTop.scala:1010:27
-    .io_pir_exp1_i  (_GEN_115),	// src/main/scala/pvu/PvuTop.scala:1010:27
-    .io_pir_frac1_i (_GEN_116),	// src/main/scala/pvu/PvuTop.scala:1010:27
+  PositConvert result_converter (	// src/main/scala/pvu/PvuTop.scala:1049:37
+    .io_pir_sign1_i (_GEN_114),	// src/main/scala/pvu/PvuTop.scala:1022:27
+    .io_pir_exp1_i  (_GEN_115),	// src/main/scala/pvu/PvuTop.scala:1022:27
+    .io_pir_frac1_i (_GEN_116),	// src/main/scala/pvu/PvuTop.scala:1022:27
     .io_pir_sign_o  (_result_converter_io_pir_sign_o),
     .io_pir_exp_o   (_result_converter_io_pir_exp_o),
     .io_pir_frac_o  (_result_converter_io_pir_frac_o)
   );
-  PositEncode result_encoder (	// src/main/scala/pvu/PvuTop.scala:1055:35
+  PositEncode result_encoder (	// src/main/scala/pvu/PvuTop.scala:1075:35
     .io_pir_sign
       ({{ACTUAL_VECTOR_SIZE[2] & _result_converter_io_pir_sign_o[2'h3]},
         {_valid_range_2_T & _result_converter_io_pir_sign_o[2'h2]},
         {(|(ACTUAL_VECTOR_SIZE[2:1])) & _result_converter_io_pir_sign_o[2'h1]},
-        {(|ACTUAL_VECTOR_SIZE) & _result_converter_io_pir_sign_o[2'h0]}}),	// src/main/scala/pvu/PvuTop.scala:28:8, :226:36, :234:34, :235:55, :242:29, :1029:37, :1055:35, :1063:40, :1070:31, :1071:42
+        {(|ACTUAL_VECTOR_SIZE) & _result_converter_io_pir_sign_o[2'h0]}}),	// src/main/scala/pvu/PvuTop.scala:28:8, :226:36, :234:34, :235:55, :242:29, :1049:37, :1075:35, :1083:40, :1090:31, :1091:42
     .io_pir_exp
       ({{ACTUAL_VECTOR_SIZE[2] ? _result_converter_io_pir_exp_o[2'h3] : 8'h0},
         {_valid_range_2_T ? _result_converter_io_pir_exp_o[2'h2] : 8'h0},
         {(|(ACTUAL_VECTOR_SIZE[2:1])) ? _result_converter_io_pir_exp_o[2'h1] : 8'h0},
-        {(|ACTUAL_VECTOR_SIZE) ? _result_converter_io_pir_exp_o[2'h0] : 8'h0}}),	// src/main/scala/pvu/PvuTop.scala:28:8, :226:36, :234:34, :235:55, :242:29, :814:{29,39}, :1029:37, :1055:35, :1064:40, :1070:31, :1072:42
+        {(|ACTUAL_VECTOR_SIZE) ? _result_converter_io_pir_exp_o[2'h0] : 8'h0}}),	// src/main/scala/pvu/PvuTop.scala:28:8, :226:36, :234:34, :235:55, :242:29, :826:{29,39}, :1049:37, :1075:35, :1084:40, :1090:31, :1092:42
     .io_pir_frac
       ({{ACTUAL_VECTOR_SIZE[2] ? _result_converter_io_pir_frac_o[2'h3] : 28'h0},
         {_valid_range_2_T ? _result_converter_io_pir_frac_o[2'h2] : 28'h0},
         {(|(ACTUAL_VECTOR_SIZE[2:1])) ? _result_converter_io_pir_frac_o[2'h1] : 28'h0},
-        {(|ACTUAL_VECTOR_SIZE) ? _result_converter_io_pir_frac_o[2'h0] : 28'h0}}),	// src/main/scala/pvu/PvuTop.scala:28:8, :226:36, :234:34, :235:55, :242:29, :1015:32, :1029:37, :1055:35, :1065:40, :1070:31, :1073:42
+        {(|ACTUAL_VECTOR_SIZE) ? _result_converter_io_pir_frac_o[2'h0] : 28'h0}}),	// src/main/scala/pvu/PvuTop.scala:28:8, :226:36, :234:34, :235:55, :242:29, :1027:32, :1049:37, :1075:35, :1085:40, :1090:31, :1093:42
     .io_posit    (_result_encoder_io_posit)
   );
-  FloatEncode_3 floatEncoder (	// src/main/scala/pvu/PvuTop.scala:1093:31
+  FloatEncode_3 floatEncoder (	// src/main/scala/pvu/PvuTop.scala:1117:31
     .io_Sign
       ({{ACTUAL_VECTOR_SIZE[2] & _GEN_86 & ~_GEN_34 & _GEN_67},
         {_valid_range_2_T & _GEN_86 & ~_GEN_34 & _GEN_66},
         {(|(ACTUAL_VECTOR_SIZE[2:1])) & _GEN_86 & ~_GEN_34 & _GEN_65},
-        {(|ACTUAL_VECTOR_SIZE) & _GEN_86 & ~_GEN_34 & _GEN_64}}),	// src/main/scala/pvu/PvuTop.scala:226:36, :242:29, :330:17, :333:23, :361:29, :370:29, :402:29, :416:29, :430:{21,29}, :828:15, :1093:31, :1101:34, :1111:29, :1112:36
+        {(|ACTUAL_VECTOR_SIZE) & _GEN_86 & ~_GEN_34 & _GEN_64}}),	// src/main/scala/pvu/PvuTop.scala:226:36, :242:29, :330:17, :333:23, :361:29, :370:29, :402:29, :416:29, :442:{21,29}, :840:15, :1117:31, :1125:34, :1135:29, :1136:36
     .io_Exp
       ({{ACTUAL_VECTOR_SIZE[2] ? {_GEN_99[7], _GEN_99} : 9'h0},
         {_valid_range_2_T ? {_GEN_98[7], _GEN_98} : 9'h0},
         {(|(ACTUAL_VECTOR_SIZE[2:1])) ? {_GEN_97[7], _GEN_97} : 9'h0},
-        {(|ACTUAL_VECTOR_SIZE) ? {_GEN_95[7], _GEN_95} : 9'h0}}),	// src/main/scala/pvu/PvuTop.scala:204:30, :226:36, :242:29, :828:22, :830:26, :1093:31, :1102:34, :1111:29, :1113:36
+        {(|ACTUAL_VECTOR_SIZE) ? {_GEN_95[7], _GEN_95} : 9'h0}}),	// src/main/scala/pvu/PvuTop.scala:204:30, :226:36, :242:29, :840:22, :842:26, :1117:31, :1126:34, :1135:29, :1137:36
     .io_Frac
       ({{ACTUAL_VECTOR_SIZE[2] ? {1'h0, _GEN_96 ? 23'h0 : _GEN_85[22:0]} : 24'h0},
         {_valid_range_2_T ? {1'h0, _GEN_96 ? 23'h0 : _GEN_84[22:0]} : 24'h0},
         {(|(ACTUAL_VECTOR_SIZE[2:1])) ? {1'h0, _GEN_96 ? 23'h0 : _GEN_83[22:0]} : 24'h0},
-        {(|ACTUAL_VECTOR_SIZE) ? {1'h0, _GEN_96 ? 23'h0 : _GEN_82[22:0]} : 24'h0}}),	// src/main/scala/pvu/PvuTop.scala:182:18, :191:26, :205:30, :226:36, :242:29, :759:25, :764:23, :774:29, :828:22, :830:26, :864:{35,56}, :1093:31, :1103:34, :1111:29, :1114:36
+        {(|ACTUAL_VECTOR_SIZE) ? {1'h0, _GEN_96 ? 23'h0 : _GEN_82[22:0]} : 24'h0}}),	// src/main/scala/pvu/PvuTop.scala:182:18, :191:26, :205:30, :226:36, :242:29, :771:25, :776:23, :786:29, :840:22, :842:26, :876:{35,56}, :1117:31, :1127:34, :1135:29, :1138:36
     .io_isNaN
       ({{ACTUAL_VECTOR_SIZE[2] & _GEN_86 & ~_GEN_34 & ~io_Isposit & _GEN_92},
         {_valid_range_2_T & _GEN_86 & ~_GEN_34 & ~io_Isposit & _GEN_91},
         {(|(ACTUAL_VECTOR_SIZE[2:1])) & _GEN_86 & ~_GEN_34 & ~io_Isposit & _GEN_90},
-        {(|ACTUAL_VECTOR_SIZE) & _GEN_86 & ~_GEN_34 & ~io_Isposit & _GEN_89}}),	// src/main/scala/pvu/PvuTop.scala:226:36, :242:29, :330:17, :333:23, :370:29, :402:29, :416:29, :430:{21,29}, :828:15, :845:13, :847:56, :1093:31, :1104:34, :1111:29, :1115:36
+        {(|ACTUAL_VECTOR_SIZE) & _GEN_86 & ~_GEN_34 & ~io_Isposit & _GEN_89}}),	// src/main/scala/pvu/PvuTop.scala:226:36, :242:29, :330:17, :333:23, :370:29, :402:29, :416:29, :442:{21,29}, :840:15, :857:13, :859:56, :1117:31, :1128:34, :1135:29, :1139:36
     .io_isInf
       ({{ACTUAL_VECTOR_SIZE[2] & _GEN_86 & ~_GEN_34 & ~io_Isposit & (_GEN_25 | _GEN_26)},
         {_valid_range_2_T & _GEN_86 & ~_GEN_34 & ~io_Isposit & (_GEN_19 | _GEN_20)},
         {(|(ACTUAL_VECTOR_SIZE[2:1])) & _GEN_86 & ~_GEN_34 & ~io_Isposit
            & (_GEN_13 | _GEN_14)},
-        {(|ACTUAL_VECTOR_SIZE) & _GEN_86 & ~_GEN_34 & ~io_Isposit & (_GEN_7 | _GEN_8)}}),	// src/main/scala/pvu/PvuTop.scala:193:26, :200:27, :226:36, :242:29, :246:21, :270:29, :330:17, :333:23, :370:29, :402:29, :416:29, :430:{21,29}, :828:15, :845:13, :888:37, :1093:31, :1105:34, :1111:29, :1116:36
+        {(|ACTUAL_VECTOR_SIZE) & _GEN_86 & ~_GEN_34 & ~io_Isposit & (_GEN_7 | _GEN_8)}}),	// src/main/scala/pvu/PvuTop.scala:193:26, :200:27, :226:36, :242:29, :246:21, :270:29, :330:17, :333:23, :370:29, :402:29, :416:29, :442:{21,29}, :840:15, :857:13, :900:37, :1117:31, :1129:34, :1135:29, :1140:36
     .io_isZero
       ({{~(ACTUAL_VECTOR_SIZE[2]) | ~_GEN_86 | _GEN_34 | _GEN_85 == 68'h0},
         {~_valid_range_2_T | ~_GEN_86 | _GEN_34 | _GEN_84 == 68'h0},
         {~(|(ACTUAL_VECTOR_SIZE[2:1])) | ~_GEN_86 | _GEN_34 | _GEN_83 == 68'h0},
-        {~(|ACTUAL_VECTOR_SIZE) | ~_GEN_86 | _GEN_34 | _GEN_82 == 68'h0}}),	// src/main/scala/pvu/PvuTop.scala:190:26, :204:30, :210:21, :226:36, :242:29, :246:21, :270:29, :430:21, :759:25, :764:23, :774:29, :828:{15,22}, :830:26, :878:34, :1093:31, :1106:34, :1111:29, :1117:36
+        {~(|ACTUAL_VECTOR_SIZE) | ~_GEN_86 | _GEN_34 | _GEN_82 == 68'h0}}),	// src/main/scala/pvu/PvuTop.scala:190:26, :204:30, :210:21, :226:36, :242:29, :246:21, :270:29, :442:21, :771:25, :776:23, :786:29, :840:{15,22}, :842:26, :890:34, :1117:31, :1130:34, :1135:29, :1141:36
     .io_float  (_floatEncoder_io_float)
   );
   assign io_float_o_0 =
@@ -8990,7 +9049,7 @@ module PvuTop(	// src/main/scala/pvu/PvuTop.scala:28:8
       ? _GEN_53
       : io_Outposit
           ? (_GEN_101 | _GEN_50 ? 64'h0 : _GEN_46[io_float_mode])
-          : (|ACTUAL_VECTOR_SIZE) ? {32'h0, _floatEncoder_io_float[2'h0]} : _GEN_53;	// src/main/scala/pvu/PvuTop.scala:28:8, :170:{18,28}, :172:{18,28}, :226:36, :242:29, :249:{28,38}, :250:{28,38}, :263:38, :264:38, :333:23, :370:29, :402:29, :416:29, :430:29, :444:29, :466:29, :472:{22,32}, :473:{22,32}, :476:28, :512:38, :550:38, :588:39, :626:39, :664:39, :671:27, :674:{19,29}, :678:{19,29}, :896:23, :970:29, :991:29, :993:30, :995:30, :997:31, :1093:31, :1124:24, :1127:31, :1129:26, :1135:31, :1137:26
+          : (|ACTUAL_VECTOR_SIZE) ? {32'h0, _floatEncoder_io_float[2'h0]} : _GEN_53;	// src/main/scala/pvu/PvuTop.scala:28:8, :170:{18,28}, :172:{18,28}, :226:36, :242:29, :249:{28,38}, :250:{28,38}, :263:38, :264:38, :333:23, :370:29, :402:29, :416:29, :442:29, :456:29, :478:29, :484:{22,32}, :485:{22,32}, :488:28, :524:38, :562:38, :600:39, :638:39, :676:39, :683:27, :686:{19,29}, :690:{19,29}, :908:23, :982:29, :1003:29, :1005:30, :1007:30, :1009:31, :1117:31, :1148:24, :1151:31, :1153:26, :1159:31, :1161:26
   assign io_float_o_1 =
     _GEN_106
       ? _GEN_54
@@ -8998,21 +9057,21 @@ module PvuTop(	// src/main/scala/pvu/PvuTop.scala:28:8
           ? (_GEN_102 | _GEN_50 ? 64'h0 : _GEN_47[io_float_mode])
           : (|(ACTUAL_VECTOR_SIZE[2:1]))
               ? {32'h0, _floatEncoder_io_float[2'h1]}
-              : _GEN_54;	// src/main/scala/pvu/PvuTop.scala:28:8, :170:{18,28}, :172:{18,28}, :226:36, :242:29, :249:{28,38}, :250:{28,38}, :263:38, :264:38, :333:23, :370:29, :402:29, :416:29, :430:29, :444:29, :466:29, :472:{22,32}, :473:{22,32}, :476:28, :512:38, :550:38, :588:39, :626:39, :664:39, :671:27, :674:{19,29}, :678:{19,29}, :896:23, :970:29, :991:29, :993:30, :995:30, :997:31, :1093:31, :1124:24, :1127:31, :1129:26, :1135:31, :1137:26
+              : _GEN_54;	// src/main/scala/pvu/PvuTop.scala:28:8, :170:{18,28}, :172:{18,28}, :226:36, :242:29, :249:{28,38}, :250:{28,38}, :263:38, :264:38, :333:23, :370:29, :402:29, :416:29, :442:29, :456:29, :478:29, :484:{22,32}, :485:{22,32}, :488:28, :524:38, :562:38, :600:39, :638:39, :676:39, :683:27, :686:{19,29}, :690:{19,29}, :908:23, :982:29, :1003:29, :1005:30, :1007:30, :1009:31, :1117:31, :1148:24, :1151:31, :1153:26, :1159:31, :1161:26
   assign io_float_o_2 =
     _GEN_106
       ? _GEN_55
       : io_Outposit
           ? (_GEN_103 | _GEN_50 ? 64'h0 : _GEN_48[io_float_mode])
-          : _valid_range_2_T ? {32'h0, _floatEncoder_io_float[2'h2]} : _GEN_55;	// src/main/scala/pvu/PvuTop.scala:28:8, :170:{18,28}, :172:{18,28}, :234:34, :242:29, :249:{28,38}, :250:{28,38}, :263:38, :264:38, :333:23, :370:29, :402:29, :416:29, :430:29, :444:29, :466:29, :472:{22,32}, :473:{22,32}, :476:28, :512:38, :550:38, :588:39, :626:39, :664:39, :671:27, :674:{19,29}, :678:{19,29}, :896:23, :970:29, :991:29, :993:30, :995:30, :997:31, :1093:31, :1124:24, :1127:31, :1129:26, :1135:31, :1137:26
+          : _valid_range_2_T ? {32'h0, _floatEncoder_io_float[2'h2]} : _GEN_55;	// src/main/scala/pvu/PvuTop.scala:28:8, :170:{18,28}, :172:{18,28}, :234:34, :242:29, :249:{28,38}, :250:{28,38}, :263:38, :264:38, :333:23, :370:29, :402:29, :416:29, :442:29, :456:29, :478:29, :484:{22,32}, :485:{22,32}, :488:28, :524:38, :562:38, :600:39, :638:39, :676:39, :683:27, :686:{19,29}, :690:{19,29}, :908:23, :982:29, :1003:29, :1005:30, :1007:30, :1009:31, :1117:31, :1148:24, :1151:31, :1153:26, :1159:31, :1161:26
   assign io_float_o_3 =
     _GEN_106
       ? _GEN_56
       : io_Outposit
           ? (_GEN_104 | _GEN_50 ? 64'h0 : _GEN_49[io_float_mode])
-          : ACTUAL_VECTOR_SIZE[2] ? {32'h0, _floatEncoder_io_float[2'h3]} : _GEN_56;	// src/main/scala/pvu/PvuTop.scala:28:8, :170:{18,28}, :172:{18,28}, :226:36, :235:55, :242:29, :249:{28,38}, :250:{28,38}, :263:38, :264:38, :333:23, :370:29, :402:29, :416:29, :430:29, :444:29, :466:29, :472:{22,32}, :473:{22,32}, :476:28, :512:38, :550:38, :588:39, :626:39, :664:39, :671:27, :674:{19,29}, :678:{19,29}, :896:23, :970:29, :991:29, :993:30, :995:30, :997:31, :1093:31, :1124:24, :1127:31, :1129:26, :1135:31, :1137:26
+          : ACTUAL_VECTOR_SIZE[2] ? {32'h0, _floatEncoder_io_float[2'h3]} : _GEN_56;	// src/main/scala/pvu/PvuTop.scala:28:8, :170:{18,28}, :172:{18,28}, :226:36, :235:55, :242:29, :249:{28,38}, :250:{28,38}, :263:38, :264:38, :333:23, :370:29, :402:29, :416:29, :442:29, :456:29, :478:29, :484:{22,32}, :485:{22,32}, :488:28, :524:38, :562:38, :600:39, :638:39, :676:39, :683:27, :686:{19,29}, :690:{19,29}, :908:23, :982:29, :1003:29, :1005:30, :1007:30, :1009:31, :1117:31, :1148:24, :1151:31, :1153:26, :1159:31, :1161:26
   assign io_float_dot_o =
-    ~_GEN_34 | io_Outposit ? 64'h0 : {32'h0, _floatDotEncoder_io_float[1'h0]};	// src/main/scala/pvu/PvuTop.scala:28:8, :170:{18,28}, :171:18, :172:{18,28}, :182:18, :249:{28,38}, :250:{28,38}, :263:38, :264:38, :330:17, :333:23, :370:29, :402:29, :416:29, :430:{21,29}, :472:{22,32}, :473:{22,32}, :674:{19,29}, :678:{19,29}, :896:23, :946:34, :962:24, :967:23
+    ~_GEN_34 | io_Outposit ? 64'h0 : {32'h0, _floatDotEncoder_io_float[1'h0]};	// src/main/scala/pvu/PvuTop.scala:28:8, :170:{18,28}, :171:18, :172:{18,28}, :182:18, :249:{28,38}, :250:{28,38}, :263:38, :264:38, :330:17, :333:23, :370:29, :402:29, :416:29, :442:{21,29}, :484:{22,32}, :485:{22,32}, :686:{19,29}, :690:{19,29}, :908:23, :958:34, :974:24, :979:23
   assign io_posit_o_0 =
     _GEN_34
       ? _GEN_70
@@ -9022,13 +9081,16 @@ module PvuTop(	// src/main/scala/pvu/PvuTop.scala:28:8
               ? _GEN_70
               : io_Outposit
                   ? ((|ACTUAL_VECTOR_SIZE)
-                       ? (_GEN_100
-                            ? _encode_io_posit[2'h0]
-                            : _GEN_41
-                                ? _result_encoder_io_posit[2'h0]
-                                : _posit_results_0_T_6[31:0])
+                       ? (_GEN_33 & io_posit_i1_0 == 32'h40000000
+                          & io_posit_i2_0 == 32'h40000000
+                            ? 32'h40000000
+                            : _GEN_100
+                                ? _encode_io_posit[2'h0]
+                                : _GEN_41
+                                    ? _result_encoder_io_posit[2'h0]
+                                    : _posit_results_0_T_6[31:0])
                        : _GEN_51 ? 32'h0 : _GEN_69)
-                  : _GEN_101 ? 32'h0 : _GEN_69;	// src/main/scala/pvu/PvuTop.scala:28:8, :170:18, :172:{18,28}, :226:36, :242:29, :249:28, :250:28, :263:38, :264:38, :333:23, :370:29, :402:29, :416:29, :430:{21,29}, :444:{21,29}, :466:29, :472:{22,32}, :490:61, :492:33, :493:67, :671:27, :678:{19,29}, :680:30, :896:23, :970:29, :972:34, :979:57, :981:{24,54}, :982:63, :986:{24,105}, :991:29, :993:30, :995:30, :997:31, :1005:25, :1009:35, :1010:27, :1019:31, :1023:34, :1055:35, :1070:31, :1076:61, :1078:{31,60}, :1079:67, :1083:{31,111}, :1124:24, :1127:31, :1128:26, :1129:26, :1135:31, :1136:26
+                  : _GEN_101 ? 32'h0 : _GEN_69;	// src/main/scala/pvu/PvuTop.scala:28:8, :170:18, :172:{18,28}, :226:36, :242:29, :249:28, :250:28, :263:38, :264:38, :333:23, :370:29, :402:29, :416:{21,29}, :442:{21,29}, :456:{21,29}, :478:29, :484:{22,32}, :502:61, :504:33, :505:67, :683:27, :690:{19,29}, :692:30, :908:23, :982:29, :984:34, :991:57, :993:{24,54}, :994:63, :998:{24,105}, :1003:29, :1005:30, :1007:30, :1009:31, :1017:25, :1021:35, :1022:27, :1031:31, :1038:{33,79}, :1039:{33,80}, :1040:31, :1042:31, :1075:35, :1090:31, :1098:80, :1099:31, :1100:67, :1102:{31,60}, :1103:67, :1107:{31,111}, :1148:24, :1151:31, :1152:26, :1153:26, :1159:31, :1160:26
   assign io_posit_o_1 =
     _GEN_34
       ? _GEN_73
@@ -9038,13 +9100,16 @@ module PvuTop(	// src/main/scala/pvu/PvuTop.scala:28:8
               ? _GEN_73
               : io_Outposit
                   ? ((|(ACTUAL_VECTOR_SIZE[2:1]))
-                       ? (_GEN_100
-                            ? _encode_io_posit[2'h1]
-                            : _GEN_41
-                                ? _result_encoder_io_posit[2'h1]
-                                : _posit_results_1_T_6[31:0])
+                       ? (_GEN_33 & io_posit_i1_1 == 32'h40000000
+                          & io_posit_i2_1 == 32'h40000000
+                            ? 32'h40000000
+                            : _GEN_100
+                                ? _encode_io_posit[2'h1]
+                                : _GEN_41
+                                    ? _result_encoder_io_posit[2'h1]
+                                    : _posit_results_1_T_6[31:0])
                        : _GEN_51 ? 32'h0 : _GEN_72)
-                  : _GEN_102 ? 32'h0 : _GEN_72;	// src/main/scala/pvu/PvuTop.scala:28:8, :170:18, :172:{18,28}, :226:36, :242:29, :249:28, :250:28, :263:38, :264:38, :333:23, :370:29, :402:29, :416:29, :430:{21,29}, :444:{21,29}, :466:29, :472:{22,32}, :490:61, :492:33, :493:67, :671:27, :678:{19,29}, :680:30, :896:23, :970:29, :972:34, :979:57, :981:{24,54}, :982:63, :986:{24,105}, :991:29, :993:30, :995:30, :997:31, :1005:25, :1009:35, :1010:27, :1019:31, :1023:34, :1055:35, :1070:31, :1076:61, :1078:{31,60}, :1079:67, :1083:{31,111}, :1124:24, :1127:31, :1128:26, :1129:26, :1135:31, :1136:26
+                  : _GEN_102 ? 32'h0 : _GEN_72;	// src/main/scala/pvu/PvuTop.scala:28:8, :170:18, :172:{18,28}, :226:36, :242:29, :249:28, :250:28, :263:38, :264:38, :333:23, :370:29, :402:29, :416:{21,29}, :442:{21,29}, :456:{21,29}, :478:29, :484:{22,32}, :502:61, :504:33, :505:67, :683:27, :690:{19,29}, :692:30, :908:23, :982:29, :984:34, :991:57, :993:{24,54}, :994:63, :998:{24,105}, :1003:29, :1005:30, :1007:30, :1009:31, :1017:25, :1021:35, :1022:27, :1031:31, :1038:{33,79}, :1039:{33,80}, :1040:31, :1042:31, :1075:35, :1090:31, :1098:80, :1099:31, :1100:67, :1102:{31,60}, :1103:67, :1107:{31,111}, :1148:24, :1151:31, :1152:26, :1153:26, :1159:31, :1160:26
   assign io_posit_o_2 =
     _GEN_34
       ? _GEN_76
@@ -9054,13 +9119,16 @@ module PvuTop(	// src/main/scala/pvu/PvuTop.scala:28:8
               ? _GEN_76
               : io_Outposit
                   ? (_valid_range_2_T
-                       ? (_GEN_100
-                            ? _encode_io_posit[2'h2]
-                            : _GEN_41
-                                ? _result_encoder_io_posit[2'h2]
-                                : _posit_results_2_T_6[31:0])
+                       ? (_GEN_33 & io_posit_i1_2 == 32'h40000000
+                          & io_posit_i2_2 == 32'h40000000
+                            ? 32'h40000000
+                            : _GEN_100
+                                ? _encode_io_posit[2'h2]
+                                : _GEN_41
+                                    ? _result_encoder_io_posit[2'h2]
+                                    : _posit_results_2_T_6[31:0])
                        : _GEN_51 ? 32'h0 : _GEN_75)
-                  : _GEN_103 ? 32'h0 : _GEN_75;	// src/main/scala/pvu/PvuTop.scala:28:8, :170:18, :172:{18,28}, :234:34, :242:29, :249:28, :250:28, :263:38, :264:38, :333:23, :370:29, :402:29, :416:29, :430:{21,29}, :444:{21,29}, :466:29, :472:{22,32}, :490:61, :492:33, :493:67, :671:27, :678:{19,29}, :680:30, :896:23, :970:29, :972:34, :979:57, :981:{24,54}, :982:63, :986:{24,105}, :991:29, :993:30, :995:30, :997:31, :1005:25, :1009:35, :1010:27, :1019:31, :1023:34, :1055:35, :1070:31, :1076:61, :1078:{31,60}, :1079:67, :1083:{31,111}, :1124:24, :1127:31, :1128:26, :1129:26, :1135:31, :1136:26
+                  : _GEN_103 ? 32'h0 : _GEN_75;	// src/main/scala/pvu/PvuTop.scala:28:8, :170:18, :172:{18,28}, :234:34, :242:29, :249:28, :250:28, :263:38, :264:38, :333:23, :370:29, :402:29, :416:{21,29}, :442:{21,29}, :456:{21,29}, :478:29, :484:{22,32}, :502:61, :504:33, :505:67, :683:27, :690:{19,29}, :692:30, :908:23, :982:29, :984:34, :991:57, :993:{24,54}, :994:63, :998:{24,105}, :1003:29, :1005:30, :1007:30, :1009:31, :1017:25, :1021:35, :1022:27, :1031:31, :1038:{33,79}, :1039:{33,80}, :1040:31, :1042:31, :1075:35, :1090:31, :1098:80, :1099:31, :1100:67, :1102:{31,60}, :1103:67, :1107:{31,111}, :1148:24, :1151:31, :1152:26, :1153:26, :1159:31, :1160:26
   assign io_posit_o_3 =
     _GEN_34
       ? _GEN_79
@@ -9070,21 +9138,24 @@ module PvuTop(	// src/main/scala/pvu/PvuTop.scala:28:8
               ? _GEN_79
               : io_Outposit
                   ? (ACTUAL_VECTOR_SIZE[2]
-                       ? (_GEN_100
-                            ? _encode_io_posit[2'h3]
-                            : _GEN_41
-                                ? _result_encoder_io_posit[2'h3]
-                                : _posit_results_3_T_6[31:0])
+                       ? (_GEN_33 & io_posit_i1_3 == 32'h40000000
+                          & io_posit_i2_3 == 32'h40000000
+                            ? 32'h40000000
+                            : _GEN_100
+                                ? _encode_io_posit[2'h3]
+                                : _GEN_41
+                                    ? _result_encoder_io_posit[2'h3]
+                                    : _posit_results_3_T_6[31:0])
                        : _GEN_51 ? 32'h0 : _GEN_78)
-                  : _GEN_104 ? 32'h0 : _GEN_78;	// src/main/scala/pvu/PvuTop.scala:28:8, :170:18, :172:{18,28}, :226:36, :235:55, :242:29, :249:28, :250:28, :263:38, :264:38, :333:23, :370:29, :402:29, :416:29, :430:{21,29}, :444:{21,29}, :466:29, :472:{22,32}, :490:61, :492:33, :493:67, :671:27, :678:{19,29}, :680:30, :896:23, :970:29, :972:34, :979:57, :981:{24,54}, :982:63, :986:{24,105}, :991:29, :993:30, :995:30, :997:31, :1005:25, :1009:35, :1010:27, :1019:31, :1023:34, :1055:35, :1070:31, :1076:61, :1078:{31,60}, :1079:67, :1083:{31,111}, :1124:24, :1127:31, :1128:26, :1129:26, :1135:31, :1136:26
+                  : _GEN_104 ? 32'h0 : _GEN_78;	// src/main/scala/pvu/PvuTop.scala:28:8, :170:18, :172:{18,28}, :226:36, :235:55, :242:29, :249:28, :250:28, :263:38, :264:38, :333:23, :370:29, :402:29, :416:{21,29}, :442:{21,29}, :456:{21,29}, :478:29, :484:{22,32}, :502:61, :504:33, :505:67, :683:27, :690:{19,29}, :692:30, :908:23, :982:29, :984:34, :991:57, :993:{24,54}, :994:63, :998:{24,105}, :1003:29, :1005:30, :1007:30, :1009:31, :1017:25, :1021:35, :1022:27, :1031:31, :1038:{33,79}, :1039:{33,80}, :1040:31, :1042:31, :1075:35, :1090:31, :1098:80, :1099:31, :1100:67, :1102:{31,60}, :1103:67, :1107:{31,111}, :1148:24, :1151:31, :1152:26, :1153:26, :1159:31, :1160:26
   assign io_posit_dot_o =
     _GEN_34 & io_Outposit
       ? (_GEN_41 ? _dot_encoder_io_posit[1'h0] : _posit_result_T_6[31:0])
-      : 32'h0;	// src/main/scala/pvu/PvuTop.scala:28:8, :172:{18,28}, :173:18, :182:18, :249:28, :250:28, :263:38, :264:38, :430:21, :472:{22,32}, :490:61, :492:33, :493:67, :678:{19,29}, :896:23, :926:30, :933:55, :935:{21,47}, :936:61, :940:{21,98}, :962:24, :963:23, :966:23
-  assign io_int_o_0 = _GEN_81 ? 32'h0 : _tranInt_io_int_o[2'h0];	// src/main/scala/pvu/PvuTop.scala:28:8, :172:{18,28}, :174:18, :249:28, :250:28, :263:38, :264:38, :333:23, :370:29, :402:29, :416:29, :430:29, :444:29, :466:29, :472:{22,32}, :678:{19,29}, :680:30, :705:30, :730:31, :731:26, :745:15
-  assign io_int_o_1 = _GEN_81 ? 32'h0 : _tranInt_io_int_o[2'h1];	// src/main/scala/pvu/PvuTop.scala:28:8, :172:{18,28}, :174:18, :249:28, :250:28, :263:38, :264:38, :333:23, :370:29, :402:29, :416:29, :430:29, :444:29, :466:29, :472:{22,32}, :678:{19,29}, :680:30, :705:30, :730:31, :731:26, :745:15
-  assign io_int_o_2 = _GEN_81 ? 32'h0 : _tranInt_io_int_o[2'h2];	// src/main/scala/pvu/PvuTop.scala:28:8, :172:{18,28}, :174:18, :234:34, :249:28, :250:28, :263:38, :264:38, :333:23, :370:29, :402:29, :416:29, :430:29, :444:29, :466:29, :472:{22,32}, :678:{19,29}, :680:30, :705:30, :730:31, :731:26, :745:15
-  assign io_int_o_3 = _GEN_81 ? 32'h0 : _tranInt_io_int_o[2'h3];	// src/main/scala/pvu/PvuTop.scala:28:8, :172:{18,28}, :174:18, :235:55, :249:28, :250:28, :263:38, :264:38, :333:23, :370:29, :402:29, :416:29, :430:29, :444:29, :466:29, :472:{22,32}, :678:{19,29}, :680:30, :705:30, :730:31, :731:26, :745:15
+      : 32'h0;	// src/main/scala/pvu/PvuTop.scala:28:8, :172:{18,28}, :173:18, :182:18, :249:28, :250:28, :263:38, :264:38, :442:21, :484:{22,32}, :502:61, :504:33, :505:67, :690:{19,29}, :908:23, :938:30, :945:55, :947:{21,47}, :948:61, :952:{21,98}, :974:24, :975:23, :978:23
+  assign io_int_o_0 = _GEN_81 ? 32'h0 : _tranInt_io_int_o[2'h0];	// src/main/scala/pvu/PvuTop.scala:28:8, :172:{18,28}, :174:18, :249:28, :250:28, :263:38, :264:38, :333:23, :370:29, :402:29, :416:29, :442:29, :456:29, :478:29, :484:{22,32}, :690:{19,29}, :692:30, :717:30, :742:31, :743:26, :757:15
+  assign io_int_o_1 = _GEN_81 ? 32'h0 : _tranInt_io_int_o[2'h1];	// src/main/scala/pvu/PvuTop.scala:28:8, :172:{18,28}, :174:18, :249:28, :250:28, :263:38, :264:38, :333:23, :370:29, :402:29, :416:29, :442:29, :456:29, :478:29, :484:{22,32}, :690:{19,29}, :692:30, :717:30, :742:31, :743:26, :757:15
+  assign io_int_o_2 = _GEN_81 ? 32'h0 : _tranInt_io_int_o[2'h2];	// src/main/scala/pvu/PvuTop.scala:28:8, :172:{18,28}, :174:18, :234:34, :249:28, :250:28, :263:38, :264:38, :333:23, :370:29, :402:29, :416:29, :442:29, :456:29, :478:29, :484:{22,32}, :690:{19,29}, :692:30, :717:30, :742:31, :743:26, :757:15
+  assign io_int_o_3 = _GEN_81 ? 32'h0 : _tranInt_io_int_o[2'h3];	// src/main/scala/pvu/PvuTop.scala:28:8, :172:{18,28}, :174:18, :235:55, :249:28, :250:28, :263:38, :264:38, :333:23, :370:29, :402:29, :416:29, :442:29, :456:29, :478:29, :484:{22,32}, :690:{19,29}, :692:30, :717:30, :742:31, :743:26, :757:15
 endmodule
 
 

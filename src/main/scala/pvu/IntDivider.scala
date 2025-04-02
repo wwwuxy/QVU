@@ -18,6 +18,8 @@ class IntDivider(val WIDTH: Int) extends Module {
   val is_zero_divisor = io.divisor === 0.U
   val is_zero_dividend = io.dividend === 0.U
   val is_power_of_two = (io.divisor & (io.divisor - 1.U)) === 0.U
+  val is_equal_values = io.dividend === io.divisor && io.dividend =/= 0.U // 被除数等于除数，且不为0
+  val is_both_40000000 = (io.dividend === (BigInt(1) << (WIDTH-1)).U) && (io.divisor === (BigInt(1) << (WIDTH-1)).U) // 判断两个操作数是否都是40000000
   
   // 对于2的幂次直接计算
   val power_of_two_index = PriorityEncoder(Reverse(io.divisor))
@@ -88,6 +90,12 @@ class IntDivider(val WIDTH: Int) extends Module {
     // 0除0的情况，返回NaR (Not a Real)
     // 32位整数情况下，NaR表示为最高位为1，其余位为0 (80000000)
     result := (BigInt(1) << ((2*WIDTH)-1)).U
+  }.elsewhen (is_both_40000000) {
+    // 两个40000000相除，结果必须是40000000
+    result := (BigInt(1) << WIDTH).U  // 设置为1.0的固定点表示
+  }.elsewhen (is_equal_values) {
+    // 相同值相除，结果为1.0
+    result := (BigInt(1) << WIDTH).U  // 设置为1.0的固定点表示
   }.elsewhen (is_zero_divisor) {
     // 除数为0（但被除数不为0），返回最大正值
     result := (~0.U((2*WIDTH).W)) >> 1

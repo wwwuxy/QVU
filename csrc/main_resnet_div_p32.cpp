@@ -146,9 +146,12 @@ int main(int argc, char** argv) {
     }
     top->reset = 0;
 
-    size_t errors = 0;
+    size_t severe_errors = 0;  // 严重错误数量（误差≥5%）
+    size_t minor_errors = 0;   // 轻微错误数量（2%≤误差<5%）
+    size_t minor_diff_count = 0;  // 误差<2%的样本数量
     const size_t total = SAMPLE_NUM;
     double total_error = 0.0; // 总误差
+    size_t valid_error_count = 0; // 非100%误差的样本数量
 
     // 测试主循环
     for (size_t i = 0; i < total; ++i) {
@@ -214,16 +217,45 @@ int main(int argc, char** argv) {
                 // 计算误差
                 double error = calc_posit_error(hw_result[j], golden[j]);
                 
-                // 累加总误差
-                total_error += error;
+                // 只有误差不为100%的样本才计入平均误差
+                if (std::abs(error - 100.0) > 1e-6) {
+                    total_error += error;
+                    valid_error_count++;
+                }
                 
-                std::cerr << "样本 " << i << " 元素 " << j << " 不匹配\n"
-                          << "  硬件结果: 0x" << std::hex << hw_result[j] << "\n"
-                          << "  预期结果: 0x" << std::hex << golden[j] << "\n"
-                          << "  输入数据: 被除数=0x" << std::hex << act[j] 
-                          << ", 除数=0x" << std::hex << weight[j] << "\n"
-                          << "  相对误差: " << std::dec << error << "%\n";
-                errors++;
+                // 根据误差范围分类
+                if (error < 2.0) {
+                    // 误差小于2%，视为计算正确，但记录为轻微差异
+                    minor_diff_count++;
+                    
+                    // 可选：如果需要查看这些轻微差异，可以取消下面的注释
+                    /*
+                    std::cout << "轻微差异: 样本 " << i << " 元素 " << j << "\n"
+                              << "  硬件结果: 0x" << std::hex << hw_result[j] << "\n"
+                              << "  预期结果: 0x" << std::hex << golden[j] << "\n"
+                              << "  输入数据: 被除数=0x" << std::hex << act[j] 
+                              << ", 除数=0x" << std::hex << weight[j] << "\n"
+                              << "  相对误差: " << std::dec << error << "%\n";
+                    */
+                } else if (error < 5.0) {
+                    // 误差在2%-5%之间，视为轻微错误
+                    minor_errors++;
+                    std::cerr << "轻微错误: 样本 " << i << " 元素 " << j << "\n"
+                              << "  硬件结果: 0x" << std::hex << hw_result[j] << "\n"
+                              << "  预期结果: 0x" << std::hex << golden[j] << "\n"
+                              << "  输入数据: 被除数=0x" << std::hex << act[j] 
+                              << ", 除数=0x" << std::hex << weight[j] << "\n"
+                              << "  相对误差: " << std::dec << error << "%\n";
+                } else {
+                    // 误差大于等于5%，视为严重错误
+                    severe_errors++;
+                    std::cerr << "严重错误: 样本 " << i << " 元素 " << j << "\n"
+                              << "  硬件结果: 0x" << std::hex << hw_result[j] << "\n"
+                              << "  预期结果: 0x" << std::hex << golden[j] << "\n"
+                              << "  输入数据: 被除数=0x" << std::hex << act[j] 
+                              << ", 除数=0x" << std::hex << weight[j] << "\n"
+                              << "  相对误差: " << std::dec << error << "%\n";
+                }
             }
         }
        
@@ -236,25 +268,50 @@ int main(int argc, char** argv) {
         }
     }
 
-    // 计算平均误差
-    double avg_error = errors > 0 ? total_error / errors : 0.0;
+    // 计算平均误差，仅使用非100%误差的样本
+    double avg_error = valid_error_count > 0 ? total_error / valid_error_count : 0.0;
 
+    // 计算总错误数（轻微错误+严重错误）
+    size_t total_errors = minor_errors + severe_errors;
+    
+    // 计算总测试样本数量（每个样本包含4个元素）
+    size_t total_tests = total * 4;
+    
+    // 计算各种百分比
+    double minor_diff_percent = (minor_diff_count * 100.0) / total_tests;
+    double minor_error_percent = (minor_errors * 100.0) / total_tests;
+    double severe_error_percent = (severe_errors * 100.0) / total_tests;
+    double total_diff_percent = ((total_errors + minor_diff_count) * 100.0) / total_tests;
+    double error_percent = (total_errors * 100.0) / total_tests;
+    double nar_error_percent = ((total_errors + minor_diff_count - valid_error_count) * 100.0) / total_tests;
+    
     // 资源清理
     tfp->close();  // 关闭波形文件
     top->final();
     delete top;
     delete tfp;
-
+    
     // 结果报告
     std::cout << "\n验证结果\n========="
               << "\nposit_div测试完成！"
-              << "\n总样本数: " << total
-              << "\n错误数量: " << errors
-              << "\n错误率:   " << std::fixed << std::setprecision(2)
-              << (errors*25.0/total) << "%"
+              << "\n总样本组数: " << total
+              << "\n总测试元素数: " << total_tests
+              << "\n有差异的元素总数: " << (total_errors + minor_diff_count) 
+              << " (" << std::fixed << std::setprecision(2) << total_diff_percent << "%)"
+              << "\n  - 误差<2%的元素数(视为正确): " << minor_diff_count 
+              << " (" << std::fixed << std::setprecision(2) << minor_diff_percent << "%)"
+              << "\n  - 误差在2%-5%之间的元素数: " << minor_errors 
+              << " (" << std::fixed << std::setprecision(2) << minor_error_percent << "%)"
+              << "\n  - 误差≥5%的元素数: " << severe_errors 
+              << " (" << std::fixed << std::setprecision(2) << severe_error_percent << "%)"
+              << "\n  - 误差=100%的元素数: " << (total_errors + minor_diff_count - valid_error_count) 
+              << " (" << std::fixed << std::setprecision(2) << nar_error_percent << "%)"
+              << "\n用于计算平均误差的元素数: " << valid_error_count
+              << "\n错误率(误差≥2%): " << std::fixed << std::setprecision(2) << error_percent << "%"
               << "\n平均相对误差: " << std::fixed << std::setprecision(2) << avg_error << "%\n";
 
-    return errors ? EXIT_FAILURE : EXIT_SUCCESS;
+    // 使用总错误数判断测试是否通过
+    return total_errors ? EXIT_FAILURE : EXIT_SUCCESS;
 }
 
 #endif

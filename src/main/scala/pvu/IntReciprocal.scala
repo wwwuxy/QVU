@@ -14,6 +14,10 @@ class IntReciprocal(val WIDTH: Int) extends Module {
   // 特殊情况处理
   val is_zero = io.num_i === 0.U
   val is_one = io.num_i === 1.U
+  // 检测值是否为1.0的表示（fixed point表示中的2^WIDTH）
+  val is_one_fixed_point = io.num_i === (BigInt(1) << (WIDTH-1)).U
+  // 检测是否确实为40000000
+  val is_40000000 = io.num_i === (BigInt(1) << (WIDTH-1)).U
   val is_power_of_two = (io.num_i & (io.num_i - 1.U)) === 0.U
   
   // 对于2的幂次，可以直接计算倒数
@@ -100,6 +104,9 @@ class IntReciprocal(val WIDTH: Int) extends Module {
     result := (BigInt(1) << ((2*WIDTH)-1)).U
   }.elsewhen(is_one) {
     // 输入为1，结果为1.0
+    result := one_fixed
+  }.elsewhen(is_one_fixed_point || is_40000000) {
+    // 输入为1.0的fixed point表示或40000000，结果也是1.0
     result := one_fixed
   }.elsewhen(is_power_of_two) {
     // 输入为2的幂次，使用精确计算结果

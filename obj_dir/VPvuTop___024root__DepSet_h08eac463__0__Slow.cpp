@@ -4126,10 +4126,6 @@ void VPvuTop_Radix4BoothMultiplier___ico_comb__TOP__PvuTop__DOT__mul__DOT__radix
 void VPvuTop_Radix4BoothMultiplier___ico_comb__TOP__PvuTop__DOT__mul__DOT__radix4BoothMultiplier_2__1(VPvuTop_Radix4BoothMultiplier* vlSelf);
 void VPvuTop_Radix4BoothMultiplier___ico_comb__TOP__PvuTop__DOT__mul__DOT__radix4BoothMultiplier_1__1(VPvuTop_Radix4BoothMultiplier* vlSelf);
 void VPvuTop_Radix4BoothMultiplier___ico_comb__TOP__PvuTop__DOT__mul__DOT__radix4BoothMultiplier__1(VPvuTop_Radix4BoothMultiplier* vlSelf);
-void VPvuTop_LZC__M1_W44___ico_comb__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3__0(VPvuTop_LZC__M1_W44* vlSelf);
-void VPvuTop_LZC__M1_W44___ico_comb__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2__0(VPvuTop_LZC__M1_W44* vlSelf);
-void VPvuTop_LZC__M1_W44___ico_comb__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1__0(VPvuTop_LZC__M1_W44* vlSelf);
-void VPvuTop_LZC__M1_W44___ico_comb__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod__0(VPvuTop_LZC__M1_W44* vlSelf);
 void VPvuTop_Compressor4to2___ico_comb__TOP__PvuTop__DOT__mul__DOT__radix4BoothMultiplier_3__csaTree__DOT__csa_tree_B__DOT__csa_tree_A__DOT__compressor__0(VPvuTop_Compressor4to2* vlSelf);
 void VPvuTop_Compressor4to2___ico_comb__TOP__PvuTop__DOT__mul__DOT__radix4BoothMultiplier_3__csaTree__DOT__csa_tree_B__DOT__csa_tree_B__DOT__compressor__0(VPvuTop_Compressor4to2* vlSelf);
 void VPvuTop_Compressor4to2___ico_comb__TOP__PvuTop__DOT__mul__DOT__radix4BoothMultiplier_3__csaTree__DOT__csa_tree_A__DOT__csa_tree_B__DOT__compressor__0(VPvuTop_Compressor4to2* vlSelf);
@@ -4198,15 +4194,19 @@ void VPvuTop___024root___ico_comb__TOP__27(VPvuTop___024root* vlSelf);
 void VPvuTop___024root___ico_comb__TOP__28(VPvuTop___024root* vlSelf);
 void VPvuTop___024root___ico_comb__TOP__29(VPvuTop___024root* vlSelf);
 void VPvuTop___024root___ico_comb__TOP__30(VPvuTop___024root* vlSelf);
+void VPvuTop_LZC__M1_W44___ico_comb__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3__0(VPvuTop_LZC__M1_W44* vlSelf);
+void VPvuTop_LZC__M1_W44___ico_comb__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2__0(VPvuTop_LZC__M1_W44* vlSelf);
+void VPvuTop_LZC__M1_W44___ico_comb__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1__0(VPvuTop_LZC__M1_W44* vlSelf);
+void VPvuTop_LZC__M1_W44___ico_comb__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod__0(VPvuTop_LZC__M1_W44* vlSelf);
 void VPvuTop_LZC__M1_W44___ico_comb__TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod_3__0(VPvuTop_LZC__M1_W44* vlSelf);
 void VPvuTop_LZC__M1_W44___ico_comb__TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod_2__0(VPvuTop_LZC__M1_W44* vlSelf);
 void VPvuTop_LZC__M1_W44___ico_comb__TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod_1__0(VPvuTop_LZC__M1_W44* vlSelf);
 void VPvuTop_LZC__M1_W44___ico_comb__TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod__0(VPvuTop_LZC__M1_W44* vlSelf);
-void VPvuTop_LZC__M1_W44___ico_comb__TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod__1(VPvuTop_LZC__M1_W44* vlSelf);
-void VPvuTop_LZC__M1_W44___ico_comb__TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod__2(VPvuTop_LZC__M1_W44* vlSelf);
 void VPvuTop___024root___ico_comb__TOP__31(VPvuTop___024root* vlSelf);
 void VPvuTop___024root___ico_comb__TOP__32(VPvuTop___024root* vlSelf);
 void VPvuTop___024root___ico_comb__TOP__33(VPvuTop___024root* vlSelf);
+void VPvuTop_LZC__M1_W44___ico_comb__TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod__1(VPvuTop_LZC__M1_W44* vlSelf);
+void VPvuTop_LZC__M1_W44___ico_comb__TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod__2(VPvuTop_LZC__M1_W44* vlSelf);
 void VPvuTop___024root___ico_comb__TOP__34(VPvuTop___024root* vlSelf);
 void VPvuTop___024root___ico_comb__TOP__35(VPvuTop___024root* vlSelf);
 void VPvuTop___024root___ico_comb__TOP__36(VPvuTop___024root* vlSelf);
@@ -4824,10 +4824,6 @@ VL_ATTR_COLD void VPvuTop___024root___eval_stl(VPvuTop___024root* vlSelf) {
         VPvuTop_Radix4BoothMultiplier___ico_comb__TOP__PvuTop__DOT__mul__DOT__radix4BoothMultiplier_1__1((&vlSymsp->TOP__PvuTop__DOT__dotproduct__DOT__mul__DOT__radix4BoothMultiplier_1));
         VPvuTop_Radix4BoothMultiplier___ico_comb__TOP__PvuTop__DOT__mul__DOT__radix4BoothMultiplier__1((&vlSymsp->TOP__PvuTop__DOT__mul__DOT__radix4BoothMultiplier));
         VPvuTop_Radix4BoothMultiplier___ico_comb__TOP__PvuTop__DOT__mul__DOT__radix4BoothMultiplier__1((&vlSymsp->TOP__PvuTop__DOT__dotproduct__DOT__mul__DOT__radix4BoothMultiplier));
-        VPvuTop_LZC__M1_W44___ico_comb__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3__0((&vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3));
-        VPvuTop_LZC__M1_W44___ico_comb__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2__0((&vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2));
-        VPvuTop_LZC__M1_W44___ico_comb__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1__0((&vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1));
-        VPvuTop_LZC__M1_W44___ico_comb__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod__0((&vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod));
         VPvuTop_Compressor4to2___ico_comb__TOP__PvuTop__DOT__mul__DOT__radix4BoothMultiplier_3__csaTree__DOT__csa_tree_B__DOT__csa_tree_A__DOT__compressor__0((&vlSymsp->TOP__PvuTop__DOT__mul__DOT__radix4BoothMultiplier_3__csaTree__DOT__csa_tree_B__DOT__csa_tree_A__DOT__compressor));
         VPvuTop_Compressor4to2___ico_comb__TOP__PvuTop__DOT__mul__DOT__radix4BoothMultiplier_3__csaTree__DOT__csa_tree_B__DOT__csa_tree_B__DOT__compressor__0((&vlSymsp->TOP__PvuTop__DOT__mul__DOT__radix4BoothMultiplier_3__csaTree__DOT__csa_tree_B__DOT__csa_tree_B__DOT__compressor));
         VPvuTop_Compressor4to2___ico_comb__TOP__PvuTop__DOT__mul__DOT__radix4BoothMultiplier_3__csaTree__DOT__csa_tree_A__DOT__csa_tree_B__DOT__compressor__0((&vlSymsp->TOP__PvuTop__DOT__mul__DOT__radix4BoothMultiplier_3__csaTree__DOT__csa_tree_A__DOT__csa_tree_B__DOT__compressor));
@@ -5134,126 +5130,14 @@ VL_ATTR_COLD void VPvuTop___024root___eval_stl(VPvuTop___024root* vlSelf) {
             vlSelf->__Vm_traceActivity[__Vilp] = 1U;
             __Vilp = ((IData)(1U) + __Vilp);
         }
+        VPvuTop_LZC__M1_W44___ico_comb__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3__0((&vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3));
+        VPvuTop_LZC__M1_W44___ico_comb__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2__0((&vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2));
+        VPvuTop_LZC__M1_W44___ico_comb__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1__0((&vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1));
+        VPvuTop_LZC__M1_W44___ico_comb__TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod__0((&vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod));
         VPvuTop_LZC__M1_W44___ico_comb__TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod_3__0((&vlSymsp->TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod_3));
         VPvuTop_LZC__M1_W44___ico_comb__TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod_2__0((&vlSymsp->TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod_2));
         VPvuTop_LZC__M1_W44___ico_comb__TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod_1__0((&vlSymsp->TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod_1));
         VPvuTop_LZC__M1_W44___ico_comb__TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod__0((&vlSymsp->TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod));
-    }
-    if ((((((((((vlSelf->__VstlTriggered.at(0U) | vlSelf->__VstlTriggered.at(0x25U)) 
-                | vlSelf->__VstlTriggered.at(0x29U)) 
-               | vlSelf->__VstlTriggered.at(0x2cU)) 
-              | vlSelf->__VstlTriggered.at(0x2fU)) 
-             | vlSelf->__VstlTriggered.at(0x32U)) | vlSelf->__VstlTriggered.at(0x36U)) 
-           | vlSelf->__VstlTriggered.at(0x39U)) | vlSelf->__VstlTriggered.at(0x3cU)) 
-         | vlSelf->__VstlTriggered.at(0x3fU))) {
-        VPvuTop_LZC__M1_W44___ico_comb__TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod__1((&vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3));
-        __Vilp = 0U;
-        while ((__Vilp <= 0x93U)) {
-            vlSelf->__Vm_traceActivity[__Vilp] = 1U;
-            __Vilp = ((IData)(1U) + __Vilp);
-        }
-    }
-    if ((((((((((vlSelf->__VstlTriggered.at(0U) | vlSelf->__VstlTriggered.at(0x24U)) 
-                | vlSelf->__VstlTriggered.at(0x29U)) 
-               | vlSelf->__VstlTriggered.at(0x2cU)) 
-              | vlSelf->__VstlTriggered.at(0x2fU)) 
-             | vlSelf->__VstlTriggered.at(0x32U)) | vlSelf->__VstlTriggered.at(0x36U)) 
-           | vlSelf->__VstlTriggered.at(0x39U)) | vlSelf->__VstlTriggered.at(0x3cU)) 
-         | vlSelf->__VstlTriggered.at(0x3fU))) {
-        VPvuTop_LZC__M1_W44___ico_comb__TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod__2((&vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3));
-        __Vilp = 0U;
-        while ((__Vilp <= 0x93U)) {
-            vlSelf->__Vm_traceActivity[__Vilp] = 1U;
-            __Vilp = ((IData)(1U) + __Vilp);
-        }
-        VPvuTop___024root___ico_comb__TOP__31(vlSelf);
-    }
-    if ((((((((((vlSelf->__VstlTriggered.at(0U) | vlSelf->__VstlTriggered.at(0x21U)) 
-                | vlSelf->__VstlTriggered.at(0x29U)) 
-               | vlSelf->__VstlTriggered.at(0x2cU)) 
-              | vlSelf->__VstlTriggered.at(0x2fU)) 
-             | vlSelf->__VstlTriggered.at(0x32U)) | vlSelf->__VstlTriggered.at(0x36U)) 
-           | vlSelf->__VstlTriggered.at(0x39U)) | vlSelf->__VstlTriggered.at(0x3cU)) 
-         | vlSelf->__VstlTriggered.at(0x3fU))) {
-        VPvuTop_LZC__M1_W44___ico_comb__TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod__1((&vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2));
-        __Vilp = 0U;
-        while ((__Vilp <= 0x93U)) {
-            vlSelf->__Vm_traceActivity[__Vilp] = 1U;
-            __Vilp = ((IData)(1U) + __Vilp);
-        }
-    }
-    if ((((((((((vlSelf->__VstlTriggered.at(0U) | vlSelf->__VstlTriggered.at(0x20U)) 
-                | vlSelf->__VstlTriggered.at(0x29U)) 
-               | vlSelf->__VstlTriggered.at(0x2cU)) 
-              | vlSelf->__VstlTriggered.at(0x2fU)) 
-             | vlSelf->__VstlTriggered.at(0x32U)) | vlSelf->__VstlTriggered.at(0x36U)) 
-           | vlSelf->__VstlTriggered.at(0x39U)) | vlSelf->__VstlTriggered.at(0x3cU)) 
-         | vlSelf->__VstlTriggered.at(0x3fU))) {
-        VPvuTop_LZC__M1_W44___ico_comb__TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod__2((&vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2));
-        __Vilp = 0U;
-        while ((__Vilp <= 0x93U)) {
-            vlSelf->__Vm_traceActivity[__Vilp] = 1U;
-            __Vilp = ((IData)(1U) + __Vilp);
-        }
-        VPvuTop___024root___ico_comb__TOP__32(vlSelf);
-    }
-    if ((((((((((vlSelf->__VstlTriggered.at(0U) | vlSelf->__VstlTriggered.at(0x1dU)) 
-                | vlSelf->__VstlTriggered.at(0x29U)) 
-               | vlSelf->__VstlTriggered.at(0x2cU)) 
-              | vlSelf->__VstlTriggered.at(0x2fU)) 
-             | vlSelf->__VstlTriggered.at(0x32U)) | vlSelf->__VstlTriggered.at(0x36U)) 
-           | vlSelf->__VstlTriggered.at(0x39U)) | vlSelf->__VstlTriggered.at(0x3cU)) 
-         | vlSelf->__VstlTriggered.at(0x3fU))) {
-        VPvuTop_LZC__M1_W44___ico_comb__TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod__1((&vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1));
-        __Vilp = 0U;
-        while ((__Vilp <= 0x93U)) {
-            vlSelf->__Vm_traceActivity[__Vilp] = 1U;
-            __Vilp = ((IData)(1U) + __Vilp);
-        }
-    }
-    if ((((((((((vlSelf->__VstlTriggered.at(0U) | vlSelf->__VstlTriggered.at(0x1cU)) 
-                | vlSelf->__VstlTriggered.at(0x29U)) 
-               | vlSelf->__VstlTriggered.at(0x2cU)) 
-              | vlSelf->__VstlTriggered.at(0x2fU)) 
-             | vlSelf->__VstlTriggered.at(0x32U)) | vlSelf->__VstlTriggered.at(0x36U)) 
-           | vlSelf->__VstlTriggered.at(0x39U)) | vlSelf->__VstlTriggered.at(0x3cU)) 
-         | vlSelf->__VstlTriggered.at(0x3fU))) {
-        VPvuTop_LZC__M1_W44___ico_comb__TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod__2((&vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1));
-        __Vilp = 0U;
-        while ((__Vilp <= 0x93U)) {
-            vlSelf->__Vm_traceActivity[__Vilp] = 1U;
-            __Vilp = ((IData)(1U) + __Vilp);
-        }
-        VPvuTop___024root___ico_comb__TOP__33(vlSelf);
-    }
-    if ((((((((((vlSelf->__VstlTriggered.at(0U) | vlSelf->__VstlTriggered.at(0x19U)) 
-                | vlSelf->__VstlTriggered.at(0x29U)) 
-               | vlSelf->__VstlTriggered.at(0x2cU)) 
-              | vlSelf->__VstlTriggered.at(0x2fU)) 
-             | vlSelf->__VstlTriggered.at(0x32U)) | vlSelf->__VstlTriggered.at(0x36U)) 
-           | vlSelf->__VstlTriggered.at(0x39U)) | vlSelf->__VstlTriggered.at(0x3cU)) 
-         | vlSelf->__VstlTriggered.at(0x3fU))) {
-        VPvuTop_LZC__M1_W44___ico_comb__TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod__1((&vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod));
-        __Vilp = 0U;
-        while ((__Vilp <= 0x93U)) {
-            vlSelf->__Vm_traceActivity[__Vilp] = 1U;
-            __Vilp = ((IData)(1U) + __Vilp);
-        }
-    }
-    if ((((((((((vlSelf->__VstlTriggered.at(0U) | vlSelf->__VstlTriggered.at(0x18U)) 
-                | vlSelf->__VstlTriggered.at(0x29U)) 
-               | vlSelf->__VstlTriggered.at(0x2cU)) 
-              | vlSelf->__VstlTriggered.at(0x2fU)) 
-             | vlSelf->__VstlTriggered.at(0x32U)) | vlSelf->__VstlTriggered.at(0x36U)) 
-           | vlSelf->__VstlTriggered.at(0x39U)) | vlSelf->__VstlTriggered.at(0x3cU)) 
-         | vlSelf->__VstlTriggered.at(0x3fU))) {
-        VPvuTop_LZC__M1_W44___ico_comb__TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod__2((&vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod));
-        __Vilp = 0U;
-        while ((__Vilp <= 0x93U)) {
-            vlSelf->__Vm_traceActivity[__Vilp] = 1U;
-            __Vilp = ((IData)(1U) + __Vilp);
-        }
-        VPvuTop___024root___ico_comb__TOP__34(vlSelf);
     }
     if ((((((((((((vlSelf->__VstlTriggered.at(0U) | vlSelf->__VstlTriggered.at(3U)) 
                   | vlSelf->__VstlTriggered.at(0x28U)) 
@@ -5264,7 +5148,7 @@ VL_ATTR_COLD void VPvuTop___024root___eval_stl(VPvuTop___024root* vlSelf) {
              | vlSelf->__VstlTriggered.at(0x35U)) | vlSelf->__VstlTriggered.at(0x36U)) 
            | vlSelf->__VstlTriggered.at(0x39U)) | vlSelf->__VstlTriggered.at(0x3cU)) 
          | vlSelf->__VstlTriggered.at(0x3fU))) {
-        VPvuTop___024root___ico_comb__TOP__35(vlSelf);
+        VPvuTop___024root___ico_comb__TOP__31(vlSelf);
     }
     if ((((((((((((vlSelf->__VstlTriggered.at(0U) | vlSelf->__VstlTriggered.at(1U)) 
                   | vlSelf->__VstlTriggered.at(0x28U)) 
@@ -5275,7 +5159,7 @@ VL_ATTR_COLD void VPvuTop___024root___eval_stl(VPvuTop___024root* vlSelf) {
              | vlSelf->__VstlTriggered.at(0x35U)) | vlSelf->__VstlTriggered.at(0x36U)) 
            | vlSelf->__VstlTriggered.at(0x39U)) | vlSelf->__VstlTriggered.at(0x3cU)) 
          | vlSelf->__VstlTriggered.at(0x3fU))) {
-        VPvuTop___024root___ico_comb__TOP__36(vlSelf);
+        VPvuTop___024root___ico_comb__TOP__32(vlSelf);
         __Vilp = 0U;
         while ((__Vilp <= 0x93U)) {
             vlSelf->__Vm_traceActivity[__Vilp] = 1U;
@@ -5291,6 +5175,138 @@ VL_ATTR_COLD void VPvuTop___024root___eval_stl(VPvuTop___024root* vlSelf) {
              | vlSelf->__VstlTriggered.at(0x35U)) | vlSelf->__VstlTriggered.at(0x36U)) 
            | vlSelf->__VstlTriggered.at(0x39U)) | vlSelf->__VstlTriggered.at(0x3cU)) 
          | vlSelf->__VstlTriggered.at(0x3fU))) {
+        VPvuTop___024root___ico_comb__TOP__33(vlSelf);
+    }
+    if ((((((((((((vlSelf->__VstlTriggered.at(0U) | vlSelf->__VstlTriggered.at(0x25U)) 
+                  | vlSelf->__VstlTriggered.at(0x28U)) 
+                 | vlSelf->__VstlTriggered.at(0x29U)) 
+                | vlSelf->__VstlTriggered.at(0x2cU)) 
+               | vlSelf->__VstlTriggered.at(0x2fU)) 
+              | vlSelf->__VstlTriggered.at(0x32U)) 
+             | vlSelf->__VstlTriggered.at(0x35U)) | vlSelf->__VstlTriggered.at(0x36U)) 
+           | vlSelf->__VstlTriggered.at(0x39U)) | vlSelf->__VstlTriggered.at(0x3cU)) 
+         | vlSelf->__VstlTriggered.at(0x3fU))) {
+        VPvuTop_LZC__M1_W44___ico_comb__TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod__1((&vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3));
+        __Vilp = 0U;
+        while ((__Vilp <= 0x93U)) {
+            vlSelf->__Vm_traceActivity[__Vilp] = 1U;
+            __Vilp = ((IData)(1U) + __Vilp);
+        }
+    }
+    if ((((((((((((vlSelf->__VstlTriggered.at(0U) | vlSelf->__VstlTriggered.at(0x24U)) 
+                  | vlSelf->__VstlTriggered.at(0x28U)) 
+                 | vlSelf->__VstlTriggered.at(0x29U)) 
+                | vlSelf->__VstlTriggered.at(0x2cU)) 
+               | vlSelf->__VstlTriggered.at(0x2fU)) 
+              | vlSelf->__VstlTriggered.at(0x32U)) 
+             | vlSelf->__VstlTriggered.at(0x35U)) | vlSelf->__VstlTriggered.at(0x36U)) 
+           | vlSelf->__VstlTriggered.at(0x39U)) | vlSelf->__VstlTriggered.at(0x3cU)) 
+         | vlSelf->__VstlTriggered.at(0x3fU))) {
+        VPvuTop_LZC__M1_W44___ico_comb__TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod__2((&vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_3));
+        __Vilp = 0U;
+        while ((__Vilp <= 0x93U)) {
+            vlSelf->__Vm_traceActivity[__Vilp] = 1U;
+            __Vilp = ((IData)(1U) + __Vilp);
+        }
+        VPvuTop___024root___ico_comb__TOP__34(vlSelf);
+    }
+    if ((((((((((((vlSelf->__VstlTriggered.at(0U) | vlSelf->__VstlTriggered.at(0x21U)) 
+                  | vlSelf->__VstlTriggered.at(0x28U)) 
+                 | vlSelf->__VstlTriggered.at(0x29U)) 
+                | vlSelf->__VstlTriggered.at(0x2cU)) 
+               | vlSelf->__VstlTriggered.at(0x2fU)) 
+              | vlSelf->__VstlTriggered.at(0x32U)) 
+             | vlSelf->__VstlTriggered.at(0x35U)) | vlSelf->__VstlTriggered.at(0x36U)) 
+           | vlSelf->__VstlTriggered.at(0x39U)) | vlSelf->__VstlTriggered.at(0x3cU)) 
+         | vlSelf->__VstlTriggered.at(0x3fU))) {
+        VPvuTop_LZC__M1_W44___ico_comb__TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod__1((&vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2));
+        __Vilp = 0U;
+        while ((__Vilp <= 0x93U)) {
+            vlSelf->__Vm_traceActivity[__Vilp] = 1U;
+            __Vilp = ((IData)(1U) + __Vilp);
+        }
+    }
+    if ((((((((((((vlSelf->__VstlTriggered.at(0U) | vlSelf->__VstlTriggered.at(0x20U)) 
+                  | vlSelf->__VstlTriggered.at(0x28U)) 
+                 | vlSelf->__VstlTriggered.at(0x29U)) 
+                | vlSelf->__VstlTriggered.at(0x2cU)) 
+               | vlSelf->__VstlTriggered.at(0x2fU)) 
+              | vlSelf->__VstlTriggered.at(0x32U)) 
+             | vlSelf->__VstlTriggered.at(0x35U)) | vlSelf->__VstlTriggered.at(0x36U)) 
+           | vlSelf->__VstlTriggered.at(0x39U)) | vlSelf->__VstlTriggered.at(0x3cU)) 
+         | vlSelf->__VstlTriggered.at(0x3fU))) {
+        VPvuTop_LZC__M1_W44___ico_comb__TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod__2((&vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_2));
+        __Vilp = 0U;
+        while ((__Vilp <= 0x93U)) {
+            vlSelf->__Vm_traceActivity[__Vilp] = 1U;
+            __Vilp = ((IData)(1U) + __Vilp);
+        }
+        VPvuTop___024root___ico_comb__TOP__35(vlSelf);
+    }
+    if ((((((((((((vlSelf->__VstlTriggered.at(0U) | vlSelf->__VstlTriggered.at(0x1dU)) 
+                  | vlSelf->__VstlTriggered.at(0x28U)) 
+                 | vlSelf->__VstlTriggered.at(0x29U)) 
+                | vlSelf->__VstlTriggered.at(0x2cU)) 
+               | vlSelf->__VstlTriggered.at(0x2fU)) 
+              | vlSelf->__VstlTriggered.at(0x32U)) 
+             | vlSelf->__VstlTriggered.at(0x35U)) | vlSelf->__VstlTriggered.at(0x36U)) 
+           | vlSelf->__VstlTriggered.at(0x39U)) | vlSelf->__VstlTriggered.at(0x3cU)) 
+         | vlSelf->__VstlTriggered.at(0x3fU))) {
+        VPvuTop_LZC__M1_W44___ico_comb__TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod__1((&vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1));
+        __Vilp = 0U;
+        while ((__Vilp <= 0x93U)) {
+            vlSelf->__Vm_traceActivity[__Vilp] = 1U;
+            __Vilp = ((IData)(1U) + __Vilp);
+        }
+    }
+    if ((((((((((((vlSelf->__VstlTriggered.at(0U) | vlSelf->__VstlTriggered.at(0x1cU)) 
+                  | vlSelf->__VstlTriggered.at(0x28U)) 
+                 | vlSelf->__VstlTriggered.at(0x29U)) 
+                | vlSelf->__VstlTriggered.at(0x2cU)) 
+               | vlSelf->__VstlTriggered.at(0x2fU)) 
+              | vlSelf->__VstlTriggered.at(0x32U)) 
+             | vlSelf->__VstlTriggered.at(0x35U)) | vlSelf->__VstlTriggered.at(0x36U)) 
+           | vlSelf->__VstlTriggered.at(0x39U)) | vlSelf->__VstlTriggered.at(0x3cU)) 
+         | vlSelf->__VstlTriggered.at(0x3fU))) {
+        VPvuTop_LZC__M1_W44___ico_comb__TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod__2((&vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod_1));
+        __Vilp = 0U;
+        while ((__Vilp <= 0x93U)) {
+            vlSelf->__Vm_traceActivity[__Vilp] = 1U;
+            __Vilp = ((IData)(1U) + __Vilp);
+        }
+        VPvuTop___024root___ico_comb__TOP__36(vlSelf);
+    }
+    if ((((((((((((vlSelf->__VstlTriggered.at(0U) | vlSelf->__VstlTriggered.at(0x19U)) 
+                  | vlSelf->__VstlTriggered.at(0x28U)) 
+                 | vlSelf->__VstlTriggered.at(0x29U)) 
+                | vlSelf->__VstlTriggered.at(0x2cU)) 
+               | vlSelf->__VstlTriggered.at(0x2fU)) 
+              | vlSelf->__VstlTriggered.at(0x32U)) 
+             | vlSelf->__VstlTriggered.at(0x35U)) | vlSelf->__VstlTriggered.at(0x36U)) 
+           | vlSelf->__VstlTriggered.at(0x39U)) | vlSelf->__VstlTriggered.at(0x3cU)) 
+         | vlSelf->__VstlTriggered.at(0x3fU))) {
+        VPvuTop_LZC__M1_W44___ico_comb__TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod__1((&vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod));
+        __Vilp = 0U;
+        while ((__Vilp <= 0x93U)) {
+            vlSelf->__Vm_traceActivity[__Vilp] = 1U;
+            __Vilp = ((IData)(1U) + __Vilp);
+        }
+    }
+    if ((((((((((((vlSelf->__VstlTriggered.at(0U) | vlSelf->__VstlTriggered.at(0x18U)) 
+                  | vlSelf->__VstlTriggered.at(0x28U)) 
+                 | vlSelf->__VstlTriggered.at(0x29U)) 
+                | vlSelf->__VstlTriggered.at(0x2cU)) 
+               | vlSelf->__VstlTriggered.at(0x2fU)) 
+              | vlSelf->__VstlTriggered.at(0x32U)) 
+             | vlSelf->__VstlTriggered.at(0x35U)) | vlSelf->__VstlTriggered.at(0x36U)) 
+           | vlSelf->__VstlTriggered.at(0x39U)) | vlSelf->__VstlTriggered.at(0x3cU)) 
+         | vlSelf->__VstlTriggered.at(0x3fU))) {
+        VPvuTop_LZC__M1_W44___ico_comb__TOP__PvuTop__DOT__frac_norm_mul__DOT__lzcMod__2((&vlSymsp->TOP__PvuTop__DOT__frac_norm_div__DOT__lzcMod));
+        __Vilp = 0U;
+        while ((__Vilp <= 0x93U)) {
+            vlSelf->__Vm_traceActivity[__Vilp] = 1U;
+            __Vilp = ((IData)(1U) + __Vilp);
+        }
         VPvuTop___024root___ico_comb__TOP__37(vlSelf);
     }
     if ((((((((((((vlSelf->__VstlTriggered.at(0U) | vlSelf->__VstlTriggered.at(0x23U)) 

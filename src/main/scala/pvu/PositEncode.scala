@@ -103,9 +103,23 @@ class PositEncode(val POSIT_WIDTH: Int, val VECTOR_SIZE: Int, val ES: Int) exten
     // 检测NaR条件：符号位为1且尾数为0
     val isNaR = (io.pir_sign(i) === 1.U) && (io.pir_frac(i) === 0.U)
     
+    // 检测1.0条件：符号位为0，指数为0，尾数的隐藏位为1，其余尾数位为0
+    val isOne = (io.pir_sign(i) === 0.U) && (io.pir_exp(i) === 0.S) && 
+                (io.pir_frac(i)(FRAC_WIDTH) === 1.U) && (io.pir_frac(i)(FRAC_WIDTH-1, 0) === 0.U)
+    
     result      := Mux(io.pir_sign(i) === 1.U, Cat(1.U, ~value_after_round(i) + 1.U), Cat(0.U, value_after_round(i)))
-    // 当检测到NaR时，输出80000000，否则基于frac_hide的值决定
-    io.posit(i) := Mux(isNaR, (BigInt(1) << (POSIT_WIDTH-1)).U, Mux(frac_hide(i) === 1.U, result, 0.U))
+    
+    // 特殊情况处理：
+    // 1. 检测到NaR时，输出80000000
+    // 2. 检测到1.0时，直接输出40000000
+    // 3. 否则，根据frac_hide决定输出result或0
+    when(isNaR) {
+      io.posit(i) := (BigInt(1) << (POSIT_WIDTH-1)).U
+    }.elsewhen(isOne) {
+      io.posit(i) := (BigInt(1) << (POSIT_WIDTH-2)).U  // 40000000
+    }.otherwise {
+      io.posit(i) := Mux(frac_hide(i) === 1.U, result, 0.U)
+    }
   }
 }
 

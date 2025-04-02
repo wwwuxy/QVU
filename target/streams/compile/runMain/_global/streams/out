@@ -5,9 +5,30 @@
 [error] STDOUT:
 [error] 
 [error] STDERR:
-[error] src/main/scala/pvu/Div.scala:8:7: error: detected combinational cycle in a FIRRTL module, sample path: Div.{_io_pir_exp_o_0_T_6 <- ... <- _io_pir_exp_o_0_T_5 <- ... <- _io_pir_exp_o_0_T_4 <- ... <- io.pir_exp_o[0] <- ... <- _io_pir_exp_o_0_T_6}
-[error] class Div(val POSIT_WIDTH: Int, val VECTOR_SIZE: Int, val ALIGN_WIDTH: Int, val ES: Int) extends Module {
-[error]       ^
+[error] src/main/scala/pvu/Div.scala:28:26: error: sink "posit_inputs[0][0]" not fully initialized in "Div"
+[error]   val posit_inputs = Wire(Vec(VECTOR_SIZE, Vec(2, UInt(POSIT_WIDTH.W))))
+[error]                          ^
+[error] src/main/scala/pvu/Div.scala:28:26: error: sink "posit_inputs[0][1]" not fully initialized in "Div"
+[error]   val posit_inputs = Wire(Vec(VECTOR_SIZE, Vec(2, UInt(POSIT_WIDTH.W))))
+[error]                          ^
+[error] src/main/scala/pvu/Div.scala:28:26: error: sink "posit_inputs[1][0]" not fully initialized in "Div"
+[error]   val posit_inputs = Wire(Vec(VECTOR_SIZE, Vec(2, UInt(POSIT_WIDTH.W))))
+[error]                          ^
+[error] src/main/scala/pvu/Div.scala:28:26: error: sink "posit_inputs[1][1]" not fully initialized in "Div"
+[error]   val posit_inputs = Wire(Vec(VECTOR_SIZE, Vec(2, UInt(POSIT_WIDTH.W))))
+[error]                          ^
+[error] src/main/scala/pvu/Div.scala:28:26: error: sink "posit_inputs[2][0]" not fully initialized in "Div"
+[error]   val posit_inputs = Wire(Vec(VECTOR_SIZE, Vec(2, UInt(POSIT_WIDTH.W))))
+[error]                          ^
+[error] src/main/scala/pvu/Div.scala:28:26: error: sink "posit_inputs[2][1]" not fully initialized in "Div"
+[error]   val posit_inputs = Wire(Vec(VECTOR_SIZE, Vec(2, UInt(POSIT_WIDTH.W))))
+[error]                          ^
+[error] src/main/scala/pvu/Div.scala:28:26: error: sink "posit_inputs[3][0]" not fully initialized in "Div"
+[error]   val posit_inputs = Wire(Vec(VECTOR_SIZE, Vec(2, UInt(POSIT_WIDTH.W))))
+[error]                          ^
+[error] src/main/scala/pvu/Div.scala:28:26: error: sink "posit_inputs[3][1]" not fully initialized in "Div"
+[error]   val posit_inputs = Wire(Vec(VECTOR_SIZE, Vec(2, UInt(POSIT_WIDTH.W))))
+[error]                          ^
 [error] 
 [error] ------------------------------------------------------------------------------
 [error] (Compile / runMain) circt.stage.phases.Exceptions$FirtoolNonZeroExitCode: /home/wuxy/.cache/llvm-firtool/1.62.0/bin/firtool returned a non-zero exit code. Note that this version of Chisel (6.2.0) was published against firtool version 1.62.0.
@@ -17,8 +38,29 @@
 [error] STDOUT:
 [error] 
 [error] STDERR:
-[error] src/main/scala/pvu/Div.scala:8:7: error: detected combinational cycle in a FIRRTL module, sample path: Div.{_io_pir_exp_o_0_T_6 <- ... <- _io_pir_exp_o_0_T_5 <- ... <- _io_pir_exp_o_0_T_4 <- ... <- io.pir_exp_o[0] <- ... <- _io_pir_exp_o_0_T_6}
-[error] class Div(val POSIT_WIDTH: Int, val VECTOR_SIZE: Int, val ALIGN_WIDTH: Int, val ES: Int) extends Module {
-[error]       ^
+[error] src/main/scala/pvu/Div.scala:28:26: error: sink "posit_inputs[0][0]" not fully initialized in "Div"
+[error]   val posit_inputs = Wire(Vec(VECTOR_SIZE, Vec(2, UInt(POSIT_WIDTH.W))))
+[error]                          ^
+[error] src/main/scala/pvu/Div.scala:28:26: error: sink "posit_inputs[0][1]" not fully initialized in "Div"
+[error]   val posit_inputs = Wire(Vec(VECTOR_SIZE, Vec(2, UInt(POSIT_WIDTH.W))))
+[error]                          ^
+[error] src/main/scala/pvu/Div.scala:28:26: error: sink "posit_inputs[1][0]" not fully initialized in "Div"
+[error]   val posit_inputs = Wire(Vec(VECTOR_SIZE, Vec(2, UInt(POSIT_WIDTH.W))))
+[error]                          ^
+[error] src/main/scala/pvu/Div.scala:28:26: error: sink "posit_inputs[1][1]" not fully initialized in "Div"
+[error]   val posit_inputs = Wire(Vec(VECTOR_SIZE, Vec(2, UInt(POSIT_WIDTH.W))))
+[error]                          ^
+[error] src/main/scala/pvu/Div.scala:28:26: error: sink "posit_inputs[2][0]" not fully initialized in "Div"
+[error]   val posit_inputs = Wire(Vec(VECTOR_SIZE, Vec(2, UInt(POSIT_WIDTH.W))))
+[error]                          ^
+[error] src/main/scala/pvu/Div.scala:28:26: error: sink "posit_inputs[2][1]" not fully initialized in "Div"
+[error]   val posit_inputs = Wire(Vec(VECTOR_SIZE, Vec(2, UInt(POSIT_WIDTH.W))))
+[error]                          ^
+[error] src/main/scala/pvu/Div.scala:28:26: error: sink "posit_inputs[3][0]" not fully initialized in "Div"
+[error]   val posit_inputs = Wire(Vec(VECTOR_SIZE, Vec(2, UInt(POSIT_WIDTH.W))))
+[error]                          ^
+[error] src/main/scala/pvu/Div.scala:28:26: error: sink "posit_inputs[3][1]" not fully initialized in "Div"
+[error]   val posit_inputs = Wire(Vec(VECTOR_SIZE, Vec(2, UInt(POSIT_WIDTH.W))))
+[error]                          ^
 [error] 
 [error] ------------------------------------------------------------------------------

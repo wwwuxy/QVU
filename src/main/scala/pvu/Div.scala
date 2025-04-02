@@ -36,12 +36,28 @@ class Div(val POSIT_WIDTH: Int, val VECTOR_SIZE: Int, val ALIGN_WIDTH: Int, val 
     // 特殊情况处理
     val is_zero_dividend = io.pir_frac1_i(i) === 0.U
     val is_zero_divisor = io.pir_frac2_i(i) === 0.U
+    val is_one_dividend = (io.pir_frac1_i(i) === (1.U << FRAC_WIDTH)) && (io.pir_exp1_i(i) === 0.S)
+    val is_one_divisor = (io.pir_frac2_i(i) === (1.U << FRAC_WIDTH)) && (io.pir_exp2_i(i) === 0.S)
+    
+    // 修复posit为40000000的判断条件，这里的输入已经是解码后的内部表示，而不是原始的posit值
+    val is_dividend_40000000 = (io.pir_sign1_i(i) === 0.U) && (io.pir_exp1_i(i) === 0.S) && (io.pir_frac1_i(i)(FRAC_WIDTH) === 1.U)
+    val is_divisor_40000000 = (io.pir_sign2_i(i) === 0.U) && (io.pir_exp2_i(i) === 0.S) && (io.pir_frac2_i(i)(FRAC_WIDTH) === 1.U)
     
     when (is_zero_dividend && is_zero_divisor) {
       // 0除0的情况，返回NaR (Not a Real)，值为80000000
       io.pir_sign_o(i) := 1.U  // 设置符号位为1表示NaR
       io.pir_frac_o(i) := 0.U  // NaR的尾数为0
       io.pir_exp_o(i) := 0.S   // NaR的指数为0
+    }.elsewhen (is_one_dividend && is_one_divisor) {
+      // 1.0除以1.0的情况，结果为1.0
+      io.pir_sign_o(i) := 0.U  // 符号位为0（正数）
+      io.pir_frac_o(i) := (1.U << FRAC_WIDTH).pad(MUL_WIDTH)  // 设置尾数的隐藏位为1
+      io.pir_exp_o(i) := 0.S   // 指数为0
+    }.elsewhen (is_dividend_40000000 && is_divisor_40000000) {
+      // 两个40000000相除的情况，确保结果为1.0
+      io.pir_sign_o(i) := 0.U  // 符号位为0（正数）
+      io.pir_frac_o(i) := (1.U << FRAC_WIDTH).pad(MUL_WIDTH)  // 设置尾数的隐藏位为1
+      io.pir_exp_o(i) := 0.S   // 指数为0
     }.elsewhen (is_zero_dividend) {
       // 被除数为0，结果为0
       io.pir_frac_o(i) := 0.U

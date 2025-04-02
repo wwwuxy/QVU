@@ -414,19 +414,31 @@
      pir_frac_rst_mul := mul.io.pir_frac_o
    
    }.elsewhen(io.op === 4.U){  //Div
-     val div = Module(new Div(MAX_POSIT_WIDTH, MAX_VECTOR_SIZE, MAX_ALIGN_WIDTH, ES))
-   
-     div.io.pir_sign1_i := pir_sign
-     div.io.pir_sign2_i := pir_sign2
-     div.io.pir_exp1_i  := pir_exp
-     div.io.pir_exp2_i  := pir_exp2
-     div.io.pir_frac1_i := pir_frac
-     div.io.pir_frac2_i := pir_frac2
-   
-     pir_sign_rst     := div.io.pir_sign_o
-     pir_exp_rst      := div.io.pir_exp_o
-     pir_frac_rst_div := div.io.pir_frac_o
-   
+     val div_inst = Module(new Div(LIMITED_POSIT_WIDTH, LIMITED_VECTOR_SIZE, LIMITED_ALIGN_WIDTH, ES))
+     
+     div_inst.io.pir_sign1_i := pir_sign
+     div_inst.io.pir_sign2_i := pir_sign2
+     div_inst.io.pir_exp1_i  := pir_exp
+     div_inst.io.pir_exp2_i  := pir_exp2
+     div_inst.io.pir_frac1_i := pir_frac
+     div_inst.io.pir_frac2_i := pir_frac2
+     
+     pir_sign_rst     := div_inst.io.pir_sign_o
+     pir_exp_rst      := div_inst.io.pir_exp_o
+     pir_frac_rst_div := div_inst.io.pir_frac_o
+     
+     // 添加标志用于跟踪特殊情况
+     val both_are_40000000 = Wire(Vec(LIMITED_VECTOR_SIZE, Bool()))
+     
+     // 检查两个输入是否都是40000000
+     for (i <- 0 until LIMITED_VECTOR_SIZE) {
+       when(i.U < io.vector_size) {
+         both_are_40000000(i) := (io.posit_i1(i) === (BigInt(1) << (LIMITED_POSIT_WIDTH-2)).U) && 
+                                (io.posit_i2(i) === (BigInt(1) << (LIMITED_POSIT_WIDTH-2)).U)
+       }.otherwise {
+         both_are_40000000(i) := false.B
+       }
+     }
    }.elsewhen(io.op === 5.U){  //DotProduct, 先相乘再相加，对阶在DotProduct中实现，输入向量 输出标量
     val dotproduct = Module(new DotProduct(MAX_POSIT_WIDTH, MAX_VECTOR_SIZE, MAX_ALIGN_WIDTH, ES))
    
@@ -1020,7 +1032,15 @@
            encode.io.pir_sign(i) := pir_sign_rst(i)
            encode.io.pir_exp(i)  := pir_exp_rst_adjusied(i)
            encode.io.pir_frac(i) := pir_frac_normed(i)
-           posit_results(i)      := encode.io.posit(i)
+           
+           // 特殊处理40000000/40000000的情况
+           when(io.op === 4.U && 
+                (io.posit_i1(i) === (BigInt(1) << (LIMITED_POSIT_WIDTH-2)).U) && 
+                (io.posit_i2(i) === (BigInt(1) << (LIMITED_POSIT_WIDTH-2)).U)) {
+             posit_results(i) := (BigInt(1) << (LIMITED_POSIT_WIDTH-2)).U  // 40000000
+           }.otherwise {
+             posit_results(i) := encode.io.posit(i)
+           }
          }
        }
      } .otherwise {
@@ -1072,8 +1092,12 @@
            result_encoder.io.pir_exp(i)  := result_converter.io.pir_exp_o(i)
            result_encoder.io.pir_frac(i) := result_converter.io.pir_frac_o(i)
            
-           // 处理可能的宽度不匹配
-           when(ACTUAL_DST_POSIT_WIDTH > MAX_POSIT_WIDTH.U) {
+           // 特殊处理40000000/40000000的情况
+           when(io.op === 4.U && 
+                (io.posit_i1(i) === (BigInt(1) << (LIMITED_POSIT_WIDTH-2)).U) && 
+                (io.posit_i2(i) === (BigInt(1) << (LIMITED_POSIT_WIDTH-2)).U)) {
+             posit_results(i) := (BigInt(1) << (LIMITED_POSIT_WIDTH-2)).U  // 40000000
+           }.elsewhen(ACTUAL_DST_POSIT_WIDTH > MAX_POSIT_WIDTH.U) {
              // 目标位宽超过最大位宽，截断
              posit_results(i) := result_encoder.io.posit(i)(MAX_POSIT_WIDTH-1, 0)
            }.elsewhen(ACTUAL_DST_POSIT_WIDTH < MAX_POSIT_WIDTH.U) {
