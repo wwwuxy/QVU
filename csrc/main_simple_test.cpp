@@ -151,20 +151,20 @@ int main(int argc, char** argv) {
     //--------------------------------------------------
     // 测试用例1: 加法示例
     //--------------------------------------------------
-    // {
-    //     printf("Test Add\n");
-    //     uint32_t test_i1[4] = {0x5A000000, 0x5A000000, 0x48000000, 0x60000000};
-    //     uint32_t test_i2[4] = {0x48000000, 0x48000000, 0x50000000, 0x60000000};
-    //     uint8_t  test_op    = 1; // 加法
+    {
+        printf("Test Add\n");
+        uint32_t test_i1[4] = {0x61000000, 0x5A000000, 0x48000000, 0x60000000};
+        uint32_t test_i2[4] = {0x61000000, 0x48000000, 0x50000000, 0x60000000};
+        uint8_t  test_op    = 1; // 加法
 
-    //     uint32_t expected_o[4]  = {0x5C000000, 0x5C000000, 0x54000000, 0x64000000}; 
+        uint32_t expected_o[4]  = {0x65000000, 0x5C000000, 0x54000000, 0x64000000}; 
 
-    //     set_inputs(dut, test_i1, test_i2, test_op);
-    //     for (int cycle = 0; cycle < 2; ++cycle) {
-    //         toggle_clock(dut, tfp, main_time);
-    //     }
-    //     check_outputs(dut, expected_o);
-    // }
+        set_inputs(dut, test_i1, test_i2, test_op);
+        for (int cycle = 0; cycle < 2; ++cycle) {
+            toggle_clock(dut, tfp, main_time);
+        }
+        check_outputs(dut, expected_o);
+    }
 
     //--------------------------------------------------
     // 测试用例2: 减法示例
@@ -225,20 +225,20 @@ int main(int argc, char** argv) {
     // //--------------------------------------------------
     // // 测试用例5: 点积示例
     // //--------------------------------------------------
-    {
-        printf("Test Dot\n");
-        uint32_t test_i1[4] = {0x40000000, 0x4c000000, 0x50000000, 0x54000000};
-        uint32_t test_i2[4] = {0x48000000, 0x48000000, 0x48000000, 0x48000000};
-        uint8_t  test_op    = 5; // 点积
+    // {
+    //     printf("Test Dot\n");
+    //     uint32_t test_i1[4] = {0x40000000, 0x4c000000, 0x50000000, 0x54000000};
+    //     uint32_t test_i2[4] = {0x48000000, 0x48000000, 0x48000000, 0x48000000};
+    //     uint8_t  test_op    = 5; // 点积
 
-        uint32_t expected_o  = 0x63000000; 
+    //     uint32_t expected_o  = 0x63000000; 
 
-        set_inputs(dut, test_i1, test_i2, test_op);
-        for (int cycle = 0; cycle < 2; ++cycle) {
-            toggle_clock(dut, tfp, main_time);
-        }
-        check_outputs_dot(dut, expected_o);
-    }
+    //     set_inputs(dut, test_i1, test_i2, test_op);
+    //     for (int cycle = 0; cycle < 2; ++cycle) {
+    //         toggle_clock(dut, tfp, main_time);
+    //     }
+    //     check_outputs_dot(dut, expected_o);
+    // }
 
 
     // 收尾
@@ -362,25 +362,25 @@ int main(int argc, char** argv) {
     //===============================================================
     // 测试用例1:测试加法
     // ===============================================================
-    // {
-    //     printf("Test Add\n");
-    //     uint32_t i1  = 0x48000000;
-    //     uint32_t i2  = 0x50000000;
-    //     uint8_t  op  = 1; // 假设 0 代表加法
+    {
+        printf("Test Add\n");
+        uint32_t i1  = 0x48000000;
+        uint32_t i2  = 0x50000000;
+        uint8_t  op  = 1; // 假设 0 代表加法
 
-    //     uint32_t expected_o = 0x54000000; 
+        uint32_t expected_o = 0x54000000; 
 
-    //     // 写入输入
-    //     set_inputs(dut, i1, i2, op);
+        // 写入输入
+        set_inputs(dut, i1, i2, op);
 
-    //     // 等待两拍时钟
-    //     for (int cycle = 0; cycle < 2; ++cycle) {
-    //         toggle_clock(dut, tfp, main_time);
-    //     }
+        // 等待两拍时钟
+        for (int cycle = 0; cycle < 2; ++cycle) {
+            toggle_clock(dut, tfp, main_time);
+        }
 
-    //     // 比对输出
-    //     check_outputs(dut, expected_o);
-    // }
+        // 比对输出
+        check_outputs(dut, expected_o);
+    }
 
 
     //===============================================================
@@ -457,5 +457,4 @@ int main(int argc, char** argv) {
 }
 
 #endif
-
 #endif

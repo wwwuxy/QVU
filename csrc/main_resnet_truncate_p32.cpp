@@ -15,12 +15,12 @@
 
 //---------------- 配置参数 -------------------
 #define OP   10                     // Posit量化到Int8操作码为10
-const char* POSIT_INPUT_FILE = "./test_src/posit_truncate_input.bin";
+const char* POSIT_INPUT_FILE      = "./test_src/posit_truncate_input.bin";
 const char* TRUNCATE_RESULTS_FILE = "./test_src/truncate_results.bin";
-const char* WAVEFORM_FILE    = "waveform.vcd";  // 波形输出文件
-const int SAMPLE_NUM         = 1000;  // 测试样本数量
-const int VECTOR_SIZE       = 4;      // 向量大小
-const int BIN_COUNT        = 5;      // 分布统计的区间数
+const char* WAVEFORM_FILE         = "waveform.vcd";  // 波形输出文件
+const int SAMPLE_NUM              = 1000;            // 测试样本数量
+const int VECTOR_SIZE             = 4;               // 向量大小
+const int BIN_COUNT               = 5;               // 分布统计的区间数
 //--------------------------------------------
 
 struct TestData {

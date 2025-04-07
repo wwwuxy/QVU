@@ -139,7 +139,7 @@ int main(int argc, char** argv) {
         top->io_Isposit     = false;  // 输入是IEEE-754
         top->io_Outposit    = true;   // 输出是Posit
         top->io_float_mode  = 3;      // IEEE-754模式
-        top->io_float_posit = true;
+        top->io_float_posit = true;   // 需要浮点数到posit的转换
 
         // 设置数据位宽
         top->io_src_posit_width = 32;           // 32位FP32
