@@ -12,21 +12,30 @@
 
 //---------------- 配置参数 -------------------
 #define OP   9   // Less操作的操作码
-const char* ACT_FILE      = "./test_src/posit_less_act.bin";
-const char* WEIGHT_FILE   = "./test_src/posit_less_weight.bin";
+const char* ACT_FILE      = "./test_src/sampled_activations.bin";
+const char* WEIGHT_FILE   = "./test_src/sampled_weights.bin";
 const char* GOLDEN_FILE   = "./test_src/less_results.bin";
 const int SAMPLE_NUM      = 5000;                       // 与生成数据一致
 const char* WAVEFORM_FILE = "waveform.vcd";             // 波形输出文件
 //--------------------------------------------
 
 struct TestData {
-    uint32_t activations[SAMPLE_NUM][4]; 
-    uint32_t weights[SAMPLE_NUM][4];     
+    float activations[SAMPLE_NUM][4]; 
+    float weights[SAMPLE_NUM][4];     
     uint32_t golden[SAMPLE_NUM][4];          
 };
 
-// 跳过 fa0 并读取有效数据
-uint32_t read_valid_data(std::ifstream& file) {
+// 直接读取fp32数据
+float read_float_data(std::ifstream& file) {
+    float data;
+    if (file.read(reinterpret_cast<char*>(&data), sizeof(float))) {
+        return data;
+    }
+    return 0.0f;  // 如果读取失败，返回0
+}
+
+// 读取posit数据（预期结果）
+uint32_t read_posit_data(std::ifstream& file) {
     uint32_t data;
     while (file.read(reinterpret_cast<char*>(&data), sizeof(uint32_t))) {
         if (data != 0xfa0) {  // 忽略头部信息 fa0
@@ -39,7 +48,7 @@ uint32_t read_valid_data(std::ifstream& file) {
 TestData load_testdata() {
     TestData td;
 
-    // 读取激活数据
+    // 读取浮点激活数据
     std::ifstream act(ACT_FILE, std::ios::binary);
     if (!act.is_open()) {
         std::cerr << "无法打开激活数据文件: " << ACT_FILE << std::endl;
@@ -47,11 +56,11 @@ TestData load_testdata() {
     }
     for (int i = 0; i < SAMPLE_NUM; ++i) {
         for (int j = 0; j < 4; ++j) {
-            td.activations[i][j] = read_valid_data(act);
+            td.activations[i][j] = read_float_data(act);
         }
     }
 
-    // 读取权重数据
+    // 读取浮点权重数据
     std::ifstream weight(WEIGHT_FILE, std::ios::binary);
     if (!weight.is_open()) {
         std::cerr << "无法打开权重数据文件: " << WEIGHT_FILE << std::endl;
@@ -59,11 +68,11 @@ TestData load_testdata() {
     }
     for (int i = 0; i < SAMPLE_NUM; ++i) {
         for (int j = 0; j < 4; ++j) {
-            td.weights[i][j] = read_valid_data(weight);
+            td.weights[i][j] = read_float_data(weight);
         }
     }
 
-    // 读取预期输出数据
+    // 读取预期输出数据（posit格式）
     std::ifstream golden(GOLDEN_FILE, std::ios::binary);
     if (!golden.is_open()) {
         std::cerr << "无法打开预期输出数据文件: " << GOLDEN_FILE << std::endl;
@@ -71,7 +80,7 @@ TestData load_testdata() {
     }
     for (int i = 0; i < SAMPLE_NUM; ++i) {
         for (int j = 0; j < 4; ++j) {
-            td.golden[i][j] = read_valid_data(golden);
+            td.golden[i][j] = read_posit_data(golden);
         }
     }
 
@@ -121,38 +130,46 @@ int main(int argc, char** argv) {
 
     // 测试主循环
     for (size_t i = 0; i < total; ++i) {
-        // 设置posit输入数据
-        uint32_t* act = td.activations[i];
-        uint32_t* weight = td.weights[i];
+        // 获取浮点输入数据
+        float* act = td.activations[i];
+        float* weight = td.weights[i];
         uint32_t* golden = td.golden[i];
-
-        top->io_posit_i1_0 = act[0];
-        top->io_posit_i1_1 = act[1];
-        top->io_posit_i1_2 = act[2];
-        top->io_posit_i1_3 = act[3];
         
-        top->io_posit_i2_0 = weight[0];
-        top->io_posit_i2_1 = weight[1];
-        top->io_posit_i2_2 = weight[2];
-        top->io_posit_i2_3 = weight[3];
-        
-        // 设置float输入数据（不使用）
-        top->io_float_i_0 = 0;
-        top->io_float_i_1 = 0;
-        top->io_float_i_2 = 0;
-        top->io_float_i_3 = 0;
+        // 将浮点数据转换为位模式用于输入
+        uint32_t act_bits[4], weight_bits[4];
+        for (int j = 0; j < 4; j++) {
+            std::memcpy(&act_bits[j], &act[j], sizeof(float));
+            std::memcpy(&weight_bits[j], &weight[j], sizeof(float));
+        }
 
-        top->io_float_i2_0 = 0;
-        top->io_float_i2_1 = 0;
-        top->io_float_i2_2 = 0;
-        top->io_float_i2_3 = 0;
+        // 设置IEEE-754浮点输入数据
+        top->io_float_i_0 = act_bits[0];
+        top->io_float_i_1 = act_bits[1];
+        top->io_float_i_2 = act_bits[2];
+        top->io_float_i_3 = act_bits[3];
+        
+        top->io_float_i2_0 = weight_bits[0];
+        top->io_float_i2_1 = weight_bits[1];
+        top->io_float_i2_2 = weight_bits[2];
+        top->io_float_i2_3 = weight_bits[3];
+        
+        // 清零posit输入数据
+        top->io_posit_i1_0 = 0;
+        top->io_posit_i1_1 = 0;
+        top->io_posit_i1_2 = 0;
+        top->io_posit_i1_3 = 0;
+        
+        top->io_posit_i2_0 = 0;
+        top->io_posit_i2_1 = 0;
+        top->io_posit_i2_2 = 0;
+        top->io_posit_i2_3 = 0;
 
         // 设置信号量
         top->io_op = OP;  // 使用Less操作（op=9）
-        top->io_Isposit = true;  // 输入是posit
-        top->io_Outposit = true; // 输出是posit
-        top->io_float_mode = 3;  // 默认Float模式（不使用）
-        top->io_float_posit = true; // 不使用
+        top->io_Isposit = false;  // 输入是IEEE-754浮点数
+        top->io_Outposit = true;  // 输出是Posit
+        top->io_float_mode = 3;   // IEEE-754模式
+        top->io_float_posit = true;
 
         // 设置数据位宽
         top->io_src_posit_width = 32;
@@ -180,8 +197,8 @@ int main(int argc, char** argv) {
                 std::cerr << "样本 " << i << "[" << j << "] 不匹配\n"
                           << "  硬件: 0x" << std::hex << hw_result[j] << "\n"
                           << "  预期: 0x" << std::hex << golden[j] << "\n"
-                          << "  第一操作数: 0x" << std::hex << act[j] << "\n"
-                          << "  第二操作数: 0x" << std::hex << weight[j] << "\n";
+                          << "  第一操作数: " << std::fixed << act[j] << "\n"
+                          << "  第二操作数: " << std::fixed << weight[j] << "\n";
                 errors++;
             }
         }
@@ -202,9 +219,9 @@ int main(int argc, char** argv) {
 
     // 打印测试结果
     if (errors == 0) {
-        std::cout << "\n所有测试通过！测试了 " << total * 4 << " 个小值比较操作。" << std::endl;
+        std::cout << "\nfp32到posit32的less测试完成！所有测试通过！测试了 " << total * 4 << " 个小值比较操作。" << std::endl;
     } else {
-        std::cerr << "\n测试失败，共有 " << errors << " 个错误，共测试 " << total * 4 
+        std::cerr << "\nfp32到posit32的less测试完成！测试失败，共有 " << errors << " 个错误，共测试 " << total * 4 
                   << " 个小值比较操作。" << std::endl;
     }
 

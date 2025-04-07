@@ -12,34 +12,41 @@
 
 //---------------- 配置参数 -------------------
 #define OP                 0b101
-const char* ACT_FILE    = "./test_src/posit_activations.bin";
-const char* WEIGHT_FILE = "./test_src/posit_weights.bin";
+const char* ACT_FILE    = "./test_src/sampled_activations.bin";
+const char* WEIGHT_FILE = "./test_src/sampled_weights.bin";
 const char* GOLDEN_FILE = "./test_src/dot_product_results.bin";
 const int SAMPLE_NUM    = 2328;  // 与生成数据一致
 const char* WAVEFORM_FILE = "waveform.vcd";  // 波形输出文件
 //--------------------------------------------
 
 struct TestData {
-    uint32_t activations[SAMPLE_NUM][4];  // 格式: [SAMPLE_NUM][4]
-    uint32_t weights[SAMPLE_NUM][4];      // 格式: [SAMPLE_NUM][4]
-    uint32_t golden[SAMPLE_NUM];          // 格式: [SAMPLE_NUM]
+    float activations[SAMPLE_NUM][4];    // 格式: [SAMPLE_NUM][4] (浮点格式)
+    float weights[SAMPLE_NUM][4];        // 格式: [SAMPLE_NUM][4] (浮点格式)
+    uint32_t golden[SAMPLE_NUM];         // 格式: [SAMPLE_NUM] (posit32格式)
 };
 
-// 跳过 fa0 并读取有效数据
-uint32_t read_valid_data(std::ifstream& file) {
-    uint32_t data;
-    while (file.read(reinterpret_cast<char*>(&data), sizeof(uint32_t))) {
-        if (data != 0xfa0) {  // 忽略头部信息 fa0
-            return data;
-        }
+// 直接读取fp32数据
+float read_float_data(std::ifstream& file) {
+    float data;
+    if (file.read(reinterpret_cast<char*>(&data), sizeof(float))) {
+        return data;
     }
-    return 0;  // 如果读取失败，返回 0
+    return 0.0f;  // 如果读取失败，返回0
+}
+
+// 读取posit格式的预期结果数据
+uint32_t read_posit_result(std::ifstream& file) {
+    uint32_t data;
+    if (file.read(reinterpret_cast<char*>(&data), sizeof(uint32_t))) {
+        return data;
+    }
+    return 0;  // 如果读取失败，返回0
 }
 
 TestData load_testdata() {
     TestData td;
 
-    // 读取激活数据
+    // 读取浮点激活数据
     std::ifstream act(ACT_FILE, std::ios::binary);
     if (!act.is_open()) {
         std::cerr << "无法打开激活数据文件: " << ACT_FILE << std::endl;
@@ -47,11 +54,11 @@ TestData load_testdata() {
     }
     for (int i = 0; i < SAMPLE_NUM; ++i) {
         for (int j = 0; j < 4; ++j) {
-            td.activations[i][j] = read_valid_data(act);
+            td.activations[i][j] = read_float_data(act);
         }
     }
 
-    // 读取权重数据
+    // 读取浮点权重数据
     std::ifstream weight(WEIGHT_FILE, std::ios::binary);
     if (!weight.is_open()) {
         std::cerr << "无法打开权重数据文件: " << WEIGHT_FILE << std::endl;
@@ -59,21 +66,18 @@ TestData load_testdata() {
     }
     for (int i = 0; i < SAMPLE_NUM; ++i) {
         for (int j = 0; j < 4; ++j) {
-            td.weights[i][j] = read_valid_data(weight);
+            td.weights[i][j] = read_float_data(weight);
         }
     }
 
-    // 读取预期输出数据
+    // 读取预期输出数据（posit32格式）
     std::ifstream golden(GOLDEN_FILE, std::ios::binary);
     if (!golden.is_open()) {
         std::cerr << "无法打开预期输出数据文件: " << GOLDEN_FILE << std::endl;
         exit(EXIT_FAILURE);
     }
     for (int i = 0; i < SAMPLE_NUM; ++i) {
-        if (!golden.read(reinterpret_cast<char*>(&td.golden[i]), sizeof(uint32_t))) {
-            std::cerr << "读取预期输出数据时出错，在样本 " << i << std::endl;
-            exit(EXIT_FAILURE);
-        }
+        td.golden[i] = read_posit_result(golden);
     }
 
     return td;
@@ -122,39 +126,45 @@ int main(int argc, char** argv) {
 
     // 测试主循环
     for (size_t i = 0; i < total; ++i) {
-        // 设置输入数据
-        uint32_t* act = td.activations[i];
-        uint32_t* weight = td.weights[i];
+        // 获取浮点输入数据
+        float* act = td.activations[i];
+        float* weight = td.weights[i];
         uint32_t golden = td.golden[i];
-
-        top->io_posit_i1_0 = act[0];
-        top->io_posit_i1_1 = act[1];
-        top->io_posit_i1_2 = act[2];
-        top->io_posit_i1_3 = act[3];
         
-        top->io_posit_i2_0 = weight[0];
-        top->io_posit_i2_1 = weight[1];
-        top->io_posit_i2_2 = weight[2];
-        top->io_posit_i2_3 = weight[3];
+        // 将浮点数据转换为位模式用于输入
+        uint32_t act_bits[4], weight_bits[4];
+        for (int j = 0; j < 4; j++) {
+            std::memcpy(&act_bits[j], &act[j], sizeof(float));
+            std::memcpy(&weight_bits[j], &weight[j], sizeof(float));
+        }
+
+        // 设置IEEE-754浮点输入数据
+        top->io_float_i_0 = act_bits[0];
+        top->io_float_i_1 = act_bits[1];
+        top->io_float_i_2 = act_bits[2];
+        top->io_float_i_3 = act_bits[3];
         
-
-        //设置float输入数据
-        top->io_float_i_0 = 0;
-        top->io_float_i_1 = 0;
-        top->io_float_i_2 = 0;
-        top->io_float_i_3 = 0;
-
-        top->io_float_i2_0 = 0;
-        top->io_float_i2_1 = 0;
-        top->io_float_i2_2 = 0;
-        top->io_float_i2_3 = 0;
-
+        top->io_float_i2_0 = weight_bits[0];
+        top->io_float_i2_1 = weight_bits[1];
+        top->io_float_i2_2 = weight_bits[2];
+        top->io_float_i2_3 = weight_bits[3];
+        
+        // 清零posit输入数据
+        top->io_posit_i1_0 = 0;
+        top->io_posit_i1_1 = 0;
+        top->io_posit_i1_2 = 0;
+        top->io_posit_i1_3 = 0;
+        
+        top->io_posit_i2_0 = 0;
+        top->io_posit_i2_1 = 0;
+        top->io_posit_i2_2 = 0;
+        top->io_posit_i2_3 = 0;
 
         //设置信号量
         top->io_op = OP;
-        top->io_Isposit = true;
-        top->io_Outposit = true;
-        top->io_float_mode = 3;
+        top->io_Isposit = false;  // 输入是IEEE-754浮点数
+        top->io_Outposit = true;  // 输出是Posit
+        top->io_float_mode = 3;   // IEEE-754模式
         top->io_float_posit = true;
 
         //设置数据位宽
@@ -177,8 +187,8 @@ int main(int argc, char** argv) {
             std::cerr << "样本 " << i << " 不匹配\n"
                       << "  硬件: 0x" << std::hex << hw_result << "\n"
                       << "  预期: 0x" << std::hex << golden << "\n"
-                      << "  激活数据: " << std::hex << act[0] << ", " << act[1] << ", " << act[2] << "," << act[3] << "\n"
-                      << "  权重数据: " << std::hex << weight[0] << ", " << weight[1] << ", " << weight[2] << "," << weight[3] << "\n";
+                      << "  激活数据: " << std::fixed << act[0] << ", " << act[1] << ", " << act[2] << "," << act[3] << "\n"
+                      << "  权重数据: " << std::fixed << weight[0] << ", " << weight[1] << ", " << weight[2] << "," << weight[3] << "\n";
             errors++;
         }
 
@@ -198,7 +208,7 @@ int main(int argc, char** argv) {
 
     // 结果报告
     std::cout << "\n验证结果\n========="
-              << "\nposit_dot测试完成！"
+              << "\nfp32到posit32的dot测试完成！"
               << "\n总样本数: " << total
               << "\n错误数量: " << errors
               << "\n错误率:   " << std::fixed << std::setprecision(2)

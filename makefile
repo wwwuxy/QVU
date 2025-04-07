@@ -56,7 +56,7 @@ git:
 	git commit
 
 push:
-	git push
+	git push -u origin posit
 
 menuconfig:
 	menuconfig

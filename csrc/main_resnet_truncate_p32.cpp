@@ -12,27 +12,25 @@
 #include "../../SoftPosit/source/include/softposit.h"
 
 //---------------- 配置参数 -------------------
-#define OP   10                     // Posit转Int操作码为10
-const char* POSIT_INPUT_FILE = "./test_src/posit_truncate_input.bin";
+#define OP   10                     // 转Int操作码为10
+const char* FP32_INPUT_FILE = "./test_src/sampled_activations.bin";
 const char* GOLDEN_FILE      = "./test_src/truncate_results.bin";
 const int SAMPLE_NUM         = 1000;  // 测试样本数量
 const char* WAVEFORM_FILE    = "waveform.vcd";  // 波形输出文件
 //--------------------------------------------
 
 struct TestData {
-    uint32_t posit_input[SAMPLE_NUM][4];  // Posit输入数据 
-    int32_t golden[SAMPLE_NUM][4];        // 预期的整数输出  
+    float fp32_input[SAMPLE_NUM][4];  // FP32浮点输入数据 
+    int32_t golden[SAMPLE_NUM][4];    // 预期的整数输出  
 };
 
-// 跳过 fa0 并读取有效数据
-uint32_t read_valid_posit_data(std::ifstream& file) {
-    uint32_t data;
-    while (file.read(reinterpret_cast<char*>(&data), sizeof(uint32_t))) {
-        if (data != 0xfa0) {  // 忽略头部信息 fa0
-            return data;
-        }
+// 直接读取fp32数据
+float read_float_data(std::ifstream& file) {
+    float data;
+    if (file.read(reinterpret_cast<char*>(&data), sizeof(float))) {
+        return data;
     }
-    return 0;  // 如果读取失败，返回 0
+    return 0.0f;  // 如果读取失败，返回0
 }
 
 // 读取Int数据
@@ -49,15 +47,15 @@ int32_t read_valid_int_data(std::ifstream& file) {
 TestData load_testdata() {
     TestData td;
 
-    // 读取Posit输入数据
-    std::ifstream posit_in(POSIT_INPUT_FILE, std::ios::binary);
-    if (!posit_in.is_open()) {
-        std::cerr << "无法打开Posit输入数据文件: " << POSIT_INPUT_FILE << std::endl;
+    // 读取FP32浮点输入数据
+    std::ifstream fp32_in(FP32_INPUT_FILE, std::ios::binary);
+    if (!fp32_in.is_open()) {
+        std::cerr << "无法打开FP32输入数据文件: " << FP32_INPUT_FILE << std::endl;
         exit(EXIT_FAILURE);
     }
     for (int i = 0; i < SAMPLE_NUM; ++i) {
         for (int j = 0; j < 4; ++j) {
-            td.posit_input[i][j] = read_valid_posit_data(posit_in);
+            td.fp32_input[i][j] = read_float_data(fp32_in);
         }
     }
 
@@ -110,41 +108,48 @@ int main(int argc, char** argv) {
 
     // 测试主循环
     for (size_t i = 0; i < total; ++i) {
-        // 设置posit输入数据
-        uint32_t* posit_in = td.posit_input[i];
+        // 获取浮点输入数据
+        float* fp32_in = td.fp32_input[i];
         int32_t* golden = td.golden[i];
-
-        top->io_posit_i1_0 = posit_in[0];
-        top->io_posit_i1_1 = posit_in[1];
-        top->io_posit_i1_2 = posit_in[2];
-        top->io_posit_i1_3 = posit_in[3];
         
-        // 第二个posit输入端不使用，设为0
-        top->io_posit_i2_0 = 0;
-        top->io_posit_i2_1 = 0;
-        top->io_posit_i2_2 = 0;
-        top->io_posit_i2_3 = 0;
-        
-        //设置float输入数据，不使用
-        top->io_float_i_0 = 0;
-        top->io_float_i_1 = 0;
-        top->io_float_i_2 = 0;
-        top->io_float_i_3 = 0;
+        // 将浮点数据转换为位模式用于输入
+        uint32_t fp32_bits[4];
+        for (int j = 0; j < 4; j++) {
+            std::memcpy(&fp32_bits[j], &fp32_in[j], sizeof(float));
+        }
 
+        // 设置IEEE-754浮点输入数据
+        top->io_float_i_0 = fp32_bits[0];
+        top->io_float_i_1 = fp32_bits[1];
+        top->io_float_i_2 = fp32_bits[2];
+        top->io_float_i_3 = fp32_bits[3];
+        
+        // 第二个浮点输入端不使用，设为0
         top->io_float_i2_0 = 0;
         top->io_float_i2_1 = 0;
         top->io_float_i2_2 = 0;
         top->io_float_i2_3 = 0;
+        
+        // 清零posit输入数据
+        top->io_posit_i1_0 = 0;
+        top->io_posit_i1_1 = 0;
+        top->io_posit_i1_2 = 0;
+        top->io_posit_i1_3 = 0;
+        
+        top->io_posit_i2_0 = 0;
+        top->io_posit_i2_1 = 0;
+        top->io_posit_i2_2 = 0;
+        top->io_posit_i2_3 = 0;
 
         //设置信号量
-        top->io_op = OP;              // 操作码10：Posit转Int
-        top->io_Isposit = true;       // 输入是posit数
-        top->io_Outposit = true;      // 对于truncate操作，此选项无影响，输出永远为int
+        top->io_op = OP;              // 操作码10：转Int
+        top->io_Isposit = false;      // 输入是IEEE-754浮点数
+        top->io_Outposit = false;     // 对于truncate操作，此选项无影响，输出永远为int
         top->io_float_mode = 3;       // 使用FP32格式
-        top->io_float_posit = true;   // 此选项无影响
+        top->io_float_posit = true;   
 
         //设置数据位宽
-        top->io_src_posit_width = 32; // 使用32位posit
+        top->io_src_posit_width = 32; // 使用32位
         top->io_dst_posit_width = 32; // 对于truncate无影响
         top->io_vector_size = 4;      // 使用4个元素的向量
 
@@ -171,7 +176,7 @@ int main(int argc, char** argv) {
                           << "  硬件: " << hw_result[j] << "\n"
                           << "  预期: " << golden[j] << "\n"
                           << "  误差: " << hw_result[j] - golden[j] << "\n"
-                          << "  输入Posit: 0x" << std::hex << posit_in[j] << std::dec << "\n";
+                          << "  输入FP32: " << std::fixed << fp32_in[j] << " (0x" << std::hex << fp32_bits[j] << std::dec << ")\n";
                 errors++;
             }
         }
@@ -192,7 +197,7 @@ int main(int argc, char** argv) {
 
     // 结果报告
     std::cout << "\n验证结果\n========="
-              << "\nposit_truncate测试完成！"
+              << "\nfp32到int的truncate测试完成！"
               << "\n总样本数: " << total
               << "\n错误数量: " << errors
               << "\n错误率:   " << std::fixed << std::setprecision(2)
