@@ -36,12 +36,15 @@ class Sub(val POSIT_WIDTH: Int, val VECTOR_SIZE: Int, val ALIGN_WIDTH: Int, val 
       val mant1         = io.pir_frac1_aligned(i)
       val mant2         = io.pir_frac2_aligned(i)
       val mant1_greater = (mant1 > mant2)
+      val mant_equal    = (mant1 === mant2)
 
     // Perform subtraction
       io.pir_frac_o(i) := Mux(mant1_greater, mant1 - mant2, mant2 - mant1)
      
     // Calculation result sign bit
-      when(io.pir_sign1_i(i) === 1.U){
+      when(mant_equal) {
+        io.pir_sign_o(i) := 0.U  // 当两个操作数相同时，结果符号位为0
+      }.elsewhen(io.pir_sign1_i(i) === 1.U){
         io.pir_sign_o(i) := Mux(mant1_greater, 1.U, 0.U)
       }.otherwise{
         io.pir_sign_o(i) := Mux(mant1_greater, 0.U, 1.U)

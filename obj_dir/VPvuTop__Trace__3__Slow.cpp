@@ -29,6 +29,23 @@ VL_ATTR_COLD void VPvuTop___024root__trace_full_sub_1(VPvuTop___024root* vlSelf,
     VlWide<7>/*223:0*/ __Vtemp_he9934b83__0;
     VlWide<7>/*223:0*/ __Vtemp_he3ee66b0__0;
     // Body
+    bufp->fullBit(oldp+1759,(((0U == (7U & (vlSelf->PvuTop__DOT__dotproduct__DOT__mul__DOT____Vcellinp__radix4BoothMultiplier_2__io_operand_b 
+                                            >> 0xfU))) 
+                              | (IData)(((0x38000U 
+                                          == (0x38000U 
+                                              & vlSelf->PvuTop__DOT__dotproduct__DOT__mul__DOT____Vcellinp__radix4BoothMultiplier_2__io_operand_b)) 
+                                         & (~ ((IData)(vlSymsp->TOP__PvuTop__DOT__dotproduct__DOT__mul__DOT__radix4BoothMultiplier_2.__PVT__genProds__DOT__genProd_7__DOT__boothEncoder__DOT___GEN_4) 
+                                               | ((3U 
+                                                   == 
+                                                   (7U 
+                                                    & (vlSelf->PvuTop__DOT__dotproduct__DOT__mul__DOT____Vcellinp__radix4BoothMultiplier_2__io_operand_b 
+                                                       >> 0xfU))) 
+                                                  | ((4U 
+                                                      == 
+                                                      (7U 
+                                                       & (vlSelf->PvuTop__DOT__dotproduct__DOT__mul__DOT____Vcellinp__radix4BoothMultiplier_2__io_operand_b 
+                                                          >> 0xfU))) 
+                                                     | (IData)(vlSymsp->TOP__PvuTop__DOT__dotproduct__DOT__mul__DOT__radix4BoothMultiplier_2.genProds__DOT__genProd_7__DOT__boothEncoder__DOT____VdfgTmp_h2f460be7__0))))))))));
     bufp->fullBit(oldp+1760,(((0U != (7U & (vlSelf->PvuTop__DOT__dotproduct__DOT__mul__DOT____Vcellinp__radix4BoothMultiplier_2__io_operand_b 
                                             >> 0xfU))) 
                               & ((IData)(vlSymsp->TOP__PvuTop__DOT__dotproduct__DOT__mul__DOT__radix4BoothMultiplier_2.__PVT__genProds__DOT__genProd_7__DOT__boothEncoder__DOT___GEN_4) 
@@ -8694,18 +8711,4 @@ VL_ATTR_COLD void VPvuTop___024root__trace_full_sub_1(VPvuTop___024root* vlSelf,
                                     >> 4U))));
     bufp->fullBit(oldp+5222,((1U & (vlSymsp->TOP__PvuTop__DOT__mul__DOT__radix4BoothMultiplier.csaTree__DOT__csa_tree_B__DOT____Vcellinp__compressor__io_operands_i[1U] 
                                     >> 0x1cU))));
-    bufp->fullBit(oldp+5223,((1U & (vlSymsp->TOP__PvuTop__DOT__mul__DOT__radix4BoothMultiplier.csaTree__DOT__csa_tree_B__DOT____Vcellinp__compressor__io_operands_i[3U] 
-                                    >> 0x14U))));
-    bufp->fullBit(oldp+5224,((1U & (vlSymsp->TOP__PvuTop__DOT__mul__DOT__radix4BoothMultiplier.csaTree__DOT__csa_tree_B__DOT____Vcellinp__compressor__io_operands_i[5U] 
-                                    >> 0xcU))));
-    bufp->fullBit(oldp+5225,(((IData)(vlSymsp->TOP__PvuTop__DOT__mul__DOT__radix4BoothMultiplier__csaTree__DOT__csa_tree_B__DOT__compressor.counter_4__DOT____VdfgTmp_hdcc6bc88__0) 
-                              ^ (IData)(vlSymsp->TOP__PvuTop__DOT__mul__DOT__radix4BoothMultiplier__csaTree__DOT__csa_tree_B__DOT__compressor.__PVT___counter_3_io_cout))));
-    bufp->fullBit(oldp+5226,((1U & (((IData)(vlSymsp->TOP__PvuTop__DOT__mul__DOT__radix4BoothMultiplier__csaTree__DOT__csa_tree_B__DOT__compressor.counter_4__DOT____VdfgTmp_hdcc6bc88__0) 
-                                     & (IData)(vlSymsp->TOP__PvuTop__DOT__mul__DOT__radix4BoothMultiplier__csaTree__DOT__csa_tree_B__DOT__compressor.__PVT___counter_3_io_cout)) 
-                                    | (((~ (vlSymsp->TOP__PvuTop__DOT__mul__DOT__radix4BoothMultiplier.csaTree__DOT__csa_tree_B__DOT____Vcellinp__compressor__io_operands_i[5U] 
-                                            >> 0xcU)) 
-                                        ^ (IData)(vlSymsp->TOP__PvuTop__DOT__mul__DOT__radix4BoothMultiplier__csaTree__DOT__csa_tree_B__DOT__compressor.counter_4__DOT____VdfgTmp_h31758f64__0)) 
-                                       & (vlSymsp->TOP__PvuTop__DOT__mul__DOT__radix4BoothMultiplier.csaTree__DOT__csa_tree_B__DOT____Vcellinp__compressor__io_operands_i[5U] 
-                                          >> 0xcU))))));
-    bufp->fullBit(oldp+5227,(vlSymsp->TOP__PvuTop__DOT__mul__DOT__radix4BoothMultiplier__csaTree__DOT__csa_tree_B__DOT__compressor.__PVT___counter_4_io_cout));
 }

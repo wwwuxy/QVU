@@ -15,7 +15,7 @@
 const char* ACT_FILE    = "./test_src/posit_activations.bin";
 const char* WEIGHT_FILE = "./test_src/posit_weights.bin";
 const char* GOLDEN_FILE = "./test_src/dot_product_results.bin";
-const int SAMPLE_NUM    = 2328;  // 与生成数据一致
+const int SAMPLE_NUM    = 9000;  // 与生成数据一致
 const char* WAVEFORM_FILE = "waveform.vcd";  // 波形输出文件
 //--------------------------------------------
 

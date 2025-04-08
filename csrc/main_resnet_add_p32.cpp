@@ -151,6 +151,17 @@ int main(int argc, char** argv) {
             std::memcpy(&weight_bits[j], &weight[j], sizeof(uint32_t));
         }
 
+        // 打印每组输入的十六进制表示
+        // std::cout << "样本 " << i << " 输入数据:\n"
+        //           << "  激活数据: 0x" << std::hex << act_bits[0] 
+        //           << ", 0x" << act_bits[1] 
+        //           << ", 0x" << act_bits[2] 
+        //           << ", 0x" << act_bits[3] << "\n"
+        //           << "  权重数据: 0x" << std::hex << weight_bits[0] 
+        //           << ", 0x" << weight_bits[1] 
+        //           << ", 0x" << weight_bits[2] 
+        //           << ", 0x" << weight_bits[3] << std::dec << std::endl;
+
         // 设置Posit输入数据
         top->io_posit_i1_0 = act_bits[0];
         top->io_posit_i1_1 = act_bits[1];
@@ -200,6 +211,7 @@ int main(int argc, char** argv) {
         hw_result[1] = top->io_posit_o_1;
         hw_result[2] = top->io_posit_o_2;
         hw_result[3] = top->io_posit_o_3;
+
 
         for(int j = 0; j < 4; j++){
             if (!posit_equal(hw_result[j], golden[j])) {

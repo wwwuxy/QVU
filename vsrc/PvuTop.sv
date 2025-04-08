@@ -426,32 +426,44 @@ module Sub(	// src/main/scala/pvu/Sub.scala:7:7
                      io_frac_truncate	// src/main/scala/pvu/Sub.scala:11:14
 );
 
-  wire        _GEN = io_pir_sign1_i[2'h0] == io_pir_sign2_i[2'h0];	// src/main/scala/pvu/Sub.scala:29:43, :51:27
-  wire        mant1_greater = io_pir_frac1_aligned[2'h0] > io_pir_frac2_aligned[2'h0];	// src/main/scala/pvu/Sub.scala:38:34, :51:27
+  wire        _GEN = io_pir_sign1_i[2'h0] == io_pir_sign2_i[2'h0];	// src/main/scala/pvu/Sub.scala:29:43, :54:27
+  wire        mant1_greater = io_pir_frac1_aligned[2'h0] > io_pir_frac2_aligned[2'h0];	// src/main/scala/pvu/Sub.scala:38:34, :54:27
   wire [30:0] sum =
-    {1'h0, io_pir_frac1_aligned[2'h0]} + {1'h0, io_pir_frac2_aligned[2'h0]};	// src/main/scala/pvu/Sub.scala:29:24, :38:34, :41:52, :51:27, :56:46
-  wire        _GEN_0 = io_pir_sign1_i[2'h1] == io_pir_sign2_i[2'h1];	// src/main/scala/pvu/Sub.scala:29:43, :59:50
-  wire        mant1_greater_1 = io_pir_frac1_aligned[2'h1] > io_pir_frac2_aligned[2'h1];	// src/main/scala/pvu/Sub.scala:38:34, :59:50
+    {1'h0, io_pir_frac1_aligned[2'h0]} + {1'h0, io_pir_frac2_aligned[2'h0]};	// src/main/scala/pvu/Sub.scala:29:24, :38:34, :42:52, :54:27, :59:46
+  wire        _GEN_0 = io_pir_sign1_i[2'h1] == io_pir_sign2_i[2'h1];	// src/main/scala/pvu/Sub.scala:29:43, :62:50
+  wire        mant1_greater_1 = io_pir_frac1_aligned[2'h1] > io_pir_frac2_aligned[2'h1];	// src/main/scala/pvu/Sub.scala:38:34, :62:50
   wire [30:0] sum_1 =
-    {1'h0, io_pir_frac1_aligned[2'h1]} + {1'h0, io_pir_frac2_aligned[2'h1]};	// src/main/scala/pvu/Sub.scala:29:24, :38:34, :41:52, :56:46, :59:50
-  wire        _GEN_1 = io_pir_sign1_i[2'h2] == io_pir_sign2_i[2'h2];	// src/main/scala/pvu/Sub.scala:29:43, :51:27
-  wire        mant1_greater_2 = io_pir_frac1_aligned[2'h2] > io_pir_frac2_aligned[2'h2];	// src/main/scala/pvu/Sub.scala:38:34, :51:27
+    {1'h0, io_pir_frac1_aligned[2'h1]} + {1'h0, io_pir_frac2_aligned[2'h1]};	// src/main/scala/pvu/Sub.scala:29:24, :38:34, :42:52, :59:46, :62:50
+  wire        _GEN_1 = io_pir_sign1_i[2'h2] == io_pir_sign2_i[2'h2];	// src/main/scala/pvu/Sub.scala:29:43, :54:27
+  wire        mant1_greater_2 = io_pir_frac1_aligned[2'h2] > io_pir_frac2_aligned[2'h2];	// src/main/scala/pvu/Sub.scala:38:34, :54:27
   wire [30:0] sum_2 =
-    {1'h0, io_pir_frac1_aligned[2'h2]} + {1'h0, io_pir_frac2_aligned[2'h2]};	// src/main/scala/pvu/Sub.scala:29:24, :38:34, :41:52, :51:27, :56:46
-  wire        _GEN_2 = io_pir_sign1_i[2'h3] == io_pir_sign2_i[2'h3];	// src/main/scala/pvu/Sub.scala:29:43, :51:27
-  wire        mant1_greater_3 = io_pir_frac1_aligned[2'h3] > io_pir_frac2_aligned[2'h3];	// src/main/scala/pvu/Sub.scala:38:34, :51:27
+    {1'h0, io_pir_frac1_aligned[2'h2]} + {1'h0, io_pir_frac2_aligned[2'h2]};	// src/main/scala/pvu/Sub.scala:29:24, :38:34, :42:52, :54:27, :59:46
+  wire        _GEN_2 = io_pir_sign1_i[2'h3] == io_pir_sign2_i[2'h3];	// src/main/scala/pvu/Sub.scala:29:43, :54:27
+  wire        mant1_greater_3 = io_pir_frac1_aligned[2'h3] > io_pir_frac2_aligned[2'h3];	// src/main/scala/pvu/Sub.scala:38:34, :54:27
   wire [30:0] sum_3 =
-    {1'h0, io_pir_frac1_aligned[2'h3]} + {1'h0, io_pir_frac2_aligned[2'h3]};	// src/main/scala/pvu/Sub.scala:29:24, :38:34, :41:52, :51:27, :56:46
+    {1'h0, io_pir_frac1_aligned[2'h3]} + {1'h0, io_pir_frac2_aligned[2'h3]};	// src/main/scala/pvu/Sub.scala:29:24, :38:34, :42:52, :54:27, :59:46
   assign io_pir_sign_o =
-    {{_GEN_2 & ~mant1_greater_3 ^ io_pir_sign1_i[2'h3]},
-     {_GEN_1 & ~mant1_greater_2 ^ io_pir_sign1_i[2'h2]},
-     {_GEN_0 & ~mant1_greater_1 ^ io_pir_sign1_i[2'h1]},
-     {_GEN & ~mant1_greater ^ io_pir_sign1_i[2'h0]}};	// src/main/scala/pvu/Sub.scala:7:7, :29:43, :34:31, :38:34, :44:38, :45:26, :47:26, :51:27, :59:50, :62:24
+    {{_GEN_2
+        ? io_pir_frac1_aligned[2'h3] != io_pir_frac2_aligned[2'h3]
+          & (io_pir_sign1_i[2'h3] ^ ~mant1_greater_3)
+        : io_pir_sign1_i[2'h3]},
+     {_GEN_1
+        ? io_pir_frac1_aligned[2'h2] != io_pir_frac2_aligned[2'h2]
+          & (io_pir_sign1_i[2'h2] ^ ~mant1_greater_2)
+        : io_pir_sign1_i[2'h2]},
+     {_GEN_0
+        ? io_pir_frac1_aligned[2'h1] != io_pir_frac2_aligned[2'h1]
+          & (io_pir_sign1_i[2'h1] ^ ~mant1_greater_1)
+        : io_pir_sign1_i[2'h1]},
+     {_GEN
+        ? io_pir_frac1_aligned[2'h0] != io_pir_frac2_aligned[2'h0]
+          & (io_pir_sign1_i[2'h0] ^ ~mant1_greater)
+        : io_pir_sign1_i[2'h0]}};	// src/main/scala/pvu/Sub.scala:7:7, :29:43, :34:31, :38:34, :39:34, :45:24, :46:26, :47:44, :48:26, :50:26, :54:27, :62:50, :65:24
   assign io_pir_exp_o =
     {{_GEN_2 | ~(sum_3[30]) ? io_pir_exp1_i[2'h3] : io_pir_exp1_i[2'h3] + 8'h1},
      {_GEN_1 | ~(sum_2[30]) ? io_pir_exp1_i[2'h2] : io_pir_exp1_i[2'h2] + 8'h1},
      {_GEN_0 | ~(sum_1[30]) ? io_pir_exp1_i[2'h1] : io_pir_exp1_i[2'h1] + 8'h1},
-     {_GEN | ~(sum[30]) ? io_pir_exp1_i[2'h0] : io_pir_exp1_i[2'h0] + 8'h1}};	// src/main/scala/pvu/Sub.scala:7:7, :29:43, :34:31, :51:27, :56:46, :57:25, :59:50, :63:24
+     {_GEN | ~(sum[30]) ? io_pir_exp1_i[2'h0] : io_pir_exp1_i[2'h0] + 8'h1}};	// src/main/scala/pvu/Sub.scala:7:7, :29:43, :34:31, :54:27, :59:46, :60:25, :62:50, :66:24
   assign io_pir_frac_o =
     {{_GEN_2
         ? (mant1_greater_3
@@ -472,17 +484,17 @@ module Sub(	// src/main/scala/pvu/Sub.scala:7:7
         ? (mant1_greater
              ? io_pir_frac1_aligned[2'h0] - io_pir_frac2_aligned[2'h0]
              : io_pir_frac2_aligned[2'h0] - io_pir_frac1_aligned[2'h0])
-        : sum[30] ? sum[30:1] : sum[29:0]}};	// src/main/scala/pvu/Sub.scala:7:7, :29:43, :34:31, :38:34, :41:{24,30,52,67}, :51:27, :56:46, :57:25, :58:{25,37,46}, :59:50, :64:24
+        : sum[30] ? sum[30:1] : sum[29:0]}};	// src/main/scala/pvu/Sub.scala:7:7, :29:43, :34:31, :38:34, :42:{24,30,52,67}, :54:27, :59:46, :60:25, :61:{25,37,46}, :62:50, :67:24
   assign io_overflow =
     {{~_GEN_2 & sum_3[30]},
      {~_GEN_1 & sum_2[30]},
      {~_GEN_0 & sum_1[30]},
-     {~_GEN & sum[30]}};	// src/main/scala/pvu/Sub.scala:7:7, :29:43, :34:31, :52:27, :56:46, :57:25, :67:23
+     {~_GEN & sum[30]}};	// src/main/scala/pvu/Sub.scala:7:7, :29:43, :34:31, :55:27, :59:46, :60:25, :70:23
   assign io_frac_truncate =
     {{~_GEN_2 & sum_3[30] & (|(sum_3[29:0]))},
      {~_GEN_1 & sum_2[30] & (|(sum_2[29:0]))},
      {~_GEN_0 & sum_1[30] & (|(sum_1[29:0]))},
-     {~_GEN & sum[30] & (|(sum[29:0]))}};	// src/main/scala/pvu/Sub.scala:7:7, :29:43, :34:31, :52:27, :53:27, :56:46, :57:25, :58:46, :67:23, :68:{27,62}
+     {~_GEN & sum[30] & (|(sum[29:0]))}};	// src/main/scala/pvu/Sub.scala:7:7, :29:43, :34:31, :55:27, :56:27, :59:46, :60:25, :61:46, :70:23, :71:{27,62}
 endmodule
 
 module BoothEncoder(	// src/main/scala/pvu/BoothEncoder.scala:30:7

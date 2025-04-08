@@ -11,6 +11,15 @@ VL_ATTR_COLD void VPvuTop___024root__trace_full_sub_6(VPvuTop___024root* vlSelf,
     // Init
     uint32_t* const oldp VL_ATTR_UNUSED = bufp->oldp(vlSymsp->__Vm_baseCode);
     // Body
+    bufp->fullBit(oldp+17838,(((IData)(vlSymsp->TOP__PvuTop__DOT__dotproduct__DOT__mul__DOT__radix4BoothMultiplier_1__csaTree__DOT__csa_tree_B__DOT__csa_tree_B__DOT__compressor.counter_4__DOT____VdfgTmp_hdcc6bc88__0) 
+                               ^ (IData)(vlSymsp->TOP__PvuTop__DOT__dotproduct__DOT__mul__DOT__radix4BoothMultiplier_1__csaTree__DOT__csa_tree_B__DOT__csa_tree_B__DOT__compressor.__PVT___counter_3_io_cout))));
+    bufp->fullBit(oldp+17839,((1U & (((IData)(vlSymsp->TOP__PvuTop__DOT__dotproduct__DOT__mul__DOT__radix4BoothMultiplier_1__csaTree__DOT__csa_tree_B__DOT__csa_tree_B__DOT__compressor.counter_4__DOT____VdfgTmp_hdcc6bc88__0) 
+                                      & (IData)(vlSymsp->TOP__PvuTop__DOT__dotproduct__DOT__mul__DOT__radix4BoothMultiplier_1__csaTree__DOT__csa_tree_B__DOT__csa_tree_B__DOT__compressor.__PVT___counter_3_io_cout)) 
+                                     | (((~ (vlSymsp->TOP__PvuTop__DOT__dotproduct__DOT__mul__DOT__radix4BoothMultiplier_1.csaTree__DOT__csa_tree_B__DOT__csa_tree_B__DOT____Vcellinp__compressor__io_operands_i[5U] 
+                                             >> 0xcU)) 
+                                         ^ (IData)(vlSymsp->TOP__PvuTop__DOT__dotproduct__DOT__mul__DOT__radix4BoothMultiplier_1__csaTree__DOT__csa_tree_B__DOT__csa_tree_B__DOT__compressor.counter_4__DOT____VdfgTmp_h31758f64__0)) 
+                                        & (vlSymsp->TOP__PvuTop__DOT__dotproduct__DOT__mul__DOT__radix4BoothMultiplier_1.csaTree__DOT__csa_tree_B__DOT__csa_tree_B__DOT____Vcellinp__compressor__io_operands_i[5U] 
+                                           >> 0xcU))))));
     bufp->fullBit(oldp+17840,(vlSymsp->TOP__PvuTop__DOT__dotproduct__DOT__mul__DOT__radix4BoothMultiplier_1__csaTree__DOT__csa_tree_B__DOT__csa_tree_B__DOT__compressor.__PVT___counter_4_io_cout));
     bufp->fullBit(oldp+17841,((1U & (vlSymsp->TOP__PvuTop__DOT__dotproduct__DOT__mul__DOT__radix4BoothMultiplier_1.csaTree__DOT__csa_tree_B__DOT__csa_tree_B__DOT____Vcellinp__compressor__io_operands_i[1U] 
                                      >> 8U))));
@@ -8271,11 +8280,4 @@ VL_ATTR_COLD void VPvuTop___024root__trace_full_sub_6(VPvuTop___024root* vlSelf,
                                          ^ (IData)(vlSymsp->TOP__PvuTop__DOT__dotproduct__DOT__mul__DOT__radix4BoothMultiplier_3__csaTree__DOT__csa_tree_A__DOT__compressor.counter_38__DOT____VdfgTmp_h31758f64__0)) 
                                         & (vlSymsp->TOP__PvuTop__DOT__dotproduct__DOT__mul__DOT__radix4BoothMultiplier_3.csaTree__DOT__csa_tree_A__DOT____Vcellinp__compressor__io_operands_i[6U] 
                                            >> 0xeU))))));
-    bufp->fullBit(oldp+20991,(vlSymsp->TOP__PvuTop__DOT__dotproduct__DOT__mul__DOT__radix4BoothMultiplier_3__csaTree__DOT__csa_tree_A__DOT__compressor.__PVT___counter_38_io_cout));
-    bufp->fullBit(oldp+20992,((1U & (vlSymsp->TOP__PvuTop__DOT__dotproduct__DOT__mul__DOT__radix4BoothMultiplier_3.csaTree__DOT__csa_tree_A__DOT____Vcellinp__compressor__io_operands_i[1U] 
-                                     >> 7U))));
-    bufp->fullBit(oldp+20993,((vlSymsp->TOP__PvuTop__DOT__dotproduct__DOT__mul__DOT__radix4BoothMultiplier_3.csaTree__DOT__csa_tree_A__DOT____Vcellinp__compressor__io_operands_i[2U] 
-                               >> 0x1fU)));
-    bufp->fullBit(oldp+20994,((1U & (vlSymsp->TOP__PvuTop__DOT__dotproduct__DOT__mul__DOT__radix4BoothMultiplier_3.csaTree__DOT__csa_tree_A__DOT____Vcellinp__compressor__io_operands_i[4U] 
-                                     >> 0x17U))));
 }
