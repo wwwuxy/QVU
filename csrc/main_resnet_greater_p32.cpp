@@ -12,9 +12,9 @@
 
 //---------------- 配置参数 -------------------
 #define OP   8   // op8对应posit32的大于比较操作
-const char* ACT_FILE    = "./test_src/posit_activations.bin";
-const char* WEIGHT_FILE = "./test_src/posit_weights.bin";
-const char* GOLDEN_FILE = "./test_src/greater_results.bin";
+const char* ACT_FILE    = "./test_src/ResNet50/posit_activations.bin";
+const char* WEIGHT_FILE = "./test_src/ResNet50/posit_weights.bin";
+const char* GOLDEN_FILE = "./test_src/ResNet50/greater_results.bin";
 const int SAMPLE_NUM    = 1000;                           // 与生成数据一致
 const char* WAVEFORM_FILE = "waveform.vcd";                // 波形输出文件
 const int VECTOR_SIZE    = 4;                              // 设置向量大小为4

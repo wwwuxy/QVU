@@ -12,8 +12,8 @@
 
 //---------------- 配置参数 -------------------
 #define OP   7   // op7对应fp32到posit32的转换
-const char* FP32_FILE     = "./test_src/fp32_data.bin";
-const char* GOLDEN_FILE   = "./test_src/posit32_data.bin";
+const char* FP32_FILE     = "./test_src/ResNet50/fp32_data.bin";
+const char* GOLDEN_FILE   = "./test_src/ResNet50/posit32_data.bin";
 const int SAMPLE_NUM      = 1000;                           // 与生成数据一致
 const char* WAVEFORM_FILE = "waveform.vcd";                 // 波形输出文件
 const int VECTOR_SIZE     = 4;                              // 设置向量大小为4
