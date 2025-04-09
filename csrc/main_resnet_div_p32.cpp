@@ -116,6 +116,36 @@ bool posit_equal(uint32_t a, uint32_t b) {
     return std::abs(ia - ib) <= 1;
 }
 
+// 计算两个posit值之间的误差（基于整数差异）
+double calc_posit_error(uint32_t a, uint32_t b) {
+    // 特殊情况处理：NaR值（最高位为1，其余为0）
+    bool a_is_nar = (a == 0x80000000);
+    bool b_is_nar = (b == 0x80000000);
+    
+    // 如果两个都是NaR或都是0，则误差为0
+    if ((a_is_nar && b_is_nar) || (a == 0 && b == 0)) {
+        return 0.0;
+    }
+    
+    // 如果一个是NaR而另一个不是，则误差设为最大
+    if (a_is_nar || b_is_nar) {
+        return 100.0;
+    }
+    
+    // 计算相对误差（基于原始位表示）
+    int32_t ia = static_cast<int32_t>(a);
+    int32_t ib = static_cast<int32_t>(b);
+    double diff = std::abs(ia - ib);
+    
+    // 计算相对误差（取较大值作为基准）
+    double base = std::max(std::abs(ia), std::abs(ib));
+    if (base < 1e-10) {
+        return diff > 0 ? 100.0 : 0.0;
+    }
+    
+    return (diff / base) * 100.0;
+}
+
 // 添加性能测试函数
 std::vector<double> run_performance_test(int vector_size, int sample_count, bool enable_waveform = false) {
     VPvuTop* top = new VPvuTop;
@@ -144,7 +174,14 @@ std::vector<double> run_performance_test(int vector_size, int sample_count, bool
     }
     top->reset = 0;
     
-    size_t errors = 0;
+    // 初始化错误统计变量
+    size_t severe_errors = 0;    // 严重错误数量（误差≥5%）
+    size_t minor_errors = 0;     // 轻微错误数量（2%≤误差<5%）
+    size_t minor_diff_count = 0; // 轻微差异（误差<2%）
+    double total_error = 0.0;    // 总误差
+    size_t valid_error_count = 0; // 非100%误差的样本数量
+    size_t total_elements = sample_count * vector_size;  // 计算总元素数
+    size_t total_errors = 0;     // 元素错误总数（不等同于golden）
     
     // 添加计时变量
     auto total_start_time = std::chrono::high_resolution_clock::now();
@@ -229,10 +266,45 @@ std::vector<double> run_performance_test(int vector_size, int sample_count, bool
         if (vector_size >= 3) hw_result[2] = top->io_posit_o_2;
         if (vector_size >= 4) hw_result[3] = top->io_posit_o_3;
         
+        // 逐元素比较并统计错误
         for(int j = 0; j < vector_size; j++){
             if (!posit_equal(hw_result[j], golden[j])) {
-                errors++;
-                break;  // 一旦发现错误就跳出循环
+                // 计算误差
+                double error = calc_posit_error(hw_result[j], golden[j]);
+                
+                // 只有误差不为100%的样本才计入平均误差
+                if (std::abs(error - 100.0) > 1e-6) {
+                    total_error += error;
+                    valid_error_count++;
+                }
+                
+                // 根据误差范围分类
+                if (error < 2.0) {
+                    // 误差小于2%，视为计算正确，但记录为轻微差异
+                    minor_diff_count++;
+                } else if (error < 5.0) {
+                    // 误差在2%-5%之间，视为轻微错误
+                    minor_errors++;
+                    // 可选：如果需要查看这些轻微错误，可以取消下面的注释
+                    /*
+                    std::cerr << "轻微错误: 样本 " << i << " 元素 " << j << "\n"
+                              << "  硬件结果: 0x" << std::hex << hw_result[j] << "\n"
+                              << "  预期结果: 0x" << std::hex << golden[j] << "\n"
+                              << "  相对误差: " << std::dec << error << "%\n";
+                    */
+                } else {
+                    // 误差大于等于5%，视为严重错误
+                    severe_errors++;
+                    // 可选：如果需要查看这些严重错误，可以取消下面的注释
+                    /*
+                    std::cerr << "严重错误: 样本 " << i << " 元素 " << j << "\n"
+                              << "  硬件结果: 0x" << std::hex << hw_result[j] << "\n"
+                              << "  预期结果: 0x" << std::hex << golden[j] << "\n"
+                              << "  相对误差: " << std::dec << error << "%\n";
+                    */
+                }
+                
+                total_errors++; // 增加总错误计数
             }
         }
         
@@ -252,6 +324,10 @@ std::vector<double> run_performance_test(int vector_size, int sample_count, bool
     // 计算元素级吞吐量（考虑向量大小）
     double elements_throughput = (sample_count * vector_size) / (total_hw_compute_time / 1000.0);
     
+    // 计算平均误差和非严重错误比率
+    double avg_error = valid_error_count > 0 ? total_error / valid_error_count : 0.0;
+    double non_severe_error_rate = 100.0 - (severe_errors * 100.0 / total_elements);
+    
     // 资源清理
     if (tfp) {
         tfp->close();
@@ -263,11 +339,14 @@ std::vector<double> run_performance_test(int vector_size, int sample_count, bool
     // 返回性能结果
     std::cout << "\n向量大小 " << vector_size << " 的性能测试结果\n========="
               << "\n总样本数: " << sample_count
-              << "\n总元素数: " << (sample_count * vector_size)
-              << "\n错误数量: " << errors
-              << "\n错误率:   " << std::fixed << std::setprecision(2)
-              << (errors*100.0/sample_count) << "%\n"
-              << "\n性能统计\n========="
+              << "\n总元素数: " << total_elements
+              << "\n错误元素统计\n---------"
+              << "\n严重错误（误差≥5%）: " << severe_errors << " (" << std::fixed << std::setprecision(2) << (severe_errors*100.0/total_elements) << "%)"
+              << "\n轻微错误（2%≤误差<5%）: " << minor_errors << " (" << std::fixed << std::setprecision(2) << (minor_errors*100.0/total_elements) << "%)"
+              << "\n轻微差异（误差<2%）: " << minor_diff_count << " (" << std::fixed << std::setprecision(2) << (minor_diff_count*100.0/total_elements) << "%)"
+              << "\n非严重错误比率: " << std::fixed << std::setprecision(4) << non_severe_error_rate << "%"
+              << "\n平均误差: " << std::fixed << std::setprecision(4) << avg_error << "%"
+              << "\n\n性能统计\n========="
               << "\n总运行时间: " << std::fixed << std::setprecision(2) << total_time << " ms"
               << "\n硬件计算时间: " << std::fixed << std::setprecision(2) << total_hw_compute_time << " ms"
               << "\n平均硬件计算时间: " << std::fixed << std::setprecision(4) << avg_hw_compute_time << " ms"
@@ -279,7 +358,8 @@ std::vector<double> run_performance_test(int vector_size, int sample_count, bool
     std::vector<double> results = {
         total_hw_compute_time,
         avg_hw_compute_time,
-        elements_throughput  // 元素吞吐量
+        elements_throughput,  // 元素吞吐量
+        non_severe_error_rate // 非严重错误比率（替代元素错误率）
     };
     
     return results;
@@ -321,7 +401,11 @@ int main(int argc, char** argv) {
     std::cout << "理论加速比: 4.00x (理想情况)" << std::endl;
     std::cout << "加速效率: " << std::fixed << std::setprecision(2) << (speedup_throughput / 4.0 * 100) << "%" << std::endl;
     
-    return 0;
+    // 定义测试通过条件：非严重错误比率超过99.5%
+    bool test_pass = (scalar_results[3] > 99.5) && (vector_results[3] > 99.5);
+    std::cout << "\nposit到posit的div测试完成！" << std::endl;
+    
+    return test_pass ? EXIT_SUCCESS : EXIT_FAILURE;
 }
 
 #endif

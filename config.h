@@ -2,5 +2,6 @@
 #ifndef CONFIG_H
 #define CONFIG_H
 
-#define CONFIG_RESNET_DIV_P32 1
+#define CONFIG_TYPE_VGG 1
+#define CONFIG_VGG_DOT_P32 1
 #endif // CONFIG_H

@@ -1,10 +1,33 @@
 mainmenu "Test File Config"
 
+# 顶级选择，确保各个测试类型互斥
+choice
+    prompt "Test Type"
+    default TYPE_RESNET
+
+    config TYPE_RESNET
+        bool "ResNet Tests"
+        help
+            Enable ResNet related tests
+
+    config TYPE_VGG
+        bool "VGG Tests"
+        help
+            Enable VGG related tests
+
+    config TYPE_SAMPLE
+        bool "Sample Test"
+        help
+            Enable manually sample test
+endchoice
+
+# ResNet测试选项
 menu "RESNET_TEST"
+    visible if TYPE_RESNET
+    
     choice
         prompt "Posit<32, 2>"
         default RESNET_ADD_P32
-        depends on !SAMPLE_TEST  # 新增依赖：仅在SAMPLE_TEST未启用时可见
         help
             Select one of the ResNet operations for the test.
 
@@ -71,5 +94,80 @@ menu "RESNET_TEST"
     endchoice
 endmenu
 
+# VGG测试菜单
+menu "VGG_TEST"
+    visible if TYPE_VGG
+    
+    choice
+        prompt "Posit<32, 2>"
+        default VGG_ADD_P32
+        help
+            Select one of the VGG operations for the test.
+
+    config VGG_ADD_P32
+        bool "vgg_add_p32_test"
+
+        help
+            Enable VGG addition test.
+
+    config VGG_SUB_P32
+        bool "vgg_sub_p32_test"
+
+        help
+            Enable VGG subtraction test.
+
+    config VGG_MUL_P32
+        bool "vgg_mul_p32_test"
+
+        help
+            Enable VGG multiplication test.
+
+    config VGG_DIV_P32
+        bool "vgg_div_p32_test"
+
+        help
+            Enable VGG division test.
+            
+    config VGG_DOT_P32
+        bool "vgg_dot_p32_test"
+
+        help
+            Enable VGG dot product test.
+
+    config VGG_FP32_TO_POSIT32
+        bool "vgg_fp32_to_posit32_test"
+
+        help
+            Enable IEEE-754 FP32 to Posit32 conversion test for VGG.
+            
+    config VGG_POSIT32_TO_FP32
+        bool "vgg_posit32_to_fp32_test"
+
+        help
+            Enable Posit32 to IEEE-754 FP32 conversion test for VGG.
+            
+    config VGG_GREATER_P32
+        bool "vgg_greater_p32_test"
+
+        help
+            Enable Posit32 greater comparison test for VGG.
+
+    config VGG_LESS_P32
+        bool "vgg_less_p32_test"
+
+        help
+            Enable Posit32 less comparison test for VGG.
+
+    config VGG_TRUNCATE_P32
+        bool "vgg_truncate_p32_test"
+
+        help
+            Enable Posit32 to Int8 truncation test for VGG.
+
+    endchoice
+endmenu
+
+# 设置配置辅助变量
 config SAMPLE_TEST
-    bool "manually_sample_test"
+    bool
+    default y if TYPE_SAMPLE
