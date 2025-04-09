@@ -249,6 +249,9 @@ std::vector<double> run_performance_test(int vector_size, int sample_count, bool
     double total_time = std::chrono::duration<double, std::milli>(total_end_time - total_start_time).count();
     avg_hw_compute_time = total_hw_compute_time / sample_count;
     
+    // 计算元素级吞吐量（考虑向量大小）
+    double elements_throughput = (sample_count * vector_size) / (total_hw_compute_time / 1000.0);
+    
     // 资源清理
     if (tfp) {
         tfp->close();
@@ -260,6 +263,7 @@ std::vector<double> run_performance_test(int vector_size, int sample_count, bool
     // 返回性能结果
     std::cout << "\n向量大小 " << vector_size << " 的性能测试结果\n========="
               << "\n总样本数: " << sample_count
+              << "\n总元素数: " << (sample_count * vector_size)
               << "\n错误数量: " << errors
               << "\n错误率:   " << std::fixed << std::setprecision(2)
               << (errors*100.0/sample_count) << "%\n"
@@ -269,13 +273,13 @@ std::vector<double> run_performance_test(int vector_size, int sample_count, bool
               << "\n平均硬件计算时间: " << std::fixed << std::setprecision(4) << avg_hw_compute_time << " ms"
               << "\n最大硬件计算时间: " << std::fixed << std::setprecision(4) << max_hw_compute_time << " ms"
               << "\n最小硬件计算时间: " << std::fixed << std::setprecision(4) << min_hw_compute_time << " ms"
-              << "\n硬件计算吞吐量: " << std::fixed << std::setprecision(2) << (sample_count / (total_hw_compute_time / 1000.0)) << " 样本/秒\n";
+              << "\n元素吞吐量: " << std::fixed << std::setprecision(2) << elements_throughput << " 元素/秒\n";
               
     // 返回性能指标，用于比较
     std::vector<double> results = {
         total_hw_compute_time,
         avg_hw_compute_time,
-        sample_count / (total_hw_compute_time / 1000.0)  // 吞吐量
+        elements_throughput  // 元素吞吐量
     };
     
     return results;
@@ -312,7 +316,7 @@ int main(int argc, char** argv) {
     
     // 输出加速比结果
     std::cout << "\n\n===== 矢量加速比分析 =====" << std::endl;
-    std::cout << "吞吐量加速比: " << std::fixed << std::setprecision(2) << speedup_throughput << "x" << std::endl;
+    std::cout << "元素吞吐量加速比: " << std::fixed << std::setprecision(2) << speedup_throughput << "x" << std::endl;
     std::cout << "计算时间加速比: " << std::fixed << std::setprecision(2) << speedup_time << "x" << std::endl;
     std::cout << "理论加速比: 4.00x (理想情况)" << std::endl;
     std::cout << "加速效率: " << std::fixed << std::setprecision(2) << (speedup_throughput / 4.0 * 100) << "%" << std::endl;

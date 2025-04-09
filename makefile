@@ -51,7 +51,12 @@ wave:
 	gtkwave pvu_top_wave.vcd
 
 git:
-	rm waveform.vcd
+	@if [ -n "$$(find . -name "*.vcd" 2>/dev/null)" ]; then \
+		echo "删除.vcd文件..."; \
+		find . -name "*.vcd" -delete; \
+	else \
+		echo "未找到.vcd文件，继续执行..."; \
+	fi
 	git add .
 	git commit
 

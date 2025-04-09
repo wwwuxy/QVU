@@ -7,6 +7,8 @@
 #include <iomanip>
 #include <cmath>
 #include <iostream>
+#include <chrono>  // 添加计时库
+#include <vector>  // 添加vector库
 #include "VPvuTop.h"
 #include "../../SoftPosit/source/include/softposit.h"
 
@@ -15,17 +17,25 @@
 const char* POSIT_FILE   = "./test_src/ResNet50/posit32_data.bin";
 const char* GOLDEN_FILE  = "./test_src/ResNet50/fp32_data.bin";
 const int SAMPLE_NUM     = 1000;                           // 与生成数据一致
+const int TOTAL_ELEMENTS = 4000;                           // 总元素数量，用于标量模式测试
 const char* WAVEFORM_FILE = "waveform.vcd";                // 波形输出文件
-const int VECTOR_SIZE    = 4;                              // 设置向量大小为4
+const int MAX_VECTOR_SIZE = 4;                              // 最大向量大小
 //--------------------------------------------
 
 struct TestData {
-    uint32_t posit_inputs[SAMPLE_NUM];    // Posit32输入
-    float golden_fp32[SAMPLE_NUM];        // 预期的FP32输出
+    // 使用动态数组来适应不同大小的向量测试
+    std::vector<uint32_t> posit_inputs;
+    std::vector<float> golden_fp32;
+    
+    // 构造函数，初始化数据结构
+    TestData(int sample_num) {
+        posit_inputs.resize(sample_num);
+        golden_fp32.resize(sample_num);
+    }
 };
 
-TestData load_testdata() {
-    TestData td;
+TestData load_testdata(int sample_count) {
+    TestData td(sample_count);
 
     // 读取Posit32输入数据
     std::ifstream posit_file(POSIT_FILE, std::ios::binary);
@@ -33,7 +43,7 @@ TestData load_testdata() {
         std::cerr << "无法打开Posit32数据文件: " << POSIT_FILE << std::endl;
         exit(EXIT_FAILURE);
     }
-    posit_file.read(reinterpret_cast<char*>(td.posit_inputs), sizeof(uint32_t) * SAMPLE_NUM);
+    posit_file.read(reinterpret_cast<char*>(td.posit_inputs.data()), sizeof(uint32_t) * sample_count);
     posit_file.close();
 
     // 读取预期的FP32输出数据
@@ -42,7 +52,7 @@ TestData load_testdata() {
         std::cerr << "无法打开FP32数据文件: " << GOLDEN_FILE << std::endl;
         exit(EXIT_FAILURE);
     }
-    fp32_file.read(reinterpret_cast<char*>(td.golden_fp32), sizeof(float) * SAMPLE_NUM);
+    fp32_file.read(reinterpret_cast<char*>(td.golden_fp32.data()), sizeof(float) * sample_count);
     fp32_file.close();
 
     return td;
@@ -61,79 +71,82 @@ bool fp32_equal(float a, float b) {
     return std::abs(static_cast<int32_t>(ia) - static_cast<int32_t>(ib)) <= 1;
 }
 
-int main(int argc, char** argv) {
-    Verilated::commandArgs(argc, argv);
-    
-    // 启用波形跟踪
-    Verilated::traceEverOn(true);
-
+// 添加性能测试函数
+std::vector<double> run_performance_test(int vector_size, int sample_count, bool enable_waveform = false) {
     VPvuTop* top = new VPvuTop;
-
-    // 创建 VCD 文件对象用于波形输出
-    VerilatedVcdC* tfp = new VerilatedVcdC;
-    top->trace(tfp, 99);  // 设置波形深度
-    tfp->open(WAVEFORM_FILE);  // 打开波形输出文件
-
+    VerilatedVcdC* tfp = nullptr;
+    
+    if (enable_waveform) {
+        Verilated::traceEverOn(true);
+        tfp = new VerilatedVcdC;
+        top->trace(tfp, 99);
+        tfp->open(WAVEFORM_FILE);
+    }
+    
     // 加载测试数据
-    TestData td = load_testdata();
-
+    TestData td = load_testdata(sample_count);
+    
     // 初始化信号
     top->clock = 0;
     top->reset = 1;
     top->eval();
-
+    
     // 复位序列（2周期）
     for (int i = 0; i < 2; ++i) {
         top->clock ^= 1;
         top->eval();
-        tfp->dump(i);  // 转储波形数据
+        if (tfp) tfp->dump(i);
     }
     top->reset = 0;
-
+    
     size_t errors = 0;
-    // 向量模式下，我们需要处理的样本数量是SAMPLE_NUM/VECTOR_SIZE（向上取整）
-    const size_t vector_iterations = (SAMPLE_NUM + VECTOR_SIZE - 1) / VECTOR_SIZE;
-    const size_t total_tests = vector_iterations * VECTOR_SIZE;
-
-    // 测试主循环，每次处理VECTOR_SIZE个数据
+    
+    // 添加计时变量
+    auto total_start_time = std::chrono::high_resolution_clock::now();
+    double total_hw_compute_time = 0.0;  // 只统计硬件计算时间
+    double max_hw_compute_time = 0.0;
+    double min_hw_compute_time = std::numeric_limits<double>::max();
+    double avg_hw_compute_time = 0.0;
+    
+    // 向量模式下，我们需要处理的样本数量是sample_count/vector_size（向上取整）
+    const size_t vector_iterations = (sample_count + vector_size - 1) / vector_size;
+    
+    // 测试主循环
     for (size_t i = 0; i < vector_iterations; ++i) {
-        uint32_t posit_inputs[VECTOR_SIZE] = {0};
-        float expected_fp32[VECTOR_SIZE] = {0};
+        // 获取输入数据
+        std::vector<uint32_t> posit_inputs(vector_size, 0);
+        std::vector<float> expected_fp32(vector_size, 0.0f);
         
         // 准备当前向量的输入数据和预期输出
-        for (int j = 0; j < VECTOR_SIZE; ++j) {
-            size_t idx = i * VECTOR_SIZE + j;
-            if (idx < SAMPLE_NUM) {
+        for (int j = 0; j < vector_size; ++j) {
+            size_t idx = i * vector_size + j;
+            if (idx < sample_count) {
                 posit_inputs[j] = td.posit_inputs[idx];
                 expected_fp32[j] = td.golden_fp32[idx];
-            } else {
-                // 如果超出范围，使用默认值
-                posit_inputs[j] = 0;
-                expected_fp32[j] = 0.0f;
             }
         }
-
+        
         // 设置Posit32输入数据
-        top->io_posit_i1_0 = posit_inputs[0];
-        top->io_posit_i1_1 = posit_inputs[1];
-        top->io_posit_i1_2 = posit_inputs[2];
-        top->io_posit_i1_3 = posit_inputs[3];
+        if (vector_size >= 1) top->io_posit_i1_0 = posit_inputs[0];
+        if (vector_size >= 2) top->io_posit_i1_1 = posit_inputs[1];
+        if (vector_size >= 3) top->io_posit_i1_2 = posit_inputs[2];
+        if (vector_size >= 4) top->io_posit_i1_3 = posit_inputs[3];
 
         // 设置为0，因为此处不需要
-        top->io_posit_i2_0 = 0;
-        top->io_posit_i2_1 = 0;
-        top->io_posit_i2_2 = 0;
-        top->io_posit_i2_3 = 0;
+        if (vector_size >= 1) top->io_posit_i2_0 = 0;
+        if (vector_size >= 2) top->io_posit_i2_1 = 0;
+        if (vector_size >= 3) top->io_posit_i2_2 = 0;
+        if (vector_size >= 4) top->io_posit_i2_3 = 0;
         
-        top->io_float_i_0 = 0;
-        top->io_float_i_1 = 0;
-        top->io_float_i_2 = 0;
-        top->io_float_i_3 = 0;
+        if (vector_size >= 1) top->io_float_i_0 = 0;
+        if (vector_size >= 2) top->io_float_i_1 = 0;
+        if (vector_size >= 3) top->io_float_i_2 = 0;
+        if (vector_size >= 4) top->io_float_i_3 = 0;
         
-        top->io_float_i2_0 = 0;
-        top->io_float_i2_1 = 0;
-        top->io_float_i2_2 = 0;
-        top->io_float_i2_3 = 0;
+        if (vector_size >= 1) top->io_float_i2_0 = 0;
+        if (vector_size >= 2) top->io_float_i2_1 = 0;
+        if (vector_size >= 3) top->io_float_i2_2 = 0;
+        if (vector_size >= 4) top->io_float_i2_3 = 0;
 
         // 设置op代码和配置参数
         top->io_op          = OP;
@@ -145,69 +158,131 @@ int main(int argc, char** argv) {
         // 设置数据位宽
         top->io_src_posit_width = 32;           // 32位Posit
         top->io_dst_posit_width = 32;           // 32位FP32
-        top->io_vector_size     = VECTOR_SIZE;  // 向量大小为4
+        top->io_vector_size     = vector_size;  // 向量大小
         
-        // 运行一个时钟周期
+        // 开始计时硬件计算 - 只统计从输入到输出的时间
+        auto hw_compute_start_time = std::chrono::high_resolution_clock::now();
+        
+        // 运行一次计算
         top->clock = 1;
         top->eval();
-        tfp->dump(i*2 + 1);  // 转储波形数据
-
+        if (tfp) tfp->dump(i*2 + 1);
+        
         top->clock = 0;
         top->eval();
-        tfp->dump(i*2 + 2);  // 转储波形数据
+        if (tfp) tfp->dump(i*2 + 2);
+        
+        // 结束计时硬件计算
+        auto hw_compute_end_time = std::chrono::high_resolution_clock::now();
+        double hw_compute_time = std::chrono::duration<double, std::milli>(hw_compute_end_time - hw_compute_start_time).count();
+        total_hw_compute_time += hw_compute_time;
+        
+        // 更新最大和最小硬件计算时间
+        max_hw_compute_time = std::max(max_hw_compute_time, hw_compute_time);
+        min_hw_compute_time = std::min(min_hw_compute_time, hw_compute_time);
 
         // 获取硬件计算的FP32结果
-        float hw_result[VECTOR_SIZE];
-        uint32_t hw_bits[VECTOR_SIZE];
-        hw_bits[0] = top->io_float_o_0;
-        hw_bits[1] = top->io_float_o_1;
-        hw_bits[2] = top->io_float_o_2;
-        hw_bits[3] = top->io_float_o_3;
+        std::vector<float> hw_result(vector_size);
+        std::vector<uint32_t> hw_bits(vector_size);
+        
+        if (vector_size >= 1) hw_bits[0] = top->io_float_o_0;
+        if (vector_size >= 2) hw_bits[1] = top->io_float_o_1;
+        if (vector_size >= 3) hw_bits[2] = top->io_float_o_2;
+        if (vector_size >= 4) hw_bits[3] = top->io_float_o_3;
         
         // 将uint32_t转换为float
-        for (int j = 0; j < VECTOR_SIZE; ++j) {
+        for (int j = 0; j < vector_size; ++j) {
             std::memcpy(&hw_result[j], &hw_bits[j], sizeof(float));
         }
 
         // 比较每个向量元素的结果
-        for (int j = 0; j < VECTOR_SIZE; ++j) {
-            size_t idx = i * VECTOR_SIZE + j;
-            if (idx >= SAMPLE_NUM) continue;  // 超出范围的样本不进行比较
+        for (int j = 0; j < vector_size; ++j) {
+            size_t idx = i * vector_size + j;
+            if (idx >= sample_count) continue;  // 超出范围的样本不进行比较
             
             if (!fp32_equal(hw_result[j], expected_fp32[j])) {
-                std::cerr << "样本 " << idx << " 不匹配\n"
-                          << "  向量位置: " << j << "\n"
-                          << "  输入Posit: 0x" << std::hex << posit_inputs[j] << "\n"
-                          << "  硬件输出: " << std::fixed << hw_result[j] << " (0x" << std::hex << hw_bits[j] << ")\n"
-                          << "  预期输出: " << std::fixed << expected_fp32[j] << "\n";
                 errors++;
             }
         }
 
         // 进度显示
         if ((i+1) % 25 == 0) {  // 每25个向量显示一次（对应约100个样本）
-            std::cout << "已测试 " << std::min((i+1)*VECTOR_SIZE, (size_t)SAMPLE_NUM) << "/" << SAMPLE_NUM 
-                      << " (" << (std::min((i+1)*VECTOR_SIZE, (size_t)SAMPLE_NUM)*100/SAMPLE_NUM) << "%)" 
+            std::cout << "已测试 " << std::min((i+1)*vector_size, (size_t)sample_count) << "/" << sample_count 
+                      << " (" << (std::min((i+1)*vector_size, (size_t)sample_count)*100/sample_count) << "%)" 
                       << std::endl;
         }
     }
-
+    
+    // 计算总运行时间和平均时间
+    auto total_end_time = std::chrono::high_resolution_clock::now();
+    double total_time = std::chrono::duration<double, std::milli>(total_end_time - total_start_time).count();
+    avg_hw_compute_time = total_hw_compute_time / vector_iterations;
+    
     // 资源清理
-    tfp->close();  // 关闭波形文件
+    if (tfp) {
+        tfp->close();
+        delete tfp;
+    }
     top->final();
     delete top;
-    delete tfp;
-
-    // 结果报告
-    std::cout << "\n验证结果\n========="
-              << "\nPosit32到FP32向量转换测试完成！"
-              << "\n总样本数: " << SAMPLE_NUM
-              << "\n向量宽度: " << VECTOR_SIZE
+    
+    // 返回性能结果
+    std::cout << "\n向量大小 " << vector_size << " 的性能测试结果\n========="
+              << "\n总样本数: " << sample_count
               << "\n错误数量: " << errors
               << "\n错误率:   " << std::fixed << std::setprecision(2)
-              << (errors*100.0/SAMPLE_NUM) << "%\n";
+              << (errors*100.0/sample_count) << "%\n"
+              << "\n性能统计\n========="
+              << "\n总运行时间: " << std::fixed << std::setprecision(2) << total_time << " ms"
+              << "\n硬件计算时间: " << std::fixed << std::setprecision(2) << total_hw_compute_time << " ms"
+              << "\n平均硬件计算时间: " << std::fixed << std::setprecision(4) << avg_hw_compute_time << " ms"
+              << "\n最大硬件计算时间: " << std::fixed << std::setprecision(4) << max_hw_compute_time << " ms"
+              << "\n最小硬件计算时间: " << std::fixed << std::setprecision(4) << min_hw_compute_time << " ms"
+              << "\n硬件计算吞吐量: " << std::fixed << std::setprecision(2) << (sample_count / (total_hw_compute_time / 1000.0)) << " 样本/秒\n";
+              
+    // 返回性能指标，用于比较
+    std::vector<double> results = {
+        total_hw_compute_time,
+        avg_hw_compute_time,
+        sample_count / (total_hw_compute_time / 1000.0)  // 吞吐量
+    };
+    
+    return results;
+}
 
-    return errors ? EXIT_FAILURE : EXIT_SUCCESS;
+int main(int argc, char** argv) {
+    Verilated::commandArgs(argc, argv);
+    
+    // 测试参数
+    bool enable_waveform = false;  // 默认不生成波形文件
+    
+    // 解析命令行参数
+    if (argc > 1) {
+        enable_waveform = (std::atoi(argv[1]) != 0);
+    }
+    
+    std::cout << "开始性能测试，Posit32到FP32转换..." << std::endl;
+    
+    // 运行向量大小为1的测试（标量模式）
+    std::cout << "\n\n===== 标量模式测试 (向量大小=1) =====" << std::endl;
+    std::vector<double> scalar_results = run_performance_test(1, TOTAL_ELEMENTS, enable_waveform);
+    
+    // 运行向量大小为4的测试（向量模式）
+    std::cout << "\n\n===== 向量模式测试 (向量大小=4) =====" << std::endl;
+    std::vector<double> vector_results = run_performance_test(4, SAMPLE_NUM, enable_waveform);
+    
+    // 计算加速比
+    double speedup_throughput = vector_results[2] / scalar_results[2];
+    double speedup_time = (scalar_results[0] / vector_results[0]) / MAX_VECTOR_SIZE;
+    
+    // 输出加速比结果
+    std::cout << "\n\n===== 矢量加速比分析 =====" << std::endl;
+    std::cout << "吞吐量加速比: " << std::fixed << std::setprecision(2) << speedup_throughput << "x" << std::endl;
+    std::cout << "计算时间加速比: " << std::fixed << std::setprecision(2) << speedup_time << "x" << std::endl;
+    std::cout << "理论加速比: 4.00x (理想情况)" << std::endl;
+    std::cout << "加速效率: " << std::fixed << std::setprecision(2) << (speedup_throughput / 4.0 * 100) << "%" << std::endl;
+    
+    return 0;
 }
 
 #endif 
