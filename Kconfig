@@ -20,6 +20,11 @@ choice
         help
             Enable AlexNet related tests
 
+    config TYPE_LENET
+        bool "LeNet Tests"
+        help
+            Enable LeNet related tests
+
     config TYPE_SAMPLE
         bool "Sample Test"
         help
@@ -241,6 +246,79 @@ menu "ALEXNET_TEST"
 
         help
             Enable Posit32 to Int8 truncation test for AlexNet.
+
+    endchoice
+endmenu
+
+# LENET测试菜单
+menu "LENET_TEST"
+    visible if TYPE_LENET
+    
+    choice
+        prompt "Posit<32, 2>"
+        default LENET_ADD_P32
+        help
+            Select one of the LeNet operations for the test.
+
+    config LENET_ADD_P32
+        bool "lenet_add_p32_test"
+
+        help
+            Enable LeNet addition test.
+
+    config LENET_SUB_P32
+        bool "lenet_sub_p32_test"
+
+        help
+            Enable LeNet subtraction test.
+
+    config LENET_MUL_P32
+        bool "lenet_mul_p32_test"
+
+        help
+            Enable LeNet multiplication test.
+
+    config LENET_DIV_P32
+        bool "lenet_div_p32_test"
+
+        help
+            Enable LeNet division test.
+            
+    config LENET_DOT_P32
+        bool "lenet_dot_p32_test"
+
+        help
+            Enable LeNet dot product test.
+
+    config LENET_FP32_TO_POSIT32
+        bool "lenet_fp32_to_posit32_test"
+
+        help
+            Enable IEEE-754 FP32 to Posit32 conversion test for LeNet.
+            
+    config LENET_POSIT32_TO_FP32
+        bool "lenet_posit32_to_fp32_test"
+
+        help
+            Enable Posit32 to IEEE-754 FP32 conversion test for LeNet.
+            
+    config LENET_GREATER_P32
+        bool "lenet_greater_p32_test"
+
+        help
+            Enable Posit32 greater comparison test for LeNet.
+
+    config LENET_LESS_P32
+        bool "lenet_less_p32_test"
+
+        help
+            Enable Posit32 less comparison test for LeNet.
+
+    config LENET_TRUNCATE_P32
+        bool "lenet_truncate_p32_test"
+
+        help
+            Enable Posit32 to Int8 truncation test for LeNet.
 
     endchoice
 endmenu
