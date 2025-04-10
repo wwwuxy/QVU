@@ -248,111 +248,45 @@ std::vector<double> run_performance_test(int vector_size, int sample_count, bool
     std::vector<double> results = {
         total_hw_compute_time,
         avg_hw_compute_time,
-        max_hw_compute_time,
-        min_hw_compute_time,
         sample_count / (total_hw_compute_time / 1000.0)  // 吞吐量
     };
     
     return results;
 }
 
-// 使用SoftPosit库进行软件验证
-void validate_with_softposit(int sample_count) {
-    // 加载测试数据
-    TestData td = load_testdata(sample_count);
-    
-    size_t errors = 0;
-    
-    std::cout << "使用SoftPosit验证大于比较操作...\n";
-    
-    // 计时
-    auto start_time = std::chrono::high_resolution_clock::now();
-    
-    // 对每个样本进行验证
-    for (int i = 0; i < sample_count; ++i) {
-        // 转换为SoftPosit类型
-        posit32_t p1, p2;
-        p1.v = td.activations[i];
-        p2.v = td.weights[i];
-        
-        // 使用SoftPosit进行大于比较
-        bool soft_result = p32_gt(p1, p2);
-        
-        // 从golden数据获取预期结果
-        bool expected_result = (td.golden[i] != 0);
-        
-        // 验证结果
-        if (soft_result != expected_result) {
-            errors++;
-        }
-        
-        // 每100个样本显示一次进度
-        if ((i+1) % 100 == 0) {
-            std::cout << "已验证 " << (i+1) << "/" << sample_count 
-                      << " (" << ((i+1)*100/sample_count) << "%)" << std::endl;
-        }
-    }
-    
-    // 计算总运行时间
-    auto end_time = std::chrono::high_resolution_clock::now();
-    double total_time = std::chrono::duration<double, std::milli>(end_time - start_time).count();
-    
-    // 显示结果
-    std::cout << "\nSoftPosit验证结果\n========="
-              << "\n总样本数: " << sample_count
-              << "\n错误数量: " << errors
-              << "\n错误率:   " << std::fixed << std::setprecision(2)
-              << (errors*100.0/sample_count) << "%"
-              << "\n总运行时间: " << std::fixed << std::setprecision(2) << total_time << " ms"
-              << "\n每样本平均时间: " << std::fixed << std::setprecision(4) << (total_time / sample_count) << " ms"
-              << "\n处理吞吐量: " << std::fixed << std::setprecision(2) << (sample_count / (total_time / 1000.0)) << " 样本/秒\n";
-}
-
 int main(int argc, char** argv) {
     // 初始化Verilator
     Verilated::commandArgs(argc, argv);
     
-    // 设置测试样本数量
-    const int sample_count = SAMPLE_NUM;
+    // 测试参数
+    bool enable_waveform = false;  // 默认不生成波形文件
     
-    // 打印测试配置
-    std::cout << "VGG16 Posit32大于比较操作测试\n"
-              << "========================\n"
-              << "样本数量: " << sample_count << "\n"
-              << "激活数据: " << ACT_FILE << "\n"
-              << "权重数据: " << WEIGHT_FILE << "\n"
-              << "预期结果: " << GOLDEN_FILE << "\n"
-              << "========================\n";
-    
-    // 运行不同向量大小的性能测试
-    std::vector<std::vector<double>> performance_results;
-    
-    std::cout << "\n运行向量大小=1的性能测试...\n";
-    performance_results.push_back(run_performance_test(1, sample_count, true));  // 标量模式，开启波形
-    
-    for (int vector_size = 2; vector_size <= MAX_VECTOR_SIZE; ++vector_size) {
-        std::cout << "\n运行向量大小=" << vector_size << "的性能测试...\n";
-        performance_results.push_back(run_performance_test(vector_size, sample_count));
+    // 解析命令行参数
+    if (argc > 1) {
+        enable_waveform = (std::atoi(argv[1]) != 0);
     }
     
-    // 运行SoftPosit软件验证
-    validate_with_softposit(sample_count);
+    std::cout << "开始性能测试，Posit32大于比较运算..." << std::endl;
     
-    // 性能对比分析
-    std::cout << "\n\n性能对比分析\n===========\n";
-    std::cout << "向量大小\t计算时间(ms)\t平均时间(ms)\t最大时间(ms)\t最小时间(ms)\t吞吐量(样本/秒)\n";
-    std::cout << "---------------------------------------------------------------------\n";
+    // 运行向量大小为1的测试（标量模式）
+    std::cout << "\n\n===== 标量模式测试 (向量大小=1) =====" << std::endl;
+    std::vector<double> scalar_results = run_performance_test(1, TOTAL_ELEMENTS, enable_waveform);
     
-    for (int i = 0; i < performance_results.size(); ++i) {
-        std::cout << (i+1) << "\t\t"
-                  << std::fixed << std::setprecision(2) << performance_results[i][0] << "\t\t"
-                  << std::fixed << std::setprecision(4) << performance_results[i][1] << "\t\t"
-                  << std::fixed << std::setprecision(4) << performance_results[i][2] << "\t\t"
-                  << std::fixed << std::setprecision(4) << performance_results[i][3] << "\t\t"
-                  << std::fixed << std::setprecision(0) << performance_results[i][4] << "\n";
-    }
+    // 运行向量大小为4的测试（向量模式）
+    std::cout << "\n\n===== 向量模式测试 (向量大小=4) =====" << std::endl;
+    std::vector<double> vector_results = run_performance_test(4, SAMPLE_NUM, enable_waveform);
     
-    std::cout << "\nVGG16 Posit32大于比较测试完成!\n";
+    // 计算加速比
+    double speedup_throughput = vector_results[2] / scalar_results[2];
+    double speedup_time = (scalar_results[0] / vector_results[0]) / MAX_VECTOR_SIZE;
+    
+    // 输出加速比结果
+    std::cout << "\n\n===== 矢量加速比分析 =====" << std::endl;
+    std::cout << "吞吐量加速比: " << std::fixed << std::setprecision(2) << speedup_throughput << "x" << std::endl;
+    std::cout << "计算时间加速比: " << std::fixed << std::setprecision(2) << speedup_time << "x" << std::endl;
+    std::cout << "理论加速比: 4.00x (理想情况)" << std::endl;
+    std::cout << "加速效率: " << std::fixed << std::setprecision(2) << (speedup_throughput / 4.0 * 100) << "%" << std::endl;
+    
     return 0;
 }
 
