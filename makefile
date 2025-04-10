@@ -4,11 +4,17 @@ VSRCS += $(shell find $(abspath ./vsrc) -name "*.sv")
 CSRCS += $(shell find $(abspath ./csrc) -name "*.cpp")
 CONFIG_H = config.h
 
+# SoftPosit库相关设置
+SOFTPOSIT_DIR = /home/wuxy/SoftPosit
+SOFTPOSIT_INCLUDE = -I$(SOFTPOSIT_DIR)/source/include
+SOFTPOSIT_LIB = $(SOFTPOSIT_DIR)/build/lib/libsoftposit.a
+
 # verilator flags
 VERILATOR_FLAGS += -Wall --cc --trace --exe --build --top-module $(TOPNAME)
 VERILATOR_FLAGS += -Wno-DECLFILENAME -Wno-PINCONNECTEMPTY -Wno-UNUSEDSIGNAL -Wno-UNOPTFLAT
 VERILATOR_FLAGS += --threads-dpi all
 VERILATOR_FLAGS += -j 16
+VERILATOR_FLAGS += $(SOFTPOSIT_INCLUDE)
 
 include .config
 
@@ -45,6 +51,8 @@ verilog:
 
 run:${CSRCS} ${VSRCS}
 	verilator ${VERILATOR_FLAGS} ${CSRCS} ${VSRCS}
+	@echo "链接SoftPosit库..."
+	# 不再需要链接SoftPosit库，已直接在代码中实现必要函数
 	./obj_dir/VPvuTop
 
 wave:

@@ -15,6 +15,11 @@ choice
         help
             Enable VGG related tests
 
+    config TYPE_ALEXNET
+        bool "AlexNet Tests"
+        help
+            Enable AlexNet related tests
+
     config TYPE_SAMPLE
         bool "Sample Test"
         help
@@ -163,6 +168,79 @@ menu "VGG_TEST"
 
         help
             Enable Posit32 to Int8 truncation test for VGG.
+
+    endchoice
+endmenu
+
+# AlexNet测试菜单
+menu "ALEXNET_TEST"
+    visible if TYPE_ALEXNET
+    
+    choice
+        prompt "Posit<32, 2>"
+        default ALEXNET_ADD_P32
+        help
+            Select one of the AlexNet operations for the test.
+
+    config ALEXNET_ADD_P32
+        bool "alexnet_add_p32_test"
+
+        help
+            Enable AlexNet addition test.
+
+    config ALEXNET_SUB_P32
+        bool "alexnet_sub_p32_test"
+
+        help
+            Enable AlexNet subtraction test.
+
+    config ALEXNET_MUL_P32
+        bool "alexnet_mul_p32_test"
+
+        help
+            Enable AlexNet multiplication test.
+
+    config ALEXNET_DIV_P32
+        bool "alexnet_div_p32_test"
+
+        help
+            Enable AlexNet division test.
+            
+    config ALEXNET_DOT_P32
+        bool "alexnet_dot_p32_test"
+
+        help
+            Enable AlexNet dot product test.
+
+    config ALEXNET_FP32_TO_POSIT32
+        bool "alexnet_fp32_to_posit32_test"
+
+        help
+            Enable IEEE-754 FP32 to Posit32 conversion test for AlexNet.
+            
+    config ALEXNET_POSIT32_TO_FP32
+        bool "alexnet_posit32_to_fp32_test"
+
+        help
+            Enable Posit32 to IEEE-754 FP32 conversion test for AlexNet.
+            
+    config ALEXNET_GREATER_P32
+        bool "alexnet_greater_p32_test"
+
+        help
+            Enable Posit32 greater comparison test for AlexNet.
+
+    config ALEXNET_LESS_P32
+        bool "alexnet_less_p32_test"
+
+        help
+            Enable Posit32 less comparison test for AlexNet.
+
+    config ALEXNET_TRUNCATE_P32
+        bool "alexnet_truncate_p32_test"
+
+        help
+            Enable Posit32 to Int8 truncation test for AlexNet.
 
     endchoice
 endmenu

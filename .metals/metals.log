@@ -1501,3 +1501,5 @@ Caused by: java.lang.StringIndexOutOfBoundsException: begin 40935, end 40952, le
 2025.04.09 16:02:32 INFO  time: indexed workspace in 2.5s
 4月 09, 2025 4:02:38 下午 org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
 信息: Unsupported notification method: $/setTrace
+4月 10, 2025 3:03:52 下午 org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+信息: Unsupported notification method: $/setTrace
