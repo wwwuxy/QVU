@@ -91,6 +91,16 @@ VM_USER_CLASSES = \
 	main_resnet_p32Tofp32 \
 	main_resnet_sub_p32 \
 	main_resnet_truncate_p32 \
+	main_shufflenetv2_add_p32 \
+	main_shufflenetv2_div_p32 \
+	main_shufflenetv2_dot_p32 \
+	main_shufflenetv2_fp32Top32 \
+	main_shufflenetv2_greater_p32 \
+	main_shufflenetv2_less_p32 \
+	main_shufflenetv2_mul_p32 \
+	main_shufflenetv2_p32Tofp32 \
+	main_shufflenetv2_sub_p32 \
+	main_shufflenetv2_truncate_p32 \
 	main_simple_test \
 	main_squeezenet_add_p32 \
 	main_squeezenet_div_p32 \
@@ -226,6 +236,26 @@ main_resnet_p32Tofp32.o: /home/wuxy/BPVU/csrc/main_resnet_p32Tofp32.cpp
 main_resnet_sub_p32.o: /home/wuxy/BPVU/csrc/main_resnet_sub_p32.cpp
 	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
 main_resnet_truncate_p32.o: /home/wuxy/BPVU/csrc/main_resnet_truncate_p32.cpp
+	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
+main_shufflenetv2_add_p32.o: /home/wuxy/BPVU/csrc/main_shufflenetv2_add_p32.cpp
+	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
+main_shufflenetv2_div_p32.o: /home/wuxy/BPVU/csrc/main_shufflenetv2_div_p32.cpp
+	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
+main_shufflenetv2_dot_p32.o: /home/wuxy/BPVU/csrc/main_shufflenetv2_dot_p32.cpp
+	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
+main_shufflenetv2_fp32Top32.o: /home/wuxy/BPVU/csrc/main_shufflenetv2_fp32Top32.cpp
+	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
+main_shufflenetv2_greater_p32.o: /home/wuxy/BPVU/csrc/main_shufflenetv2_greater_p32.cpp
+	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
+main_shufflenetv2_less_p32.o: /home/wuxy/BPVU/csrc/main_shufflenetv2_less_p32.cpp
+	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
+main_shufflenetv2_mul_p32.o: /home/wuxy/BPVU/csrc/main_shufflenetv2_mul_p32.cpp
+	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
+main_shufflenetv2_p32Tofp32.o: /home/wuxy/BPVU/csrc/main_shufflenetv2_p32Tofp32.cpp
+	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
+main_shufflenetv2_sub_p32.o: /home/wuxy/BPVU/csrc/main_shufflenetv2_sub_p32.cpp
+	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
+main_shufflenetv2_truncate_p32.o: /home/wuxy/BPVU/csrc/main_shufflenetv2_truncate_p32.cpp
 	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
 main_simple_test.o: /home/wuxy/BPVU/csrc/main_simple_test.cpp
 	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
