@@ -82,6 +82,8 @@ count:
 	@echo $(shell find src -name "*.scala" -type f | xargs cat | wc -l)
 	@echo "Total lines of Verilog code:"
 	@echo $(shell find vsrc -name "*.sv" -type f | xargs cat | wc -l)
+	@echo "Total lines of C++ test code in csrc:"
+	@echo $(shell find csrc -name "*.cpp" -o -name "*.h" -o -name "*.hpp" -type f | xargs cat | wc -l)
 
 
 debug:

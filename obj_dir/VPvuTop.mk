@@ -51,6 +51,16 @@ VM_USER_CLASSES = \
 	main_alexnet_p32Tofp32 \
 	main_alexnet_sub_p32 \
 	main_alexnet_truncate_p32 \
+	main_convnext_add_p32 \
+	main_convnext_div_p32 \
+	main_convnext_dot_p32 \
+	main_convnext_fp32Top32 \
+	main_convnext_greater_p32 \
+	main_convnext_less_p32 \
+	main_convnext_mul_p32 \
+	main_convnext_p32Tofp32 \
+	main_convnext_sub_p32 \
+	main_convnext_truncate_p32 \
 	main_lenet_add_p32 \
 	main_lenet_div_p32 \
 	main_lenet_dot_p32 \
@@ -136,6 +146,26 @@ main_alexnet_p32Tofp32.o: /home/wuxy/BPVU/csrc/main_alexnet_p32Tofp32.cpp
 main_alexnet_sub_p32.o: /home/wuxy/BPVU/csrc/main_alexnet_sub_p32.cpp
 	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
 main_alexnet_truncate_p32.o: /home/wuxy/BPVU/csrc/main_alexnet_truncate_p32.cpp
+	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
+main_convnext_add_p32.o: /home/wuxy/BPVU/csrc/main_convnext_add_p32.cpp
+	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
+main_convnext_div_p32.o: /home/wuxy/BPVU/csrc/main_convnext_div_p32.cpp
+	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
+main_convnext_dot_p32.o: /home/wuxy/BPVU/csrc/main_convnext_dot_p32.cpp
+	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
+main_convnext_fp32Top32.o: /home/wuxy/BPVU/csrc/main_convnext_fp32Top32.cpp
+	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
+main_convnext_greater_p32.o: /home/wuxy/BPVU/csrc/main_convnext_greater_p32.cpp
+	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
+main_convnext_less_p32.o: /home/wuxy/BPVU/csrc/main_convnext_less_p32.cpp
+	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
+main_convnext_mul_p32.o: /home/wuxy/BPVU/csrc/main_convnext_mul_p32.cpp
+	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
+main_convnext_p32Tofp32.o: /home/wuxy/BPVU/csrc/main_convnext_p32Tofp32.cpp
+	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
+main_convnext_sub_p32.o: /home/wuxy/BPVU/csrc/main_convnext_sub_p32.cpp
+	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
+main_convnext_truncate_p32.o: /home/wuxy/BPVU/csrc/main_convnext_truncate_p32.cpp
 	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
 main_lenet_add_p32.o: /home/wuxy/BPVU/csrc/main_lenet_add_p32.cpp
 	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<

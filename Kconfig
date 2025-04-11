@@ -34,6 +34,11 @@ choice
         bool "SqueezeNet Tests"
         help
             Enable SqueezeNet related tests
+            
+    config TYPE_CONVNEXT
+        bool "ConvNeXt Tests"
+        help
+            Enable ConvNeXt related tests
 
     config TYPE_SAMPLE
         bool "Sample Test"
@@ -475,6 +480,79 @@ menu "SQUEEZENET_TEST"
 
         help
             Enable Posit32 to Int8 truncation test for SqueezeNet.
+
+    endchoice
+endmenu
+
+# CONVNEXT_TEST菜单
+menu "CONVNEXT_TEST"
+    visible if TYPE_CONVNEXT
+    
+    choice
+        prompt "Posit<32, 2>"
+        default CONVNEXT_ADD_P32
+        help
+            Select one of the ConvNeXt operations for the test.
+
+    config CONVNEXT_ADD_P32
+        bool "convnext_add_p32_test"
+
+        help
+            Enable ConvNeXt addition test.
+
+    config CONVNEXT_SUB_P32
+        bool "convnext_sub_p32_test"
+
+        help
+            Enable ConvNeXt subtraction test.
+
+    config CONVNEXT_MUL_P32
+        bool "convnext_mul_p32_test"
+
+        help
+            Enable ConvNeXt multiplication test.
+
+    config CONVNEXT_DIV_P32
+        bool "convnext_div_p32_test"
+
+        help
+            Enable ConvNeXt division test.
+            
+    config CONVNEXT_DOT_P32
+        bool "convnext_dot_p32_test"
+
+        help
+            Enable ConvNeXt dot product test.
+
+    config CONVNEXT_FP32_TO_POSIT32
+        bool "convnext_fp32_to_posit32_test"
+
+        help
+            Enable IEEE-754 FP32 to Posit32 conversion test for ConvNeXt.
+            
+    config CONVNEXT_POSIT32_TO_FP32
+        bool "convnext_posit32_to_fp32_test"
+
+        help
+            Enable Posit32 to IEEE-754 FP32 conversion test for ConvNeXt.
+            
+    config CONVNEXT_GREATER_P32
+        bool "convnext_greater_p32_test"
+
+        help
+            Enable Posit32 greater comparison test for ConvNeXt.
+
+    config CONVNEXT_LESS_P32
+        bool "convnext_less_p32_test"
+
+        help
+            Enable Posit32 less comparison test for ConvNeXt.
+
+    config CONVNEXT_TRUNCATE_P32
+        bool "convnext_truncate_p32_test"
+
+        help
+            Enable Posit32 to Int8 truncation test for ConvNeXt.
 
     endchoice
 endmenu
