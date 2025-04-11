@@ -29,6 +29,11 @@ choice
         bool "MobileNet Tests"
         help
             Enable MobileNet related tests
+            
+    config TYPE_SQUEEZENET
+        bool "SqueezeNet Tests"
+        help
+            Enable SqueezeNet related tests
 
     config TYPE_SAMPLE
         bool "Sample Test"
@@ -397,6 +402,79 @@ menu "MOBILENET_TEST"
 
         help
             Enable Posit32 to Int8 truncation test for MobileNet.
+
+    endchoice
+endmenu
+
+# SQUEEZENET_TEST菜单
+menu "SQUEEZENET_TEST"
+    visible if TYPE_SQUEEZENET
+    
+    choice
+        prompt "Posit<32, 2>"
+        default SQUEEZENET_ADD_P32
+        help
+            Select one of the SqueezeNet operations for the test.
+
+    config SQUEEZENET_ADD_P32
+        bool "squeezenet_add_p32_test"
+
+        help
+            Enable SqueezeNet addition test.
+
+    config SQUEEZENET_SUB_P32
+        bool "squeezenet_sub_p32_test"
+
+        help
+            Enable SqueezeNet subtraction test.
+
+    config SQUEEZENET_MUL_P32
+        bool "squeezenet_mul_p32_test"
+
+        help
+            Enable SqueezeNet multiplication test.
+
+    config SQUEEZENET_DIV_P32
+        bool "squeezenet_div_p32_test"
+
+        help
+            Enable SqueezeNet division test.
+            
+    config SQUEEZENET_DOT_P32
+        bool "squeezenet_dot_p32_test"
+
+        help
+            Enable SqueezeNet dot product test.
+
+    config SQUEEZENET_FP32_TO_POSIT32
+        bool "squeezenet_fp32_to_posit32_test"
+
+        help
+            Enable IEEE-754 FP32 to Posit32 conversion test for SqueezeNet.
+            
+    config SQUEEZENET_POSIT32_TO_FP32
+        bool "squeezenet_posit32_to_fp32_test"
+
+        help
+            Enable Posit32 to IEEE-754 FP32 conversion test for SqueezeNet.
+            
+    config SQUEEZENET_GREATER_P32
+        bool "squeezenet_greater_p32_test"
+
+        help
+            Enable Posit32 greater comparison test for SqueezeNet.
+
+    config SQUEEZENET_LESS_P32
+        bool "squeezenet_less_p32_test"
+
+        help
+            Enable Posit32 less comparison test for SqueezeNet.
+
+    config SQUEEZENET_TRUNCATE_P32
+        bool "squeezenet_truncate_p32_test"
+
+        help
+            Enable Posit32 to Int8 truncation test for SqueezeNet.
 
     endchoice
 endmenu

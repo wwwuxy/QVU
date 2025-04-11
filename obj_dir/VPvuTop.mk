@@ -82,6 +82,16 @@ VM_USER_CLASSES = \
 	main_resnet_sub_p32 \
 	main_resnet_truncate_p32 \
 	main_simple_test \
+	main_squeezenet_add_p32 \
+	main_squeezenet_div_p32 \
+	main_squeezenet_dot_p32 \
+	main_squeezenet_fp32Top32 \
+	main_squeezenet_greater_p32 \
+	main_squeezenet_less_p32 \
+	main_squeezenet_mul_p32 \
+	main_squeezenet_p32Tofp32 \
+	main_squeezenet_sub_p32 \
+	main_squeezenet_truncate_p32 \
 	main_vgg_add_p32 \
 	main_vgg_div_p32 \
 	main_vgg_dot_p32 \
@@ -188,6 +198,26 @@ main_resnet_sub_p32.o: /home/wuxy/BPVU/csrc/main_resnet_sub_p32.cpp
 main_resnet_truncate_p32.o: /home/wuxy/BPVU/csrc/main_resnet_truncate_p32.cpp
 	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
 main_simple_test.o: /home/wuxy/BPVU/csrc/main_simple_test.cpp
+	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
+main_squeezenet_add_p32.o: /home/wuxy/BPVU/csrc/main_squeezenet_add_p32.cpp
+	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
+main_squeezenet_div_p32.o: /home/wuxy/BPVU/csrc/main_squeezenet_div_p32.cpp
+	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
+main_squeezenet_dot_p32.o: /home/wuxy/BPVU/csrc/main_squeezenet_dot_p32.cpp
+	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
+main_squeezenet_fp32Top32.o: /home/wuxy/BPVU/csrc/main_squeezenet_fp32Top32.cpp
+	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
+main_squeezenet_greater_p32.o: /home/wuxy/BPVU/csrc/main_squeezenet_greater_p32.cpp
+	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
+main_squeezenet_less_p32.o: /home/wuxy/BPVU/csrc/main_squeezenet_less_p32.cpp
+	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
+main_squeezenet_mul_p32.o: /home/wuxy/BPVU/csrc/main_squeezenet_mul_p32.cpp
+	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
+main_squeezenet_p32Tofp32.o: /home/wuxy/BPVU/csrc/main_squeezenet_p32Tofp32.cpp
+	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
+main_squeezenet_sub_p32.o: /home/wuxy/BPVU/csrc/main_squeezenet_sub_p32.cpp
+	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
+main_squeezenet_truncate_p32.o: /home/wuxy/BPVU/csrc/main_squeezenet_truncate_p32.cpp
 	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
 main_vgg_add_p32.o: /home/wuxy/BPVU/csrc/main_vgg_add_p32.cpp
 	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
