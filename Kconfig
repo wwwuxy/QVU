@@ -24,6 +24,11 @@ choice
         bool "LeNet Tests"
         help
             Enable LeNet related tests
+            
+    config TYPE_MOBILENET
+        bool "MobileNet Tests"
+        help
+            Enable MobileNet related tests
 
     config TYPE_SAMPLE
         bool "Sample Test"
@@ -319,6 +324,79 @@ menu "LENET_TEST"
 
         help
             Enable Posit32 to Int8 truncation test for LeNet.
+
+    endchoice
+endmenu
+
+# MOBILENET_TEST菜单
+menu "MOBILENET_TEST"
+    visible if TYPE_MOBILENET
+    
+    choice
+        prompt "Posit<32, 2>"
+        default MOBILENET_ADD_P32
+        help
+            Select one of the MobileNet operations for the test.
+
+    config MOBILENET_ADD_P32
+        bool "mobilenet_add_p32_test"
+
+        help
+            Enable MobileNet addition test.
+
+    config MOBILENET_SUB_P32
+        bool "mobilenet_sub_p32_test"
+
+        help
+            Enable MobileNet subtraction test.
+
+    config MOBILENET_MUL_P32
+        bool "mobilenet_mul_p32_test"
+
+        help
+            Enable MobileNet multiplication test.
+
+    config MOBILENET_DIV_P32
+        bool "mobilenet_div_p32_test"
+
+        help
+            Enable MobileNet division test.
+            
+    config MOBILENET_DOT_P32
+        bool "mobilenet_dot_p32_test"
+
+        help
+            Enable MobileNet dot product test.
+
+    config MOBILENET_FP32_TO_POSIT32
+        bool "mobilenet_fp32_to_posit32_test"
+
+        help
+            Enable IEEE-754 FP32 to Posit32 conversion test for MobileNet.
+            
+    config MOBILENET_POSIT32_TO_FP32
+        bool "mobilenet_posit32_to_fp32_test"
+
+        help
+            Enable Posit32 to IEEE-754 FP32 conversion test for MobileNet.
+            
+    config MOBILENET_GREATER_P32
+        bool "mobilenet_greater_p32_test"
+
+        help
+            Enable Posit32 greater comparison test for MobileNet.
+
+    config MOBILENET_LESS_P32
+        bool "mobilenet_less_p32_test"
+
+        help
+            Enable Posit32 less comparison test for MobileNet.
+
+    config MOBILENET_TRUNCATE_P32
+        bool "mobilenet_truncate_p32_test"
+
+        help
+            Enable Posit32 to Int8 truncation test for MobileNet.
 
     endchoice
 endmenu
