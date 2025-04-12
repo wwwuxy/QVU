@@ -91,6 +91,16 @@ VM_USER_CLASSES = \
 	main_mobilenet_p32Tofp32 \
 	main_mobilenet_sub_p32 \
 	main_mobilenet_truncate_p32 \
+	main_regnet_add_p32 \
+	main_regnet_div_p32 \
+	main_regnet_dot_p32 \
+	main_regnet_fp32Top32 \
+	main_regnet_greater_p32 \
+	main_regnet_less_p32 \
+	main_regnet_mul_p32 \
+	main_regnet_p32Tofp32 \
+	main_regnet_sub_p32 \
+	main_regnet_truncate_p32 \
 	main_resnet_add_p32 \
 	main_resnet_div_p32 \
 	main_resnet_dot_p32 \
@@ -246,6 +256,26 @@ main_mobilenet_p32Tofp32.o: /home/wuxy/BPVU/csrc/main_mobilenet_p32Tofp32.cpp
 main_mobilenet_sub_p32.o: /home/wuxy/BPVU/csrc/main_mobilenet_sub_p32.cpp
 	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
 main_mobilenet_truncate_p32.o: /home/wuxy/BPVU/csrc/main_mobilenet_truncate_p32.cpp
+	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
+main_regnet_add_p32.o: /home/wuxy/BPVU/csrc/main_regnet_add_p32.cpp
+	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
+main_regnet_div_p32.o: /home/wuxy/BPVU/csrc/main_regnet_div_p32.cpp
+	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
+main_regnet_dot_p32.o: /home/wuxy/BPVU/csrc/main_regnet_dot_p32.cpp
+	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
+main_regnet_fp32Top32.o: /home/wuxy/BPVU/csrc/main_regnet_fp32Top32.cpp
+	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
+main_regnet_greater_p32.o: /home/wuxy/BPVU/csrc/main_regnet_greater_p32.cpp
+	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
+main_regnet_less_p32.o: /home/wuxy/BPVU/csrc/main_regnet_less_p32.cpp
+	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
+main_regnet_mul_p32.o: /home/wuxy/BPVU/csrc/main_regnet_mul_p32.cpp
+	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
+main_regnet_p32Tofp32.o: /home/wuxy/BPVU/csrc/main_regnet_p32Tofp32.cpp
+	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
+main_regnet_sub_p32.o: /home/wuxy/BPVU/csrc/main_regnet_sub_p32.cpp
+	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
+main_regnet_truncate_p32.o: /home/wuxy/BPVU/csrc/main_regnet_truncate_p32.cpp
 	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
 main_resnet_add_p32.o: /home/wuxy/BPVU/csrc/main_resnet_add_p32.cpp
 	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
