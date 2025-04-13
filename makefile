@@ -1,5 +1,5 @@
 # project source
-TOPNAME = PvuTop
+TOPNAME = QvuTop
 VSRCS += $(shell find $(abspath ./vsrc) -name "*.sv")
 CSRCS += $(shell find $(abspath ./csrc) -name "*.cpp")
 CONFIG_H = config.h
@@ -11,7 +11,7 @@ SOFTPOSIT_LIB = $(SOFTPOSIT_DIR)/build/lib/libsoftposit.a
 
 # verilator flags
 VERILATOR_FLAGS += -Wall --cc --trace --exe --build --top-module $(TOPNAME)
-VERILATOR_FLAGS += -Wno-DECLFILENAME -Wno-PINCONNECTEMPTY -Wno-UNUSEDSIGNAL -Wno-UNOPTFLAT
+VERILATOR_FLAGS += -Wno-DECLFILENAME -Wno-PINCONNECTEMPTY -Wno-UNUSEDSIGNAL -Wno-UNOPTFLAT -Wno-WIDTHEXPAND
 VERILATOR_FLAGS += --threads-dpi all
 VERILATOR_FLAGS += -j 16
 VERILATOR_FLAGS += $(SOFTPOSIT_INCLUDE)
@@ -46,17 +46,17 @@ verilog:
 		-Dsbt.task.timings=true \
 		-Dsbt.ci=true \
 		-DmaxThreads=8 \
-		"runMain pvu.Elaborate"
+		"runMain qvu.Elaborate"
 	python3 clean_line.py
 
 run:${CSRCS} ${VSRCS}
 	verilator ${VERILATOR_FLAGS} ${CSRCS} ${VSRCS}
 	@echo "链接SoftPosit库..."
 	# 不再需要链接SoftPosit库，已直接在代码中实现必要函数
-	./obj_dir/VPvuTop
+	./obj_dir/VQvuTop
 
 wave:
-	gtkwave pvu_top_wave.vcd
+	gtkwave waveform.vcd
 
 git:
 	@if [ -n "$$(find . -name "*.vcd" 2>/dev/null)" ]; then \
@@ -69,7 +69,7 @@ git:
 	git commit
 
 push:
-	git push -u origin posit
+	git push
 
 menuconfig:
 	menuconfig
@@ -90,3 +90,5 @@ debug:
 	make verilog
 	make run
 
+clean:
+	rm -rf obj_dir

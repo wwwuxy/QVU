@@ -67,69 +67,21 @@ menu "RESNET_TEST"
     
     choice
         prompt "Posit<32, 2>"
-        default RESNET_ADD_P32
+        default RESNET_INT8
         help
             Select one of the ResNet operations for the test.
 
-    config RESNET_ADD_P32
-        bool "resnet_add_p32_test"
+    config RESNET_INT8
+        bool "resnet_int8_test"
 
         help
-            Enable ResNet addition test.
-
-    config RESNET_SUB_P32
-        bool "resnet_sub_p32_test"
-
-        help
-            Enable ResNet subtraction test.
-
-    config RESNET_MUL_P32
-        bool "resnet_mul_p32_test"
+            Enable Posit32 to Int8 truncation test.
+    
+    config RESNET_INT4
+        bool "resnet_int4_test"
 
         help
-            Enable ResNet multiplication test.
-
-    config RESNET_DIV_P32
-        bool "resnet_div_p32_test"
-
-        help
-            Enable ResNet division test.
-
-    config RESNET_DOT_P32
-        bool "resnet_dot_p32_test"
-
-        help
-            Enable ResNet dot product test. 
-
-    config RESNET_FP32_TO_POSIT32
-        bool "resnet_fp32_to_posit32_test"
-
-        help
-            Enable IEEE-754 FP32 to Posit32 conversion test.
-            
-    config RESNET_POSIT32_TO_FP32
-        bool "resnet_posit32_to_fp32_test"
-
-        help
-            Enable Posit32 to IEEE-754 FP32 conversion test.
-            
-    config RESNET_GREATER_P32
-        bool "resnet_greater_p32_test"
-
-        help
-            Enable Posit32 greater comparison test.
-
-    config RESNET_LESS_P32
-        bool "resnet_less_p32_test"
-
-        help
-            Enable Posit32 less comparison test.
-
-    config RESNET_TRUNCATE_P32
-        bool "resnet_truncate_p32_test"
-
-        help
-            Enable Posit32 to Int32 truncation test.
+            Enable Posit32 to Int4 truncation test.
 
     endchoice
 endmenu
@@ -140,215 +92,71 @@ menu "VGG_TEST"
     
     choice
         prompt "Posit<32, 2>"
-        default VGG_ADD_P32
+        default VGG_INT8
         help
             Select one of the VGG operations for the test.
 
-    config VGG_ADD_P32
-        bool "vgg_add_p32_test"
-
-        help
-            Enable VGG addition test.
-
-    config VGG_SUB_P32
-        bool "vgg_sub_p32_test"
-
-        help
-            Enable VGG subtraction test.
-
-    config VGG_MUL_P32
-        bool "vgg_mul_p32_test"
-
-        help
-            Enable VGG multiplication test.
-
-    config VGG_DIV_P32
-        bool "vgg_div_p32_test"
-
-        help
-            Enable VGG division test.
-            
-    config VGG_DOT_P32
-        bool "vgg_dot_p32_test"
-
-        help
-            Enable VGG dot product test.
-
-    config VGG_FP32_TO_POSIT32
-        bool "vgg_fp32_to_posit32_test"
-
-        help
-            Enable IEEE-754 FP32 to Posit32 conversion test for VGG.
-            
-    config VGG_POSIT32_TO_FP32
-        bool "vgg_posit32_to_fp32_test"
-
-        help
-            Enable Posit32 to IEEE-754 FP32 conversion test for VGG.
-            
-    config VGG_GREATER_P32
-        bool "vgg_greater_p32_test"
-
-        help
-            Enable Posit32 greater comparison test for VGG.
-
-    config VGG_LESS_P32
-        bool "vgg_less_p32_test"
-
-        help
-            Enable Posit32 less comparison test for VGG.
-
-    config VGG_TRUNCATE_P32
-        bool "vgg_truncate_p32_test"
+    config VGG_INT8
+        bool "vgg_int8_test"
 
         help
             Enable Posit32 to Int8 truncation test for VGG.
+        
+    config VGG_INT4
+        bool "vgg_int4_test"
+
+        help
+            Enable Posit32 to Int4 truncation test for VGG.
 
     endchoice
 endmenu
 
-# AlexNet测试菜单
+# ALEXNET_TEST菜单
 menu "ALEXNET_TEST"
     visible if TYPE_ALEXNET
     
     choice
         prompt "Posit<32, 2>"
-        default ALEXNET_ADD_P32
+        default ALEXNET_INT8
         help
             Select one of the AlexNet operations for the test.
 
-    config ALEXNET_ADD_P32
-        bool "alexnet_add_p32_test"
-
-        help
-            Enable AlexNet addition test.
-
-    config ALEXNET_SUB_P32
-        bool "alexnet_sub_p32_test"
-
-        help
-            Enable AlexNet subtraction test.
-
-    config ALEXNET_MUL_P32
-        bool "alexnet_mul_p32_test"
-
-        help
-            Enable AlexNet multiplication test.
-
-    config ALEXNET_DIV_P32
-        bool "alexnet_div_p32_test"
-
-        help
-            Enable AlexNet division test.
-            
-    config ALEXNET_DOT_P32
-        bool "alexnet_dot_p32_test"
-
-        help
-            Enable AlexNet dot product test.
-
-    config ALEXNET_FP32_TO_POSIT32
-        bool "alexnet_fp32_to_posit32_test"
-
-        help
-            Enable IEEE-754 FP32 to Posit32 conversion test for AlexNet.
-            
-    config ALEXNET_POSIT32_TO_FP32
-        bool "alexnet_posit32_to_fp32_test"
-
-        help
-            Enable Posit32 to IEEE-754 FP32 conversion test for AlexNet.
-            
-    config ALEXNET_GREATER_P32
-        bool "alexnet_greater_p32_test"
-
-        help
-            Enable Posit32 greater comparison test for AlexNet.
-
-    config ALEXNET_LESS_P32
-        bool "alexnet_less_p32_test"
-
-        help
-            Enable Posit32 less comparison test for AlexNet.
-
-    config ALEXNET_TRUNCATE_P32
-        bool "alexnet_truncate_p32_test"
+    config ALEXNET_INT8
+        bool "alexnet_int8_test"
 
         help
             Enable Posit32 to Int8 truncation test for AlexNet.
 
+    config ALEXNET_INT4
+        bool "alexnet_int4_test"
+
+        help
+            Enable Posit32 to Int4 truncation test for AlexNet.
+
     endchoice
 endmenu
 
-# LENET测试菜单
+# LENET_TEST菜单
 menu "LENET_TEST"
     visible if TYPE_LENET
     
     choice
         prompt "Posit<32, 2>"
-        default LENET_ADD_P32
+        default LENET_INT8
         help
             Select one of the LeNet operations for the test.
 
-    config LENET_ADD_P32
-        bool "lenet_add_p32_test"
-
-        help
-            Enable LeNet addition test.
-
-    config LENET_SUB_P32
-        bool "lenet_sub_p32_test"
-
-        help
-            Enable LeNet subtraction test.
-
-    config LENET_MUL_P32
-        bool "lenet_mul_p32_test"
-
-        help
-            Enable LeNet multiplication test.
-
-    config LENET_DIV_P32
-        bool "lenet_div_p32_test"
-
-        help
-            Enable LeNet division test.
-            
-    config LENET_DOT_P32
-        bool "lenet_dot_p32_test"
-
-        help
-            Enable LeNet dot product test.
-
-    config LENET_FP32_TO_POSIT32
-        bool "lenet_fp32_to_posit32_test"
-
-        help
-            Enable IEEE-754 FP32 to Posit32 conversion test for LeNet.
-            
-    config LENET_POSIT32_TO_FP32
-        bool "lenet_posit32_to_fp32_test"
-
-        help
-            Enable Posit32 to IEEE-754 FP32 conversion test for LeNet.
-            
-    config LENET_GREATER_P32
-        bool "lenet_greater_p32_test"
-
-        help
-            Enable Posit32 greater comparison test for LeNet.
-
-    config LENET_LESS_P32
-        bool "lenet_less_p32_test"
-
-        help
-            Enable Posit32 less comparison test for LeNet.
-
-    config LENET_TRUNCATE_P32
-        bool "lenet_truncate_p32_test"
+    config LENET_INT8
+        bool "lenet_int8_test"
 
         help
             Enable Posit32 to Int8 truncation test for LeNet.
+
+    config LENET_INT4
+        bool "lenet_int4_test"
+
+        help
+            Enable Posit32 to Int4 truncation test for LeNet.
 
     endchoice
 endmenu
@@ -359,69 +167,21 @@ menu "MOBILENET_TEST"
     
     choice
         prompt "Posit<32, 2>"
-        default MOBILENET_ADD_P32
+        default MOBILENET_INT8
         help
             Select one of the MobileNet operations for the test.
 
-    config MOBILENET_ADD_P32
-        bool "mobilenet_add_p32_test"
-
-        help
-            Enable MobileNet addition test.
-
-    config MOBILENET_SUB_P32
-        bool "mobilenet_sub_p32_test"
-
-        help
-            Enable MobileNet subtraction test.
-
-    config MOBILENET_MUL_P32
-        bool "mobilenet_mul_p32_test"
-
-        help
-            Enable MobileNet multiplication test.
-
-    config MOBILENET_DIV_P32
-        bool "mobilenet_div_p32_test"
-
-        help
-            Enable MobileNet division test.
-            
-    config MOBILENET_DOT_P32
-        bool "mobilenet_dot_p32_test"
-
-        help
-            Enable MobileNet dot product test.
-
-    config MOBILENET_FP32_TO_POSIT32
-        bool "mobilenet_fp32_to_posit32_test"
-
-        help
-            Enable IEEE-754 FP32 to Posit32 conversion test for MobileNet.
-            
-    config MOBILENET_POSIT32_TO_FP32
-        bool "mobilenet_posit32_to_fp32_test"
-
-        help
-            Enable Posit32 to IEEE-754 FP32 conversion test for MobileNet.
-            
-    config MOBILENET_GREATER_P32
-        bool "mobilenet_greater_p32_test"
-
-        help
-            Enable Posit32 greater comparison test for MobileNet.
-
-    config MOBILENET_LESS_P32
-        bool "mobilenet_less_p32_test"
-
-        help
-            Enable Posit32 less comparison test for MobileNet.
-
-    config MOBILENET_TRUNCATE_P32
-        bool "mobilenet_truncate_p32_test"
+    config MOBILENET_INT8
+        bool "mobilenet_int8_test"
 
         help
             Enable Posit32 to Int8 truncation test for MobileNet.
+
+    config MOBILENET_INT4
+        bool "mobilenet_int4_test"
+
+        help
+            Enable Posit32 to Int4 truncation test for MobileNet.
 
     endchoice
 endmenu
@@ -432,69 +192,21 @@ menu "SQUEEZENET_TEST"
     
     choice
         prompt "Posit<32, 2>"
-        default SQUEEZENET_ADD_P32
+        default SQUEEZENET_INT8
         help
             Select one of the SqueezeNet operations for the test.
 
-    config SQUEEZENET_ADD_P32
-        bool "squeezenet_add_p32_test"
-
-        help
-            Enable SqueezeNet addition test.
-
-    config SQUEEZENET_SUB_P32
-        bool "squeezenet_sub_p32_test"
-
-        help
-            Enable SqueezeNet subtraction test.
-
-    config SQUEEZENET_MUL_P32
-        bool "squeezenet_mul_p32_test"
-
-        help
-            Enable SqueezeNet multiplication test.
-
-    config SQUEEZENET_DIV_P32
-        bool "squeezenet_div_p32_test"
-
-        help
-            Enable SqueezeNet division test.
-            
-    config SQUEEZENET_DOT_P32
-        bool "squeezenet_dot_p32_test"
-
-        help
-            Enable SqueezeNet dot product test.
-
-    config SQUEEZENET_FP32_TO_POSIT32
-        bool "squeezenet_fp32_to_posit32_test"
-
-        help
-            Enable IEEE-754 FP32 to Posit32 conversion test for SqueezeNet.
-            
-    config SQUEEZENET_POSIT32_TO_FP32
-        bool "squeezenet_posit32_to_fp32_test"
-
-        help
-            Enable Posit32 to IEEE-754 FP32 conversion test for SqueezeNet.
-            
-    config SQUEEZENET_GREATER_P32
-        bool "squeezenet_greater_p32_test"
-
-        help
-            Enable Posit32 greater comparison test for SqueezeNet.
-
-    config SQUEEZENET_LESS_P32
-        bool "squeezenet_less_p32_test"
-
-        help
-            Enable Posit32 less comparison test for SqueezeNet.
-
-    config SQUEEZENET_TRUNCATE_P32
-        bool "squeezenet_truncate_p32_test"
+    config SQUEEZENET_INT8
+        bool "squeezenet_int8_test"
 
         help
             Enable Posit32 to Int8 truncation test for SqueezeNet.
+
+    config SQUEEZENET_INT4
+        bool "squeezenet_int4_test"
+
+        help
+            Enable Posit32 to Int4 truncation test for SqueezeNet.
 
     endchoice
 endmenu
@@ -505,69 +217,21 @@ menu "CONVNEXT_TEST"
     
     choice
         prompt "Posit<32, 2>"
-        default CONVNEXT_ADD_P32
+        default CONVNEXT_INT8
         help
             Select one of the ConvNeXt operations for the test.
 
-    config CONVNEXT_ADD_P32
-        bool "convnext_add_p32_test"
-
-        help
-            Enable ConvNeXt addition test.
-
-    config CONVNEXT_SUB_P32
-        bool "convnext_sub_p32_test"
-
-        help
-            Enable ConvNeXt subtraction test.
-
-    config CONVNEXT_MUL_P32
-        bool "convnext_mul_p32_test"
-
-        help
-            Enable ConvNeXt multiplication test.
-
-    config CONVNEXT_DIV_P32
-        bool "convnext_div_p32_test"
-
-        help
-            Enable ConvNeXt division test.
-            
-    config CONVNEXT_DOT_P32
-        bool "convnext_dot_p32_test"
-
-        help
-            Enable ConvNeXt dot product test.
-
-    config CONVNEXT_FP32_TO_POSIT32
-        bool "convnext_fp32_to_posit32_test"
-
-        help
-            Enable IEEE-754 FP32 to Posit32 conversion test for ConvNeXt.
-            
-    config CONVNEXT_POSIT32_TO_FP32
-        bool "convnext_posit32_to_fp32_test"
-
-        help
-            Enable Posit32 to IEEE-754 FP32 conversion test for ConvNeXt.
-            
-    config CONVNEXT_GREATER_P32
-        bool "convnext_greater_p32_test"
-
-        help
-            Enable Posit32 greater comparison test for ConvNeXt.
-
-    config CONVNEXT_LESS_P32
-        bool "convnext_less_p32_test"
-
-        help
-            Enable Posit32 less comparison test for ConvNeXt.
-
-    config CONVNEXT_TRUNCATE_P32
-        bool "convnext_truncate_p32_test"
+    config CONVNEXT_INT8
+        bool "convnext_int8_test"
 
         help
             Enable Posit32 to Int8 truncation test for ConvNeXt.
+
+    config CONVNEXT_INT4
+        bool "convnext_int4_test"
+
+        help
+            Enable Posit32 to Int4 truncation test for ConvNeXt.
 
     endchoice
 endmenu
@@ -578,69 +242,21 @@ menu "SHUFFLENETV2_TEST"
     
     choice
         prompt "Posit<32, 2>"
-        default SHUFFLENETV2_ADD_P32
+        default SHUFFLENETV2_INT8
         help
             Select one of the ShuffleNetV2 operations for the test.
 
-    config SHUFFLENETV2_ADD_P32
-        bool "shufflenetv2_add_p32_test"
-
-        help
-            Enable ShuffleNetV2 addition test.
-
-    config SHUFFLENETV2_SUB_P32
-        bool "shufflenetv2_sub_p32_test"
-
-        help
-            Enable ShuffleNetV2 subtraction test.
-
-    config SHUFFLENETV2_MUL_P32
-        bool "shufflenetv2_mul_p32_test"
-
-        help
-            Enable ShuffleNetV2 multiplication test.
-
-    config SHUFFLENETV2_DIV_P32
-        bool "shufflenetv2_div_p32_test"
-
-        help
-            Enable ShuffleNetV2 division test.
-            
-    config SHUFFLENETV2_DOT_P32
-        bool "shufflenetv2_dot_p32_test"
-
-        help
-            Enable ShuffleNetV2 dot product test.
-
-    config SHUFFLENETV2_FP32_TO_POSIT32
-        bool "shufflenetv2_fp32_to_posit32_test"
-
-        help
-            Enable IEEE-754 FP32 to Posit32 conversion test for ShuffleNetV2.
-            
-    config SHUFFLENETV2_POSIT32_TO_FP32
-        bool "shufflenetv2_posit32_to_fp32_test"
-
-        help
-            Enable Posit32 to IEEE-754 FP32 conversion test for ShuffleNetV2.
-            
-    config SHUFFLENETV2_GREATER_P32
-        bool "shufflenetv2_greater_p32_test"
-
-        help
-            Enable Posit32 greater comparison test for ShuffleNetV2.
-
-    config SHUFFLENETV2_LESS_P32
-        bool "shufflenetv2_less_p32_test"
-
-        help
-            Enable Posit32 less comparison test for ShuffleNetV2.
-
-    config SHUFFLENETV2_TRUNCATE_P32
-        bool "shufflenetv2_truncate_p32_test"
+    config SHUFFLENETV2_INT8
+        bool "shufflenetv2_int8_test"
 
         help
             Enable Posit32 to Int8 truncation test for ShuffleNetV2.
+
+    config SHUFFLENETV2_INT4
+        bool "shufflenetv2_int4_test"
+
+        help
+            Enable Posit32 to Int4 truncation test for ShuffleNetV2.
 
     endchoice
 endmenu
@@ -651,69 +267,21 @@ menu "EFFICIENTNET_TEST"
     
     choice
         prompt "Posit<32, 2>"
-        default EFFICIENTNET_ADD_P32
+        default EFFICIENTNET_INT8
         help
             Select one of the EfficientNet operations for the test.
 
-    config EFFICIENTNET_ADD_P32
-        bool "efficientnet_add_p32_test"
-
-        help
-            Enable EfficientNet addition test.
-
-    config EFFICIENTNET_SUB_P32
-        bool "efficientnet_sub_p32_test"
-
-        help
-            Enable EfficientNet subtraction test.
-
-    config EFFICIENTNET_MUL_P32
-        bool "efficientnet_mul_p32_test"
-
-        help
-            Enable EfficientNet multiplication test.
-
-    config EFFICIENTNET_DIV_P32
-        bool "efficientnet_div_p32_test"
-
-        help
-            Enable EfficientNet division test.
-            
-    config EFFICIENTNET_DOT_P32
-        bool "efficientnet_dot_p32_test"
-
-        help
-            Enable EfficientNet dot product test.
-
-    config EFFICIENTNET_FP32_TO_POSIT32
-        bool "efficientnet_fp32_to_posit32_test"
-
-        help
-            Enable IEEE-754 FP32 to Posit32 conversion test for EfficientNet.
-            
-    config EFFICIENTNET_POSIT32_TO_FP32
-        bool "efficientnet_posit32_to_fp32_test"
-
-        help
-            Enable Posit32 to IEEE-754 FP32 conversion test for EfficientNet.
-            
-    config EFFICIENTNET_GREATER_P32
-        bool "efficientnet_greater_p32_test"
-
-        help
-            Enable Posit32 greater comparison test for EfficientNet.
-
-    config EFFICIENTNET_LESS_P32
-        bool "efficientnet_less_p32_test"
-
-        help
-            Enable Posit32 less comparison test for EfficientNet.
-
-    config EFFICIENTNET_TRUNCATE_P32
-        bool "efficientnet_truncate_p32_test"
+    config EFFICIENTNET_INT8
+        bool "efficientnet_int8_test"
 
         help
             Enable Posit32 to Int8 truncation test for EfficientNet.
+
+    config EFFICIENTNET_INT4
+        bool "efficientnet_int4_test"
+
+        help
+            Enable Posit32 to Int4 truncation test for EfficientNet.
 
     endchoice
 endmenu
@@ -724,69 +292,21 @@ menu "REGNET_TEST"
     
     choice
         prompt "Posit<32, 2>"
-        default REGNET_ADD_P32
+        default REGNET_INT8
         help
             Select one of the RegNet operations for the test.
 
-    config REGNET_ADD_P32
-        bool "regnet_add_p32_test"
-
-        help
-            Enable RegNet addition test.
-
-    config REGNET_SUB_P32
-        bool "regnet_sub_p32_test"
-
-        help
-            Enable RegNet subtraction test.
-
-    config REGNET_MUL_P32
-        bool "regnet_mul_p32_test"
-
-        help
-            Enable RegNet multiplication test.
-
-    config REGNET_DIV_P32
-        bool "regnet_div_p32_test"
-
-        help
-            Enable RegNet division test.
-            
-    config REGNET_DOT_P32
-        bool "regnet_dot_p32_test"
-
-        help
-            Enable RegNet dot product test.
-
-    config REGNET_FP32_TO_POSIT32
-        bool "regnet_fp32_to_posit32_test"
-
-        help
-            Enable IEEE-754 FP32 to Posit32 conversion test for RegNet.
-            
-    config REGNET_POSIT32_TO_FP32
-        bool "regnet_posit32_to_fp32_test"
-
-        help
-            Enable Posit32 to IEEE-754 FP32 conversion test for RegNet.
-            
-    config REGNET_GREATER_P32
-        bool "regnet_greater_p32_test"
-
-        help
-            Enable Posit32 greater comparison test for RegNet.
-
-    config REGNET_LESS_P32
-        bool "regnet_less_p32_test"
-
-        help
-            Enable Posit32 less comparison test for RegNet.
-
-    config REGNET_TRUNCATE_P32
-        bool "regnet_truncate_p32_test"
+    config REGNET_INT8
+        bool "regnet_int8_test"
 
         help
             Enable Posit32 to Int8 truncation test for RegNet.
+    
+    config REGNET_INT4
+        bool "regnet_int4_test"
+
+        help
+            Enable Posit32 to Int4 truncation test for RegNet.
 
     endchoice
 endmenu

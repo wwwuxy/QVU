@@ -31,7 +31,7 @@ def remove_last_lines(file_path, lines_to_remove=3):
 
 if __name__ == "__main__":
     # 指定要处理的文件路径和要移除的行数
-    target_file = './vsrc/PvuTop.sv'
+    target_file = './vsrc/QvuTop.sv'
     lines_to_remove = 3
 
     # 调用函数移除尾部行

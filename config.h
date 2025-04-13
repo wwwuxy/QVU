@@ -2,6 +2,6 @@
 #ifndef CONFIG_H
 #define CONFIG_H
 
-#define CONFIG_TYPE_REGNET 1
-#define CONFIG_REGNET_TRUNCATE_P32 1
+#define CONFIG_TYPE_RESNET 1
+#define CONFIG_RESNET_INT8 1
 #endif // CONFIG_H

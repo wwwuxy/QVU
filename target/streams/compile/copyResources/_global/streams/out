@@ -1,2 +1,5 @@
 [debug] Copy resource mappings: 
-[debug] 	(/home/wuxy/BPVU/src/main/resources/pvu/lzc.sv,/home/wuxy/BPVU/target/scala-2.13/classes/pvu/lzc.sv)
+[debug] 	(/home/wuxy/QVU/src/main/resources/verilator_directives.v.old,/home/wuxy/QVU/target/scala-2.13/classes/verilator_directives.v.old)
+[debug] 	(/home/wuxy/QVU/src/main/resources/verilator_directives.v.bak,/home/wuxy/QVU/target/scala-2.13/classes/verilator_directives.v.bak)
+[debug] 	(/home/wuxy/QVU/src/main/resources/verilator_directives.v,/home/wuxy/QVU/target/scala-2.13/classes/verilator_directives.v)
+[debug] 	(/home/wuxy/QVU/src/main/resources/qvu/lzc.sv,/home/wuxy/QVU/target/scala-2.13/classes/qvu/lzc.sv)
