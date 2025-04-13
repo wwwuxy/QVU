@@ -2,6 +2,7 @@
   /* 支持一种操作类型 --> op控制
     0 --> Posit量化至Int8（QuantizeInt8），将PIR量化为Int8整数
     1 --> Posit量化至Int4（QuantizeInt4），将PIR量化为Int4整数
+    2 --> Posit量化至FP16（QuantizeFP16），将PIR量化为FP16浮点数
 
    Float格式由float_mode控制:
    0 --> FP4  (1位符号, 1位指数, 2位尾数)
@@ -282,6 +283,31 @@
        when(valid_range(i)) {
          // 将Int4结果符号扩展到INT_WIDTH
          io.int_o(i) := quantizeInt4.io.int4_o(i).pad(INT_WIDTH)
+       }
+     }
+   }
+   .elsewhen(io.op === 2.U) {  // QuantizeFP16 - Posit量化至FP16
+     val quantizeFP16 = Module(new PositQuantizeToFP16(
+       MAX_POSIT_WIDTH,
+       MAX_VECTOR_SIZE,
+       MAX_ALIGN_WIDTH,
+       ES
+     ))
+     
+     // 输入PIR格式的posit数据
+     quantizeFP16.io.pir_sign_i := pir_sign
+     quantizeFP16.io.pir_exp_i  := pir_exp
+     quantizeFP16.io.pir_frac_i := pir_frac
+     quantizeFP16.io.reset_window := false.B  // 默认不重置窗口
+     
+     // FP16标准宽度为16位
+     val FP16_WIDTH = 16
+     
+     // 将FP16量化结果复制到float_o输出
+     for (i <- 0 until MAX_VECTOR_SIZE) {
+       when(valid_range(i)) {
+         // 对于float_o，需要将16位FP16扩展到FLOAT_WIDTH (通常是64位)
+         io.float_o(i) := quantizeFP16.io.fp16_o(i).pad(FLOAT_WIDTH)
        }
      }
    }

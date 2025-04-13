@@ -121,21 +121,21 @@ VL_ATTR_COLD void VQvuTop___024root__trace_init_sub__TOP__0(VQvuTop___024root* v
     tracep->declBus(c+86,"io_result_o", false,-1, 30,0);
     tracep->popNamePrefix(1);
     tracep->pushNamePrefix("lzcModule ");
-    tracep->declBus(c+352,"WIDTH", false,-1, 31,0);
-    tracep->declBit(c+353,"MODE", false,-1);
-    tracep->declBus(c+354,"CNT_WIDTH", false,-1, 31,0);
+    tracep->declBus(c+354,"WIDTH", false,-1, 31,0);
+    tracep->declBit(c+355,"MODE", false,-1);
+    tracep->declBus(c+356,"CNT_WIDTH", false,-1, 31,0);
     tracep->declBus(c+8,"in_i", false,-1, 30,0);
     tracep->declBus(c+111,"cnt_o", false,-1, 4,0);
     tracep->declBit(c+315,"empty_o", false,-1);
     tracep->pushNamePrefix("gen_lzc ");
-    tracep->declBus(c+354,"NumLevels", false,-1, 31,0);
-    tracep->declArray(c+355,"index_lut", false,-1, 154,0);
+    tracep->declBus(c+356,"NumLevels", false,-1, 31,0);
+    tracep->declArray(c+357,"index_lut", false,-1, 154,0);
     tracep->declBus(c+316,"sel_nodes", false,-1, 31,0);
     tracep->declArray(c+112,"index_nodes", false,-1, 159,0);
     tracep->declBus(c+9,"in_tmp", false,-1, 30,0);
     tracep->pushNamePrefix("flip_vector ");
     tracep->pushNamePrefix("unnamedblk1 ");
-    tracep->declBus(c+352,"i", false,-1, 31,0);
+    tracep->declBus(c+354,"i", false,-1, 31,0);
     tracep->popNamePrefix(2);
     tracep->pushNamePrefix("g_index_lut ");
     tracep->popNamePrefix(1);
@@ -162,21 +162,21 @@ VL_ATTR_COLD void VQvuTop___024root__trace_init_sub__TOP__0(VQvuTop___024root* v
     tracep->pushNamePrefix("g_level ");
     tracep->popNamePrefix(5);
     tracep->pushNamePrefix("lzcModule_1 ");
-    tracep->declBus(c+352,"WIDTH", false,-1, 31,0);
-    tracep->declBit(c+353,"MODE", false,-1);
-    tracep->declBus(c+354,"CNT_WIDTH", false,-1, 31,0);
+    tracep->declBus(c+354,"WIDTH", false,-1, 31,0);
+    tracep->declBit(c+355,"MODE", false,-1);
+    tracep->declBus(c+356,"CNT_WIDTH", false,-1, 31,0);
     tracep->declBus(c+10,"in_i", false,-1, 30,0);
     tracep->declBus(c+103,"cnt_o", false,-1, 4,0);
     tracep->declBit(c+317,"empty_o", false,-1);
     tracep->pushNamePrefix("gen_lzc ");
-    tracep->declBus(c+354,"NumLevels", false,-1, 31,0);
-    tracep->declArray(c+355,"index_lut", false,-1, 154,0);
+    tracep->declBus(c+356,"NumLevels", false,-1, 31,0);
+    tracep->declArray(c+357,"index_lut", false,-1, 154,0);
     tracep->declBus(c+318,"sel_nodes", false,-1, 31,0);
     tracep->declArray(c+104,"index_nodes", false,-1, 159,0);
     tracep->declBus(c+11,"in_tmp", false,-1, 30,0);
     tracep->pushNamePrefix("flip_vector ");
     tracep->pushNamePrefix("unnamedblk1 ");
-    tracep->declBus(c+352,"i", false,-1, 31,0);
+    tracep->declBus(c+354,"i", false,-1, 31,0);
     tracep->popNamePrefix(2);
     tracep->pushNamePrefix("g_index_lut ");
     tracep->popNamePrefix(1);
@@ -203,21 +203,21 @@ VL_ATTR_COLD void VQvuTop___024root__trace_init_sub__TOP__0(VQvuTop___024root* v
     tracep->pushNamePrefix("g_level ");
     tracep->popNamePrefix(5);
     tracep->pushNamePrefix("lzcModule_2 ");
-    tracep->declBus(c+352,"WIDTH", false,-1, 31,0);
-    tracep->declBit(c+353,"MODE", false,-1);
-    tracep->declBus(c+354,"CNT_WIDTH", false,-1, 31,0);
+    tracep->declBus(c+354,"WIDTH", false,-1, 31,0);
+    tracep->declBit(c+355,"MODE", false,-1);
+    tracep->declBus(c+356,"CNT_WIDTH", false,-1, 31,0);
     tracep->declBus(c+12,"in_i", false,-1, 30,0);
     tracep->declBus(c+95,"cnt_o", false,-1, 4,0);
     tracep->declBit(c+319,"empty_o", false,-1);
     tracep->pushNamePrefix("gen_lzc ");
-    tracep->declBus(c+354,"NumLevels", false,-1, 31,0);
-    tracep->declArray(c+355,"index_lut", false,-1, 154,0);
+    tracep->declBus(c+356,"NumLevels", false,-1, 31,0);
+    tracep->declArray(c+357,"index_lut", false,-1, 154,0);
     tracep->declBus(c+320,"sel_nodes", false,-1, 31,0);
     tracep->declArray(c+96,"index_nodes", false,-1, 159,0);
     tracep->declBus(c+13,"in_tmp", false,-1, 30,0);
     tracep->pushNamePrefix("flip_vector ");
     tracep->pushNamePrefix("unnamedblk1 ");
-    tracep->declBus(c+352,"i", false,-1, 31,0);
+    tracep->declBus(c+354,"i", false,-1, 31,0);
     tracep->popNamePrefix(2);
     tracep->pushNamePrefix("g_index_lut ");
     tracep->popNamePrefix(1);
@@ -244,21 +244,21 @@ VL_ATTR_COLD void VQvuTop___024root__trace_init_sub__TOP__0(VQvuTop___024root* v
     tracep->pushNamePrefix("g_level ");
     tracep->popNamePrefix(5);
     tracep->pushNamePrefix("lzcModule_3 ");
-    tracep->declBus(c+352,"WIDTH", false,-1, 31,0);
-    tracep->declBit(c+353,"MODE", false,-1);
-    tracep->declBus(c+354,"CNT_WIDTH", false,-1, 31,0);
+    tracep->declBus(c+354,"WIDTH", false,-1, 31,0);
+    tracep->declBit(c+355,"MODE", false,-1);
+    tracep->declBus(c+356,"CNT_WIDTH", false,-1, 31,0);
     tracep->declBus(c+14,"in_i", false,-1, 30,0);
     tracep->declBus(c+87,"cnt_o", false,-1, 4,0);
     tracep->declBit(c+321,"empty_o", false,-1);
     tracep->pushNamePrefix("gen_lzc ");
-    tracep->declBus(c+354,"NumLevels", false,-1, 31,0);
-    tracep->declArray(c+355,"index_lut", false,-1, 154,0);
+    tracep->declBus(c+356,"NumLevels", false,-1, 31,0);
+    tracep->declArray(c+357,"index_lut", false,-1, 154,0);
     tracep->declBus(c+322,"sel_nodes", false,-1, 31,0);
     tracep->declArray(c+88,"index_nodes", false,-1, 159,0);
     tracep->declBus(c+15,"in_tmp", false,-1, 30,0);
     tracep->pushNamePrefix("flip_vector ");
     tracep->pushNamePrefix("unnamedblk1 ");
-    tracep->declBus(c+352,"i", false,-1, 31,0);
+    tracep->declBus(c+354,"i", false,-1, 31,0);
     tracep->popNamePrefix(2);
     tracep->pushNamePrefix("g_index_lut ");
     tracep->popNamePrefix(1);
@@ -311,21 +311,21 @@ VL_ATTR_COLD void VQvuTop___024root__trace_init_sub__TOP__0(VQvuTop___024root* v
     tracep->declBus(c+54,"io_result_o", false,-1, 30,0);
     tracep->popNamePrefix(1);
     tracep->pushNamePrefix("lzcModule ");
-    tracep->declBus(c+352,"WIDTH", false,-1, 31,0);
-    tracep->declBit(c+353,"MODE", false,-1);
-    tracep->declBus(c+354,"CNT_WIDTH", false,-1, 31,0);
+    tracep->declBus(c+354,"WIDTH", false,-1, 31,0);
+    tracep->declBit(c+355,"MODE", false,-1);
+    tracep->declBus(c+356,"CNT_WIDTH", false,-1, 31,0);
     tracep->declBus(c+22,"in_i", false,-1, 30,0);
     tracep->declBus(c+79,"cnt_o", false,-1, 4,0);
     tracep->declBit(c+332,"empty_o", false,-1);
     tracep->pushNamePrefix("gen_lzc ");
-    tracep->declBus(c+354,"NumLevels", false,-1, 31,0);
-    tracep->declArray(c+355,"index_lut", false,-1, 154,0);
+    tracep->declBus(c+356,"NumLevels", false,-1, 31,0);
+    tracep->declArray(c+357,"index_lut", false,-1, 154,0);
     tracep->declBus(c+333,"sel_nodes", false,-1, 31,0);
     tracep->declArray(c+80,"index_nodes", false,-1, 159,0);
     tracep->declBus(c+23,"in_tmp", false,-1, 30,0);
     tracep->pushNamePrefix("flip_vector ");
     tracep->pushNamePrefix("unnamedblk1 ");
-    tracep->declBus(c+352,"i", false,-1, 31,0);
+    tracep->declBus(c+354,"i", false,-1, 31,0);
     tracep->popNamePrefix(2);
     tracep->pushNamePrefix("g_index_lut ");
     tracep->popNamePrefix(1);
@@ -352,21 +352,21 @@ VL_ATTR_COLD void VQvuTop___024root__trace_init_sub__TOP__0(VQvuTop___024root* v
     tracep->pushNamePrefix("g_level ");
     tracep->popNamePrefix(5);
     tracep->pushNamePrefix("lzcModule_1 ");
-    tracep->declBus(c+352,"WIDTH", false,-1, 31,0);
-    tracep->declBit(c+353,"MODE", false,-1);
-    tracep->declBus(c+354,"CNT_WIDTH", false,-1, 31,0);
+    tracep->declBus(c+354,"WIDTH", false,-1, 31,0);
+    tracep->declBit(c+355,"MODE", false,-1);
+    tracep->declBus(c+356,"CNT_WIDTH", false,-1, 31,0);
     tracep->declBus(c+24,"in_i", false,-1, 30,0);
     tracep->declBus(c+71,"cnt_o", false,-1, 4,0);
     tracep->declBit(c+334,"empty_o", false,-1);
     tracep->pushNamePrefix("gen_lzc ");
-    tracep->declBus(c+354,"NumLevels", false,-1, 31,0);
-    tracep->declArray(c+355,"index_lut", false,-1, 154,0);
+    tracep->declBus(c+356,"NumLevels", false,-1, 31,0);
+    tracep->declArray(c+357,"index_lut", false,-1, 154,0);
     tracep->declBus(c+335,"sel_nodes", false,-1, 31,0);
     tracep->declArray(c+72,"index_nodes", false,-1, 159,0);
     tracep->declBus(c+25,"in_tmp", false,-1, 30,0);
     tracep->pushNamePrefix("flip_vector ");
     tracep->pushNamePrefix("unnamedblk1 ");
-    tracep->declBus(c+352,"i", false,-1, 31,0);
+    tracep->declBus(c+354,"i", false,-1, 31,0);
     tracep->popNamePrefix(2);
     tracep->pushNamePrefix("g_index_lut ");
     tracep->popNamePrefix(1);
@@ -393,21 +393,21 @@ VL_ATTR_COLD void VQvuTop___024root__trace_init_sub__TOP__0(VQvuTop___024root* v
     tracep->pushNamePrefix("g_level ");
     tracep->popNamePrefix(5);
     tracep->pushNamePrefix("lzcModule_2 ");
-    tracep->declBus(c+352,"WIDTH", false,-1, 31,0);
-    tracep->declBit(c+353,"MODE", false,-1);
-    tracep->declBus(c+354,"CNT_WIDTH", false,-1, 31,0);
+    tracep->declBus(c+354,"WIDTH", false,-1, 31,0);
+    tracep->declBit(c+355,"MODE", false,-1);
+    tracep->declBus(c+356,"CNT_WIDTH", false,-1, 31,0);
     tracep->declBus(c+26,"in_i", false,-1, 30,0);
     tracep->declBus(c+63,"cnt_o", false,-1, 4,0);
     tracep->declBit(c+336,"empty_o", false,-1);
     tracep->pushNamePrefix("gen_lzc ");
-    tracep->declBus(c+354,"NumLevels", false,-1, 31,0);
-    tracep->declArray(c+355,"index_lut", false,-1, 154,0);
+    tracep->declBus(c+356,"NumLevels", false,-1, 31,0);
+    tracep->declArray(c+357,"index_lut", false,-1, 154,0);
     tracep->declBus(c+337,"sel_nodes", false,-1, 31,0);
     tracep->declArray(c+64,"index_nodes", false,-1, 159,0);
     tracep->declBus(c+27,"in_tmp", false,-1, 30,0);
     tracep->pushNamePrefix("flip_vector ");
     tracep->pushNamePrefix("unnamedblk1 ");
-    tracep->declBus(c+352,"i", false,-1, 31,0);
+    tracep->declBus(c+354,"i", false,-1, 31,0);
     tracep->popNamePrefix(2);
     tracep->pushNamePrefix("g_index_lut ");
     tracep->popNamePrefix(1);
@@ -434,21 +434,21 @@ VL_ATTR_COLD void VQvuTop___024root__trace_init_sub__TOP__0(VQvuTop___024root* v
     tracep->pushNamePrefix("g_level ");
     tracep->popNamePrefix(5);
     tracep->pushNamePrefix("lzcModule_3 ");
-    tracep->declBus(c+352,"WIDTH", false,-1, 31,0);
-    tracep->declBit(c+353,"MODE", false,-1);
-    tracep->declBus(c+354,"CNT_WIDTH", false,-1, 31,0);
+    tracep->declBus(c+354,"WIDTH", false,-1, 31,0);
+    tracep->declBit(c+355,"MODE", false,-1);
+    tracep->declBus(c+356,"CNT_WIDTH", false,-1, 31,0);
     tracep->declBus(c+28,"in_i", false,-1, 30,0);
     tracep->declBus(c+55,"cnt_o", false,-1, 4,0);
     tracep->declBit(c+338,"empty_o", false,-1);
     tracep->pushNamePrefix("gen_lzc ");
-    tracep->declBus(c+354,"NumLevels", false,-1, 31,0);
-    tracep->declArray(c+355,"index_lut", false,-1, 154,0);
+    tracep->declBus(c+356,"NumLevels", false,-1, 31,0);
+    tracep->declArray(c+357,"index_lut", false,-1, 154,0);
     tracep->declBus(c+339,"sel_nodes", false,-1, 31,0);
     tracep->declArray(c+56,"index_nodes", false,-1, 159,0);
     tracep->declBus(c+29,"in_tmp", false,-1, 30,0);
     tracep->pushNamePrefix("flip_vector ");
     tracep->pushNamePrefix("unnamedblk1 ");
-    tracep->declBus(c+352,"i", false,-1, 31,0);
+    tracep->declBus(c+354,"i", false,-1, 31,0);
     tracep->popNamePrefix(2);
     tracep->pushNamePrefix("g_index_lut ");
     tracep->popNamePrefix(1);
@@ -499,6 +499,12 @@ VL_ATTR_COLD void VQvuTop___024root__trace_init_sub__TOP__0(VQvuTop___024root* v
     tracep->declBit(c+49,"isExpAllZeros_1", false,-1);
     tracep->declBit(c+50,"isExpAllZeros_2", false,-1);
     tracep->declBit(c+51,"isExpAllZeros_3", false,-1);
+    tracep->popNamePrefix(1);
+    tracep->pushNamePrefix("quantizeFP16 ");
+    tracep->declBus(c+52,"io_pir_sign_i", false,-1, 3,0);
+    tracep->declBus(c+117,"io_pir_exp_i", false,-1, 31,0);
+    tracep->declArray(c+301,"io_pir_frac_i", false,-1, 131,0);
+    tracep->declQuad(c+352,"io_fp16_o", false,-1, 63,0);
     tracep->popNamePrefix(1);
     tracep->pushNamePrefix("quantizeInt4 ");
     tracep->declBit(c+248,"clock", false,-1);
@@ -651,7 +657,7 @@ VL_ATTR_COLD void VQvuTop___024root__trace_full_sub_0(VQvuTop___024root* vlSelf,
     uint32_t* const oldp VL_ATTR_UNUSED = bufp->oldp(vlSymsp->__Vm_baseCode);
     VlWide<3>/*95:0*/ __Vtemp_h829b5439__0;
     VlWide<3>/*95:0*/ __Vtemp_h32f0c7c3__0;
-    VlWide<5>/*159:0*/ __Vtemp_h15db7925__0;
+    VlWide<5>/*159:0*/ __Vtemp_h3fa4dffb__0;
     VlWide<4>/*127:0*/ __Vtemp_h1b06671e__0;
     VlWide<4>/*127:0*/ __Vtemp_h6dabf4ce__0;
     VlWide<4>/*127:0*/ __Vtemp_ha81f68f6__0;
@@ -960,7 +966,7 @@ VL_ATTR_COLD void VQvuTop___024root__trace_full_sub_0(VQvuTop___024root* vlSelf,
     bufp->fullBit(oldp+49,((0U == (IData)(vlSelf->QvuTop__DOT__floatDecode2__DOT____VdfgTmp_h89ab41bc__0))));
     bufp->fullBit(oldp+50,((0U == (IData)(vlSelf->QvuTop__DOT__floatDecode2__DOT____VdfgTmp_h8a58f023__0))));
     bufp->fullBit(oldp+51,((0U == (IData)(vlSelf->QvuTop__DOT__floatDecode2__DOT____VdfgTmp_h8aa26e89__0))));
-    bufp->fullCData(oldp+52,(vlSelf->QvuTop__DOT___GEN_2),4);
+    bufp->fullCData(oldp+52,(vlSelf->QvuTop__DOT___GEN_4),4);
     bufp->fullCData(oldp+53,((0x1fU & ((IData)(1U) 
                                        + vlSelf->QvuTop__DOT__decode2__DOT__lzcModule_3__DOT__gen_lzc__DOT__index_nodes[0U]))),5);
     bufp->fullIData(oldp+54,(vlSelf->QvuTop__DOT__decode2__DOT___barrel_shifter_3_io_result_o),31);
@@ -1228,57 +1234,30 @@ VL_ATTR_COLD void VQvuTop___024root__trace_full_sub_0(VQvuTop___024root* vlSelf,
     bufp->fullIData(oldp+298,(vlSelf->io_int_o_1),32);
     bufp->fullIData(oldp+299,(vlSelf->io_int_o_2),32);
     bufp->fullIData(oldp+300,(vlSelf->io_int_o_3),32);
-    __Vtemp_h15db7925__0[0U] = (IData)(((IData)(vlSelf->QvuTop__DOT____VdfgTmp_ha15d0789__0)
-                                         ? vlSelf->__VdfgTmp_h46be9c78__0
-                                         : 0ULL));
-    __Vtemp_h15db7925__0[1U] = (((IData)(((IData)(vlSelf->QvuTop__DOT____VdfgTmp_h792c5c44__0)
-                                           ? vlSelf->__VdfgTmp_h43a98faf__0
-                                           : 0ULL)) 
-                                 << 1U) | (IData)((
-                                                   ((IData)(vlSelf->QvuTop__DOT____VdfgTmp_ha15d0789__0)
-                                                     ? vlSelf->__VdfgTmp_h46be9c78__0
-                                                     : 0ULL) 
+    __Vtemp_h3fa4dffb__0[0U] = (IData)(vlSelf->QvuTop__DOT__quantizeInt8__DOT____VdfgTmp_hdf96a634__0);
+    __Vtemp_h3fa4dffb__0[1U] = (((IData)(vlSelf->QvuTop__DOT__quantizeInt8__DOT____VdfgTmp_hdcaf4442__0) 
+                                 << 1U) | (IData)((vlSelf->QvuTop__DOT__quantizeInt8__DOT____VdfgTmp_hdf96a634__0 
                                                    >> 0x20U)));
-    __Vtemp_h15db7925__0[2U] = (((IData)(((2U < (IData)(vlSelf->QvuTop__DOT__ACTUAL_VECTOR_SIZE))
-                                           ? vlSelf->__VdfgTmp_haed5c1a2__0
-                                           : 0ULL)) 
-                                 << 2U) | (((IData)(
-                                                    ((IData)(vlSelf->QvuTop__DOT____VdfgTmp_h792c5c44__0)
-                                                      ? vlSelf->__VdfgTmp_h43a98faf__0
-                                                      : 0ULL)) 
+    __Vtemp_h3fa4dffb__0[2U] = (((IData)(vlSelf->QvuTop__DOT__quantizeInt8__DOT____VdfgTmp_hd95c8ec3__0) 
+                                 << 2U) | (((IData)(vlSelf->QvuTop__DOT__quantizeInt8__DOT____VdfgTmp_hdcaf4442__0) 
                                             >> 0x1fU) 
                                            | ((IData)(
-                                                      (((IData)(vlSelf->QvuTop__DOT____VdfgTmp_h792c5c44__0)
-                                                         ? vlSelf->__VdfgTmp_h43a98faf__0
-                                                         : 0ULL) 
+                                                      (vlSelf->QvuTop__DOT__quantizeInt8__DOT____VdfgTmp_hdcaf4442__0 
                                                        >> 0x20U)) 
                                               << 1U)));
-    __Vtemp_h15db7925__0[3U] = (((IData)(((IData)(vlSelf->QvuTop__DOT____VdfgTmp_ha10fc7a1__0)
-                                           ? vlSelf->__VdfgTmp_h9c9ab370__0
-                                           : 0ULL)) 
-                                 << 3U) | (((IData)(
-                                                    ((2U 
-                                                      < (IData)(vlSelf->QvuTop__DOT__ACTUAL_VECTOR_SIZE))
-                                                      ? vlSelf->__VdfgTmp_haed5c1a2__0
-                                                      : 0ULL)) 
+    __Vtemp_h3fa4dffb__0[3U] = (((IData)(vlSelf->QvuTop__DOT__quantizeInt8__DOT____VdfgTmp_hd9d61d93__0) 
+                                 << 3U) | (((IData)(vlSelf->QvuTop__DOT__quantizeInt8__DOT____VdfgTmp_hd95c8ec3__0) 
                                             >> 0x1eU) 
                                            | ((IData)(
-                                                      (((2U 
-                                                         < (IData)(vlSelf->QvuTop__DOT__ACTUAL_VECTOR_SIZE))
-                                                         ? vlSelf->__VdfgTmp_haed5c1a2__0
-                                                         : 0ULL) 
+                                                      (vlSelf->QvuTop__DOT__quantizeInt8__DOT____VdfgTmp_hd95c8ec3__0 
                                                        >> 0x20U)) 
                                               << 2U)));
-    __Vtemp_h15db7925__0[4U] = (((IData)(((IData)(vlSelf->QvuTop__DOT____VdfgTmp_ha10fc7a1__0)
-                                           ? vlSelf->__VdfgTmp_h9c9ab370__0
-                                           : 0ULL)) 
+    __Vtemp_h3fa4dffb__0[4U] = (((IData)(vlSelf->QvuTop__DOT__quantizeInt8__DOT____VdfgTmp_hd9d61d93__0) 
                                  >> 0x1dU) | ((IData)(
-                                                      (((IData)(vlSelf->QvuTop__DOT____VdfgTmp_ha10fc7a1__0)
-                                                         ? vlSelf->__VdfgTmp_h9c9ab370__0
-                                                         : 0ULL) 
+                                                      (vlSelf->QvuTop__DOT__quantizeInt8__DOT____VdfgTmp_hd9d61d93__0 
                                                        >> 0x20U)) 
                                               << 3U));
-    bufp->fullWData(oldp+301,(__Vtemp_h15db7925__0),132);
+    bufp->fullWData(oldp+301,(__Vtemp_h3fa4dffb__0),132);
     if (vlSelf->io_Isposit) {
         __Vtemp_h1b06671e__0[0U] = vlSelf->io_posit_i1_0;
         __Vtemp_h1b06671e__0[1U] = vlSelf->io_posit_i1_1;
@@ -1737,13 +1716,79 @@ VL_ATTR_COLD void VQvuTop___024root__trace_full_sub_0(VQvuTop___024root* vlSelf,
                                                       != 
                                                       (0x7fffffU 
                                                        & (IData)(vlSelf->io_float_i2_0))))))))),4);
-    bufp->fullIData(oldp+352,(0x1fU),32);
-    bufp->fullBit(oldp+353,(1U));
-    bufp->fullIData(oldp+354,(5U),32);
+    bufp->fullQData(oldp+352,((((QData)((IData)((1U 
+                                                 & ((IData)(vlSelf->QvuTop__DOT___GEN_4) 
+                                                    >> 3U)))) 
+                                << 0x3fU) | (((QData)((IData)(
+                                                              (((0ULL 
+                                                                 == vlSelf->QvuTop__DOT__quantizeInt8__DOT____VdfgTmp_hd9d61d93__0) 
+                                                                | VL_GTS_III(8, 0xf1U, 
+                                                                             (vlSelf->QvuTop__DOT____Vcellinp__quantizeInt8__io_pir_exp_i 
+                                                                              >> 0x18U)))
+                                                                ? 0U
+                                                                : 
+                                                               ((VL_LTS_III(8, 0x10U, 
+                                                                            (vlSelf->QvuTop__DOT____Vcellinp__quantizeInt8__io_pir_exp_i 
+                                                                             >> 0x18U)) 
+                                                                 | VL_LTS_III(8, 0x1eU, 
+                                                                              (0xffU 
+                                                                               & ((IData)(0xfU) 
+                                                                                + 
+                                                                                (vlSelf->QvuTop__DOT____Vcellinp__quantizeInt8__io_pir_exp_i 
+                                                                                >> 0x18U)))))
+                                                                 ? 0x7c00U
+                                                                 : 
+                                                                (((VL_GTS_III(8, 0U, 
+                                                                              (0xffU 
+                                                                               & ((IData)(0xfU) 
+                                                                                + 
+                                                                                (vlSelf->QvuTop__DOT____Vcellinp__quantizeInt8__io_pir_exp_i 
+                                                                                >> 0x18U))))
+                                                                    ? 0U
+                                                                    : 
+                                                                   (VL_LTS_III(8, 0x1eU, 
+                                                                               (0xffU 
+                                                                                & ((IData)(0xfU) 
+                                                                                + 
+                                                                                (vlSelf->QvuTop__DOT____Vcellinp__quantizeInt8__io_pir_exp_i 
+                                                                                >> 0x18U))))
+                                                                     ? 0x1eU
+                                                                     : 
+                                                                    (0x1fU 
+                                                                     & ((IData)(0xfU) 
+                                                                        + 
+                                                                        (vlSelf->QvuTop__DOT____Vcellinp__quantizeInt8__io_pir_exp_i 
+                                                                         >> 0x18U))))) 
+                                                                  << 0xaU) 
+                                                                 | ((IData)(vlSelf->QvuTop__DOT____VdfgTmp_ha10fc7a1__0)
+                                                                     ? 
+                                                                    (0x3ffU 
+                                                                     & (IData)(
+                                                                               (vlSelf->__VdfgTmp_h9c9ab370__0 
+                                                                                >> 0x17U)))
+                                                                     : 0U)))))) 
+                                              << 0x30U) 
+                                             | (((QData)((IData)(
+                                                                 (1U 
+                                                                  & ((IData)(vlSelf->QvuTop__DOT___GEN_4) 
+                                                                     >> 2U)))) 
+                                                 << 0x2fU) 
+                                                | (((QData)((IData)(vlSelf->__VdfgTmp_h6db38b42__0)) 
+                                                    << 0x20U) 
+                                                   | (QData)((IData)(
+                                                                     ((0x80000000U 
+                                                                       & ((IData)(vlSelf->QvuTop__DOT___GEN_4) 
+                                                                          << 0x1eU)) 
+                                                                      | (((IData)(vlSelf->__VdfgTmp_h9981df73__0) 
+                                                                          << 0x10U) 
+                                                                         | (IData)(vlSelf->__VdfgTmp_h92081510__0)))))))))),64);
+    bufp->fullIData(oldp+354,(0x1fU),32);
+    bufp->fullBit(oldp+355,(1U));
+    bufp->fullIData(oldp+356,(5U),32);
     __Vtemp_hc5d9e20e__0[0U] = 0x8a418820U;
     __Vtemp_hc5d9e20e__0[1U] = 0xc5a92839U;
     __Vtemp_hc5d9e20e__0[2U] = 0xca307b9aU;
     __Vtemp_hc5d9e20e__0[3U] = 0x38bdab49U;
     __Vtemp_hc5d9e20e__0[4U] = 0x7bbcdebU;
-    bufp->fullWData(oldp+355,(__Vtemp_hc5d9e20e__0),155);
+    bufp->fullWData(oldp+357,(__Vtemp_hc5d9e20e__0),155);
 }

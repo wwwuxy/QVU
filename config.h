@@ -2,6 +2,6 @@
 #ifndef CONFIG_H
 #define CONFIG_H
 
-#define CONFIG_TYPE_RESNET 1
-#define CONFIG_RESNET_INT8 1
+#define CONFIG_TYPE_ALEXNET 1
+#define CONFIG_ALEXNET_FP16 1
 #endif // CONFIG_H

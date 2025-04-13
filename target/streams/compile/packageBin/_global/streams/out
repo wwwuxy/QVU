@@ -16,6 +16,8 @@
 [debug] 	  /home/wuxy/QVU/target/scala-2.13/classes/qvu/QvuTop.class
 [debug] 	qvu/FloatEncode.class
 [debug] 	  /home/wuxy/QVU/target/scala-2.13/classes/qvu/FloatEncode.class
+[debug] 	qvu/PositQuantizeToFP16.class
+[debug] 	  /home/wuxy/QVU/target/scala-2.13/classes/qvu/PositQuantizeToFP16.class
 [debug] 	qvu/PositToFloat$$anon$1.class
 [debug] 	  /home/wuxy/QVU/target/scala-2.13/classes/qvu/PositToFloat$$anon$1.class
 [debug] 	qvu/PositQuantizeToInt4$$anon$2.class
@@ -56,6 +58,8 @@
 [debug] 	  /home/wuxy/QVU/target/scala-2.13/classes/qvu/PositEncode_DotProduct$$anon$1.class
 [debug] 	qvu/PositQuantizeToInt4$.class
 [debug] 	  /home/wuxy/QVU/target/scala-2.13/classes/qvu/PositQuantizeToInt4$.class
+[debug] 	qvu/PositQuantizeToFP16$$anon$1.class
+[debug] 	  /home/wuxy/QVU/target/scala-2.13/classes/qvu/PositQuantizeToFP16$$anon$1.class
 [debug] 	qvu/Elaborate.class
 [debug] 	  /home/wuxy/QVU/target/scala-2.13/classes/qvu/Elaborate.class
 [debug] 	qvu/QvuTop$.class

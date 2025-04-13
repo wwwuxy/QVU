@@ -1,16 +1,11 @@
 [debug] Created transactional ClassFileManager with tempDir = /home/wuxy/QVU/target/scala-2.13/classes.bak
 [debug] About to delete class files:
-[debug] 	PositQuantizeToInt4$.class
-[debug] 	PositQuantizeToInt4.class
-[debug] 	PositQuantizeToInt4$$anon$1.class
+[debug] 	PositQuantizeToFP16$$anon$1.class
+[debug] 	PositQuantizeToFP16.class
 [debug] We backup class files:
-[debug] 	PositQuantizeToInt4$.class
-[debug] 	PositQuantizeToInt4.class
-[debug] 	PositQuantizeToInt4$$anon$1.class
+[debug] 	PositQuantizeToFP16$$anon$1.class
+[debug] 	PositQuantizeToFP16.class
 [debug] Registering generated classes:
-[debug] 	PositQuantizeToInt4$.class
-[debug] 	PositQuantizeToInt4$VerilatorDirective$$anon$1.class
-[debug] 	PositQuantizeToInt4$VerilatorDirective.class
-[debug] 	PositQuantizeToInt4.class
-[debug] 	PositQuantizeToInt4$$anon$2.class
+[debug] 	PositQuantizeToFP16.class
+[debug] 	PositQuantizeToFP16$$anon$1.class
 [debug] Removing the temporary directory used for backing up class files: /home/wuxy/QVU/target/scala-2.13/classes.bak

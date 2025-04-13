@@ -82,6 +82,12 @@ menu "RESNET_TEST"
 
         help
             Enable Posit32 to Int4 truncation test.
+    
+    config RESNET_FP16
+        bool "resnet_fp16_test"
+
+        help
+            Enable Posit32 to FP16 truncation test.
 
     endchoice
 endmenu
@@ -108,6 +114,12 @@ menu "VGG_TEST"
         help
             Enable Posit32 to Int4 truncation test for VGG.
 
+    config VGG_FP16
+        bool "vgg_fp16_test"
+
+        help
+            Enable Posit32 to FP16 truncation test for VGG.
+
     endchoice
 endmenu
 
@@ -132,6 +144,12 @@ menu "ALEXNET_TEST"
 
         help
             Enable Posit32 to Int4 truncation test for AlexNet.
+    
+    config ALEXNET_FP16
+        bool "alexnet_fp16_test"
+
+        help
+            Enable Posit32 to FP16 truncation test for AlexNet.
 
     endchoice
 endmenu
@@ -158,6 +176,12 @@ menu "LENET_TEST"
         help
             Enable Posit32 to Int4 truncation test for LeNet.
 
+    config LENET_FP16
+        bool "lenet_fp16_test"
+
+        help
+            Enable Posit32 to FP16 truncation test for LeNet.
+
     endchoice
 endmenu
 
@@ -182,6 +206,12 @@ menu "MOBILENET_TEST"
 
         help
             Enable Posit32 to Int4 truncation test for MobileNet.
+
+    config MOBILENET_FP16
+        bool "mobilenet_fp16_test"
+
+        help
+            Enable Posit32 to FP16 truncation test for MobileNet.
 
     endchoice
 endmenu
@@ -208,6 +238,12 @@ menu "SQUEEZENET_TEST"
         help
             Enable Posit32 to Int4 truncation test for SqueezeNet.
 
+    config SQUEEZENET_FP16
+        bool "squeezenet_fp16_test"
+
+        help
+            Enable Posit32 to FP16 truncation test for SqueezeNet.
+
     endchoice
 endmenu
 
@@ -232,6 +268,12 @@ menu "CONVNEXT_TEST"
 
         help
             Enable Posit32 to Int4 truncation test for ConvNeXt.
+
+    config CONVNEXT_FP16
+        bool "convnext_fp16_test"
+
+        help
+            Enable Posit32 to FP16 truncation test for ConvNeXt.
 
     endchoice
 endmenu
@@ -258,6 +300,12 @@ menu "SHUFFLENETV2_TEST"
         help
             Enable Posit32 to Int4 truncation test for ShuffleNetV2.
 
+    config SHUFFLENETV2_FP16
+        bool "shufflenetv2_fp16_test"
+
+        help
+            Enable Posit32 to FP16 truncation test for ShuffleNetV2.
+
     endchoice
 endmenu
 
@@ -283,6 +331,12 @@ menu "EFFICIENTNET_TEST"
         help
             Enable Posit32 to Int4 truncation test for EfficientNet.
 
+    config EFFICIENTNET_FP16
+        bool "efficientnet_fp16_test"
+
+        help
+            Enable Posit32 to FP16 truncation test for EfficientNet.
+
     endchoice
 endmenu
 
@@ -307,6 +361,12 @@ menu "REGNET_TEST"
 
         help
             Enable Posit32 to Int4 truncation test for RegNet.
+
+    config REGNET_FP16
+        bool "regnet_fp16_test"
+
+        help
+            Enable Posit32 to FP16 truncation test for RegNet.
 
     endchoice
 endmenu

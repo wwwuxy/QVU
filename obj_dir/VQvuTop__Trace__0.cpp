@@ -24,7 +24,7 @@ void VQvuTop___024root__trace_chg_sub_0(VQvuTop___024root* vlSelf, VerilatedVcd:
     uint32_t* const oldp VL_ATTR_UNUSED = bufp->oldp(vlSymsp->__Vm_baseCode + 1);
     VlWide<3>/*95:0*/ __Vtemp_h829b5439__0;
     VlWide<3>/*95:0*/ __Vtemp_h32f0c7c3__0;
-    VlWide<5>/*159:0*/ __Vtemp_h15db7925__0;
+    VlWide<5>/*159:0*/ __Vtemp_h3fa4dffb__0;
     VlWide<4>/*127:0*/ __Vtemp_h1b06671e__0;
     VlWide<4>/*127:0*/ __Vtemp_h6dabf4ce__0;
     VlWide<4>/*127:0*/ __Vtemp_ha81f68f6__0;
@@ -340,7 +340,7 @@ void VQvuTop___024root__trace_chg_sub_0(VQvuTop___024root* vlSelf, VerilatedVcd:
         bufp->chgBit(oldp+48,((0U == (IData)(vlSelf->QvuTop__DOT__floatDecode2__DOT____VdfgTmp_h89ab41bc__0))));
         bufp->chgBit(oldp+49,((0U == (IData)(vlSelf->QvuTop__DOT__floatDecode2__DOT____VdfgTmp_h8a58f023__0))));
         bufp->chgBit(oldp+50,((0U == (IData)(vlSelf->QvuTop__DOT__floatDecode2__DOT____VdfgTmp_h8aa26e89__0))));
-        bufp->chgCData(oldp+51,(vlSelf->QvuTop__DOT___GEN_2),4);
+        bufp->chgCData(oldp+51,(vlSelf->QvuTop__DOT___GEN_4),4);
     }
     if (VL_UNLIKELY((vlSelf->__Vm_traceActivity[2U] 
                      | vlSelf->__Vm_traceActivity[0xbU]))) {
@@ -643,57 +643,30 @@ void VQvuTop___024root__trace_chg_sub_0(VQvuTop___024root* vlSelf, VerilatedVcd:
     bufp->chgIData(oldp+297,(vlSelf->io_int_o_1),32);
     bufp->chgIData(oldp+298,(vlSelf->io_int_o_2),32);
     bufp->chgIData(oldp+299,(vlSelf->io_int_o_3),32);
-    __Vtemp_h15db7925__0[0U] = (IData)(((IData)(vlSelf->QvuTop__DOT____VdfgTmp_ha15d0789__0)
-                                         ? vlSelf->__VdfgTmp_h46be9c78__0
-                                         : 0ULL));
-    __Vtemp_h15db7925__0[1U] = (((IData)(((IData)(vlSelf->QvuTop__DOT____VdfgTmp_h792c5c44__0)
-                                           ? vlSelf->__VdfgTmp_h43a98faf__0
-                                           : 0ULL)) 
-                                 << 1U) | (IData)((
-                                                   ((IData)(vlSelf->QvuTop__DOT____VdfgTmp_ha15d0789__0)
-                                                     ? vlSelf->__VdfgTmp_h46be9c78__0
-                                                     : 0ULL) 
+    __Vtemp_h3fa4dffb__0[0U] = (IData)(vlSelf->QvuTop__DOT__quantizeInt8__DOT____VdfgTmp_hdf96a634__0);
+    __Vtemp_h3fa4dffb__0[1U] = (((IData)(vlSelf->QvuTop__DOT__quantizeInt8__DOT____VdfgTmp_hdcaf4442__0) 
+                                 << 1U) | (IData)((vlSelf->QvuTop__DOT__quantizeInt8__DOT____VdfgTmp_hdf96a634__0 
                                                    >> 0x20U)));
-    __Vtemp_h15db7925__0[2U] = (((IData)(((2U < (IData)(vlSelf->QvuTop__DOT__ACTUAL_VECTOR_SIZE))
-                                           ? vlSelf->__VdfgTmp_haed5c1a2__0
-                                           : 0ULL)) 
-                                 << 2U) | (((IData)(
-                                                    ((IData)(vlSelf->QvuTop__DOT____VdfgTmp_h792c5c44__0)
-                                                      ? vlSelf->__VdfgTmp_h43a98faf__0
-                                                      : 0ULL)) 
+    __Vtemp_h3fa4dffb__0[2U] = (((IData)(vlSelf->QvuTop__DOT__quantizeInt8__DOT____VdfgTmp_hd95c8ec3__0) 
+                                 << 2U) | (((IData)(vlSelf->QvuTop__DOT__quantizeInt8__DOT____VdfgTmp_hdcaf4442__0) 
                                             >> 0x1fU) 
                                            | ((IData)(
-                                                      (((IData)(vlSelf->QvuTop__DOT____VdfgTmp_h792c5c44__0)
-                                                         ? vlSelf->__VdfgTmp_h43a98faf__0
-                                                         : 0ULL) 
+                                                      (vlSelf->QvuTop__DOT__quantizeInt8__DOT____VdfgTmp_hdcaf4442__0 
                                                        >> 0x20U)) 
                                               << 1U)));
-    __Vtemp_h15db7925__0[3U] = (((IData)(((IData)(vlSelf->QvuTop__DOT____VdfgTmp_ha10fc7a1__0)
-                                           ? vlSelf->__VdfgTmp_h9c9ab370__0
-                                           : 0ULL)) 
-                                 << 3U) | (((IData)(
-                                                    ((2U 
-                                                      < (IData)(vlSelf->QvuTop__DOT__ACTUAL_VECTOR_SIZE))
-                                                      ? vlSelf->__VdfgTmp_haed5c1a2__0
-                                                      : 0ULL)) 
+    __Vtemp_h3fa4dffb__0[3U] = (((IData)(vlSelf->QvuTop__DOT__quantizeInt8__DOT____VdfgTmp_hd9d61d93__0) 
+                                 << 3U) | (((IData)(vlSelf->QvuTop__DOT__quantizeInt8__DOT____VdfgTmp_hd95c8ec3__0) 
                                             >> 0x1eU) 
                                            | ((IData)(
-                                                      (((2U 
-                                                         < (IData)(vlSelf->QvuTop__DOT__ACTUAL_VECTOR_SIZE))
-                                                         ? vlSelf->__VdfgTmp_haed5c1a2__0
-                                                         : 0ULL) 
+                                                      (vlSelf->QvuTop__DOT__quantizeInt8__DOT____VdfgTmp_hd95c8ec3__0 
                                                        >> 0x20U)) 
                                               << 2U)));
-    __Vtemp_h15db7925__0[4U] = (((IData)(((IData)(vlSelf->QvuTop__DOT____VdfgTmp_ha10fc7a1__0)
-                                           ? vlSelf->__VdfgTmp_h9c9ab370__0
-                                           : 0ULL)) 
+    __Vtemp_h3fa4dffb__0[4U] = (((IData)(vlSelf->QvuTop__DOT__quantizeInt8__DOT____VdfgTmp_hd9d61d93__0) 
                                  >> 0x1dU) | ((IData)(
-                                                      (((IData)(vlSelf->QvuTop__DOT____VdfgTmp_ha10fc7a1__0)
-                                                         ? vlSelf->__VdfgTmp_h9c9ab370__0
-                                                         : 0ULL) 
+                                                      (vlSelf->QvuTop__DOT__quantizeInt8__DOT____VdfgTmp_hd9d61d93__0 
                                                        >> 0x20U)) 
                                               << 3U));
-    bufp->chgWData(oldp+300,(__Vtemp_h15db7925__0),132);
+    bufp->chgWData(oldp+300,(__Vtemp_h3fa4dffb__0),132);
     if (vlSelf->io_Isposit) {
         __Vtemp_h1b06671e__0[0U] = vlSelf->io_posit_i1_0;
         __Vtemp_h1b06671e__0[1U] = vlSelf->io_posit_i1_1;
@@ -1148,6 +1121,72 @@ void VQvuTop___024root__trace_chg_sub_0(VQvuTop___024root* vlSelf, VerilatedVcd:
                                                      != 
                                                      (0x7fffffU 
                                                       & (IData)(vlSelf->io_float_i2_0))))))))),4);
+    bufp->chgQData(oldp+351,((((QData)((IData)((1U 
+                                                & ((IData)(vlSelf->QvuTop__DOT___GEN_4) 
+                                                   >> 3U)))) 
+                               << 0x3fU) | (((QData)((IData)(
+                                                             (((0ULL 
+                                                                == vlSelf->QvuTop__DOT__quantizeInt8__DOT____VdfgTmp_hd9d61d93__0) 
+                                                               | VL_GTS_III(8, 0xf1U, 
+                                                                            (vlSelf->QvuTop__DOT____Vcellinp__quantizeInt8__io_pir_exp_i 
+                                                                             >> 0x18U)))
+                                                               ? 0U
+                                                               : 
+                                                              ((VL_LTS_III(8, 0x10U, 
+                                                                           (vlSelf->QvuTop__DOT____Vcellinp__quantizeInt8__io_pir_exp_i 
+                                                                            >> 0x18U)) 
+                                                                | VL_LTS_III(8, 0x1eU, 
+                                                                             (0xffU 
+                                                                              & ((IData)(0xfU) 
+                                                                                + 
+                                                                                (vlSelf->QvuTop__DOT____Vcellinp__quantizeInt8__io_pir_exp_i 
+                                                                                >> 0x18U)))))
+                                                                ? 0x7c00U
+                                                                : 
+                                                               (((VL_GTS_III(8, 0U, 
+                                                                             (0xffU 
+                                                                              & ((IData)(0xfU) 
+                                                                                + 
+                                                                                (vlSelf->QvuTop__DOT____Vcellinp__quantizeInt8__io_pir_exp_i 
+                                                                                >> 0x18U))))
+                                                                   ? 0U
+                                                                   : 
+                                                                  (VL_LTS_III(8, 0x1eU, 
+                                                                              (0xffU 
+                                                                               & ((IData)(0xfU) 
+                                                                                + 
+                                                                                (vlSelf->QvuTop__DOT____Vcellinp__quantizeInt8__io_pir_exp_i 
+                                                                                >> 0x18U))))
+                                                                    ? 0x1eU
+                                                                    : 
+                                                                   (0x1fU 
+                                                                    & ((IData)(0xfU) 
+                                                                       + 
+                                                                       (vlSelf->QvuTop__DOT____Vcellinp__quantizeInt8__io_pir_exp_i 
+                                                                        >> 0x18U))))) 
+                                                                 << 0xaU) 
+                                                                | ((IData)(vlSelf->QvuTop__DOT____VdfgTmp_ha10fc7a1__0)
+                                                                    ? 
+                                                                   (0x3ffU 
+                                                                    & (IData)(
+                                                                              (vlSelf->__VdfgTmp_h9c9ab370__0 
+                                                                               >> 0x17U)))
+                                                                    : 0U)))))) 
+                                             << 0x30U) 
+                                            | (((QData)((IData)(
+                                                                (1U 
+                                                                 & ((IData)(vlSelf->QvuTop__DOT___GEN_4) 
+                                                                    >> 2U)))) 
+                                                << 0x2fU) 
+                                               | (((QData)((IData)(vlSelf->__VdfgTmp_h6db38b42__0)) 
+                                                   << 0x20U) 
+                                                  | (QData)((IData)(
+                                                                    ((0x80000000U 
+                                                                      & ((IData)(vlSelf->QvuTop__DOT___GEN_4) 
+                                                                         << 0x1eU)) 
+                                                                     | (((IData)(vlSelf->__VdfgTmp_h9981df73__0) 
+                                                                         << 0x10U) 
+                                                                        | (IData)(vlSelf->__VdfgTmp_h92081510__0)))))))))),64);
 }
 
 void VQvuTop___024root__trace_cleanup(void* voidSelf, VerilatedVcd* /*unused*/) {
