@@ -33,8 +33,8 @@
 
 //---------------- 配置参数 -------------------
 #define OP   1                     // Posit量化到Int4操作码为1
-const char* POSIT_INPUT_FILE      = "./test_src/RegNet/posit_activations.bin";
-const char* TRUNCATE_RESULTS_FILE = "./test_src/RegNet/truncate_results.bin";
+const char* POSIT_INPUT_FILE      = "./test_src/MobileNet/posit_activations.bin";
+const char* TRUNCATE_RESULTS_FILE = "./test_src/MobileNet/truncate_results.bin";
 const char* WAVEFORM_FILE         = "waveform.vcd";  // 波形输出文件
 const int SAMPLE_NUM              = 1000;            // 测试样本数量
 const int TOTAL_ELEMENTS          = 4000;            // 总元素数量，用于标量模式测试

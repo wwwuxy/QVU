@@ -1191,66 +1191,728 @@ module PositQuantizeToFP16(	// src/main/scala/qvu/PositQuantizeToFP16.scala:5:7
                 io_pir_frac_i[2'h0][32:23]}}}};	// src/main/scala/qvu/PositQuantizeToFP16.scala:5:7, :43:23, :46:{23,31,38}, :47:{21,41,52}, :52:19, :54:{18,26}, :55:24, :58:{18,37}, :62:{27,36}, :63:28, :77:25, :80:{18,61}
 endmodule
 
-module QvuTop(	// src/main/scala/qvu/QvuTop.scala:21:8
-  input         clock,	// src/main/scala/qvu/QvuTop.scala:21:8
-                reset,	// src/main/scala/qvu/QvuTop.scala:21:8
-  input  [31:0] io_posit_i1_0,	// src/main/scala/qvu/QvuTop.scala:70:15
-                io_posit_i1_1,	// src/main/scala/qvu/QvuTop.scala:70:15
-                io_posit_i1_2,	// src/main/scala/qvu/QvuTop.scala:70:15
-                io_posit_i1_3,	// src/main/scala/qvu/QvuTop.scala:70:15
-                io_posit_i2_0,	// src/main/scala/qvu/QvuTop.scala:70:15
-                io_posit_i2_1,	// src/main/scala/qvu/QvuTop.scala:70:15
-                io_posit_i2_2,	// src/main/scala/qvu/QvuTop.scala:70:15
-                io_posit_i2_3,	// src/main/scala/qvu/QvuTop.scala:70:15
-  input  [3:0]  io_op,	// src/main/scala/qvu/QvuTop.scala:70:15
-  input         io_Isposit,	// src/main/scala/qvu/QvuTop.scala:70:15
-                io_Outposit,	// src/main/scala/qvu/QvuTop.scala:70:15
-  input  [63:0] io_float_i_0,	// src/main/scala/qvu/QvuTop.scala:70:15
-                io_float_i_1,	// src/main/scala/qvu/QvuTop.scala:70:15
-                io_float_i_2,	// src/main/scala/qvu/QvuTop.scala:70:15
-                io_float_i_3,	// src/main/scala/qvu/QvuTop.scala:70:15
-                io_float_i2_0,	// src/main/scala/qvu/QvuTop.scala:70:15
-                io_float_i2_1,	// src/main/scala/qvu/QvuTop.scala:70:15
-                io_float_i2_2,	// src/main/scala/qvu/QvuTop.scala:70:15
-                io_float_i2_3,	// src/main/scala/qvu/QvuTop.scala:70:15
-  input  [2:0]  io_float_mode,	// src/main/scala/qvu/QvuTop.scala:70:15
-  input         io_float_posit,	// src/main/scala/qvu/QvuTop.scala:70:15
-  input  [5:0]  io_src_posit_width,	// src/main/scala/qvu/QvuTop.scala:70:15
-  input  [2:0]  io_vector_size,	// src/main/scala/qvu/QvuTop.scala:70:15
-  input  [5:0]  io_dst_posit_width,	// src/main/scala/qvu/QvuTop.scala:70:15
-  output [63:0] io_float_o_0,	// src/main/scala/qvu/QvuTop.scala:70:15
-                io_float_o_1,	// src/main/scala/qvu/QvuTop.scala:70:15
-                io_float_o_2,	// src/main/scala/qvu/QvuTop.scala:70:15
-                io_float_o_3,	// src/main/scala/qvu/QvuTop.scala:70:15
-                io_float_dot_o,	// src/main/scala/qvu/QvuTop.scala:70:15
-  output [31:0] io_posit_o_0,	// src/main/scala/qvu/QvuTop.scala:70:15
-                io_posit_o_1,	// src/main/scala/qvu/QvuTop.scala:70:15
-                io_posit_o_2,	// src/main/scala/qvu/QvuTop.scala:70:15
-                io_posit_o_3,	// src/main/scala/qvu/QvuTop.scala:70:15
-                io_posit_dot_o,	// src/main/scala/qvu/QvuTop.scala:70:15
-                io_int_o_0,	// src/main/scala/qvu/QvuTop.scala:70:15
-                io_int_o_1,	// src/main/scala/qvu/QvuTop.scala:70:15
-                io_int_o_2,	// src/main/scala/qvu/QvuTop.scala:70:15
-                io_int_o_3	// src/main/scala/qvu/QvuTop.scala:70:15
+module PositQuantizeToFP8(	// src/main/scala/qvu/PositQuantizeToFP8.scala:5:7
+  input  [3:0]       io_pir_sign_i,	// src/main/scala/qvu/PositQuantizeToFP8.scala:21:14
+  input  [3:0][7:0]  io_pir_exp_i,	// src/main/scala/qvu/PositQuantizeToFP8.scala:21:14
+  input  [3:0][32:0] io_pir_frac_i,	// src/main/scala/qvu/PositQuantizeToFP8.scala:21:14
+  output [3:0][7:0]  io_fp8_o	// src/main/scala/qvu/PositQuantizeToFP8.scala:21:14
 );
 
-  wire [3:0][15:0] _quantizeFP16_io_fp16_o;	// src/main/scala/qvu/QvuTop.scala:290:31
-  wire [3:0][3:0]  _quantizeInt4_io_int4_o;	// src/main/scala/qvu/QvuTop.scala:268:31
-  wire [3:0][7:0]  _quantizeInt8_io_int8_o;	// src/main/scala/qvu/QvuTop.scala:246:31
-  wire [3:0]       _floatDecode1_io_Sign;	// src/main/scala/qvu/QvuTop.scala:107:28
-  wire [3:0][8:0]  _floatDecode1_io_Exp;	// src/main/scala/qvu/QvuTop.scala:107:28
-  wire [3:0][23:0] _floatDecode1_io_Frac;	// src/main/scala/qvu/QvuTop.scala:107:28
-  wire [3:0]       _decode1_io_Sign;	// src/main/scala/qvu/QvuTop.scala:103:23
-  wire [3:0][7:0]  _decode1_io_Exp;	// src/main/scala/qvu/QvuTop.scala:103:23
-  wire [3:0][27:0] _decode1_io_Frac;	// src/main/scala/qvu/QvuTop.scala:103:23
-  wire [3:0][31:0] _GEN = '{32'h0, 32'h0, 32'h0, 32'h0};	// src/main/scala/qvu/QvuTop.scala:194:21, :195:28, :211:28
-  wire [2:0]       ACTUAL_VECTOR_SIZE = io_vector_size == 3'h0 ? 3'h4 : io_vector_size;	// src/main/scala/qvu/QvuTop.scala:174:{36,52}
-  wire             _valid_range_2_T = ACTUAL_VECTOR_SIZE > 3'h2;	// src/main/scala/qvu/QvuTop.scala:174:36, :190:29
-  wire             _GEN_0 = io_op == 4'h0;	// src/main/scala/qvu/QvuTop.scala:245:15
-  wire             _GEN_1 = io_op == 4'h1;	// src/main/scala/qvu/QvuTop.scala:267:20
-  wire             _GEN_2 = io_op == 4'h2;	// src/main/scala/qvu/QvuTop.scala:289:20
-  wire             _GEN_3 = _GEN_0 | _GEN_1;	// src/main/scala/qvu/QvuTop.scala:138:18, :245:{15,24}, :267:{20,29}, :289:29
-  wire [3:0]       _GEN_4 =
+  wire [7:0] _normExp_T = io_pir_exp_i[2'h0] + 8'h7;	// src/main/scala/qvu/PositQuantizeToFP8.scala:43:23, :54:25
+  wire       _clampedExp_T_1 = $signed(_normExp_T) > 8'shE;	// src/main/scala/qvu/PositQuantizeToFP8.scala:43:23, :47:51, :63:28
+  wire [7:0] _normExp_T_2 = io_pir_exp_i[2'h1] + 8'h7;	// src/main/scala/qvu/PositQuantizeToFP8.scala:43:23, :54:25
+  wire       _clampedExp_T_5 = $signed(_normExp_T_2) > 8'shE;	// src/main/scala/qvu/PositQuantizeToFP8.scala:43:23, :47:51, :63:28
+  wire [7:0] _normExp_T_4 = io_pir_exp_i[2'h2] + 8'h7;	// src/main/scala/qvu/PositQuantizeToFP8.scala:43:23, :54:25
+  wire       _clampedExp_T_9 = $signed(_normExp_T_4) > 8'shE;	// src/main/scala/qvu/PositQuantizeToFP8.scala:43:23, :47:51, :63:28
+  wire [7:0] _normExp_T_6 = io_pir_exp_i[2'h3] + 8'h7;	// src/main/scala/qvu/PositQuantizeToFP8.scala:43:23, :54:25
+  wire       _clampedExp_T_13 = $signed(_normExp_T_6) > 8'shE;	// src/main/scala/qvu/PositQuantizeToFP8.scala:43:23, :47:51, :63:28
+  assign io_fp8_o =
+    {{{io_pir_sign_i[2'h3],
+       io_pir_frac_i[2'h3] == 33'h0 | $signed(io_pir_exp_i[2'h3]) < -8'sh7
+         ? 7'h0
+         : $signed(io_pir_exp_i[2'h3]) > 8'sh8 | _clampedExp_T_13
+             ? 7'h78
+             : {$signed(_normExp_T_6) < 8'sh0
+                  ? 4'h0
+                  : _clampedExp_T_13 ? 4'hE : _normExp_T_6[3:0],
+                io_pir_frac_i[2'h3][32:30]}}},
+     {{io_pir_sign_i[2'h2],
+       io_pir_frac_i[2'h2] == 33'h0 | $signed(io_pir_exp_i[2'h2]) < -8'sh7
+         ? 7'h0
+         : $signed(io_pir_exp_i[2'h2]) > 8'sh8 | _clampedExp_T_9
+             ? 7'h78
+             : {$signed(_normExp_T_4) < 8'sh0
+                  ? 4'h0
+                  : _clampedExp_T_9 ? 4'hE : _normExp_T_4[3:0],
+                io_pir_frac_i[2'h2][32:30]}}},
+     {{io_pir_sign_i[2'h1],
+       io_pir_frac_i[2'h1] == 33'h0 | $signed(io_pir_exp_i[2'h1]) < -8'sh7
+         ? 7'h0
+         : $signed(io_pir_exp_i[2'h1]) > 8'sh8 | _clampedExp_T_5
+             ? 7'h78
+             : {$signed(_normExp_T_2) < 8'sh0
+                  ? 4'h0
+                  : _clampedExp_T_5 ? 4'hE : _normExp_T_2[3:0],
+                io_pir_frac_i[2'h1][32:30]}}},
+     {{io_pir_sign_i[2'h0],
+       io_pir_frac_i[2'h0] == 33'h0 | $signed(io_pir_exp_i[2'h0]) < -8'sh7
+         ? 7'h0
+         : $signed(io_pir_exp_i[2'h0]) > 8'sh8 | _clampedExp_T_1
+             ? 7'h78
+             : {$signed(_normExp_T) < 8'sh0
+                  ? 4'h0
+                  : _clampedExp_T_1 ? 4'hE : _normExp_T[3:0],
+                io_pir_frac_i[2'h0][32:30]}}}};	// src/main/scala/qvu/PositQuantizeToFP8.scala:5:7, :43:23, :46:{23,31,38}, :47:{21,40,51}, :52:19, :54:{17,25}, :55:24, :58:{17,36}, :62:{27,36}, :63:28, :77:25, :80:{17,59}
+endmodule
+
+module PositQuantizeToFP4(	// src/main/scala/qvu/PositQuantizeToFP4.scala:5:7
+  input              clock,	// src/main/scala/qvu/PositQuantizeToFP4.scala:5:7
+                     reset,	// src/main/scala/qvu/PositQuantizeToFP4.scala:5:7
+  input  [3:0]       io_pir_sign_i,	// src/main/scala/qvu/PositQuantizeToFP4.scala:22:14
+  input  [3:0][7:0]  io_pir_exp_i,	// src/main/scala/qvu/PositQuantizeToFP4.scala:22:14
+  input  [3:0][32:0] io_pir_frac_i,	// src/main/scala/qvu/PositQuantizeToFP4.scala:22:14
+  output [3:0][3:0]  io_fp4_o	// src/main/scala/qvu/PositQuantizeToFP4.scala:22:14
+);
+
+  reg  [7:0][32:0] windowMax;	// src/main/scala/qvu/PositQuantizeToFP4.scala:81:26
+  reg  [7:0][32:0] windowMin;	// src/main/scala/qvu/PositQuantizeToFP4.scala:82:26
+  reg  [7:0]       windowValid;	// src/main/scala/qvu/PositQuantizeToFP4.scala:83:28
+  reg  [2:0]       windowPtr;	// src/main/scala/qvu/PositQuantizeToFP4.scala:84:26
+  reg  [32:0]      globalMax;	// src/main/scala/qvu/PositQuantizeToFP4.scala:87:26
+  reg  [32:0]      globalMin;	// src/main/scala/qvu/PositQuantizeToFP4.scala:88:26
+  reg  [32:0]      globalScale;	// src/main/scala/qvu/PositQuantizeToFP4.scala:89:28
+  reg  [32:0]      batchMax;	// src/main/scala/qvu/PositQuantizeToFP4.scala:92:25
+  reg  [32:0]      batchMin;	// src/main/scala/qvu/PositQuantizeToFP4.scala:93:25
+  reg              batchHasData;	// src/main/scala/qvu/PositQuantizeToFP4.scala:94:29
+  reg  [1:0]       state;	// src/main/scala/qvu/PositQuantizeToFP4.scala:98:22
+  wire [279:0]     _absValue_T_2 =
+    {255'h0, io_pir_frac_i[2'h0][32:8]} << io_pir_exp_i[2'h0];	// src/main/scala/qvu/PositQuantizeToFP4.scala:98:22, :114:23, :118:43, :120:17, :121:45
+  wire [32:0]      _GEN =
+    (|io_pir_frac_i[2'h0])
+      ? ($signed(io_pir_exp_i[2'h0]) > -8'sh1
+           ? ($signed(io_pir_exp_i[2'h0]) < 8'sh9 ? _absValue_T_2[32:0] : 33'h1FFFFFFFF)
+           : {8'h0,
+              $signed(io_pir_exp_i[2'h0]) > -8'sh21
+                ? io_pir_frac_i[2'h0][32:8] >> 8'h0 - io_pir_exp_i[2'h0]
+                : 25'h0})
+      : 33'h0;	// src/main/scala/qvu/PositQuantizeToFP4.scala:81:34, :89:28, :93:26, :98:22, :106:23, :114:23, :117:20, :118:43, :120:{17,25}, :121:{18,24,29,45}, :123:{18,24,29,49,53}, :125:20
+  wire [279:0]     _absValue_T_14 =
+    {255'h0, io_pir_frac_i[2'h1][32:8]} << io_pir_exp_i[2'h1];	// src/main/scala/qvu/PositQuantizeToFP4.scala:114:23, :118:43, :120:17, :121:45, :135:11
+  wire [32:0]      _GEN_0 =
+    (|io_pir_frac_i[2'h1])
+      ? ($signed(io_pir_exp_i[2'h1]) > -8'sh1
+           ? ($signed(io_pir_exp_i[2'h1]) < 8'sh9 ? _absValue_T_14[32:0] : 33'h1FFFFFFFF)
+           : {8'h0,
+              $signed(io_pir_exp_i[2'h1]) > -8'sh21
+                ? io_pir_frac_i[2'h1][32:8] >> 8'h0 - io_pir_exp_i[2'h1]
+                : 25'h0})
+      : 33'h0;	// src/main/scala/qvu/PositQuantizeToFP4.scala:81:34, :89:28, :93:26, :106:23, :114:23, :117:20, :118:43, :120:{17,25}, :121:{18,24,29,45}, :123:{18,24,29,49,53}, :125:20, :135:11
+  wire [279:0]     _absValue_T_26 =
+    {255'h0, io_pir_frac_i[2'h2][32:8]} << io_pir_exp_i[2'h2];	// src/main/scala/qvu/PositQuantizeToFP4.scala:114:23, :118:43, :120:17, :121:45, :150:11
+  wire [32:0]      _GEN_1 =
+    (|io_pir_frac_i[2'h2])
+      ? ($signed(io_pir_exp_i[2'h2]) > -8'sh1
+           ? ($signed(io_pir_exp_i[2'h2]) < 8'sh9 ? _absValue_T_26[32:0] : 33'h1FFFFFFFF)
+           : {8'h0,
+              $signed(io_pir_exp_i[2'h2]) > -8'sh21
+                ? io_pir_frac_i[2'h2][32:8] >> 8'h0 - io_pir_exp_i[2'h2]
+                : 25'h0})
+      : 33'h0;	// src/main/scala/qvu/PositQuantizeToFP4.scala:81:34, :89:28, :93:26, :106:23, :114:23, :117:20, :118:43, :120:{17,25}, :121:{18,24,29,45}, :123:{18,24,29,49,53}, :125:20, :150:11
+  wire [279:0]     _absValue_T_38 =
+    {255'h0, io_pir_frac_i[2'h3][32:8]} << io_pir_exp_i[2'h3];	// src/main/scala/qvu/PositQuantizeToFP4.scala:114:23, :118:43, :120:17, :121:45, :190:32
+  wire [32:0]      _GEN_2 =
+    (|io_pir_frac_i[2'h3])
+      ? ($signed(io_pir_exp_i[2'h3]) > -8'sh1
+           ? ($signed(io_pir_exp_i[2'h3]) < 8'sh9 ? _absValue_T_38[32:0] : 33'h1FFFFFFFF)
+           : {8'h0,
+              $signed(io_pir_exp_i[2'h3]) > -8'sh21
+                ? io_pir_frac_i[2'h3][32:8] >> 8'h0 - io_pir_exp_i[2'h3]
+                : 25'h0})
+      : 33'h0;	// src/main/scala/qvu/PositQuantizeToFP4.scala:81:34, :89:28, :93:26, :106:23, :114:23, :117:20, :118:43, :120:{17,25}, :121:{18,24,29,45}, :123:{18,24,29,49,53}, :125:20, :190:32
+  wire [32:0]      _valueAbs_T_4 = _GEN - globalMin;	// src/main/scala/qvu/PositQuantizeToFP4.scala:88:26, :106:23, :117:20, :125:20, :208:36
+  wire [32:0]      valueAbs =
+    (|(globalScale[32:1])) ? _valueAbs_T_4 / globalScale : _valueAbs_T_4;	// src/main/scala/qvu/PositQuantizeToFP4.scala:89:28, :207:{22,35}, :208:{36,49}
+  wire [2:0]       quantIndex =
+    valueAbs > 33'h27FFFFF
+      ? 3'h7
+      : valueAbs > 33'h1BFFFFF
+          ? 3'h6
+          : valueAbs > 33'h13FFFFF
+              ? 3'h5
+              : valueAbs > 33'hDFFFFF
+                  ? 3'h4
+                  : valueAbs > 33'h9FFFFF
+                      ? 3'h3
+                      : valueAbs > 33'h5FFFFF ? 3'h2 : {2'h0, |(valueAbs[32:21])};	// src/main/scala/qvu/PositQuantizeToFP4.scala:98:22, :131:26, :207:22, :213:18, :216:{21,39}, :217:20, :218:{27,45}, :219:20, :220:{27,45}, :221:20, :222:{27,45}, :223:20, :224:{27,45}, :225:20, :226:{27,45}, :227:20, :228:{27,45}, :229:20
+  wire [32:0]      _valueAbs_T_11 = _GEN_0 - globalMin;	// src/main/scala/qvu/PositQuantizeToFP4.scala:88:26, :106:23, :117:20, :125:20, :208:36
+  wire [32:0]      valueAbs_1 =
+    (|(globalScale[32:1])) ? _valueAbs_T_11 / globalScale : _valueAbs_T_11;	// src/main/scala/qvu/PositQuantizeToFP4.scala:89:28, :207:{22,35}, :208:{36,49}
+  wire [2:0]       quantIndex_1 =
+    valueAbs_1 > 33'h27FFFFF
+      ? 3'h7
+      : valueAbs_1 > 33'h1BFFFFF
+          ? 3'h6
+          : valueAbs_1 > 33'h13FFFFF
+              ? 3'h5
+              : valueAbs_1 > 33'hDFFFFF
+                  ? 3'h4
+                  : valueAbs_1 > 33'h9FFFFF
+                      ? 3'h3
+                      : valueAbs_1 > 33'h5FFFFF ? 3'h2 : {2'h0, |(valueAbs_1[32:21])};	// src/main/scala/qvu/PositQuantizeToFP4.scala:98:22, :131:26, :207:22, :213:18, :216:{21,39}, :217:20, :218:{27,45}, :219:20, :220:{27,45}, :221:20, :222:{27,45}, :223:20, :224:{27,45}, :225:20, :226:{27,45}, :227:20, :228:{27,45}, :229:20
+  wire [32:0]      _valueAbs_T_18 = _GEN_1 - globalMin;	// src/main/scala/qvu/PositQuantizeToFP4.scala:88:26, :106:23, :117:20, :125:20, :208:36
+  wire [32:0]      valueAbs_2 =
+    (|(globalScale[32:1])) ? _valueAbs_T_18 / globalScale : _valueAbs_T_18;	// src/main/scala/qvu/PositQuantizeToFP4.scala:89:28, :207:{22,35}, :208:{36,49}
+  wire [2:0]       quantIndex_2 =
+    valueAbs_2 > 33'h27FFFFF
+      ? 3'h7
+      : valueAbs_2 > 33'h1BFFFFF
+          ? 3'h6
+          : valueAbs_2 > 33'h13FFFFF
+              ? 3'h5
+              : valueAbs_2 > 33'hDFFFFF
+                  ? 3'h4
+                  : valueAbs_2 > 33'h9FFFFF
+                      ? 3'h3
+                      : valueAbs_2 > 33'h5FFFFF ? 3'h2 : {2'h0, |(valueAbs_2[32:21])};	// src/main/scala/qvu/PositQuantizeToFP4.scala:98:22, :131:26, :207:22, :213:18, :216:{21,39}, :217:20, :218:{27,45}, :219:20, :220:{27,45}, :221:20, :222:{27,45}, :223:20, :224:{27,45}, :225:20, :226:{27,45}, :227:20, :228:{27,45}, :229:20
+  wire [32:0]      _valueAbs_T_25 = _GEN_2 - globalMin;	// src/main/scala/qvu/PositQuantizeToFP4.scala:88:26, :106:23, :117:20, :125:20, :208:36
+  wire [32:0]      valueAbs_3 =
+    (|(globalScale[32:1])) ? _valueAbs_T_25 / globalScale : _valueAbs_T_25;	// src/main/scala/qvu/PositQuantizeToFP4.scala:89:28, :207:{22,35}, :208:{36,49}
+  wire [2:0]       quantIndex_3 =
+    valueAbs_3 > 33'h27FFFFF
+      ? 3'h7
+      : valueAbs_3 > 33'h1BFFFFF
+          ? 3'h6
+          : valueAbs_3 > 33'h13FFFFF
+              ? 3'h5
+              : valueAbs_3 > 33'hDFFFFF
+                  ? 3'h4
+                  : valueAbs_3 > 33'h9FFFFF
+                      ? 3'h3
+                      : valueAbs_3 > 33'h5FFFFF ? 3'h2 : {2'h0, |(valueAbs_3[32:21])};	// src/main/scala/qvu/PositQuantizeToFP4.scala:98:22, :131:26, :207:22, :213:18, :216:{21,39}, :217:20, :218:{27,45}, :219:20, :220:{27,45}, :221:20, :222:{27,45}, :223:20, :224:{27,45}, :225:20, :226:{27,45}, :227:20, :228:{27,45}, :229:20
+  always @(posedge clock) begin	// src/main/scala/qvu/PositQuantizeToFP4.scala:5:7
+    if (reset) begin	// src/main/scala/qvu/PositQuantizeToFP4.scala:5:7
+      automatic logic [7:0][32:0] _windowMax_WIRE =
+        '{33'h0, 33'h0, 33'h0, 33'h0, 33'h0, 33'h0, 33'h0, 33'h0};	// src/main/scala/qvu/PositQuantizeToFP4.scala:81:34
+      windowMax <= _windowMax_WIRE;	// src/main/scala/qvu/PositQuantizeToFP4.scala:81:{26,34}
+      windowMin <= _windowMax_WIRE;	// src/main/scala/qvu/PositQuantizeToFP4.scala:81:34, :82:26
+      windowValid <= '{1'h0, 1'h0, 1'h0, 1'h0, 1'h0, 1'h0, 1'h0, 1'h0};	// src/main/scala/qvu/PositQuantizeToFP4.scala:83:{28,36}
+      windowPtr <= 3'h0;	// src/main/scala/qvu/PositQuantizeToFP4.scala:84:26, :131:26
+      globalMax <= 33'h0;	// src/main/scala/qvu/PositQuantizeToFP4.scala:81:34, :87:26
+      globalMin <= 33'h0;	// src/main/scala/qvu/PositQuantizeToFP4.scala:81:34, :88:26
+      globalScale <= 33'h1000000;	// src/main/scala/qvu/PositQuantizeToFP4.scala:89:28, :191:25
+      batchMax <= 33'h0;	// src/main/scala/qvu/PositQuantizeToFP4.scala:81:34, :92:25
+      batchMin <= 33'h1FFFFFFFF;	// src/main/scala/qvu/PositQuantizeToFP4.scala:93:{25,26}
+      batchHasData <= 1'h0;	// src/main/scala/qvu/PositQuantizeToFP4.scala:5:7, :22:14, :83:36, :94:29
+      state <= 2'h0;	// src/main/scala/qvu/PositQuantizeToFP4.scala:98:22
+    end
+    else begin	// src/main/scala/qvu/PositQuantizeToFP4.scala:5:7
+      automatic logic _GEN_3 = state == 2'h0;	// src/main/scala/qvu/PositQuantizeToFP4.scala:98:22, :131:15
+      automatic logic _GEN_4;	// src/main/scala/qvu/PositQuantizeToFP4.scala:136:22
+      automatic logic _GEN_5 =
+        (|io_pir_frac_i[2'h1]) | (|io_pir_frac_i[2'h0]) & ~batchHasData | batchHasData;	// src/main/scala/qvu/PositQuantizeToFP4.scala:94:29, :98:22, :114:23, :135:11, :139:29, :140:{15,30}, :143:24
+      automatic logic _GEN_6 = (|io_pir_frac_i[2'h2]) & ~batchHasData;	// src/main/scala/qvu/PositQuantizeToFP4.scala:94:29, :114:23, :139:29, :140:{15,30}, :143:24, :150:11
+      automatic logic _GEN_7;	// src/main/scala/qvu/PositQuantizeToFP4.scala:151:22
+      automatic logic _GEN_8;	// src/main/scala/qvu/PositQuantizeToFP4.scala:81:26, :151:35, :153:28, :160:32, :162:28
+      automatic logic _GEN_9;	// src/main/scala/qvu/PositQuantizeToFP4.scala:81:26, :131:26, :136:36, :151:35
+      automatic logic _GEN_10;	// src/main/scala/qvu/PositQuantizeToFP4.scala:81:26, :131:26, :136:36, :151:35
+      automatic logic _GEN_11;	// src/main/scala/qvu/PositQuantizeToFP4.scala:81:26, :151:35, :153:28, :160:32, :162:28
+      automatic logic _GEN_12;	// src/main/scala/qvu/PositQuantizeToFP4.scala:81:26, :131:26, :136:36, :151:35
+      automatic logic _GEN_13;	// src/main/scala/qvu/PositQuantizeToFP4.scala:81:26, :151:35, :153:28, :160:32, :162:28
+      automatic logic _GEN_14;	// src/main/scala/qvu/PositQuantizeToFP4.scala:81:26, :131:26, :136:36, :151:35
+      automatic logic _GEN_15;	// src/main/scala/qvu/PositQuantizeToFP4.scala:81:26, :151:35, :153:28, :160:32, :162:28
+      automatic logic _GEN_16;	// src/main/scala/qvu/PositQuantizeToFP4.scala:81:26, :131:26, :136:36, :151:35
+      automatic logic _GEN_17;	// src/main/scala/qvu/PositQuantizeToFP4.scala:81:26, :151:35, :153:28, :160:32, :162:28
+      automatic logic _GEN_18;	// src/main/scala/qvu/PositQuantizeToFP4.scala:81:26, :131:26, :136:36, :151:35
+      automatic logic _GEN_19;	// src/main/scala/qvu/PositQuantizeToFP4.scala:81:26, :151:35, :153:28, :160:32, :162:28
+      automatic logic _GEN_20;	// src/main/scala/qvu/PositQuantizeToFP4.scala:81:26, :131:26, :136:36, :151:35
+      automatic logic _GEN_21;	// src/main/scala/qvu/PositQuantizeToFP4.scala:81:26, :151:35, :153:28, :160:32, :162:28
+      automatic logic _GEN_22;	// src/main/scala/qvu/PositQuantizeToFP4.scala:81:26, :131:26, :136:36, :151:35
+      automatic logic _GEN_23;	// src/main/scala/qvu/PositQuantizeToFP4.scala:81:26, :151:35, :153:28, :160:32, :162:28
+      automatic logic _GEN_24;	// src/main/scala/qvu/PositQuantizeToFP4.scala:81:26, :131:26, :136:36, :151:35
+      _GEN_4 = state == 2'h1;	// src/main/scala/qvu/PositQuantizeToFP4.scala:98:22, :135:11, :136:22
+      _GEN_7 = state == 2'h2;	// src/main/scala/qvu/PositQuantizeToFP4.scala:98:22, :150:11, :151:22
+      _GEN_8 = _GEN_7 & batchHasData & windowPtr == 3'h0;	// src/main/scala/qvu/PositQuantizeToFP4.scala:81:26, :84:26, :94:29, :131:26, :151:{22,35}, :153:28, :160:32, :162:28
+      _GEN_9 = _GEN_3 | _GEN_4;	// src/main/scala/qvu/PositQuantizeToFP4.scala:81:26, :131:{15,26}, :136:{22,36}, :151:35
+      _GEN_10 = _GEN_9 | ~_GEN_8;	// src/main/scala/qvu/PositQuantizeToFP4.scala:81:26, :131:26, :136:36, :151:35, :153:28, :160:32, :162:28
+      _GEN_11 = _GEN_7 & batchHasData & windowPtr == 3'h1;	// src/main/scala/qvu/PositQuantizeToFP4.scala:81:26, :84:26, :94:29, :131:26, :151:{22,35}, :153:28, :160:32, :162:28
+      _GEN_12 = _GEN_9 | ~_GEN_11;	// src/main/scala/qvu/PositQuantizeToFP4.scala:81:26, :131:26, :136:36, :151:35, :153:28, :160:32, :162:28
+      _GEN_13 = _GEN_7 & batchHasData & windowPtr == 3'h2;	// src/main/scala/qvu/PositQuantizeToFP4.scala:81:26, :84:26, :94:29, :131:26, :151:{22,35}, :153:28, :160:32, :162:28
+      _GEN_14 = _GEN_9 | ~_GEN_13;	// src/main/scala/qvu/PositQuantizeToFP4.scala:81:26, :131:26, :136:36, :151:35, :153:28, :160:32, :162:28
+      _GEN_15 = _GEN_7 & batchHasData & windowPtr == 3'h3;	// src/main/scala/qvu/PositQuantizeToFP4.scala:81:26, :84:26, :94:29, :131:26, :151:{22,35}, :153:28, :160:32, :162:28
+      _GEN_16 = _GEN_9 | ~_GEN_15;	// src/main/scala/qvu/PositQuantizeToFP4.scala:81:26, :131:26, :136:36, :151:35, :153:28, :160:32, :162:28
+      _GEN_17 = _GEN_7 & batchHasData & windowPtr == 3'h4;	// src/main/scala/qvu/PositQuantizeToFP4.scala:81:26, :84:26, :94:29, :131:26, :151:{22,35}, :153:28, :160:32, :162:28
+      _GEN_18 = _GEN_9 | ~_GEN_17;	// src/main/scala/qvu/PositQuantizeToFP4.scala:81:26, :131:26, :136:36, :151:35, :153:28, :160:32, :162:28
+      _GEN_19 = _GEN_7 & batchHasData & windowPtr == 3'h5;	// src/main/scala/qvu/PositQuantizeToFP4.scala:81:26, :84:26, :94:29, :131:26, :151:{22,35}, :153:28, :160:32, :162:28
+      _GEN_20 = _GEN_9 | ~_GEN_19;	// src/main/scala/qvu/PositQuantizeToFP4.scala:81:26, :131:26, :136:36, :151:35, :153:28, :160:32, :162:28
+      _GEN_21 = _GEN_7 & batchHasData & windowPtr == 3'h6;	// src/main/scala/qvu/PositQuantizeToFP4.scala:81:26, :84:26, :94:29, :131:26, :151:{22,35}, :153:28, :160:32, :162:28
+      _GEN_22 = _GEN_9 | ~_GEN_21;	// src/main/scala/qvu/PositQuantizeToFP4.scala:81:26, :131:26, :136:36, :151:35, :153:28, :160:32, :162:28
+      _GEN_23 = _GEN_7 & batchHasData & (&windowPtr);	// src/main/scala/qvu/PositQuantizeToFP4.scala:81:26, :84:26, :94:29, :151:{22,35}, :153:28, :160:32, :162:28
+      _GEN_24 = _GEN_9 | ~_GEN_23;	// src/main/scala/qvu/PositQuantizeToFP4.scala:81:26, :131:26, :136:36, :151:35, :153:28, :160:32, :162:28
+      if (_GEN_10) begin	// src/main/scala/qvu/PositQuantizeToFP4.scala:81:26, :131:26, :136:36, :151:35
+      end
+      else	// src/main/scala/qvu/PositQuantizeToFP4.scala:81:26, :131:26, :136:36, :151:35
+        windowMax[3'h0] <= batchMax;	// src/main/scala/qvu/PositQuantizeToFP4.scala:81:26, :92:25, :131:26
+      if (_GEN_12) begin	// src/main/scala/qvu/PositQuantizeToFP4.scala:81:26, :131:26, :136:36, :151:35
+      end
+      else	// src/main/scala/qvu/PositQuantizeToFP4.scala:81:26, :131:26, :136:36, :151:35
+        windowMax[3'h1] <= batchMax;	// src/main/scala/qvu/PositQuantizeToFP4.scala:81:26, :92:25, :131:26
+      if (_GEN_14) begin	// src/main/scala/qvu/PositQuantizeToFP4.scala:81:26, :131:26, :136:36, :151:35
+      end
+      else	// src/main/scala/qvu/PositQuantizeToFP4.scala:81:26, :131:26, :136:36, :151:35
+        windowMax[3'h2] <= batchMax;	// src/main/scala/qvu/PositQuantizeToFP4.scala:81:26, :92:25, :131:26
+      if (_GEN_16) begin	// src/main/scala/qvu/PositQuantizeToFP4.scala:81:26, :131:26, :136:36, :151:35
+      end
+      else	// src/main/scala/qvu/PositQuantizeToFP4.scala:81:26, :131:26, :136:36, :151:35
+        windowMax[3'h3] <= batchMax;	// src/main/scala/qvu/PositQuantizeToFP4.scala:81:26, :92:25, :131:26
+      if (_GEN_18) begin	// src/main/scala/qvu/PositQuantizeToFP4.scala:81:26, :131:26, :136:36, :151:35
+      end
+      else	// src/main/scala/qvu/PositQuantizeToFP4.scala:81:26, :131:26, :136:36, :151:35
+        windowMax[3'h4] <= batchMax;	// src/main/scala/qvu/PositQuantizeToFP4.scala:81:26, :92:25, :131:26
+      if (_GEN_20) begin	// src/main/scala/qvu/PositQuantizeToFP4.scala:81:26, :131:26, :136:36, :151:35
+      end
+      else	// src/main/scala/qvu/PositQuantizeToFP4.scala:81:26, :131:26, :136:36, :151:35
+        windowMax[3'h5] <= batchMax;	// src/main/scala/qvu/PositQuantizeToFP4.scala:81:26, :92:25, :131:26
+      if (_GEN_22) begin	// src/main/scala/qvu/PositQuantizeToFP4.scala:81:26, :131:26, :136:36, :151:35
+      end
+      else	// src/main/scala/qvu/PositQuantizeToFP4.scala:81:26, :131:26, :136:36, :151:35
+        windowMax[3'h6] <= batchMax;	// src/main/scala/qvu/PositQuantizeToFP4.scala:81:26, :92:25, :131:26
+      if (_GEN_24) begin	// src/main/scala/qvu/PositQuantizeToFP4.scala:81:26, :131:26, :136:36, :151:35
+      end
+      else	// src/main/scala/qvu/PositQuantizeToFP4.scala:81:26, :131:26, :136:36, :151:35
+        windowMax[3'h7] <= batchMax;	// src/main/scala/qvu/PositQuantizeToFP4.scala:81:26, :92:25, :131:26
+      if (_GEN_10) begin	// src/main/scala/qvu/PositQuantizeToFP4.scala:81:26, :82:26, :131:26, :136:36, :151:35
+      end
+      else	// src/main/scala/qvu/PositQuantizeToFP4.scala:82:26, :131:26, :136:36, :151:35
+        windowMin[3'h0] <= batchMin;	// src/main/scala/qvu/PositQuantizeToFP4.scala:82:26, :93:25, :131:26
+      if (_GEN_12) begin	// src/main/scala/qvu/PositQuantizeToFP4.scala:81:26, :82:26, :131:26, :136:36, :151:35
+      end
+      else	// src/main/scala/qvu/PositQuantizeToFP4.scala:82:26, :131:26, :136:36, :151:35
+        windowMin[3'h1] <= batchMin;	// src/main/scala/qvu/PositQuantizeToFP4.scala:82:26, :93:25, :131:26
+      if (_GEN_14) begin	// src/main/scala/qvu/PositQuantizeToFP4.scala:81:26, :82:26, :131:26, :136:36, :151:35
+      end
+      else	// src/main/scala/qvu/PositQuantizeToFP4.scala:82:26, :131:26, :136:36, :151:35
+        windowMin[3'h2] <= batchMin;	// src/main/scala/qvu/PositQuantizeToFP4.scala:82:26, :93:25, :131:26
+      if (_GEN_16) begin	// src/main/scala/qvu/PositQuantizeToFP4.scala:81:26, :82:26, :131:26, :136:36, :151:35
+      end
+      else	// src/main/scala/qvu/PositQuantizeToFP4.scala:82:26, :131:26, :136:36, :151:35
+        windowMin[3'h3] <= batchMin;	// src/main/scala/qvu/PositQuantizeToFP4.scala:82:26, :93:25, :131:26
+      if (_GEN_18) begin	// src/main/scala/qvu/PositQuantizeToFP4.scala:81:26, :82:26, :131:26, :136:36, :151:35
+      end
+      else	// src/main/scala/qvu/PositQuantizeToFP4.scala:82:26, :131:26, :136:36, :151:35
+        windowMin[3'h4] <= batchMin;	// src/main/scala/qvu/PositQuantizeToFP4.scala:82:26, :93:25, :131:26
+      if (_GEN_20) begin	// src/main/scala/qvu/PositQuantizeToFP4.scala:81:26, :82:26, :131:26, :136:36, :151:35
+      end
+      else	// src/main/scala/qvu/PositQuantizeToFP4.scala:82:26, :131:26, :136:36, :151:35
+        windowMin[3'h5] <= batchMin;	// src/main/scala/qvu/PositQuantizeToFP4.scala:82:26, :93:25, :131:26
+      if (_GEN_22) begin	// src/main/scala/qvu/PositQuantizeToFP4.scala:81:26, :82:26, :131:26, :136:36, :151:35
+      end
+      else	// src/main/scala/qvu/PositQuantizeToFP4.scala:82:26, :131:26, :136:36, :151:35
+        windowMin[3'h6] <= batchMin;	// src/main/scala/qvu/PositQuantizeToFP4.scala:82:26, :93:25, :131:26
+      if (_GEN_24) begin	// src/main/scala/qvu/PositQuantizeToFP4.scala:81:26, :82:26, :131:26, :136:36, :151:35
+      end
+      else	// src/main/scala/qvu/PositQuantizeToFP4.scala:82:26, :131:26, :136:36, :151:35
+        windowMin[3'h7] <= batchMin;	// src/main/scala/qvu/PositQuantizeToFP4.scala:82:26, :93:25, :131:26
+      windowValid[3'h0] <= ~_GEN_9 & _GEN_8 | windowValid[3'h0];	// src/main/scala/qvu/PositQuantizeToFP4.scala:81:26, :83:28, :131:26, :136:36, :151:35, :153:28, :160:32, :162:28
+      windowValid[3'h1] <= ~_GEN_9 & _GEN_11 | windowValid[3'h1];	// src/main/scala/qvu/PositQuantizeToFP4.scala:81:26, :83:28, :131:26, :136:36, :151:35, :153:28, :160:32, :162:28
+      windowValid[3'h2] <= ~_GEN_9 & _GEN_13 | windowValid[3'h2];	// src/main/scala/qvu/PositQuantizeToFP4.scala:81:26, :83:28, :131:26, :136:36, :151:35, :153:28, :160:32, :162:28
+      windowValid[3'h3] <= ~_GEN_9 & _GEN_15 | windowValid[3'h3];	// src/main/scala/qvu/PositQuantizeToFP4.scala:81:26, :83:28, :131:26, :136:36, :151:35, :153:28, :160:32, :162:28
+      windowValid[3'h4] <= ~_GEN_9 & _GEN_17 | windowValid[3'h4];	// src/main/scala/qvu/PositQuantizeToFP4.scala:81:26, :83:28, :131:26, :136:36, :151:35, :153:28, :160:32, :162:28
+      windowValid[3'h5] <= ~_GEN_9 & _GEN_19 | windowValid[3'h5];	// src/main/scala/qvu/PositQuantizeToFP4.scala:81:26, :83:28, :131:26, :136:36, :151:35, :153:28, :160:32, :162:28
+      windowValid[3'h6] <= ~_GEN_9 & _GEN_21 | windowValid[3'h6];	// src/main/scala/qvu/PositQuantizeToFP4.scala:81:26, :83:28, :131:26, :136:36, :151:35, :153:28, :160:32, :162:28
+      windowValid[3'h7] <= ~_GEN_9 & _GEN_23 | windowValid[3'h7];	// src/main/scala/qvu/PositQuantizeToFP4.scala:81:26, :83:28, :131:26, :136:36, :151:35, :153:28, :160:32, :162:28
+      if (_GEN_9 | ~(_GEN_7 & batchHasData)) begin	// src/main/scala/qvu/PositQuantizeToFP4.scala:81:26, :84:26, :89:28, :94:29, :131:26, :136:36, :151:{22,35}, :153:28, :160:32, :165:17
+      end
+      else begin	// src/main/scala/qvu/PositQuantizeToFP4.scala:89:28, :131:26, :136:36, :151:35
+        automatic logic        _GEN_25;	// src/main/scala/qvu/PositQuantizeToFP4.scala:256:{12,28}
+        automatic logic [32:0] effectiveMax_leftMax_leftMax_leftMax;	// src/main/scala/qvu/PositQuantizeToFP4.scala:256:{12,28}
+        automatic logic        _GEN_26;	// src/main/scala/qvu/PositQuantizeToFP4.scala:256:{12,28}
+        automatic logic [32:0] effectiveMax_leftMax_leftMax_rightMax;	// src/main/scala/qvu/PositQuantizeToFP4.scala:256:{12,28}
+        automatic logic        _effectiveMax_leftMax_leftMax_T;	// src/main/scala/qvu/PositQuantizeToFP4.scala:261:21
+        automatic logic [32:0] effectiveMax_leftMax_leftMax;	// src/main/scala/qvu/PositQuantizeToFP4.scala:261:12
+        automatic logic        _GEN_27;	// src/main/scala/qvu/PositQuantizeToFP4.scala:256:{12,28}
+        automatic logic [32:0] effectiveMax_leftMax_rightMax_leftMax;	// src/main/scala/qvu/PositQuantizeToFP4.scala:256:{12,28}
+        automatic logic        _GEN_28;	// src/main/scala/qvu/PositQuantizeToFP4.scala:256:{12,28}
+        automatic logic [32:0] effectiveMax_leftMax_rightMax_rightMax;	// src/main/scala/qvu/PositQuantizeToFP4.scala:256:{12,28}
+        automatic logic        _effectiveMax_leftMax_rightMax_T;	// src/main/scala/qvu/PositQuantizeToFP4.scala:261:21
+        automatic logic [32:0] effectiveMax_leftMax_rightMax;	// src/main/scala/qvu/PositQuantizeToFP4.scala:261:12
+        automatic logic        _effectiveMax_leftMax_T;	// src/main/scala/qvu/PositQuantizeToFP4.scala:261:21
+        automatic logic [32:0] effectiveMax_leftMax;	// src/main/scala/qvu/PositQuantizeToFP4.scala:261:12
+        automatic logic        _GEN_29;	// src/main/scala/qvu/PositQuantizeToFP4.scala:256:{12,28}
+        automatic logic [32:0] effectiveMax_rightMax_leftMax_leftMax;	// src/main/scala/qvu/PositQuantizeToFP4.scala:256:{12,28}
+        automatic logic        _GEN_30;	// src/main/scala/qvu/PositQuantizeToFP4.scala:256:{12,28}
+        automatic logic [32:0] effectiveMax_rightMax_leftMax_rightMax;	// src/main/scala/qvu/PositQuantizeToFP4.scala:256:{12,28}
+        automatic logic        _effectiveMax_rightMax_leftMax_T;	// src/main/scala/qvu/PositQuantizeToFP4.scala:261:21
+        automatic logic [32:0] effectiveMax_rightMax_leftMax;	// src/main/scala/qvu/PositQuantizeToFP4.scala:261:12
+        automatic logic        _GEN_31;	// src/main/scala/qvu/PositQuantizeToFP4.scala:256:{12,28}
+        automatic logic [32:0] effectiveMax_rightMax_rightMax_leftMax;	// src/main/scala/qvu/PositQuantizeToFP4.scala:256:{12,28}
+        automatic logic        _GEN_32;	// src/main/scala/qvu/PositQuantizeToFP4.scala:256:{12,28}
+        automatic logic [32:0] effectiveMax_rightMax_rightMax_rightMax;	// src/main/scala/qvu/PositQuantizeToFP4.scala:256:{12,28}
+        automatic logic        _effectiveMax_rightMax_rightMax_T;	// src/main/scala/qvu/PositQuantizeToFP4.scala:261:21
+        automatic logic [32:0] effectiveMax_rightMax_rightMax;	// src/main/scala/qvu/PositQuantizeToFP4.scala:261:12
+        automatic logic        _effectiveMax_rightMax_T;	// src/main/scala/qvu/PositQuantizeToFP4.scala:261:21
+        automatic logic [32:0] effectiveMax_rightMax;	// src/main/scala/qvu/PositQuantizeToFP4.scala:261:12
+        automatic logic        _effectiveMax_T;	// src/main/scala/qvu/PositQuantizeToFP4.scala:261:21
+        automatic logic [32:0] effectiveMax;	// src/main/scala/qvu/PositQuantizeToFP4.scala:261:12
+        automatic logic        _GEN_33;	// src/main/scala/qvu/PositQuantizeToFP4.scala:278:{12,28}
+        automatic logic [32:0] effectiveMin_leftMin_leftMin_leftMin;	// src/main/scala/qvu/PositQuantizeToFP4.scala:278:{12,28}
+        automatic logic        _GEN_34;	// src/main/scala/qvu/PositQuantizeToFP4.scala:278:{12,28}
+        automatic logic [32:0] effectiveMin_leftMin_leftMin_rightMin;	// src/main/scala/qvu/PositQuantizeToFP4.scala:278:{12,28}
+        automatic logic        _effectiveMin_leftMin_leftMin_T;	// src/main/scala/qvu/PositQuantizeToFP4.scala:283:21
+        automatic logic [32:0] effectiveMin_leftMin_leftMin;	// src/main/scala/qvu/PositQuantizeToFP4.scala:283:12
+        automatic logic        _GEN_35;	// src/main/scala/qvu/PositQuantizeToFP4.scala:278:{12,28}
+        automatic logic [32:0] effectiveMin_leftMin_rightMin_leftMin;	// src/main/scala/qvu/PositQuantizeToFP4.scala:278:{12,28}
+        automatic logic        _GEN_36;	// src/main/scala/qvu/PositQuantizeToFP4.scala:278:{12,28}
+        automatic logic [32:0] effectiveMin_leftMin_rightMin_rightMin;	// src/main/scala/qvu/PositQuantizeToFP4.scala:278:{12,28}
+        automatic logic        _effectiveMin_leftMin_rightMin_T;	// src/main/scala/qvu/PositQuantizeToFP4.scala:283:21
+        automatic logic [32:0] effectiveMin_leftMin_rightMin;	// src/main/scala/qvu/PositQuantizeToFP4.scala:283:12
+        automatic logic        _effectiveMin_leftMin_T;	// src/main/scala/qvu/PositQuantizeToFP4.scala:283:21
+        automatic logic [32:0] effectiveMin_leftMin;	// src/main/scala/qvu/PositQuantizeToFP4.scala:283:12
+        automatic logic        _GEN_37;	// src/main/scala/qvu/PositQuantizeToFP4.scala:278:{12,28}
+        automatic logic [32:0] effectiveMin_rightMin_leftMin_leftMin;	// src/main/scala/qvu/PositQuantizeToFP4.scala:278:{12,28}
+        automatic logic        _GEN_38;	// src/main/scala/qvu/PositQuantizeToFP4.scala:278:{12,28}
+        automatic logic [32:0] effectiveMin_rightMin_leftMin_rightMin;	// src/main/scala/qvu/PositQuantizeToFP4.scala:278:{12,28}
+        automatic logic        _effectiveMin_rightMin_leftMin_T;	// src/main/scala/qvu/PositQuantizeToFP4.scala:283:21
+        automatic logic [32:0] effectiveMin_rightMin_leftMin;	// src/main/scala/qvu/PositQuantizeToFP4.scala:283:12
+        automatic logic        _GEN_39;	// src/main/scala/qvu/PositQuantizeToFP4.scala:278:{12,28}
+        automatic logic [32:0] effectiveMin_rightMin_rightMin_leftMin;	// src/main/scala/qvu/PositQuantizeToFP4.scala:278:{12,28}
+        automatic logic        _GEN_40;	// src/main/scala/qvu/PositQuantizeToFP4.scala:278:{12,28}
+        automatic logic [32:0] effectiveMin_rightMin_rightMin_rightMin;	// src/main/scala/qvu/PositQuantizeToFP4.scala:278:{12,28}
+        automatic logic        _effectiveMin_rightMin_rightMin_T;	// src/main/scala/qvu/PositQuantizeToFP4.scala:283:21
+        automatic logic [32:0] effectiveMin_rightMin_rightMin;	// src/main/scala/qvu/PositQuantizeToFP4.scala:283:12
+        automatic logic        _effectiveMin_rightMin_T;	// src/main/scala/qvu/PositQuantizeToFP4.scala:283:21
+        automatic logic [32:0] effectiveMin_rightMin;	// src/main/scala/qvu/PositQuantizeToFP4.scala:283:12
+        automatic logic        _effectiveMin_T;	// src/main/scala/qvu/PositQuantizeToFP4.scala:283:21
+        automatic logic [32:0] effectiveMin;	// src/main/scala/qvu/PositQuantizeToFP4.scala:283:12
+        automatic logic [32:0] dataRange;	// src/main/scala/qvu/PositQuantizeToFP4.scala:189:26
+        automatic logic [3:0]  _windowPtr_T_2 = {1'h0, windowPtr + 3'h1} % 4'h8;	// src/main/scala/qvu/PositQuantizeToFP4.scala:5:7, :22:14, :83:36, :84:26, :131:26, :165:{31,38}
+        _GEN_25 = windowValid[3'h0] & windowMax[3'h0] > globalMax;	// src/main/scala/qvu/PositQuantizeToFP4.scala:81:26, :83:28, :87:26, :131:26, :256:{12,28,40}
+        effectiveMax_leftMax_leftMax_leftMax = _GEN_25 ? windowMax[3'h0] : globalMax;	// src/main/scala/qvu/PositQuantizeToFP4.scala:81:26, :87:26, :131:26, :256:{12,28}
+        _GEN_26 = windowValid[3'h1] & windowMax[3'h1] > globalMax;	// src/main/scala/qvu/PositQuantizeToFP4.scala:81:26, :83:28, :87:26, :131:26, :256:{12,28,40}
+        effectiveMax_leftMax_leftMax_rightMax = _GEN_26 ? windowMax[3'h1] : globalMax;	// src/main/scala/qvu/PositQuantizeToFP4.scala:81:26, :87:26, :131:26, :256:{12,28}
+        _effectiveMax_leftMax_leftMax_T =
+          effectiveMax_leftMax_leftMax_leftMax > effectiveMax_leftMax_leftMax_rightMax;	// src/main/scala/qvu/PositQuantizeToFP4.scala:256:{12,28}, :261:21
+        effectiveMax_leftMax_leftMax =
+          _effectiveMax_leftMax_leftMax_T
+            ? effectiveMax_leftMax_leftMax_leftMax
+            : effectiveMax_leftMax_leftMax_rightMax;	// src/main/scala/qvu/PositQuantizeToFP4.scala:256:{12,28}, :261:{12,21}
+        _GEN_27 = windowValid[3'h2] & windowMax[3'h2] > globalMax;	// src/main/scala/qvu/PositQuantizeToFP4.scala:81:26, :83:28, :87:26, :131:26, :256:{12,28,40}
+        effectiveMax_leftMax_rightMax_leftMax = _GEN_27 ? windowMax[3'h2] : globalMax;	// src/main/scala/qvu/PositQuantizeToFP4.scala:81:26, :87:26, :131:26, :256:{12,28}
+        _GEN_28 = windowValid[3'h3] & windowMax[3'h3] > globalMax;	// src/main/scala/qvu/PositQuantizeToFP4.scala:81:26, :83:28, :87:26, :131:26, :256:{12,28,40}
+        effectiveMax_leftMax_rightMax_rightMax = _GEN_28 ? windowMax[3'h3] : globalMax;	// src/main/scala/qvu/PositQuantizeToFP4.scala:81:26, :87:26, :131:26, :256:{12,28}
+        _effectiveMax_leftMax_rightMax_T =
+          effectiveMax_leftMax_rightMax_leftMax > effectiveMax_leftMax_rightMax_rightMax;	// src/main/scala/qvu/PositQuantizeToFP4.scala:256:{12,28}, :261:21
+        effectiveMax_leftMax_rightMax =
+          _effectiveMax_leftMax_rightMax_T
+            ? effectiveMax_leftMax_rightMax_leftMax
+            : effectiveMax_leftMax_rightMax_rightMax;	// src/main/scala/qvu/PositQuantizeToFP4.scala:256:{12,28}, :261:{12,21}
+        _effectiveMax_leftMax_T =
+          effectiveMax_leftMax_leftMax > effectiveMax_leftMax_rightMax;	// src/main/scala/qvu/PositQuantizeToFP4.scala:261:{12,21}
+        effectiveMax_leftMax =
+          _effectiveMax_leftMax_T
+            ? effectiveMax_leftMax_leftMax
+            : effectiveMax_leftMax_rightMax;	// src/main/scala/qvu/PositQuantizeToFP4.scala:261:{12,21}
+        _GEN_29 = windowValid[3'h4] & windowMax[3'h4] > globalMax;	// src/main/scala/qvu/PositQuantizeToFP4.scala:81:26, :83:28, :87:26, :131:26, :256:{12,28,40}
+        effectiveMax_rightMax_leftMax_leftMax = _GEN_29 ? windowMax[3'h4] : globalMax;	// src/main/scala/qvu/PositQuantizeToFP4.scala:81:26, :87:26, :131:26, :256:{12,28}
+        _GEN_30 = windowValid[3'h5] & windowMax[3'h5] > globalMax;	// src/main/scala/qvu/PositQuantizeToFP4.scala:81:26, :83:28, :87:26, :131:26, :256:{12,28,40}
+        effectiveMax_rightMax_leftMax_rightMax = _GEN_30 ? windowMax[3'h5] : globalMax;	// src/main/scala/qvu/PositQuantizeToFP4.scala:81:26, :87:26, :131:26, :256:{12,28}
+        _effectiveMax_rightMax_leftMax_T =
+          effectiveMax_rightMax_leftMax_leftMax > effectiveMax_rightMax_leftMax_rightMax;	// src/main/scala/qvu/PositQuantizeToFP4.scala:256:{12,28}, :261:21
+        effectiveMax_rightMax_leftMax =
+          _effectiveMax_rightMax_leftMax_T
+            ? effectiveMax_rightMax_leftMax_leftMax
+            : effectiveMax_rightMax_leftMax_rightMax;	// src/main/scala/qvu/PositQuantizeToFP4.scala:256:{12,28}, :261:{12,21}
+        _GEN_31 = windowValid[3'h6] & windowMax[3'h6] > globalMax;	// src/main/scala/qvu/PositQuantizeToFP4.scala:81:26, :83:28, :87:26, :131:26, :256:{12,28,40}
+        effectiveMax_rightMax_rightMax_leftMax = _GEN_31 ? windowMax[3'h6] : globalMax;	// src/main/scala/qvu/PositQuantizeToFP4.scala:81:26, :87:26, :131:26, :256:{12,28}
+        _GEN_32 = windowValid[3'h7] & windowMax[3'h7] > globalMax;	// src/main/scala/qvu/PositQuantizeToFP4.scala:81:26, :83:28, :87:26, :131:26, :256:{12,28,40}
+        effectiveMax_rightMax_rightMax_rightMax = _GEN_32 ? windowMax[3'h7] : globalMax;	// src/main/scala/qvu/PositQuantizeToFP4.scala:81:26, :87:26, :131:26, :256:{12,28}
+        _effectiveMax_rightMax_rightMax_T =
+          effectiveMax_rightMax_rightMax_leftMax > effectiveMax_rightMax_rightMax_rightMax;	// src/main/scala/qvu/PositQuantizeToFP4.scala:256:{12,28}, :261:21
+        effectiveMax_rightMax_rightMax =
+          _effectiveMax_rightMax_rightMax_T
+            ? effectiveMax_rightMax_rightMax_leftMax
+            : effectiveMax_rightMax_rightMax_rightMax;	// src/main/scala/qvu/PositQuantizeToFP4.scala:256:{12,28}, :261:{12,21}
+        _effectiveMax_rightMax_T =
+          effectiveMax_rightMax_leftMax > effectiveMax_rightMax_rightMax;	// src/main/scala/qvu/PositQuantizeToFP4.scala:261:{12,21}
+        effectiveMax_rightMax =
+          _effectiveMax_rightMax_T
+            ? effectiveMax_rightMax_leftMax
+            : effectiveMax_rightMax_rightMax;	// src/main/scala/qvu/PositQuantizeToFP4.scala:261:{12,21}
+        _effectiveMax_T = effectiveMax_leftMax > effectiveMax_rightMax;	// src/main/scala/qvu/PositQuantizeToFP4.scala:261:{12,21}
+        effectiveMax = _effectiveMax_T ? effectiveMax_leftMax : effectiveMax_rightMax;	// src/main/scala/qvu/PositQuantizeToFP4.scala:261:{12,21}
+        _GEN_33 = windowValid[3'h0] & windowMin[3'h0] < globalMin;	// src/main/scala/qvu/PositQuantizeToFP4.scala:82:26, :83:28, :88:26, :131:26, :278:{12,28,40}
+        effectiveMin_leftMin_leftMin_leftMin = _GEN_33 ? windowMin[3'h0] : globalMin;	// src/main/scala/qvu/PositQuantizeToFP4.scala:82:26, :88:26, :131:26, :278:{12,28}
+        _GEN_34 = windowValid[3'h1] & windowMin[3'h1] < globalMin;	// src/main/scala/qvu/PositQuantizeToFP4.scala:82:26, :83:28, :88:26, :131:26, :278:{12,28,40}
+        effectiveMin_leftMin_leftMin_rightMin = _GEN_34 ? windowMin[3'h1] : globalMin;	// src/main/scala/qvu/PositQuantizeToFP4.scala:82:26, :88:26, :131:26, :278:{12,28}
+        _effectiveMin_leftMin_leftMin_T =
+          effectiveMin_leftMin_leftMin_leftMin < effectiveMin_leftMin_leftMin_rightMin;	// src/main/scala/qvu/PositQuantizeToFP4.scala:278:{12,28}, :283:21
+        effectiveMin_leftMin_leftMin =
+          _effectiveMin_leftMin_leftMin_T
+            ? effectiveMin_leftMin_leftMin_leftMin
+            : effectiveMin_leftMin_leftMin_rightMin;	// src/main/scala/qvu/PositQuantizeToFP4.scala:278:{12,28}, :283:{12,21}
+        _GEN_35 = windowValid[3'h2] & windowMin[3'h2] < globalMin;	// src/main/scala/qvu/PositQuantizeToFP4.scala:82:26, :83:28, :88:26, :131:26, :278:{12,28,40}
+        effectiveMin_leftMin_rightMin_leftMin = _GEN_35 ? windowMin[3'h2] : globalMin;	// src/main/scala/qvu/PositQuantizeToFP4.scala:82:26, :88:26, :131:26, :278:{12,28}
+        _GEN_36 = windowValid[3'h3] & windowMin[3'h3] < globalMin;	// src/main/scala/qvu/PositQuantizeToFP4.scala:82:26, :83:28, :88:26, :131:26, :278:{12,28,40}
+        effectiveMin_leftMin_rightMin_rightMin = _GEN_36 ? windowMin[3'h3] : globalMin;	// src/main/scala/qvu/PositQuantizeToFP4.scala:82:26, :88:26, :131:26, :278:{12,28}
+        _effectiveMin_leftMin_rightMin_T =
+          effectiveMin_leftMin_rightMin_leftMin < effectiveMin_leftMin_rightMin_rightMin;	// src/main/scala/qvu/PositQuantizeToFP4.scala:278:{12,28}, :283:21
+        effectiveMin_leftMin_rightMin =
+          _effectiveMin_leftMin_rightMin_T
+            ? effectiveMin_leftMin_rightMin_leftMin
+            : effectiveMin_leftMin_rightMin_rightMin;	// src/main/scala/qvu/PositQuantizeToFP4.scala:278:{12,28}, :283:{12,21}
+        _effectiveMin_leftMin_T =
+          effectiveMin_leftMin_leftMin < effectiveMin_leftMin_rightMin;	// src/main/scala/qvu/PositQuantizeToFP4.scala:283:{12,21}
+        effectiveMin_leftMin =
+          _effectiveMin_leftMin_T
+            ? effectiveMin_leftMin_leftMin
+            : effectiveMin_leftMin_rightMin;	// src/main/scala/qvu/PositQuantizeToFP4.scala:283:{12,21}
+        _GEN_37 = windowValid[3'h4] & windowMin[3'h4] < globalMin;	// src/main/scala/qvu/PositQuantizeToFP4.scala:82:26, :83:28, :88:26, :131:26, :278:{12,28,40}
+        effectiveMin_rightMin_leftMin_leftMin = _GEN_37 ? windowMin[3'h4] : globalMin;	// src/main/scala/qvu/PositQuantizeToFP4.scala:82:26, :88:26, :131:26, :278:{12,28}
+        _GEN_38 = windowValid[3'h5] & windowMin[3'h5] < globalMin;	// src/main/scala/qvu/PositQuantizeToFP4.scala:82:26, :83:28, :88:26, :131:26, :278:{12,28,40}
+        effectiveMin_rightMin_leftMin_rightMin = _GEN_38 ? windowMin[3'h5] : globalMin;	// src/main/scala/qvu/PositQuantizeToFP4.scala:82:26, :88:26, :131:26, :278:{12,28}
+        _effectiveMin_rightMin_leftMin_T =
+          effectiveMin_rightMin_leftMin_leftMin < effectiveMin_rightMin_leftMin_rightMin;	// src/main/scala/qvu/PositQuantizeToFP4.scala:278:{12,28}, :283:21
+        effectiveMin_rightMin_leftMin =
+          _effectiveMin_rightMin_leftMin_T
+            ? effectiveMin_rightMin_leftMin_leftMin
+            : effectiveMin_rightMin_leftMin_rightMin;	// src/main/scala/qvu/PositQuantizeToFP4.scala:278:{12,28}, :283:{12,21}
+        _GEN_39 = windowValid[3'h6] & windowMin[3'h6] < globalMin;	// src/main/scala/qvu/PositQuantizeToFP4.scala:82:26, :83:28, :88:26, :131:26, :278:{12,28,40}
+        effectiveMin_rightMin_rightMin_leftMin = _GEN_39 ? windowMin[3'h6] : globalMin;	// src/main/scala/qvu/PositQuantizeToFP4.scala:82:26, :88:26, :131:26, :278:{12,28}
+        _GEN_40 = windowValid[3'h7] & windowMin[3'h7] < globalMin;	// src/main/scala/qvu/PositQuantizeToFP4.scala:82:26, :83:28, :88:26, :131:26, :278:{12,28,40}
+        effectiveMin_rightMin_rightMin_rightMin = _GEN_40 ? windowMin[3'h7] : globalMin;	// src/main/scala/qvu/PositQuantizeToFP4.scala:82:26, :88:26, :131:26, :278:{12,28}
+        _effectiveMin_rightMin_rightMin_T =
+          effectiveMin_rightMin_rightMin_leftMin < effectiveMin_rightMin_rightMin_rightMin;	// src/main/scala/qvu/PositQuantizeToFP4.scala:278:{12,28}, :283:21
+        effectiveMin_rightMin_rightMin =
+          _effectiveMin_rightMin_rightMin_T
+            ? effectiveMin_rightMin_rightMin_leftMin
+            : effectiveMin_rightMin_rightMin_rightMin;	// src/main/scala/qvu/PositQuantizeToFP4.scala:278:{12,28}, :283:{12,21}
+        _effectiveMin_rightMin_T =
+          effectiveMin_rightMin_leftMin < effectiveMin_rightMin_rightMin;	// src/main/scala/qvu/PositQuantizeToFP4.scala:283:{12,21}
+        effectiveMin_rightMin =
+          _effectiveMin_rightMin_T
+            ? effectiveMin_rightMin_leftMin
+            : effectiveMin_rightMin_rightMin;	// src/main/scala/qvu/PositQuantizeToFP4.scala:283:{12,21}
+        _effectiveMin_T = effectiveMin_leftMin < effectiveMin_rightMin;	// src/main/scala/qvu/PositQuantizeToFP4.scala:283:{12,21}
+        effectiveMin = _effectiveMin_T ? effectiveMin_leftMin : effectiveMin_rightMin;	// src/main/scala/qvu/PositQuantizeToFP4.scala:283:{12,21}
+        dataRange = effectiveMax > effectiveMin ? effectiveMax - effectiveMin : 33'h1;	// src/main/scala/qvu/PositQuantizeToFP4.scala:189:{26,40,69}, :261:12, :283:12
+        windowPtr <= _windowPtr_T_2[2:0];	// src/main/scala/qvu/PositQuantizeToFP4.scala:84:26, :165:38
+        if (_effectiveMax_T) begin	// src/main/scala/qvu/PositQuantizeToFP4.scala:261:21
+          if (_effectiveMax_leftMax_T) begin	// src/main/scala/qvu/PositQuantizeToFP4.scala:261:21
+            if (_effectiveMax_leftMax_leftMax_T) begin	// src/main/scala/qvu/PositQuantizeToFP4.scala:261:21
+              if (_GEN_25)	// src/main/scala/qvu/PositQuantizeToFP4.scala:256:{12,28}
+                globalMax <= windowMax[3'h0];	// src/main/scala/qvu/PositQuantizeToFP4.scala:81:26, :87:26, :131:26
+            end
+            else if (_GEN_26)	// src/main/scala/qvu/PositQuantizeToFP4.scala:256:{12,28}
+              globalMax <= windowMax[3'h1];	// src/main/scala/qvu/PositQuantizeToFP4.scala:81:26, :87:26, :131:26
+          end
+          else if (_effectiveMax_leftMax_rightMax_T) begin	// src/main/scala/qvu/PositQuantizeToFP4.scala:261:21
+            if (_GEN_27)	// src/main/scala/qvu/PositQuantizeToFP4.scala:256:{12,28}
+              globalMax <= windowMax[3'h2];	// src/main/scala/qvu/PositQuantizeToFP4.scala:81:26, :87:26, :131:26
+          end
+          else if (_GEN_28)	// src/main/scala/qvu/PositQuantizeToFP4.scala:256:{12,28}
+            globalMax <= windowMax[3'h3];	// src/main/scala/qvu/PositQuantizeToFP4.scala:81:26, :87:26, :131:26
+        end
+        else if (_effectiveMax_rightMax_T) begin	// src/main/scala/qvu/PositQuantizeToFP4.scala:261:21
+          if (_effectiveMax_rightMax_leftMax_T) begin	// src/main/scala/qvu/PositQuantizeToFP4.scala:261:21
+            if (_GEN_29)	// src/main/scala/qvu/PositQuantizeToFP4.scala:256:{12,28}
+              globalMax <= windowMax[3'h4];	// src/main/scala/qvu/PositQuantizeToFP4.scala:81:26, :87:26, :131:26
+          end
+          else if (_GEN_30)	// src/main/scala/qvu/PositQuantizeToFP4.scala:256:{12,28}
+            globalMax <= windowMax[3'h5];	// src/main/scala/qvu/PositQuantizeToFP4.scala:81:26, :87:26, :131:26
+        end
+        else if (_effectiveMax_rightMax_rightMax_T) begin	// src/main/scala/qvu/PositQuantizeToFP4.scala:261:21
+          if (_GEN_31)	// src/main/scala/qvu/PositQuantizeToFP4.scala:256:{12,28}
+            globalMax <= windowMax[3'h6];	// src/main/scala/qvu/PositQuantizeToFP4.scala:81:26, :87:26, :131:26
+        end
+        else if (_GEN_32)	// src/main/scala/qvu/PositQuantizeToFP4.scala:256:{12,28}
+          globalMax <= windowMax[3'h7];	// src/main/scala/qvu/PositQuantizeToFP4.scala:81:26, :87:26, :131:26
+        if (_effectiveMin_T) begin	// src/main/scala/qvu/PositQuantizeToFP4.scala:283:21
+          if (_effectiveMin_leftMin_T) begin	// src/main/scala/qvu/PositQuantizeToFP4.scala:283:21
+            if (_effectiveMin_leftMin_leftMin_T) begin	// src/main/scala/qvu/PositQuantizeToFP4.scala:283:21
+              if (_GEN_33)	// src/main/scala/qvu/PositQuantizeToFP4.scala:278:{12,28}
+                globalMin <= windowMin[3'h0];	// src/main/scala/qvu/PositQuantizeToFP4.scala:82:26, :88:26, :131:26
+            end
+            else if (_GEN_34)	// src/main/scala/qvu/PositQuantizeToFP4.scala:278:{12,28}
+              globalMin <= windowMin[3'h1];	// src/main/scala/qvu/PositQuantizeToFP4.scala:82:26, :88:26, :131:26
+          end
+          else if (_effectiveMin_leftMin_rightMin_T) begin	// src/main/scala/qvu/PositQuantizeToFP4.scala:283:21
+            if (_GEN_35)	// src/main/scala/qvu/PositQuantizeToFP4.scala:278:{12,28}
+              globalMin <= windowMin[3'h2];	// src/main/scala/qvu/PositQuantizeToFP4.scala:82:26, :88:26, :131:26
+          end
+          else if (_GEN_36)	// src/main/scala/qvu/PositQuantizeToFP4.scala:278:{12,28}
+            globalMin <= windowMin[3'h3];	// src/main/scala/qvu/PositQuantizeToFP4.scala:82:26, :88:26, :131:26
+        end
+        else if (_effectiveMin_rightMin_T) begin	// src/main/scala/qvu/PositQuantizeToFP4.scala:283:21
+          if (_effectiveMin_rightMin_leftMin_T) begin	// src/main/scala/qvu/PositQuantizeToFP4.scala:283:21
+            if (_GEN_37)	// src/main/scala/qvu/PositQuantizeToFP4.scala:278:{12,28}
+              globalMin <= windowMin[3'h4];	// src/main/scala/qvu/PositQuantizeToFP4.scala:82:26, :88:26, :131:26
+          end
+          else if (_GEN_38)	// src/main/scala/qvu/PositQuantizeToFP4.scala:278:{12,28}
+            globalMin <= windowMin[3'h5];	// src/main/scala/qvu/PositQuantizeToFP4.scala:82:26, :88:26, :131:26
+        end
+        else if (_effectiveMin_rightMin_rightMin_T) begin	// src/main/scala/qvu/PositQuantizeToFP4.scala:283:21
+          if (_GEN_39)	// src/main/scala/qvu/PositQuantizeToFP4.scala:278:{12,28}
+            globalMin <= windowMin[3'h6];	// src/main/scala/qvu/PositQuantizeToFP4.scala:82:26, :88:26, :131:26
+        end
+        else if (_GEN_40)	// src/main/scala/qvu/PositQuantizeToFP4.scala:278:{12,28}
+          globalMin <= windowMin[3'h7];	// src/main/scala/qvu/PositQuantizeToFP4.scala:82:26, :88:26, :131:26
+        globalScale <= dataRange > 33'h3000000 ? dataRange / 33'h3000000 : 33'h1000000;	// src/main/scala/qvu/PositQuantizeToFP4.scala:89:28, :189:26, :191:{25,36,64}
+      end
+      if (_GEN_3) begin	// src/main/scala/qvu/PositQuantizeToFP4.scala:131:15
+        batchMax <= 33'h0;	// src/main/scala/qvu/PositQuantizeToFP4.scala:81:34, :92:25
+        batchMin <= 33'h1FFFFFFFF;	// src/main/scala/qvu/PositQuantizeToFP4.scala:93:{25,26}
+        state <= 2'h1;	// src/main/scala/qvu/PositQuantizeToFP4.scala:98:22, :135:11
+      end
+      else if (_GEN_4) begin	// src/main/scala/qvu/PositQuantizeToFP4.scala:136:22
+        if (|io_pir_frac_i[2'h3]) begin	// src/main/scala/qvu/PositQuantizeToFP4.scala:114:23, :190:32
+          if (~batchHasData | _GEN_2 > batchMax)	// src/main/scala/qvu/PositQuantizeToFP4.scala:92:25, :94:29, :106:23, :117:20, :125:20, :140:{15,30}, :141:20, :145:{20,26,40}
+            batchMax <= _GEN_2;	// src/main/scala/qvu/PositQuantizeToFP4.scala:92:25, :106:23, :117:20, :125:20
+          if (~batchHasData | _GEN_2 < batchMin)	// src/main/scala/qvu/PositQuantizeToFP4.scala:93:25, :94:29, :106:23, :117:20, :125:20, :140:{15,30}, :142:20, :146:{20,26,40}
+            batchMin <= _GEN_2;	// src/main/scala/qvu/PositQuantizeToFP4.scala:93:25, :106:23, :117:20, :125:20
+        end
+        else if (|io_pir_frac_i[2'h2]) begin	// src/main/scala/qvu/PositQuantizeToFP4.scala:114:23, :150:11
+          if (~batchHasData | _GEN_1 > batchMax)	// src/main/scala/qvu/PositQuantizeToFP4.scala:92:25, :94:29, :106:23, :117:20, :125:20, :140:{15,30}, :141:20, :145:{20,26,40}
+            batchMax <= _GEN_1;	// src/main/scala/qvu/PositQuantizeToFP4.scala:92:25, :106:23, :117:20, :125:20
+          if (~batchHasData | _GEN_1 < batchMin)	// src/main/scala/qvu/PositQuantizeToFP4.scala:93:25, :94:29, :106:23, :117:20, :125:20, :140:{15,30}, :142:20, :146:{20,26,40}
+            batchMin <= _GEN_1;	// src/main/scala/qvu/PositQuantizeToFP4.scala:93:25, :106:23, :117:20, :125:20
+        end
+        else if (|io_pir_frac_i[2'h1]) begin	// src/main/scala/qvu/PositQuantizeToFP4.scala:114:23, :135:11
+          if (~batchHasData | _GEN_0 > batchMax)	// src/main/scala/qvu/PositQuantizeToFP4.scala:92:25, :94:29, :106:23, :117:20, :125:20, :140:{15,30}, :141:20, :145:{20,26,40}
+            batchMax <= _GEN_0;	// src/main/scala/qvu/PositQuantizeToFP4.scala:92:25, :106:23, :117:20, :125:20
+          if (~batchHasData | _GEN_0 < batchMin)	// src/main/scala/qvu/PositQuantizeToFP4.scala:93:25, :94:29, :106:23, :117:20, :125:20, :140:{15,30}, :142:20, :146:{20,26,40}
+            batchMin <= _GEN_0;	// src/main/scala/qvu/PositQuantizeToFP4.scala:93:25, :106:23, :117:20, :125:20
+        end
+        else begin	// src/main/scala/qvu/PositQuantizeToFP4.scala:114:23
+          if ((|io_pir_frac_i[2'h0]) & (~batchHasData | _GEN > batchMax))	// src/main/scala/qvu/PositQuantizeToFP4.scala:92:25, :94:29, :98:22, :106:23, :114:23, :117:20, :125:20, :139:29, :140:{15,30}, :141:20, :145:{20,26,40}
+            batchMax <= _GEN;	// src/main/scala/qvu/PositQuantizeToFP4.scala:92:25, :106:23, :117:20, :125:20
+          if ((|io_pir_frac_i[2'h0]) & (~batchHasData | _GEN < batchMin))	// src/main/scala/qvu/PositQuantizeToFP4.scala:93:25, :94:29, :98:22, :106:23, :114:23, :117:20, :125:20, :139:29, :140:{15,30}, :142:20, :146:{20,26,40}
+            batchMin <= _GEN;	// src/main/scala/qvu/PositQuantizeToFP4.scala:93:25, :106:23, :117:20, :125:20
+        end
+        state <= 2'h2;	// src/main/scala/qvu/PositQuantizeToFP4.scala:98:22, :150:11
+      end
+      else	// src/main/scala/qvu/PositQuantizeToFP4.scala:136:22
+        state <= {2{_GEN_7}};	// src/main/scala/qvu/PositQuantizeToFP4.scala:98:22, :151:{22,35}, :197:11, :199:11
+      batchHasData <=
+        ~_GEN_3
+        & (_GEN_4
+             ? ((|io_pir_frac_i[2'h3])
+                  ? ~batchHasData | _GEN_6 | _GEN_5
+                  : _GEN_6 | _GEN_5)
+             : batchHasData);	// src/main/scala/qvu/PositQuantizeToFP4.scala:94:29, :114:23, :131:{15,26}, :134:18, :136:{22,36}, :139:29, :140:{15,30}, :143:24, :190:32
+    end
+  end // always @(posedge)
+  assign io_fp4_o =
+    {{(|io_pir_frac_i[2'h3])
+        ? {io_pir_sign_i[2'h3] & (|quantIndex_3),
+           (&quantIndex_3)
+             ? 3'h7
+             : quantIndex_3 == 3'h6
+                 ? 3'h6
+                 : quantIndex_3 == 3'h5
+                     ? 3'h5
+                     : quantIndex_3 == 3'h4
+                         ? 3'h4
+                         : {1'h0,
+                            quantIndex_3 == 3'h3
+                              ? 2'h3
+                              : quantIndex_3 == 3'h2
+                                  ? 2'h2
+                                  : {1'h0, quantIndex_3 == 3'h1}}}
+        : 4'h0},
+     {(|io_pir_frac_i[2'h2])
+        ? {io_pir_sign_i[2'h2] & (|quantIndex_2),
+           (&quantIndex_2)
+             ? 3'h7
+             : quantIndex_2 == 3'h6
+                 ? 3'h6
+                 : quantIndex_2 == 3'h5
+                     ? 3'h5
+                     : quantIndex_2 == 3'h4
+                         ? 3'h4
+                         : {1'h0,
+                            quantIndex_2 == 3'h3
+                              ? 2'h3
+                              : quantIndex_2 == 3'h2
+                                  ? 2'h2
+                                  : {1'h0, quantIndex_2 == 3'h1}}}
+        : 4'h0},
+     {(|io_pir_frac_i[2'h1])
+        ? {io_pir_sign_i[2'h1] & (|quantIndex_1),
+           (&quantIndex_1)
+             ? 3'h7
+             : quantIndex_1 == 3'h6
+                 ? 3'h6
+                 : quantIndex_1 == 3'h5
+                     ? 3'h5
+                     : quantIndex_1 == 3'h4
+                         ? 3'h4
+                         : {1'h0,
+                            quantIndex_1 == 3'h3
+                              ? 2'h3
+                              : quantIndex_1 == 3'h2
+                                  ? 2'h2
+                                  : {1'h0, quantIndex_1 == 3'h1}}}
+        : 4'h0},
+     {(|io_pir_frac_i[2'h0])
+        ? {io_pir_sign_i[2'h0] & (|quantIndex),
+           (&quantIndex)
+             ? 3'h7
+             : quantIndex == 3'h6
+                 ? 3'h6
+                 : quantIndex == 3'h5
+                     ? 3'h5
+                     : quantIndex == 3'h4
+                         ? 3'h4
+                         : {1'h0,
+                            quantIndex == 3'h3
+                              ? 2'h3
+                              : quantIndex == 3'h2 ? 2'h2 : {1'h0, quantIndex == 3'h1}}}
+        : 4'h0}};	// src/main/scala/qvu/PositQuantizeToFP4.scala:5:7, :22:14, :83:36, :98:22, :105:22, :114:23, :131:26, :135:11, :150:11, :190:32, :204:27, :216:39, :217:20, :218:45, :236:59, :239:{23,41,49,63}, :243:19
+endmodule
+
+module QvuTop(	// src/main/scala/qvu/QvuTop.scala:23:8
+  input         clock,	// src/main/scala/qvu/QvuTop.scala:23:8
+                reset,	// src/main/scala/qvu/QvuTop.scala:23:8
+  input  [31:0] io_posit_i1_0,	// src/main/scala/qvu/QvuTop.scala:72:15
+                io_posit_i1_1,	// src/main/scala/qvu/QvuTop.scala:72:15
+                io_posit_i1_2,	// src/main/scala/qvu/QvuTop.scala:72:15
+                io_posit_i1_3,	// src/main/scala/qvu/QvuTop.scala:72:15
+                io_posit_i2_0,	// src/main/scala/qvu/QvuTop.scala:72:15
+                io_posit_i2_1,	// src/main/scala/qvu/QvuTop.scala:72:15
+                io_posit_i2_2,	// src/main/scala/qvu/QvuTop.scala:72:15
+                io_posit_i2_3,	// src/main/scala/qvu/QvuTop.scala:72:15
+  input  [3:0]  io_op,	// src/main/scala/qvu/QvuTop.scala:72:15
+  input         io_Isposit,	// src/main/scala/qvu/QvuTop.scala:72:15
+                io_Outposit,	// src/main/scala/qvu/QvuTop.scala:72:15
+  input  [63:0] io_float_i_0,	// src/main/scala/qvu/QvuTop.scala:72:15
+                io_float_i_1,	// src/main/scala/qvu/QvuTop.scala:72:15
+                io_float_i_2,	// src/main/scala/qvu/QvuTop.scala:72:15
+                io_float_i_3,	// src/main/scala/qvu/QvuTop.scala:72:15
+                io_float_i2_0,	// src/main/scala/qvu/QvuTop.scala:72:15
+                io_float_i2_1,	// src/main/scala/qvu/QvuTop.scala:72:15
+                io_float_i2_2,	// src/main/scala/qvu/QvuTop.scala:72:15
+                io_float_i2_3,	// src/main/scala/qvu/QvuTop.scala:72:15
+  input  [2:0]  io_float_mode,	// src/main/scala/qvu/QvuTop.scala:72:15
+  input         io_float_posit,	// src/main/scala/qvu/QvuTop.scala:72:15
+  input  [5:0]  io_src_posit_width,	// src/main/scala/qvu/QvuTop.scala:72:15
+  input  [2:0]  io_vector_size,	// src/main/scala/qvu/QvuTop.scala:72:15
+  input  [5:0]  io_dst_posit_width,	// src/main/scala/qvu/QvuTop.scala:72:15
+  output [63:0] io_float_o_0,	// src/main/scala/qvu/QvuTop.scala:72:15
+                io_float_o_1,	// src/main/scala/qvu/QvuTop.scala:72:15
+                io_float_o_2,	// src/main/scala/qvu/QvuTop.scala:72:15
+                io_float_o_3,	// src/main/scala/qvu/QvuTop.scala:72:15
+                io_float_dot_o,	// src/main/scala/qvu/QvuTop.scala:72:15
+  output [31:0] io_posit_o_0,	// src/main/scala/qvu/QvuTop.scala:72:15
+                io_posit_o_1,	// src/main/scala/qvu/QvuTop.scala:72:15
+                io_posit_o_2,	// src/main/scala/qvu/QvuTop.scala:72:15
+                io_posit_o_3,	// src/main/scala/qvu/QvuTop.scala:72:15
+                io_posit_dot_o,	// src/main/scala/qvu/QvuTop.scala:72:15
+                io_int_o_0,	// src/main/scala/qvu/QvuTop.scala:72:15
+                io_int_o_1,	// src/main/scala/qvu/QvuTop.scala:72:15
+                io_int_o_2,	// src/main/scala/qvu/QvuTop.scala:72:15
+                io_int_o_3	// src/main/scala/qvu/QvuTop.scala:72:15
+);
+
+  wire [3:0][3:0]  _quantizeFP4_io_fp4_o;	// src/main/scala/qvu/QvuTop.scala:342:30
+  wire [3:0][7:0]  _quantizeFP8_io_fp8_o;	// src/main/scala/qvu/QvuTop.scala:317:30
+  wire [3:0][15:0] _quantizeFP16_io_fp16_o;	// src/main/scala/qvu/QvuTop.scala:292:31
+  wire [3:0][3:0]  _quantizeInt4_io_int4_o;	// src/main/scala/qvu/QvuTop.scala:270:31
+  wire [3:0][7:0]  _quantizeInt8_io_int8_o;	// src/main/scala/qvu/QvuTop.scala:248:31
+  wire [3:0]       _floatDecode1_io_Sign;	// src/main/scala/qvu/QvuTop.scala:109:28
+  wire [3:0][8:0]  _floatDecode1_io_Exp;	// src/main/scala/qvu/QvuTop.scala:109:28
+  wire [3:0][23:0] _floatDecode1_io_Frac;	// src/main/scala/qvu/QvuTop.scala:109:28
+  wire [3:0]       _decode1_io_Sign;	// src/main/scala/qvu/QvuTop.scala:105:23
+  wire [3:0][7:0]  _decode1_io_Exp;	// src/main/scala/qvu/QvuTop.scala:105:23
+  wire [3:0][27:0] _decode1_io_Frac;	// src/main/scala/qvu/QvuTop.scala:105:23
+  wire [3:0][31:0] _GEN = '{32'h0, 32'h0, 32'h0, 32'h0};	// src/main/scala/qvu/QvuTop.scala:196:21, :197:28, :213:28
+  wire [2:0]       ACTUAL_VECTOR_SIZE = io_vector_size == 3'h0 ? 3'h4 : io_vector_size;	// src/main/scala/qvu/QvuTop.scala:176:{36,52}
+  wire             _valid_range_2_T = ACTUAL_VECTOR_SIZE > 3'h2;	// src/main/scala/qvu/QvuTop.scala:176:36, :192:29
+  wire             _GEN_0 = io_op == 4'h0;	// src/main/scala/qvu/QvuTop.scala:247:15
+  wire             _GEN_1 = io_op == 4'h1;	// src/main/scala/qvu/QvuTop.scala:269:20
+  wire             _GEN_2 = io_op == 4'h2;	// src/main/scala/qvu/QvuTop.scala:291:20
+  wire             _GEN_3 = io_op == 4'h3;	// src/main/scala/qvu/QvuTop.scala:316:20
+  wire             _GEN_4 = io_op == 4'h4;	// src/main/scala/qvu/QvuTop.scala:341:20
+  wire             _GEN_5 = _GEN_0 | _GEN_1;	// src/main/scala/qvu/QvuTop.scala:140:18, :247:{15,24}, :269:{20,29}, :291:29
+  wire [3:0]       _GEN_6 =
     io_Isposit
       ? {{ACTUAL_VECTOR_SIZE[2] & _decode1_io_Sign[2'h3]},
          {_valid_range_2_T & _decode1_io_Sign[2'h2]},
@@ -1259,8 +1921,8 @@ module QvuTop(	// src/main/scala/qvu/QvuTop.scala:21:8
       : {{ACTUAL_VECTOR_SIZE[2] & ~io_Isposit & _floatDecode1_io_Sign[2'h3]},
          {_valid_range_2_T & ~io_Isposit & _floatDecode1_io_Sign[2'h2]},
          {(|(ACTUAL_VECTOR_SIZE[2:1])) & ~io_Isposit & _floatDecode1_io_Sign[2'h1]},
-         {(|ACTUAL_VECTOR_SIZE) & ~io_Isposit & _floatDecode1_io_Sign[2'h0]}};	// src/main/scala/qvu/QvuTop.scala:21:8, :103:23, :107:28, :111:23, :150:18, :157:26, :174:36, :182:34, :183:55, :190:29, :194:21, :201:29, :202:23, :218:29, :219:31, :234:23
-  wire [3:0][7:0]  _GEN_5 =
+         {(|ACTUAL_VECTOR_SIZE) & ~io_Isposit & _floatDecode1_io_Sign[2'h0]}};	// src/main/scala/qvu/QvuTop.scala:23:8, :105:23, :109:28, :113:23, :152:18, :159:26, :176:36, :184:34, :185:55, :192:29, :196:21, :203:29, :204:23, :220:29, :221:31, :236:23
+  wire [3:0][7:0]  _GEN_7 =
     io_Isposit
       ? {{ACTUAL_VECTOR_SIZE[2] ? _decode1_io_Exp[2'h3] : 8'h0},
          {_valid_range_2_T ? _decode1_io_Exp[2'h2] : 8'h0},
@@ -1271,7 +1933,7 @@ module QvuTop(	// src/main/scala/qvu/QvuTop.scala:21:8
          {~(|(ACTUAL_VECTOR_SIZE[2:1])) | io_Isposit
             ? 8'h0
             : _floatDecode1_io_Exp[2'h1][7:0]},
-         {~(|ACTUAL_VECTOR_SIZE) | io_Isposit ? 8'h0 : _floatDecode1_io_Exp[2'h0][7:0]}};	// src/main/scala/qvu/QvuTop.scala:21:8, :103:23, :107:28, :112:23, :151:18, :158:26, :174:36, :182:34, :183:55, :190:29, :194:21, :201:29, :203:23, :218:29, :220:31, :235:23
+         {~(|ACTUAL_VECTOR_SIZE) | io_Isposit ? 8'h0 : _floatDecode1_io_Exp[2'h0][7:0]}};	// src/main/scala/qvu/QvuTop.scala:23:8, :105:23, :109:28, :114:23, :153:18, :160:26, :176:36, :184:34, :185:55, :192:29, :196:21, :203:29, :205:23, :220:29, :222:31, :237:23
   wire [3:0][32:0] pir_frac =
     {{ACTUAL_VECTOR_SIZE[2]
         ? (io_Isposit
@@ -1304,33 +1966,33 @@ module QvuTop(	// src/main/scala/qvu/QvuTop.scala:21:8
                 io_Isposit | ~(|ACTUAL_VECTOR_SIZE)
                   ? 23'h0
                   : _floatDecode1_io_Frac[2'h0][22:0]})
-        : 33'h0}};	// src/main/scala/qvu/QvuTop.scala:21:8, :103:23, :107:28, :113:23, :152:18, :158:26, :159:26, :174:36, :182:34, :183:55, :190:29, :194:21, :201:29, :204:23, :218:29, :221:31, :236:23
-  PositDecode decode1 (	// src/main/scala/qvu/QvuTop.scala:103:23
+        : 33'h0}};	// src/main/scala/qvu/QvuTop.scala:23:8, :105:23, :109:28, :115:23, :154:18, :160:26, :161:26, :176:36, :184:34, :185:55, :192:29, :196:21, :203:29, :206:23, :220:29, :223:31, :238:23
+  PositDecode decode1 (	// src/main/scala/qvu/QvuTop.scala:105:23
     .io_posit
       (io_Isposit
          ? {{io_posit_i1_3}, {io_posit_i1_2}, {io_posit_i1_1}, {io_posit_i1_0}}
-         : _GEN),	// src/main/scala/qvu/QvuTop.scala:103:23, :194:21, :195:28, :211:28
+         : _GEN),	// src/main/scala/qvu/QvuTop.scala:105:23, :196:21, :197:28, :213:28
     .io_Sign  (_decode1_io_Sign),
     .io_Exp   (_decode1_io_Exp),
     .io_Frac  (_decode1_io_Frac)
   );
-  PositDecode decode2 (	// src/main/scala/qvu/QvuTop.scala:104:23
+  PositDecode decode2 (	// src/main/scala/qvu/QvuTop.scala:106:23
     .io_posit
       (io_Isposit
          ? {{io_posit_i2_3}, {io_posit_i2_2}, {io_posit_i2_1}, {io_posit_i2_0}}
-         : _GEN),	// src/main/scala/qvu/QvuTop.scala:104:23, :194:21, :195:28, :196:28, :211:28, :212:28
+         : _GEN),	// src/main/scala/qvu/QvuTop.scala:106:23, :196:21, :197:28, :198:28, :213:28, :214:28
     .io_Sign  (/* unused */),
     .io_Exp   (/* unused */),
     .io_Frac  (/* unused */)
   );
-  FloatDecode floatDecode1 (	// src/main/scala/qvu/QvuTop.scala:107:28
+  FloatDecode floatDecode1 (	// src/main/scala/qvu/QvuTop.scala:109:28
     .io_float
       (io_Isposit
          ? _GEN
          : {{io_float_i_3[31:0]},
             {io_float_i_2[31:0]},
             {io_float_i_1[31:0]},
-            {io_float_i_0[31:0]}}),	// src/main/scala/qvu/QvuTop.scala:107:28, :145:25, :194:21, :195:28, :197:28, :211:28, :213:28
+            {io_float_i_0[31:0]}}),	// src/main/scala/qvu/QvuTop.scala:109:28, :147:25, :196:21, :197:28, :199:28, :213:28, :215:28
     .io_Sign   (_floatDecode1_io_Sign),
     .io_Exp    (_floatDecode1_io_Exp),
     .io_Frac   (_floatDecode1_io_Frac),
@@ -1338,14 +2000,14 @@ module QvuTop(	// src/main/scala/qvu/QvuTop.scala:21:8
     .io_isInf  (/* unused */),
     .io_isZero (/* unused */)
   );
-  FloatDecode floatDecode2 (	// src/main/scala/qvu/QvuTop.scala:108:28
+  FloatDecode floatDecode2 (	// src/main/scala/qvu/QvuTop.scala:110:28
     .io_float
       (io_Isposit
          ? _GEN
          : {{io_float_i2_3[31:0]},
             {io_float_i2_2[31:0]},
             {io_float_i2_1[31:0]},
-            {io_float_i2_0[31:0]}}),	// src/main/scala/qvu/QvuTop.scala:108:28, :146:25, :194:21, :195:28, :198:28, :211:28, :214:28
+            {io_float_i2_0[31:0]}}),	// src/main/scala/qvu/QvuTop.scala:110:28, :148:25, :196:21, :197:28, :200:28, :213:28, :216:28
     .io_Sign   (/* unused */),
     .io_Exp    (/* unused */),
     .io_Frac   (/* unused */),
@@ -1353,50 +2015,90 @@ module QvuTop(	// src/main/scala/qvu/QvuTop.scala:21:8
     .io_isInf  (/* unused */),
     .io_isZero (/* unused */)
   );
-  PositQuantizeToInt8 quantizeInt8 (	// src/main/scala/qvu/QvuTop.scala:246:31
+  PositQuantizeToInt8 quantizeInt8 (	// src/main/scala/qvu/QvuTop.scala:248:31
     .clock         (clock),
     .reset         (reset),
-    .io_pir_sign_i (_GEN_4),	// src/main/scala/qvu/QvuTop.scala:111:23
-    .io_pir_exp_i  (_GEN_5),	// src/main/scala/qvu/QvuTop.scala:112:23
-    .io_pir_frac_i (pir_frac),	// src/main/scala/qvu/QvuTop.scala:113:23
+    .io_pir_sign_i (_GEN_6),	// src/main/scala/qvu/QvuTop.scala:113:23
+    .io_pir_exp_i  (_GEN_7),	// src/main/scala/qvu/QvuTop.scala:114:23
+    .io_pir_frac_i (pir_frac),	// src/main/scala/qvu/QvuTop.scala:115:23
     .io_int8_o     (_quantizeInt8_io_int8_o)
   );
-  PositQuantizeToInt4 quantizeInt4 (	// src/main/scala/qvu/QvuTop.scala:268:31
+  PositQuantizeToInt4 quantizeInt4 (	// src/main/scala/qvu/QvuTop.scala:270:31
     .clock         (clock),
     .reset         (reset),
-    .io_pir_sign_i (_GEN_4),	// src/main/scala/qvu/QvuTop.scala:111:23
-    .io_pir_exp_i  (_GEN_5),	// src/main/scala/qvu/QvuTop.scala:112:23
-    .io_pir_frac_i (pir_frac),	// src/main/scala/qvu/QvuTop.scala:113:23
+    .io_pir_sign_i (_GEN_6),	// src/main/scala/qvu/QvuTop.scala:113:23
+    .io_pir_exp_i  (_GEN_7),	// src/main/scala/qvu/QvuTop.scala:114:23
+    .io_pir_frac_i (pir_frac),	// src/main/scala/qvu/QvuTop.scala:115:23
     .io_int4_o     (_quantizeInt4_io_int4_o)
   );
-  PositQuantizeToFP16 quantizeFP16 (	// src/main/scala/qvu/QvuTop.scala:290:31
-    .io_pir_sign_i (_GEN_4),	// src/main/scala/qvu/QvuTop.scala:111:23
-    .io_pir_exp_i  (_GEN_5),	// src/main/scala/qvu/QvuTop.scala:112:23
-    .io_pir_frac_i (pir_frac),	// src/main/scala/qvu/QvuTop.scala:113:23
+  PositQuantizeToFP16 quantizeFP16 (	// src/main/scala/qvu/QvuTop.scala:292:31
+    .io_pir_sign_i (_GEN_6),	// src/main/scala/qvu/QvuTop.scala:113:23
+    .io_pir_exp_i  (_GEN_7),	// src/main/scala/qvu/QvuTop.scala:114:23
+    .io_pir_frac_i (pir_frac),	// src/main/scala/qvu/QvuTop.scala:115:23
     .io_fp16_o     (_quantizeFP16_io_fp16_o)
   );
+  PositQuantizeToFP8 quantizeFP8 (	// src/main/scala/qvu/QvuTop.scala:317:30
+    .io_pir_sign_i (_GEN_6),	// src/main/scala/qvu/QvuTop.scala:113:23
+    .io_pir_exp_i  (_GEN_7),	// src/main/scala/qvu/QvuTop.scala:114:23
+    .io_pir_frac_i (pir_frac),	// src/main/scala/qvu/QvuTop.scala:115:23
+    .io_fp8_o      (_quantizeFP8_io_fp8_o)
+  );
+  PositQuantizeToFP4 quantizeFP4 (	// src/main/scala/qvu/QvuTop.scala:342:30
+    .clock         (clock),
+    .reset         (reset),
+    .io_pir_sign_i (_GEN_6),	// src/main/scala/qvu/QvuTop.scala:113:23
+    .io_pir_exp_i  (_GEN_7),	// src/main/scala/qvu/QvuTop.scala:114:23
+    .io_pir_frac_i (pir_frac),	// src/main/scala/qvu/QvuTop.scala:115:23
+    .io_fp4_o      (_quantizeFP4_io_fp4_o)
+  );
   assign io_float_o_0 =
-    _GEN_3 | ~(_GEN_2 & (|ACTUAL_VECTOR_SIZE))
+    _GEN_5
       ? 64'h0
-      : {48'h0, _quantizeFP16_io_fp16_o[2'h0]};	// src/main/scala/qvu/QvuTop.scala:21:8, :138:{18,28}, :174:36, :190:29, :197:38, :198:38, :245:24, :267:29, :289:{20,29}, :290:31, :308:29, :310:{24,56}
+      : _GEN_2
+          ? ((|ACTUAL_VECTOR_SIZE) ? {48'h0, _quantizeFP16_io_fp16_o[2'h0]} : 64'h0)
+          : _GEN_3
+              ? ((|ACTUAL_VECTOR_SIZE) ? {56'h0, _quantizeFP8_io_fp8_o[2'h0]} : 64'h0)
+              : _GEN_4 & (|ACTUAL_VECTOR_SIZE)
+                  ? {60'h0, _quantizeFP4_io_fp4_o[2'h0]}
+                  : 64'h0;	// src/main/scala/qvu/QvuTop.scala:23:8, :140:{18,28}, :176:36, :192:29, :199:38, :200:38, :247:24, :269:29, :291:{20,29}, :292:31, :310:29, :312:{24,56}, :316:{20,29}, :317:30, :335:29, :337:{24,54}, :341:{20,29}, :342:30, :360:29, :362:{24,54}
   assign io_float_o_1 =
-    _GEN_3 | ~(_GEN_2 & (|(ACTUAL_VECTOR_SIZE[2:1])))
+    _GEN_5
       ? 64'h0
-      : {48'h0, _quantizeFP16_io_fp16_o[2'h1]};	// src/main/scala/qvu/QvuTop.scala:21:8, :138:{18,28}, :174:36, :190:29, :197:38, :198:38, :245:24, :267:29, :289:{20,29}, :290:31, :308:29, :310:{24,56}
+      : _GEN_2
+          ? ((|(ACTUAL_VECTOR_SIZE[2:1]))
+               ? {48'h0, _quantizeFP16_io_fp16_o[2'h1]}
+               : 64'h0)
+          : _GEN_3
+              ? ((|(ACTUAL_VECTOR_SIZE[2:1]))
+                   ? {56'h0, _quantizeFP8_io_fp8_o[2'h1]}
+                   : 64'h0)
+              : _GEN_4 & (|(ACTUAL_VECTOR_SIZE[2:1]))
+                  ? {60'h0, _quantizeFP4_io_fp4_o[2'h1]}
+                  : 64'h0;	// src/main/scala/qvu/QvuTop.scala:23:8, :140:{18,28}, :176:36, :192:29, :199:38, :200:38, :247:24, :269:29, :291:{20,29}, :292:31, :310:29, :312:{24,56}, :316:{20,29}, :317:30, :335:29, :337:{24,54}, :341:{20,29}, :342:30, :360:29, :362:{24,54}
   assign io_float_o_2 =
-    _GEN_3 | ~(_GEN_2 & _valid_range_2_T)
+    _GEN_5
       ? 64'h0
-      : {48'h0, _quantizeFP16_io_fp16_o[2'h2]};	// src/main/scala/qvu/QvuTop.scala:21:8, :138:{18,28}, :182:34, :190:29, :197:38, :198:38, :245:24, :267:29, :289:{20,29}, :290:31, :308:29, :310:{24,56}
+      : _GEN_2
+          ? (_valid_range_2_T ? {48'h0, _quantizeFP16_io_fp16_o[2'h2]} : 64'h0)
+          : _GEN_3
+              ? (_valid_range_2_T ? {56'h0, _quantizeFP8_io_fp8_o[2'h2]} : 64'h0)
+              : _GEN_4 & _valid_range_2_T ? {60'h0, _quantizeFP4_io_fp4_o[2'h2]} : 64'h0;	// src/main/scala/qvu/QvuTop.scala:23:8, :140:{18,28}, :184:34, :192:29, :199:38, :200:38, :247:24, :269:29, :291:{20,29}, :292:31, :310:29, :312:{24,56}, :316:{20,29}, :317:30, :335:29, :337:{24,54}, :341:{20,29}, :342:30, :360:29, :362:{24,54}
   assign io_float_o_3 =
-    _GEN_3 | ~(_GEN_2 & ACTUAL_VECTOR_SIZE[2])
+    _GEN_5
       ? 64'h0
-      : {48'h0, _quantizeFP16_io_fp16_o[2'h3]};	// src/main/scala/qvu/QvuTop.scala:21:8, :138:{18,28}, :174:36, :183:55, :190:29, :197:38, :198:38, :245:24, :267:29, :289:{20,29}, :290:31, :308:29, :310:{24,56}
-  assign io_float_dot_o = 64'h0;	// src/main/scala/qvu/QvuTop.scala:21:8, :138:{18,28}, :197:38, :198:38
-  assign io_posit_o_0 = 32'h0;	// src/main/scala/qvu/QvuTop.scala:21:8, :197:28, :198:28, :211:38, :212:38
-  assign io_posit_o_1 = 32'h0;	// src/main/scala/qvu/QvuTop.scala:21:8, :197:28, :198:28, :211:38, :212:38
-  assign io_posit_o_2 = 32'h0;	// src/main/scala/qvu/QvuTop.scala:21:8, :197:28, :198:28, :211:38, :212:38
-  assign io_posit_o_3 = 32'h0;	// src/main/scala/qvu/QvuTop.scala:21:8, :197:28, :198:28, :211:38, :212:38
-  assign io_posit_dot_o = 32'h0;	// src/main/scala/qvu/QvuTop.scala:21:8, :197:28, :198:28, :211:38, :212:38
+      : _GEN_2
+          ? (ACTUAL_VECTOR_SIZE[2] ? {48'h0, _quantizeFP16_io_fp16_o[2'h3]} : 64'h0)
+          : _GEN_3
+              ? (ACTUAL_VECTOR_SIZE[2] ? {56'h0, _quantizeFP8_io_fp8_o[2'h3]} : 64'h0)
+              : _GEN_4 & ACTUAL_VECTOR_SIZE[2]
+                  ? {60'h0, _quantizeFP4_io_fp4_o[2'h3]}
+                  : 64'h0;	// src/main/scala/qvu/QvuTop.scala:23:8, :140:{18,28}, :176:36, :185:55, :192:29, :199:38, :200:38, :247:24, :269:29, :291:{20,29}, :292:31, :310:29, :312:{24,56}, :316:{20,29}, :317:30, :335:29, :337:{24,54}, :341:{20,29}, :342:30, :360:29, :362:{24,54}
+  assign io_float_dot_o = 64'h0;	// src/main/scala/qvu/QvuTop.scala:23:8, :140:{18,28}, :199:38, :200:38
+  assign io_posit_o_0 = 32'h0;	// src/main/scala/qvu/QvuTop.scala:23:8, :199:28, :200:28, :213:38, :214:38
+  assign io_posit_o_1 = 32'h0;	// src/main/scala/qvu/QvuTop.scala:23:8, :199:28, :200:28, :213:38, :214:38
+  assign io_posit_o_2 = 32'h0;	// src/main/scala/qvu/QvuTop.scala:23:8, :199:28, :200:28, :213:38, :214:38
+  assign io_posit_o_3 = 32'h0;	// src/main/scala/qvu/QvuTop.scala:23:8, :199:28, :200:28, :213:38, :214:38
+  assign io_posit_dot_o = 32'h0;	// src/main/scala/qvu/QvuTop.scala:23:8, :199:28, :200:28, :213:38, :214:38
   assign io_int_o_0 =
     _GEN_0
       ? ((|ACTUAL_VECTOR_SIZE)
@@ -1404,7 +2106,7 @@ module QvuTop(	// src/main/scala/qvu/QvuTop.scala:21:8
            : 32'h0)
       : _GEN_1 & (|ACTUAL_VECTOR_SIZE)
           ? {{28{_quantizeInt4_io_int4_o[2'h0][3]}}, _quantizeInt4_io_int4_o[2'h0]}
-          : 32'h0;	// src/main/scala/qvu/QvuTop.scala:21:8, :142:18, :174:36, :190:29, :197:28, :198:28, :211:38, :212:38, :245:{15,24}, :246:31, :261:29, :263:{22,54}, :267:{20,29}, :268:31, :283:29, :285:{22,54}
+          : 32'h0;	// src/main/scala/qvu/QvuTop.scala:23:8, :144:18, :176:36, :192:29, :199:28, :200:28, :213:38, :214:38, :247:{15,24}, :248:31, :263:29, :265:{22,54}, :269:{20,29}, :270:31, :285:29, :287:{22,54}
   assign io_int_o_1 =
     _GEN_0
       ? ((|(ACTUAL_VECTOR_SIZE[2:1]))
@@ -1412,7 +2114,7 @@ module QvuTop(	// src/main/scala/qvu/QvuTop.scala:21:8
            : 32'h0)
       : _GEN_1 & (|(ACTUAL_VECTOR_SIZE[2:1]))
           ? {{28{_quantizeInt4_io_int4_o[2'h1][3]}}, _quantizeInt4_io_int4_o[2'h1]}
-          : 32'h0;	// src/main/scala/qvu/QvuTop.scala:21:8, :142:18, :174:36, :190:29, :197:28, :198:28, :211:38, :212:38, :245:{15,24}, :246:31, :261:29, :263:{22,54}, :267:{20,29}, :268:31, :283:29, :285:{22,54}
+          : 32'h0;	// src/main/scala/qvu/QvuTop.scala:23:8, :144:18, :176:36, :192:29, :199:28, :200:28, :213:38, :214:38, :247:{15,24}, :248:31, :263:29, :265:{22,54}, :269:{20,29}, :270:31, :285:29, :287:{22,54}
   assign io_int_o_2 =
     _GEN_0
       ? (_valid_range_2_T
@@ -1420,7 +2122,7 @@ module QvuTop(	// src/main/scala/qvu/QvuTop.scala:21:8
            : 32'h0)
       : _GEN_1 & _valid_range_2_T
           ? {{28{_quantizeInt4_io_int4_o[2'h2][3]}}, _quantizeInt4_io_int4_o[2'h2]}
-          : 32'h0;	// src/main/scala/qvu/QvuTop.scala:21:8, :142:18, :182:34, :190:29, :197:28, :198:28, :211:38, :212:38, :245:{15,24}, :246:31, :261:29, :263:{22,54}, :267:{20,29}, :268:31, :283:29, :285:{22,54}
+          : 32'h0;	// src/main/scala/qvu/QvuTop.scala:23:8, :144:18, :184:34, :192:29, :199:28, :200:28, :213:38, :214:38, :247:{15,24}, :248:31, :263:29, :265:{22,54}, :269:{20,29}, :270:31, :285:29, :287:{22,54}
   assign io_int_o_3 =
     _GEN_0
       ? (ACTUAL_VECTOR_SIZE[2]
@@ -1428,7 +2130,7 @@ module QvuTop(	// src/main/scala/qvu/QvuTop.scala:21:8
            : 32'h0)
       : _GEN_1 & ACTUAL_VECTOR_SIZE[2]
           ? {{28{_quantizeInt4_io_int4_o[2'h3][3]}}, _quantizeInt4_io_int4_o[2'h3]}
-          : 32'h0;	// src/main/scala/qvu/QvuTop.scala:21:8, :142:18, :174:36, :183:55, :190:29, :197:28, :198:28, :211:38, :212:38, :245:{15,24}, :246:31, :261:29, :263:{22,54}, :267:{20,29}, :268:31, :283:29, :285:{22,54}
+          : 32'h0;	// src/main/scala/qvu/QvuTop.scala:23:8, :144:18, :176:36, :185:55, :192:29, :199:28, :200:28, :213:38, :214:38, :247:{15,24}, :248:31, :263:29, :265:{22,54}, :269:{20,29}, :270:31, :285:29, :287:{22,54}
 endmodule
 
 

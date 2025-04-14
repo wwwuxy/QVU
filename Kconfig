@@ -66,7 +66,7 @@ menu "RESNET_TEST"
     visible if TYPE_RESNET
     
     choice
-        prompt "Posit<32, 2>"
+        prompt "Select operation type"
         default RESNET_INT8
         help
             Select one of the ResNet operations for the test.
@@ -88,6 +88,18 @@ menu "RESNET_TEST"
 
         help
             Enable Posit32 to FP16 truncation test.
+            
+    config RESNET_FP8
+        bool "resnet_fp8_test"
+
+        help
+            Enable Posit32 to FP8 truncation test.
+            
+    config RESNET_FP4
+        bool "resnet_fp4_test"
+
+        help
+            Enable Posit32 to FP4 truncation test.
 
     endchoice
 endmenu
@@ -97,7 +109,7 @@ menu "VGG_TEST"
     visible if TYPE_VGG
     
     choice
-        prompt "Posit<32, 2>"
+        prompt "Select operation type"
         default VGG_INT8
         help
             Select one of the VGG operations for the test.
@@ -119,6 +131,18 @@ menu "VGG_TEST"
 
         help
             Enable Posit32 to FP16 truncation test for VGG.
+            
+    config VGG_FP8
+        bool "vgg_fp8_test"
+
+        help
+            Enable Posit32 to FP8 truncation test for VGG.
+            
+    config VGG_FP4
+        bool "vgg_fp4_test"
+
+        help
+            Enable Posit32 to FP4 truncation test for VGG.
 
     endchoice
 endmenu
@@ -128,7 +152,7 @@ menu "ALEXNET_TEST"
     visible if TYPE_ALEXNET
     
     choice
-        prompt "Posit<32, 2>"
+        prompt "Select operation type"
         default ALEXNET_INT8
         help
             Select one of the AlexNet operations for the test.
@@ -151,6 +175,18 @@ menu "ALEXNET_TEST"
         help
             Enable Posit32 to FP16 truncation test for AlexNet.
 
+    config ALEXNET_FP8
+        bool "alexnet_fp8_test"
+
+        help
+            Enable Posit32 to FP8 truncation test for AlexNet.
+            
+    config ALEXNET_FP4
+        bool "alexnet_fp4_test"
+
+        help
+            Enable Posit32 to FP4 truncation test for AlexNet.
+
     endchoice
 endmenu
 
@@ -159,7 +195,7 @@ menu "LENET_TEST"
     visible if TYPE_LENET
     
     choice
-        prompt "Posit<32, 2>"
+        prompt "Select operation type"
         default LENET_INT8
         help
             Select one of the LeNet operations for the test.
@@ -181,6 +217,18 @@ menu "LENET_TEST"
 
         help
             Enable Posit32 to FP16 truncation test for LeNet.
+            
+    config LENET_FP8
+        bool "lenet_fp8_test"
+
+        help
+            Enable Posit32 to FP8 truncation test for LeNet.
+            
+    config LENET_FP4
+        bool "lenet_fp4_test"
+
+        help
+            Enable Posit32 to FP4 truncation test for LeNet.
 
     endchoice
 endmenu
@@ -190,7 +238,7 @@ menu "MOBILENET_TEST"
     visible if TYPE_MOBILENET
     
     choice
-        prompt "Posit<32, 2>"
+        prompt "Select operation type"
         default MOBILENET_INT8
         help
             Select one of the MobileNet operations for the test.
@@ -212,6 +260,18 @@ menu "MOBILENET_TEST"
 
         help
             Enable Posit32 to FP16 truncation test for MobileNet.
+            
+    config MOBILENET_FP8
+        bool "mobilenet_fp8_test"
+
+        help
+            Enable Posit32 to FP8 truncation test for MobileNet.
+            
+    config MOBILENET_FP4
+        bool "mobilenet_fp4_test"
+
+        help
+            Enable Posit32 to FP4 truncation test for MobileNet.
 
     endchoice
 endmenu
@@ -221,7 +281,7 @@ menu "SQUEEZENET_TEST"
     visible if TYPE_SQUEEZENET
     
     choice
-        prompt "Posit<32, 2>"
+        prompt "Select operation type"
         default SQUEEZENET_INT8
         help
             Select one of the SqueezeNet operations for the test.
@@ -243,6 +303,18 @@ menu "SQUEEZENET_TEST"
 
         help
             Enable Posit32 to FP16 truncation test for SqueezeNet.
+            
+    config SQUEEZENET_FP8
+        bool "squeezenet_fp8_test"
+
+        help
+            Enable Posit32 to FP8 truncation test for SqueezeNet.
+            
+    config SQUEEZENET_FP4
+        bool "squeezenet_fp4_test"
+
+        help
+            Enable Posit32 to FP4 truncation test for SqueezeNet.
 
     endchoice
 endmenu
@@ -252,7 +324,7 @@ menu "CONVNEXT_TEST"
     visible if TYPE_CONVNEXT
     
     choice
-        prompt "Posit<32, 2>"
+        prompt "Select operation type"
         default CONVNEXT_INT8
         help
             Select one of the ConvNeXt operations for the test.
@@ -274,6 +346,18 @@ menu "CONVNEXT_TEST"
 
         help
             Enable Posit32 to FP16 truncation test for ConvNeXt.
+            
+    config CONVNEXT_FP8
+        bool "convnext_fp8_test"
+
+        help
+            Enable Posit32 to FP8 truncation test for ConvNeXt.
+            
+    config CONVNEXT_FP4
+        bool "convnext_fp4_test"
+
+        help
+            Enable Posit32 to FP4 truncation test for ConvNeXt.
 
     endchoice
 endmenu
@@ -283,7 +367,7 @@ menu "SHUFFLENETV2_TEST"
     visible if TYPE_SHUFFLENETV2
     
     choice
-        prompt "Posit<32, 2>"
+        prompt "Select operation type"
         default SHUFFLENETV2_INT8
         help
             Select one of the ShuffleNetV2 operations for the test.
@@ -305,6 +389,18 @@ menu "SHUFFLENETV2_TEST"
 
         help
             Enable Posit32 to FP16 truncation test for ShuffleNetV2.
+            
+    config SHUFFLENETV2_FP8
+        bool "shufflenetv2_fp8_test"
+
+        help
+            Enable Posit32 to FP8 truncation test for ShuffleNetV2.
+            
+    config SHUFFLENETV2_FP4
+        bool "shufflenetv2_fp4_test"
+
+        help
+            Enable Posit32 to FP4 truncation test for ShuffleNetV2.
 
     endchoice
 endmenu
@@ -314,7 +410,7 @@ menu "EFFICIENTNET_TEST"
     visible if TYPE_EFFICIENTNET
     
     choice
-        prompt "Posit<32, 2>"
+        prompt "Select operation type"
         default EFFICIENTNET_INT8
         help
             Select one of the EfficientNet operations for the test.
@@ -336,6 +432,18 @@ menu "EFFICIENTNET_TEST"
 
         help
             Enable Posit32 to FP16 truncation test for EfficientNet.
+            
+    config EFFICIENTNET_FP8
+        bool "efficientnet_fp8_test"
+
+        help
+            Enable Posit32 to FP8 truncation test for EfficientNet.
+            
+    config EFFICIENTNET_FP4
+        bool "efficientnet_fp4_test"
+
+        help
+            Enable Posit32 to FP4 truncation test for EfficientNet.
 
     endchoice
 endmenu
@@ -345,7 +453,7 @@ menu "REGNET_TEST"
     visible if TYPE_REGNET
     
     choice
-        prompt "Posit<32, 2>"
+        prompt "Select operation type"
         default REGNET_INT8
         help
             Select one of the RegNet operations for the test.
@@ -367,6 +475,18 @@ menu "REGNET_TEST"
 
         help
             Enable Posit32 to FP16 truncation test for RegNet.
+            
+    config REGNET_FP8
+        bool "regnet_fp8_test"
+
+        help
+            Enable Posit32 to FP8 truncation test for RegNet.
+            
+    config REGNET_FP4
+        bool "regnet_fp4_test"
+
+        help
+            Enable Posit32 to FP4 truncation test for RegNet.
 
     endchoice
 endmenu

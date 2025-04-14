@@ -1,5 +1,5 @@
-CONFIG_TYPE_RESNET=y
-# CONFIG_TYPE_VGG is not set
+# CONFIG_TYPE_RESNET is not set
+CONFIG_TYPE_VGG=y
 # CONFIG_TYPE_ALEXNET is not set
 # CONFIG_TYPE_LENET is not set
 # CONFIG_TYPE_MOBILENET is not set
@@ -11,8 +11,11 @@ CONFIG_TYPE_RESNET=y
 # CONFIG_TYPE_SAMPLE is not set
 
 #
-# RESNET_TEST
+# VGG_TEST
 #
-CONFIG_RESNET_INT8=y
-# CONFIG_RESNET_INT4 is not set
-# end of RESNET_TEST
+# CONFIG_VGG_INT8 is not set
+# CONFIG_VGG_INT4 is not set
+# CONFIG_VGG_FP16 is not set
+# CONFIG_VGG_FP8 is not set
+CONFIG_VGG_FP4=y
+# end of VGG_TEST

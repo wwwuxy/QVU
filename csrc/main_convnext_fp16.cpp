@@ -2,7 +2,6 @@
 #ifdef CONFIG_CONVNEXT_FP16
 
 /**
- * ResNet Posit32到FP16量化测试程序
  * 
  * 程序功能:
  * 1. 从文件加载Posit32输入数据和预期的量化结果
@@ -60,9 +59,9 @@ double posit32_to_double(uint32_t bits) {
 
 //---------------- 配置参数 -------------------
 #define OP   2                     // Posit量化到FP16操作码为2
-const char* POSIT_INPUT_FILE      = "./test_src/AlexNet/posit_activations.bin";
-const char* FLOAT_INPUT_FILE      = "./test_src/AlexNet/alexnet_sampled_activations.txt";    // 浮点数输入文件
-const char* FP16_RESULTS_FILE     = "./test_src/AlexNet/fp16_results.bin";    // FP16结果文件
+const char* POSIT_INPUT_FILE      = "./test_src/ConvNeXt/posit_activations.bin";
+const char* FLOAT_INPUT_FILE      = "./test_src/ConvNeXt/convnext_sampled_activations.txt";    // 浮点数输入文件
+const char* FP16_RESULTS_FILE     = "./test_src/ConvNeXt/fp16_results.bin";    // FP16结果文件
 const char* WAVEFORM_FILE         = "waveform.vcd";  // 波形输出文件
 const int SAMPLE_NUM              = 1000;            // 测试样本数量
 const int TOTAL_ELEMENTS          = 4000;            // 总元素数量，用于标量模式测试

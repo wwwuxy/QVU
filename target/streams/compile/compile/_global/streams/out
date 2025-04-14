@@ -1,4 +1,7 @@
-[error] /home/wuxy/QVU/src/main/scala/qvu/PositQuantizeToInt4.scala:32:5: not found: value addRTLPath
-[error]     addRTLPath("src/main/resources/verilator_directives.v")
-[error]     ^
-[error] one error found
+[0m[[0m[31merror[0m] [0m[0m/home/wuxy/QVU/src/main/scala/qvu/PositQuantizeToFP4.scala:226:20: overloaded method apply with alternatives:[0m
+[0m[[0m[31merror[0m] [0m[0m  [S <: chisel3.EnumType, T <: chisel3.Data](key: S, default: T)(mapping: Seq[(S, T)]): T <and>[0m
+[0m[[0m[31merror[0m] [0m[0m  [T <: chisel3.Data](key: chisel3.UInt, default: T)(mapping: Seq[(chisel3.UInt, T)]): T[0m
+[0m[[0m[31merror[0m] [0m[0m cannot be applied to (chisel3.UInt, chisel3.UInt, Seq[(chisel3.UInt, chisel3.UInt)])[0m
+[0m[[0m[31merror[0m] [0m[0m      fp4Result := MuxLookup(quantIndex, "b0000".U, FP4_VALUES)[0m
+[0m[[0m[31merror[0m] [0m[0m                   ^[0m
+[0m[[0m[31merror[0m] [0m[0mone error found[0m

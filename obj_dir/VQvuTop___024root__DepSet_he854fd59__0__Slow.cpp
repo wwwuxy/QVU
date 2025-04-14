@@ -162,7 +162,7 @@ VL_ATTR_COLD void VQvuTop___024root___eval_settle(VQvuTop___024root* vlSelf) {
 #ifdef VL_DEBUG
                 VQvuTop___024root___dump_triggers__stl(vlSelf);
 #endif
-                VL_FATAL_MT("/home/wuxy/QVU/vsrc/QvuTop.sv", 1194, "", "Settle region did not converge.");
+                VL_FATAL_MT("/home/wuxy/QVU/vsrc/QvuTop.sv", 1852, "", "Settle region did not converge.");
             }
             vlSelf->__VstlIterCount = ((IData)(1U) 
                                        + vlSelf->__VstlIterCount);
@@ -272,7 +272,7 @@ VL_ATTR_COLD void VQvuTop___024root___stl_sequent__TOP__0(VQvuTop___024root* vlS
     CData/*0:0*/ QvuTop__DOT__decode2__DOT__lzcModule_3__DOT____Vlvbound_hefa3c05c__0;
     QvuTop__DOT__decode2__DOT__lzcModule_3__DOT____Vlvbound_hefa3c05c__0 = 0;
     // Body
-    vlSelf->QvuTop__DOT___GEN_3 = ((0U == (IData)(vlSelf->io_op)) 
+    vlSelf->QvuTop__DOT___GEN_5 = ((0U == (IData)(vlSelf->io_op)) 
                                    | (1U == (IData)(vlSelf->io_op)));
     vlSelf->QvuTop__DOT__quantizeInt8__DOT___GEN_12 
         = (((QData)((IData)((1U & (IData)((vlSelf->QvuTop__DOT__quantizeInt8__DOT__globalScale 
@@ -350,11 +350,6 @@ VL_ATTR_COLD void VQvuTop___024root___stl_sequent__TOP__0(VQvuTop___024root* vlS
                                                             >> 2U) 
                                                            | (0U 
                                                               == (IData)(vlSelf->io_vector_size))));
-    vlSelf->QvuTop__DOT____VdfgTmp_ha15d0789__0 = (
-                                                   (0U 
-                                                    == (IData)(vlSelf->io_vector_size)) 
-                                                   | (0U 
-                                                      != (IData)(vlSelf->io_vector_size)));
     vlSelf->QvuTop__DOT____VdfgTmp_h792c5c44__0 = (IData)(
                                                           ((0U 
                                                             != 
@@ -366,6 +361,11 @@ VL_ATTR_COLD void VQvuTop___024root___stl_sequent__TOP__0(VQvuTop___024root* vlS
                                                 == (IData)(vlSelf->io_vector_size))
                                                 ? 4U
                                                 : (IData)(vlSelf->io_vector_size));
+    vlSelf->QvuTop__DOT____VdfgTmp_ha15d0789__0 = (
+                                                   (0U 
+                                                    == (IData)(vlSelf->io_vector_size)) 
+                                                   | (0U 
+                                                      != (IData)(vlSelf->io_vector_size)));
     if (vlSelf->io_Isposit) {
         vlSelf->QvuTop__DOT__decode1__DOT____VdfgTmp_h21c2c097__0 
             = (vlSelf->io_posit_i1_3 >> 0x1fU);
@@ -407,7 +407,7 @@ VL_ATTR_COLD void VQvuTop___024root___stl_sequent__TOP__0(VQvuTop___024root* vlS
             = (0x7fffffffU & vlSelf->io_posit_i1_1);
         QvuTop__DOT__decode1__DOT____VdfgTmp_h27f16fb5__0 
             = (0x7fffffffU & vlSelf->io_posit_i1_0);
-        vlSelf->QvuTop__DOT___GEN_4 = ((((IData)(vlSelf->QvuTop__DOT____VdfgTmp_ha10fc7a1__0) 
+        vlSelf->QvuTop__DOT___GEN_6 = ((((IData)(vlSelf->QvuTop__DOT____VdfgTmp_ha10fc7a1__0) 
                                          & (IData)(vlSelf->QvuTop__DOT__decode1__DOT____VdfgTmp_h21c2c097__0)) 
                                         << 3U) | ((
                                                    ((2U 
@@ -472,7 +472,7 @@ VL_ATTR_COLD void VQvuTop___024root___stl_sequent__TOP__0(VQvuTop___024root* vlS
         QvuTop__DOT__decode1__DOT____VdfgTmp_h24ca96e6__0 = 0U;
         QvuTop__DOT__decode1__DOT____VdfgTmp_h244c0703__0 = 0U;
         QvuTop__DOT__decode1__DOT____VdfgTmp_h27f16fb5__0 = 0U;
-        vlSelf->QvuTop__DOT___GEN_4 = ((8U & (((IData)(vlSelf->QvuTop__DOT____VdfgTmp_ha10fc7a1__0) 
+        vlSelf->QvuTop__DOT___GEN_6 = ((8U & (((IData)(vlSelf->QvuTop__DOT____VdfgTmp_ha10fc7a1__0) 
                                                & ((~ (IData)(vlSelf->io_Isposit)) 
                                                   & (vlSelf->io_float_i_3 
                                                      >> 0x1fU))) 
@@ -559,9 +559,6 @@ VL_ATTR_COLD void VQvuTop___024root___stl_sequent__TOP__0(VQvuTop___024root* vlS
     vlSelf->QvuTop__DOT____VdfgTmp_hbe60a94c__0 = (1U 
                                                    & ((~ (IData)(vlSelf->QvuTop__DOT____VdfgTmp_ha10fc7a1__0)) 
                                                       | (IData)(vlSelf->io_Isposit)));
-    vlSelf->QvuTop__DOT____VdfgTmp_hf04f431a__0 = (1U 
-                                                   & ((~ (IData)(vlSelf->QvuTop__DOT____VdfgTmp_ha15d0789__0)) 
-                                                      | (IData)(vlSelf->io_Isposit)));
     vlSelf->QvuTop__DOT____VdfgTmp_h4c27362e__0 = (1U 
                                                    & ((~ (IData)(vlSelf->QvuTop__DOT____VdfgTmp_h792c5c44__0)) 
                                                       | (IData)(vlSelf->io_Isposit)));
@@ -569,6 +566,9 @@ VL_ATTR_COLD void VQvuTop___024root___stl_sequent__TOP__0(VQvuTop___024root* vlS
                                                    (2U 
                                                     >= (IData)(vlSelf->QvuTop__DOT__ACTUAL_VECTOR_SIZE)) 
                                                    | (IData)(vlSelf->io_Isposit));
+    vlSelf->QvuTop__DOT____VdfgTmp_hf04f431a__0 = (1U 
+                                                   & ((~ (IData)(vlSelf->QvuTop__DOT____VdfgTmp_ha15d0789__0)) 
+                                                      | (IData)(vlSelf->io_Isposit)));
     vlSelf->QvuTop__DOT__decode1__DOT___operand_3_T_6 
         = (0x7fffffffU & ((IData)(vlSelf->QvuTop__DOT__decode1__DOT____VdfgTmp_h21c2c097__0)
                            ? ((IData)(1U) + ((IData)(vlSelf->io_Isposit)
@@ -2383,6 +2383,7 @@ void VQvuTop___024root___ico_comb__TOP__14(VQvuTop___024root* vlSelf);
 void VQvuTop___024root___ico_comb__TOP__15(VQvuTop___024root* vlSelf);
 void VQvuTop___024root___ico_comb__TOP__16(VQvuTop___024root* vlSelf);
 void VQvuTop___024root___ico_comb__TOP__17(VQvuTop___024root* vlSelf);
+void VQvuTop___024root___ico_comb__TOP__18(VQvuTop___024root* vlSelf);
 
 VL_ATTR_COLD void VQvuTop___024root___eval_stl(VQvuTop___024root* vlSelf) {
     if (false && vlSelf) {}  // Prevent unused
@@ -2391,6 +2392,8 @@ VL_ATTR_COLD void VQvuTop___024root___eval_stl(VQvuTop___024root* vlSelf) {
     // Body
     if (vlSelf->__VstlTriggered.at(0U)) {
         VQvuTop___024root___stl_sequent__TOP__0(vlSelf);
+        vlSelf->__Vm_traceActivity[0x16U] = 1U;
+        vlSelf->__Vm_traceActivity[0x15U] = 1U;
         vlSelf->__Vm_traceActivity[0x14U] = 1U;
         vlSelf->__Vm_traceActivity[0x13U] = 1U;
         vlSelf->__Vm_traceActivity[0x12U] = 1U;
@@ -2418,6 +2421,8 @@ VL_ATTR_COLD void VQvuTop___024root___eval_stl(VQvuTop___024root* vlSelf) {
     }
     if ((vlSelf->__VstlTriggered.at(0U) | vlSelf->__VstlTriggered.at(0xfU))) {
         VQvuTop___024root___ico_comb__TOP__1(vlSelf);
+        vlSelf->__Vm_traceActivity[0x16U] = 1U;
+        vlSelf->__Vm_traceActivity[0x15U] = 1U;
         vlSelf->__Vm_traceActivity[0x14U] = 1U;
         vlSelf->__Vm_traceActivity[0x13U] = 1U;
         vlSelf->__Vm_traceActivity[0x12U] = 1U;
@@ -2445,6 +2450,8 @@ VL_ATTR_COLD void VQvuTop___024root___eval_stl(VQvuTop___024root* vlSelf) {
     }
     if ((vlSelf->__VstlTriggered.at(0U) | vlSelf->__VstlTriggered.at(0xdU))) {
         VQvuTop___024root___ico_comb__TOP__3(vlSelf);
+        vlSelf->__Vm_traceActivity[0x16U] = 1U;
+        vlSelf->__Vm_traceActivity[0x15U] = 1U;
         vlSelf->__Vm_traceActivity[0x14U] = 1U;
         vlSelf->__Vm_traceActivity[0x13U] = 1U;
         vlSelf->__Vm_traceActivity[0x12U] = 1U;
@@ -2472,6 +2479,8 @@ VL_ATTR_COLD void VQvuTop___024root___eval_stl(VQvuTop___024root* vlSelf) {
     }
     if ((vlSelf->__VstlTriggered.at(0U) | vlSelf->__VstlTriggered.at(0xbU))) {
         VQvuTop___024root___ico_comb__TOP__5(vlSelf);
+        vlSelf->__Vm_traceActivity[0x16U] = 1U;
+        vlSelf->__Vm_traceActivity[0x15U] = 1U;
         vlSelf->__Vm_traceActivity[0x14U] = 1U;
         vlSelf->__Vm_traceActivity[0x13U] = 1U;
         vlSelf->__Vm_traceActivity[0x12U] = 1U;
@@ -2499,6 +2508,8 @@ VL_ATTR_COLD void VQvuTop___024root___eval_stl(VQvuTop___024root* vlSelf) {
     }
     if ((vlSelf->__VstlTriggered.at(0U) | vlSelf->__VstlTriggered.at(9U))) {
         VQvuTop___024root___ico_comb__TOP__7(vlSelf);
+        vlSelf->__Vm_traceActivity[0x16U] = 1U;
+        vlSelf->__Vm_traceActivity[0x15U] = 1U;
         vlSelf->__Vm_traceActivity[0x14U] = 1U;
         vlSelf->__Vm_traceActivity[0x13U] = 1U;
         vlSelf->__Vm_traceActivity[0x12U] = 1U;
@@ -2526,6 +2537,8 @@ VL_ATTR_COLD void VQvuTop___024root___eval_stl(VQvuTop___024root* vlSelf) {
     }
     if ((vlSelf->__VstlTriggered.at(0U) | vlSelf->__VstlTriggered.at(7U))) {
         VQvuTop___024root___ico_comb__TOP__9(vlSelf);
+        vlSelf->__Vm_traceActivity[0x16U] = 1U;
+        vlSelf->__Vm_traceActivity[0x15U] = 1U;
         vlSelf->__Vm_traceActivity[0x14U] = 1U;
         vlSelf->__Vm_traceActivity[0x13U] = 1U;
         vlSelf->__Vm_traceActivity[0x12U] = 1U;
@@ -2553,6 +2566,8 @@ VL_ATTR_COLD void VQvuTop___024root___eval_stl(VQvuTop___024root* vlSelf) {
     }
     if ((vlSelf->__VstlTriggered.at(0U) | vlSelf->__VstlTriggered.at(5U))) {
         VQvuTop___024root___ico_comb__TOP__11(vlSelf);
+        vlSelf->__Vm_traceActivity[0x16U] = 1U;
+        vlSelf->__Vm_traceActivity[0x15U] = 1U;
         vlSelf->__Vm_traceActivity[0x14U] = 1U;
         vlSelf->__Vm_traceActivity[0x13U] = 1U;
         vlSelf->__Vm_traceActivity[0x12U] = 1U;
@@ -2580,6 +2595,8 @@ VL_ATTR_COLD void VQvuTop___024root___eval_stl(VQvuTop___024root* vlSelf) {
     }
     if ((vlSelf->__VstlTriggered.at(0U) | vlSelf->__VstlTriggered.at(3U))) {
         VQvuTop___024root___ico_comb__TOP__13(vlSelf);
+        vlSelf->__Vm_traceActivity[0x16U] = 1U;
+        vlSelf->__Vm_traceActivity[0x15U] = 1U;
         vlSelf->__Vm_traceActivity[0x14U] = 1U;
         vlSelf->__Vm_traceActivity[0x13U] = 1U;
         vlSelf->__Vm_traceActivity[0x12U] = 1U;
@@ -2607,6 +2624,8 @@ VL_ATTR_COLD void VQvuTop___024root___eval_stl(VQvuTop___024root* vlSelf) {
     }
     if ((vlSelf->__VstlTriggered.at(0U) | vlSelf->__VstlTriggered.at(1U))) {
         VQvuTop___024root___ico_comb__TOP__15(vlSelf);
+        vlSelf->__Vm_traceActivity[0x16U] = 1U;
+        vlSelf->__Vm_traceActivity[0x15U] = 1U;
         vlSelf->__Vm_traceActivity[0x14U] = 1U;
         vlSelf->__Vm_traceActivity[0x13U] = 1U;
         vlSelf->__Vm_traceActivity[0x12U] = 1U;
@@ -2642,6 +2661,36 @@ VL_ATTR_COLD void VQvuTop___024root___eval_stl(VQvuTop___024root* vlSelf) {
            | vlSelf->__VstlTriggered.at(6U)) | vlSelf->__VstlTriggered.at(7U)) 
          | vlSelf->__VstlTriggered.at(8U))) {
         VQvuTop___024root___ico_comb__TOP__17(vlSelf);
+        vlSelf->__Vm_traceActivity[0x16U] = 1U;
+        vlSelf->__Vm_traceActivity[0x15U] = 1U;
+        vlSelf->__Vm_traceActivity[0x14U] = 1U;
+        vlSelf->__Vm_traceActivity[0x13U] = 1U;
+        vlSelf->__Vm_traceActivity[0x12U] = 1U;
+        vlSelf->__Vm_traceActivity[0x11U] = 1U;
+        vlSelf->__Vm_traceActivity[0x10U] = 1U;
+        vlSelf->__Vm_traceActivity[0xfU] = 1U;
+        vlSelf->__Vm_traceActivity[0xeU] = 1U;
+        vlSelf->__Vm_traceActivity[0xdU] = 1U;
+        vlSelf->__Vm_traceActivity[0xcU] = 1U;
+        vlSelf->__Vm_traceActivity[0xbU] = 1U;
+        vlSelf->__Vm_traceActivity[0xaU] = 1U;
+        vlSelf->__Vm_traceActivity[9U] = 1U;
+        vlSelf->__Vm_traceActivity[8U] = 1U;
+        vlSelf->__Vm_traceActivity[7U] = 1U;
+        vlSelf->__Vm_traceActivity[6U] = 1U;
+        vlSelf->__Vm_traceActivity[5U] = 1U;
+        vlSelf->__Vm_traceActivity[4U] = 1U;
+        vlSelf->__Vm_traceActivity[3U] = 1U;
+        vlSelf->__Vm_traceActivity[2U] = 1U;
+        vlSelf->__Vm_traceActivity[1U] = 1U;
+        vlSelf->__Vm_traceActivity[0U] = 1U;
+    }
+    if (((((vlSelf->__VstlTriggered.at(0U) | vlSelf->__VstlTriggered.at(1U)) 
+           | vlSelf->__VstlTriggered.at(3U)) | vlSelf->__VstlTriggered.at(5U)) 
+         | vlSelf->__VstlTriggered.at(7U))) {
+        VQvuTop___024root___ico_comb__TOP__18(vlSelf);
+        vlSelf->__Vm_traceActivity[0x16U] = 1U;
+        vlSelf->__Vm_traceActivity[0x15U] = 1U;
         vlSelf->__Vm_traceActivity[0x14U] = 1U;
         vlSelf->__Vm_traceActivity[0x13U] = 1U;
         vlSelf->__Vm_traceActivity[0x12U] = 1U;
@@ -2901,8 +2950,9 @@ VL_ATTR_COLD void VQvuTop___024root___ctor_var_reset(VQvuTop___024root* vlSelf) 
     vlSelf->io_int_o_2 = VL_RAND_RESET_I(32);
     vlSelf->io_int_o_3 = VL_RAND_RESET_I(32);
     vlSelf->QvuTop__DOT__ACTUAL_VECTOR_SIZE = VL_RAND_RESET_I(3);
-    vlSelf->QvuTop__DOT___GEN_3 = VL_RAND_RESET_I(1);
-    vlSelf->QvuTop__DOT___GEN_4 = VL_RAND_RESET_I(4);
+    vlSelf->QvuTop__DOT___GEN_5 = VL_RAND_RESET_I(1);
+    vlSelf->QvuTop__DOT___GEN_6 = VL_RAND_RESET_I(4);
+    VL_RAND_RESET_W(132, vlSelf->QvuTop__DOT____Vcellinp__quantizeInt8__io_pir_frac_i);
     vlSelf->QvuTop__DOT____Vcellinp__quantizeInt8__io_pir_exp_i = VL_RAND_RESET_I(32);
     vlSelf->QvuTop__DOT____VdfgTmp_ha15d0789__0 = 0;
     vlSelf->QvuTop__DOT____VdfgTmp_h792c5c44__0 = 0;
@@ -3153,12 +3203,127 @@ VL_ATTR_COLD void VQvuTop___024root___ctor_var_reset(VQvuTop___024root* vlSelf) 
     vlSelf->QvuTop__DOT__quantizeInt4__DOT____VdfgTmp_hff625ee6__0 = 0;
     vlSelf->QvuTop__DOT__quantizeInt4__DOT____VdfgTmp_h9762a8ae__0 = 0;
     vlSelf->QvuTop__DOT__quantizeInt4__DOT____VdfgTmp_h5d60b427__0 = 0;
+    VL_RAND_RESET_W(264, vlSelf->QvuTop__DOT__quantizeFP4__DOT__windowMax);
+    VL_RAND_RESET_W(264, vlSelf->QvuTop__DOT__quantizeFP4__DOT__windowMin);
+    vlSelf->QvuTop__DOT__quantizeFP4__DOT__windowValid = VL_RAND_RESET_I(8);
+    vlSelf->QvuTop__DOT__quantizeFP4__DOT__windowPtr = VL_RAND_RESET_I(3);
+    vlSelf->QvuTop__DOT__quantizeFP4__DOT__globalMax = VL_RAND_RESET_Q(33);
+    vlSelf->QvuTop__DOT__quantizeFP4__DOT__globalMin = VL_RAND_RESET_Q(33);
+    vlSelf->QvuTop__DOT__quantizeFP4__DOT__globalScale = VL_RAND_RESET_Q(33);
+    vlSelf->QvuTop__DOT__quantizeFP4__DOT__batchMax = VL_RAND_RESET_Q(33);
+    vlSelf->QvuTop__DOT__quantizeFP4__DOT__batchMin = VL_RAND_RESET_Q(33);
+    vlSelf->QvuTop__DOT__quantizeFP4__DOT__batchHasData = VL_RAND_RESET_I(1);
+    vlSelf->QvuTop__DOT__quantizeFP4__DOT__state = VL_RAND_RESET_I(2);
+    vlSelf->QvuTop__DOT__quantizeFP4__DOT___GEN = VL_RAND_RESET_Q(33);
+    vlSelf->QvuTop__DOT__quantizeFP4__DOT___GEN_0 = VL_RAND_RESET_Q(33);
+    vlSelf->QvuTop__DOT__quantizeFP4__DOT___GEN_1 = VL_RAND_RESET_Q(33);
+    vlSelf->QvuTop__DOT__quantizeFP4__DOT___GEN_2 = VL_RAND_RESET_Q(33);
+    vlSelf->QvuTop__DOT__quantizeFP4__DOT__valueAbs = VL_RAND_RESET_Q(33);
+    vlSelf->QvuTop__DOT__quantizeFP4__DOT__quantIndex = VL_RAND_RESET_I(3);
+    vlSelf->QvuTop__DOT__quantizeFP4__DOT__valueAbs_1 = VL_RAND_RESET_Q(33);
+    vlSelf->QvuTop__DOT__quantizeFP4__DOT__quantIndex_1 = VL_RAND_RESET_I(3);
+    vlSelf->QvuTop__DOT__quantizeFP4__DOT__valueAbs_2 = VL_RAND_RESET_Q(33);
+    vlSelf->QvuTop__DOT__quantizeFP4__DOT__quantIndex_2 = VL_RAND_RESET_I(3);
+    vlSelf->QvuTop__DOT__quantizeFP4__DOT__valueAbs_3 = VL_RAND_RESET_Q(33);
+    vlSelf->QvuTop__DOT__quantizeFP4__DOT__quantIndex_3 = VL_RAND_RESET_I(3);
+    vlSelf->QvuTop__DOT__quantizeFP4__DOT__unnamedblk2__DOT___GEN_3 = VL_RAND_RESET_I(1);
+    vlSelf->QvuTop__DOT__quantizeFP4__DOT__unnamedblk2__DOT___GEN_4 = VL_RAND_RESET_I(1);
+    vlSelf->QvuTop__DOT__quantizeFP4__DOT__unnamedblk2__DOT___GEN_5 = VL_RAND_RESET_I(1);
+    vlSelf->QvuTop__DOT__quantizeFP4__DOT__unnamedblk2__DOT___GEN_6 = VL_RAND_RESET_I(1);
+    vlSelf->QvuTop__DOT__quantizeFP4__DOT__unnamedblk2__DOT___GEN_7 = VL_RAND_RESET_I(1);
+    vlSelf->QvuTop__DOT__quantizeFP4__DOT__unnamedblk2__DOT___GEN_8 = VL_RAND_RESET_I(1);
+    vlSelf->QvuTop__DOT__quantizeFP4__DOT__unnamedblk2__DOT___GEN_9 = VL_RAND_RESET_I(1);
+    vlSelf->QvuTop__DOT__quantizeFP4__DOT__unnamedblk2__DOT___GEN_10 = VL_RAND_RESET_I(1);
+    vlSelf->QvuTop__DOT__quantizeFP4__DOT__unnamedblk2__DOT___GEN_11 = VL_RAND_RESET_I(1);
+    vlSelf->QvuTop__DOT__quantizeFP4__DOT__unnamedblk2__DOT___GEN_12 = VL_RAND_RESET_I(1);
+    vlSelf->QvuTop__DOT__quantizeFP4__DOT__unnamedblk2__DOT___GEN_13 = VL_RAND_RESET_I(1);
+    vlSelf->QvuTop__DOT__quantizeFP4__DOT__unnamedblk2__DOT___GEN_14 = VL_RAND_RESET_I(1);
+    vlSelf->QvuTop__DOT__quantizeFP4__DOT__unnamedblk2__DOT___GEN_15 = VL_RAND_RESET_I(1);
+    vlSelf->QvuTop__DOT__quantizeFP4__DOT__unnamedblk2__DOT___GEN_16 = VL_RAND_RESET_I(1);
+    vlSelf->QvuTop__DOT__quantizeFP4__DOT__unnamedblk2__DOT___GEN_17 = VL_RAND_RESET_I(1);
+    vlSelf->QvuTop__DOT__quantizeFP4__DOT__unnamedblk2__DOT___GEN_18 = VL_RAND_RESET_I(1);
+    vlSelf->QvuTop__DOT__quantizeFP4__DOT__unnamedblk2__DOT___GEN_19 = VL_RAND_RESET_I(1);
+    vlSelf->QvuTop__DOT__quantizeFP4__DOT__unnamedblk2__DOT___GEN_20 = VL_RAND_RESET_I(1);
+    vlSelf->QvuTop__DOT__quantizeFP4__DOT__unnamedblk2__DOT___GEN_21 = VL_RAND_RESET_I(1);
+    vlSelf->QvuTop__DOT__quantizeFP4__DOT__unnamedblk2__DOT___GEN_22 = VL_RAND_RESET_I(1);
+    vlSelf->QvuTop__DOT__quantizeFP4__DOT__unnamedblk2__DOT___GEN_23 = VL_RAND_RESET_I(1);
+    vlSelf->QvuTop__DOT__quantizeFP4__DOT__unnamedblk2__DOT___GEN_24 = VL_RAND_RESET_I(1);
+    vlSelf->QvuTop__DOT__quantizeFP4__DOT__unnamedblk2__DOT__unnamedblk3__DOT___GEN_25 = VL_RAND_RESET_I(1);
+    vlSelf->QvuTop__DOT__quantizeFP4__DOT__unnamedblk2__DOT__unnamedblk3__DOT__effectiveMax_leftMax_leftMax_leftMax = VL_RAND_RESET_Q(33);
+    vlSelf->QvuTop__DOT__quantizeFP4__DOT__unnamedblk2__DOT__unnamedblk3__DOT___GEN_26 = VL_RAND_RESET_I(1);
+    vlSelf->QvuTop__DOT__quantizeFP4__DOT__unnamedblk2__DOT__unnamedblk3__DOT__effectiveMax_leftMax_leftMax_rightMax = VL_RAND_RESET_Q(33);
+    vlSelf->QvuTop__DOT__quantizeFP4__DOT__unnamedblk2__DOT__unnamedblk3__DOT___effectiveMax_leftMax_leftMax_T = VL_RAND_RESET_I(1);
+    vlSelf->QvuTop__DOT__quantizeFP4__DOT__unnamedblk2__DOT__unnamedblk3__DOT__effectiveMax_leftMax_leftMax = VL_RAND_RESET_Q(33);
+    vlSelf->QvuTop__DOT__quantizeFP4__DOT__unnamedblk2__DOT__unnamedblk3__DOT___GEN_27 = VL_RAND_RESET_I(1);
+    vlSelf->QvuTop__DOT__quantizeFP4__DOT__unnamedblk2__DOT__unnamedblk3__DOT__effectiveMax_leftMax_rightMax_leftMax = VL_RAND_RESET_Q(33);
+    vlSelf->QvuTop__DOT__quantizeFP4__DOT__unnamedblk2__DOT__unnamedblk3__DOT___GEN_28 = VL_RAND_RESET_I(1);
+    vlSelf->QvuTop__DOT__quantizeFP4__DOT__unnamedblk2__DOT__unnamedblk3__DOT__effectiveMax_leftMax_rightMax_rightMax = VL_RAND_RESET_Q(33);
+    vlSelf->QvuTop__DOT__quantizeFP4__DOT__unnamedblk2__DOT__unnamedblk3__DOT___effectiveMax_leftMax_rightMax_T = VL_RAND_RESET_I(1);
+    vlSelf->QvuTop__DOT__quantizeFP4__DOT__unnamedblk2__DOT__unnamedblk3__DOT__effectiveMax_leftMax_rightMax = VL_RAND_RESET_Q(33);
+    vlSelf->QvuTop__DOT__quantizeFP4__DOT__unnamedblk2__DOT__unnamedblk3__DOT___effectiveMax_leftMax_T = VL_RAND_RESET_I(1);
+    vlSelf->QvuTop__DOT__quantizeFP4__DOT__unnamedblk2__DOT__unnamedblk3__DOT__effectiveMax_leftMax = VL_RAND_RESET_Q(33);
+    vlSelf->QvuTop__DOT__quantizeFP4__DOT__unnamedblk2__DOT__unnamedblk3__DOT___GEN_29 = VL_RAND_RESET_I(1);
+    vlSelf->QvuTop__DOT__quantizeFP4__DOT__unnamedblk2__DOT__unnamedblk3__DOT__effectiveMax_rightMax_leftMax_leftMax = VL_RAND_RESET_Q(33);
+    vlSelf->QvuTop__DOT__quantizeFP4__DOT__unnamedblk2__DOT__unnamedblk3__DOT___GEN_30 = VL_RAND_RESET_I(1);
+    vlSelf->QvuTop__DOT__quantizeFP4__DOT__unnamedblk2__DOT__unnamedblk3__DOT__effectiveMax_rightMax_leftMax_rightMax = VL_RAND_RESET_Q(33);
+    vlSelf->QvuTop__DOT__quantizeFP4__DOT__unnamedblk2__DOT__unnamedblk3__DOT___effectiveMax_rightMax_leftMax_T = VL_RAND_RESET_I(1);
+    vlSelf->QvuTop__DOT__quantizeFP4__DOT__unnamedblk2__DOT__unnamedblk3__DOT__effectiveMax_rightMax_leftMax = VL_RAND_RESET_Q(33);
+    vlSelf->QvuTop__DOT__quantizeFP4__DOT__unnamedblk2__DOT__unnamedblk3__DOT___GEN_31 = VL_RAND_RESET_I(1);
+    vlSelf->QvuTop__DOT__quantizeFP4__DOT__unnamedblk2__DOT__unnamedblk3__DOT__effectiveMax_rightMax_rightMax_leftMax = VL_RAND_RESET_Q(33);
+    vlSelf->QvuTop__DOT__quantizeFP4__DOT__unnamedblk2__DOT__unnamedblk3__DOT___GEN_32 = VL_RAND_RESET_I(1);
+    vlSelf->QvuTop__DOT__quantizeFP4__DOT__unnamedblk2__DOT__unnamedblk3__DOT__effectiveMax_rightMax_rightMax_rightMax = VL_RAND_RESET_Q(33);
+    vlSelf->QvuTop__DOT__quantizeFP4__DOT__unnamedblk2__DOT__unnamedblk3__DOT___effectiveMax_rightMax_rightMax_T = VL_RAND_RESET_I(1);
+    vlSelf->QvuTop__DOT__quantizeFP4__DOT__unnamedblk2__DOT__unnamedblk3__DOT__effectiveMax_rightMax_rightMax = VL_RAND_RESET_Q(33);
+    vlSelf->QvuTop__DOT__quantizeFP4__DOT__unnamedblk2__DOT__unnamedblk3__DOT___effectiveMax_rightMax_T = VL_RAND_RESET_I(1);
+    vlSelf->QvuTop__DOT__quantizeFP4__DOT__unnamedblk2__DOT__unnamedblk3__DOT__effectiveMax_rightMax = VL_RAND_RESET_Q(33);
+    vlSelf->QvuTop__DOT__quantizeFP4__DOT__unnamedblk2__DOT__unnamedblk3__DOT___effectiveMax_T = VL_RAND_RESET_I(1);
+    vlSelf->QvuTop__DOT__quantizeFP4__DOT__unnamedblk2__DOT__unnamedblk3__DOT__effectiveMax = VL_RAND_RESET_Q(33);
+    vlSelf->QvuTop__DOT__quantizeFP4__DOT__unnamedblk2__DOT__unnamedblk3__DOT___GEN_33 = VL_RAND_RESET_I(1);
+    vlSelf->QvuTop__DOT__quantizeFP4__DOT__unnamedblk2__DOT__unnamedblk3__DOT__effectiveMin_leftMin_leftMin_leftMin = VL_RAND_RESET_Q(33);
+    vlSelf->QvuTop__DOT__quantizeFP4__DOT__unnamedblk2__DOT__unnamedblk3__DOT___GEN_34 = VL_RAND_RESET_I(1);
+    vlSelf->QvuTop__DOT__quantizeFP4__DOT__unnamedblk2__DOT__unnamedblk3__DOT__effectiveMin_leftMin_leftMin_rightMin = VL_RAND_RESET_Q(33);
+    vlSelf->QvuTop__DOT__quantizeFP4__DOT__unnamedblk2__DOT__unnamedblk3__DOT___effectiveMin_leftMin_leftMin_T = VL_RAND_RESET_I(1);
+    vlSelf->QvuTop__DOT__quantizeFP4__DOT__unnamedblk2__DOT__unnamedblk3__DOT__effectiveMin_leftMin_leftMin = VL_RAND_RESET_Q(33);
+    vlSelf->QvuTop__DOT__quantizeFP4__DOT__unnamedblk2__DOT__unnamedblk3__DOT___GEN_35 = VL_RAND_RESET_I(1);
+    vlSelf->QvuTop__DOT__quantizeFP4__DOT__unnamedblk2__DOT__unnamedblk3__DOT__effectiveMin_leftMin_rightMin_leftMin = VL_RAND_RESET_Q(33);
+    vlSelf->QvuTop__DOT__quantizeFP4__DOT__unnamedblk2__DOT__unnamedblk3__DOT___GEN_36 = VL_RAND_RESET_I(1);
+    vlSelf->QvuTop__DOT__quantizeFP4__DOT__unnamedblk2__DOT__unnamedblk3__DOT__effectiveMin_leftMin_rightMin_rightMin = VL_RAND_RESET_Q(33);
+    vlSelf->QvuTop__DOT__quantizeFP4__DOT__unnamedblk2__DOT__unnamedblk3__DOT___effectiveMin_leftMin_rightMin_T = VL_RAND_RESET_I(1);
+    vlSelf->QvuTop__DOT__quantizeFP4__DOT__unnamedblk2__DOT__unnamedblk3__DOT__effectiveMin_leftMin_rightMin = VL_RAND_RESET_Q(33);
+    vlSelf->QvuTop__DOT__quantizeFP4__DOT__unnamedblk2__DOT__unnamedblk3__DOT___effectiveMin_leftMin_T = VL_RAND_RESET_I(1);
+    vlSelf->QvuTop__DOT__quantizeFP4__DOT__unnamedblk2__DOT__unnamedblk3__DOT__effectiveMin_leftMin = VL_RAND_RESET_Q(33);
+    vlSelf->QvuTop__DOT__quantizeFP4__DOT__unnamedblk2__DOT__unnamedblk3__DOT___GEN_37 = VL_RAND_RESET_I(1);
+    vlSelf->QvuTop__DOT__quantizeFP4__DOT__unnamedblk2__DOT__unnamedblk3__DOT__effectiveMin_rightMin_leftMin_leftMin = VL_RAND_RESET_Q(33);
+    vlSelf->QvuTop__DOT__quantizeFP4__DOT__unnamedblk2__DOT__unnamedblk3__DOT___GEN_38 = VL_RAND_RESET_I(1);
+    vlSelf->QvuTop__DOT__quantizeFP4__DOT__unnamedblk2__DOT__unnamedblk3__DOT__effectiveMin_rightMin_leftMin_rightMin = VL_RAND_RESET_Q(33);
+    vlSelf->QvuTop__DOT__quantizeFP4__DOT__unnamedblk2__DOT__unnamedblk3__DOT___effectiveMin_rightMin_leftMin_T = VL_RAND_RESET_I(1);
+    vlSelf->QvuTop__DOT__quantizeFP4__DOT__unnamedblk2__DOT__unnamedblk3__DOT__effectiveMin_rightMin_leftMin = VL_RAND_RESET_Q(33);
+    vlSelf->QvuTop__DOT__quantizeFP4__DOT__unnamedblk2__DOT__unnamedblk3__DOT___GEN_39 = VL_RAND_RESET_I(1);
+    vlSelf->QvuTop__DOT__quantizeFP4__DOT__unnamedblk2__DOT__unnamedblk3__DOT__effectiveMin_rightMin_rightMin_leftMin = VL_RAND_RESET_Q(33);
+    vlSelf->QvuTop__DOT__quantizeFP4__DOT__unnamedblk2__DOT__unnamedblk3__DOT___GEN_40 = VL_RAND_RESET_I(1);
+    vlSelf->QvuTop__DOT__quantizeFP4__DOT__unnamedblk2__DOT__unnamedblk3__DOT__effectiveMin_rightMin_rightMin_rightMin = VL_RAND_RESET_Q(33);
+    vlSelf->QvuTop__DOT__quantizeFP4__DOT__unnamedblk2__DOT__unnamedblk3__DOT___effectiveMin_rightMin_rightMin_T = VL_RAND_RESET_I(1);
+    vlSelf->QvuTop__DOT__quantizeFP4__DOT__unnamedblk2__DOT__unnamedblk3__DOT__effectiveMin_rightMin_rightMin = VL_RAND_RESET_Q(33);
+    vlSelf->QvuTop__DOT__quantizeFP4__DOT__unnamedblk2__DOT__unnamedblk3__DOT___effectiveMin_rightMin_T = VL_RAND_RESET_I(1);
+    vlSelf->QvuTop__DOT__quantizeFP4__DOT__unnamedblk2__DOT__unnamedblk3__DOT__effectiveMin_rightMin = VL_RAND_RESET_Q(33);
+    vlSelf->QvuTop__DOT__quantizeFP4__DOT__unnamedblk2__DOT__unnamedblk3__DOT___effectiveMin_T = VL_RAND_RESET_I(1);
+    vlSelf->QvuTop__DOT__quantizeFP4__DOT__unnamedblk2__DOT__unnamedblk3__DOT__effectiveMin = VL_RAND_RESET_Q(33);
+    vlSelf->QvuTop__DOT__quantizeFP4__DOT__unnamedblk2__DOT__unnamedblk3__DOT__dataRange = VL_RAND_RESET_Q(33);
+    vlSelf->QvuTop__DOT__quantizeFP4__DOT__unnamedblk2__DOT__unnamedblk3__DOT___windowPtr_T_2 = VL_RAND_RESET_I(4);
+    vlSelf->QvuTop__DOT__quantizeFP4__DOT____VdfgTmp_hdd03ac44__0 = 0;
+    vlSelf->QvuTop__DOT__quantizeFP4__DOT____VdfgTmp_hdd893d74__0 = 0;
+    vlSelf->QvuTop__DOT__quantizeFP4__DOT____VdfgTmp_hdee4f6f7__0 = 0;
+    vlSelf->QvuTop__DOT__quantizeFP4__DOT____VdfgTmp_hdbc354e5__0 = 0;
+    vlSelf->QvuTop__DOT__quantizeFP4__DOT____VdfgTmp_hdc3001b5__0 = 0;
+    vlSelf->QvuTop__DOT__quantizeFP4__DOT____VdfgTmp_hdc8dcd07__0 = 0;
+    vlSelf->QvuTop__DOT__quantizeFP4__DOT____VdfgTmp_hd93d690c__0 = 0;
+    vlSelf->QvuTop__DOT__quantizeFP4__DOT____VdfgTmp_hd9b73fc0__0 = 0;
     vlSelf->__VdfgTmp_h92081510__0 = 0;
     vlSelf->__VdfgTmp_h9981df73__0 = 0;
     vlSelf->__VdfgTmp_h6db38b42__0 = 0;
     vlSelf->__VdfgTmp_h9c9ab370__0 = 0;
-    vlSelf->__VdfgTmp_h43a98faf__0 = 0;
     vlSelf->__VdfgTmp_h46be9c78__0 = 0;
+    vlSelf->__VdfgTmp_h43a98faf__0 = 0;
     vlSelf->__VdfgTmp_haed5c1a2__0 = 0;
     vlSelf->__Vtrigrprev__TOP__QvuTop__DOT__decode1__DOT__lzcModule__DOT__gen_lzc__DOT__sel_nodes = VL_RAND_RESET_I(32);
     VL_RAND_RESET_W(160, vlSelf->__Vtrigrprev__TOP__QvuTop__DOT__decode1__DOT__lzcModule__DOT__gen_lzc__DOT__index_nodes);
@@ -3180,7 +3345,7 @@ VL_ATTR_COLD void VQvuTop___024root___ctor_var_reset(VQvuTop___024root* vlSelf) 
     vlSelf->__VicoDidInit = 0;
     vlSelf->__Vtrigrprev__TOP__clock = VL_RAND_RESET_I(1);
     vlSelf->__VactDidInit = 0;
-    for (int __Vi0 = 0; __Vi0 < 21; ++__Vi0) {
+    for (int __Vi0 = 0; __Vi0 < 23; ++__Vi0) {
         vlSelf->__Vm_traceActivity[__Vi0] = 0;
     }
 }

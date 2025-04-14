@@ -39,7 +39,7 @@ const char* WAVEFORM_FILE         = "waveform.vcd";  // 波形输出文件
 const int SAMPLE_NUM              = 1000;            // 测试样本数量
 const int TOTAL_ELEMENTS          = 4000;            // 总元素数量，用于标量模式测试
 const int MAX_VECTOR_SIZE         = 4;               // 最大向量大小
-const int BIN_COUNT               = 10;              // 分布统计的区间数
+const int BIN_COUNT               = 5;              // 分布统计的区间数
 // 添加Int4处理相关的常量
 const int INT4_MIN = -8;          // Int4最小值
 const int INT4_MAX = 7;           // Int4最大值

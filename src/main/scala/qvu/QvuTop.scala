@@ -3,6 +3,8 @@
     0 --> Posit量化至Int8（QuantizeInt8），将PIR量化为Int8整数
     1 --> Posit量化至Int4（QuantizeInt4），将PIR量化为Int4整数
     2 --> Posit量化至FP16（QuantizeFP16），将PIR量化为FP16浮点数
+    3 --> Posit量化至FP8（QuantizeFP8），将PIR量化为FP8浮点数
+    4 --> Posit量化至FP4（QuantizeFP4），将PIR量化为FP4浮点数
 
    Float格式由float_mode控制:
    0 --> FP4  (1位符号, 1位指数, 2位尾数)
@@ -308,6 +310,56 @@
        when(valid_range(i)) {
          // 对于float_o，需要将16位FP16扩展到FLOAT_WIDTH (通常是64位)
          io.float_o(i) := quantizeFP16.io.fp16_o(i).pad(FLOAT_WIDTH)
+       }
+     }
+   }
+   .elsewhen(io.op === 3.U) {  // QuantizeFP8 - Posit量化至FP8
+     val quantizeFP8 = Module(new PositQuantizeToFP8(
+       MAX_POSIT_WIDTH,
+       MAX_VECTOR_SIZE,
+       MAX_ALIGN_WIDTH,
+       ES
+     ))
+     
+     // 输入PIR格式的posit数据
+     quantizeFP8.io.pir_sign_i := pir_sign
+     quantizeFP8.io.pir_exp_i  := pir_exp
+     quantizeFP8.io.pir_frac_i := pir_frac
+     quantizeFP8.io.reset_window := false.B  // 默认不重置窗口
+     
+     // FP8标准宽度为8位
+     val FP8_WIDTH = 8
+     
+     // 将FP8量化结果复制到float_o输出
+     for (i <- 0 until MAX_VECTOR_SIZE) {
+       when(valid_range(i)) {
+         // 对于float_o，需要将8位FP8扩展到FLOAT_WIDTH (通常是64位)
+         io.float_o(i) := quantizeFP8.io.fp8_o(i).pad(FLOAT_WIDTH)
+       }
+     }
+   }
+   .elsewhen(io.op === 4.U) {  // QuantizeFP4 - Posit量化至FP4
+     val quantizeFP4 = Module(new PositQuantizeToFP4(
+       MAX_POSIT_WIDTH,
+       MAX_VECTOR_SIZE,
+       MAX_ALIGN_WIDTH,
+       ES
+     ))
+     
+     // 输入PIR格式的posit数据
+     quantizeFP4.io.pir_sign_i := pir_sign
+     quantizeFP4.io.pir_exp_i  := pir_exp
+     quantizeFP4.io.pir_frac_i := pir_frac
+     quantizeFP4.io.reset_window := false.B  // 默认不重置窗口
+     
+     // FP4标准宽度为4位
+     val FP4_WIDTH = 4
+     
+     // 将FP4量化结果复制到float_o输出
+     for (i <- 0 until MAX_VECTOR_SIZE) {
+       when(valid_range(i)) {
+         // 对于float_o，需要将4位FP4扩展到FLOAT_WIDTH (通常是64位)
+         io.float_o(i) := quantizeFP4.io.fp4_o(i).pad(FLOAT_WIDTH)
        }
      }
    }

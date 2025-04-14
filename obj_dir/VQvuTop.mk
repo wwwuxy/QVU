@@ -42,33 +42,53 @@ VM_USER_LDLIBS = \
 # User .cpp files (from .cpp's on Verilator command line)
 VM_USER_CLASSES = \
 	main_alexnet_fp16 \
+	main_alexnet_fp4 \
+	main_alexnet_fp8 \
 	main_alexnet_int4 \
 	main_alexnet_int8 \
 	main_convnext_fp16 \
+	main_convnext_fp4 \
+	main_convnext_fp8 \
 	main_convnext_int4 \
 	main_convnext_int8 \
 	main_efficientnet_fp16 \
+	main_efficientnet_fp4 \
+	main_efficientnet_fp8 \
 	main_efficientnet_int4 \
 	main_efficientnet_int8 \
 	main_lenet_fp16 \
+	main_lenet_fp4 \
+	main_lenet_fp8 \
 	main_lenet_int4 \
 	main_lenet_int8 \
 	main_mobilenet_fp16 \
+	main_mobilenet_fp4 \
+	main_mobilenet_fp8 \
 	main_mobilenet_int4 \
 	main_mobilenet_int8 \
 	main_regnet_fp16 \
+	main_regnet_fp4 \
+	main_regnet_fp8 \
 	main_regnet_int4 \
 	main_regnet_int8 \
 	main_resnet_fp16 \
+	main_resnet_fp4 \
+	main_resnet_fp8 \
 	main_resnet_int4 \
 	main_resnet_int8 \
 	main_shufflenetv2_fp16 \
+	main_shufflenetv2_fp4 \
+	main_shufflenetv2_fp8 \
 	main_shufflenetv2_int4 \
 	main_shufflenetv2_int8 \
 	main_squeezenet_fp16 \
+	main_squeezenet_fp4 \
+	main_squeezenet_fp8 \
 	main_squeezenet_int4 \
 	main_squeezenet_int8 \
 	main_vgg_fp16 \
+	main_vgg_fp4 \
+	main_vgg_fp8 \
 	main_vgg_int4 \
 	main_vgg_int8 \
 
@@ -88,11 +108,19 @@ VPATH += $(VM_USER_DIR)
 
 main_alexnet_fp16.o: /home/wuxy/QVU/csrc/main_alexnet_fp16.cpp
 	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
+main_alexnet_fp4.o: /home/wuxy/QVU/csrc/main_alexnet_fp4.cpp
+	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
+main_alexnet_fp8.o: /home/wuxy/QVU/csrc/main_alexnet_fp8.cpp
+	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
 main_alexnet_int4.o: /home/wuxy/QVU/csrc/main_alexnet_int4.cpp
 	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
 main_alexnet_int8.o: /home/wuxy/QVU/csrc/main_alexnet_int8.cpp
 	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
 main_convnext_fp16.o: /home/wuxy/QVU/csrc/main_convnext_fp16.cpp
+	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
+main_convnext_fp4.o: /home/wuxy/QVU/csrc/main_convnext_fp4.cpp
+	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
+main_convnext_fp8.o: /home/wuxy/QVU/csrc/main_convnext_fp8.cpp
 	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
 main_convnext_int4.o: /home/wuxy/QVU/csrc/main_convnext_int4.cpp
 	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
@@ -100,11 +128,19 @@ main_convnext_int8.o: /home/wuxy/QVU/csrc/main_convnext_int8.cpp
 	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
 main_efficientnet_fp16.o: /home/wuxy/QVU/csrc/main_efficientnet_fp16.cpp
 	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
+main_efficientnet_fp4.o: /home/wuxy/QVU/csrc/main_efficientnet_fp4.cpp
+	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
+main_efficientnet_fp8.o: /home/wuxy/QVU/csrc/main_efficientnet_fp8.cpp
+	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
 main_efficientnet_int4.o: /home/wuxy/QVU/csrc/main_efficientnet_int4.cpp
 	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
 main_efficientnet_int8.o: /home/wuxy/QVU/csrc/main_efficientnet_int8.cpp
 	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
 main_lenet_fp16.o: /home/wuxy/QVU/csrc/main_lenet_fp16.cpp
+	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
+main_lenet_fp4.o: /home/wuxy/QVU/csrc/main_lenet_fp4.cpp
+	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
+main_lenet_fp8.o: /home/wuxy/QVU/csrc/main_lenet_fp8.cpp
 	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
 main_lenet_int4.o: /home/wuxy/QVU/csrc/main_lenet_int4.cpp
 	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
@@ -112,11 +148,19 @@ main_lenet_int8.o: /home/wuxy/QVU/csrc/main_lenet_int8.cpp
 	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
 main_mobilenet_fp16.o: /home/wuxy/QVU/csrc/main_mobilenet_fp16.cpp
 	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
+main_mobilenet_fp4.o: /home/wuxy/QVU/csrc/main_mobilenet_fp4.cpp
+	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
+main_mobilenet_fp8.o: /home/wuxy/QVU/csrc/main_mobilenet_fp8.cpp
+	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
 main_mobilenet_int4.o: /home/wuxy/QVU/csrc/main_mobilenet_int4.cpp
 	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
 main_mobilenet_int8.o: /home/wuxy/QVU/csrc/main_mobilenet_int8.cpp
 	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
 main_regnet_fp16.o: /home/wuxy/QVU/csrc/main_regnet_fp16.cpp
+	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
+main_regnet_fp4.o: /home/wuxy/QVU/csrc/main_regnet_fp4.cpp
+	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
+main_regnet_fp8.o: /home/wuxy/QVU/csrc/main_regnet_fp8.cpp
 	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
 main_regnet_int4.o: /home/wuxy/QVU/csrc/main_regnet_int4.cpp
 	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
@@ -124,11 +168,19 @@ main_regnet_int8.o: /home/wuxy/QVU/csrc/main_regnet_int8.cpp
 	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
 main_resnet_fp16.o: /home/wuxy/QVU/csrc/main_resnet_fp16.cpp
 	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
+main_resnet_fp4.o: /home/wuxy/QVU/csrc/main_resnet_fp4.cpp
+	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
+main_resnet_fp8.o: /home/wuxy/QVU/csrc/main_resnet_fp8.cpp
+	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
 main_resnet_int4.o: /home/wuxy/QVU/csrc/main_resnet_int4.cpp
 	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
 main_resnet_int8.o: /home/wuxy/QVU/csrc/main_resnet_int8.cpp
 	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
 main_shufflenetv2_fp16.o: /home/wuxy/QVU/csrc/main_shufflenetv2_fp16.cpp
+	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
+main_shufflenetv2_fp4.o: /home/wuxy/QVU/csrc/main_shufflenetv2_fp4.cpp
+	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
+main_shufflenetv2_fp8.o: /home/wuxy/QVU/csrc/main_shufflenetv2_fp8.cpp
 	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
 main_shufflenetv2_int4.o: /home/wuxy/QVU/csrc/main_shufflenetv2_int4.cpp
 	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
@@ -136,11 +188,19 @@ main_shufflenetv2_int8.o: /home/wuxy/QVU/csrc/main_shufflenetv2_int8.cpp
 	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
 main_squeezenet_fp16.o: /home/wuxy/QVU/csrc/main_squeezenet_fp16.cpp
 	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
+main_squeezenet_fp4.o: /home/wuxy/QVU/csrc/main_squeezenet_fp4.cpp
+	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
+main_squeezenet_fp8.o: /home/wuxy/QVU/csrc/main_squeezenet_fp8.cpp
+	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
 main_squeezenet_int4.o: /home/wuxy/QVU/csrc/main_squeezenet_int4.cpp
 	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
 main_squeezenet_int8.o: /home/wuxy/QVU/csrc/main_squeezenet_int8.cpp
 	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
 main_vgg_fp16.o: /home/wuxy/QVU/csrc/main_vgg_fp16.cpp
+	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
+main_vgg_fp4.o: /home/wuxy/QVU/csrc/main_vgg_fp4.cpp
+	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
+main_vgg_fp8.o: /home/wuxy/QVU/csrc/main_vgg_fp8.cpp
 	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
 main_vgg_int4.o: /home/wuxy/QVU/csrc/main_vgg_int4.cpp
 	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<

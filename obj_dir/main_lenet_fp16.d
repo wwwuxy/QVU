@@ -1,1 +1,2 @@
-main_lenet_fp16.o: /home/wuxy/QVU/csrc/main_lenet_fp16.cpp
+main_lenet_fp16.o: /home/wuxy/QVU/csrc/main_lenet_fp16.cpp \
+ /home/wuxy/QVU/csrc/../config.h

@@ -1,0 +1,52 @@
+[debug] > Exec(early(addDefaultCommands), None, None)
+[debug] > Exec(addDefaultCommands, None, None)
+[debug] > Exec(early(initialize), None, None)
+[debug] > Exec(initialize, None, None)
+[debug] > Exec(boot, None, None)
+[debug] > Exec(writeSbtVersion, None, None)
+[debug] > Exec(reload, None, None)
+[debug] > Exec(sbtStashOnFailure, None, None)
+[debug] > Exec(onFailure loadFailed, None, None)
+[debug] > Exec(loadp, None, None)
+[info] welcome to sbt 1.10.6 (Eclipse Adoptium Java 17.0.14)
+[debug] Load.defaultLoad until apply took 31.665003ms
+[debug]           Load.loadUnit: plugins took 25.185732ms
+[debug]           Load.loadUnit: defsScala took 0.135497ms
+[debug] [Loading] Scanning directory /home/wuxy/QVU/project
+[debug] [Loading] Found non-root projects 
+[debug] [Loading] Done in /home/wuxy/QVU/project, returning: ()
+[debug] deducing auto plugins based on known facts Set(Atom(sbt.plugins.CorePlugin)) and clauses Clauses(Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.IvyPlugin)))
+[debug] Clause(Atom(sbt.ScriptedPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.SbtPlugin),Set(Atom(sbt.ScriptedPlugin)))
+[debug] Clause(Atom(sbt.plugins.SemanticdbPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.JUnitXmlReportPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.MiniDependencyTreePlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.CorePlugin),Set(Atom(sbt.plugins.IvyPlugin)))
+[debug] Clause(Atom(sbt.plugins.IvyPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.SemanticdbPlugin)))
+[debug] Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.JUnitXmlReportPlugin)))
+[debug] Clause(Atom(sbt.plugins.CorePlugin),Set(Atom(sbt.plugins.Giter8TemplatePlugin)))
+[debug] Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.MiniDependencyTreePlugin))))
+[debug]   :: deduced result: Matched(sbt.plugins.CorePlugin,sbt.plugins.Giter8TemplatePlugin,sbt.plugins.IvyPlugin,sbt.plugins.JvmPlugin,sbt.plugins.MiniDependencyTreePlugin,sbt.plugins.JUnitXmlReportPlugin,sbt.plugins.SemanticdbPlugin)
+[debug] Plugins.deducer#function took 6.492731 ms
+[debug]               Load.resolveProject(qvu-build) took 17.049701ms
+[debug]             Load.loadTransitive: finalizeProject(Project(id qvu-build, base: /home/wuxy/QVU/project, plugins: List(<none>))) took 30.440613ms
+[debug] [Loading] Done in /home/wuxy/QVU/project, returning: (qvu-build)
+[debug]           Load.loadUnit: loadedProjectsRaw took 39.92932ms
+[debug]           Load.loadUnit: cleanEvalClasses took 0.086878ms
+[debug]         Load.loadUnit(file:/home/wuxy/QVU/project/, ...) took 67.954591ms
+[debug]       Load.apply: load took 121.488947ms
+[debug]       Load.apply: resolveProjects took 1.730538ms
+[debug]       Load.apply: finalTransforms took 20.167415ms
+[debug]       Load.apply: config.delegates took 2.369012ms
+[debug]       Load.apply: Def.make(settings)... took 115.894704ms
+[debug]       Load.apply: structureIndex took 33.023259ms
+[debug]       Load.apply: mkStreams took 0.601455ms
+[info] loading project definition from /home/wuxy/QVU/project
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[warn] Canceling execution...
+[error] Cancelled: loadp
+[error] Cancelled: loadp
+[error] Use 'last' for the full log.
+[debug] > Exec(loadFailed, None, None)
+[warn] Project loading failed: (r)etry, (q)uit, (l)ast, or (i)gnore? (default: r)
