@@ -1,10 +1,24 @@
-# QVU
+# QVU - 量化向量单元
 
-QVU (Quantization Vector Unit) 是一个基于Chisel的高效量化处理器，用于将Posit数值格式量化为不同的目标格式，包括整数和浮点数。
+QVU (Quantization Vector Unit) 是一个基于Chisel的高效量化处理器，用于将Posit数值格式量化为不同的目标格式(FP4/FP8/FP16/INT4/INT8)，特别为神经网络推理优化。
+
+## 主要特性
+
+- 支持多种神经网络模型的量化：
+  - AlexNet, ConvNeXt, EfficientNet
+  - LeNet, MobileNet, RegNet
+  - ResNet, ShuffleNetV2, SqueezeNet, VGG
+
+- 支持多种量化格式：
+  - 浮点格式：FP4, FP8, FP16
+  - 整数格式：INT4, INT8
+
+- 高性能设计：
+  - 基于Chisel硬件构建语言
+  - 支持向量化操作
+  - 可配置参数
 
 ## 支持的量化操作
-
-QVU支持以下量化操作类型（通过op控制）：
 
 | 操作码 | 操作名称 | 功能描述 |
 |--------|---------|---------|
@@ -16,74 +30,121 @@ QVU支持以下量化操作类型（通过op控制）：
 
 ## 浮点数格式
 
-支持的浮点数格式由float_mode控制：
-
 | 模式 | 格式 | 位宽分配 |
 |-----|------|---------|
 | 0 | FP4 | 1位符号, 1位指数, 2位尾数 |
 | 1 | FP8 | 1位符号, 4位指数, 3位尾数 |
 | 2 | FP16 | 1位符号, 5位指数, 10位尾数 |
 | 3 | FP32 | 1位符号, 8位指数, 23位尾数 |
-| 4 | FP64 | 1位符号, 11位指数, 52位尾数 |
 
-## FP4量化功能
+## 构建和测试
 
-FP4量化模块将Posit数值格式量化为4位浮点数表示，采用滑动窗口自适应量化策略，使用定点算术进行高效计算。
+### 依赖项
 
-### FP4编码值
+- Scala 2.12+
+- SBT或Mill构建工具
+- Verilator (用于仿真)
 
-FP4使用4位宽（1位符号，1位指数，2位尾数）表示以下16个离散值：
-
-| 编码 | 值 | 描述 |
-|------|-----|-----|
-| 0000 | +0.0 | 正零 |
-| 1000 | -0.0 | 负零 |
-| 0001 | +0.25 | 正四分之一 |
-| 1001 | -0.25 | 负四分之一 |
-| 0010 | +0.5 | 正二分之一 |
-| 1010 | -0.5 | 负二分之一 |
-| 0011 | +0.75 | 正四分之三 |
-| 1011 | -0.75 | 负四分之三 |
-| 0100 | +1.0 | 正一 |
-| 1100 | -1.0 | 负一 |
-| 0101 | +1.5 | 正一点五 |
-| 1101 | -1.5 | 负一点五 |
-| 0110 | +2.0 | 正二 |
-| 1110 | -2.0 | 负二 |
-| 0111 | +3.0 | 正三 |
-| 1111 | -3.0 | 负三 |
-
-### 使用方法
-
-通过将QVU的op参数设置为4，可以启用Posit至FP4的量化：
-
-```scala
-// 配置QVU以执行FP4量化
-io.op := 4.U        // 选择FP4量化操作
-io.Isposit := true.B  // 输入为Posit格式
-io.posit_i1 := positValues  // 输入Posit向量
-
-// 量化结果将输出到io.float_o接口
-val fp4Results = io.float_o
-```
-
-## 编译和运行
-
-使用SBT或Mill构建系统编译项目：
+### 构建命令
 
 ```bash
-sbt compile   # 使用SBT编译
-# 或
-mill pvu.compile  # 使用Mill编译
+# 使用SBT
+sbt compile
+
+# 使用Mill 
+mill pvu.compile
+
+# 运行测试
+sbt test
+```
+
+### 仿真
+
+```bash
+make verilator  # 使用Verilator进行仿真
+```
+
+## 使用示例
+
+### Scala API
+
+```scala
+import qvu._
+
+// 创建QVU实例
+val qvu = Module(new QvuTop(
+  MAX_POSIT_WIDTH = 32,
+  MAX_VECTOR_SIZE = 128,
+  ES = 2
+))
+
+// 配置FP4量化
+qvu.io.op := 4.U
+qvu.io.Isposit := true.B
+qvu.io.posit_i1 := positInputVector
+
+// 获取量化结果
+val fp4Results = qvu.io.float_o
+```
+
+### C++ 测试
+
+```cpp
+#include "main_convnext_fp4.cpp"
+
+int main() {
+    // 加载ConvNeXt测试数据
+    load_convnext_test_data();
+    
+    // 执行FP4量化
+    run_fp4_quantization();
+    
+    // 验证结果
+    verify_results();
+    return 0;
+}
+```
+
+## 目录结构
+
+```
+.
+├── csrc/                # C++测试和验证代码
+│   ├── main_*.cpp       # 各模型的测试程序
+├── src/                 # Chisel源代码
+│   ├── main/scala/qvu/  # QVU核心实现
+├── vsrc/                # Verilog代码
+│   ├── QvuTop.sv        # 顶层模块
+├── test_src/            # 测试数据
+│   ├── AlexNet/         # AlexNet测试数据
+│   ├── ConvNeXt/        # ConvNeXt测试数据
+│   └── ...              # 其他模型数据
+├── build.sbt            # SBT构建文件
+└── makefile             # Makefile构建脚本
 ```
 
 ## 参数配置
 
-QVU模块支持以下参数配置：
+QVU支持以下可配置参数：
 
-- MAX_POSIT_WIDTH: 最大Posit位宽
-- MAX_VECTOR_SIZE: 最大向量大小
-- MAX_ALIGN_WIDTH: 最大对齐宽度
-- ES: Posit的ES参数
-- FLOAT_MODE: 默认浮点数格式 (默认为3，即FP32)
-- INT_WIDTH: 整数位宽参数 (默认为32)
+| 参数 | 描述 | 默认值 |
+|------|------|-------|
+| MAX_POSIT_WIDTH | 最大Posit位宽 | 32 |
+| MAX_VECTOR_SIZE | 最大向量大小 | 128 |
+| MAX_ALIGN_WIDTH | 最大对齐宽度 | 8 |
+| ES | Posit的ES参数 | 2 |
+| FLOAT_MODE | 默认浮点数格式 | 3 (FP32) |
+
+## 贡献指南
+
+欢迎贡献！请遵循以下步骤：
+
+1. Fork仓库
+2. 创建特性分支 (`git checkout -b feature/your-feature`)
+3. 提交更改 (`git commit -am 'Add some feature'`)
+4. 推送到分支 (`git push origin feature/your-feature`)
+5. 创建Pull Request
+
+## 许可证
+
+MIT License
