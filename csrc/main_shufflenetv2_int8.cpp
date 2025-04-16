@@ -271,24 +271,24 @@ PerformanceStats run_test(int vector_size, int sample_count, bool enable_wavefor
         for (int j = 0; j < vector_size; ++j) {
             int idx = i * vector_size + j;
             if (idx < sample_count) {
-                if (j == 0) top->io_posit_i1_0 = td.posit_input[idx][0];
-                if (j == 1 && vector_size > 1) top->io_posit_i1_1 = td.posit_input[idx][1];
-                if (j == 2 && vector_size > 2) top->io_posit_i1_2 = td.posit_input[idx][2]; 
-                if (j == 3 && vector_size > 3) top->io_posit_i1_3 = td.posit_input[idx][3];
+                if (j == 0) top->io_posit_i_0 = td.posit_input[idx][0];
+                if (j == 1 && vector_size > 1) top->io_posit_i_1 = td.posit_input[idx][1];
+                if (j == 2 && vector_size > 2) top->io_posit_i_2 = td.posit_input[idx][2]; 
+                if (j == 3 && vector_size > 3) top->io_posit_i_3 = td.posit_input[idx][3];
             } else {
                 // 如果超出样本数量，填充0
-                if (j == 0) top->io_posit_i1_0 = 0;
-                if (j == 1 && vector_size > 1) top->io_posit_i1_1 = 0;
-                if (j == 2 && vector_size > 2) top->io_posit_i1_2 = 0;
-                if (j == 3 && vector_size > 3) top->io_posit_i1_3 = 0;
+                if (j == 0) top->io_posit_i_0 = 0;
+                if (j == 1 && vector_size > 1) top->io_posit_i_1 = 0;
+                if (j == 2 && vector_size > 2) top->io_posit_i_2 = 0;
+                if (j == 3 && vector_size > 3) top->io_posit_i_3 = 0;
             }
         }
         
         // 第二个posit输入端不使用，设为0
-        top->io_posit_i2_0 = 0;
-        top->io_posit_i2_1 = 0;
-        top->io_posit_i2_2 = 0;
-        top->io_posit_i2_3 = 0;
+        top->io_posit_i_0 = 0;
+        top->io_posit_i_1 = 0;
+        top->io_posit_i_2 = 0;
+        top->io_posit_i_3 = 0;
         
         //设置float输入数据，不使用
         top->io_float_i_0 = 0;
@@ -296,10 +296,10 @@ PerformanceStats run_test(int vector_size, int sample_count, bool enable_wavefor
         top->io_float_i_2 = 0;
         top->io_float_i_3 = 0;
 
-        top->io_float_i2_0 = 0;
-        top->io_float_i2_1 = 0;
-        top->io_float_i2_2 = 0;
-        top->io_float_i2_3 = 0;
+        top->io_float_i_0 = 0;
+        top->io_float_i_1 = 0;
+        top->io_float_i_2 = 0;
+        top->io_float_i_3 = 0;
 
         //设置信号量
         top->io_op = OP;              // 操作码10：Posit量化到Int8

@@ -1,0 +1,105 @@
+export JAVA_OPTS="-Xmx16G -Xms8G -XX:+UseG1GC -XX:G1HeapRegionSize=32M -XX:MaxGCPauseMillis=200 -XX:ParallelGCThreads=8" && \
+sbt -v -no-colors \
+	-J-Xmx16G -J-Xms8G \
+	-J-XX:+UseG1GC \
+	-J-XX:G1HeapRegionSize=32M \
+	-J-XX:MaxGCPauseMillis=200 \
+	-J-XX:ParallelGCThreads=8 \
+	-Dsbt.task.timings=true \
+	-Dsbt.ci=true \
+	-DmaxThreads=8 \
+	"runMain qvu.Elaborate"
+[sbt_options] declare -a sbt_options=()
+[process_args] java_version = '17'
+[copyRt] java9_rt = '/home/wuxy/.sbt/1.0/java9-rt-ext-eclipse_adoptium_17_0_14/rt.jar'
+# Executing command line:
+java
+-Xmx16G
+-Xms8G
+-XX:+UseG1GC
+-XX:G1HeapRegionSize=32M
+-XX:MaxGCPauseMillis=200
+-XX:ParallelGCThreads=8
+-Dsbt.override.build.repos=true
+-Dsbt.log.noformat=true
+-Xmx16G
+-Xms8G
+-XX:+UseG1GC
+-XX:G1HeapRegionSize=32M
+-XX:MaxGCPauseMillis=200
+-XX:ParallelGCThreads=8
+-Dsbt.task.timings=true
+-Dsbt.ci=true
+-DmaxThreads=8
+-Dsbt.script=/usr/bin/sbt
+-Dscala.ext.dirs=/home/wuxy/.sbt/1.0/java9-rt-ext-eclipse_adoptium_17_0_14
+-jar
+/home/wuxy/.cache/sbt/boot/sbt-launch/1.10.11/sbt-launch-1.10.11.jar
+"runMain qvu.Elaborate"
+
+[info] welcome to sbt 1.10.6 (Eclipse Adoptium Java 17.0.14)
+[info] loading project definition from /home/wuxy/QVU/project
+[info] Total time: 400 ms
+[info]   qvu-build / update                                                   : 233 ms
+[info]   qvu-build / Compile / compileIncremental                             :  95 ms
+[info]   qvu-build / dependencyPositions                                      :  38 ms
+[info]   qvu-build / csrProject                                               :  18 ms
+[info]   qvu-build / ivyModule                                                :  11 ms
+[info]   qvu-build / scalaInstance                                            :  10 ms
+[info]   qvu-build / Compile / scalacOptions                                  :   9 ms
+[info]   qvu-build / Compile / previousCompile                                :   8 ms
+[info]   qvu-build / Compile / unmanagedSources / allInputPathsAndAttributes  :   6 ms
+[info]   qvu-build / Compile / compile / compilerReporter                     :   4 ms
+[info]   qvu-build / Runtime / unmanagedClasspath                             :   4 ms
+[info]   qvu-build / scalaCompilerBridgeScope / csrConfiguration              :   4 ms
+[info]   qvu-build / dependencyResolution                                     :   3 ms
+[info]   streams-manager                                                      :   3 ms
+[info]   qvu-build / scalaCompilerBridgeScope / dependencyResolution          :   3 ms
+[info]   qvu-build / projectDescriptors                                       :   3 ms
+[info]   qvu-build / csrFallbackDependencies                                  :   2 ms
+[info]   qvu-build / Compile / copyResources                                  :   2 ms
+[info]   qvu-build / csrConfiguration                                         :   2 ms
+[info]   qvu-build / Compile / managedClasspath                               :   2 ms
+[info]   qvu-build / Runtime / managedClasspath                               :   1 ms
+[info]   qvu-build / Compile / discoveredSbtPlugins                           :   1 ms
+[info]   qvu-build / Compile / incOptions                                     :   1 ms
+[info]   qvu-build / csrInterProjectDependencies                              :   1 ms
+[info]   qvu-build / Compile / earlyOutputPing                                :   1 ms
+[info]   qvu-build / csrResolvers                                             :   1 ms
+[info]   qvu-build / Compile / unmanagedJars                                  :   1 ms
+[info]   qvu-build / csrRecursiveResolvers                                    :   1 ms
+[info]   qvu-build / Runtime / exportedProducts                               :   1 ms
+[info]   qvu-build / Compile / unmanagedResources / inputFileStamps           :   1 ms
+[info]   Global / incOptions                                                  :   1 ms
+[info]   qvu-build / Compile / unmanagedResources / allInputPathsAndAttributes:   1 ms
+[info]   qvu-build / ivyConfiguration                                         :   1 ms
+[info]   qvu-build / moduleSettings                                           :   1 ms
+[info]   qvu-build / Compile / externalHooks                                  :   1 ms
+[info]   qvu-build / Compile / compile / bspReporter                          :   1 ms
+[info]   qvu-build / Runtime / unmanagedJars                                  :   1 ms
+[info] loading settings for project root from build.sbt...
+[info] set current project to PVU (in build file:/home/wuxy/QVU/)
+[info] running qvu.Elaborate 
+[info] Total time: 1335 ms
+[info]   root / Compile / runMain                                        : 797 ms
+[info]   root / update                                                   : 371 ms
+[info]   root / Compile / previousCompile                                :  84 ms
+[info]   root / Compile / bgRunMain                                      :  39 ms
+[info]   root / scalaCompilerBridgeBinaryJar                             :  18 ms
+[info]   root / Compile / compileIncremental                             :  15 ms
+[info]   root / dependencyPositions                                      :  13 ms
+[info]   root / Compile / unmanagedSources / allInputPathsAndAttributes  :   4 ms
+[info]   root / Compile / packageBin                                     :   3 ms
+[info]   root / Compile / scalacOptions                                  :   3 ms
+[info]   root / scalaInstance                                            :   3 ms
+[info]   root / Compile / copyResources                                  :   3 ms
+[info]   root / Compile / managedClasspath                               :   2 ms
+[info]   root / Compile / run / runner                                   :   1 ms
+[info]   root / Runtime / managedClasspath                               :   1 ms
+[info]   root / Compile / unmanagedResources / inputFileStamps           :   1 ms
+[info]   root / Compile / unmanagedResources / allInputPathsAndAttributes:   1 ms
+[success] Total time: 1 s, completed 2025年4月16日 下午2:10:53
+python3 clean_line.py
+原始行数: 2043
+移除最后 3 行后，剩余行数: 2040
+成功移除文件 './vsrc/QvuTop.sv' 的最后 3 行。

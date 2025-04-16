@@ -3,5 +3,5 @@
 #define CONFIG_H
 
 #define CONFIG_TYPE_RESNET 1
-#define CONFIG_RESNET_FP8 1
+#define CONFIG_RESNET_INT8 1
 #endif // CONFIG_H

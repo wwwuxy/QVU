@@ -527,7 +527,7 @@
      return stats;
  }
  
- uint8_t extractFP8(uint32_t value) {
+ uint8_t extractFP8(uint64_t value) {// 现在从64位输出中提取8位FP8值
      return static_cast<uint8_t>(value & 0xFF);
  }
  
@@ -624,36 +624,36 @@
          for (int j = 0; j < vector_size; ++j) {
              int idx = i * vector_size + j;
              if (idx < sample_count) {
-                 if (j == 0) top->io_posit_i1_0 = td.posit_input[idx][0];
-                 if (j == 1 && vector_size > 1) top->io_posit_i1_1 = td.posit_input[idx][1];
-                 if (j == 2 && vector_size > 2) top->io_posit_i1_2 = td.posit_input[idx][2];
-                 if (j == 3 && vector_size > 3) top->io_posit_i1_3 = td.posit_input[idx][3];
+                 if (j == 0) top->io_posit_i_0 = td.posit_input[idx][0];
+                 if (j == 1 && vector_size > 1) top->io_posit_i_1 = td.posit_input[idx][1];
+                 if (j == 2 && vector_size > 2) top->io_posit_i_2 = td.posit_input[idx][2];
+                 if (j == 3 && vector_size > 3) top->io_posit_i_3 = td.posit_input[idx][3];
                  
                  if (j < vector_size) {
                      all_float_input_values.push_back(td.float_input[idx][j]);
                  }
              } else {
-                 if (j == 0) top->io_posit_i1_0 = 0;
-                 if (j == 1 && vector_size > 1) top->io_posit_i1_1 = 0;
-                 if (j == 2 && vector_size > 2) top->io_posit_i1_2 = 0;
-                 if (j == 3 && vector_size > 3) top->io_posit_i1_3 = 0;
+                 if (j == 0) top->io_posit_i_0 = 0;
+                 if (j == 1 && vector_size > 1) top->io_posit_i_1 = 0;
+                 if (j == 2 && vector_size > 2) top->io_posit_i_2 = 0;
+                 if (j == 3 && vector_size > 3) top->io_posit_i_3 = 0;
              }
          }
          
-         top->io_posit_i2_0 = 0;
-         top->io_posit_i2_1 = 0;
-         top->io_posit_i2_2 = 0;
-         top->io_posit_i2_3 = 0;
+         top->io_posit_i_0 = 0;
+         top->io_posit_i_1 = 0;
+         top->io_posit_i_2 = 0;
+         top->io_posit_i_3 = 0;
          
          top->io_float_i_0 = 0;
          top->io_float_i_1 = 0;
          top->io_float_i_2 = 0;
          top->io_float_i_3 = 0;
  
-         top->io_float_i2_0 = 0;
-         top->io_float_i2_1 = 0;
-         top->io_float_i2_2 = 0;
-         top->io_float_i2_3 = 0;
+         top->io_float_i_0 = 0;
+         top->io_float_i_1 = 0;
+         top->io_float_i_2 = 0;
+         top->io_float_i_3 = 0;
  
          top->io_op = OP;
          top->io_Isposit = true;

@@ -13,6 +13,8 @@
 class VQvuTop__Syms;
 class VQvuTop___024root;
 class VerilatedVcdC;
+class VQvuTop_LZC__M1_W1f;
+
 
 // This class is the main interface to the Verilated model
 class VQvuTop VL_NOT_FINAL : public VerilatedModel {
@@ -35,40 +37,107 @@ class VQvuTop VL_NOT_FINAL : public VerilatedModel {
     VL_IN8(&io_src_posit_width,5,0);
     VL_IN8(&io_vector_size,2,0);
     VL_IN8(&io_dst_posit_width,5,0);
-    VL_IN(&io_posit_i1_0,31,0);
-    VL_IN(&io_posit_i1_1,31,0);
-    VL_IN(&io_posit_i1_2,31,0);
-    VL_IN(&io_posit_i1_3,31,0);
-    VL_IN(&io_posit_i2_0,31,0);
-    VL_IN(&io_posit_i2_1,31,0);
-    VL_IN(&io_posit_i2_2,31,0);
-    VL_IN(&io_posit_i2_3,31,0);
+    VL_IN8(&io_reset_window,0,0);
+    VL_IN(&io_posit_i_0,31,0);
+    VL_IN(&io_posit_i_1,31,0);
+    VL_IN(&io_posit_i_2,31,0);
+    VL_IN(&io_posit_i_3,31,0);
+    VL_IN(&io_posit_i_4,31,0);
+    VL_IN(&io_posit_i_5,31,0);
+    VL_IN(&io_posit_i_6,31,0);
+    VL_IN(&io_posit_i_7,31,0);
+    VL_IN(&io_posit_i_8,31,0);
+    VL_IN(&io_posit_i_9,31,0);
+    VL_IN(&io_posit_i_10,31,0);
+    VL_IN(&io_posit_i_11,31,0);
+    VL_IN(&io_posit_i_12,31,0);
+    VL_IN(&io_posit_i_13,31,0);
+    VL_IN(&io_posit_i_14,31,0);
+    VL_IN(&io_posit_i_15,31,0);
     VL_OUT(&io_posit_o_0,31,0);
     VL_OUT(&io_posit_o_1,31,0);
     VL_OUT(&io_posit_o_2,31,0);
     VL_OUT(&io_posit_o_3,31,0);
-    VL_OUT(&io_posit_dot_o,31,0);
+    VL_OUT(&io_posit_o_4,31,0);
+    VL_OUT(&io_posit_o_5,31,0);
+    VL_OUT(&io_posit_o_6,31,0);
+    VL_OUT(&io_posit_o_7,31,0);
+    VL_OUT(&io_posit_o_8,31,0);
+    VL_OUT(&io_posit_o_9,31,0);
+    VL_OUT(&io_posit_o_10,31,0);
+    VL_OUT(&io_posit_o_11,31,0);
+    VL_OUT(&io_posit_o_12,31,0);
+    VL_OUT(&io_posit_o_13,31,0);
+    VL_OUT(&io_posit_o_14,31,0);
+    VL_OUT(&io_posit_o_15,31,0);
     VL_OUT(&io_int_o_0,31,0);
     VL_OUT(&io_int_o_1,31,0);
     VL_OUT(&io_int_o_2,31,0);
     VL_OUT(&io_int_o_3,31,0);
+    VL_OUT(&io_int_o_4,31,0);
+    VL_OUT(&io_int_o_5,31,0);
+    VL_OUT(&io_int_o_6,31,0);
+    VL_OUT(&io_int_o_7,31,0);
+    VL_OUT(&io_int_o_8,31,0);
+    VL_OUT(&io_int_o_9,31,0);
+    VL_OUT(&io_int_o_10,31,0);
+    VL_OUT(&io_int_o_11,31,0);
+    VL_OUT(&io_int_o_12,31,0);
+    VL_OUT(&io_int_o_13,31,0);
+    VL_OUT(&io_int_o_14,31,0);
+    VL_OUT(&io_int_o_15,31,0);
     VL_IN64(&io_float_i_0,63,0);
     VL_IN64(&io_float_i_1,63,0);
     VL_IN64(&io_float_i_2,63,0);
     VL_IN64(&io_float_i_3,63,0);
-    VL_IN64(&io_float_i2_0,63,0);
-    VL_IN64(&io_float_i2_1,63,0);
-    VL_IN64(&io_float_i2_2,63,0);
-    VL_IN64(&io_float_i2_3,63,0);
+    VL_IN64(&io_float_i_4,63,0);
+    VL_IN64(&io_float_i_5,63,0);
+    VL_IN64(&io_float_i_6,63,0);
+    VL_IN64(&io_float_i_7,63,0);
+    VL_IN64(&io_float_i_8,63,0);
+    VL_IN64(&io_float_i_9,63,0);
+    VL_IN64(&io_float_i_10,63,0);
+    VL_IN64(&io_float_i_11,63,0);
+    VL_IN64(&io_float_i_12,63,0);
+    VL_IN64(&io_float_i_13,63,0);
+    VL_IN64(&io_float_i_14,63,0);
+    VL_IN64(&io_float_i_15,63,0);
     VL_OUT64(&io_float_o_0,63,0);
     VL_OUT64(&io_float_o_1,63,0);
     VL_OUT64(&io_float_o_2,63,0);
     VL_OUT64(&io_float_o_3,63,0);
-    VL_OUT64(&io_float_dot_o,63,0);
+    VL_OUT64(&io_float_o_4,63,0);
+    VL_OUT64(&io_float_o_5,63,0);
+    VL_OUT64(&io_float_o_6,63,0);
+    VL_OUT64(&io_float_o_7,63,0);
+    VL_OUT64(&io_float_o_8,63,0);
+    VL_OUT64(&io_float_o_9,63,0);
+    VL_OUT64(&io_float_o_10,63,0);
+    VL_OUT64(&io_float_o_11,63,0);
+    VL_OUT64(&io_float_o_12,63,0);
+    VL_OUT64(&io_float_o_13,63,0);
+    VL_OUT64(&io_float_o_14,63,0);
+    VL_OUT64(&io_float_o_15,63,0);
 
     // CELLS
     // Public to allow access to /* verilator public */ items.
     // Otherwise the application code can consider these internals.
+    VQvuTop_LZC__M1_W1f* const __PVT__QvuTop__DOT__decode__DOT__lzcModule;
+    VQvuTop_LZC__M1_W1f* const __PVT__QvuTop__DOT__decode__DOT__lzcModule_1;
+    VQvuTop_LZC__M1_W1f* const __PVT__QvuTop__DOT__decode__DOT__lzcModule_2;
+    VQvuTop_LZC__M1_W1f* const __PVT__QvuTop__DOT__decode__DOT__lzcModule_3;
+    VQvuTop_LZC__M1_W1f* const __PVT__QvuTop__DOT__decode__DOT__lzcModule_4;
+    VQvuTop_LZC__M1_W1f* const __PVT__QvuTop__DOT__decode__DOT__lzcModule_5;
+    VQvuTop_LZC__M1_W1f* const __PVT__QvuTop__DOT__decode__DOT__lzcModule_6;
+    VQvuTop_LZC__M1_W1f* const __PVT__QvuTop__DOT__decode__DOT__lzcModule_7;
+    VQvuTop_LZC__M1_W1f* const __PVT__QvuTop__DOT__decode__DOT__lzcModule_8;
+    VQvuTop_LZC__M1_W1f* const __PVT__QvuTop__DOT__decode__DOT__lzcModule_9;
+    VQvuTop_LZC__M1_W1f* const __PVT__QvuTop__DOT__decode__DOT__lzcModule_10;
+    VQvuTop_LZC__M1_W1f* const __PVT__QvuTop__DOT__decode__DOT__lzcModule_11;
+    VQvuTop_LZC__M1_W1f* const __PVT__QvuTop__DOT__decode__DOT__lzcModule_12;
+    VQvuTop_LZC__M1_W1f* const __PVT__QvuTop__DOT__decode__DOT__lzcModule_13;
+    VQvuTop_LZC__M1_W1f* const __PVT__QvuTop__DOT__decode__DOT__lzcModule_14;
+    VQvuTop_LZC__M1_W1f* const __PVT__QvuTop__DOT__decode__DOT__lzcModule_15;
 
     // Root instance pointer to allow access to model internals,
     // including inlined /* verilator public_flat_* */ items.

@@ -30,6 +30,7 @@
 #include <cfloat>
 #include <limits>
 #include <sstream>
+#include <map>
 #include "VQvuTop.h"
 #include "/home/wuxy/SoftPosit/source/include/softposit.h"
 
@@ -105,6 +106,7 @@ struct QuantStats {
     double std_dev;
     std::vector<int> bin_counts;
     float bin_width;
+    std::map<uint8_t, int> raw_value_counts;
 };
 
 struct InputStats {
@@ -222,6 +224,10 @@ float FP8::to_float() const {
     uint32_t exp = (value >> 3) & 0xF;      // 取中间4位作为指数
     uint32_t frac = value & 0x7;            // 取低3位作为尾数
     
+    // 首先检查是否为0值(全0)
+    if (value == 0) return 0.0f;
+    if (value == 0x80) return -0.0f; // 负零
+    
     // 特殊处理添加的中间区间值
     if (exp == 0 && frac == 4) {
         return sign ? -1.5f : 1.5f;         // 返回1.5（有符号）
@@ -235,21 +241,27 @@ float FP8::to_float() const {
         return sign ? -15.0f : 15.0f;       // 返回15.0（有符号）
     }
     
+    // 处理全1为NaN或Inf
+    if (value == 0xFF || value == 0x7F) return NAN;  // NaN
+    if (value == 0xF8 || value == 0x78) return sign ? -INFINITY : INFINITY; // Inf
+
+    // 处理非规格化数
     if (exp == 0) {
         if (frac == 0) return sign ? -0.0f : 0.0f;
         
         float result = sign ? -1.0f : 1.0f;
-        result *= frac / 8.0f;             // 3位尾数除以2^3
-        result *= std::pow(2.0f, -6.0f);   // 非规格化数指数为-6
+        result *= static_cast<float>(frac) / 8.0f;       // 3位尾数除以2^3
+        result *= std::pow(2.0f, -6.0f);                // 非规格化数指数为-6
         return result;
-    } else if (exp == 15) {               // 4位指数全1为15
+    } else if (exp == 15) {                            // 4位指数全1为15
         if (frac == 0) return sign ? -INFINITY : INFINITY;
         return NAN;
     }
     
+    // 处理规格化数
     float result = sign ? -1.0f : 1.0f;
-    result *= 1.0f + (frac / 8.0f);       // 3位尾数除以2^3
-    result *= std::pow(2.0f, exp - 7);    // 4位指数偏置为7
+    result *= 1.0f + (static_cast<float>(frac) / 8.0f); // 3位尾数除以2^3
+    result *= std::pow(2.0f, static_cast<int>(exp) - 7); // 4位指数偏置为7
     return result;
 }
 
@@ -306,55 +318,81 @@ bool load_float_data(const char* filename, std::vector<std::vector<float>>& floa
 QuantStats calculate_quant_stats(const std::vector<FP8>& values) {
     QuantStats stats;
     stats.all_values = values;
+    stats.bin_counts.resize(BIN_COUNT, 0);
+    stats.raw_value_counts.clear();
     
     if (values.empty()) {
         stats.min_value = 0.0f;
         stats.max_value = 0.0f;
-        stats.mean_value = 0.0;
-        stats.std_dev = 0.0;
-        stats.bin_counts.resize(BIN_COUNT, 0);
-        stats.bin_width = 1.0f;
+        stats.mean_value = 0.0f;
+        stats.std_dev = 0.0f;
+        stats.bin_width = 0.0f;
         return stats;
     }
     
+    // 收集原始FP8值统计
+    for (const auto& fp8 : values) {
+        stats.raw_value_counts[fp8.value]++;
+    }
+    
+    // 将FP8值转换为float以进行正常统计
     std::vector<float> float_values;
     float_values.reserve(values.size());
-    for (const auto& fp8 : values) {
-        float_values.push_back(fp8.to_float());
+    
+    for (const auto& v : values) {
+        float_values.push_back(v.to_float());
     }
     
-    stats.min_value = *std::min_element(float_values.begin(), float_values.end());
-    stats.max_value = *std::max_element(float_values.begin(), float_values.end());
+    if (float_values.empty()) {
+        stats.min_value = 0.0f;
+        stats.max_value = 0.0f;
+        stats.mean_value = 0.0f;
+        stats.std_dev = 0.0f;
+        stats.bin_width = 0.0f;
+        return stats;
+    }
+    
+    // 计算数值统计
+    stats.min_value = float_values[0];
+    stats.max_value = float_values[0];
+    
+    for (float v : float_values) {
+        if (v < stats.min_value) stats.min_value = v;
+        if (v > stats.max_value) stats.max_value = v;
+    }
     
     double sum = 0.0;
-    for (float v : float_values) sum += v;
+    for (float v : float_values) {
+        sum += v;
+    }
     stats.mean_value = sum / float_values.size();
     
-    double sum_sq_diff = 0.0;
+    double variance = 0.0;
     for (float v : float_values) {
         double diff = v - stats.mean_value;
-        sum_sq_diff += diff * diff;
+        variance += diff * diff;
     }
-    stats.std_dev = std::sqrt(sum_sq_diff / float_values.size());
     
-    stats.bin_counts.resize(BIN_COUNT, 0);
-    if (std::fabs(stats.max_value - stats.min_value) < 1e-6) {
+    if (float_values.size() > 1) {
+        variance /= float_values.size();
+        stats.std_dev = std::sqrt(variance);
+    } else {
+        stats.std_dev = 0.0;
+    }
+    
+    // 计算区间宽度和分布
+    if (stats.max_value > stats.min_value) {
+        stats.bin_width = (stats.max_value - stats.min_value) / BIN_COUNT;
+        
+        for (float v : float_values) {
+            int bin_index = (std::fabs(stats.bin_width) > 1e-6) ? 
+                static_cast<int>((v - stats.min_value) / stats.bin_width) : 0;
+            bin_index = std::min(std::max(0, bin_index), BIN_COUNT - 1);
+            stats.bin_counts[bin_index]++;
+        }
+    } else {
         stats.bin_width = 1.0f;
         stats.bin_counts[0] = float_values.size();
-    } else {
-        stats.bin_width = (stats.max_value - stats.min_value) / BIN_COUNT;
-        if (std::isnan(stats.bin_width) || std::isinf(stats.bin_width) || stats.bin_width < 1e-6) {
-            // 处理极端情况，避免除零或溢出
-            stats.bin_width = 1.0f;
-            stats.bin_counts[0] = float_values.size();
-        } else {
-            for (float v : float_values) {
-                int bin_index = static_cast<int>((v - stats.min_value) / stats.bin_width);
-                if (std::isnan(bin_index) || bin_index < 0) bin_index = 0;
-                if (bin_index >= BIN_COUNT) bin_index = BIN_COUNT - 1;
-                stats.bin_counts[bin_index]++;
-            }
-        }
     }
     
     return stats;
@@ -527,8 +565,25 @@ FloatStats calculate_float_stats(const std::vector<float>& values) {
     return stats;
 }
 
-uint8_t extractFP8(uint32_t value) {
-    return static_cast<uint8_t>(value & 0xFF);
+uint8_t extractFP8(uint64_t value) {
+    std::cout << "Debug: 完整64位值: 0x" << std::hex << value << std::dec << std::endl;
+    
+    // 检查每个字节，并记录非零字节
+    for(int i=0; i<8; i++) {
+        uint8_t byte = (value >> (i*8)) & 0xFF;
+        std::cout << "Debug: 字节" << i << ": 0x" << std::hex << (int)byte << std::dec;
+        
+        // 如果是第7字节(最高字节)，可能是FP8的位置
+        if(i == 7) {
+            std::cout << " (可能是FP8值)" << std::endl;
+            return byte;
+        } else {
+            std::cout << std::endl;
+        }
+    }
+    
+    // 默认返回最低字节
+    return value & 0xFF;
 }
 
 TestData load_testdata(int sample_count, int vector_size) {
@@ -624,36 +679,36 @@ PerformanceStats run_test(int vector_size, int sample_count, bool enable_wavefor
         for (int j = 0; j < vector_size; ++j) {
             int idx = i * vector_size + j;
             if (idx < sample_count) {
-                if (j == 0) top->io_posit_i1_0 = td.posit_input[idx][0];
-                if (j == 1 && vector_size > 1) top->io_posit_i1_1 = td.posit_input[idx][1];
-                if (j == 2 && vector_size > 2) top->io_posit_i1_2 = td.posit_input[idx][2];
-                if (j == 3 && vector_size > 3) top->io_posit_i1_3 = td.posit_input[idx][3];
+                if (j == 0) top->io_posit_i_0 = td.posit_input[idx][0];
+                if (j == 1 && vector_size > 1) top->io_posit_i_1 = td.posit_input[idx][1];
+                if (j == 2 && vector_size > 2) top->io_posit_i_2 = td.posit_input[idx][2];
+                if (j == 3 && vector_size > 3) top->io_posit_i_3 = td.posit_input[idx][3];
                 
                 if (j < vector_size) {
                     all_float_input_values.push_back(td.float_input[idx][j]);
                 }
             } else {
-                if (j == 0) top->io_posit_i1_0 = 0;
-                if (j == 1 && vector_size > 1) top->io_posit_i1_1 = 0;
-                if (j == 2 && vector_size > 2) top->io_posit_i1_2 = 0;
-                if (j == 3 && vector_size > 3) top->io_posit_i1_3 = 0;
+                if (j == 0) top->io_posit_i_0 = 0;
+                if (j == 1 && vector_size > 1) top->io_posit_i_1 = 0;
+                if (j == 2 && vector_size > 2) top->io_posit_i_2 = 0;
+                if (j == 3 && vector_size > 3) top->io_posit_i_3 = 0;
             }
         }
         
-        top->io_posit_i2_0 = 0;
-        top->io_posit_i2_1 = 0;
-        top->io_posit_i2_2 = 0;
-        top->io_posit_i2_3 = 0;
+        top->io_posit_i_0 = 0;
+        top->io_posit_i_1 = 0;
+        top->io_posit_i_2 = 0;
+        top->io_posit_i_3 = 0;
         
         top->io_float_i_0 = 0;
         top->io_float_i_1 = 0;
         top->io_float_i_2 = 0;
         top->io_float_i_3 = 0;
 
-        top->io_float_i2_0 = 0;
-        top->io_float_i2_1 = 0;
-        top->io_float_i2_2 = 0;
-        top->io_float_i2_3 = 0;
+        top->io_float_i_0 = 0;
+        top->io_float_i_1 = 0;
+        top->io_float_i_2 = 0;
+        top->io_float_i_3 = 0;
 
         top->io_op = OP;
         top->io_Isposit = true;
@@ -690,7 +745,7 @@ PerformanceStats run_test(int vector_size, int sample_count, bool enable_wavefor
             if (idx >= sample_count) continue;
             
             all_expected_fp8_values.push_back(FP8(td.fp8_results[idx][j]));
-            all_quantized_values.push_back(FP8(quantized[j]));
+            all_quantized_values.push_back(FP8(quantized[j])); std::cout << "Debug FP8 value: " << std::hex << (int)quantized[j] << " -> " << all_quantized_values.back().to_float() << std::dec << std::endl;;
             all_posit_raw_values.push_back(td.posit_input[idx][j]);
         }
 
@@ -760,7 +815,17 @@ PerformanceStats run_test(int vector_size, int sample_count, bool enable_wavefor
             }
         }
 
-        // 打印量化后值分布
+        // 打印量化后的原始值分布
+        std::cout << "FP8原始值分布:" << std::endl;
+        for(auto& pair : quant_stats.raw_value_counts) {
+            std::cout << "0x" << std::hex << (int)pair.first << std::dec 
+                      << " -> " << FP8(pair.first).to_float()
+                      << ": " << pair.second << "次 (" 
+                      << (pair.second * 100.0 / all_quantized_values.size()) << "%)" 
+                      << std::endl;
+        }
+
+        // 打印量化后浮点值分布（保留原有的）
         std::cout << "\nFP8量化后值分布 (区间宽度: " << std::fixed << std::setprecision(6) << quant_stats.bin_width << "):" << std::endl;
         for (int i = 0; i < BIN_COUNT; i++) {
             if (quant_stats.bin_counts[i] > 0) {

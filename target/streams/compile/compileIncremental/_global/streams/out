@@ -1,6 +1,6 @@
 [debug] [zinc] IncrementalCompile -----------
 [debug] IncrementalCompile.incrementalCompile
-[debug] previous = Stamps for: 39 products, 13 sources, 2 libraries
+[debug] previous = Stamps for: 38 products, 13 sources, 2 libraries
 [debug] current source = Set(${BASE}/src/main/scala/qvu/BarrelShift.scala, ${BASE}/src/main/scala/qvu/PositQuantizeToFP8.scala, ${BASE}/src/main/scala/qvu/PositQuantizeToFP16.scala, ${BASE}/src/main/scala/qvu/PositQuantizeToFP4.scala, ${BASE}/src/main/scala/qvu/PositDecode.scala, ${BASE}/src/main/scala/qvu/Lzc.scala, ${BASE}/src/main/scala/qvu/FloatEncode.scala, ${BASE}/src/main/scala/qvu/PositEncode.scala, ${BASE}/src/main/scala/qvu/Elaborate.scala, ${BASE}/src/main/scala/qvu/PositQuantizeToInt8.scala, ${BASE}/src/main/scala/qvu/FloatDecode.scala, ${BASE}/src/main/scala/qvu/QvuTop.scala, ${BASE}/src/main/scala/qvu/PositQuantizeToInt4.scala)
 [debug] > initialChanges = InitialChanges(Changes(added = Set(), removed = Set(), changed = Set(), unmodified = ...),Set(),Set(),API Changes: Set())
 [debug] No changes

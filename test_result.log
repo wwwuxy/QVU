@@ -1,0 +1,68 @@
+[info] welcome to sbt 1.10.6 (Eclipse Adoptium Java 17.0.14)
+[info] loading project definition from /home/wuxy/QVU/project
+[info] loading settings for project root from build.sbt...
+[info] set current project to PVU (in build file:/home/wuxy/QVU/)
+[info] compiling 2 Scala sources to /home/wuxy/QVU/target/scala-2.13/test-classes ...
+[error] /home/wuxy/QVU/src/test/scala/pvu/PvuTopTest.scala:14:14: not found: type PvuTop
+[error]     test(new PvuTop(MAX_POSIT_WIDTH = 32, MAX_VECTOR_SIZE = 4, MAX_ALIGN_WIDTH = 64, ES = 2))
+[error]              ^
+[error] /home/wuxy/QVU/src/test/scala/pvu/PvuTopTest.scala:14:21: not found: value MAX_POSIT_WIDTH
+[error]     test(new PvuTop(MAX_POSIT_WIDTH = 32, MAX_VECTOR_SIZE = 4, MAX_ALIGN_WIDTH = 64, ES = 2))
+[error]                     ^
+[error] /home/wuxy/QVU/src/test/scala/pvu/PvuTopTest.scala:14:43: not found: value MAX_VECTOR_SIZE
+[error]     test(new PvuTop(MAX_POSIT_WIDTH = 32, MAX_VECTOR_SIZE = 4, MAX_ALIGN_WIDTH = 64, ES = 2))
+[error]                                           ^
+[error] /home/wuxy/QVU/src/test/scala/pvu/PvuTopTest.scala:14:64: not found: value MAX_ALIGN_WIDTH
+[error]     test(new PvuTop(MAX_POSIT_WIDTH = 32, MAX_VECTOR_SIZE = 4, MAX_ALIGN_WIDTH = 64, ES = 2))
+[error]                                                                ^
+[error] /home/wuxy/QVU/src/test/scala/pvu/PvuTopTest.scala:14:86: not found: value ES
+[error]     test(new PvuTop(MAX_POSIT_WIDTH = 32, MAX_VECTOR_SIZE = 4, MAX_ALIGN_WIDTH = 64, ES = 2))
+[error]                                                                                      ^
+[error] /home/wuxy/QVU/src/test/scala/pvu/PvuTopTest.scala:87:14: not found: type PvuTop
+[error]     test(new PvuTop(MAX_POSIT_WIDTH = 32, MAX_VECTOR_SIZE = 4, MAX_ALIGN_WIDTH = 64, ES = 2))
+[error]              ^
+[error] /home/wuxy/QVU/src/test/scala/pvu/PvuTopTest.scala:87:21: not found: value MAX_POSIT_WIDTH
+[error]     test(new PvuTop(MAX_POSIT_WIDTH = 32, MAX_VECTOR_SIZE = 4, MAX_ALIGN_WIDTH = 64, ES = 2))
+[error]                     ^
+[error] /home/wuxy/QVU/src/test/scala/pvu/PvuTopTest.scala:87:43: not found: value MAX_VECTOR_SIZE
+[error]     test(new PvuTop(MAX_POSIT_WIDTH = 32, MAX_VECTOR_SIZE = 4, MAX_ALIGN_WIDTH = 64, ES = 2))
+[error]                                           ^
+[error] /home/wuxy/QVU/src/test/scala/pvu/PvuTopTest.scala:87:64: not found: value MAX_ALIGN_WIDTH
+[error]     test(new PvuTop(MAX_POSIT_WIDTH = 32, MAX_VECTOR_SIZE = 4, MAX_ALIGN_WIDTH = 64, ES = 2))
+[error]                                                                ^
+[error] /home/wuxy/QVU/src/test/scala/pvu/PvuTopTest.scala:87:86: not found: value ES
+[error]     test(new PvuTop(MAX_POSIT_WIDTH = 32, MAX_VECTOR_SIZE = 4, MAX_ALIGN_WIDTH = 64, ES = 2))
+[error]                                                                                      ^
+[error] /home/wuxy/QVU/src/test/scala/pvu/PvuTopTest.scala:116:14: not found: type PvuTop
+[error]     test(new PvuTop(MAX_POSIT_WIDTH = 32, MAX_VECTOR_SIZE = 4, MAX_ALIGN_WIDTH = 64, ES = 3))
+[error]              ^
+[error] /home/wuxy/QVU/src/test/scala/pvu/PvuTopTest.scala:116:21: not found: value MAX_POSIT_WIDTH
+[error]     test(new PvuTop(MAX_POSIT_WIDTH = 32, MAX_VECTOR_SIZE = 4, MAX_ALIGN_WIDTH = 64, ES = 3))
+[error]                     ^
+[error] /home/wuxy/QVU/src/test/scala/pvu/PvuTopTest.scala:116:43: not found: value MAX_VECTOR_SIZE
+[error]     test(new PvuTop(MAX_POSIT_WIDTH = 32, MAX_VECTOR_SIZE = 4, MAX_ALIGN_WIDTH = 64, ES = 3))
+[error]                                           ^
+[error] /home/wuxy/QVU/src/test/scala/pvu/PvuTopTest.scala:116:64: not found: value MAX_ALIGN_WIDTH
+[error]     test(new PvuTop(MAX_POSIT_WIDTH = 32, MAX_VECTOR_SIZE = 4, MAX_ALIGN_WIDTH = 64, ES = 3))
+[error]                                                                ^
+[error] /home/wuxy/QVU/src/test/scala/pvu/PvuTopTest.scala:116:86: not found: value ES
+[error]     test(new PvuTop(MAX_POSIT_WIDTH = 32, MAX_VECTOR_SIZE = 4, MAX_ALIGN_WIDTH = 64, ES = 3))
+[error]                                                                                      ^
+[error] /home/wuxy/QVU/src/test/scala/pvu/PvuTopTest.scala:139:14: not found: type PvuTop
+[error]     test(new PvuTop(MAX_POSIT_WIDTH = 32, MAX_VECTOR_SIZE = 4, MAX_ALIGN_WIDTH = 64, ES = 2))
+[error]              ^
+[error] /home/wuxy/QVU/src/test/scala/pvu/PvuTopTest.scala:139:21: not found: value MAX_POSIT_WIDTH
+[error]     test(new PvuTop(MAX_POSIT_WIDTH = 32, MAX_VECTOR_SIZE = 4, MAX_ALIGN_WIDTH = 64, ES = 2))
+[error]                     ^
+[error] /home/wuxy/QVU/src/test/scala/pvu/PvuTopTest.scala:139:43: not found: value MAX_VECTOR_SIZE
+[error]     test(new PvuTop(MAX_POSIT_WIDTH = 32, MAX_VECTOR_SIZE = 4, MAX_ALIGN_WIDTH = 64, ES = 2))
+[error]                                           ^
+[error] /home/wuxy/QVU/src/test/scala/pvu/PvuTopTest.scala:139:64: not found: value MAX_ALIGN_WIDTH
+[error]     test(new PvuTop(MAX_POSIT_WIDTH = 32, MAX_VECTOR_SIZE = 4, MAX_ALIGN_WIDTH = 64, ES = 2))
+[error]                                                                ^
+[error] /home/wuxy/QVU/src/test/scala/pvu/PvuTopTest.scala:139:86: not found: value ES
+[error]     test(new PvuTop(MAX_POSIT_WIDTH = 32, MAX_VECTOR_SIZE = 4, MAX_ALIGN_WIDTH = 64, ES = 2))
+[error]                                                                                      ^
+[error] 20 errors found
+[error] (Test / compileIncremental) Compilation failed
+[error] Total time: 1 s, completed 2025年4月16日 下午2:10:08

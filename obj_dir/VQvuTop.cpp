@@ -21,36 +21,103 @@ VQvuTop::VQvuTop(VerilatedContext* _vcontextp__, const char* _vcname__)
     , io_src_posit_width{vlSymsp->TOP.io_src_posit_width}
     , io_vector_size{vlSymsp->TOP.io_vector_size}
     , io_dst_posit_width{vlSymsp->TOP.io_dst_posit_width}
-    , io_posit_i1_0{vlSymsp->TOP.io_posit_i1_0}
-    , io_posit_i1_1{vlSymsp->TOP.io_posit_i1_1}
-    , io_posit_i1_2{vlSymsp->TOP.io_posit_i1_2}
-    , io_posit_i1_3{vlSymsp->TOP.io_posit_i1_3}
-    , io_posit_i2_0{vlSymsp->TOP.io_posit_i2_0}
-    , io_posit_i2_1{vlSymsp->TOP.io_posit_i2_1}
-    , io_posit_i2_2{vlSymsp->TOP.io_posit_i2_2}
-    , io_posit_i2_3{vlSymsp->TOP.io_posit_i2_3}
+    , io_reset_window{vlSymsp->TOP.io_reset_window}
+    , io_posit_i_0{vlSymsp->TOP.io_posit_i_0}
+    , io_posit_i_1{vlSymsp->TOP.io_posit_i_1}
+    , io_posit_i_2{vlSymsp->TOP.io_posit_i_2}
+    , io_posit_i_3{vlSymsp->TOP.io_posit_i_3}
+    , io_posit_i_4{vlSymsp->TOP.io_posit_i_4}
+    , io_posit_i_5{vlSymsp->TOP.io_posit_i_5}
+    , io_posit_i_6{vlSymsp->TOP.io_posit_i_6}
+    , io_posit_i_7{vlSymsp->TOP.io_posit_i_7}
+    , io_posit_i_8{vlSymsp->TOP.io_posit_i_8}
+    , io_posit_i_9{vlSymsp->TOP.io_posit_i_9}
+    , io_posit_i_10{vlSymsp->TOP.io_posit_i_10}
+    , io_posit_i_11{vlSymsp->TOP.io_posit_i_11}
+    , io_posit_i_12{vlSymsp->TOP.io_posit_i_12}
+    , io_posit_i_13{vlSymsp->TOP.io_posit_i_13}
+    , io_posit_i_14{vlSymsp->TOP.io_posit_i_14}
+    , io_posit_i_15{vlSymsp->TOP.io_posit_i_15}
     , io_posit_o_0{vlSymsp->TOP.io_posit_o_0}
     , io_posit_o_1{vlSymsp->TOP.io_posit_o_1}
     , io_posit_o_2{vlSymsp->TOP.io_posit_o_2}
     , io_posit_o_3{vlSymsp->TOP.io_posit_o_3}
-    , io_posit_dot_o{vlSymsp->TOP.io_posit_dot_o}
+    , io_posit_o_4{vlSymsp->TOP.io_posit_o_4}
+    , io_posit_o_5{vlSymsp->TOP.io_posit_o_5}
+    , io_posit_o_6{vlSymsp->TOP.io_posit_o_6}
+    , io_posit_o_7{vlSymsp->TOP.io_posit_o_7}
+    , io_posit_o_8{vlSymsp->TOP.io_posit_o_8}
+    , io_posit_o_9{vlSymsp->TOP.io_posit_o_9}
+    , io_posit_o_10{vlSymsp->TOP.io_posit_o_10}
+    , io_posit_o_11{vlSymsp->TOP.io_posit_o_11}
+    , io_posit_o_12{vlSymsp->TOP.io_posit_o_12}
+    , io_posit_o_13{vlSymsp->TOP.io_posit_o_13}
+    , io_posit_o_14{vlSymsp->TOP.io_posit_o_14}
+    , io_posit_o_15{vlSymsp->TOP.io_posit_o_15}
     , io_int_o_0{vlSymsp->TOP.io_int_o_0}
     , io_int_o_1{vlSymsp->TOP.io_int_o_1}
     , io_int_o_2{vlSymsp->TOP.io_int_o_2}
     , io_int_o_3{vlSymsp->TOP.io_int_o_3}
+    , io_int_o_4{vlSymsp->TOP.io_int_o_4}
+    , io_int_o_5{vlSymsp->TOP.io_int_o_5}
+    , io_int_o_6{vlSymsp->TOP.io_int_o_6}
+    , io_int_o_7{vlSymsp->TOP.io_int_o_7}
+    , io_int_o_8{vlSymsp->TOP.io_int_o_8}
+    , io_int_o_9{vlSymsp->TOP.io_int_o_9}
+    , io_int_o_10{vlSymsp->TOP.io_int_o_10}
+    , io_int_o_11{vlSymsp->TOP.io_int_o_11}
+    , io_int_o_12{vlSymsp->TOP.io_int_o_12}
+    , io_int_o_13{vlSymsp->TOP.io_int_o_13}
+    , io_int_o_14{vlSymsp->TOP.io_int_o_14}
+    , io_int_o_15{vlSymsp->TOP.io_int_o_15}
     , io_float_i_0{vlSymsp->TOP.io_float_i_0}
     , io_float_i_1{vlSymsp->TOP.io_float_i_1}
     , io_float_i_2{vlSymsp->TOP.io_float_i_2}
     , io_float_i_3{vlSymsp->TOP.io_float_i_3}
-    , io_float_i2_0{vlSymsp->TOP.io_float_i2_0}
-    , io_float_i2_1{vlSymsp->TOP.io_float_i2_1}
-    , io_float_i2_2{vlSymsp->TOP.io_float_i2_2}
-    , io_float_i2_3{vlSymsp->TOP.io_float_i2_3}
+    , io_float_i_4{vlSymsp->TOP.io_float_i_4}
+    , io_float_i_5{vlSymsp->TOP.io_float_i_5}
+    , io_float_i_6{vlSymsp->TOP.io_float_i_6}
+    , io_float_i_7{vlSymsp->TOP.io_float_i_7}
+    , io_float_i_8{vlSymsp->TOP.io_float_i_8}
+    , io_float_i_9{vlSymsp->TOP.io_float_i_9}
+    , io_float_i_10{vlSymsp->TOP.io_float_i_10}
+    , io_float_i_11{vlSymsp->TOP.io_float_i_11}
+    , io_float_i_12{vlSymsp->TOP.io_float_i_12}
+    , io_float_i_13{vlSymsp->TOP.io_float_i_13}
+    , io_float_i_14{vlSymsp->TOP.io_float_i_14}
+    , io_float_i_15{vlSymsp->TOP.io_float_i_15}
     , io_float_o_0{vlSymsp->TOP.io_float_o_0}
     , io_float_o_1{vlSymsp->TOP.io_float_o_1}
     , io_float_o_2{vlSymsp->TOP.io_float_o_2}
     , io_float_o_3{vlSymsp->TOP.io_float_o_3}
-    , io_float_dot_o{vlSymsp->TOP.io_float_dot_o}
+    , io_float_o_4{vlSymsp->TOP.io_float_o_4}
+    , io_float_o_5{vlSymsp->TOP.io_float_o_5}
+    , io_float_o_6{vlSymsp->TOP.io_float_o_6}
+    , io_float_o_7{vlSymsp->TOP.io_float_o_7}
+    , io_float_o_8{vlSymsp->TOP.io_float_o_8}
+    , io_float_o_9{vlSymsp->TOP.io_float_o_9}
+    , io_float_o_10{vlSymsp->TOP.io_float_o_10}
+    , io_float_o_11{vlSymsp->TOP.io_float_o_11}
+    , io_float_o_12{vlSymsp->TOP.io_float_o_12}
+    , io_float_o_13{vlSymsp->TOP.io_float_o_13}
+    , io_float_o_14{vlSymsp->TOP.io_float_o_14}
+    , io_float_o_15{vlSymsp->TOP.io_float_o_15}
+    , __PVT__QvuTop__DOT__decode__DOT__lzcModule{vlSymsp->TOP.__PVT__QvuTop__DOT__decode__DOT__lzcModule}
+    , __PVT__QvuTop__DOT__decode__DOT__lzcModule_1{vlSymsp->TOP.__PVT__QvuTop__DOT__decode__DOT__lzcModule_1}
+    , __PVT__QvuTop__DOT__decode__DOT__lzcModule_2{vlSymsp->TOP.__PVT__QvuTop__DOT__decode__DOT__lzcModule_2}
+    , __PVT__QvuTop__DOT__decode__DOT__lzcModule_3{vlSymsp->TOP.__PVT__QvuTop__DOT__decode__DOT__lzcModule_3}
+    , __PVT__QvuTop__DOT__decode__DOT__lzcModule_4{vlSymsp->TOP.__PVT__QvuTop__DOT__decode__DOT__lzcModule_4}
+    , __PVT__QvuTop__DOT__decode__DOT__lzcModule_5{vlSymsp->TOP.__PVT__QvuTop__DOT__decode__DOT__lzcModule_5}
+    , __PVT__QvuTop__DOT__decode__DOT__lzcModule_6{vlSymsp->TOP.__PVT__QvuTop__DOT__decode__DOT__lzcModule_6}
+    , __PVT__QvuTop__DOT__decode__DOT__lzcModule_7{vlSymsp->TOP.__PVT__QvuTop__DOT__decode__DOT__lzcModule_7}
+    , __PVT__QvuTop__DOT__decode__DOT__lzcModule_8{vlSymsp->TOP.__PVT__QvuTop__DOT__decode__DOT__lzcModule_8}
+    , __PVT__QvuTop__DOT__decode__DOT__lzcModule_9{vlSymsp->TOP.__PVT__QvuTop__DOT__decode__DOT__lzcModule_9}
+    , __PVT__QvuTop__DOT__decode__DOT__lzcModule_10{vlSymsp->TOP.__PVT__QvuTop__DOT__decode__DOT__lzcModule_10}
+    , __PVT__QvuTop__DOT__decode__DOT__lzcModule_11{vlSymsp->TOP.__PVT__QvuTop__DOT__decode__DOT__lzcModule_11}
+    , __PVT__QvuTop__DOT__decode__DOT__lzcModule_12{vlSymsp->TOP.__PVT__QvuTop__DOT__decode__DOT__lzcModule_12}
+    , __PVT__QvuTop__DOT__decode__DOT__lzcModule_13{vlSymsp->TOP.__PVT__QvuTop__DOT__decode__DOT__lzcModule_13}
+    , __PVT__QvuTop__DOT__decode__DOT__lzcModule_14{vlSymsp->TOP.__PVT__QvuTop__DOT__decode__DOT__lzcModule_14}
+    , __PVT__QvuTop__DOT__decode__DOT__lzcModule_15{vlSymsp->TOP.__PVT__QvuTop__DOT__decode__DOT__lzcModule_15}
     , rootp{&(vlSymsp->TOP)}
 {
     // Register model with the context

@@ -5,9 +5,9 @@
 [error] STDOUT:
 [error] 
 [error] STDERR:
-[error] src/main/scala/qvu/PositQuantizeToFP4.scala:5:7: error: detected combinational cycle in a FIRRTL module, sample path: PositQuantizeToFP4.{newGlobalMax <- ... <- newGlobalMax}
-[error] class PositQuantizeToFP4(
-[error]       ^
+[error] <stdin>:3889:39: error: unicode escape not supported in string
+[error]           printf(clock, UInt<1>(0h1), "\u91CF\u5316\u72B6\u6001: \u6700\u5927\u503C=%d, \u6700\u5C0F\u503C=%d, \u7F29\u653E\u56E0\u5B50=%d, \u504F\u79FB\u91CF=%d\n", quantizeInt8.global_max, quantizeInt8.global_min, quantizeInt8.global_scale, quantizeInt8.global_offset) : printf @[src/main/scala/qvu/QvuTop.scala 223:14]
+[error]                                       ^
 [error] 
 [error] ------------------------------------------------------------------------------
 [error] (Compile / runMain) circt.stage.phases.Exceptions$FirtoolNonZeroExitCode: /home/wuxy/.cache/llvm-firtool/1.62.0/bin/firtool returned a non-zero exit code. Note that this version of Chisel (6.2.0) was published against firtool version 1.62.0.
@@ -17,8 +17,8 @@
 [error] STDOUT:
 [error] 
 [error] STDERR:
-[error] src/main/scala/qvu/PositQuantizeToFP4.scala:5:7: error: detected combinational cycle in a FIRRTL module, sample path: PositQuantizeToFP4.{newGlobalMax <- ... <- newGlobalMax}
-[error] class PositQuantizeToFP4(
-[error]       ^
+[error] <stdin>:3889:39: error: unicode escape not supported in string
+[error]           printf(clock, UInt<1>(0h1), "\u91CF\u5316\u72B6\u6001: \u6700\u5927\u503C=%d, \u6700\u5C0F\u503C=%d, \u7F29\u653E\u56E0\u5B50=%d, \u504F\u79FB\u91CF=%d\n", quantizeInt8.global_max, quantizeInt8.global_min, quantizeInt8.global_scale, quantizeInt8.global_offset) : printf @[src/main/scala/qvu/QvuTop.scala 223:14]
+[error]                                       ^
 [error] 
 [error] ------------------------------------------------------------------------------

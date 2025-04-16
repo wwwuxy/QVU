@@ -16,6 +16,7 @@
  * - 从io_int_o_*而不是io_posit_o_*获取输出结果
  * - 添加性能统计和统计分布信息
  * - 增加向量大小为1和向量大小为4的性能对比
+ * - 增加调试信息，显示量化参数
  */
 
 #include <verilated.h>
@@ -32,7 +33,7 @@
 #include "/home/wuxy/SoftPosit/source/include/softposit.h"
 
 //---------------- 配置参数 -------------------
-#define OP   0                     // Posit量化到Int8操作码为10
+#define OP   0                     // Posit量化到Int8操作码为0
 const char* POSIT_INPUT_FILE      = "./test_src/ResNet50/posit_truncate_input.bin";
 const char* TRUNCATE_RESULTS_FILE = "./test_src/ResNet50/truncate_results.bin";
 const char* WAVEFORM_FILE         = "waveform.vcd";  // 波形输出文件
@@ -40,6 +41,7 @@ const int SAMPLE_NUM              = 1000;            // 测试样本数量
 const int TOTAL_ELEMENTS          = 4000;            // 总元素数量，用于标量模式测试
 const int MAX_VECTOR_SIZE         = 4;               // 最大向量大小
 const int BIN_COUNT               = 5;               // 分布统计的区间数
+const bool ENABLE_DEBUG           = true;            // 是否开启调试信息
 //--------------------------------------------
 
 struct TestData {
@@ -127,6 +129,14 @@ struct PerformanceStats {
     double compute_time;      // 计算时间 (ms)
     double avg_compute_time;  // 平均每次计算时间 (ms)
     double throughput;        // 吞吐量 (元素/秒)
+};
+
+// 量化参数结构体
+struct QuantParams {
+    int32_t global_max;     // 全局最大值
+    int32_t global_min;     // 全局最小值
+    uint32_t global_scale;  // 全局缩放因子
+    int32_t global_offset;  // 全局偏移量
 };
 
 // 计算量化统计信息
@@ -259,6 +269,9 @@ PerformanceStats run_test(int vector_size, int sample_count, bool enable_wavefor
     all_posit_raw_values.reserve(sample_count * vector_size);
     all_truncate_values.reserve(sample_count * vector_size);
 
+    // 记录量化参数
+    QuantParams quant_params = {0, 0, 0, 0};
+
     // 添加计时变量
     auto total_start_time = std::chrono::high_resolution_clock::now();
     double total_compute_time = 0.0;
@@ -271,24 +284,24 @@ PerformanceStats run_test(int vector_size, int sample_count, bool enable_wavefor
         for (int j = 0; j < vector_size; ++j) {
             int idx = i * vector_size + j;
             if (idx < sample_count) {
-                if (j == 0) top->io_posit_i1_0 = td.posit_input[idx][0];
-                if (j == 1 && vector_size > 1) top->io_posit_i1_1 = td.posit_input[idx][1];
-                if (j == 2 && vector_size > 2) top->io_posit_i1_2 = td.posit_input[idx][2]; 
-                if (j == 3 && vector_size > 3) top->io_posit_i1_3 = td.posit_input[idx][3];
+                if (j == 0) top->io_posit_i_0 = td.posit_input[idx][0];
+                if (j == 1 && vector_size > 1) top->io_posit_i_1 = td.posit_input[idx][1];
+                if (j == 2 && vector_size > 2) top->io_posit_i_2 = td.posit_input[idx][2]; 
+                if (j == 3 && vector_size > 3) top->io_posit_i_3 = td.posit_input[idx][3];
             } else {
                 // 如果超出样本数量，填充0
-                if (j == 0) top->io_posit_i1_0 = 0;
-                if (j == 1 && vector_size > 1) top->io_posit_i1_1 = 0;
-                if (j == 2 && vector_size > 2) top->io_posit_i1_2 = 0;
-                if (j == 3 && vector_size > 3) top->io_posit_i1_3 = 0;
+                if (j == 0) top->io_posit_i_0 = 0;
+                if (j == 1 && vector_size > 1) top->io_posit_i_1 = 0;
+                if (j == 2 && vector_size > 2) top->io_posit_i_2 = 0;
+                if (j == 3 && vector_size > 3) top->io_posit_i_3 = 0;
             }
         }
         
         // 第二个posit输入端不使用，设为0
-        top->io_posit_i2_0 = 0;
-        top->io_posit_i2_1 = 0;
-        top->io_posit_i2_2 = 0;
-        top->io_posit_i2_3 = 0;
+        top->io_posit_i_0 = 0;
+        top->io_posit_i_1 = 0;
+        top->io_posit_i_2 = 0;
+        top->io_posit_i_3 = 0;
         
         //设置float输入数据，不使用
         top->io_float_i_0 = 0;
@@ -296,13 +309,13 @@ PerformanceStats run_test(int vector_size, int sample_count, bool enable_wavefor
         top->io_float_i_2 = 0;
         top->io_float_i_3 = 0;
 
-        top->io_float_i2_0 = 0;
-        top->io_float_i2_1 = 0;
-        top->io_float_i2_2 = 0;
-        top->io_float_i2_3 = 0;
+        top->io_float_i_0 = 0;
+        top->io_float_i_1 = 0;
+        top->io_float_i_2 = 0;
+        top->io_float_i_3 = 0;
 
         //设置信号量
-        top->io_op = OP;              // 操作码10：Posit量化到Int8
+        top->io_op = OP;              // 操作码0：Posit量化到Int8
         top->io_Isposit = true;       // 输入是posit数
         top->io_Outposit = false;     // 输出是Int8，这里设置为false
         top->io_float_mode = 3;       // 使用FP32格式
@@ -336,6 +349,16 @@ PerformanceStats run_test(int vector_size, int sample_count, bool enable_wavefor
         if (vector_size > 1) quantized[1] = static_cast<int8_t>(top->io_int_o_1);
         if (vector_size > 2) quantized[2] = static_cast<int8_t>(top->io_int_o_2);
         if (vector_size > 3) quantized[3] = static_cast<int8_t>(top->io_int_o_3);
+
+        // 存储量化参数（在最后一次迭代）- 暂时注释掉，因为接口未导出
+        /*
+        if (i == iterations-1) {
+            quant_params.global_max = static_cast<int32_t>(top->global_max);
+            quant_params.global_min = static_cast<int32_t>(top->global_min);
+            quant_params.global_scale = static_cast<uint32_t>(top->global_scale);
+            quant_params.global_offset = static_cast<int32_t>(top->global_offset);
+        }
+        */
 
         // 比较结果并收集统计数据
         for (int j = 0; j < vector_size; ++j) {
@@ -394,6 +417,31 @@ PerformanceStats run_test(int vector_size, int sample_count, bool enable_wavefor
                 << "\n平均值:   " << std::fixed << std::setprecision(2) << truncate_stats.mean_value
                 << "\n标准差:   " << std::fixed << std::setprecision(2) << truncate_stats.std_dev
                 << std::endl;
+
+        // 打印量化参数（调试信息）
+        if (ENABLE_DEBUG) {
+            // 注释掉使用不存在的成员变量的代码
+            /*
+            std::cout << "\n量化参数:"
+                    << "\n全局最大值(global_max): " << quant_params.global_max
+                    << "\n全局最小值(global_min): " << quant_params.global_min
+                    << "\n缩放因子(global_scale): " << quant_params.global_scale
+                    << "\n偏移量(global_offset): " << quant_params.global_offset
+                    << std::endl;
+            */
+                    
+            // 计算实际输入值范围和量化后范围
+            int32_t input_range = truncate_stats.max_value - truncate_stats.min_value;
+            int32_t output_range = static_cast<int>(quant_stats.max_value) - static_cast<int>(quant_stats.min_value);
+            
+            std::cout << "\n范围分析:"
+                    << "\n输入范围: " << input_range
+                    << "\n输出范围: " << output_range
+                    << "\n压缩比例: " << std::fixed << std::setprecision(2) 
+                    << (input_range > 0 ? static_cast<double>(input_range) / output_range : 0)
+                    << ":1"
+                    << std::endl;
+        }
 
         // 打印量化后值分布
         std::cout << "\n量化后值分布 (区间宽度: " << static_cast<int>(quant_stats.bin_width) << "):" << std::endl;

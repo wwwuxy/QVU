@@ -1,34 +1,61 @@
-[error] /home/wuxy/BPVU/src/test/scala/pvu/PvuTopTest.scala:4:8: not found: object chiseltest
-[error] import chiseltest._
-[error]        ^
-[error] /home/wuxy/BPVU/src/test/scala/pvu/PvuTopTest.scala:7:8: not found: object chiseltest
-[error] import chiseltest.simulator.WriteVcdAnnotation
-[error]        ^
-[error] /home/wuxy/BPVU/src/test/scala/pvu/PvuTopTest.scala:9:43: not found: type ChiselScalatestTester
-[error] class PvuTopTest extends AnyFlatSpec with ChiselScalatestTester with Matchers {
+[error] /home/wuxy/QVU/src/test/scala/pvu/PvuTopTest.scala:14:14: not found: type PvuTop
+[error]     test(new PvuTop(MAX_POSIT_WIDTH = 32, MAX_VECTOR_SIZE = 4, MAX_ALIGN_WIDTH = 64, ES = 2))
+[error]              ^
+[error] /home/wuxy/QVU/src/test/scala/pvu/PvuTopTest.scala:14:21: not found: value MAX_POSIT_WIDTH
+[error]     test(new PvuTop(MAX_POSIT_WIDTH = 32, MAX_VECTOR_SIZE = 4, MAX_ALIGN_WIDTH = 64, ES = 2))
+[error]                     ^
+[error] /home/wuxy/QVU/src/test/scala/pvu/PvuTopTest.scala:14:43: not found: value MAX_VECTOR_SIZE
+[error]     test(new PvuTop(MAX_POSIT_WIDTH = 32, MAX_VECTOR_SIZE = 4, MAX_ALIGN_WIDTH = 64, ES = 2))
 [error]                                           ^
-[error] /home/wuxy/BPVU/src/test/scala/pvu/PvuTopTest.scala:14:5: not found: value test
+[error] /home/wuxy/QVU/src/test/scala/pvu/PvuTopTest.scala:14:64: not found: value MAX_ALIGN_WIDTH
 [error]     test(new PvuTop(MAX_POSIT_WIDTH = 32, MAX_VECTOR_SIZE = 4, MAX_ALIGN_WIDTH = 64, ES = 2))
-[error]     ^
-[error] /home/wuxy/BPVU/src/test/scala/pvu/PvuTopTest.scala:15:28: not found: value WriteVcdAnnotation
-[error]       .withAnnotations(Seq(WriteVcdAnnotation)) { dut =>
-[error]                            ^
-[error] /home/wuxy/BPVU/src/test/scala/pvu/PvuTopTest.scala:87:5: not found: value test
+[error]                                                                ^
+[error] /home/wuxy/QVU/src/test/scala/pvu/PvuTopTest.scala:14:86: not found: value ES
 [error]     test(new PvuTop(MAX_POSIT_WIDTH = 32, MAX_VECTOR_SIZE = 4, MAX_ALIGN_WIDTH = 64, ES = 2))
-[error]     ^
-[error] /home/wuxy/BPVU/src/test/scala/pvu/PvuTopTest.scala:88:28: not found: value WriteVcdAnnotation
-[error]       .withAnnotations(Seq(WriteVcdAnnotation)) { dut =>
-[error]                            ^
-[error] /home/wuxy/BPVU/src/test/scala/pvu/PvuTopTest.scala:116:5: not found: value test
+[error]                                                                                      ^
+[error] /home/wuxy/QVU/src/test/scala/pvu/PvuTopTest.scala:87:14: not found: type PvuTop
+[error]     test(new PvuTop(MAX_POSIT_WIDTH = 32, MAX_VECTOR_SIZE = 4, MAX_ALIGN_WIDTH = 64, ES = 2))
+[error]              ^
+[error] /home/wuxy/QVU/src/test/scala/pvu/PvuTopTest.scala:87:21: not found: value MAX_POSIT_WIDTH
+[error]     test(new PvuTop(MAX_POSIT_WIDTH = 32, MAX_VECTOR_SIZE = 4, MAX_ALIGN_WIDTH = 64, ES = 2))
+[error]                     ^
+[error] /home/wuxy/QVU/src/test/scala/pvu/PvuTopTest.scala:87:43: not found: value MAX_VECTOR_SIZE
+[error]     test(new PvuTop(MAX_POSIT_WIDTH = 32, MAX_VECTOR_SIZE = 4, MAX_ALIGN_WIDTH = 64, ES = 2))
+[error]                                           ^
+[error] /home/wuxy/QVU/src/test/scala/pvu/PvuTopTest.scala:87:64: not found: value MAX_ALIGN_WIDTH
+[error]     test(new PvuTop(MAX_POSIT_WIDTH = 32, MAX_VECTOR_SIZE = 4, MAX_ALIGN_WIDTH = 64, ES = 2))
+[error]                                                                ^
+[error] /home/wuxy/QVU/src/test/scala/pvu/PvuTopTest.scala:87:86: not found: value ES
+[error]     test(new PvuTop(MAX_POSIT_WIDTH = 32, MAX_VECTOR_SIZE = 4, MAX_ALIGN_WIDTH = 64, ES = 2))
+[error]                                                                                      ^
+[error] /home/wuxy/QVU/src/test/scala/pvu/PvuTopTest.scala:116:14: not found: type PvuTop
 [error]     test(new PvuTop(MAX_POSIT_WIDTH = 32, MAX_VECTOR_SIZE = 4, MAX_ALIGN_WIDTH = 64, ES = 3))
-[error]     ^
-[error] /home/wuxy/BPVU/src/test/scala/pvu/PvuTopTest.scala:117:28: not found: value WriteVcdAnnotation
-[error]       .withAnnotations(Seq(WriteVcdAnnotation)) { dut =>
-[error]                            ^
-[error] /home/wuxy/BPVU/src/test/scala/pvu/PvuTopTest.scala:139:5: not found: value test
+[error]              ^
+[error] /home/wuxy/QVU/src/test/scala/pvu/PvuTopTest.scala:116:21: not found: value MAX_POSIT_WIDTH
+[error]     test(new PvuTop(MAX_POSIT_WIDTH = 32, MAX_VECTOR_SIZE = 4, MAX_ALIGN_WIDTH = 64, ES = 3))
+[error]                     ^
+[error] /home/wuxy/QVU/src/test/scala/pvu/PvuTopTest.scala:116:43: not found: value MAX_VECTOR_SIZE
+[error]     test(new PvuTop(MAX_POSIT_WIDTH = 32, MAX_VECTOR_SIZE = 4, MAX_ALIGN_WIDTH = 64, ES = 3))
+[error]                                           ^
+[error] /home/wuxy/QVU/src/test/scala/pvu/PvuTopTest.scala:116:64: not found: value MAX_ALIGN_WIDTH
+[error]     test(new PvuTop(MAX_POSIT_WIDTH = 32, MAX_VECTOR_SIZE = 4, MAX_ALIGN_WIDTH = 64, ES = 3))
+[error]                                                                ^
+[error] /home/wuxy/QVU/src/test/scala/pvu/PvuTopTest.scala:116:86: not found: value ES
+[error]     test(new PvuTop(MAX_POSIT_WIDTH = 32, MAX_VECTOR_SIZE = 4, MAX_ALIGN_WIDTH = 64, ES = 3))
+[error]                                                                                      ^
+[error] /home/wuxy/QVU/src/test/scala/pvu/PvuTopTest.scala:139:14: not found: type PvuTop
 [error]     test(new PvuTop(MAX_POSIT_WIDTH = 32, MAX_VECTOR_SIZE = 4, MAX_ALIGN_WIDTH = 64, ES = 2))
-[error]     ^
-[error] /home/wuxy/BPVU/src/test/scala/pvu/PvuTopTest.scala:140:28: not found: value WriteVcdAnnotation
-[error]       .withAnnotations(Seq(WriteVcdAnnotation)) { dut =>
-[error]                            ^
-[error] 11 errors found
+[error]              ^
+[error] /home/wuxy/QVU/src/test/scala/pvu/PvuTopTest.scala:139:21: not found: value MAX_POSIT_WIDTH
+[error]     test(new PvuTop(MAX_POSIT_WIDTH = 32, MAX_VECTOR_SIZE = 4, MAX_ALIGN_WIDTH = 64, ES = 2))
+[error]                     ^
+[error] /home/wuxy/QVU/src/test/scala/pvu/PvuTopTest.scala:139:43: not found: value MAX_VECTOR_SIZE
+[error]     test(new PvuTop(MAX_POSIT_WIDTH = 32, MAX_VECTOR_SIZE = 4, MAX_ALIGN_WIDTH = 64, ES = 2))
+[error]                                           ^
+[error] /home/wuxy/QVU/src/test/scala/pvu/PvuTopTest.scala:139:64: not found: value MAX_ALIGN_WIDTH
+[error]     test(new PvuTop(MAX_POSIT_WIDTH = 32, MAX_VECTOR_SIZE = 4, MAX_ALIGN_WIDTH = 64, ES = 2))
+[error]                                                                ^
+[error] /home/wuxy/QVU/src/test/scala/pvu/PvuTopTest.scala:139:86: not found: value ES
+[error]     test(new PvuTop(MAX_POSIT_WIDTH = 32, MAX_VECTOR_SIZE = 4, MAX_ALIGN_WIDTH = 64, ES = 2))
+[error]                                                                                      ^
+[error] 20 errors found

@@ -1,5 +1,5 @@
 # CONFIG_TYPE_RESNET is not set
-CONFIG_TYPE_VGG=y
+# CONFIG_TYPE_VGG is not set
 # CONFIG_TYPE_ALEXNET is not set
 # CONFIG_TYPE_LENET is not set
 # CONFIG_TYPE_MOBILENET is not set
@@ -7,15 +7,15 @@ CONFIG_TYPE_VGG=y
 # CONFIG_TYPE_CONVNEXT is not set
 # CONFIG_TYPE_SHUFFLENETV2 is not set
 # CONFIG_TYPE_EFFICIENTNET is not set
-# CONFIG_TYPE_REGNET is not set
+CONFIG_TYPE_REGNET=y
 # CONFIG_TYPE_SAMPLE is not set
 
 #
-# VGG_TEST
+# REGNET_TEST
 #
-# CONFIG_VGG_INT8 is not set
-# CONFIG_VGG_INT4 is not set
-# CONFIG_VGG_FP16 is not set
-# CONFIG_VGG_FP8 is not set
-CONFIG_VGG_FP4=y
-# end of VGG_TEST
+# CONFIG_REGNET_INT8 is not set
+# CONFIG_REGNET_INT4 is not set
+# CONFIG_REGNET_FP16 is not set
+# CONFIG_REGNET_FP8 is not set
+CONFIG_REGNET_FP4=y
+# end of REGNET_TEST
