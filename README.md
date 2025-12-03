@@ -135,15 +135,8 @@ QVU支持以下可配置参数：
 | ES | Posit的ES参数 | 2 |
 | FLOAT_MODE | 默认浮点数格式 | 3 (FP32) |
 
-## 贡献指南
-
-欢迎贡献！请遵循以下步骤：
-
-1. Fork仓库
-2. 创建特性分支 (`git checkout -b feature/your-feature`)
-3. 提交更改 (`git commit -am 'Add some feature'`)
-4. 推送到分支 (`git push origin feature/your-feature`)
-5. 创建Pull Request
+## 欢迎引用
+QVU: a RISC-V Vector-Extended Quantization Vector Unit for IEEE 754 and Posit Formats, 23nd IEEE International Symposium on Parallel and Distributed Processing with Applications (ISPA2025), Shenyang China , 2025.10.
 
 ## 许可证
 
