@@ -55,3 +55,12 @@ QVU (Quantization Vector Unit) 是一个基于Chisel的高效量化处理器，�
 ├── build.sbt            # SBT构建文件
 └── makefile             # Makefile构建脚本
 ```
+
+
+## Publications
+
+- **Xinyu Wu**, Yaobin Wang, Chaoyu Xiong, Tianyi Zhao, Huan Wu, Jiao Wang, and Yiming Zhong.
+  **"QVU: A RISC-V Vector-Extended Quantization Vector Unit for IEEE 754 and Posit Formats."**
+  *2025 IEEE International Symposium on Parallel and Distributed Processing with Applications (ISPA 2025)*, pp. 78–85, 2025.
+  [IEEE Xplore](https://www.computer.org/csdl/proceedings-article/ispa/2025/668400a078/2c0NqQgeFq0) | [DOI](https://doi.org/10.1109/ISPA67752.2025.00020)
+
